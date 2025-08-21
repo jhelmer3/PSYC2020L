@@ -6,8 +6,11 @@ format:
   live-revealjs:
     slide-number: true
     show-slide-number: all
+    css: PSYC2020L_styles.css
 engine: knitr
+editor: source
 width: 1200
+footer: https://jhelmer3.github.io/PSYC2020L/
 ---
 
 ## Outline
@@ -18,11 +21,7 @@ width: 1200
 -   Variable Assignment
 -   R Functions
 
-Learning objectives: 
-
-Stats: Review measures of central tendency
-
-R: Variable assignment, functions, histogram, boxplot
+Learning objectives: Stats: Review measures of central tendency R: Variable assignment, functions, histogram, boxplot
 
 ```{r}
 
@@ -121,9 +120,11 @@ Given this dataset, calculate the median
 ```{r}
 c(2, 3, 12, 4, 4)
 
-c(2, 3, 12, 4, 4)[order(c(2, 3, 12, 4, 4))][(length(c(2, 3, 12, 4, 4)) + 1) / 2]
-
 ```
+```{r, include = F}
+c(2, 3, 12, 4, 4)[order(c(2, 3, 12, 4, 4))][(length(c(2, 3, 12, 4, 4)) + 1) / 2]
+```
+
 
 ::::: columns
 ::: column
@@ -171,28 +172,34 @@ Have to create our own
 
 ## R Functions
 
-We've seen some built-in R functions (e.g., `mean()`, `median()`)
+We've seen some built-in R functions (e.g., `mean()`, `median()`), but we can also make our own
 
-But we can also make our own
-
+::::: columns
+:::column
 ```         
 function_name <- function(argument) {
   do some stuff
   return(this stuff)
 }
 ```
+:::
 
-Don't actually need to call `return()`
+::: {.column style="font-size:70%"} 
+ⓘ Don't actually need to call `return()`; R will automatically return the last expression
+:::
+:::::
 
-R will automatically return the last expression
-
+::: fragment
 Then, you can call the function
 
 `function_name(specific_argument)`
+:::
 
+::: fragment
 To keep the results, make sure to assign them to some variable
 
 `very_important_results <- function_name(specific_argument)`
+:::
 
 ::: fragment
 Let's go back to finding the mode
@@ -221,6 +228,39 @@ How does this work?
 
 ```
 
+## Measures of Variability Intro
+
+Will go over in class in detail next week
+
+Describe the "spread" or "dispersion" of the data
+
+```{r, echo=F}
+#| fig-width: 4.5
+#| fig-height: 3.5
+#| layout-ncol: 3
+
+hist(x = rnorm(1000, 0, .5),
+     main = "low variance",
+     xlab = "value",
+     xlim = c(-4, 4),
+     ylim = c(0, 350),
+     breaks = 10)
+
+hist(x = rnorm(1000, 0, 1),
+     main = "standard",
+     xlab = "value",
+     xlim = c(-4, 4),
+     ylim = c(0, 350),
+     breaks = 10)
+
+hist(x = rnorm(1000, 0, 2),
+     main = "high variance",
+     xlab = "high",
+     xlim = c(-4, 4),
+     ylim = c(0, 350),
+     breaks = 10)
+```
+
 ## Measures of Variability Functions
 
 ```{r}
@@ -231,24 +271,20 @@ Variance: `var()` function
 
 Standard Deviation: `sd()` function
 
-Interquartile Range:: `IQR()` function
+Interquartile Range: `IQR()` function
 
-Difference between the 3rd and 1st quantile (so 50% of the data within this range)
+<div class="subpoint">○ Difference between the 3rd and 1st quantile (so 50% of the data within this range) </div>
 
-25% of the data lower than the 1st quantile
-
-75% of the data lower than the 3rd quantile
-
-IQR = 3rd - 1st
-
-Let's look at some variances!
+<div class="subsubpoint">○ 25% of the data lower than the 1st quantile </div>
+<div class="subsubpoint">○ 75% of the data lower than the 3rd quantile </div>
+<div class="subsubpoint">○ IQR = 3rd - 1st </div>
 
 ```{webr}
 # let's look at some variances!
 
 ```
 
-::: fragment
+::: {.fragment style="font-size:70%"}
 Quantiles: `quantile()` function
 :::
 
@@ -266,11 +302,9 @@ The `summary()` function provides us a quick overview of this information
 What all do we get?
 
 ::: fragment
-Minimum and maximum
-
-1st quantile, median, 3rd quantile
-
-Mean
+<div class="subpoint">○ Minimum and maximum </div>
+<div class="subpoint">○ 1st quantile, median, 3rd quantile </div>
+<div class="subpoint">○ Mean </div>
 :::
 
 ## Visualizations!
@@ -292,6 +326,9 @@ cor <- -0.06
 ## Visualizations!
 
 ```{r, echo = F}
+#| fig-width: 4
+#| fig-height: 3
+#| fig-align: center
 
 library(tidyverse)
 
@@ -312,7 +349,7 @@ ggplot(data, aes(x = V1, y = V2)) +
 
 ## Visualizations!
 
-[![Datasaurus Dozen](Datasaurus.png)](https://www.research.autodesk.com/publications/same-stats-different-graphs/)
+![Datasaurus Dozen](Datasaurus.png){height=500 fig-align="center"}
 
 ::: footer
 https://www.research.autodesk.com/publications/same-stats-different-graphs/
@@ -322,33 +359,35 @@ https://www.research.autodesk.com/publications/same-stats-different-graphs/
 
 Don't rush: graph your data!
 
-What should graphs do?\
-1. Show the data\
-2. The reader should be drawn primarily to the data (not the graphical effects)\
-3. Avoid distorting the data\
-4. Present many numbers with minimum ink\
-5. Make large data sets coherent\
-6. Encourage the reader to compare different pieces of data
+What should graphs do?
+<div class="subpoint">○ Show the data </div>
+<div class="subpoint">○ Draw the reader primarily to the data (not the graphical effects) </div>
+<div class="subpoint">○ Avoid distorting the data </div>
+<div class="subpoint">○ Present many numbers with minimum ink </div>
+<div class="subpoint">○ Make large data sets coherent </div>
+<div class="subpoint">○ Encourage the reader to compare different pieces of data </div>
 
 ## Visualizations: Histograms
 
-::::::: columns
-::::: column
+:::: columns
+::: column
 An example of (simulated) SAT scores
 
 What do we see here?
 
 ::: fragment
-Outliers at zero! Not a possible SAT score
+<div class="subpoint">○ Outliers at zero! Not a possible SAT score </div>
 :::
 
 ::: fragment
-Negatively skewed: more data on the left than on the right
+<div class="subpoint">○ Negatively skewed: more data on the left than on the right </div>
 :::
-:::::
+:::
 
 ::: column
 ```{r, echo = F}
+#| fig-width: 4
+#| fig-height: 3
 
 SAT_scores <- data.frame(student = 1:200,
                          score = round(1600 - rlnorm(200, meanlog = log(200), sdlog = 0.8))) 
@@ -363,28 +402,27 @@ SAT_scores %>%
 
 ```
 :::
-:::::::
+::::
 
 ## Skew
 
-![](skew.webp)
+![](skew.webp){fig-align="center" width=400}
 
-:::::: columns
-::: column
+<br>
+
+:::: {.columns}
+::: {.column}
 Positive Skew, right-tailed
 
 The mass of the distribution is concentrated on the left of the figure
 :::
 
-::: column
-:::
-
-::: column
+::: {.column}
 Negative Skew, left-tailed
 
 The mass of the distribution is concentrated on the right of the figure
 :::
-::::::
+::::
 
 ## Skewness Demonstration
 
@@ -412,19 +450,31 @@ Credits to Fabio Setti
 
 R has some plotting features built in—we saw this last week
 
-::: fragment
+:::: {.columns}
+::: {.column .fragment}
 ```{r}
-
+#| fig-width: 5
+#| fig-height: 3.5
 plot(iris$Sepal.Length, iris$Sepal.Width)
 
 ```
 :::
 
-::: fragment
+::: {.column .fragment style="display: flex; align-items: center"}
 But we did not love this!
 :::
+::::
 
-```{r}
+## Base R Graphics
+
+Better... (thanks, ChatGPT)
+
+:::: {.columns}
+
+::: {.column}
+::: {.panel-tabset}
+### Plot
+```{r, echo=F}
 plot(iris$Sepal.Length, iris$Sepal.Width,
      pch = 19,                 # solid circles
      col = "#377EB8",           # pleasant blue
@@ -435,44 +485,83 @@ plot(iris$Sepal.Length, iris$Sepal.Width,
      cex.lab = 1.2,             # bigger axis labels
      cex.main = 1.4,            # bigger title
      font.main = 2)             # bold title
-
-# Light grid lines for readability
-grid(col = "gray80", lty = "dotted")
 ```
+### Code
+```{r, eval=F}
+plot(iris$Sepal.Length, iris$Sepal.Width,
+     pch = 19,                 # solid circles
+     col = "#377EB8",           # pleasant blue
+     cex = 1.3,                 # slightly larger points
+     xlab = "Sepal Length",     # cleaner label
+     ylab = "Sepal Width",
+     main = "Sepal Length vs Sepal Width",
+     cex.lab = 1.2,             # bigger axis labels
+     cex.main = 1.4,            # bigger title
+     font.main = 2)             # bold title
+```
+:::
+:::
 
+::: {.column}
 We will learn a few plots in base R plotting, and then we will learn a *better* way of making plots: `ggplot2`
 
 ::: {style="text-align: center; margin-top: 1em"}
 [R Graph Gallery](https://r-graph-gallery.com/best-r-chart-examples){preview-link="true" style="text-align: center"}
 :::
+:::
+
+::::
 
 ## Let's Do Some Visualization
 
 ### Base R Graphics: Histogram
 
-::::: columns
-::: column
-You can make histograms with the `hist()` function
+::::: {.columns}
 
-Its arguments are:
+::: {.column width=60%}
+`hist()` function
 
--   Required arguments:\
--   x = Vector (variable) you want to plot (remember the \$ function!)
--   Subarguments (check by “?hist”):\
--   breaks: number of bins
--   main: title
--   xlab: label for x-axis
--   ylab: label for y-axis
--   border: color for bar borders
--   col: color for bars
--   xlim: range for x-axis
--   prob: `T`/`F`, y-axis proportion instead of frequency
+<div class="subpoint">**Required arguments:** </div>
+<div class="subsubpoint">○ `x` = vector (variable) you want to plot (remember the \$ function!) </div>
+<div class="subpoint">**Optional arguments:** </div>
+
+:::: {.columns}
+
+::: {.column}
+<div class="subsubpoint">○ `breaks`: number of bins </div>
+<div class="subsubpoint">○ `main`: title </div>
+<div class="subsubpoint">○ `xlab`: label for x-axis </div>
+<div class="subsubpoint">○ `ylab`: label for y-axis </div>
+:::
+
+::: {.column}
+<div class="subsubpoint">○ `col`: color for bars </div>
+<div class="subsubpoint">○ `xlim`: range for x-axis </div>
+<div class="subsubpoint">○ `ylim`: range for y-axis </div>
+<div class="subsubpoint">○ `prob`: `T`/`F`, y-axis proportion instead of frequency </div>
+:::
+
+::::
 
 If you do not set specific values for non-essential subarguments, it will use the default
 :::
 
-::: column
-```{r}
+::: {.column width=40%}
+::: {.panel-tabset}
+### Plot
+```{r, echo=F}
+#| fig-width: 5
+#| fig-height: 4
+hist(iris$Sepal.Length,
+     breaks = 7,
+     main = "Histogram of Sepal Length",
+     xlab = "Sepal Length",
+     xlim = c(3, 9),
+     border = "white",
+     col = "skyblue")
+```
+### Code
+```{r, eval=F}
 hist(iris$Sepal.Length,
      breaks = 7,
      main = "Histogram of Sepal Length",
@@ -482,6 +571,8 @@ hist(iris$Sepal.Length,
      col = "skyblue")
 ```
 :::
+:::
+
 :::::
 
 ## Let's Do Some Visualization
@@ -492,9 +583,11 @@ An important decision for histograms is this number (or width) of bins
 
 Specified with the `breaks` argument
 
-::::: columns
+:::: {.columns}
 ::: column
-```{r}
+```{r, echo=F}
+#| fig-width: 5
+#| fig-height: 4
 hist(iris$Sepal.Length,
      breaks = 3,
      main = "Histogram of Sepal Length",
@@ -506,7 +599,9 @@ hist(iris$Sepal.Length,
 :::
 
 ::: column
-```{r}
+```{r, echo=F}
+#| fig-width: 5
+#| fig-height: 4
 hist(iris$Sepal.Length,
      breaks = 10,
      main = "Histogram of Sepal Length",
@@ -516,7 +611,7 @@ hist(iris$Sepal.Length,
      col = "skyblue")
 ```
 :::
-:::::
+::::
 
 ## Let's Do Some Visualization
 
@@ -526,9 +621,11 @@ An important decision for histograms is this number (or width) of bins
 
 Specified with the `breaks` argument
 
-::::: columns
+:::: {.columns}
 ::: column
-```{r}
+```{r, echo=F}
+#| fig-width: 5
+#| fig-height: 4
 hist(iris$Sepal.Length,
      breaks = 20,
      main = "Histogram of Sepal Length",
@@ -540,7 +637,9 @@ hist(iris$Sepal.Length,
 :::
 
 ::: column
-```{r}
+```{r, echo=F}
+#| fig-width: 5
+#| fig-height: 4
 hist(iris$Sepal.Length,
      breaks = 100,
      main = "Histogram of Sepal Length",
@@ -550,7 +649,7 @@ hist(iris$Sepal.Length,
      col = "skyblue")
 ```
 :::
-:::::
+::::
 
 ## Let's Do Some Visualization
 
@@ -652,7 +751,10 @@ cowplot::plot_grid(
 
 Can describe a distribution by its "dispersion"
 
-```{r}
+```{r, echo=F}
+#| fig-width: 4
+#| fig-height: 3
+#| fig-align: center
 data.frame(x = c(rnorm(5000, 0, 1),
                  rnorm(5000, 0, 3)),
            type = rep(c("packed", "disperse"),
@@ -666,47 +768,37 @@ data.frame(x = c(rnorm(5000, 0, 1),
 
 ## Visualizations: Boxplots
 
-::::::: columns
-::::: column
-Back to the `iris` dataset
+:::: {.columns}
 
-Distribution of Sepal Length by species
+::: {.column}
+Back to the `iris` dataset, distribution of Sepal Length by species
 
-Anatomy of a boxplot\
-\* "Minimum"\
-\* 25th Quantile (Q1)\
-\* Median\
-\* 75th Quantile (Q3)\
-\* "Maximum"\
-\* Points representing outliers
+Anatomy of a boxplot:
+<div class="subpoint">○ "Minimum" </div>
+<div class="subpoint">○ 25th Quantile (Q1) </div>
+<div class="subpoint">○ Median </div>
+<div class="subpoint">○ 75th Quantile (Q3) </div>
+<div class="subpoint">○ "Maximum" </div>
+<div class="subpoint">○ Points representing outliers </div>
 
-"Minimum" and "maximum" are not the *true* min and max\
-\* Minimum: $Q1 - 1.5 * IQR$\
-\* Maximum: $Q3 + 1.5 * IQR$\
-Means that the whiskers contain \~99% of the data
-
-Rest is outliers
-
-::: fragment
-Outliers at zero! Not a possible SAT score
 :::
 
-::: fragment
-Negatively skewed: more data on the left than on the right
-:::
-:::::
-
-::: column
+::: {.column style="font-size:70%"}
 ```{r, echo = F}
-
+#| fig-width: 5
+#| fig-height: 3
 iris %>% 
   ggplot(aes(x = Sepal.Length, fill = Species)) +
   geom_boxplot(color = "black") +
   theme_classic()
 
 ```
+"Minimum" and "maximum" are not the *true* min and max
+<div class="subpoint">○ Minimum: $Q1 - 1.5 * IQR$ </div>
+<div class="subpoint">○ Maximum: $Q3 + 1.5 * IQR$ </div>
+Means that the whiskers contain \~99% of the data, rest are outliers
 :::
-:::::::
+::::
 
 ::: footer
 For more explanation of the anatomy of a boxplot, feel free to check [this post out from Statistics by Jim](https://statisticsbyjim.com/graphs/box-plot/)
@@ -716,7 +808,7 @@ For more explanation of the anatomy of a boxplot, feel free to check [this post 
 
 One more resource for boxplot anatomy
 
-![](boxplot_anatomy.jpg)
+![](boxplot_anatomy.jpg){fig-align="center" width=400}
 
 ::: footer
 [ ](https://www.simplypsychology.org/boxplots.html)
@@ -724,7 +816,7 @@ One more resource for boxplot anatomy
 
 ## Visualizations: Boxplots...
 
-[![Datasaurus Dozen Boxplots](datasaurus_boxplots.gif)](https://www.research.autodesk.com/publications/same-stats-different-graphs/)
+[![Datasaurus Dozen Boxplots](datasaurus_boxplots.gif)](https://www.research.autodesk.com/publications/same-stats-different-graphs/){fig-align="center"}
 
 ::: footer
 https://www.research.autodesk.com/publications/same-stats-different-graphs/
@@ -734,30 +826,30 @@ https://www.research.autodesk.com/publications/same-stats-different-graphs/
 
 ### Base R Graphics: Boxplot
 
-:::::: columns
-::: column
-You can make boxplots with the `boxplot()` function
+:::: {.columns}
+::: {.column}
+`boxplot()` function
 
 Its arguments are:
 
--   Required arguments:\
--   x = Vector (variable) you want to plot (remember the \$ function!)
--   Subarguments (check by “?boxplot”):\
--   main: title
--   xlab: label for x-axis
--   ylab: label for y-axis
--   border: color for bar borders
--   col: color for bars
--   horizontal: `T`/`F` to switch
-
-If you do not set specific values for non-essential subarguments, it will use the default
+<div class="subpoint">Required arguments: </div>
+<div class="subsubpoint">○ `x` = vector (variable) you want to plot </div>
+<div class="subpoint">Optional arguments: </div>
+<div class="subsubpoint">○ `main`: title </div>
+<div class="subsubpoint">○ `xlab`: label for x-axis </div>
+<div class="subsubpoint">○ `ylab`: label for y-axis </div>
+<div class="subsubpoint">○ `border`: color for bar borders </div>
+<div class="subsubpoint">○ `col`: color for bars </div>
+<div class="subsubpoint">○ `horizontal`: `T`/`F` to switch </div>
 :::
 
-:::: column
-::: panel-tabset
+::: {.column}
+::: {.panel-tabset}
 ### Plot
 
 ```{r, echo = F}
+#| fig-width: 4
+#| fig-height: 4
 boxplot(iris$Sepal.Length,
      main = "Boxplot of Sepal Length",
      xlab = "Sepal Length",
@@ -775,32 +867,32 @@ boxplot(iris$Sepal.Length,
      col = "skyblue")
 ```
 :::
+:::
 ::::
-::::::
 
 ## Let's Do Some Visualization
 
 ### Base R Graphics: Boxplot
 
-:::::: columns
-::: column
-To group them, you can change the x
+:::: {.columns}
+::: {.column}
+To group them, you can change the `x` to a "formula"
 
 `outcome_var ~ group_var`
 :::
 
-:::: column
-::: panel-tabset
+::: {.column}
+::: {.panel-tabset}
 ### Plot
-
 ```{r, echo = F}
+#| fig-width: 4
+#| fig-height: 4
 boxplot(iris$Sepal.Length ~ iris$Species,
      main = "Boxplot of Sepal Length by Species",
      xlab = "Sepal Length",
      border = "gray35",
      col = "skyblue")
 ```
-
 ### Code
 
 ```{r, eval = F}
@@ -811,9 +903,11 @@ boxplot(iris$Sepal.Length ~ iris$Species,
      col = "skyblue")
 ```
 :::
+:::
 ::::
-::::::
 
 ## Visualizations: Boxplot
 
-![](bloxplot_skewed.jpg)
+![](bloxplot_skewed.jpg){fig-align=center}
+
+## Assignment 2
