@@ -1,8 +1,8 @@
 {
-  "hash": "c2625043ec4e4b250c4d7cac93a6bc87",
+  "hash": "ee7195e62b08f18b5967a37616a31ada",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"PSYC 2020L Site\"\n---\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n\n[about](about.qmd)\n\n### Labs\n\n:::: {.columns}\n\n::: {.column width=30%}\n#### Lab 1\n[Slides](./labs/Lab 1 - Basic R/PSYC2020L Lab 1.qmd)\n:::\n\n::: {.column width=30%}\n#### Lab 1 again\n[Slides](./labs/Lab 1 - Basic R/PSYC2020L Lab 1.qmd)\n:::\n\n::: {.column width=30%}\nComing soon!\n:::\n\n::::\n\n\n",
+    "markdown": "---\ntitle: \"PSYC 2020L Site\"\n---\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n\n[about](about.qmd)\n\n### Labs\n\n:::: {.columns}\n\n::: {.column width=30%}\n#### Lab 1\n[Slides](./labs/Lab 1 - Basic R/PSYC2020L Lab 1.qmd)\n:::\n\n::: {.column width=30%}\n#### Lab 2\n[Slides](./labs/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.qmd)\n:::\n\n::: {.column width=30%}\nComing soon!\n:::\n\n::::\n\n\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

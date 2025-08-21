@@ -22,8 +22,8 @@ To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 :::
 
 ::: {.column width=30%}
-#### Lab 1 again
-[Slides](./labs/Lab 1 - Basic R/PSYC2020L Lab 1.qmd)
+#### Lab 2
+[Slides](./labs/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.qmd)
 :::
 
 ::: {.column width=30%}

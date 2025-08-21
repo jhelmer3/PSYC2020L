@@ -1,0 +1,56 @@
+---
+title: "Psychological Statistics Lab 3"
+subtitle: "PSYC 2020-A01 / PSYC 6022-A01 | 2025-09-04 | Descriptive Statistics II"
+author: "Jessica Helmer"
+format: 
+  live-revealjs:
+    slide-number: true
+    show-slide-number: all
+engine: knitr
+width: 1200
+style: PSYC2020L_styles.css
+---
+
+## Outline
+
+* Assignment 2 Review
+* Labeling data
+* Aggregating data
+* Visualizing aggregates
+* Weighted mean
+
+Learning objectives:
+
+Stats: Review measures of dispersion
+
+R: 
+
+```{r}
+
+knitr::opts_chunk$set(echo = T)
+
+```
+
+## Labeling Data
+
+:::: {.columns}
+
+::: {.column}
+Adding meaningful labels or categories to your dataset.
+
+Useful for organizing and interpreting your data.
+
+<div class="subpoint">○ Example: Adding labels like “Pass” or “Fail” based on test scores. </div>
+:::
+
+::: {.column}
+:::
+
+::::
+
+
+
+
+
+
+

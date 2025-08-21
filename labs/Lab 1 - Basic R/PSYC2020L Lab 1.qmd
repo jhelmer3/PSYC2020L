@@ -7,7 +7,6 @@ format:
     slide-number: true
     show-slide-number: all
     css: PSYC2020L_styles.css
-editor: visual
 width: 1200
 self-contained: true
 ---
@@ -21,7 +20,7 @@ self-contained: true
 -   R's Layout
 -   R Basics
 
-```{r}
+```{r, echo = F}
 
 knitr::opts_chunk$set(echo = T)
 
