@@ -9,3 +9,27 @@ To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 ```{r}
 1 + 1
 ```
+
+[about](about.qmd)
+
+### Labs
+
+:::: {.columns}
+
+::: {.column width=30%}
+#### Lab 1
+[Slides](./labs/Lab 1 - Basic R/PSYC2020L Lab 1.qmd)
+:::
+
+::: {.column width=30%}
+#### Lab 1 again
+[Slides](./labs/Lab 1 - Basic R/PSYC2020L Lab 1.qmd)
+:::
+
+::: {.column width=30%}
+Coming soon!
+:::
+
+::::
+
+
