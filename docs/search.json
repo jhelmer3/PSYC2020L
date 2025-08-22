@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "PSYC 2020L Site",
+    "title": "Psychological Statistics Lab",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\nabout\n\nLabs\n\n\n\nLab 1\nSlides\n\n\n\nLab 2\nSlides\n\n\nComing soon!"
+    "text": "Welcome to the website for PSYC 2020-A01 / PSYC 6022-A01! Usage of this site is not required—I will always keep the Canvas page updated. However, if this page is helpful to you, feel free to use it!"
   },
   {
     "objectID": "about.html",
@@ -641,7 +641,7 @@
     "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions-1",
     "title": "Psychological Statistics Lab 2",
     "section": "R Functions",
-    "text": "R Functions\nWe’ve seen some built-in R functions (e.g., mean(), median()), but we can also make our own\n\n\nfunction_name &lt;- function(argument) {\n  do some stuff\n  return(this stuff)\n}\n\nⓘ Don’t actually need to call return(); R will automatically return the last expression\n\n\nThen, you can call the function\nfunction_name(specific_argument)\n\n\nTo keep the results, make sure to assign them to some variable\nvery_important_results &lt;- function_name(specific_argument)\n\n\nLet’s go back to finding the mode"
+    "text": "R Functions\nWe’ve seen some built-in R functions (e.g., mean(), median()), but we can also make our own\n\n\nfunction_name &lt;- function(argument) {\n  do some stuff\n  return(this stuff)\n}\n\nⓘ Don’t actually need to call return(); R will automatically return the last expression\n\n\nThen, you can call the function\nfunction_name(specific_argument)\n\n\nTo keep the results, make sure to assign them to some variable\nvery_important_results &lt;- function_name(specific_argument)"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mode-1",
@@ -866,5 +866,838 @@
     "title": "Psychological Statistics Lab 3",
     "section": "Testing",
     "text": "Testing\n\n\nYou can make histograms with the hist() function\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot (remember the $ function!)\n\n\nOptional arguments:\n\n\n\n\n○ breaks: number of bins\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n\n○ col: color for bars\n\n\n○ xlim: range for x-axis\n\n\n○ ylim: range for y-axis\n\n\n○ prob: T/F, y-axis proportion instead of frequency\n\n\nIf you do not set specific values for non-essential subarguments, it will use the default\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhist(iris$Sepal.Length,\n     breaks = 7,\n     main = \"Histogram of Sepal Length\",\n     xlab = \"Sepal Length\",\n     xlim = c(3, 9),\n     border = \"white\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions-2",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Functions",
+    "text": "R Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLet’s go back to finding the mode"
+  },
+  {
+    "objectID": "index.html#psychological-statistics",
+    "href": "index.html#psychological-statistics",
+    "title": "PSYC 2020L",
+    "section": "",
+    "text": "Welcome to the website for PSYC 2020-A01 / PSYC 6022-A01!"
+  },
+  {
+    "objectID": "index.html#labs",
+    "href": "index.html#labs",
+    "title": "Psychological Statistics Lab",
+    "section": "Labs",
+    "text": "Labs\n\n\n\n08/22 - Lab 1 - Basic R\nSlides\nAssignment\n\n\n\n08/29 - Lab 2 - Descriptive Statistics I\nSlides\nAssignment\n\n\n\n08/29 - Lab 2 - Descriptive Statistics II\nComing soon!"
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
+    "title": "PSYC2020L Assignment 2",
+    "section": "",
+    "text": "Basic R functions\nDescriptive statistics"
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#goals-for-review",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#goals-for-review",
+    "title": "PSYC2020L Assignment 2",
+    "section": "",
+    "text": "Basic R functions\nDescriptive statistics"
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#setting-up",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#setting-up",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 2 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory"
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#basic-r-functions",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#basic-r-functions",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Basic R Functions",
+    "text": "Basic R Functions\n\n3) Write an R function that takes in two numbers, multiplies them together, and returns the product\n\n\n4) Write an R function that takes in three vectors, puts them in a dataframe, and returns the last two rows of the dataframe."
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#data-summary",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#data-summary",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Data Summary",
+    "text": "Data Summary\n\n5) Show me the first five rows of the airquality dataset\n\n\n6) Obtain the summary() statistics for this dataset"
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#ozone-descriptive-statistics",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#ozone-descriptive-statistics",
+    "title": "PSYC2020L Assignment 2",
+    "section": "7) Ozone Descriptive Statistics",
+    "text": "7) Ozone Descriptive Statistics\n\na) What is the mean?\n\n\nb) What is the variance?\n\n\nc) What is the standard deviation?\n\n\nd) What is the IQR?"
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#histograms-for-ozone",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#histograms-for-ozone",
+    "title": "PSYC2020L Assignment 2",
+    "section": "8) Histograms for Ozone",
+    "text": "8) Histograms for Ozone\n\na) Obtain a histogram with breaks = 10\n\n\nb) Obtain a histogram with breaks = 50\n\n\nc) Obtain a histogram with breaks = 200\n\n\nd) Compare three histograms above and describe the differences"
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#boxplot-for-ozone",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#boxplot-for-ozone",
+    "title": "PSYC2020L Assignment 2",
+    "section": "9) Boxplot for Ozone",
+    "text": "9) Boxplot for Ozone\n\na) Obtain a boxplot for Ozone\n\n\nb) Is the data symmetrical? (Yes / No) How can you tell?\n\n\nc) Is the data skewed? (Yes / No) How can you tell?"
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#descriptive-statistics-for-temp",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#descriptive-statistics-for-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "10) Descriptive statistics for Temp",
+    "text": "10) Descriptive statistics for Temp\n\na) What is the mean?\n\n\nb) What is the variance?\n\n\nc) What is the SD?\n\n\nd) What is the IQR?"
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#histogram-for-temp",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#histogram-for-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "11) Histogram for Temp",
+    "text": "11) Histogram for Temp\n\na) Obtain a histogram with default number of breaks."
+  },
+  {
+    "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#comparison-between-ozone-and-temp",
+    "href": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html#comparison-between-ozone-and-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "12) Comparison between Ozone and Temp…",
+    "text": "12) Comparison between Ozone and Temp…\n\na) Does the mean change? (Yes / No)\n\n\nb) Which variable has a smaller variance? (Ozone / Temp)\n\n\nc) Which variable has a smaller SD? (Ozone / Temp)\n\n\nd) Which variable has a smaller IQR? (Ozone / Temp)"
+  },
+  {
+    "objectID": "index.html#psychological-statistics-psychological-statistics-for-hci",
+    "href": "index.html#psychological-statistics-psychological-statistics-for-hci",
+    "title": "Psychological Statistics Lab",
+    "section": "",
+    "text": "Welcome to the website for PSYC 2020-A01 / PSYC 6022-A01! Usage of this site is not required—I will always keep the Canvas page updated. However, if this page is helpful to you, feel free to use it!"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html",
+    "title": "Psychological Statistics Lab 3",
+    "section": "",
+    "text": "Assignment 2 Review\nLabeling data\nAggregating data\nVisualizing aggregates\nWeighted mean\n\nLearning objectives:\nStats: Review measures of dispersion\nR:\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#outline",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#outline",
+    "title": "Psychological Statistics Lab 3",
+    "section": "",
+    "text": "Assignment 2 Review\nLabeling data\nAggregating data\nVisualizing aggregates\nWeighted mean\n\nLearning objectives:\nStats: Review measures of dispersion\nR:\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#labeling-data",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#labeling-data",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Labeling Data",
+    "text": "Labeling Data\n\n\nAdding meaningful labels or categories to your dataset.\nUseful for organizing and interpreting your data.\n\n○ E.g., Adding labels like “Pass” or “Fail” based on test scores.\n\n\n\n\n  id order rating\n1  1     1      3\n2  2     3      2\n3  3     1      3\n4  4     2      5\n5  5     3      4\n\n\n\n\n\n\n  id order    rating\n1  1 Pizza      Fair\n2  2 Salad      Poor\n3  3 Pizza      Fair\n4  4 Pasta Excellent\n5  5 Salad      Good"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#key-functions-for-labeling-data",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#key-functions-for-labeling-data",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Key Functions for Labeling Data",
+    "text": "Key Functions for Labeling Data\n\n\n\nscores &lt;- c(85, 60, 45, 70, 50)\n\n\n\ngender &lt;- c(1, 2, 1, 2, 2)\n\n\n\n\n\nifelse(test, yes, no)\nFor simple conditional labeling\n\ncut()\nFor creating bins or ranges\n\nfactor()\nConvert numeric or character data into labeled categories\n\n\n\n\n\n# Labeling as Pass/Fail\nlabels &lt;- ifelse(scores &gt;= 60,\n                 \"Pass\", \"Fail\")\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Label = labels)\n\ndata\n\n  Scores Label\n1     85  Pass\n2     60  Pass\n3     45  Fail\n4     70  Pass\n5     50  Fail\n\n\n\n\n# Creating bins\ncategories &lt;- cut(scores,\n                  breaks = c(0, 50, 70, 100),\n                  labels = c(\"Low\", \"Medium\",\n                             \"High\"))\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Category = categories)\n\ndata\n\n  Scores Category\n1     85     High\n2     60   Medium\n3     45      Low\n4     70   Medium\n5     50      Low\n\n\n\n\n# Converting to factor with labels\ngender_labeled &lt;- factor(gender,\n                         levels = c(1, 2),\n                         labels = c(\"Male\",\n                                    \"Female\"))\n\n# Combine into a data frame\ndata &lt;- data.frame(gender,\n                   gender_labeled)\n\ndata\n\n  gender gender_labeled\n1      1           Male\n2      2         Female\n3      1           Male\n4      2         Female\n5      2         Female"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#data-aggregation",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#data-aggregation",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Data Aggregation",
+    "text": "Data Aggregation\nAggregation involves summarizing or grouping data based on certain variables.\nCommonly used to calculate summary statistics like mean, variance, or sum for each group.\n\n\nBenefits:\n\n○ Data summary\n\n\n○ Data simplification\n\n\n○ Statistical analysis\n\n\n○ Trend identification\n\n\n○ Data privacy\n\n\n○ Data-driven decisions\n\n\naggregate(x ~ group, FUN)"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#data-aggregation-example",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#data-aggregation-example",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Data Aggregation Example",
+    "text": "Data Aggregation Example\n\n# average Sepal Length by iris species?"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#data-aggregation-visualization",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#data-aggregation-visualization",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Data Aggregation Visualization",
+    "text": "Data Aggregation Visualization\nWhy visualize aggregated data?\n\n○ Makes group-level insights easier to interpret.\n\n\n○ Highlights patterns, trends, and outliers in grouped data\n\n\n○ Helps communicate findings effectively"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#testing",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#testing",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Testing",
+    "text": "Testing\n\n\nYou can make histograms with the hist() function\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot (remember the $ function!)\n\n\nOptional arguments:\n\n\n\n\n○ breaks: number of bins\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n\n○ col: color for bars\n\n\n○ xlim: range for x-axis\n\n\n○ ylim: range for y-axis\n\n\n○ prob: T/F, y-axis proportion instead of frequency\n\n\n\nIf you do not set specific values for non-essential subarguments, it will use the default\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhist(iris$Sepal.Length,\n     breaks = 7,\n     main = \"Histogram of Sepal Length\",\n     xlab = \"Sepal Length\",\n     xlim = c(3, 9),\n     border = \"white\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html",
+    "title": "Psychological Statistics Lab 1",
+    "section": "",
+    "text": "Introductions!\nLab Syllabus\nWhat is R?\nToday’s Dataset\nR’s Layout\nR Basics"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#outline",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#outline",
+    "title": "Psychological Statistics Lab 1",
+    "section": "",
+    "text": "Introductions!\nLab Syllabus\nWhat is R?\nToday’s Dataset\nR’s Layout\nR Basics"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#instructor-introduction",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#instructor-introduction",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Instructor Introduction",
+    "text": "Instructor Introduction\nHi! I’m Jessica Helmer. I’m a second-year PhD student in Quantitative Psychology.\nMy research focuses on the measurement and modeling of decision-making processes.\n\nEmail: jhelmer3@gatech.edu\nOffice: J.S. Coon Rm 240\nOffice Hours: Wednesdays, 10–11am, my office / Zoom\n\n\n○ Or by appointment"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#what-you-can-expect-from-me",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#what-you-can-expect-from-me",
+    "title": "Psychological Statistics Lab 1",
+    "section": "What You Can Expect From Me",
+    "text": "What You Can Expect From Me\nI am available as a resource! Please feel free to reach out / email anytime if you need help, have questions about the lab, or have any suggestions or feedback for the class.\nI encourage helping each other / collaboration during the lab! While working on assignments, I will try to answer everyone’s questions as soon as I can. but if someone near you is confused and you can help, go for it!"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#student-introductions",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#student-introductions",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Student Introductions",
+    "text": "Student Introductions\n\nName\nYear at Georgia Tech\nMajor\nCoding Experience?\nAnything else!"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#lab-assignments",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#lab-assignments",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Lab Assignments",
+    "text": "Lab Assignments\nStudents are expected to attend and participate in all scheduled labs.\nWe will have a lab lecture and assignment each week (barring institute holidays).\nStudents are expected to work on the activity during the scheduled lab time.\nLab assignments are due on Canvas at 11:59pm the same day they are distributed.\nWe will not be able to accept late lab assignments!\nAssignment distributed after lecture (with plenty of time to complete!)"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#lab-assignments-1",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#lab-assignments-1",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Lab Assignments",
+    "text": "Lab Assignments\nAlways offer a few words of explanation for questions in the assignment.\n\n○ Output alone will not get full credit.\n\nPlease submit both the knitted (.html) and the RMarkdown (.rmd) file.\n\n○ Without your R code, we will not be able to give partial credit if the result is incorrect.\n\nAlways provide R output for every analysis carried out.\n\n○ If the assignment asks you to make a plot, include that plot in your submission (not just the code).\n\nGraded 0–100, equally weighted to compose 20% of your PSYC 2020 / PSYC 6022 grade"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#about-ai",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#about-ai",
+    "title": "Psychological Statistics Lab 1",
+    "section": "About AI",
+    "text": "About AI\nAI can be a very helpful tool for learning coding! Feel free to use it to clarify concepts, troubleshoot code, or syntax explanations\nHowever, for the assignments, your code needs to be your own.\nIt is important to practice and gain experiencing coding independently."
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#lab-resources",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#lab-resources",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Lab Resources",
+    "text": "Lab Resources\n\n\nIntroduction to Data Exploration and Analysis with R (IDEAR)\n\nR for Data Science (2e)\n\n\nYaRrr! The Pirate’s Guide to R\n\n\n\nAll free, open source materials for learning R\n\n\nAny questions on syllabus, assignments, materials?"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#what-is-r",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#what-is-r",
+    "title": "Psychological Statistics Lab 1",
+    "section": "What is R?",
+    "text": "What is R?\nOpen source coding language, primarily used for data analysis and data science\n\nCoding (per the IDEAR book):\n\n“Giving very specific instructions to a very stupid machine.”\n\n\n\n\nprint(\"Hello, World!\")\n\n[1] \"Hello, World!\""
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#why-r",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#why-r",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Why R?",
+    "text": "Why R?\nBecause R is a programming language, you can make your own codes / functions as commands\nR has many “packages” for statistical functions\nR is open source: you can see the exact code that underlies the functions you use\n\n○ And if you’d like, you can modify it"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#what-is-rstudio",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#what-is-rstudio",
+    "title": "Psychological Statistics Lab 1",
+    "section": "What is RStudio?",
+    "text": "What is RStudio?\nAn interface for R\nHelps keep R files organize\nHelps “knit” code, output, and text to create reports"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#installing-r",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#installing-r",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Installing R",
+    "text": "Installing R\nWe need to download two things:\nR and RStudio\nR is the language, RStudio is an Interactive Development Environment (IDE)\nWe will use R through RStudio"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#rstudio-introduction",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#rstudio-introduction",
+    "title": "Psychological Statistics Lab 1",
+    "section": "RStudio Introduction",
+    "text": "RStudio Introduction\nFiles, Plots, Packages\nEnvironment, History\nConsole"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#r-console",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#r-console",
+    "title": "Psychological Statistics Lab 1",
+    "section": "R Console",
+    "text": "R Console\n\n2 + 4\n\n[1] 6\n\n\n\n\n2 + 4 / 4\n\n[1] 3\n\n\n\n\nPEMDAS!\n\n\n\n2 ^ 3\n\n[1] 8\n\n\n\n\n\n8 %% 3\n\n[1] 2"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#vectors",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#vectors",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Vectors",
+    "text": "Vectors\n\nc(2, 4, 6)\n\n[1] 2 4 6\n\n\n\n\nc(1, \"hello!\", \"Georgia Tech\")\n\n[1] \"1\"            \"hello!\"       \"Georgia Tech\"\n\n\n\n\nc() function\n\nStands for “combine”\n\n\n\nMatrix algebra!\n\nc(1, 2, 3) / 3\n\n[1] 0.3333333 0.6666667 1.0000000\n\n\n\nc(1, 2, 3) / c(1, 2, 3)\n\n[1] 1 1 1"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#data-types",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#data-types",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Data Types",
+    "text": "Data Types\n\nc(1, 2, 3)\n\n[1] 1 2 3\n\n\n\nc(1, \"hello!\", \"Georgia Tech\")\n\n[1] \"1\"            \"hello!\"       \"Georgia Tech\"\n\n\n\nQuotes around 1 in the first vector, not in the second\n\n\nVectors can only hold one type of data!\n\nNumeric\nCharacter\n\n\n\n\nc(1, 2, 3) / 3\n\n[1] 0.3333333 0.6666667 1.0000000\n\n\n\nc(1, \"hello!\", \"Georgia Tech\") / 3\n\nError in c(1, \"hello!\", \"Georgia Tech\")/3: non-numeric argument to binary operator\n\n\n\nError because we cannot divide characters"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#data-types-1",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#data-types-1",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Data Types",
+    "text": "Data Types\n\nTRUE\n\n[1] TRUE\n\n\n\n\nc(1, \"hello!\", TRUE)\n\n[1] \"1\"      \"hello!\" \"TRUE\"  \n\n\n\n\n\nc(TRUE, FALSE)\n\n[1]  TRUE FALSE"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#data-types-logical-boolean",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#data-types-logical-boolean",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Data Types: Logical (boolean)",
+    "text": "Data Types: Logical (boolean)\n\n6 &gt; 4\n\n[1] TRUE\n\n\n\n\n12 / 2 &lt; 6\n\n[1] FALSE\n\n\n\n\n\nThe &lt;, &gt;, and &lt;= symbols are logical operators\nLogical data handled like binary numeric data\n\nTRUE == 1\n\n[1] TRUE\n\n\n\nFALSE + 3\n\n[1] 3\n\n\n\nTRUE and FALSE can be abbreviated as T and F\n\nTRUE == T\n\n[1] TRUE\n\n\n\nFALSE == F\n\n[1] TRUE\n\n\n\nHarder to tell apart, so be careful!"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#practice-break",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#practice-break",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Practice Break!",
+    "text": "Practice Break!\n\n2 + 2\n\n[1] 4\n\n\n\n\n2 + 2 / 2\n\n[1] 3\n\n\n\n\n\n2 + 2 / 2 ^ 2\n\n[1] 2.5\n\n\n\n\n\nc(\"hello!\", 2) / 2\n\nError in c(\"hello!\", 2)/2: non-numeric argument to binary operator"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#variable-assignment",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#variable-assignment",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Variable Assignment",
+    "text": "Variable Assignment\nIn R, we can assign objects (including functions) to some variable with the assignment operator &lt;-\n\n# assign variable a the value 1\na &lt;- 1\n\n# print a\na\n\n[1] 1"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#variable-assignment-1",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#variable-assignment-1",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Variable Assignment",
+    "text": "Variable Assignment\n\na &lt;- c(1, 2, 3)\na\n\n[1] 1 2 3\n\n\n\na &lt;- c(\"Hello, world!\")\na\n\n[1] \"Hello, world!\"\n\n\nEvery time we reassign a value to a, it holds that new value\nOverwrites previous value!"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#variable-assignment-2",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#variable-assignment-2",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Variable Assignment",
+    "text": "Variable Assignment\nOverwriting can mess stuff up!"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#variables-in-statistics-numeric-vs.-categorical",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#variables-in-statistics-numeric-vs.-categorical",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Variables in Statistics: Numeric vs. Categorical",
+    "text": "Variables in Statistics: Numeric vs. Categorical\n\nNumeric\n\n○ Quantitative\n\n\n○ Values describing a measurable quantity as a number\n\n\n○ “How many” or “how much”\n\n\n\nCategorical\n\n○ Distinguish distinct elements or entities\n\n\n○ Name, gender, ethnicity…"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#four-types-of-measurement",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#four-types-of-measurement",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Four Types of Measurement",
+    "text": "Four Types of Measurement\n\n\n\nNominal\n\n○ Variable that represents categories without any inherent order.\n\n\n○ E.g., types of fruit (“apple,”“orange,” “banana”).\n\n\n\nOrdinal\n\n○ Variable that represents categories with a meaningful order.\n\n\n○ For example, levels of satisfaction (“very unsatisfied,” “unsatisfied,” “neutral,” “satisfied,” “very satisfied”)\n\n\n\n\nDiscrete\n\n○ Variable that can only take specific values.\n\n\n○ Think of things you can count, like the number of people in a room or the number of apples in a basket.\n\n\n\nContinuous\n\n○ Variable that can take any value within a range.\n\n\n○ Think of things you can measure, like height or time."
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#dataframes",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#dataframes",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Dataframes",
+    "text": "Dataframes\nTable of data\nCan make by hand with the data.frame() function:\n\ndata.frame(x = c(1, 2, 3),\n           y = c(\"a\", \"b\", \"c\"),\n           z = c(TRUE, FALSE, TRUE))\n\n  x y     z\n1 1 a  TRUE\n2 2 b FALSE\n3 3 c  TRUE\n\n\nShift+Enter to go to new line on Console\nMost of the time, we import data (and don’t manually type it in)\nIn console, can press up arrow to reload last line of code"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#dataframes-1",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#dataframes-1",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Dataframes",
+    "text": "Dataframes\nIf you already have vector objects saved, you don’t have to type them in again\n\na &lt;- c(1, 2, 3)\nb &lt;- c(2, 3, 4)\nc &lt;- c(3, 4, 5)\n\n\n\n\n\ndata.frame(a = a,\n           b = b,\n           c = c)\n\n  a b c\n1 1 2 3\n2 2 3 4\n3 3 4 5\n\n\n\n\ndata.frame(a, b, c)\n\n  a b c\n1 1 2 3\n2 2 3 4\n3 3 4 5\n\n\n\n\ndata.frame(A = a, b, c)\n\n  A b c\n1 1 2 3\n2 2 3 4\n3 3 4 5"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#r-projects",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#r-projects",
+    "title": "Psychological Statistics Lab 1",
+    "section": "R Projects",
+    "text": "R Projects\nRStudio’s way of helping organizing files, scripts, etc.\nI strongly recommend this!!\n\n○ File &gt; New Project\n\n\n○ If you don’t already have a folder associated with this class, “New Directory”\n\n\n○ If you do, “Existing Directory”\n\nAll R Scripts under the same project share a working directory\n\n○ Location of files\n\ngetwd() tells us the location of our working directory\nsetwd(\"C:/Users/Desktop/R Example\") sets the working directory\nOr, here::here() lets us do relative directories (my favorite!)\n\n○ Just use the command at the top of the file to see where your directory is"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#r-scripts",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#r-scripts",
+    "title": "Psychological Statistics Lab 1",
+    "section": "R Scripts",
+    "text": "R Scripts\nR script files end with .R\n\nHow to Create an R Script File\n\nManually\n\n\nFile &gt; New File &gt; R Script\n\n\nShortcut\n\n\nCtrl + Shift + N"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#rmarkdown",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#rmarkdown",
+    "title": "Psychological Statistics Lab 1",
+    "section": "RMarkdown",
+    "text": "RMarkdown\n\n\nA way of typesetting R code into a document\nEnd in .rmd\nFile &gt; New File &gt; RMarkdown…\nInput Title, Author, Date\nHow we will complete assignments"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#insert-a-chunk",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#insert-a-chunk",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Insert a Chunk",
+    "text": "Insert a Chunk\nHow to insert an RMarkdown chunk in RStudio\n\nManually:\n\n\n○ Type ```{r}.\n\n\n○ Add your R code.\n\n\n○ Close the chunk with ```.\n\n\nShortcut:\n\n\n○ Use the shortcut Ctrl + Alt + I (Windows) or Cmd + Option + I.\n\n\nButton"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#run-a-chunk",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#run-a-chunk",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Run a Chunk",
+    "text": "Run a Chunk\nHow to run RMarkdown code chunks in RStudio\n\nShortcut:\n\n\n○ Use the shortcut Ctrl + Enter (Windows) or Ctrl + Return (Mac)\n\n\nButton\n\n\nCan also select a variable and run it to see its output (helpful!)"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#clearing-environement-and-restarting-r",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#clearing-environement-and-restarting-r",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Clearing Environement and Restarting R",
+    "text": "Clearing Environement and Restarting R\nImportant to ensure that your code isn’t unintentionally relying on hidden objects in the environement\n\n○ E.g., you created an object, deleted the line to create it, but R still sees it there\n\nWhen you try to knit your file, it will clear, restart, and run all code\n\n○ In the previous situation, your code would error\n\nClearing your environment and restarting R frequently helps you avoid this"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#clearing-environement-and-restarting-r-1",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#clearing-environement-and-restarting-r-1",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Clearing Environement and Restarting R",
+    "text": "Clearing Environement and Restarting R\n\n\n\nHow to Clear Your Environment\n\nButton\n\n\n\n\n\nHow to Restart R\n\nManually:\n\n\n○ Session &gt; Restart R.\n\n\nShortcut:\n\n\n○ Use the shortcut Ctrl + Shift + F10 (Windows) or Cmd + Shift + F10."
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#tips-for-rmarkdown",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#tips-for-rmarkdown",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Tips for RMarkdown!",
+    "text": "Tips for RMarkdown!\nRun code often to ensure it’s working\nRestart R frequently\nKnitting will combine text, syntax, results, and output into a Word, PDF, or HTML file"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#todays-dataset",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#todays-dataset",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Today’s Dataset",
+    "text": "Today’s Dataset\niris dataset has measurements of 150 flowers, preloaded from R\n\n\nhead() function shows first few rows of a dataframe\n\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\n\ntail() shows last few rows\nCan specify how many rows you want\n\ntail(iris, n = 3)\n\n    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species\n148          6.5         3.0          5.2         2.0 virginica\n149          6.2         3.4          5.4         2.3 virginica\n150          5.9         3.0          5.1         1.8 virginica"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#saving-work",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#saving-work",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Saving Work",
+    "text": "Saving Work\nPress Ctrl + S frequently to save your work!!\nCan also press the save icon in the top left"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#suggested-r-workflow",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#suggested-r-workflow",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Suggested R Workflow",
+    "text": "Suggested R Workflow\n\nOpen a new script or RMarkdown file\nCheck (and set if needed) your working directory\nLoad any packages you’ll be working with\nWrite your code\nKnit and save your file"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#data-visualization",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#data-visualization",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Data Visualization",
+    "text": "Data Visualization\nLet’s make our first plot!\n$ operator references columns within a dataframe\n\nplot(iris$Sepal.Length, iris$Sepal.Width)\n\n\n\n\n\n\n\n\n\nDo we like this plot?"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#assignment-1",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html#assignment-1",
+    "title": "Psychological Statistics Lab 1",
+    "section": "Assignment 1",
+    "text": "Assignment 1\nObjectives:\n\nDo some basic R!\nGet familiar with RMarkdown"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html",
+    "href": "assignments/PSYC2020L Assignment 2.html",
+    "title": "PSYC2020L Assignment 2",
+    "section": "",
+    "text": "Basic R functions\nDescriptive statistics"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html#goals-for-review",
+    "href": "assignments/PSYC2020L Assignment 2.html#goals-for-review",
+    "title": "PSYC2020L Assignment 2",
+    "section": "",
+    "text": "Basic R functions\nDescriptive statistics"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html#setting-up",
+    "href": "assignments/PSYC2020L Assignment 2.html#setting-up",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 2 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html#basic-r-functions",
+    "href": "assignments/PSYC2020L Assignment 2.html#basic-r-functions",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Basic R Functions",
+    "text": "Basic R Functions\n\n3) Write an R function that takes in two numbers, multiplies them together, and returns the product\n\n\n4) Write an R function that takes in three vectors, puts them in a dataframe, and returns the last two rows of the dataframe."
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html#data-summary",
+    "href": "assignments/PSYC2020L Assignment 2.html#data-summary",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Data Summary",
+    "text": "Data Summary\n\n5) Show me the first five rows of the airquality dataset\n\n\n6) Obtain the summary() statistics for this dataset"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html#ozone-descriptive-statistics",
+    "href": "assignments/PSYC2020L Assignment 2.html#ozone-descriptive-statistics",
+    "title": "PSYC2020L Assignment 2",
+    "section": "7) Ozone Descriptive Statistics",
+    "text": "7) Ozone Descriptive Statistics\n\na) What is the mean?\n\n\nb) What is the variance?\n\n\nc) What is the standard deviation?\n\n\nd) What is the IQR?"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html#histograms-for-ozone",
+    "href": "assignments/PSYC2020L Assignment 2.html#histograms-for-ozone",
+    "title": "PSYC2020L Assignment 2",
+    "section": "8) Histograms for Ozone",
+    "text": "8) Histograms for Ozone\n\na) Obtain a histogram with breaks = 10\n\n\nb) Obtain a histogram with breaks = 50\n\n\nc) Obtain a histogram with breaks = 200\n\n\nd) Compare three histograms above and describe the differences"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html#boxplot-for-ozone",
+    "href": "assignments/PSYC2020L Assignment 2.html#boxplot-for-ozone",
+    "title": "PSYC2020L Assignment 2",
+    "section": "9) Boxplot for Ozone",
+    "text": "9) Boxplot for Ozone\n\na) Obtain a boxplot for Ozone\n\n\nb) Is the data symmetrical? (Yes / No) How can you tell?\n\n\nc) Is the data skewed? (Yes / No) How can you tell?"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html#descriptive-statistics-for-temp",
+    "href": "assignments/PSYC2020L Assignment 2.html#descriptive-statistics-for-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "10) Descriptive statistics for Temp",
+    "text": "10) Descriptive statistics for Temp\n\na) What is the mean?\n\n\nb) What is the variance?\n\n\nc) What is the SD?\n\n\nd) What is the IQR?"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html#histogram-for-temp",
+    "href": "assignments/PSYC2020L Assignment 2.html#histogram-for-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "11) Histogram for Temp",
+    "text": "11) Histogram for Temp\n\na) Obtain a histogram with default number of breaks."
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html#comparison-between-ozone-and-temp",
+    "href": "assignments/PSYC2020L Assignment 2.html#comparison-between-ozone-and-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "12) Comparison between Ozone and Temp…",
+    "text": "12) Comparison between Ozone and Temp…\n\na) Does the mean change? (Yes / No)\n\n\nb) Which variable has a smaller variance? (Ozone / Temp)\n\n\nc) Which variable has a smaller SD? (Ozone / Temp)\n\n\nd) Which variable has a smaller IQR? (Ozone / Temp)"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 1.html",
+    "href": "assignments/PSYC2020L Assignment 1.html",
+    "title": "PSYC2020L Assignment 1",
+    "section": "",
+    "text": "Basic R operators and data types\nViewing data\nBasic plotting"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 1.html#goals-for-review",
+    "href": "assignments/PSYC2020L Assignment 1.html#goals-for-review",
+    "title": "PSYC2020L Assignment 1",
+    "section": "",
+    "text": "Basic R operators and data types\nViewing data\nBasic plotting"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 1.html#setting-up",
+    "href": "assignments/PSYC2020L Assignment 1.html#setting-up",
+    "title": "PSYC2020L Assignment 1",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 1 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 1.html#r-basics",
+    "href": "assignments/PSYC2020L Assignment 1.html#r-basics",
+    "title": "PSYC2020L Assignment 1",
+    "section": "R Basics",
+    "text": "R Basics\n\n3) Compute:\n\na) The product of 4 * 4\n\n\nb) 4 squared\n\n\nc) The remainder from dividing 16 by 3\n\n\nd) FALSE divided by TRUE. Why did you get this answer?\n\n\n\n4) The output of the following two lines of code is different. Why is that?\n\n3 + 2 / 2\n\n[1] 4\n\n\n\n(3 + 2) / 2\n\n[1] 2.5\n\n\n\n\n4)\n\na) Create a vector of your four favorite movies\n\n\nb) Create a vector of the years they came out\n\n\nc) Create a vector of the ratings (number of stars out of five) that YOU think they deserve\n\n\nd) Put all those vectors in a dataframe with the column labels “fav_movie”, “year”, and “my_rating”\n\n\n\n5) Show me…\n\n\nThe first three rows of the iris dataset\n\n\n6) Plot…\n\nA scatterplot with Petal.Length on the x and Petal.Width on the y"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Assignment 1.html",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Assignment 1.html",
+    "title": "PSYC2020L Assignment 1",
+    "section": "",
+    "text": "Basic R operators and data types\nViewing data\nBasic plotting"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Assignment 1.html#goals-for-review",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Assignment 1.html#goals-for-review",
+    "title": "PSYC2020L Assignment 1",
+    "section": "",
+    "text": "Basic R operators and data types\nViewing data\nBasic plotting"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Assignment 1.html#setting-up",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Assignment 1.html#setting-up",
+    "title": "PSYC2020L Assignment 1",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 1 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory"
+  },
+  {
+    "objectID": "slides/Lab 1 - Basic R/PSYC2020L Assignment 1.html#r-basics",
+    "href": "slides/Lab 1 - Basic R/PSYC2020L Assignment 1.html#r-basics",
+    "title": "PSYC2020L Assignment 1",
+    "section": "R Basics",
+    "text": "R Basics\n\n3) Compute:\n\na) The product of 4 * 4\n\n\nb) 4 squared\n\n\nc) The remainder from dividing 16 by 3\n\n\nd) FALSE divided by TRUE. Why did you get this answer?\n\n\n\n4) The output of the following two lines of code is different. Why is that?\n\n3 + 2 / 2\n\n[1] 4\n\n\n\n(3 + 2) / 2\n\n[1] 2.5\n\n\n\n\n4)\n\na) Create a vector of your four favorite movies\n\n\nb) Create a vector of the years they came out\n\n\nc) Create a vector of the ratings (number of stars out of five) that YOU think they deserve\n\n\nd) Put all those vectors in a dataframe with the column labels “fav_movie”, “year”, and “my_rating”\n\n\n\n5) Show me…\n\n\nThe first three rows of the iris dataset\n\n\n6) Plot…\n\nA scatterplot with Petal.Length on the x and Petal.Width on the y"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html",
+    "title": "Psychological Statistics Lab 2",
+    "section": "",
+    "text": "Assignment 1 Review\nCentral Tendency Review\nCentral Tendency in R\nVariable Assignment\nR Functions\n\nLearning objectives: Stats: Review measures of central tendency R: Variable assignment, functions, histogram, boxplot\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#outline",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#outline",
+    "title": "Psychological Statistics Lab 2",
+    "section": "",
+    "text": "Assignment 1 Review\nCentral Tendency Review\nCentral Tendency in R\nVariable Assignment\nR Functions\n\nLearning objectives: Stats: Review measures of central tendency R: Variable assignment, functions, histogram, boxplot\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#assignment-1-review",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#assignment-1-review",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Assignment 1 Review",
+    "text": "Assignment 1 Review\nPlaceholder for common mistakes on Assignment 1"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#review-of-central-tendency",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#review-of-central-tendency",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Review of Central Tendency!",
+    "text": "Review of Central Tendency!\nMean: Sum of all values divided by the total number of values\nMedian: When sorted lowest to highest, the middle value\nMode: The value that appears most often"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-practice",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-practice",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency Practice",
+    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 2, 2, 4)\n\n[1] 0 2 2 4\n\n\nWhat is the mean?\nWhat is the median?\nWhat is the mode?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-practice-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-practice-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency Practice",
+    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 1, 2, 4)\n\n[1] 0 1 2 4\n\n\nWhat is the mean?\nWhat is the median?\nWhat is the mode?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Functions",
+    "text": "R Functions\nA function performs some operation on an input and produces some output\nSaw this last week\n\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\nWhat is the function? Input? Output?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mean",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mean",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Mean",
+    "text": "Central Tendency in R: Mean\nWe can calculate central tendencies in two ways:\nGiven this dataset, calculate the mean\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n# let's calculate the mean!\n\n\n\nWith the mean() function\n\n# let's calculate the mean!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-median",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-median",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Median",
+    "text": "Central Tendency in R: Median\nGiven this dataset, calculate the median\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n# let's calculate the median!\n\n\n\nWith the median() function\n\n# let's calculate the median!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mode",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mode",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Mode",
+    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\nWith the mode() function\n\n# let's calculate the mode!\n\n\n\nDoesn’t work :(\nHave to create our own"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Functions",
+    "text": "R Functions\nWe’ve seen some built-in R functions (e.g., mean(), median()), but we can also make our own\n\n\nfunction_name &lt;- function(argument) {\n  do some stuff\n  return(this stuff)\n}\n\nⓘ Don’t actually need to call return(); R will automatically return the last expression\n\n\n\nThen, you can call the function\nfunction_name(specific_argument)\n\n\nTo keep the results, make sure to assign them to some variable\nvery_important_results &lt;- function_name(specific_argument)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions-2",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Functions",
+    "text": "R Functions\n\n\n\n# write a function that takes in two numbers, adds them together, and returns the sum!\n\n\n\n\n# write a function that takes in two vectors, puts them in a dataframe, and returns the dataframe!\n\n\n\n\n\nLet’s go back to finding the mode"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mode-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mode-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Mode",
+    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\nmy_mode &lt;- function(x) {\n  values &lt;- unique(x)\n  counts &lt;- tabulate(match(x, values))\n  max_index &lt;- which.max(counts)\n  values[max_index]\n}\n\nHow does this work?\n\n# let's calculate the mode!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#measures-of-variability-intro",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#measures-of-variability-intro",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Measures of Variability Intro",
+    "text": "Measures of Variability Intro\nWill go over in class in detail next week\nDescribe the “spread” or “dispersion” of the data"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#measures-of-variability-functions",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#measures-of-variability-functions",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Measures of Variability Functions",
+    "text": "Measures of Variability Functions\n\ntestscores &lt;- c(88, 93, 92, 99, 96)\n\nVariance: var() function\nStandard Deviation: sd() function\nInterquartile Range: IQR() function\n\n○ Difference between the 3rd and 1st quantile (so 50% of the data within this range)\n\n\n○ 25% of the data lower than the 1st quantile\n\n\n○ 75% of the data lower than the 3rd quantile\n\n\n○ IQR = 3rd - 1st\n\n\n# let's look at some variances!\n\n\n\nQuantiles: quantile() function"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#descriptive-statistics-in-r",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#descriptive-statistics-in-r",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Descriptive Statistics in R",
+    "text": "Descriptive Statistics in R\nTakes time to look at all these for a lot of variables, even with functions\nThe summary() function provides us a quick overview of this information\n\n# let's get descriptive statistics for the iris dataset\n\n\nWhat all do we get?\n\n\n○ Minimum and maximum\n\n\n○ 1st quantile, median, 3rd quantile\n\n\n○ Mean"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations!",
+    "text": "Visualizations!\nSummary statistics are great, but don’t trust them alone!\nWhat do you think a dataset with these descriptives would look like?\n\nX_mean &lt;- 54.26\nY_mean &lt;- 47.83\n\nX_sd &lt;- 16.76\nY_sd &lt;- 26.93\n\ncor &lt;- -0.06"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations!",
+    "text": "Visualizations!\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-2",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations!",
+    "text": "Visualizations!\n\n\n\nDatasaurus Dozen\n\n\n\nhttps://www.research.autodesk.com/publications/same-stats-different-graphs/"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-3",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-3",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations",
+    "text": "Visualizations\nDon’t rush: graph your data!\nWhat should graphs do?\n\n○ Show the data\n\n\n○ Draw the reader primarily to the data (not the graphical effects)\n\n\n○ Avoid distorting the data\n\n\n○ Present many numbers with minimum ink\n\n\n○ Make large data sets coherent\n\n\n○ Encourage the reader to compare different pieces of data"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-histograms",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-histograms",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Histograms",
+    "text": "Visualizations: Histograms\n\n\nAn example of (simulated) SAT scores\nWhat do we see here?\n\n\n○ Outliers at zero! Not a possible SAT score\n\n\n\n\n○ Negatively skewed: more data on the left than on the right"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#skew",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#skew",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Skew",
+    "text": "Skew\n\n\n\n\n\n\n\n\nPositive Skew, right-tailed\nThe mass of the distribution is concentrated on the left of the figure\n\nNegative Skew, left-tailed\nThe mass of the distribution is concentrated on the right of the figure"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#skewness-demonstration",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#skewness-demonstration",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Skewness Demonstration",
+    "text": "Skewness Demonstration\n\n\n\n\n\nFull screen version here\n\nSkewness demonstration!\nCredits to Fabio Setti"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics\nR has some plotting features built in—we saw this last week\n\n\n\nplot(iris$Sepal.Length, iris$Sepal.Width)\n\n\n\n\n\n\n\n\n\nBut we did not love this!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#base-r-graphics-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#base-r-graphics-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Base R Graphics",
+    "text": "Base R Graphics\nBetter… (thanks, ChatGPT)\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nplot(iris$Sepal.Length, iris$Sepal.Width,\n     pch = 19,                 # solid circles\n     col = \"#377EB8\",           # pleasant blue\n     cex = 1.3,                 # slightly larger points\n     xlab = \"Sepal Length\",     # cleaner label\n     ylab = \"Sepal Width\",\n     main = \"Sepal Length vs Sepal Width\",\n     cex.lab = 1.2,             # bigger axis labels\n     cex.main = 1.4,            # bigger title\n     font.main = 2)             # bold title\n\n\n\n\n\nWe will learn a few plots in base R plotting, and then we will learn a better way of making plots: ggplot2\n\nR Graph Gallery"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\n\n\nhist() function\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot (remember the $ function!)\n\n\nOptional arguments:\n\n\n\n\n○ breaks: number of bins\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n\n○ col: color for bars\n\n\n○ xlim: range for x-axis\n\n\n○ ylim: range for y-axis\n\n\n○ prob: T/F, y-axis proportion instead of frequency\n\n\n\nIf you do not set specific values for non-essential subarguments, it will use the default\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhist(iris$Sepal.Length,\n     breaks = 7,\n     main = \"Histogram of Sepal Length\",\n     xlab = \"Sepal Length\",\n     xlim = c(3, 9),\n     border = \"white\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-2",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\nAn important decision for histograms is this number (or width) of bins\nSpecified with the breaks argument"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-3",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-3",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\nAn important decision for histograms is this number (or width) of bins\nSpecified with the breaks argument"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-4",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-4",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\nIf we could make the bins infinitesimally small, we could get a probability density function (PDF)\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndat &lt;- data.frame(x = rnorm(1000))\n\ncowplot::plot_grid(\n  plotlist = list(\n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 10) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 50) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 100) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 100, alpha = .8) +\n      stat_function(inherit.aes = FALSE, fun = dnorm,\n                    n = 101, args = list(mean = 0, sd = 1),\n                    xlim = c(-4, 4),\n                    color = \"grey35\", linewidth = 2) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot()\n  ),\n  nrow = 1)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-histogram",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-histogram",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Histogram",
+    "text": "Visualizations: Histogram\nCan describe a distribution by its “dispersion”"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-boxplots",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-boxplots",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplots",
+    "text": "Visualizations: Boxplots\n\n\nBack to the iris dataset, distribution of Sepal Length by species\nAnatomy of a boxplot:\n\n○ “Minimum”\n\n\n○ 25th Quantile (Q1)\n\n\n○ Median\n\n\n○ 75th Quantile (Q3)\n\n\n○ “Maximum”\n\n\n○ Points representing outliers\n\n\n\n\n\n\n\n\n\n\n\n“Minimum” and “maximum” are not the true min and max\n\n○ Minimum: \\(Q1 - 1.5 * IQR\\)\n\n\n○ Maximum: \\(Q3 + 1.5 * IQR\\)\n\nMeans that the whiskers contain ~99% of the data, rest are outliers\n\n\n\nFor more explanation of the anatomy of a boxplot, feel free to check this post out from Statistics by Jim"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-boxplots-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-boxplots-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplots",
+    "text": "Visualizations: Boxplots\nOne more resource for boxplot anatomy"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-boxplots-2",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-boxplots-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplots…",
+    "text": "Visualizations: Boxplots…\n\n\n\nDatasaurus Dozen Boxplots\n\n\n\nhttps://www.research.autodesk.com/publications/same-stats-different-graphs/"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-5",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-5",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Boxplot\n\n\nboxplot() function\nIts arguments are:\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot\n\n\nOptional arguments:\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n○ border: color for bar borders\n\n\n○ col: color for bars\n\n\n○ horizontal: T/F to switch\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length,\n     main = \"Boxplot of Sepal Length\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-6",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-6",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Boxplot\n\n\nTo group them, you can change the x to a “formula”\noutcome_var ~ group_var\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length ~ iris$Species,\n     main = \"Boxplot of Sepal Length by Species\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-boxplot",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-boxplot",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplot",
+    "text": "Visualizations: Boxplot"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#assignment-2",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#assignment-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Assignment 2",
+    "text": "Assignment 2"
   }
 ]
