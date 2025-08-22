@@ -16,13 +16,15 @@ Welcome to the website for PSYC 2020-A01 **Psychological Statistics** / **PSYC 6
 ::: {.column width=33%}
 ### 08/22 - Lab 1
 #### Basic R
-[Slides](./slides/Lab 1 - Basic R/PSYC2020L Lab 1.qmd) | [Assignment](./assignments/Lab 1 - Basic R/PSYC2020L Assignment 1.rmd)
+[Slides](./slides/Lab 1 - Basic R/PSYC2020L Lab 1.qmd)
+<!-- | [Assignment](./assignments/PSYC2020L Assignment 1.rmd) -->
 :::
 
 ::: {.column width=33%}
 ### 08/29 - Lab 2
 #### Descriptive Statistics I
-[Slides](./slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.qmd) | [Assignment](./assignments/PSYC2020L Assignment 2.rmd)
+Coming soon!
+<!-- [Slides](./slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.qmd) | [Assignment](./assignments/PSYC2020L Assignment 2.rmd) -->
 :::
 
 ::: {.column width=33%}
