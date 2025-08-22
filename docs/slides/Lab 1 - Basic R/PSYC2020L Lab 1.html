@@ -221,14 +221,23 @@ Jessica Helmer
 <h2>Instructor Introduction</h2>
 <p>Hi! I’m Jessica Helmer. I’m a second-year PhD student in Quantitative Psychology.</p>
 <p>My research focuses on the measurement and modeling of decision-making processes.</p>
-<ul>
-<li><p>Email: jhelmer3@gatech.edu</p></li>
-<li><p>Office: J.S. Coon Rm 240</p></li>
-<li><p>Office Hours: Wednesdays, 10–11am, my office / <a href="https://gatech.zoom.us/j/98522819670?pwd=O8cCyj7iDdw005aHbXXdB7rBH1BYX6.1">Zoom</a></p></li>
-</ul>
+<div class="columns">
+<div class="column">
 <div class="subpoint">
-<p>○ Or by appointment</p>
+○ Email: <a href="mailto:jhelmer3@gatech.edu">jhelmer3@gatech.edu</a>
 </div>
+<div class="subpoint">
+○ Office: J.S. Coon Rm 240
+</div>
+<div class="subpoint">
+○ Office Hours: Wednesdays, 10–11am, my office / <a href="https://gatech.zoom.us/j/98522819670?pwd=O8cCyj7iDdw005aHbXXdB7rBH1BYX6.1">Zoom</a>
+</div>
+<div class="subsubpoint">
+○ Or by appointment
+</div>
+</div><div class="column fragment">
+<p><img data-src="lily.jpg" width="250"> <img data-src="sheba.jpg" width="250"></p>
+</div></div>
 </section>
 <section id="what-you-can-expect-from-me" class="slide level2">
 <h2>What You Can Expect From Me</h2>
@@ -927,7 +936,7 @@ Jessica Helmer
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="PSYC2020L-Lab-1_files/figure-html/unnamed-chunk-38-1.png" width="576" class="r-stretch"><div class="fragment">
+<img data-src="PSYC2020L-Lab-1_files/figure-revealjs/unnamed-chunk-38-1.png" width="576" class="r-stretch"><div class="fragment">
 <p>Do we like this plot?</p>
 </div>
 </section>
@@ -1156,6 +1165,82 @@ Jessica Helmer
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
