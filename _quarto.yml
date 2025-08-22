@@ -15,14 +15,8 @@ website:
 
 format:
   html:
-    grid:
-      body-width: 800px
     theme:
-      - simplex
+      - cosmo
       - brand
     css: styles.css
     toc: true
-
-
-
-

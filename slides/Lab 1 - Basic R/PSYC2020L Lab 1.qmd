@@ -8,7 +8,7 @@ format:
     show-slide-number: all
     css: PSYC2020L_styles.css
 width: 1200
-self-contained: true
+footer: https://jhelmer3.github.io/PSYC2020L/
 ---
 
 ## Outline
@@ -777,8 +777,8 @@ Knitting will combine text, syntax, results, and output into a Word, PDF, or HTM
 
 `iris` dataset has measurements of 150 flowers, preloaded from R
 
-::::: columns
-::: column
+:::: {.columns style="font-size:70%"}
+::: {.column}
 `head()` function shows first few rows of a dataframe
 
 ```{r}
@@ -788,7 +788,7 @@ head(iris)
 ```
 :::
 
-::: column
+::: {.column}
 `tail()` shows last few rows
 
 Can specify how many rows you want
@@ -799,7 +799,7 @@ tail(iris, n = 3)
 
 ```
 :::
-:::::
+::::
 
 ## Saving Work
 
@@ -827,10 +827,10 @@ Let's make our first plot!
 
 `$` operator references columns within a dataframe
 
-```{r}
-
+```{r, eval=T}
+#| fig-width: 6
+#| fig-height: 4
 plot(iris$Sepal.Length, iris$Sepal.Width)
-
 ```
 
 ::: fragment
