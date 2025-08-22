@@ -1,30 +1,33 @@
 ---
 title: "Psychological Statistics Lab"
+subtitle: "Fall 2025"
+date: last-modified
+author: "Jessica Helmer"
 ---
 
 ## Overview
 
-Welcome to the website for PSYC 2020-A01 **Psychological Statistics** / **PSYC 6022-A01 Psychological Statistics for HCI**! Usage of this site is *not* required—I will always keep the [Canvas](https://www.canvas.gatech.edu/) page updated. However, if this page is helpful to you, feel free to use it!
+Welcome to the website for PSYC 2020-A01 **Psychological Statistics** / **PSYC 6022-A01 Psychological Statistics for HCI** for Fall 2025! Usage of this site is *not* required—I will always keep the [Canvas](https://www.canvas.gatech.edu/) page updated. However, if this page is helpful to you, feel free to use it!
 
 ## Labs
 
 :::: {.columns}
 
 ::: {.column width=33%}
-### 08/22 - Lab 1 
-### Basic R
+### 08/22 - Lab 1
+#### Basic R
 [Slides](./slides/Lab 1 - Basic R/PSYC2020L Lab 1.qmd) | [Assignment](./assignments/Lab 1 - Basic R/PSYC2020L Assignment 1.rmd)
 :::
 
 ::: {.column width=33%}
-### 08/29 - Lab 2  
-### Descriptive Statistics I
+### 08/29 - Lab 2
+#### Descriptive Statistics I
 [Slides](./slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.qmd) | [Assignment](./assignments/PSYC2020L Assignment 2.rmd)
 :::
 
 ::: {.column width=33%}
-### 08/29 - Lab 2  
-### Descriptive Statistics II
+### 09/04 - Lab 3
+#### Descriptive Statistics II
 Coming soon!
 :::
 
