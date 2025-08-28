@@ -11,7 +11,7 @@ Welcome to the website for PSYC 2020-A01 **Psychological Statistics** / **PSYC 6
 
 ## posit::conf(2025)
 
-Extra credit opportunity! [Instructions](/assignments/Extra Credit 1.qmd)
+Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity! See here for [instructions](/assignments/Extra Credit 1.qmd).
 
 ## Labs
 
