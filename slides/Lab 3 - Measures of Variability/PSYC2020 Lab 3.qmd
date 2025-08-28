@@ -1,0 +1,629 @@
+---
+title: "Measures of Variability"
+subtitle: "PSYC 2020-A01 / PSYC 6022-A01 | 2025-09-04 | Lab 3"
+author: "Jessica Helmer"
+format: 
+  live-revealjs:
+    slide-number: true
+    show-slide-number: all
+    css: PSYC2020L_styles.css
+engine: knitr
+width: 1200
+---
+
+## Outline
+
+* Assignment 2 Review
+* More on types of data
+* Labeling data
+* Aggregating data
+* Descriptives by group
+* Weighted mean
+
+```{r}
+
+knitr::opts_chunk$set(echo = T)
+
+```
+
+## Measures of Variability Review
+
+Describe the "spread" or "dispersion" of the data
+
+```{r, echo=F}
+#| fig-width: 4.5
+#| fig-height: 3.5
+#| layout-ncol: 3
+
+hist(x = rnorm(1000, 0, .5),
+     main = "low variance",
+     xlab = "value",
+     xlim = c(-4, 4),
+     ylim = c(0, 350),
+     breaks = 10)
+
+hist(x = rnorm(1000, 0, 1),
+     main = "standard",
+     xlab = "value",
+     xlim = c(-4, 4),
+     ylim = c(0, 350),
+     breaks = 10)
+
+hist(x = rnorm(1000, 0, 2),
+     main = "high variance",
+     xlab = "high",
+     xlim = c(-4, 4),
+     ylim = c(0, 350),
+     breaks = 10)
+```
+
+## Measures of Variability Functions
+
+```{r}
+testscores <- c(88, 93, 92, 99, 96)
+```
+
+Variance: `var(x)` function  
+<div class="subpoint">○ `x` = vector </div>
+
+Standard Deviation: `sd(x)` function  
+<div class="subpoint">○ `x` = vector </div>
+
+Interquartile Range: `IQR(x)` function  
+<div class="subpoint">○ `x` = title </div>
+
+<div class="subsubpoint">○ Difference between the 3rd and 1st quantile (so 50% of the data within this range) </div>
+<div class="subsubpoint">○ 25% of the data lower than the 1st quantile </div>
+<div class="subsubpoint">○ 75% of the data lower than the 3rd quantile </div>
+<div class="subsubpoint">○ IQR = 3rd - 1st </div>
+
+```{webr}
+# let's look at some variances!
+
+```
+
+::: {.fragment}
+Quantiles: `quantile()` function
+:::
+
+## Object Types: Vector
+
+We've already seen and used vectors
+
+```{r}
+c(2, 3, 4, 2)
+
+c("Cat", "Dog", "Bird")
+```
+
+We know they can only hold one type of data
+
+```{r}
+c("Cat", "Dog", 4)
+```
+
+Shorthand for sequenced numbers:
+```{r}
+1:10
+```
+
+## Object Types: Matrix
+
+Like a vector, but multidimensional
+
+Can only hold one type of data
+
+<div class="subpoint">○ Worse than a dataframe?</div>
+
+::: {.fragment}
+<div class="subpoint">○ Okay! But pop up in function output often</div>
+:::
+::: {.fragment}
+<div class="subpoint">○ So we need to know how to work with them</div>
+:::
+
+::: {.fragment}
+```{r}
+matrix(c(1, 2, 3, 4), nrow = 2)
+```
+Default is to fill in columns first
+:::
+::: {.fragment}
+```{r}
+matrix(c(1, 2, 3, 4), nrow = 2, byrow = T)
+```
+:::
+## Object Types: Matrix
+
+Can give names
+
+:::: {.columns}
+::: {.column}
+#### `colnames()` Function
+```{r}
+#| code-line-numbers: false
+mymatrix <- matrix(c(0, 1, 2,
+                     1, 2, 3,
+                     2, 3, 4),
+                   nrow = 3, byrow = T)
+colnames(mymatrix) <- c("Var1", "Var2", "Var3")
+mymatrix
+```
+Retrieves object column names, then assigns them something else
+:::
+::: {.column}
+#### `dimnames` Argument
+```{r}
+#| code-line-numbers: false
+mymatrix <- matrix(c(0, 1, 2,
+                     1, 2, 3,
+                     2, 3, 4),
+                   nrow = 3, byrow = T,
+                   dimnames = list(NULL,
+                                   c("Var1", "Var2", "Var3")))
+mymatrix
+```
+Sets names while creating the matrix
+
+Takes a `list(row_names, colum_names)`
+:::
+::::
+
+## Object Types: List
+
+Limitations of vectors:
+
+<div class="subpoint">○ Can only hold one type of data </div>
+
+Enter the `list`
+
+Can create by calling the `list()` function and giving it some objects
+
+:::: {.columns}
+::: {.column}
+```{r}
+list(1, 2, "cat")
+```
+:::
+::: {.column}
+```{r}
+list(1:4, c("a", "b"))
+```
+:::
+::::
+
+## Object Types: Dataframes
+
+More review
+
+Like matrices, but can hold different types of data
+
+:::: {.columns}
+::: {.column}
+```{r}
+matrix(c("cat", 2, "dog", 2),
+       nrow = 2, byrow = T,
+       dimnames = list(NULL, c("Pet",
+                               "Count")))
+```
+:::
+::: {.column}
+```{r}
+mydataframe <- data.frame(
+  pet = c("cat", "dog"),
+  count = c(2, 2))
+mydataframe
+```
+:::
+::::
+
+## Indexing
+
+To access some subset of an object (vector, list, dataframe, etc.)
+
+We already know one! The `$` operator indexes by selecting a column
+
+```{r}
+mydataframe$pet
+```
+
+## Indexing
+
+To access some subset of an object (vector, list, dataframe, etc.)
+
+Can also use brackets `[]`
+
+```{r}
+myvector <- c(2, 4, 6, 8)
+
+myvector[1]
+```
+
+Can select more than one position at a time
+
+```{r}
+myvector[c(1, 2, 3)]
+
+myvector[1:3]
+```
+
+## Indexing
+
+Need to account for multiple dimensions
+
+Matrix: `[element position]` or `[row, column]`
+
+```{r}
+mymatrix
+```
+
+:::: {.columns}
+::: {.column .fragment}
+```{r}
+mymatrix[1]
+
+mymatrix[4]
+```
+:::
+::: {.column .fragment}
+```{r}
+mymatrix[2, ]
+
+mymatrix[3, 2]
+```
+:::
+::::
+
+## Indexing
+
+Dataframe: `[column]` or `[row, column]`
+
+```{r}
+mydataframe
+```
+
+:::: {.columns}
+::: {.column .fragment}
+```{r}
+mydataframe[1]
+
+mydataframe["pet"]
+
+mydataframe$pet
+```
+:::
+::: {.column .fragment}
+```{r}
+mydataframe[2, "pet"]
+```
+
+Can also do more than one element at a time:
+
+```{r}
+mydataframe[1:2, "count"]
+```
+:::
+::::
+
+## Labeling Data
+
+:::: {.columns}
+::: {.column}
+Adding meaningful labels or categories to your dataset.
+
+Useful for organizing and interpreting your data.
+
+<div class="subpoint">○ E.g., Adding labels like “Pass” or “Fail” based on test scores. </div>
+:::
+
+::: {.column}
+```{r, echo=F}
+data <- data.frame("id" = 1:5,
+           "order" = sample(1:3, 5, replace = T),
+           "rating" = sample(1:5, 5, replace = T))
+
+data
+```
+<br>
+
+::: fragment
+```{r, echo=F}
+data$order <- ifelse(data$order == 1, "Pizza",
+                    ifelse(data$order == 2, "Pasta",
+                           ifelse(data$order == 3, "Salad", NA)))
+data$rating <- ifelse(data$rating == 1, "Very Poor",
+                      ifelse(data$rating == 2, "Poor",
+                             ifelse(data$rating == 3, "Fair",
+                                    ifelse(data$rating == 4, "Good",
+                                           ifelse(data$rating == 5, "Excellent", NA)))))
+
+data
+
+```
+:::
+:::
+::::
+
+## Key Functions for Labeling Data
+
+:::: {.columns}
+::: {.column width=66%}
+```{r}
+#| code-line-numbers: false
+scores <- c(85, 60, 45, 70, 50)
+```
+:::
+
+::: {.column width=33%}
+```{r}
+#| code-line-numbers: false
+gender <- c(1, 2, 1, 2, 2)
+```
+:::
+::::
+
+:::: {.columns style="font-size: 70%"}
+::: {.column width=33%}
+`ifelse(test, yes, no)`  
+For simple conditional labeling
+:::
+
+::: {.column width=33%}
+`cut()`  
+For creating bins or ranges
+:::
+
+::: {.column width=33%}
+`factor()`  
+Convert numeric or character data into labeled categories
+:::
+::::
+
+:::: {.columns style="font-size: 70%"}
+::: {.column .fragment width=33%}
+```{r}
+#| code-line-numbers: false
+# Labeling as Pass/Fail
+labels <- ifelse(scores >= 60,
+                 "Pass", "Fail")
+
+# Combining into a data frame
+data <- data.frame(Scores = scores,
+                   Label = labels)
+
+data
+```
+:::
+
+::: {.column .fragment width=33%}
+```{r}
+#| code-line-numbers: false
+# Creating bins
+categories <- cut(scores,
+                  breaks = c(0, 50, 70, 100),
+                  labels = c("Low", "Medium",
+                             "High"))
+
+# Combining into a data frame
+data <- data.frame(Scores = scores,
+                   Category = categories)
+
+data
+```
+:::
+
+::: {.column .fragment width=33%}
+```{r}
+#| code-line-numbers: false
+# Converting to factor with labels
+gender_labeled <- factor(gender,
+                         levels = c(1, 2),
+                         labels = c("Male",
+                                    "Female"))
+
+# Combine into a data frame
+data <- data.frame(gender,
+                   gender_labeled)
+
+data
+```
+:::
+::::
+
+## Descriptives by Group
+
+Aggregation involves summarizing or grouping data based on certain variables.
+
+Commonly used to calculate summary statistics like mean, variance, or sum for each group.
+
+:::: {.columns}
+::: {.column .fragment}
+Benefits: 
+<div class="subpoint">○ Data summary </div>
+<div class="subpoint">○ Data simplification </div>
+<div class="subpoint">○ Statistical analysis </div>
+<div class="subpoint">○ Trend identification </div>
+<div class="subpoint">○ Data privacy </div>
+<div class="subpoint">○ Data-driven decisions </div>
+:::
+
+::: {.column .fragment}
+`aggregate(y ~ group, FUN)`
+<div class="subpoint">○ `y` = vector we want statistics for </div>
+<div class="subpoint">○ `group` = vector with grouping data </div>
+<div class="subpoint">○ `FUN` = function to apply </div>
+:::
+::::
+
+## Descriptives by Group Example
+
+```{webr}
+# average Sepal Length by iris species?
+
+
+```
+
+## Descriptives by Group Visualization
+
+Why visualize aggregated data?
+<div class="subpoint">○ Makes group-level insights easier to interpret. </div>
+<div class="subpoint">○ Highlights patterns, trends, and outliers in grouped data </div>
+<div class="subpoint">○ Helps communicate findings effectively </div>
+
+![](us_hospitals.png)
+
+## Visualizations: Boxplots
+
+:::: {.columns}
+
+::: {.column}
+Back to the `iris` dataset, distribution of Sepal Length by species
+
+Anatomy of a boxplot:
+<div class="subpoint">○ "Minimum" </div>
+<div class="subpoint">○ 25th Quantile (Q1) </div>
+<div class="subpoint">○ Median </div>
+<div class="subpoint">○ 75th Quantile (Q3) </div>
+<div class="subpoint">○ "Maximum" </div>
+<div class="subpoint">○ Points representing outliers </div>
+
+:::
+
+::: {.column style="font-size:70%"}
+```{r, echo = F}
+#| fig-width: 5
+#| fig-height: 3
+library(ggplot2)
+
+ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
+  geom_boxplot(color = "black") +
+  theme_classic()
+
+```
+"Minimum" and "maximum" are not the *true* min and max
+<div class="subpoint">○ Minimum: $Q1 - 1.5 * IQR$ </div>
+<div class="subpoint">○ Maximum: $Q3 + 1.5 * IQR$ </div>
+Means that the whiskers contain \~99% of the data, rest are outliers
+:::
+::::
+
+::: footer
+For more explanation of the anatomy of a boxplot, feel free to check [this post out from Statistics by Jim](https://statisticsbyjim.com/graphs/box-plot/)
+:::
+
+## Visualizations: Boxplots
+
+One more resource for boxplot anatomy
+
+![](boxplot_anatomy.jpg){fig-align="center" width=400}
+
+::: footer
+[ ](https://www.simplypsychology.org/boxplots.html)
+:::
+
+## Visualizations: Boxplots...
+
+[![Datasaurus Dozen Boxplots](datasaurus_boxplots.gif)](https://www.research.autodesk.com/publications/same-stats-different-graphs/){fig-align="center"}
+
+::: footer
+https://www.research.autodesk.com/publications/same-stats-different-graphs/
+:::
+
+## Let's Do Some Visualization
+
+### Base R Graphics: Boxplot
+
+:::: {.columns}
+::: {.column}
+`boxplot(x)` function
+
+Its arguments are:
+
+<div class="subpoint">**Required arguments:** </div>
+<div class="subsubpoint">○ `x` = vector (variable) you want to plot </div>
+<div class="subpoint">**Optional arguments:** </div>
+<div class="subsubpoint">○ `main` = title </div>
+<div class="subsubpoint">○ `xlab` = label for x-axis </div>
+<div class="subsubpoint">○ `ylab` = label for y-axis </div>
+<div class="subsubpoint">○ `border` = color for bar borders </div>
+<div class="subsubpoint">○ `col` = color for bars </div>
+<div class="subsubpoint">○ `horizontal` = `T`/`F` to switch </div>
+:::
+
+::: {.column}
+::: {.panel-tabset}
+### Plot
+
+```{r, echo = F}
+#| fig-width: 4
+#| fig-height: 4
+boxplot(iris$Sepal.Length,
+     main = "Boxplot of Sepal Length",
+     xlab = "Sepal Length",
+     border = "gray35",
+     col = "skyblue")
+```
+
+### Code
+
+```{r, eval = F}
+boxplot(iris$Sepal.Length,
+     main = "Boxplot of Sepal Length",
+     xlab = "Sepal Length",
+     border = "gray35",
+     col = "skyblue")
+```
+:::
+:::
+::::
+
+## Let's Do Some Visualization
+
+### Base R Graphics: Boxplot
+
+:::: {.columns}
+::: {.column}
+To group them, you can change the `x` to a "formula"
+
+`outcome_var ~ group_var`
+
+Just like we saw with `aggregate()`
+:::
+
+::: {.column}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
+#| fig-width: 4
+#| fig-height: 4
+boxplot(iris$Sepal.Length ~ iris$Species,
+     main = "Boxplot of Sepal Length by Species",
+     xlab = "Sepal Length",
+     border = "gray35",
+     col = "skyblue")
+```
+### Code
+
+```{r, eval = F}
+boxplot(iris$Sepal.Length ~ iris$Species,
+     main = "Boxplot of Sepal Length by Species",
+     xlab = "Sepal Length",
+     border = "gray35",
+     col = "skyblue")
+```
+:::
+:::
+::::
+
+## Visualizations: Boxplot
+
+![](bloxplot_skewed.jpg){fig-align=center}
+
+
+## No Assignment!
+
+Don't forget to sign up for [posit::conf(2025)](https://posit.co/conference/) if you want to complete the extra credit assignment.
+
+
+
+

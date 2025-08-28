@@ -886,7 +886,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides \n\n\n\n\n08/29 - Lab 2\n\nDescriptive Statistics I\nComing soon! \n\n\n\n\n09/04 - Lab 3\n\nDescriptive Statistics II\nComing soon!"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides \n\n\n\n\n09/04 - Lab 3\n\nMeasures of Variability\nComing soon!"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
@@ -983,22 +983,22 @@
     "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#outline",
     "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#outline",
     "title": "Psychological Statistics Lab 3",
-    "section": "",
-    "text": "Assignment 2 Review\nLabeling data\nAggregating data\nVisualizing aggregates\nWeighted mean\n\nLearning objectives:\nStats: Review measures of dispersion\nR:\n\nknitr::opts_chunk$set(echo = T)"
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 2 Review\nMore on types of data\nLabeling data\nAggregating data\nDescriptives by group\nWeighted mean"
   },
   {
     "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#labeling-data",
     "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#labeling-data",
     "title": "Psychological Statistics Lab 3",
     "section": "Labeling Data",
-    "text": "Labeling Data\n\n\nAdding meaningful labels or categories to your dataset.\nUseful for organizing and interpreting your data.\n\n○ E.g., Adding labels like “Pass” or “Fail” based on test scores.\n\n\n\n\n  id order rating\n1  1     1      3\n2  2     3      2\n3  3     1      3\n4  4     2      5\n5  5     3      4\n\n\n\n\n\n\n  id order    rating\n1  1 Pizza      Fair\n2  2 Salad      Poor\n3  3 Pizza      Fair\n4  4 Pasta Excellent\n5  5 Salad      Good"
+    "text": "Labeling Data\n\n\nAdding meaningful labels or categories to your dataset.\nUseful for organizing and interpreting your data.\n\n○ E.g., Adding labels like “Pass” or “Fail” based on test scores.\n\n\n\n\n  id order rating\n1  1     2      1\n2  2     1      1\n3  3     3      5\n4  4     1      2\n5  5     1      1\n\n\n\n\n\n\n  id order    rating\n1  1 Pasta Very Poor\n2  2 Pizza Very Poor\n3  3 Salad Excellent\n4  4 Pizza      Poor\n5  5 Pizza Very Poor"
   },
   {
     "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#key-functions-for-labeling-data",
     "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#key-functions-for-labeling-data",
     "title": "Psychological Statistics Lab 3",
     "section": "Key Functions for Labeling Data",
-    "text": "Key Functions for Labeling Data\n\n\n\nscores &lt;- c(85, 60, 45, 70, 50)\n\n\n\ngender &lt;- c(1, 2, 1, 2, 2)\n\n\n\n\n\nifelse(test, yes, no)\nFor simple conditional labeling\n\ncut()\nFor creating bins or ranges\n\nfactor()\nConvert numeric or character data into labeled categories\n\n\n\n\n\n# Labeling as Pass/Fail\nlabels &lt;- ifelse(scores &gt;= 60,\n                 \"Pass\", \"Fail\")\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Label = labels)\n\ndata\n\n  Scores Label\n1     85  Pass\n2     60  Pass\n3     45  Fail\n4     70  Pass\n5     50  Fail\n\n\n\n\n# Creating bins\ncategories &lt;- cut(scores,\n                  breaks = c(0, 50, 70, 100),\n                  labels = c(\"Low\", \"Medium\",\n                             \"High\"))\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Category = categories)\n\ndata\n\n  Scores Category\n1     85     High\n2     60   Medium\n3     45      Low\n4     70   Medium\n5     50      Low\n\n\n\n\n# Converting to factor with labels\ngender_labeled &lt;- factor(gender,\n                         levels = c(1, 2),\n                         labels = c(\"Male\",\n                                    \"Female\"))\n\n# Combine into a data frame\ndata &lt;- data.frame(gender,\n                   gender_labeled)\n\ndata\n\n  gender gender_labeled\n1      1           Male\n2      2         Female\n3      1           Male\n4      2         Female\n5      2         Female"
+    "text": "Key Functions for Labeling Data\n\n\n\nscores &lt;- c(85, 60, 45, 70, 50)\n\n\n\ngender &lt;- c(1, 2, 1, 2, 2)\n\n\n\n\nifelse(test, yes, no)\nFor simple conditional labeling\n\ncut()\nFor creating bins or ranges\n\nfactor()\nConvert numeric or character data into labeled categories\n\n\n\n\n# Labeling as Pass/Fail\nlabels &lt;- ifelse(scores &gt;= 60,\n                 \"Pass\", \"Fail\")\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Label = labels)\n\ndata\n\n  Scores Label\n1     85  Pass\n2     60  Pass\n3     45  Fail\n4     70  Pass\n5     50  Fail\n\n\n\n\n# Creating bins\ncategories &lt;- cut(scores,\n                  breaks = c(0, 50, 70, 100),\n                  labels = c(\"Low\", \"Medium\",\n                             \"High\"))\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Category = categories)\n\ndata\n\n  Scores Category\n1     85     High\n2     60   Medium\n3     45      Low\n4     70   Medium\n5     50      Low\n\n\n\n\n# Converting to factor with labels\ngender_labeled &lt;- factor(gender,\n                         levels = c(1, 2),\n                         labels = c(\"Male\",\n                                    \"Female\"))\n\n# Combine into a data frame\ndata &lt;- data.frame(gender,\n                   gender_labeled)\n\ndata\n\n  gender gender_labeled\n1      1           Male\n2      2         Female\n3      1           Male\n4      2         Female\n5      2         Female"
   },
   {
     "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#data-aggregation",
@@ -1012,7 +1012,7 @@
     "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#data-aggregation-example",
     "title": "Psychological Statistics Lab 3",
     "section": "Data Aggregation Example",
-    "text": "Data Aggregation Example\n\n# average Sepal Length by iris species?"
+    "text": "Data Aggregation Example"
   },
   {
     "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#data-aggregation-visualization",
@@ -1026,7 +1026,7 @@
     "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#testing",
     "title": "Psychological Statistics Lab 3",
     "section": "Testing",
-    "text": "Testing\n\n\nYou can make histograms with the hist() function\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot (remember the $ function!)\n\n\nOptional arguments:\n\n\n\n\n○ breaks: number of bins\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n\n○ col: color for bars\n\n\n○ xlim: range for x-axis\n\n\n○ ylim: range for y-axis\n\n\n○ prob: T/F, y-axis proportion instead of frequency\n\n\n\nIf you do not set specific values for non-essential subarguments, it will use the default\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhist(iris$Sepal.Length,\n     breaks = 7,\n     main = \"Histogram of Sepal Length\",\n     xlab = \"Sepal Length\",\n     xlim = c(3, 9),\n     border = \"white\",\n     col = \"skyblue\")"
+    "text": "Testing\n\n\nYou can make histograms with the hist() function\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot (remember the $ function!)\n\n\nOptional arguments:\n\n\n\n\n○ breaks: number of bins\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n\n○ col: color for bars\n\n\n○ xlim: range for x-axis\n\n\n○ ylim: range for y-axis\n\n\n○ prob: T/F, y-axis proportion instead of frequency\n\n\nIf you do not set specific values for non-essential subarguments, it will use the default\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhist(iris$Sepal.Length,\n     breaks = 7,\n     main = \"Histogram of Sepal Length\",\n     xlab = \"Sepal Length\",\n     xlim = c(3, 9),\n     border = \"white\",\n     col = \"skyblue\")"
   },
   {
     "objectID": "slides/Lab 1 - Basic R/PSYC2020L Lab 1.html",
@@ -1313,14 +1313,14 @@
     "href": "assignments/PSYC2020L Assignment 2.html",
     "title": "PSYC2020L Assignment 2",
     "section": "",
-    "text": "Basic R functions\nDescriptive statistics"
+    "text": "Basic R functions\nDescriptive statistics\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
   },
   {
     "objectID": "assignments/PSYC2020L Assignment 2.html#goals-for-review",
     "href": "assignments/PSYC2020L Assignment 2.html#goals-for-review",
     "title": "PSYC2020L Assignment 2",
     "section": "",
-    "text": "Basic R functions\nDescriptive statistics"
+    "text": "Basic R functions\nDescriptive statistics\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
   },
   {
     "objectID": "assignments/PSYC2020L Assignment 2.html#setting-up",
@@ -1341,14 +1341,14 @@
     "href": "assignments/PSYC2020L Assignment 2.html#data-summary",
     "title": "PSYC2020L Assignment 2",
     "section": "Data Summary",
-    "text": "Data Summary\n\n5) Show me the first five rows of the airquality dataset\n\n\n6) Obtain the summary() statistics for this dataset"
+    "text": "Data Summary\nWe will be using the airquality dataset for this assignment. Like the iris dataset, this comes preloaded in R. It contains information on daily air quality measurements in New York from May to September 1973.\n\n5) Show me the first five rows of the airquality dataset\n\n\n6) Obtain the summary() statistics for this dataset"
   },
   {
     "objectID": "assignments/PSYC2020L Assignment 2.html#ozone-descriptive-statistics",
     "href": "assignments/PSYC2020L Assignment 2.html#ozone-descriptive-statistics",
     "title": "PSYC2020L Assignment 2",
     "section": "7) Ozone Descriptive Statistics",
-    "text": "7) Ozone Descriptive Statistics\n\na) What is the mean?\n\n\nb) What is the variance?\n\n\nc) What is the standard deviation?\n\n\nd) What is the IQR?"
+    "text": "7) Ozone Descriptive Statistics\n\na) What is the mean?\n\n\nb) What is the median?"
   },
   {
     "objectID": "assignments/PSYC2020L Assignment 2.html#histograms-for-ozone",
@@ -1369,7 +1369,7 @@
     "href": "assignments/PSYC2020L Assignment 2.html#descriptive-statistics-for-temp",
     "title": "PSYC2020L Assignment 2",
     "section": "10) Descriptive statistics for Temp",
-    "text": "10) Descriptive statistics for Temp\n\na) What is the mean?\n\n\nb) What is the variance?\n\n\nc) What is the SD?\n\n\nd) What is the IQR?"
+    "text": "10) Descriptive statistics for Temp\n\na) What is the mean?\n\n\nb) What is the median?"
   },
   {
     "objectID": "assignments/PSYC2020L Assignment 2.html#histogram-for-temp",
@@ -1383,7 +1383,7 @@
     "href": "assignments/PSYC2020L Assignment 2.html#comparison-between-ozone-and-temp",
     "title": "PSYC2020L Assignment 2",
     "section": "12) Comparison between Ozone and Temp…",
-    "text": "12) Comparison between Ozone and Temp…\n\na) Does the mean change? (Yes / No)\n\n\nb) Which variable has a smaller variance? (Ozone / Temp)\n\n\nc) Which variable has a smaller SD? (Ozone / Temp)\n\n\nd) Which variable has a smaller IQR? (Ozone / Temp)"
+    "text": "12) Comparison between Ozone and Temp…\n\na) Does the mean change?\n\n\nb) Does the median change?"
   },
   {
     "objectID": "assignments/PSYC2020L Assignment 1.html",
@@ -1404,14 +1404,14 @@
     "href": "assignments/PSYC2020L Assignment 1.html#setting-up",
     "title": "PSYC2020L Assignment 1",
     "section": "Setting Up",
-    "text": "Setting Up\n\n1) Rename this assignment as “Lab 1 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory"
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 1 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory\n\ngetwd()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/assignments\"\n\n\n\nWe ran out of time to cover setting working directory; this is all they have to do for this question."
   },
   {
     "objectID": "assignments/PSYC2020L Assignment 1.html#r-basics",
     "href": "assignments/PSYC2020L Assignment 1.html#r-basics",
     "title": "PSYC2020L Assignment 1",
     "section": "R Basics",
-    "text": "R Basics\n\n3) Compute:\n\na) The product of 4 * 4\n\n\nb) 4 squared\n\n\nc) The remainder from dividing 16 by 3\n\n\nd) FALSE divided by TRUE. Why did you get this answer?\n\n\n\n4) The output of the following two lines of code is different. Why is that?\n\n3 + 2 / 2\n\n[1] 4\n\n\n\n(3 + 2) / 2\n\n[1] 2.5\n\n\n\n\n4)\n\na) Create a vector of your four favorite movies\n\n\nb) Create a vector of the years they came out\n\n\nc) Create a vector of the ratings (number of stars out of five) that YOU think they deserve\n\n\nd) Put all those vectors in a dataframe with the column labels “fav_movie”, “year”, and “my_rating”\n\n\n\n5) Show me…\n\n\nThe first three rows of the iris dataset\n\n\n6) Plot…\n\nA scatterplot with Petal.Length on the x and Petal.Width on the y"
+    "text": "R Basics\n\n3) Compute:\n\na) The product of 4 * 4\n\n4 * 4\n\n[1] 16\n\n\n\n\nb) 4 squared\n\n4 ^ 2\n\n[1] 16\n\n# or\n4 ** 2\n\n[1] 16\n\n\n\nThe first one is more likely; it’s what I showed in class.\n\n\n\nc) The remainder from dividing 16 by 3\n\n16 %% 3\n\n[1] 1\n\n\n\n\nd) FALSE divided by TRUE. Why did you get this answer?\n\nFALSE / TRUE\n\n[1] 0\n\n\nFALSE and TRUE are represented as 0 and 1 by R. When you divide 0 by 1, you get 0.\n\n\n\n4) The output of the following two lines of code is different. Why is that?\n\n3 + 2 / 2\n\n[1] 4\n\n\n\n(3 + 2) / 2\n\n[1] 2.5\n\n\nR follows standard the order of operations for math (PEMDAS). Because parentheses are evaluated first, the (3 + 2) becomes 5 in the second version, which is then divided by 2 to get 2.5. In the first version, the 2 / 2 is evaluated first, which becomes 1 and is then added to 3 to get 4.\n\n\n4)\n\na) Create a vector of your four favorite movies\n\nThese don’t have to have output as long as the syntax is correct.\n\n\nmy_movies &lt;- c(\"Dune: Part 1\", \"Dune: Part 2\", \"Third Movie\", \"Fourth Movie\")\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nb) Create a vector of the years they came out\n\nmovie_years &lt;- c(2022, 2024, 2000, 2000)\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nc) Create a vector of the ratings (number of stars out of five) that YOU think they deserve\n\nratings &lt;- c(5, 5, 5, 5)\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nd) Put all those vectors in a dataframe with the column labels “fav_movie”, “year”, and “my_rating”\n\nSame here, doesn’t have to have output as long as the syntax is correct.\n\n\ndata.frame(fav_movie = my_movies,\n           year = movie_years,\n           my_rating = ratings)\n\n     fav_movie year my_rating\n1 Dune: Part 1 2022         5\n2 Dune: Part 2 2024         5\n3  Third Movie 2000         5\n4 Fourth Movie 2000         5\n\n\n\nWhether they retype it by hand or use variable assignment is fine as long as the responses from a, b, and c match d. The variable names should be fav_movie, year, and my_rating.\n\n\n\n\n5) Show me…\n\n\nThe first three rows of the iris dataset\n\nhead(iris, n = 3)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n\n\n\n\n6) Plot…\n\nA scatterplot with Petal.Length on the x and Petal.Width on the y\n\nplot(iris$Petal.Length, iris$Petal.Width)"
   },
   {
     "objectID": "slides/Lab 1 - Basic R/PSYC2020L Assignment 1.html",
@@ -1451,86 +1451,86 @@
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#outline",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#outline",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Outline",
-    "text": "Outline\n\nAssignment 1 Review\nCentral Tendency Review\nCentral Tendency in R\nVariable Assignment\nR Functions\n\nLearning objectives: Stats: Review measures of central tendency R: Variable assignment, functions, histogram, boxplot"
+    "text": "Outline\n\nAssignment 1 Review\nExtra Credit\nR Projects\nCentral Tendency Review\nR Functions\nCentral Tendency in R\n\nLearning objectives:\nR: Projects, functions\nStatistics: Central tendency"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#assignment-1-review",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#assignment-1-review",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Assignment 1 Review",
-    "text": "Assignment 1 Review\nPlaceholder for common mistakes on Assignment 1"
+    "text": "Assignment 1 Review\n\n\nCheck Working Directory\ngetwd()\n\nPlotting\nMake sure to select the right variable for plotting!\nplot(iris$Sepal.Length, iris$Sepal.Width,\n     col = \"#E50046\")\nplot(iris$Petal.Length, iris$Petal.Width,\n     col = \"#C7DB9C\")"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#review-of-central-tendency",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#review-of-central-tendency",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Review of Central Tendency!",
     "text": "Review of Central Tendency!\nMean: Sum of all values divided by the total number of values\nMedian: When sorted lowest to highest, the middle value\nMode: The value that appears most often"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-practice",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-practice",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Central Tendency Practice",
-    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 2, 2, 4)\n\n[1] 0 2 2 4\n\n\nWhat is the mean?\nWhat is the median?\nWhat is the mode?"
+    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 2, 2, 4)\n\n[1] 0 2 2 4\n\n\nWhat is the mean? 2\nWhat is the median? 2\nWhat is the mode? 2"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-practice-1",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-practice-1",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Central Tendency Practice",
-    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 1, 2, 4)\n\n[1] 0 1 2 4\n\n\nWhat is the mean?\nWhat is the median?\nWhat is the mode?"
+    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 1, 2, 3)\n\n[1] 0 1 2 3\n\n\nWhat is the mean? 1.5\nWhat is the median? 1.5\nWhat is the mode? No mode!"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "R Functions",
     "text": "R Functions\nA function performs some operation on an input and produces some output\nSaw this last week\n\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\nWhat is the function? Input? Output?"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mean",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mean",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Central Tendency in R: Mean",
-    "text": "Central Tendency in R: Mean\nWe can calculate central tendencies in two ways:\nGiven this dataset, calculate the mean\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n\n\n\n\n\n\n\n\nWith the mean() function"
+    "text": "Central Tendency in R: Mean\nWe can calculate central tendencies in two ways:\nGiven this dataset, calculate the mean\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n\n\n\n\n\n\n\n\nWith the mean(x) function\n\n○ x = vector of data"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-median",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-median",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Central Tendency in R: Median",
-    "text": "Central Tendency in R: Median\nGiven this dataset, calculate the median\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n\n\n\n\n\n\n\n\nWith the median() function"
+    "text": "Central Tendency in R: Median\nGiven this dataset, calculate the median\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n\n\n\n\n\n\n\n\nWith the median(x) function\n\n○ x = vector of data"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mode",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mode",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Central Tendency in R: Mode",
     "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\nWith the mode() function\n\n\n\n\n\n\n\n\n\nDoesn’t work :(\nHave to create our own"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions-1",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions-1",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "R Functions",
     "text": "R Functions\nWe’ve seen some built-in R functions (e.g., mean(), median()), but we can also make our own\n\n\nfunction_name &lt;- function(argument) {\n  do some stuff\n  return(this stuff)\n}\n\nⓘ Don’t actually need to call return(); R will automatically return the last expression\n\n\nThen, you can call the function\nfunction_name(specific_argument)\n\n\nTo keep the results, make sure to assign them to some variable\nvery_important_results &lt;- function_name(specific_argument)"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions-2",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-functions-2",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "R Functions",
     "text": "R Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLet’s go back to finding the mode"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mode-1",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#central-tendency-in-r-mode-1",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Central Tendency in R: Mode",
-    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\nmy_mode &lt;- function(x) {\n  values &lt;- unique(x)\n  counts &lt;- tabulate(match(x, values))\n  max_index &lt;- which.max(counts)\n  values[max_index]\n}\n\nHow does this work?"
+    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\n# note from jess: considering switching to just showing table()\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\nmode_func &lt;- function(x) {\n  sort(table(x), decreasing = T)[1]\n}\n\nHow does this work?"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#measures-of-variability-intro",
@@ -1549,105 +1549,105 @@
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#descriptive-statistics-in-r",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#descriptive-statistics-in-r",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Descriptive Statistics in R",
-    "text": "Descriptive Statistics in R\nTakes time to look at all these for a lot of variables, even with functions\nThe summary() function provides us a quick overview of this information\n\n\n\n\n\n\n\n\nWhat all do we get?\n\n\n○ Minimum and maximum\n\n\n○ 1st quantile, median, 3rd quantile\n\n\n○ Mean"
+    "text": "Descriptive Statistics in R\nTakes time to look at all these for a lot of variables, even with functions\nThe summary(object) function provides us a quick overview of this information\n\n○ object = for our purposes, a dataframe\n\n\n\n\n\n\n\n\n\nWhat all do we get?\n\n\n○ Minimum and maximum\n\n\n○ 1st quantile, median, 3rd quantile\n\n\n○ Mean"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Visualizations!",
     "text": "Visualizations!\nSummary statistics are great, but don’t trust them alone!\nWhat do you think a dataset with these descriptives would look like?\n\nX_mean &lt;- 54.26\nY_mean &lt;- 47.83\n\nX_sd &lt;- 16.76\nY_sd &lt;- 26.93\n\ncor &lt;- -0.06"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-1",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-1",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Visualizations!",
     "text": "Visualizations!"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-2",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-2",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Visualizations!",
     "text": "Visualizations!\n\n\n\nDatasaurus Dozen\n\n\n\nhttps://www.research.autodesk.com/publications/same-stats-different-graphs/"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-3",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-3",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Visualizations",
     "text": "Visualizations\nDon’t rush: graph your data!\nWhat should graphs do?\n\n○ Show the data\n\n\n○ Draw the reader primarily to the data (not the graphical effects)\n\n\n○ Avoid distorting the data\n\n\n○ Present many numbers with minimum ink\n\n\n○ Make large data sets coherent\n\n\n○ Encourage the reader to compare different pieces of data"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-histograms",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-histograms",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Visualizations: Histograms",
     "text": "Visualizations: Histograms\n\n\nAn example of (simulated) SAT scores\nWhat do we see here?\n\n\n○ Outliers at zero! Not a possible SAT score\n\n\n\n\n○ Negatively skewed: more data on the left than on the right"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#skew",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#skew",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Skew",
-    "text": "Skew\n\n\n\n\nPositive Skew, right-tailed\nThe mass of the distribution is concentrated on the left of the figure\n\nNegative Skew, left-tailed\nThe mass of the distribution is concentrated on the right of the figure"
+    "text": "Skew\n\n\n\n\nPositive skew, right-tailed\nThe mass of the distribution is concentrated on the left of the figure\n\nNegative skew, left-tailed\nThe mass of the distribution is concentrated on the right of the figure"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#skewness-demonstration",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#skewness-demonstration",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Skewness Demonstration",
     "text": "Skewness Demonstration\n\n\n\n\n\nFull screen version here\n\nSkewness demonstration!\nCredits to Fabio Setti"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Let’s Do Some Visualization",
-    "text": "Let’s Do Some Visualization\nBase R Graphics\nR has some plotting features built in—we saw this last week\n\n\n\nplot(iris$Sepal.Length, iris$Sepal.Width)\n\n\n\n\n\n\n\n\n\nBut we did not love this!"
+    "text": "Let’s Do Some Visualization\nBase R Graphics\nR has some plotting features built in—we saw this last week\n\n\n\nplot(iris$Sepal.Length, iris$Sepal.Width)\n\n\n\n\n\n\n\n\n\nWhat do we think about this?"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#base-r-graphics-1",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#base-r-graphics-1",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Base R Graphics",
     "text": "Base R Graphics\nBetter… (thanks, ChatGPT)\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nplot(iris$Sepal.Length, iris$Sepal.Width,\n     pch = 19,                 # solid circles\n     col = \"#377EB8\",           # pleasant blue\n     cex = 1.3,                 # slightly larger points\n     xlab = \"Sepal Length\",     # cleaner label\n     ylab = \"Sepal Width\",\n     main = \"Sepal Length vs Sepal Width\",\n     cex.lab = 1.2,             # bigger axis labels\n     cex.main = 1.4,            # bigger title\n     font.main = 2)             # bold title\n\n\n\n\n\nWe will learn a few plots in base R plotting, and then we will learn a better way of making plots: ggplot2\n\nR Graph Gallery"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-1",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-1",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Let’s Do Some Visualization",
-    "text": "Let’s Do Some Visualization\nBase R Graphics: Histogram\n\n\nhist() function\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot (remember the $ function!)\n\n\nOptional arguments:\n\n\n\n\n○ breaks: number of bins\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n\n○ col: color for bars\n\n\n○ xlim: range for x-axis\n\n\n○ ylim: range for y-axis\n\n\n○ prob: T/F, y-axis proportion instead of frequency\n\n\nIf you do not set specific values for non-essential subarguments, it will use the default\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhist(iris$Sepal.Length,\n     breaks = 7,\n     main = \"Histogram of Sepal Length\",\n     xlab = \"Sepal Length\",\n     xlim = c(3, 9),\n     border = \"white\",\n     col = \"skyblue\")"
+    "text": "Let’s Do Some Visualization\nBase R Graphics: Histogram\n\n\nhist() function\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot (remember the $ function!)\n\n\nOptional arguments:\n\n\n\n\n○ breaks = bin count\n\n\n○ main = title\n\n\n○ xlab = label for x-axis\n\n\n○ ylab = label for y-axis\n\n\n\n○ col = color for bars\n\n\n○ xlim = range for x-axis\n\n\n○ ylim = range for y-axis\n\n\n○ prob = T/F, proportion instead of frequency\n\n\n\nIf you do not set specific values for non-essential subarguments, it will use the default\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhist(iris$Sepal.Length,\n     breaks = 7,\n     main = \"Histogram of Sepal Length\",\n     xlab = \"Sepal Length\",\n     xlim = c(3, 9),\n     border = \"white\",\n     col = \"skyblue\")"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-2",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-2",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Let’s Do Some Visualization",
     "text": "Let’s Do Some Visualization\nBase R Graphics: Histogram\nAn important decision for histograms is this number (or width) of bins\nSpecified with the breaks argument"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-3",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-3",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Let’s Do Some Visualization",
     "text": "Let’s Do Some Visualization\nBase R Graphics: Histogram\nAn important decision for histograms is this number (or width) of bins\nSpecified with the breaks argument"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-4",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#lets-do-some-visualization-4",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Let’s Do Some Visualization",
     "text": "Let’s Do Some Visualization\nBase R Graphics: Histogram\nIf we could make the bins infinitesimally small, we could get a probability density function (PDF)\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndat &lt;- data.frame(x = rnorm(1000))\n\ncowplot::plot_grid(\n  plotlist = list(\n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 10) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 50) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 100) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 100, alpha = .8) +\n      stat_function(inherit.aes = FALSE, fun = dnorm,\n                    n = 101, args = list(mean = 0, sd = 1),\n                    xlim = c(-4, 4),\n                    color = \"grey35\", linewidth = 2) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot()\n  ),\n  nrow = 1)"
   },
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-histogram",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#visualizations-histogram",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Visualizations: Histogram",
     "text": "Visualizations: Histogram\nCan describe a distribution by its “dispersion”"
   },
@@ -1696,9 +1696,9 @@
   {
     "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#assignment-2",
     "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#assignment-2",
-    "title": "Psychological Statistics Lab 2",
+    "title": "Central Tendency",
     "section": "Assignment 2",
-    "text": "Assignment 2"
+    "text": "Assignment 2\n\nBasic R functions\nDescriptive statistics"
   },
   {
     "objectID": "index.html#overview",
@@ -1783,5 +1783,1216 @@
     "title": "PSYC2020L Assignment 2",
     "section": "12) Comparison between Ozone and Temp…",
     "text": "12) Comparison between Ozone and Temp…\n\na) Does the mean change? (Yes / No)\n\n\nb) Which variable has a smaller variance? (Ozone / Temp)\n\n\nc) Which variable has a smaller SD? (Ozone / Temp)\n\n\nd) Which variable has a smaller IQR? (Ozone / Temp)"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#measures-of-variability-intro",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#measures-of-variability-intro",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Measures of Variability Intro",
+    "text": "Measures of Variability Intro\nWill go over in class in detail next week\nDescribe the “spread” or “dispersion” of the data"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#measures-of-variability-functions",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#measures-of-variability-functions",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Measures of Variability Functions",
+    "text": "Measures of Variability Functions\n\ntestscores &lt;- c(88, 93, 92, 99, 96)\n\nVariance: var() function\nStandard Deviation: sd() function\nInterquartile Range: IQR() function\n\n\n○ Difference between the 3rd and 1st quantile (so 50% of the data within this range)\n\n\n○ 25% of the data lower than the 1st quantile\n\n\n○ 75% of the data lower than the 3rd quantile\n\n\n○ IQR = 3rd - 1st\n\n\n\n\n\n\n\n\n\n\nQuantiles: quantile() function"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#object-types-vector",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#object-types-vector",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Object Types: Vector",
+    "text": "Object Types: Vector\nWe’ve already seen and used vectors\n\nc(2, 3, 4, 2)\n\n[1] 2 3 4 2\n\nc(\"Cat\", \"Dog\", \"Bird\")\n\n[1] \"Cat\"  \"Dog\"  \"Bird\"\n\n\nWe know they can only hold one type of data\n\nc(\"Cat\", \"Dog\", 4)\n\n[1] \"Cat\" \"Dog\" \"4\"  \n\n\nShorthand for sequenced numbers:\n\n1:10\n\n [1]  1  2  3  4  5  6  7  8  9 10"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#object-types-matrix",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#object-types-matrix",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Object Types: Matrix",
+    "text": "Object Types: Matrix\nLike a vector, but multidimensional\nCan only hold one type of data\n\n○ Worse than a dataframe?\n\n\n\n○ Okay! But pop up in function output often\n\n\n\n\n○ So we need to know how to work with them\n\n\n\n\nmatrix(c(1, 2, 3, 4), nrow = 2)\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\n\nDefault is to fill in columns first\n\n\n\nmatrix(c(1, 2, 3, 4), nrow = 2, byrow = T)\n\n     [,1] [,2]\n[1,]    1    2\n[2,]    3    4"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#object-types-list",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#object-types-list",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Object Types: List",
+    "text": "Object Types: List\nLimitations of vectors:\n\n○ Can only hold one type of data\n\nEnter the list\nCan create by calling the list() function and giving it some objects\n\n\n\nlist(1, 2, \"cat\")\n\n[[1]]\n[1] 1\n\n[[2]]\n[1] 2\n\n[[3]]\n[1] \"cat\"\n\n\n\n\nlist(1:4, c(\"a\", \"b\"))\n\n[[1]]\n[1] 1 2 3 4\n\n[[2]]\n[1] \"a\" \"b\""
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#object-types-dataframes",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#object-types-dataframes",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Object Types: Dataframes",
+    "text": "Object Types: Dataframes\nMore review\nLike matrices, but can hold different types of data\n\n\n\nmatrix(c(\"cat\", 2, \"dog\", 2),\n       nrow = 2, byrow = T,\n       dimnames = list(NULL, c(\"Pet\", \"Count\")))\n\n     Pet   Count\n[1,] \"cat\" \"2\"  \n[2,] \"dog\" \"2\"  \n\n\n\n\nmydataframe &lt;- data.frame(\n  pet = c(\"cat\", \"dog\"),\n  count = c(2, 2))\nmydataframe\n\n  pet count\n1 cat     2\n2 dog     2"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#indexing",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#indexing",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Indexing",
+    "text": "Indexing\nTo access some subset of an object (vector, list, dataframe, etc.)\nWe already know one! The $ operator indexes by selecting a column\n\nmydataframe$pet\n\n[1] \"cat\" \"dog\""
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#object-types-matrix-1",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#object-types-matrix-1",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Object Types: Matrix",
+    "text": "Object Types: Matrix\nCan give names\n\n\ncolnames() Function\n\nmymatrix &lt;- matrix(c(0, 1, 2, 1, 2, 3, 2, 3, 4),\n                   nrow = 3, byrow = T)\ncolnames(mymatrix) &lt;- c(\"Var1\", \"Var2\", \"Var3\")\nmymatrix\n\n     Var1 Var2 Var3\n[1,]    0    1    2\n[2,]    1    2    3\n[3,]    2    3    4\n\n\nRetrieves object column names, then assigns them something else\n\ndimnames Argument\n\nmymatrix &lt;- matrix(c(0, 1, 2, 1, 2, 3, 2, 3, 4),\n                   nrow = 3, byrow = T,\n                   dimnames = list(NULL, c(\"Var1\", \"Var2\", \"Var3\")))\nmymatrix\n\n     Var1 Var2 Var3\n[1,]    0    1    2\n[2,]    1    2    3\n[3,]    2    3    4\n\n\nSets names while creating the matrix Takes a list(row_names, colum_names)"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#measures-of-variability-review",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#measures-of-variability-review",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Measures of Variability Review",
+    "text": "Measures of Variability Review\nDescribe the “spread” or “dispersion” of the data"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#indexing-1",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#indexing-1",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Indexing",
+    "text": "Indexing\nTo access some subset of an object (vector, list, dataframe, etc.)\nCan also use brackets []\n\nmyvector &lt;- c(2, 4, 6, 8)\n\nmyvector[1]\n\n[1] 2\n\n\nCan select more than one position at a time\n\nmyvector[c(1, 2, 3)]\n\n[1] 2 4 6\n\nmyvector[1:3]\n\n[1] 2 4 6"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#indexing-2",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#indexing-2",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Indexing",
+    "text": "Indexing\nNeed to account for multiple dimensions\nMatrix: [element position] or [row, column]\n\nmymatrix\n\n     Var1 Var2 Var3\n[1,]    0    1    2\n[2,]    1    2    3\n[3,]    2    3    4\n\nmymatrix[1]\n\n[1] 0\n\nmymatrix[4]\n\n[1] 1\n\nmymatrix[2, ]\n\nVar1 Var2 Var3 \n   1    2    3 \n\nmymatrix[3, 2]\n\nVar2 \n   3"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#indexing-3",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#indexing-3",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Indexing",
+    "text": "Indexing\nDataframe: [column] or [row, column]\n\nmydataframe[1]\n\n  pet\n1 cat\n2 dog\n\nmydataframe[\"pet\"]\n\n  pet\n1 cat\n2 dog\n\nmydataframe$pet\n\n[1] \"cat\" \"dog\"\n\nmydataframe[2, \"pet\"]\n\n[1] \"dog\"\n\n\nCan also do more than one element at a time:\n\nmydataframe[1:2, \"count\"]\n\n[1] 2 2"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#descriptives-by-group",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#descriptives-by-group",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Descriptives by Group",
+    "text": "Descriptives by Group\nAggregation involves summarizing or grouping data based on certain variables.\nCommonly used to calculate summary statistics like mean, variance, or sum for each group.\n\n\nBenefits:\n\n○ Data summary\n\n\n○ Data simplification\n\n\n○ Statistical analysis\n\n\n○ Trend identification\n\n\n○ Data privacy\n\n\n○ Data-driven decisions\n\n\naggregate(x ~ group, FUN)"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#descriptives-by-group-example",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#descriptives-by-group-example",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Descriptives by Group Example",
+    "text": "Descriptives by Group Example"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#descriptives-by-group-visualization",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#descriptives-by-group-visualization",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Descriptives by Group Visualization",
+    "text": "Descriptives by Group Visualization\nWhy visualize aggregated data?\n\n○ Makes group-level insights easier to interpret.\n\n\n○ Highlights patterns, trends, and outliers in grouped data\n\n\n○ Helps communicate findings effectively"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#no-assignment",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#no-assignment",
+    "title": "Psychological Statistics Lab 3",
+    "section": "No Assignment!",
+    "text": "No Assignment!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-projects",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#r-projects",
+    "title": "Central Tendency",
+    "section": "R Projects",
+    "text": "R Projects\nRStudio’s way of helping organizing files, scripts, etc.\nI strongly recommend this!!\n\n○ File &gt; New Project\n\n\n○ If you don’t already have a folder associated with this class, “New Directory”\n\n\n○ If you do, “Existing Directory”\n\nAll R Scripts under the same project share a working directory\n\n○ Location of files\n\n\n○ Default folder for reading or writing files"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#setting-working-directory",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#setting-working-directory",
+    "title": "Central Tendency",
+    "section": "Setting Working Directory",
+    "text": "Setting Working Directory\ngetwd() tells us the location of our working directory\nsetwd(\"C:/Users/Desktop/R Example\") sets the working directory\nOr, here::here() lets us do relative directories (my favorite!)\n\n○ Just use the command at the top of the file to see where your directory is\n\n\n○ Do need to install the here package first\n\n\ninstall.packages(\"here\")\n\nThen, when you need a file, you can reference it relatively\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site\"\n\nhere::here(\"lab 2\", \"cat.png\")\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/lab 2/cat.png\""
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#measures-of-variability-iqr",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#measures-of-variability-iqr",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Measures of Variability: IQR",
+    "text": "Measures of Variability: IQR\n\ntestscores &lt;- c(88, 93, 92, 99, 96)\n\nInterquartile Range: IQR() function\n\n○ Difference between the 3rd and 1st quantile (so 50% of the data within this range)\n\n\n○ 25% of the data lower than the 1st quantile\n\n\n○ 75% of the data lower than the 3rd quantile\n\n\n○ IQR = 3rd - 1st\n\n\n\n\n\n\n\n\n\n\nQuantiles: quantile() function"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#visualizations-boxplots",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#visualizations-boxplots",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Visualizations: Boxplots",
+    "text": "Visualizations: Boxplots\n\n\nBack to the iris dataset, distribution of Sepal Length by species\nAnatomy of a boxplot:\n\n○ “Minimum”\n\n\n○ 25th Quantile (Q1)\n\n\n○ Median\n\n\n○ 75th Quantile (Q3)\n\n\n○ “Maximum”\n\n\n○ Points representing outliers\n\n\n\n\n\n\n\n\n\n\n\n“Minimum” and “maximum” are not the true min and max\n\n○ Minimum: \\(Q1 - 1.5 * IQR\\)\n\n\n○ Maximum: \\(Q3 + 1.5 * IQR\\)\n\nMeans that the whiskers contain ~99% of the data, rest are outliers\n\n\nFor more explanation of the anatomy of a boxplot, feel free to check this post out from Statistics by Jim"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#visualizations-boxplots-1",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#visualizations-boxplots-1",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Visualizations: Boxplots",
+    "text": "Visualizations: Boxplots\nOne more resource for boxplot anatomy"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#visualizations-boxplots-2",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#visualizations-boxplots-2",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Visualizations: Boxplots…",
+    "text": "Visualizations: Boxplots…\n\n\n\nDatasaurus Dozen Boxplots\n\n\n\nhttps://www.research.autodesk.com/publications/same-stats-different-graphs/"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#lets-do-some-visualization",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#lets-do-some-visualization",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\nBase R Graphics: Boxplot\n\n\nboxplot() function\nIts arguments are:\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot\n\n\nOptional arguments:\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n○ border: color for bar borders\n\n\n○ col: color for bars\n\n\n○ horizontal: T/F to switch\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length,\n     main = \"Boxplot of Sepal Length\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#lets-do-some-visualization-1",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#lets-do-some-visualization-1",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\nBase R Graphics: Boxplot\n\n\nTo group them, you can change the x to a “formula”\noutcome_var ~ group_var\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length ~ iris$Species,\n     main = \"Boxplot of Sepal Length by Species\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#visualizations-boxplot",
+    "href": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#visualizations-boxplot",
+    "title": "Psychological Statistics Lab 3",
+    "section": "Visualizations: Boxplot",
+    "text": "Visualizations: Boxplot"
+  },
+  {
+    "objectID": "assignments/Extra Credit 1.html",
+    "href": "assignments/Extra Credit 1.html",
+    "title": "PSYC 2020L Extra Credit",
+    "section": "",
+    "text": "posit::conf(2025)\nPosit, the organization that makes RStudio, has a conference every year about data science called posit::conf(). This year, it is in Atlanta (yay 😁). Unfortunately, it is very expensive to attend in-person (boo 😭). However, the virtual option is free for students (yay 😁)!\nAttending livestreamed sessions from this conference (September 17th–18th) and writing a brief report about what you learned will be an opportunity for extra credit for a maximum of 2.5 points (25% of one lab assignment) added to your total grade. This will be distributed as 1 point for each session and writeup, with an additional 0.25 points if you complete the writeup in RMarkdown. You can get these points for a maximum of two sessions.\nHere is the breakdown of potential points:\n\n\n\nActivity\nPoints\nMaximum\n\n\n\n\nAttendance and writeup\n1 point\n2 times\n\n\nComplete writeup in RMarkdown\n0.25 points\n2 times\n\n\nTotal\n2.5 points\n\n\n\n\nTo attend the conference, you will need to register at this link.\n1. Create an account\n2. Select that you will be attending the conference virtually\n3. When asked which virtual package, select the Academic Package\nAfter registering, you will get an email with instructions for how to access the sessions, which will be livestreamed September 17th–18th and will be about an hour long each. Live attendance is required for this extra credit assignment. If there is a particular session you want to attend but you have a conflict with the time, please let me know in advance. I cannot guarantee credit for watching the on-demand versions without prior discussion with me.\nTo complete the assignment, attend a session live, and take a screenshot of the live session with your name on the screen. Make sure to save this screenshot: it is required for credit! Afterwards, write a brief (150±50 words) summary of the session. Make sure you include the title of the session. If the session is a symposium (multiple speakers), make sure to include a sentence or two about each of the speakers. Multiple speakers within a symposium session do not count as multiple sessions. Include your screenshot in your writeup. Instructions for including images in RMarkdown are available here. If you attend two sessions, please include both summaries and screenshots in the same document.\nIf you choose the RMarkdown option, please upload both your .html and .Rmd file. Please make sure your knitted file looks as you expect (has text and images). If you choose to not use RMarkdown, please upload your file as a .pdf.\nPlease know that these sessions are likely to be advanced! I do not expect you to fully understand or be able to apply the content. The intention of this assignment is to get to know what’s “out there” in the R and data science worlds. The full schedule is here (please note the virtual option does not include any of the “Workshop” sessions on September 16th). Feel free to attend whichever session you choose, but here are some ones I personally recommend:\n\n\n\n\n\n\n\n\nDate\nTime\nTopic\n\n\n\n\n9/17\n9–10am\n10 Years of Data Science Tools… and What Happens Next\n\n\n9/17\n1–2:20pm\nLightning Talks\n\n\n9/17\n2:40-4pm\nQuarto (this is how I (Jess) make my slides!)\n\n\n9/17\n4:15–5:15pm\nMaking the most of artificial and human intelligence for data science\n\n\n9/18\n10:20–11:40am\nData for Real-World Impact\n\n\n9/18\n1:00-2:20pm\nBeautiful, Effective, and Accessible Data Visualization\n\n\n9/18\n4:15–5:15pm\nTrustworthy Data Visualization\n\n\n\nI’ve done my best to make sure these are accurate, but make sure to confirm these session day and times with the official posit::conf(2025) schedule.\nSubmit this assignment by September 25th (one week after the last day of the conference)! We will not be able to credit late assignments. Have fun at posit::conf(2025)!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html",
+    "title": "Psychological Statistics Lab 2",
+    "section": "",
+    "text": "Assignment 1 Review\nMore R\n\nCentral Tendency Review\nCentral Tendency in R\nVariable Assignment\nR Functions\n\nLearning objectives: Stats: Review measures of central tendency R: Variable assignment, functions, histogram, boxplot\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#outline",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#outline",
+    "title": "Psychological Statistics Lab 2",
+    "section": "",
+    "text": "Assignment 1 Review\nMore R\n\nCentral Tendency Review\nCentral Tendency in R\nVariable Assignment\nR Functions\n\nLearning objectives: Stats: Review measures of central tendency R: Variable assignment, functions, histogram, boxplot\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#assignment-1-review",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#assignment-1-review",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Assignment 1 Review",
+    "text": "Assignment 1 Review\nPlaceholder for common mistakes on Assignment 1"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#r-projects",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#r-projects",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Projects",
+    "text": "R Projects\nRStudio’s way of helping organizing files, scripts, etc.\nI strongly recommend this!!\n\n○ File &gt; New Project\n\n\n○ If you don’t already have a folder associated with this class, “New Directory”\n\n\n○ If you do, “Existing Directory”\n\nAll R Scripts under the same project share a working directory\n\n○ Location of files\n\n\n○ Default folder for reading or writing files"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#setting-working-directory",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#setting-working-directory",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Setting Working Directory",
+    "text": "Setting Working Directory\ngetwd() tells us the location of our working directory\nsetwd(\"C:/Users/Desktop/R Example\") sets the working directory\nOr, here::here() lets us do relative directories (my favorite!)\n\n○ Just use the command at the top of the file to see where your directory is\n\n\n○ Do need to install the here package first\n\n\ninstall.packages(\"here\")\n\nThen, when you need a file, you can reference it relatively\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site\"\n\nhere::here(\"lab 2\", \"cat.png\")\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/lab 2/cat.png\""
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#review-of-central-tendency",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#review-of-central-tendency",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Review of Central Tendency!",
+    "text": "Review of Central Tendency!\nMean: Sum of all values divided by the total number of values\nMedian: When sorted lowest to highest, the middle value\nMode: The value that appears most often"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-practice",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-practice",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency Practice",
+    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 2, 2, 4)\n\n[1] 0 2 2 4\n\n\nWhat is the mean?\nWhat is the median?\nWhat is the mode?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-practice-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-practice-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency Practice",
+    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 1, 2, 4)\n\n[1] 0 1 2 4\n\n\nWhat is the mean?\nWhat is the median?\nWhat is the mode?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#r-functions",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#r-functions",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Functions",
+    "text": "R Functions\nA function performs some operation on an input and produces some output\nSaw this last week\n\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\nWhat is the function? Input? Output?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-in-r-mean",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-in-r-mean",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Mean",
+    "text": "Central Tendency in R: Mean\nWe can calculate central tendencies in two ways:\nGiven this dataset, calculate the mean\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n# let's calculate the mean!\n\n\n\nWith the mean() function\n\n# let's calculate the mean!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-in-r-median",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-in-r-median",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Median",
+    "text": "Central Tendency in R: Median\nGiven this dataset, calculate the median\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n# let's calculate the median!\n\n\n\nWith the median() function\n\n# let's calculate the median!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-in-r-mode",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-in-r-mode",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Mode",
+    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\nWith the mode() function\n\n# let's calculate the mode!\n\n\n\nDoesn’t work :(\nHave to create our own"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#r-functions-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#r-functions-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Functions",
+    "text": "R Functions\nWe’ve seen some built-in R functions (e.g., mean(), median()), but we can also make our own\n\n\nfunction_name &lt;- function(argument) {\n  do some stuff\n  return(this stuff)\n}\n\nⓘ Don’t actually need to call return(); R will automatically return the last expression\n\n\n\nThen, you can call the function\nfunction_name(specific_argument)\n\n\nTo keep the results, make sure to assign them to some variable\nvery_important_results &lt;- function_name(specific_argument)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#r-functions-2",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#r-functions-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Functions",
+    "text": "R Functions\n\n\n\n# write a function that takes in two numbers, adds them together, and returns the sum!\n\n\n\n\n# write a function that takes in two vectors, puts them in a dataframe, and returns the dataframe!\n\n\n\n\n\nLet’s go back to finding the mode"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-in-r-mode-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#central-tendency-in-r-mode-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Mode",
+    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\nmy_mode &lt;- function(x) {\n  values &lt;- unique(x)\n  counts &lt;- tabulate(match(x, values))\n  max_index &lt;- which.max(counts)\n  values[max_index]\n}\n\nHow does this work?\n\n# let's calculate the mode!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#measures-of-variability-intro",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#measures-of-variability-intro",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Measures of Variability Intro",
+    "text": "Measures of Variability Intro\nWill go over in class in detail next week\nDescribe the “spread” or “dispersion” of the data"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#measures-of-variability-functions",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#measures-of-variability-functions",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Measures of Variability Functions",
+    "text": "Measures of Variability Functions\n\ntestscores &lt;- c(88, 93, 92, 99, 96)\n\nVariance: var() function\nStandard Deviation: sd() function\nInterquartile Range: IQR() function\n\n○ Difference between the 3rd and 1st quantile (so 50% of the data within this range)\n\n\n○ 25% of the data lower than the 1st quantile\n\n\n○ 75% of the data lower than the 3rd quantile\n\n\n○ IQR = 3rd - 1st\n\n\n# let's look at some variances!\n\n\n\nQuantiles: quantile() function"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#descriptive-statistics-in-r",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#descriptive-statistics-in-r",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Descriptive Statistics in R",
+    "text": "Descriptive Statistics in R\nTakes time to look at all these for a lot of variables, even with functions\nThe summary() function provides us a quick overview of this information\n\n# let's get descriptive statistics for the iris dataset\n\n\nWhat all do we get?\n\n\n○ Minimum and maximum\n\n\n○ 1st quantile, median, 3rd quantile\n\n\n○ Mean"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations!",
+    "text": "Visualizations!\nSummary statistics are great, but don’t trust them alone!\nWhat do you think a dataset with these descriptives would look like?\n\nX_mean &lt;- 54.26\nY_mean &lt;- 47.83\n\nX_sd &lt;- 16.76\nY_sd &lt;- 26.93\n\ncor &lt;- -0.06"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations!",
+    "text": "Visualizations!\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-2",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations!",
+    "text": "Visualizations!\n\n\n\nDatasaurus Dozen\n\n\n\nhttps://www.research.autodesk.com/publications/same-stats-different-graphs/"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-3",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-3",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations",
+    "text": "Visualizations\nDon’t rush: graph your data!\nWhat should graphs do?\n\n○ Show the data\n\n\n○ Draw the reader primarily to the data (not the graphical effects)\n\n\n○ Avoid distorting the data\n\n\n○ Present many numbers with minimum ink\n\n\n○ Make large data sets coherent\n\n\n○ Encourage the reader to compare different pieces of data"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-histograms",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-histograms",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Histograms",
+    "text": "Visualizations: Histograms\n\n\nAn example of (simulated) SAT scores\nWhat do we see here?\n\n\n○ Outliers at zero! Not a possible SAT score\n\n\n\n\n○ Negatively skewed: more data on the left than on the right"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#skew",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#skew",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Skew",
+    "text": "Skew\n\n\n\n\n\n\n\n\nPositive Skew, right-tailed\nThe mass of the distribution is concentrated on the left of the figure\n\nNegative Skew, left-tailed\nThe mass of the distribution is concentrated on the right of the figure"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#skewness-demonstration",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#skewness-demonstration",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Skewness Demonstration",
+    "text": "Skewness Demonstration\n\n\n\n\n\nFull screen version here\n\nSkewness demonstration!\nCredits to Fabio Setti"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics\nR has some plotting features built in—we saw this last week\n\n\n\nplot(iris$Sepal.Length, iris$Sepal.Width)\n\n\n\n\n\n\n\n\n\nBut we did not love this!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#base-r-graphics-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#base-r-graphics-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Base R Graphics",
+    "text": "Base R Graphics\nBetter… (thanks, ChatGPT)\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nplot(iris$Sepal.Length, iris$Sepal.Width,\n     pch = 19,                 # solid circles\n     col = \"#377EB8\",           # pleasant blue\n     cex = 1.3,                 # slightly larger points\n     xlab = \"Sepal Length\",     # cleaner label\n     ylab = \"Sepal Width\",\n     main = \"Sepal Length vs Sepal Width\",\n     cex.lab = 1.2,             # bigger axis labels\n     cex.main = 1.4,            # bigger title\n     font.main = 2)             # bold title\n\n\n\n\n\nWe will learn a few plots in base R plotting, and then we will learn a better way of making plots: ggplot2\n\nR Graph Gallery"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\n\n\nhist() function\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot (remember the $ function!)\n\n\nOptional arguments:\n\n\n\n\n○ breaks: number of bins\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n\n○ col: color for bars\n\n\n○ xlim: range for x-axis\n\n\n○ ylim: range for y-axis\n\n\n○ prob: T/F, y-axis proportion instead of frequency\n\n\n\nIf you do not set specific values for non-essential subarguments, it will use the default\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhist(iris$Sepal.Length,\n     breaks = 7,\n     main = \"Histogram of Sepal Length\",\n     xlab = \"Sepal Length\",\n     xlim = c(3, 9),\n     border = \"white\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-2",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\nAn important decision for histograms is this number (or width) of bins\nSpecified with the breaks argument"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-3",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-3",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\nAn important decision for histograms is this number (or width) of bins\nSpecified with the breaks argument"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-4",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-4",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\nIf we could make the bins infinitesimally small, we could get a probability density function (PDF)\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndat &lt;- data.frame(x = rnorm(1000))\n\ncowplot::plot_grid(\n  plotlist = list(\n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 10) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 50) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 100) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 100, alpha = .8) +\n      stat_function(inherit.aes = FALSE, fun = dnorm,\n                    n = 101, args = list(mean = 0, sd = 1),\n                    xlim = c(-4, 4),\n                    color = \"grey35\", linewidth = 2) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot()\n  ),\n  nrow = 1)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-histogram",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-histogram",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Histogram",
+    "text": "Visualizations: Histogram\nCan describe a distribution by its “dispersion”"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-boxplots",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-boxplots",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplots",
+    "text": "Visualizations: Boxplots\n\n\nBack to the iris dataset, distribution of Sepal Length by species\nAnatomy of a boxplot:\n\n○ “Minimum”\n\n\n○ 25th Quantile (Q1)\n\n\n○ Median\n\n\n○ 75th Quantile (Q3)\n\n\n○ “Maximum”\n\n\n○ Points representing outliers\n\n\n\n\n\n\n\n\n\n\n\n“Minimum” and “maximum” are not the true min and max\n\n○ Minimum: \\(Q1 - 1.5 * IQR\\)\n\n\n○ Maximum: \\(Q3 + 1.5 * IQR\\)\n\nMeans that the whiskers contain ~99% of the data, rest are outliers\n\n\n\nFor more explanation of the anatomy of a boxplot, feel free to check this post out from Statistics by Jim"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-boxplots-1",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-boxplots-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplots",
+    "text": "Visualizations: Boxplots\nOne more resource for boxplot anatomy"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-boxplots-2",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-boxplots-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplots…",
+    "text": "Visualizations: Boxplots…\n\n\n\nDatasaurus Dozen Boxplots\n\n\n\nhttps://www.research.autodesk.com/publications/same-stats-different-graphs/"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-5",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-5",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Boxplot\n\n\nboxplot() function\nIts arguments are:\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot\n\n\nOptional arguments:\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n○ border: color for bar borders\n\n\n○ col: color for bars\n\n\n○ horizontal: T/F to switch\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length,\n     main = \"Boxplot of Sepal Length\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-6",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#lets-do-some-visualization-6",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Boxplot\n\n\nTo group them, you can change the x to a “formula”\noutcome_var ~ group_var\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length ~ iris$Species,\n     main = \"Boxplot of Sepal Length by Species\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-boxplot",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#visualizations-boxplot",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplot",
+    "text": "Visualizations: Boxplot"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#assignment-2",
+    "href": "slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html#assignment-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Assignment 2",
+    "text": "Assignment 2"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 1 Example.html",
+    "href": "assignments/PSYC2020L Assignment 1 Example.html",
+    "title": "PSYC2020L Assignment 1",
+    "section": "",
+    "text": "Take off a small number of points if no name."
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 1 Example.html#goals-for-review",
+    "href": "assignments/PSYC2020L Assignment 1 Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 1",
+    "section": "Goals for Review:",
+    "text": "Goals for Review:\n\nBasic R operators and data types\nViewing data\nBasic plotting"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 1 Example.html#setting-up",
+    "href": "assignments/PSYC2020L Assignment 1 Example.html#setting-up",
+    "title": "PSYC2020L Assignment 1",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 1 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory\n\ngetwd()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/assignments\"\n\n\n\nWe ran out of time to cover setting working directory; this is all they have to do for this question."
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 1 Example.html#r-basics",
+    "href": "assignments/PSYC2020L Assignment 1 Example.html#r-basics",
+    "title": "PSYC2020L Assignment 1",
+    "section": "R Basics",
+    "text": "R Basics\n\n3) Compute:\n\na) The product of 4 * 4\n\n4 * 4\n\n[1] 16\n\n\n\n\nb) 4 squared\n\n4 ^ 2\n\n[1] 16\n\n# or\n4 ** 2\n\n[1] 16\n\n\n\nThe first one is more likely; it’s what I showed in class.\n\n\n\nc) The remainder from dividing 16 by 3\n\n16 %% 3\n\n[1] 1\n\n\n\n\nd) FALSE divided by TRUE. Why did you get this answer?\n\nFALSE / TRUE\n\n[1] 0\n\n\nFALSE and TRUE are represented as 0 and 1 by R. When you divide 0 by 1, you get 0.\n\n\n\n4) The output of the following two lines of code is different. Why is that?\n\n3 + 2 / 2\n\n[1] 4\n\n\n\n(3 + 2) / 2\n\n[1] 2.5\n\n\nR follows standard the order of operations for math (PEMDAS). Because parentheses are evaluated first, the (3 + 2) becomes 5 in the second version, which is then divided by 2 to get 2.5. In the first version, the 2 / 2 is evaluated first, which becomes 1 and is then added to 3 to get 4.\n\n\n4)\n\na) Create a vector of your four favorite movies\n\nThese don’t have to have output as long as the syntax is correct.\n\n\nmy_movies &lt;- c(\"Dune: Part 1\", \"Dune: Part 2\", \"Third Movie\", \"Fourth Movie\")\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nb) Create a vector of the years they came out\n\nmovie_years &lt;- c(2022, 2024, 2000, 2000)\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nc) Create a vector of the ratings (number of stars out of five) that YOU think they deserve\n\nratings &lt;- c(5, 5, 5, 5)\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nd) Put all those vectors in a dataframe with the column labels “fav_movie”, “year”, and “my_rating”\n\nSame here, doesn’t have to have output as long as the syntax is correct.\n\n\ndata.frame(fav_movie = my_movies,\n           year = movie_years,\n           my_rating = ratings)\n\n     fav_movie year my_rating\n1 Dune: Part 1 2022         5\n2 Dune: Part 2 2024         5\n3  Third Movie 2000         5\n4 Fourth Movie 2000         5\n\n\n\nWhether they retype it by hand or use variable assignment is fine as long as the responses from a, b, and c match d. The variable names should be fav_movie, year, and my_rating.\n\n\n\n\n5) Show me…\n\n\nThe first three rows of the iris dataset\n\nhead(iris, n = 3)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n\n\n\n\n6) Plot…\n\nA scatterplot with Petal.Length on the x and Petal.Width on the y\n\nplot(iris$Petal.Length, iris$Petal.Width)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#extra-credit",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#extra-credit",
+    "title": "Central Tendency",
+    "section": "Extra Credit",
+    "text": "Extra Credit\nposit::conf(2025)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#grading-change",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#grading-change",
+    "title": "Central Tendency",
+    "section": "Grading Change",
+    "text": "Grading Change\nMoving from 0–100% to 10 points each\nTop 10 lab assignments * 10 points each = 100%"
+  },
+  {
+    "objectID": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#housekeeping",
+    "href": "slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html#housekeeping",
+    "title": "Central Tendency",
+    "section": "Housekeeping",
+    "text": "Housekeeping\nGrading Display Modification\nMoving from 0–100% to 10 points each\nTop 10 lab assignments * 10 points each = 100%\nDoes not change anything about the weight!\nRStudio\nOn lab computer\nCOS-GPU-2023"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html",
+    "title": "Measures of Variability",
+    "section": "",
+    "text": "Assignment 2 Review\nMore on types of data\nLabeling data\nAggregating data\nDescriptives by group\nWeighted mean\n\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#outline",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#outline",
+    "title": "Measures of Variability",
+    "section": "",
+    "text": "Assignment 2 Review\nMore on types of data\nLabeling data\nAggregating data\nDescriptives by group\nWeighted mean\n\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#measures-of-variability-review",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#measures-of-variability-review",
+    "title": "Measures of Variability",
+    "section": "Measures of Variability Review",
+    "text": "Measures of Variability Review\nDescribe the “spread” or “dispersion” of the data"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#measures-of-variability-functions",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#measures-of-variability-functions",
+    "title": "Measures of Variability",
+    "section": "Measures of Variability Functions",
+    "text": "Measures of Variability Functions\n\ntestscores &lt;- c(88, 93, 92, 99, 96)\n\nVariance: var(x) function\n\n\n○ x = vector\n\nStandard Deviation: sd(x) function\n\n\n○ x = vector\n\nInterquartile Range: IQR(x) function\n\n\n○ x = title\n\n\n○ Difference between the 3rd and 1st quantile (so 50% of the data within this range)\n\n\n○ 25% of the data lower than the 1st quantile\n\n\n○ 75% of the data lower than the 3rd quantile\n\n\n○ IQR = 3rd - 1st\n\n\n# let's look at some variances!\n\n\n\nQuantiles: quantile() function"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-vector",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-vector",
+    "title": "Measures of Variability",
+    "section": "Object Types: Vector",
+    "text": "Object Types: Vector\nWe’ve already seen and used vectors\n\nc(2, 3, 4, 2)\n\n[1] 2 3 4 2\n\nc(\"Cat\", \"Dog\", \"Bird\")\n\n[1] \"Cat\"  \"Dog\"  \"Bird\"\n\n\nWe know they can only hold one type of data\n\nc(\"Cat\", \"Dog\", 4)\n\n[1] \"Cat\" \"Dog\" \"4\"  \n\n\nShorthand for sequenced numbers:\n\n1:10\n\n [1]  1  2  3  4  5  6  7  8  9 10"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-matrix",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-matrix",
+    "title": "Measures of Variability",
+    "section": "Object Types: Matrix",
+    "text": "Object Types: Matrix\nLike a vector, but multidimensional\nCan only hold one type of data\n\n○ Worse than a dataframe?\n\n\n\n○ Okay! But pop up in function output often\n\n\n\n\n○ So we need to know how to work with them\n\n\n\n\nmatrix(c(1, 2, 3, 4), nrow = 2)\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\n\nDefault is to fill in columns first\n\n\n\nmatrix(c(1, 2, 3, 4), nrow = 2, byrow = T)\n\n     [,1] [,2]\n[1,]    1    2\n[2,]    3    4"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-matrix-1",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-matrix-1",
+    "title": "Measures of Variability",
+    "section": "Object Types: Matrix",
+    "text": "Object Types: Matrix\nCan give names\n\n\n\ncolnames() Function\n\nmymatrix &lt;- matrix(c(0, 1, 2,\n                     1, 2, 3,\n                     2, 3, 4),\n                   nrow = 3, byrow = T)\ncolnames(mymatrix) &lt;- c(\"Var1\", \"Var2\", \"Var3\")\nmymatrix\n\n     Var1 Var2 Var3\n[1,]    0    1    2\n[2,]    1    2    3\n[3,]    2    3    4\n\n\nRetrieves object column names, then assigns them something else\n\n\n\ndimnames Argument\n\nmymatrix &lt;- matrix(c(0, 1, 2,\n                     1, 2, 3,\n                     2, 3, 4),\n                   nrow = 3, byrow = T,\n                   dimnames = list(NULL,\n                                   c(\"Var1\", \"Var2\", \"Var3\")))\nmymatrix\n\n     Var1 Var2 Var3\n[1,]    0    1    2\n[2,]    1    2    3\n[3,]    2    3    4\n\n\nSets names while creating the matrix\nTakes a list(row_names, colum_names)"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-list",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-list",
+    "title": "Measures of Variability",
+    "section": "Object Types: List",
+    "text": "Object Types: List\nLimitations of vectors:\n\n○ Can only hold one type of data\n\nEnter the list\nCan create by calling the list() function and giving it some objects\n\n\n\nlist(1, 2, \"cat\")\n\n[[1]]\n[1] 1\n\n[[2]]\n[1] 2\n\n[[3]]\n[1] \"cat\"\n\n\n\n\nlist(1:4, c(\"a\", \"b\"))\n\n[[1]]\n[1] 1 2 3 4\n\n[[2]]\n[1] \"a\" \"b\""
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-dataframes",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-dataframes",
+    "title": "Measures of Variability",
+    "section": "Object Types: Dataframes",
+    "text": "Object Types: Dataframes\nMore review\nLike matrices, but can hold different types of data\n\n\n\nmatrix(c(\"cat\", 2, \"dog\", 2),\n       nrow = 2, byrow = T,\n       dimnames = list(NULL, c(\"Pet\",\n                               \"Count\")))\n\n     Pet   Count\n[1,] \"cat\" \"2\"  \n[2,] \"dog\" \"2\"  \n\n\n\n\nmydataframe &lt;- data.frame(\n  pet = c(\"cat\", \"dog\"),\n  count = c(2, 2))\nmydataframe\n\n  pet count\n1 cat     2\n2 dog     2"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#indexing",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#indexing",
+    "title": "Measures of Variability",
+    "section": "Indexing",
+    "text": "Indexing\nTo access some subset of an object (vector, list, dataframe, etc.)\nWe already know one! The $ operator indexes by selecting a column\n\nmydataframe$pet\n\n[1] \"cat\" \"dog\""
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#indexing-1",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#indexing-1",
+    "title": "Measures of Variability",
+    "section": "Indexing",
+    "text": "Indexing\nTo access some subset of an object (vector, list, dataframe, etc.)\nCan also use brackets []\n\nmyvector &lt;- c(2, 4, 6, 8)\n\nmyvector[1]\n\n[1] 2\n\n\nCan select more than one position at a time\n\nmyvector[c(1, 2, 3)]\n\n[1] 2 4 6\n\nmyvector[1:3]\n\n[1] 2 4 6"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#indexing-2",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#indexing-2",
+    "title": "Measures of Variability",
+    "section": "Indexing",
+    "text": "Indexing\nNeed to account for multiple dimensions\nMatrix: [element position] or [row, column]\n\nmymatrix\n\n     Var1 Var2 Var3\n[1,]    0    1    2\n[2,]    1    2    3\n[3,]    2    3    4\n\n\n\n\n\nmymatrix[1]\n\n[1] 0\n\nmymatrix[4]\n\n[1] 1\n\n\n\n\nmymatrix[2, ]\n\nVar1 Var2 Var3 \n   1    2    3 \n\nmymatrix[3, 2]\n\nVar2 \n   3"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#indexing-3",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#indexing-3",
+    "title": "Measures of Variability",
+    "section": "Indexing",
+    "text": "Indexing\nDataframe: [column] or [row, column]\n\nmydataframe\n\n  pet count\n1 cat     2\n2 dog     2\n\n\n\n\n\nmydataframe[1]\n\n  pet\n1 cat\n2 dog\n\nmydataframe[\"pet\"]\n\n  pet\n1 cat\n2 dog\n\nmydataframe$pet\n\n[1] \"cat\" \"dog\"\n\n\n\n\nmydataframe[2, \"pet\"]\n\n[1] \"dog\"\n\n\nCan also do more than one element at a time:\n\nmydataframe[1:2, \"count\"]\n\n[1] 2 2"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#labeling-data",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#labeling-data",
+    "title": "Measures of Variability",
+    "section": "Labeling Data",
+    "text": "Labeling Data\n\n\nAdding meaningful labels or categories to your dataset.\nUseful for organizing and interpreting your data.\n\n○ E.g., Adding labels like “Pass” or “Fail” based on test scores.\n\n\n\n\n  id order rating\n1  1     2      3\n2  2     3      3\n3  3     1      5\n4  4     3      1\n5  5     2      5\n\n\n\n\n\n\n  id order    rating\n1  1 Pasta      Fair\n2  2 Salad      Fair\n3  3 Pizza Excellent\n4  4 Salad Very Poor\n5  5 Pasta Excellent"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#key-functions-for-labeling-data",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#key-functions-for-labeling-data",
+    "title": "Measures of Variability",
+    "section": "Key Functions for Labeling Data",
+    "text": "Key Functions for Labeling Data\n\n\n\nscores &lt;- c(85, 60, 45, 70, 50)\n\n\n\ngender &lt;- c(1, 2, 1, 2, 2)\n\n\n\n\n\nifelse(test, yes, no)\nFor simple conditional labeling\n\ncut()\nFor creating bins or ranges\n\nfactor()\nConvert numeric or character data into labeled categories\n\n\n\n\n\n# Labeling as Pass/Fail\nlabels &lt;- ifelse(scores &gt;= 60,\n                 \"Pass\", \"Fail\")\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Label = labels)\n\ndata\n\n  Scores Label\n1     85  Pass\n2     60  Pass\n3     45  Fail\n4     70  Pass\n5     50  Fail\n\n\n\n\n# Creating bins\ncategories &lt;- cut(scores,\n                  breaks = c(0, 50, 70, 100),\n                  labels = c(\"Low\", \"Medium\",\n                             \"High\"))\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Category = categories)\n\ndata\n\n  Scores Category\n1     85     High\n2     60   Medium\n3     45      Low\n4     70   Medium\n5     50      Low\n\n\n\n\n# Converting to factor with labels\ngender_labeled &lt;- factor(gender,\n                         levels = c(1, 2),\n                         labels = c(\"Male\",\n                                    \"Female\"))\n\n# Combine into a data frame\ndata &lt;- data.frame(gender,\n                   gender_labeled)\n\ndata\n\n  gender gender_labeled\n1      1           Male\n2      2         Female\n3      1           Male\n4      2         Female\n5      2         Female"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#descriptives-by-group",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#descriptives-by-group",
+    "title": "Measures of Variability",
+    "section": "Descriptives by Group",
+    "text": "Descriptives by Group\nAggregation involves summarizing or grouping data based on certain variables.\nCommonly used to calculate summary statistics like mean, variance, or sum for each group.\n\n\nBenefits:\n\n○ Data summary\n\n\n○ Data simplification\n\n\n○ Statistical analysis\n\n\n○ Trend identification\n\n\n○ Data privacy\n\n\n○ Data-driven decisions\n\n\naggregate(y ~ group, FUN)\n\n○ y = vector we want statistics for\n\n\n○ group = vector with grouping data\n\n\n○ FUN = function to apply"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#descriptives-by-group-example",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#descriptives-by-group-example",
+    "title": "Measures of Variability",
+    "section": "Descriptives by Group Example",
+    "text": "Descriptives by Group Example\n\n# average Sepal Length by iris species?"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#descriptives-by-group-visualization",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#descriptives-by-group-visualization",
+    "title": "Measures of Variability",
+    "section": "Descriptives by Group Visualization",
+    "text": "Descriptives by Group Visualization\nWhy visualize aggregated data?\n\n○ Makes group-level insights easier to interpret.\n\n\n○ Highlights patterns, trends, and outliers in grouped data\n\n\n○ Helps communicate findings effectively"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#visualizations-boxplots",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#visualizations-boxplots",
+    "title": "Measures of Variability",
+    "section": "Visualizations: Boxplots",
+    "text": "Visualizations: Boxplots\n\n\nBack to the iris dataset, distribution of Sepal Length by species\nAnatomy of a boxplot:\n\n○ “Minimum”\n\n\n○ 25th Quantile (Q1)\n\n\n○ Median\n\n\n○ 75th Quantile (Q3)\n\n\n○ “Maximum”\n\n\n○ Points representing outliers\n\n\n\n\n\n\n\n\n\n\n\n“Minimum” and “maximum” are not the true min and max\n\n○ Minimum: \\(Q1 - 1.5 * IQR\\)\n\n\n○ Maximum: \\(Q3 + 1.5 * IQR\\)\n\nMeans that the whiskers contain ~99% of the data, rest are outliers\n\n\n\nFor more explanation of the anatomy of a boxplot, feel free to check this post out from Statistics by Jim"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#visualizations-boxplots-1",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#visualizations-boxplots-1",
+    "title": "Measures of Variability",
+    "section": "Visualizations: Boxplots",
+    "text": "Visualizations: Boxplots\nOne more resource for boxplot anatomy"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#visualizations-boxplots-2",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#visualizations-boxplots-2",
+    "title": "Measures of Variability",
+    "section": "Visualizations: Boxplots…",
+    "text": "Visualizations: Boxplots…\n\n\n\nDatasaurus Dozen Boxplots\n\n\n\nhttps://www.research.autodesk.com/publications/same-stats-different-graphs/"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#lets-do-some-visualization",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#lets-do-some-visualization",
+    "title": "Measures of Variability",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Boxplot\n\n\nboxplot(x) function\nIts arguments are:\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot\n\n\nOptional arguments:\n\n\n○ main = title\n\n\n○ xlab = label for x-axis\n\n\n○ ylab = label for y-axis\n\n\n○ border = color for bar borders\n\n\n○ col = color for bars\n\n\n○ horizontal = T/F to switch\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length,\n     main = \"Boxplot of Sepal Length\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#lets-do-some-visualization-1",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#lets-do-some-visualization-1",
+    "title": "Measures of Variability",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Boxplot\n\n\nTo group them, you can change the x to a “formula”\noutcome_var ~ group_var\nJust like we saw with aggregate()\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length ~ iris$Species,\n     main = \"Boxplot of Sepal Length by Species\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#visualizations-boxplot",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#visualizations-boxplot",
+    "title": "Measures of Variability",
+    "section": "Visualizations: Boxplot",
+    "text": "Visualizations: Boxplot"
+  },
+  {
+    "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#no-assignment",
+    "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#no-assignment",
+    "title": "Measures of Variability",
+    "section": "No Assignment!",
+    "text": "No Assignment!\nDon’t forget to sign up for posit::conf(2025) if you want to complete the extra credit assignment."
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html",
+    "title": "Psychological Statistics Lab 2",
+    "section": "",
+    "text": "Assignment 1 Review\nMore R\n\nCentral Tendency Review\nCentral Tendency in R\nVariable Assignment\nR Functions\n\nLearning objectives: Stats: Review measures of central tendency R: Variable assignment, functions, histogram, boxplot\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#outline",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#outline",
+    "title": "Psychological Statistics Lab 2",
+    "section": "",
+    "text": "Assignment 1 Review\nMore R\n\nCentral Tendency Review\nCentral Tendency in R\nVariable Assignment\nR Functions\n\nLearning objectives: Stats: Review measures of central tendency R: Variable assignment, functions, histogram, boxplot\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#assignment-1-review",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#assignment-1-review",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Assignment 1 Review",
+    "text": "Assignment 1 Review\nPlaceholder for common mistakes on Assignment 1"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#r-projects",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#r-projects",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Projects",
+    "text": "R Projects\nRStudio’s way of helping organizing files, scripts, etc.\nI strongly recommend this!!\n\n○ File &gt; New Project\n\n\n○ If you don’t already have a folder associated with this class, “New Directory”\n\n\n○ If you do, “Existing Directory”\n\nAll R Scripts under the same project share a working directory\n\n○ Location of files\n\n\n○ Default folder for reading or writing files"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#setting-working-directory",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#setting-working-directory",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Setting Working Directory",
+    "text": "Setting Working Directory\ngetwd() tells us the location of our working directory\nsetwd(\"C:/Users/Desktop/R Example\") sets the working directory\nOr, here::here() lets us do relative directories (my favorite!)\n\n○ Just use the command at the top of the file to see where your directory is\n\n\n○ Do need to install the here package first\n\n\ninstall.packages(\"here\")\n\nThen, when you need a file, you can reference it relatively\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site\"\n\nhere::here(\"lab 2\", \"cat.png\")\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/lab 2/cat.png\""
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#review-of-central-tendency",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#review-of-central-tendency",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Review of Central Tendency!",
+    "text": "Review of Central Tendency!\nMean: Sum of all values divided by the total number of values\nMedian: When sorted lowest to highest, the middle value\nMode: The value that appears most often"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-practice",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-practice",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency Practice",
+    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 2, 2, 4)\n\n[1] 0 2 2 4\n\n\nWhat is the mean?\nWhat is the median?\nWhat is the mode?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-practice-1",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-practice-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency Practice",
+    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 1, 2, 4)\n\n[1] 0 1 2 4\n\n\nWhat is the mean?\nWhat is the median?\nWhat is the mode?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#r-functions",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#r-functions",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Functions",
+    "text": "R Functions\nA function performs some operation on an input and produces some output\nSaw this last week\n\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\nWhat is the function? Input? Output?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-in-r-mean",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-in-r-mean",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Mean",
+    "text": "Central Tendency in R: Mean\nWe can calculate central tendencies in two ways:\nGiven this dataset, calculate the mean\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n# let's calculate the mean!\n\n\n\nWith the mean() function\n\n# let's calculate the mean!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-in-r-median",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-in-r-median",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Median",
+    "text": "Central Tendency in R: Median\nGiven this dataset, calculate the median\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n# let's calculate the median!\n\n\n\nWith the median() function\n\n# let's calculate the median!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-in-r-mode",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-in-r-mode",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Mode",
+    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\nWith the mode() function\n\n# let's calculate the mode!\n\n\n\nDoesn’t work :(\nHave to create our own"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#r-functions-1",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#r-functions-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Functions",
+    "text": "R Functions\nWe’ve seen some built-in R functions (e.g., mean(), median()), but we can also make our own\n\n\nfunction_name &lt;- function(argument) {\n  do some stuff\n  return(this stuff)\n}\n\nⓘ Don’t actually need to call return(); R will automatically return the last expression\n\n\n\nThen, you can call the function\nfunction_name(specific_argument)\n\n\nTo keep the results, make sure to assign them to some variable\nvery_important_results &lt;- function_name(specific_argument)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#r-functions-2",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#r-functions-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "R Functions",
+    "text": "R Functions\n\n\n\n# write a function that takes in two numbers, adds them together, and returns the sum!\n\n\n\n\n# write a function that takes in two vectors, puts them in a dataframe, and returns the dataframe!\n\n\n\n\n\nLet’s go back to finding the mode"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-in-r-mode-1",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#central-tendency-in-r-mode-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Central Tendency in R: Mode",
+    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\nmy_mode &lt;- function(x) {\n  values &lt;- unique(x)\n  counts &lt;- tabulate(match(x, values))\n  max_index &lt;- which.max(counts)\n  values[max_index]\n}\n\nHow does this work?\n\n# let's calculate the mode!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#measures-of-variability-intro",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#measures-of-variability-intro",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Measures of Variability Intro",
+    "text": "Measures of Variability Intro\nWill go over in class in detail next week\nDescribe the “spread” or “dispersion” of the data"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#measures-of-variability-functions",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#measures-of-variability-functions",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Measures of Variability Functions",
+    "text": "Measures of Variability Functions\n\ntestscores &lt;- c(88, 93, 92, 99, 96)\n\nVariance: var() function\nStandard Deviation: sd() function\nInterquartile Range: IQR() function\n\n○ Difference between the 3rd and 1st quantile (so 50% of the data within this range)\n\n\n○ 25% of the data lower than the 1st quantile\n\n\n○ 75% of the data lower than the 3rd quantile\n\n\n○ IQR = 3rd - 1st\n\n\n# let's look at some variances!\n\n\n\nQuantiles: quantile() function"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#descriptive-statistics-in-r",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#descriptive-statistics-in-r",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Descriptive Statistics in R",
+    "text": "Descriptive Statistics in R\nTakes time to look at all these for a lot of variables, even with functions\nThe summary() function provides us a quick overview of this information\n\n# let's get descriptive statistics for the iris dataset\n\n\nWhat all do we get?\n\n\n○ Minimum and maximum\n\n\n○ 1st quantile, median, 3rd quantile\n\n\n○ Mean"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations!",
+    "text": "Visualizations!\nSummary statistics are great, but don’t trust them alone!\nWhat do you think a dataset with these descriptives would look like?\n\nX_mean &lt;- 54.26\nY_mean &lt;- 47.83\n\nX_sd &lt;- 16.76\nY_sd &lt;- 26.93\n\ncor &lt;- -0.06"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-1",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations!",
+    "text": "Visualizations!\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-2",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations!",
+    "text": "Visualizations!\n\n\n\nDatasaurus Dozen\n\n\n\nhttps://www.research.autodesk.com/publications/same-stats-different-graphs/"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-3",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-3",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations",
+    "text": "Visualizations\nDon’t rush: graph your data!\nWhat should graphs do?\n\n○ Show the data\n\n\n○ Draw the reader primarily to the data (not the graphical effects)\n\n\n○ Avoid distorting the data\n\n\n○ Present many numbers with minimum ink\n\n\n○ Make large data sets coherent\n\n\n○ Encourage the reader to compare different pieces of data"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-histograms",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-histograms",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Histograms",
+    "text": "Visualizations: Histograms\n\n\nAn example of (simulated) SAT scores\nWhat do we see here?\n\n\n○ Outliers at zero! Not a possible SAT score\n\n\n\n\n○ Negatively skewed: more data on the left than on the right"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#skew",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#skew",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Skew",
+    "text": "Skew\n\n\n\n\n\n\n\n\nPositive Skew, right-tailed\nThe mass of the distribution is concentrated on the left of the figure\n\nNegative Skew, left-tailed\nThe mass of the distribution is concentrated on the right of the figure"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#skewness-demonstration",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#skewness-demonstration",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Skewness Demonstration",
+    "text": "Skewness Demonstration\n\n\n\n\n\nFull screen version here\n\nSkewness demonstration!\nCredits to Fabio Setti"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics\nR has some plotting features built in—we saw this last week\n\n\n\nplot(iris$Sepal.Length, iris$Sepal.Width)\n\n\n\n\n\n\n\n\n\nBut we did not love this!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#base-r-graphics-1",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#base-r-graphics-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Base R Graphics",
+    "text": "Base R Graphics\nBetter… (thanks, ChatGPT)\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nplot(iris$Sepal.Length, iris$Sepal.Width,\n     pch = 19,                 # solid circles\n     col = \"#377EB8\",           # pleasant blue\n     cex = 1.3,                 # slightly larger points\n     xlab = \"Sepal Length\",     # cleaner label\n     ylab = \"Sepal Width\",\n     main = \"Sepal Length vs Sepal Width\",\n     cex.lab = 1.2,             # bigger axis labels\n     cex.main = 1.4,            # bigger title\n     font.main = 2)             # bold title\n\n\n\n\n\nWe will learn a few plots in base R plotting, and then we will learn a better way of making plots: ggplot2\n\nR Graph Gallery"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-1",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\n\n\nhist() function\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot (remember the $ function!)\n\n\nOptional arguments:\n\n\n\n\n○ breaks: number of bins\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n\n○ col: color for bars\n\n\n○ xlim: range for x-axis\n\n\n○ ylim: range for y-axis\n\n\n○ prob: T/F, y-axis proportion instead of frequency\n\n\n\nIf you do not set specific values for non-essential subarguments, it will use the default\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhist(iris$Sepal.Length,\n     breaks = 7,\n     main = \"Histogram of Sepal Length\",\n     xlab = \"Sepal Length\",\n     xlim = c(3, 9),\n     border = \"white\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-2",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\nAn important decision for histograms is this number (or width) of bins\nSpecified with the breaks argument"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-3",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-3",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\nAn important decision for histograms is this number (or width) of bins\nSpecified with the breaks argument"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-4",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-4",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Histogram\nIf we could make the bins infinitesimally small, we could get a probability density function (PDF)\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndat &lt;- data.frame(x = rnorm(1000))\n\ncowplot::plot_grid(\n  plotlist = list(\n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 10) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 50) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 100) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 100, alpha = .8) +\n      stat_function(inherit.aes = FALSE, fun = dnorm,\n                    n = 101, args = list(mean = 0, sd = 1),\n                    xlim = c(-4, 4),\n                    color = \"grey35\", linewidth = 2) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot()\n  ),\n  nrow = 1)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-histogram",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-histogram",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Histogram",
+    "text": "Visualizations: Histogram\nCan describe a distribution by its “dispersion”"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-boxplots",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-boxplots",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplots",
+    "text": "Visualizations: Boxplots\n\n\nBack to the iris dataset, distribution of Sepal Length by species\nAnatomy of a boxplot:\n\n○ “Minimum”\n\n\n○ 25th Quantile (Q1)\n\n\n○ Median\n\n\n○ 75th Quantile (Q3)\n\n\n○ “Maximum”\n\n\n○ Points representing outliers\n\n\n\n\n\n\n\n\n\n\n\n“Minimum” and “maximum” are not the true min and max\n\n○ Minimum: \\(Q1 - 1.5 * IQR\\)\n\n\n○ Maximum: \\(Q3 + 1.5 * IQR\\)\n\nMeans that the whiskers contain ~99% of the data, rest are outliers\n\n\n\nFor more explanation of the anatomy of a boxplot, feel free to check this post out from Statistics by Jim"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-boxplots-1",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-boxplots-1",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplots",
+    "text": "Visualizations: Boxplots\nOne more resource for boxplot anatomy"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-boxplots-2",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-boxplots-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplots…",
+    "text": "Visualizations: Boxplots…\n\n\n\nDatasaurus Dozen Boxplots\n\n\n\nhttps://www.research.autodesk.com/publications/same-stats-different-graphs/"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-5",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-5",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Boxplot\n\n\nboxplot() function\nIts arguments are:\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot\n\n\nOptional arguments:\n\n\n○ main: title\n\n\n○ xlab: label for x-axis\n\n\n○ ylab: label for y-axis\n\n\n○ border: color for bar borders\n\n\n○ col: color for bars\n\n\n○ horizontal: T/F to switch\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length,\n     main = \"Boxplot of Sepal Length\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-6",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#lets-do-some-visualization-6",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Boxplot\n\n\nTo group them, you can change the x to a “formula”\noutcome_var ~ group_var\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length ~ iris$Species,\n     main = \"Boxplot of Sepal Length by Species\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-boxplot",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#visualizations-boxplot",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Visualizations: Boxplot",
+    "text": "Visualizations: Boxplot"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/lab 2 temp.html#assignment-2",
+    "href": "slides/Lab 2 - Central Tendency/lab 2 temp.html#assignment-2",
+    "title": "Psychological Statistics Lab 2",
+    "section": "Assignment 2",
+    "text": "Assignment 2"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2.html#mode-for-wind",
+    "href": "assignments/PSYC2020L Assignment 2.html#mode-for-wind",
+    "title": "PSYC2020L Assignment 2",
+    "section": "13) Mode for Wind",
+    "text": "13) Mode for Wind\n\na) What is the mode for the Wind variable? How many times did it occur?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html",
+    "title": "Central Tendency",
+    "section": "",
+    "text": "Assignment 1 Review\nExtra Credit\nR Projects\nCentral Tendency Review\nR Functions\nCentral Tendency in R\n\nLearning objectives:\nR: Projects, functions\nStatistics: Central tendency\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#outline",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#outline",
+    "title": "Central Tendency",
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 1 Review\nExtra Credit\nR Projects\nCentral Tendency Review\nR Functions\nCentral Tendency in R\n\nLearning objectives:\nR: Projects, functions\nStatistics: Central tendency"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#housekeeping",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#housekeeping",
+    "title": "Central Tendency",
+    "section": "Housekeeping",
+    "text": "Housekeeping\nGrading Display Modification\nMoving from 0–100% to 10 points each\nTop 10 lab assignments * 10 points each = 100%\nDoes not change anything about the weight!\nRStudio\nOn lab computer\nCOS-GPU-2023"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#assignment-1-review",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#assignment-1-review",
+    "title": "Central Tendency",
+    "section": "Assignment 1 Review",
+    "text": "Assignment 1 Review\n\n\nCheck Working Directory\ngetwd()\n\nPlotting\nMake sure to select the right variable for plotting!\nplot(iris$Sepal.Length, iris$Sepal.Width,\n     col = \"#E50046\")\nplot(iris$Petal.Length, iris$Petal.Width,\n     col = \"#C7DB9C\")"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#extra-credit",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#extra-credit",
+    "title": "Central Tendency",
+    "section": "Extra Credit",
+    "text": "Extra Credit\nposit::conf(2025)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#r-projects",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#r-projects",
+    "title": "Central Tendency",
+    "section": "R Projects",
+    "text": "R Projects\nRStudio’s way of helping organizing files, scripts, etc.\nI strongly recommend this!!\n\n○ File &gt; New Project\n\n\n○ If you don’t already have a folder associated with this class, “New Directory”\n\n\n○ If you do, “Existing Directory”\n\nAll R Scripts under the same project share a working directory\n\n○ Location of files\n\n\n○ Default folder for reading or writing files"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#setting-working-directory",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#setting-working-directory",
+    "title": "Central Tendency",
+    "section": "Setting Working Directory",
+    "text": "Setting Working Directory\ngetwd() tells us the location of our working directory\nsetwd(\"C:/Users/Desktop/R Example\") sets the working directory\nOr, here::here() lets us do relative directories (my favorite!)\n\n○ Just use the command at the top of the file to see where your directory is\n\n\n○ Do need to install the here package first\n\n\ninstall.packages(\"here\")\n\nThen, when you need a file, you can reference it relatively\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site\"\n\nhere::here(\"lab 2\", \"cat.png\")\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/lab 2/cat.png\""
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#review-of-central-tendency",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#review-of-central-tendency",
+    "title": "Central Tendency",
+    "section": "Review of Central Tendency!",
+    "text": "Review of Central Tendency!\nMean: Sum of all values divided by the total number of values\nMedian: When sorted lowest to highest, the middle value\nMode: The value that appears most often"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-practice",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-practice",
+    "title": "Central Tendency",
+    "section": "Central Tendency Practice",
+    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 2, 2, 4)\n\n[1] 0 2 2 4\n\n\nWhat is the mean? 2\nWhat is the median? 2\nWhat is the mode? 2"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-practice-1",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-practice-1",
+    "title": "Central Tendency",
+    "section": "Central Tendency Practice",
+    "text": "Central Tendency Practice\nGiven this dataset:\n\nc(0, 1, 2, 3)\n\n[1] 0 1 2 3\n\n\nWhat is the mean? 1.5\nWhat is the median? 1.5\nWhat is the mode? No mode!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#r-functions",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#r-functions",
+    "title": "Central Tendency",
+    "section": "R Functions",
+    "text": "R Functions\nA function performs some operation on an input and produces some output\nSaw this last week\n\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\nWhat is the function? Input? Output?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-in-r-mean",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-in-r-mean",
+    "title": "Central Tendency",
+    "section": "Central Tendency in R: Mean",
+    "text": "Central Tendency in R: Mean\nWe can calculate central tendencies in two ways:\nGiven this dataset, calculate the mean\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n\n\n\n\n\n\n\n\nWith the mean(x) function\n\n○ x = vector of data"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-in-r-median",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-in-r-median",
+    "title": "Central Tendency",
+    "section": "Central Tendency in R: Median",
+    "text": "Central Tendency in R: Median\nGiven this dataset, calculate the median\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\n\n\nBy hand (computer)\n\n\n\n\n\n\n\n\n\nWith the median(x) function\n\n○ x = vector of data"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-in-r-mode",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-in-r-mode",
+    "title": "Central Tendency",
+    "section": "Central Tendency in R: Mode",
+    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\n\nWith the mode() function\n\n\n\n\n\n\n\n\n\nDoesn’t work :(\nHave to create our own"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#r-functions-1",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#r-functions-1",
+    "title": "Central Tendency",
+    "section": "R Functions",
+    "text": "R Functions\nWe’ve seen some built-in R functions (e.g., mean(), median()), but we can also make our own\n\n\nfunction_name &lt;- function(argument) {\n  do some stuff\n  return(this stuff)\n}\n\nⓘ Don’t actually need to call return(); R will automatically return the last expression\n\n\nThen, you can call the function\nfunction_name(specific_argument)\n\n\nTo keep the results, make sure to assign them to some variable\nvery_important_results &lt;- function_name(specific_argument)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#r-functions-2",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#r-functions-2",
+    "title": "Central Tendency",
+    "section": "R Functions",
+    "text": "R Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLet’s go back to finding the mode"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-in-r-mode-1",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-in-r-mode-1",
+    "title": "Central Tendency",
+    "section": "Central Tendency in R: Mode",
+    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\n# note from jess: considering switching to just showing table()\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\nmode_func &lt;- function(x) {\n  sort(table(x), decreasing = T)[1]\n}\n\nHow does this work?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#descriptive-statistics-in-r",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#descriptive-statistics-in-r",
+    "title": "Central Tendency",
+    "section": "Descriptive Statistics in R",
+    "text": "Descriptive Statistics in R\nTakes time to look at all these for a lot of variables, even with functions\nThe summary(object) function provides us a quick overview of this information\n\n○ object = for our purposes, a dataframe\n\n\n\n\n\n\n\n\n\nWhat all do we get?\n\n\n○ Minimum and maximum\n\n\n○ 1st quantile, median, 3rd quantile\n\n\n○ Mean"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations",
+    "title": "Central Tendency",
+    "section": "Visualizations!",
+    "text": "Visualizations!\nSummary statistics are great, but don’t trust them alone!\nWhat do you think a dataset with these descriptives would look like?\n\nX_mean &lt;- 54.26\nY_mean &lt;- 47.83\n\nX_sd &lt;- 16.76\nY_sd &lt;- 26.93\n\ncor &lt;- -0.06"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations-1",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations-1",
+    "title": "Central Tendency",
+    "section": "Visualizations!",
+    "text": "Visualizations!"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations-2",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations-2",
+    "title": "Central Tendency",
+    "section": "Visualizations!",
+    "text": "Visualizations!\n\n\n\nDatasaurus Dozen\n\n\n\nhttps://www.research.autodesk.com/publications/same-stats-different-graphs/"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations-3",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations-3",
+    "title": "Central Tendency",
+    "section": "Visualizations",
+    "text": "Visualizations\nDon’t rush: graph your data!\nWhat should graphs do?\n\n○ Show the data\n\n\n○ Draw the reader primarily to the data (not the graphical effects)\n\n\n○ Avoid distorting the data\n\n\n○ Present many numbers with minimum ink\n\n\n○ Make large data sets coherent\n\n\n○ Encourage the reader to compare different pieces of data"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations-histograms",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations-histograms",
+    "title": "Central Tendency",
+    "section": "Visualizations: Histograms",
+    "text": "Visualizations: Histograms\n\n\nAn example of (simulated) SAT scores\nWhat do we see here?\n\n\n○ Outliers at zero! Not a possible SAT score\n\n\n\n\n○ Negatively skewed: more data on the left than on the right"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#skew",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#skew",
+    "title": "Central Tendency",
+    "section": "Skew",
+    "text": "Skew\n\n\n\n\nPositive skew, right-tailed\nThe mass of the distribution is concentrated on the left of the figure\n\nNegative skew, left-tailed\nThe mass of the distribution is concentrated on the right of the figure"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#skewness-demonstration",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#skewness-demonstration",
+    "title": "Central Tendency",
+    "section": "Skewness Demonstration",
+    "text": "Skewness Demonstration\n\n\n\n\n\nFull screen version here\n\nSkewness demonstration!\nCredits to Fabio Setti"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#lets-do-some-visualization",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#lets-do-some-visualization",
+    "title": "Central Tendency",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\nBase R Graphics\nR has some plotting features built in—we saw this last week\n\n\n\nplot(iris$Sepal.Length, iris$Sepal.Width)\n\n\n\n\n\n\n\n\n\nWhat do we think about this?"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#base-r-graphics-1",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#base-r-graphics-1",
+    "title": "Central Tendency",
+    "section": "Base R Graphics",
+    "text": "Base R Graphics\nBetter… (thanks, ChatGPT)\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nplot(iris$Sepal.Length, iris$Sepal.Width,\n     pch = 19,                 # solid circles\n     col = \"#377EB8\",           # pleasant blue\n     cex = 1.3,                 # slightly larger points\n     xlab = \"Sepal Length\",     # cleaner label\n     ylab = \"Sepal Width\",\n     main = \"Sepal Length vs Sepal Width\",\n     cex.lab = 1.2,             # bigger axis labels\n     cex.main = 1.4,            # bigger title\n     font.main = 2)             # bold title\n\n\n\n\n\nWe will learn a few plots in base R plotting, and then we will learn a better way of making plots: ggplot2\n\nR Graph Gallery"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#lets-do-some-visualization-1",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#lets-do-some-visualization-1",
+    "title": "Central Tendency",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\nBase R Graphics: Histogram\n\n\nhist() function\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot (remember the $ function!)\n\n\nOptional arguments:\n\n\n\n\n○ breaks = bin count\n\n\n○ main = title\n\n\n○ xlab = label for x-axis\n\n\n○ ylab = label for y-axis\n\n\n\n○ col = color for bars\n\n\n○ xlim = range for x-axis\n\n\n○ ylim = range for y-axis\n\n\n○ prob = T/F, proportion instead of frequency\n\n\n\nIf you do not set specific values for non-essential subarguments, it will use the default\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhist(iris$Sepal.Length,\n     breaks = 7,\n     main = \"Histogram of Sepal Length\",\n     xlab = \"Sepal Length\",\n     xlim = c(3, 9),\n     border = \"white\",\n     col = \"skyblue\")"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#lets-do-some-visualization-2",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#lets-do-some-visualization-2",
+    "title": "Central Tendency",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\nBase R Graphics: Histogram\nAn important decision for histograms is this number (or width) of bins\nSpecified with the breaks argument"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#lets-do-some-visualization-3",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#lets-do-some-visualization-3",
+    "title": "Central Tendency",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\nBase R Graphics: Histogram\nAn important decision for histograms is this number (or width) of bins\nSpecified with the breaks argument"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#lets-do-some-visualization-4",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#lets-do-some-visualization-4",
+    "title": "Central Tendency",
+    "section": "Let’s Do Some Visualization",
+    "text": "Let’s Do Some Visualization\nBase R Graphics: Histogram\nIf we could make the bins infinitesimally small, we could get a probability density function (PDF)\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndat &lt;- data.frame(x = rnorm(1000))\n\ncowplot::plot_grid(\n  plotlist = list(\n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 10) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 50) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 100) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot(),\n    \n    ggplot(dat, aes(x = x)) +\n      geom_histogram(aes(y = after_stat(density)),\n                     bins = 100, alpha = .8) +\n      stat_function(inherit.aes = FALSE, fun = dnorm,\n                    n = 101, args = list(mean = 0, sd = 1),\n                    xlim = c(-4, 4),\n                    color = \"grey35\", linewidth = 2) +\n      coord_cartesian(xlim = c(-4, 4), ylim = c(0, .5)) +\n      labs(y = \"Proportion\") +\n      cowplot::theme_cowplot()\n  ),\n  nrow = 1)"
+  },
+  {
+    "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#assignment-2",
+    "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#assignment-2",
+    "title": "Central Tendency",
+    "section": "Assignment 2",
+    "text": "Assignment 2\n\nBasic R functions\nDescriptive statistics"
+  },
+  {
+    "objectID": "docs/assignments/PSYC2020L Assignment 1.html",
+    "href": "docs/assignments/PSYC2020L Assignment 1.html",
+    "title": "PSYC2020L Assignment 1",
+    "section": "",
+    "text": "Basic R operators and data types\nViewing data\nBasic plotting"
+  },
+  {
+    "objectID": "docs/assignments/PSYC2020L Assignment 1.html#goals-for-review",
+    "href": "docs/assignments/PSYC2020L Assignment 1.html#goals-for-review",
+    "title": "PSYC2020L Assignment 1",
+    "section": "",
+    "text": "Basic R operators and data types\nViewing data\nBasic plotting"
+  },
+  {
+    "objectID": "docs/assignments/PSYC2020L Assignment 1.html#setting-up",
+    "href": "docs/assignments/PSYC2020L Assignment 1.html#setting-up",
+    "title": "PSYC2020L Assignment 1",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 1 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory\n\ngetwd()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/docs/assignments\"\n\n\n\nWe ran out of time to cover setting working directory; this is all they have to do for this question."
+  },
+  {
+    "objectID": "docs/assignments/PSYC2020L Assignment 1.html#r-basics",
+    "href": "docs/assignments/PSYC2020L Assignment 1.html#r-basics",
+    "title": "PSYC2020L Assignment 1",
+    "section": "R Basics",
+    "text": "R Basics\n\n3) Compute:\n\na) The product of 4 * 4\n\n4 * 4\n\n[1] 16\n\n\n\n\nb) 4 squared\n\n4 ^ 2\n\n[1] 16\n\n# or\n4 ** 2\n\n[1] 16\n\n\n\nThe first one is more likely; it’s what I showed in class.\n\n\n\nc) The remainder from dividing 16 by 3\n\n16 %% 3\n\n[1] 1\n\n\n\n\nd) FALSE divided by TRUE. Why did you get this answer?\n\nFALSE / TRUE\n\n[1] 0\n\n\nFALSE and TRUE are represented as 0 and 1 by R. When you divide 0 by 1, you get 0.\n\n\n\n4) The output of the following two lines of code is different. Why is that?\n\n3 + 2 / 2\n\n[1] 4\n\n\n\n(3 + 2) / 2\n\n[1] 2.5\n\n\nR follows standard the order of operations for math (PEMDAS). Because parentheses are evaluated first, the (3 + 2) becomes 5 in the second version, which is then divided by 2 to get 2.5. In the first version, the 2 / 2 is evaluated first, which becomes 1 and is then added to 3 to get 4.\n\n\n4)\n\na) Create a vector of your four favorite movies\n\nThese don’t have to have output as long as the syntax is correct.\n\n\nmy_movies &lt;- c(\"Dune: Part 1\", \"Dune: Part 2\", \"Third Movie\", \"Fourth Movie\")\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nb) Create a vector of the years they came out\n\nmovie_years &lt;- c(2022, 2024, 2000, 2000)\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nc) Create a vector of the ratings (number of stars out of five) that YOU think they deserve\n\nratings &lt;- c(5, 5, 5, 5)\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nd) Put all those vectors in a dataframe with the column labels “fav_movie”, “year”, and “my_rating”\n\nSame here, doesn’t have to have output as long as the syntax is correct.\n\n\ndata.frame(fav_movie = my_movies,\n           year = movie_years,\n           my_rating = ratings)\n\n     fav_movie year my_rating\n1 Dune: Part 1 2022         5\n2 Dune: Part 2 2024         5\n3  Third Movie 2000         5\n4 Fourth Movie 2000         5\n\n\n\nWhether they retype it by hand or use variable assignment is fine as long as the responses from a, b, and c match d. The variable names should be fav_movie, year, and my_rating.\n\n\n\n\n5) Show me…\n\n\nThe first three rows of the iris dataset\n\nhead(iris, n = 3)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n\n\n\n\n6) Plot…\n\nA scatterplot with Petal.Length on the x and Petal.Width on the y\n\nplot(iris$Petal.Length, iris$Petal.Width)"
   }
 ]

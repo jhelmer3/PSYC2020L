@@ -10,22 +10,29 @@ output: html_document
 * Basic R functions
 * Descriptive statistics
 
+For each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well. 
+
+
 ## Setting Up
+
 
 ### 1) Rename this assignment as "Lab 2 Assignment [Last, First].Rmd" 
 
-### 2) Check and set your working directory
 
+### 2) Check and set your working directory
 ```{r}
 
 ```
 
+
 ## Basic R Functions
+
 
 ### 3) Write an R function that takes in two numbers, multiplies them together, and returns the product
 ```{r}
 
 ```
+
 
 ### 4) Write an R function that takes in three vectors, puts them in a dataframe, and returns the last two rows of the dataframe.
 ```{r}
@@ -35,17 +42,20 @@ output: html_document
 
 ## Data Summary
 
-### 5) Show me the first five rows of the `airquality` dataset
+We will be using the `airquality` dataset for this assignment. Like the `iris` dataset, this comes preloaded in R. It contains information on daily air quality measurements in New York from May to September 1973.
 
+### 5) Show me the first five rows of the `airquality` dataset
 ```{r}
 
 ```
+
 
 ### 6) Obtain the `summary()` statistics for this dataset
-
 ```{r}
 
 ```
+
+
 ## 7) Ozone Descriptive Statistics
 
 ### a) What is the mean?
@@ -53,20 +63,11 @@ output: html_document
 
 ```
 
-### b) What is the variance?
+### b) What is the median?
 ```{r}
 
 ```
 
-### c) What is the standard deviation?
-```{r}
-
-```
-
-### d) What is the IQR?
-```{r}
-
-```
 
 ## 8) Histograms for Ozone
 
@@ -90,6 +91,7 @@ output: html_document
 
 ```
 
+
 ## 9) Boxplot for Ozone
 
 ### a) Obtain a boxplot for Ozone
@@ -101,6 +103,7 @@ output: html_document
 
 ### c) Is the data skewed? (Yes / No) How can you tell?
 
+
 ## 10) Descriptive statistics for Temp
 
 ### a) What is the mean?
@@ -108,20 +111,11 @@ output: html_document
 
 ```
 
-### b) What is the variance?
+### b) What is the median?
 ```{r}
 
 ```
 
-### c) What is the SD?
-```{r}
-
-```
-
-### d) What is the IQR?
-```{r}
-
-```
 
 ## 11) Histogram for Temp
 
@@ -131,26 +125,23 @@ output: html_document
 ```
 
 ## 12) Comparison between Ozone and Temp...
-### a) Does the mean change? (Yes / No)
+
+### a) Does the mean change?
 ```{r}
 
 ```
 
-### b) Which variable has a smaller variance? (Ozone / Temp)
+### b) Does the median change?
 ```{r}
 
 ```
 
-### c) Which variable has a smaller SD? (Ozone / Temp)
+## 13) Mode for Wind
+
+### a) What is the mode for the Wind variable? How many times did it occur?
 ```{r}
 
 ```
-
-### d) Which variable has a smaller IQR? (Ozone / Temp)
-```{r}
-
-```
-
 
 
 

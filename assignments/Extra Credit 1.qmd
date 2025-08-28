@@ -1,0 +1,48 @@
+---
+title: "PSYC 2020L Extra Credit"
+format:
+  html:
+    toc: false
+---
+
+# posit::conf(2025)
+
+[Posit](https://posit.co/), the organization that makes RStudio, has a [conference](https://posit.co/conference/) every year about data science called posit::conf(). This year, it is in Atlanta (yay 😁). Unfortunately, it is very expensive to attend in-person (boo 😭). However, the virtual option is free for students (yay 😁)!
+
+Attending livestreamed sessions from this conference (September 17th--18th) and writing a brief report about what you learned will be an opportunity for extra credit for a maximum of 2.5 points (25% of one lab assignment) added to your total grade. This will be distributed as 1 point for each session and writeup, with an additional 0.25 points if you complete the writeup in RMarkdown. You can get these points for a maximum of two sessions.
+
+Here is the breakdown of potential points: 
+
+| Activity | Points | Maximum |
+|----------|--------|---------|
+| Attendance and writeup | 1 point | 2 times |
+| Complete writeup in RMarkdown | 0.25 points | 2 times |
+| ***Total*** | 2.5 points | |
+
+To attend the conference, you will need to [register at this link](https://reg.conf.posit.co/flow/posit/positconf25/reg/login).  
+1. Create an account  
+2. Select that you will be attending the conference **virtually**  
+3. When asked which virtual package, select the **Academic Package**  
+
+After registering, you will get an email with instructions for how to access the sessions, which will be livestreamed September 17th--18th and will be about an hour long each. Live attendance is required for this extra credit assignment. If there is a particular session you want to attend but you have a conflict with the time, please let me know **in advance**. I cannot guarantee credit for watching the on-demand versions without prior discussion with me.
+
+To complete the assignment, attend a session live, and take a screenshot of the live session with your name on the screen. Make sure to save this screenshot: it is required for credit! Afterwards, write a brief (150±50 words) summary of the session. Make sure you include the title of the session. If the session is a symposium (multiple speakers), make sure to include a sentence or two about each of the speakers. Multiple speakers within a symposium session do not count as multiple sessions. Include your screenshot in your writeup. Instructions for including images in RMarkdown are available [here](https://earthdatascience.org/courses/earth-analytics/document-your-science/add-images-to-rmarkdown-report/). If you attend two sessions, please include both summaries and screenshots in the same document.
+
+If you choose the RMarkdown option, please upload both your .html and .Rmd file. Please make sure your knitted file looks as you expect (has text and images). If you choose to not use RMarkdown, please upload your file as a .pdf.
+
+Please know that these sessions are likely to be advanced! I do *not* expect you to fully understand or be able to apply the content. The intention of this assignment is to get to know what's "out there" in the R and data science worlds. The [full schedule is here](https://reg.rainfocus.com/flow/posit/positconf25/attendee-portal/page/sessioncatalog?tab.day=20250916) (please note the virtual option does not include any of the "Workshop" sessions on September 16th). Feel free to attend whichever session you choose, but here are some ones I personally recommend:
+
+| Date | Time | Topic |
+|------|------|-------|
+| 9/17| 9--10am | 10 Years of Data Science Tools... and What Happens Next |
+| 9/17 | 1--2:20pm | Lightning Talks |
+| 9/17 | 2:40-4pm | Quarto (this is how I (Jess) make my slides!) |
+| 9/17 | 4:15--5:15pm | Making the most of artificial and human intelligence for data science |
+| 9/18 | 10:20--11:40am | Data for Real-World Impact |
+| 9/18 | 1:00-2:20pm | Beautiful, Effective, and Accessible Data Visualization |
+| 9/18 | 4:15--5:15pm | Trustworthy Data Visualization |
+
+I've done my best to make sure these are accurate, but make sure to confirm these session day and times with the [official posit::conf(2025) schedule](https://reg.rainfocus.com/flow/posit/positconf25/attendee-portal/page/sessioncatalog?tab.day=20250916). 
+
+Submit this assignment by September 25th (one week after the last day of the conference)! We will not be able to credit late assignments. Have fun at posit::conf(2025)!
+
