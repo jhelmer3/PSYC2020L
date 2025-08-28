@@ -7,11 +7,11 @@ format:
     slide-number: true
     show-slide-number: all
     css: PSYC2020L_styles.css
+    footer: "[jhelmer3.github.io/PSYC2020L](https://jhelmer3.github.io/PSYC2020L/)"
 engine: knitr
 editor: source
 width: 1200
 footer: https://jhelmer3.github.io/PSYC2020L/
-self-contained: true
 ---
 
 ## Outline
