@@ -7,8 +7,8 @@ format:
     slide-number: true
     show-slide-number: all
     css: PSYC2020L_styles.css
-    footer: "[jhelmer3.github.io/PSYC2020L](https://jhelmer3.github.io/PSYC2020L/)"
 width: 1200
+footer: "[jhelmer3.github.io/PSYC2020L](https://jhelmer3.github.io/PSYC2020L/)"
 ---
 
 ## Outline
@@ -33,19 +33,25 @@ Hi! I'm Jessica Helmer. I'm a second-year PhD student in Quantitative Psychology
 My research focuses on the measurement and modeling of decision-making processes.
 
 :::: {.columns}
-
 ::: {.column}
-<div class="subpoint">○ Email: [jhelmer3\@gatech.edu](mailto:jhelmer3\@gatech.edu)</div>
-<div class="subpoint">○ Office: J.S. Coon Rm 240</div>
-<div class="subpoint">○ Office Hours: Wednesdays, 10–11am, my office / [Zoom](https://gatech.zoom.us/j/98522819670?pwd=O8cCyj7iDdw005aHbXXdB7rBH1BYX6.1)</div>
-<div class="subsubpoint">    ○ Or by appointment</div>
+::: subpoint
+○ Email: [jhelmer3\@gatech.edu](mailto:jhelmer3\@gatech.edu) 
+:::
+::: subpoint
+○ Office: J.S. Coon Rm 240 
+:::
+::: subpoint
+○ Office Hours: Wednesdays, 10–11am, my office / [Zoom](https://gatech.zoom.us/j/98522819670?pwd=O8cCyj7iDdw005aHbXXdB7rBH1BYX6.1)
+:::
+::: subsubpoint
+○ Or by appointment
+:::
 :::
 
 ::: {.column .fragment}
 ![](lily.jpg){width=250}
 ![](sheba.jpg){width=250}
 :::
-
 ::::
 
 ## What You Can Expect From Me
@@ -108,7 +114,7 @@ It is important to practice and gain experiencing coding independently.
 
 ## Lab Resources
 
-:::::: columns
+:::: {.columns}
 ::: {.column width="30%"}
 [Introduction to Data Exploration and Analysis with R (IDEAR)](https://bookdown.org/mikemahoney218/IDEAR/)
 :::
@@ -124,7 +130,7 @@ It is important to practice and gain experiencing coding independently.
 
 [![](yarrr.jpg)](https://bookdown.org/ndphillips/YaRrr/)
 :::
-::::::
+::::
 
 All free, open source materials for learning R
 
@@ -351,7 +357,7 @@ c(TRUE, FALSE)
 ```
 :::
 
-:::::: columns
+::::: {.columns}
 ::: {.column .fragment}
 The `<`, `>`, and `<=` symbols are *logical operators*
 
@@ -389,7 +395,7 @@ FALSE == F
 Harder to tell apart, so be careful!
 :::
 ::::
-::::::
+:::::
 
 ## Practice Break!
 
