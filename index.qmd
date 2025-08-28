@@ -9,14 +9,17 @@ author: "Jessica Helmer"
 
 Welcome to the website for PSYC 2020-A01 **Psychological Statistics** / **PSYC 6022-A01 Psychological Statistics for HCI** for Fall 2025! Usage of this site is *not* required—I will always keep the [Canvas](https://www.canvas.gatech.edu/) page updated. However, if this page is helpful to you, feel free to use it!
 
+## posit::conf(2025)
+
+Extra credit opportunity! [Instructions](/assignments/Extra Credit 1.qmd)
+
 ## Labs
 
 :::: {.columns}
-
 ::: {.column width=33%}
 ### 08/22 - Lab 1
 #### Basic R
-[Slides](./slides/Lab 1 - Basic R/PSYC2020L Lab 1.qmd) | [Assignment](/assignments/PSYC2020L Assignment 1.rmd)
+[Slides](/slides/Lab 1 - Basic R/PSYC2020L Lab 1.qmd) | [Assignment](/assignments/PSYC2020L Assignment 1.rmd)
 :::
 
 ::: {.column width=33%}
@@ -31,7 +34,22 @@ Welcome to the website for PSYC 2020-A01 **Psychological Statistics** / **PSYC 6
 #### Measures of Variability
 Coming soon!
 :::
+::::
 
+:::: {.columns}
+::: {.column width=33%}
+### 09/12 Lab 4
+#### Probability Distributions
+Coming soon!
+:::
+
+::: {.column width=33%}
+
+:::
+
+::: {.column width=33%}
+
+:::
 ::::
 
 
