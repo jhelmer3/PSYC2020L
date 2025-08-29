@@ -25,14 +25,13 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 08/29 - Lab 2
 #### Central Tendency
-[Slides](/slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.qmd)
-<!-- | [Assignment](/assignments/PSYC2020L Assignment 2.rmd) -->
+[Slides](/slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.qmd) | [Assignment](/assignments/PSYC2020L Assignment 2.rmd)
 :::
 
 ::: {.column width=33%}
-### 09/04 - Lab 3
+### 09/05 - Lab 3
 #### Measures of Variability
-Coming soon!
+[Slides](/slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.qmd) | No Assignment
 :::
 ::::
 

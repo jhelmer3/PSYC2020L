@@ -22,26 +22,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -81,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">PSYC 2020L</span>
     </a>
   </div>
@@ -92,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -207,6 +242,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Descriptive statistics</li>
 </ul>
 <p>For each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well.</p>
+<div style="color:maroon">
+Again we might have some R HTML instead of .Rmd file issues. On the R HTML, it at least looked like on my end that it contained the same content as an .Rmd would, just not the same filetype? I told them that as long as their regular HTML file shows their code (which it should by default), it should be fine because we can always copy and run individual lines. Let me know if you have any issues. I don’t know why it converts to R HTML on their end!
+</div>
 </section>
 <section id="setting-up" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up">Setting Up</h2>
@@ -215,15 +253,48 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="check-and-set-your-working-directory" class="level3">
 <h3 class="anchored" data-anchor-id="check-and-set-your-working-directory">2) Check and set your working directory</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/assignments"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"path/to/folder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in setwd("path/to/folder"): cannot change working directory</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site"</code></pre>
+</div>
+</div>
+<div style="color:maroon">
+Their instructions from me were to get their working directory and set it IF it wasn’t where they want it to be. So any of (or any combinations of) these three lines are correct. Although this one will have an error in the <code>setwd()</code> and theirs should not.
+</div>
 </section>
 </section>
 <section id="basic-r-functions" class="level2">
 <h2 class="anchored" data-anchor-id="basic-r-functions">Basic R Functions</h2>
 <section id="write-an-r-function-that-takes-in-two-numbers-multiplies-them-together-and-returns-the-product" class="level3">
 <h3 class="anchored" data-anchor-id="write-an-r-function-that-takes-in-two-numbers-multiplies-them-together-and-returns-the-product">3) Write an R function that takes in two numbers, multiplies them together, and returns the product</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>product_func <span class="ot">&lt;-</span> <span class="cf">function</span>(num1, num2) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  num1 <span class="sc">*</span> num2</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div style="color:maroon">
+If the function would successfully return the product of two numbers, that’s correct (doesn’t have to match mine exactly). Would love if they tested it, but I didn’t explicitly say that so not required.
+</div>
 </section>
 <section id="write-an-r-function-that-takes-in-three-vectors-puts-them-in-a-dataframe-and-returns-the-last-two-rows-of-the-dataframe." class="level3">
 <h3 class="anchored" data-anchor-id="write-an-r-function-that-takes-in-three-vectors-puts-them-in-a-dataframe-and-returns-the-last-two-rows-of-the-dataframe.">4) Write an R function that takes in three vectors, puts them in a dataframe, and returns the last two rows of the dataframe.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dataframe_func <span class="ot">&lt;-</span> <span class="cf">function</span>(vec1, vec2, vec3) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>(<span class="fu">data.frame</span>(vec1, vec2, vec3), <span class="at">n =</span> <span class="dv">2</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div style="color:maroon">
+If the function would successfully returns the last two rows of the dataframe, that’s correct (doesn’t have to match mine exactly). Would love if they tested it, but I didn’t explicitly say that so not required.
+</div>
 </section>
 </section>
 <section id="data-summary" class="level2">
@@ -231,37 +302,118 @@ ul.task-list li input[type="checkbox"] {
 <p>We will be using the <code>airquality</code> dataset for this assignment. Like the <code>iris</code> dataset, this comes preloaded in R. It contains information on daily air quality measurements in New York from May to September 1973.</p>
 <section id="show-me-the-first-five-rows-of-the-airquality-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="show-me-the-first-five-rows-of-the-airquality-dataset">5) Show me the first five rows of the <code>airquality</code> dataset</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airquality, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5</code></pre>
+</div>
+</div>
 </section>
 <section id="obtain-the-summary-statistics-for-this-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="obtain-the-summary-statistics-for-this-dataset">6) Obtain the <code>summary()</code> statistics for this dataset</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Ozone           Solar.R           Wind             Temp      
+ Min.   :  1.00   Min.   :  7.0   Min.   : 1.700   Min.   :56.00  
+ 1st Qu.: 18.00   1st Qu.:115.8   1st Qu.: 7.400   1st Qu.:72.00  
+ Median : 31.50   Median :205.0   Median : 9.700   Median :79.00  
+ Mean   : 42.13   Mean   :185.9   Mean   : 9.958   Mean   :77.88  
+ 3rd Qu.: 63.25   3rd Qu.:258.8   3rd Qu.:11.500   3rd Qu.:85.00  
+ Max.   :168.00   Max.   :334.0   Max.   :20.700   Max.   :97.00  
+ NA's   :37       NA's   :7                                       
+     Month            Day      
+ Min.   :5.000   Min.   : 1.0  
+ 1st Qu.:6.000   1st Qu.: 8.0  
+ Median :7.000   Median :16.0  
+ Mean   :6.993   Mean   :15.8  
+ 3rd Qu.:8.000   3rd Qu.:23.0  
+ Max.   :9.000   Max.   :31.0  
+                               </code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="ozone-descriptive-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="ozone-descriptive-statistics">7) Ozone Descriptive Statistics</h2>
 <section id="a-what-is-the-mean" class="level3">
 <h3 class="anchored" data-anchor-id="a-what-is-the-mean">a) What is the mean?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(airquality<span class="sc">$</span>Ozone, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42.12931</code></pre>
+</div>
+</div>
 </section>
 <section id="b-what-is-the-median" class="level3">
 <h3 class="anchored" data-anchor-id="b-what-is-the-median">b) What is the median?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(airquality<span class="sc">$</span>Ozone, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31.5</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="histograms-for-ozone" class="level2">
 <h2 class="anchored" data-anchor-id="histograms-for-ozone">8) Histograms for Ozone</h2>
 <section id="a-obtain-a-histogram-with-breaks-10" class="level3">
 <h3 class="anchored" data-anchor-id="a-obtain-a-histogram-with-breaks-10">a) Obtain a histogram with breaks = 10</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(airquality<span class="sc">$</span>Ozone, <span class="at">breaks =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="PSYC2020L-Assignment-2-Example_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="b-obtain-a-histogram-with-breaks-50" class="level3">
 <h3 class="anchored" data-anchor-id="b-obtain-a-histogram-with-breaks-50">b) Obtain a histogram with breaks = 50</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(airquality<span class="sc">$</span>Ozone, <span class="at">breaks =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="PSYC2020L-Assignment-2-Example_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="c-obtain-a-histogram-with-breaks-200" class="level3">
 <h3 class="anchored" data-anchor-id="c-obtain-a-histogram-with-breaks-200">c) Obtain a histogram with breaks = 200</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(airquality<span class="sc">$</span>Ozone, <span class="at">breaks =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="PSYC2020L-Assignment-2-Example_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="d-compare-three-histograms-above-and-describe-the-differences" class="level3">
 <h3 class="anchored" data-anchor-id="d-compare-three-histograms-above-and-describe-the-differences">d) Compare three histograms above and describe the differences</h3>
+The histograms with more breaks show the data with more details, but it can be harder to see the trends in the histograms with lots of breaks.
+<div style="color:maroon">
+Something along this line works; doesn’t have to be exactly that. Feel free to be lenient as long as makes sense to you.
+</div>
 </section>
 </section>
 <section id="boxplot-for-ozone" class="level2">
 <h2 class="anchored" data-anchor-id="boxplot-for-ozone">9) Boxplot for Ozone</h2>
+<div style="color:maroon">
+MISTAKE QUESTION! I had thought boxplots would be covered this week but took them out from the slides when I saw Dingjing’s lecture slides. Forgot to take them out of this 🙃. This question is dropped.
+</div>
 <section id="a-obtain-a-boxplot-for-ozone" class="level3">
 <h3 class="anchored" data-anchor-id="a-obtain-a-boxplot-for-ozone">a) Obtain a boxplot for Ozone</h3>
 </section>
@@ -276,30 +428,88 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="descriptive-statistics-for-temp">10) Descriptive statistics for Temp</h2>
 <section id="a-what-is-the-mean-1" class="level3">
 <h3 class="anchored" data-anchor-id="a-what-is-the-mean-1">a) What is the mean?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(airquality<span class="sc">$</span>Temp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 77.88235</code></pre>
+</div>
+</div>
 </section>
 <section id="b-what-is-the-median-1" class="level3">
 <h3 class="anchored" data-anchor-id="b-what-is-the-median-1">b) What is the median?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(airquality<span class="sc">$</span>Temp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 79</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="histogram-for-temp" class="level2">
 <h2 class="anchored" data-anchor-id="histogram-for-temp">11) Histogram for Temp</h2>
 <section id="a-obtain-a-histogram-with-default-number-of-breaks." class="level3">
 <h3 class="anchored" data-anchor-id="a-obtain-a-histogram-with-default-number-of-breaks.">a) Obtain a histogram with default number of breaks.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(airquality<span class="sc">$</span>Temp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="PSYC2020L-Assignment-2-Example_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="comparison-between-ozone-and-temp" class="level2">
 <h2 class="anchored" data-anchor-id="comparison-between-ozone-and-temp">12) Comparison between Ozone and Temp…</h2>
+<div style="color:maroon">
+Bad phrasing on these two. All they have to do is say they’re different. They don’t have to include R code.
+</div>
 <section id="a-does-the-mean-change" class="level3">
 <h3 class="anchored" data-anchor-id="a-does-the-mean-change">a) Does the mean change?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(airquality<span class="sc">$</span>Ozone, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42.12931</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(airquality<span class="sc">$</span>Temp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 77.88235</code></pre>
+</div>
+</div>
+<p>Yes, the mean is different.</p>
 </section>
 <section id="b-does-the-median-change" class="level3">
 <h3 class="anchored" data-anchor-id="b-does-the-median-change">b) Does the median change?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(airquality<span class="sc">$</span>Ozone, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(airquality<span class="sc">$</span>Temp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 79</code></pre>
+</div>
+</div>
+<p>Yes, the median is different.</p>
 </section>
 </section>
 <section id="mode-for-wind" class="level2">
 <h2 class="anchored" data-anchor-id="mode-for-wind">13) Mode for Wind</h2>
 <section id="a-what-is-the-mode-for-the-wind-variable-how-many-times-did-it-occur" class="level3">
 <h3 class="anchored" data-anchor-id="a-what-is-the-mode-for-the-wind-variable-how-many-times-did-it-occur">a) What is the mode for the Wind variable? How many times did it occur?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(airquality<span class="sc">$</span>Wind), <span class="at">decreasing =</span> T)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>11.5 
+  15 </code></pre>
+</div>
+</div>
+The mode is 11.5. It occurred 15 times.
+<div style="color:maroon">
+Correct answer is the important part here; they can use whatever R code solution to solve it (I gave a couple options).
+</div>
 
 
 </section>

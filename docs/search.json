@@ -886,7 +886,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides \n\n\n\n\n09/04 - Lab 3\n\nMeasures of Variability\nComing soon!\n\n\n\n\n\n\n\n09/12 Lab 4\n\nProbability Distributions\nComing soon!"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nProbability Distributions\nComing soon!"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
@@ -1712,14 +1712,14 @@
     "href": "docs/assignments/PSYC2020L Assignment 2.html",
     "title": "PSYC2020L Assignment 2",
     "section": "",
-    "text": "Basic R functions\nDescriptive statistics"
+    "text": "Basic R functions\nDescriptive statistics\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
   },
   {
     "objectID": "docs/assignments/PSYC2020L Assignment 2.html#goals-for-review",
     "href": "docs/assignments/PSYC2020L Assignment 2.html#goals-for-review",
     "title": "PSYC2020L Assignment 2",
     "section": "",
-    "text": "Basic R functions\nDescriptive statistics"
+    "text": "Basic R functions\nDescriptive statistics\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
   },
   {
     "objectID": "docs/assignments/PSYC2020L Assignment 2.html#setting-up",
@@ -1740,14 +1740,14 @@
     "href": "docs/assignments/PSYC2020L Assignment 2.html#data-summary",
     "title": "PSYC2020L Assignment 2",
     "section": "Data Summary",
-    "text": "Data Summary\n\n5) Show me the first five rows of the airquality dataset\n\n\n6) Obtain the summary() statistics for this dataset"
+    "text": "Data Summary\nWe will be using the airquality dataset for this assignment. Like the iris dataset, this comes preloaded in R. It contains information on daily air quality measurements in New York from May to September 1973.\n\n5) Show me the first five rows of the airquality dataset\n\n\n6) Obtain the summary() statistics for this dataset"
   },
   {
     "objectID": "docs/assignments/PSYC2020L Assignment 2.html#ozone-descriptive-statistics",
     "href": "docs/assignments/PSYC2020L Assignment 2.html#ozone-descriptive-statistics",
     "title": "PSYC2020L Assignment 2",
     "section": "7) Ozone Descriptive Statistics",
-    "text": "7) Ozone Descriptive Statistics\n\na) What is the mean?\n\n\nb) What is the variance?\n\n\nc) What is the standard deviation?\n\n\nd) What is the IQR?"
+    "text": "7) Ozone Descriptive Statistics\n\na) What is the mean?\n\n\nb) What is the median?"
   },
   {
     "objectID": "docs/assignments/PSYC2020L Assignment 2.html#histograms-for-ozone",
@@ -1768,7 +1768,7 @@
     "href": "docs/assignments/PSYC2020L Assignment 2.html#descriptive-statistics-for-temp",
     "title": "PSYC2020L Assignment 2",
     "section": "10) Descriptive statistics for Temp",
-    "text": "10) Descriptive statistics for Temp\n\na) What is the mean?\n\n\nb) What is the variance?\n\n\nc) What is the SD?\n\n\nd) What is the IQR?"
+    "text": "10) Descriptive statistics for Temp\n\na) What is the mean?\n\n\nb) What is the median?"
   },
   {
     "objectID": "docs/assignments/PSYC2020L Assignment 2.html#histogram-for-temp",
@@ -1782,7 +1782,7 @@
     "href": "docs/assignments/PSYC2020L Assignment 2.html#comparison-between-ozone-and-temp",
     "title": "PSYC2020L Assignment 2",
     "section": "12) Comparison between Ozone and Temp…",
-    "text": "12) Comparison between Ozone and Temp…\n\na) Does the mean change? (Yes / No)\n\n\nb) Which variable has a smaller variance? (Ozone / Temp)\n\n\nc) Which variable has a smaller SD? (Ozone / Temp)\n\n\nd) Which variable has a smaller IQR? (Ozone / Temp)"
+    "text": "12) Comparison between Ozone and Temp…\n\na) Does the mean change?\n\n\nb) Does the median change?"
   },
   {
     "objectID": "slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html#measures-of-variability-intro",
@@ -2299,8 +2299,8 @@
     "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#outline",
     "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#outline",
     "title": "Measures of Variability",
-    "section": "",
-    "text": "Assignment 2 Review\nMore on types of data\nLabeling data\nAggregating data\nDescriptives by group\nWeighted mean\n\n\nknitr::opts_chunk$set(echo = T)"
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 2 Review\nMore on types of data\nLabeling data\nAggregating data\nDescriptives by group\nWeighted mean"
   },
   {
     "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#measures-of-variability-review",
@@ -2314,7 +2314,7 @@
     "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#measures-of-variability-functions",
     "title": "Measures of Variability",
     "section": "Measures of Variability Functions",
-    "text": "Measures of Variability Functions\n\ntestscores &lt;- c(88, 93, 92, 99, 96)\n\nVariance: var(x) function\n\n\n○ x = vector\n\nStandard Deviation: sd(x) function\n\n\n○ x = vector\n\nInterquartile Range: IQR(x) function\n\n\n○ x = title\n\n\n○ Difference between the 3rd and 1st quantile (so 50% of the data within this range)\n\n\n○ 25% of the data lower than the 1st quantile\n\n\n○ 75% of the data lower than the 3rd quantile\n\n\n○ IQR = 3rd - 1st\n\n\n# let's look at some variances!\n\n\n\nQuantiles: quantile() function"
+    "text": "Measures of Variability Functions\n\ntestscores &lt;- c(88, 93, 92, 99, 96)\n\nVariance: var(x) function\n\n\n○ x = vector\n\nStandard Deviation: sd(x) function\n\n\n○ x = vector\n\nInterquartile Range: IQR(x) function\n\n\n○ x = title\n\n\n○ Difference between the 3rd and 1st quantile (so 50% of the data within this range)\n\n\n○ 25% of the data lower than the 1st quantile\n\n\n○ 75% of the data lower than the 3rd quantile\n\n\n○ IQR = 3rd - 1st\n\n\n\n\n\n\n\n\n\n\nQuantiles: quantile() function"
   },
   {
     "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-vector",
@@ -2335,7 +2335,7 @@
     "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-matrix-1",
     "title": "Measures of Variability",
     "section": "Object Types: Matrix",
-    "text": "Object Types: Matrix\nCan give names\n\n\n\ncolnames() Function\n\nmymatrix &lt;- matrix(c(0, 1, 2,\n                     1, 2, 3,\n                     2, 3, 4),\n                   nrow = 3, byrow = T)\ncolnames(mymatrix) &lt;- c(\"Var1\", \"Var2\", \"Var3\")\nmymatrix\n\n     Var1 Var2 Var3\n[1,]    0    1    2\n[2,]    1    2    3\n[3,]    2    3    4\n\n\nRetrieves object column names, then assigns them something else\n\n\n\ndimnames Argument\n\nmymatrix &lt;- matrix(c(0, 1, 2,\n                     1, 2, 3,\n                     2, 3, 4),\n                   nrow = 3, byrow = T,\n                   dimnames = list(NULL,\n                                   c(\"Var1\", \"Var2\", \"Var3\")))\nmymatrix\n\n     Var1 Var2 Var3\n[1,]    0    1    2\n[2,]    1    2    3\n[3,]    2    3    4\n\n\nSets names while creating the matrix\nTakes a list(row_names, colum_names)"
+    "text": "Object Types: Matrix\nCan give names\n\n\ncolnames() Function\n\nmymatrix &lt;- matrix(c(0, 1, 2,\n                     1, 2, 3,\n                     2, 3, 4),\n                   nrow = 3, byrow = T)\ncolnames(mymatrix) &lt;- c(\"Var1\", \"Var2\", \"Var3\")\nmymatrix\n\n     Var1 Var2 Var3\n[1,]    0    1    2\n[2,]    1    2    3\n[3,]    2    3    4\n\n\nRetrieves object column names, then assigns them something else\n\ndimnames Argument\n\nmymatrix &lt;- matrix(c(0, 1, 2,\n                     1, 2, 3,\n                     2, 3, 4),\n                   nrow = 3, byrow = T,\n                   dimnames = list(NULL,\n                                   c(\"Var1\", \"Var2\", \"Var3\")))\nmymatrix\n\n     Var1 Var2 Var3\n[1,]    0    1    2\n[2,]    1    2    3\n[3,]    2    3    4\n\n\nSets names while creating the matrix\nTakes a list(row_names, colum_names)"
   },
   {
     "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#object-types-list",
@@ -2384,14 +2384,14 @@
     "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#labeling-data",
     "title": "Measures of Variability",
     "section": "Labeling Data",
-    "text": "Labeling Data\n\n\nAdding meaningful labels or categories to your dataset.\nUseful for organizing and interpreting your data.\n\n○ E.g., Adding labels like “Pass” or “Fail” based on test scores.\n\n\n\n\n  id order rating\n1  1     2      5\n2  2     3      3\n3  3     1      4\n4  4     1      4\n5  5     2      3\n\n\n\n\n\n\n  id order    rating\n1  1 Pasta Excellent\n2  2 Salad      Fair\n3  3 Pizza      Good\n4  4 Pizza      Good\n5  5 Pasta      Fair"
+    "text": "Labeling Data\n\n\nAdding meaningful labels or categories to your dataset.\nUseful for organizing and interpreting your data.\n\n○ E.g., Adding labels like “Pass” or “Fail” based on test scores.\n\n\n\n\n  id order rating\n1  1     3      2\n2  2     1      5\n3  3     3      5\n4  4     1      5\n5  5     3      4\n\n\n\n\n\n\n  id order    rating\n1  1 Salad      Poor\n2  2 Pizza Excellent\n3  3 Salad Excellent\n4  4 Pizza Excellent\n5  5 Salad      Good"
   },
   {
     "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#key-functions-for-labeling-data",
     "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#key-functions-for-labeling-data",
     "title": "Measures of Variability",
     "section": "Key Functions for Labeling Data",
-    "text": "Key Functions for Labeling Data\n\n\n\nscores &lt;- c(85, 60, 45, 70, 50)\n\n\n\ngender &lt;- c(1, 2, 1, 2, 2)\n\n\n\n\n\nifelse(test, yes, no)\nFor simple conditional labeling\n\ncut()\nFor creating bins or ranges\n\nfactor()\nConvert numeric or character data into labeled categories\n\n\n\n\n\n# Labeling as Pass/Fail\nlabels &lt;- ifelse(scores &gt;= 60,\n                 \"Pass\", \"Fail\")\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Label = labels)\n\ndata\n\n  Scores Label\n1     85  Pass\n2     60  Pass\n3     45  Fail\n4     70  Pass\n5     50  Fail\n\n\n\n\n# Creating bins\ncategories &lt;- cut(scores,\n                  breaks = c(0, 50, 70, 100),\n                  labels = c(\"Low\", \"Medium\",\n                             \"High\"))\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Category = categories)\n\ndata\n\n  Scores Category\n1     85     High\n2     60   Medium\n3     45      Low\n4     70   Medium\n5     50      Low\n\n\n\n\n# Converting to factor with labels\ngender_labeled &lt;- factor(gender,\n                         levels = c(1, 2),\n                         labels = c(\"Male\",\n                                    \"Female\"))\n\n# Combine into a data frame\ndata &lt;- data.frame(gender,\n                   gender_labeled)\n\ndata\n\n  gender gender_labeled\n1      1           Male\n2      2         Female\n3      1           Male\n4      2         Female\n5      2         Female"
+    "text": "Key Functions for Labeling Data\n\n\n\nscores &lt;- c(85, 60, 45, 70, 50)\n\n\n\ngender &lt;- c(1, 2, 1, 2, 2)\n\n\n\n\nifelse(test, yes, no)\nFor simple conditional labeling\n\ncut()\nFor creating bins or ranges\n\nfactor()\nConvert numeric or character data into labeled categories\n\n\n\n\n# Labeling as Pass/Fail\nlabels &lt;- ifelse(scores &gt;= 60,\n                 \"Pass\", \"Fail\")\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Label = labels)\n\ndata\n\n  Scores Label\n1     85  Pass\n2     60  Pass\n3     45  Fail\n4     70  Pass\n5     50  Fail\n\n\n\n\n# Creating bins\ncategories &lt;- cut(scores,\n                  breaks = c(0, 50, 70, 100),\n                  labels = c(\"Low\", \"Medium\",\n                             \"High\"))\n\n# Combining into a data frame\ndata &lt;- data.frame(Scores = scores,\n                   Category = categories)\n\ndata\n\n  Scores Category\n1     85     High\n2     60   Medium\n3     45      Low\n4     70   Medium\n5     50      Low\n\n\n\n\n# Converting to factor with labels\ngender_labeled &lt;- factor(gender,\n                         levels = c(1, 2),\n                         labels = c(\"Male\",\n                                    \"Female\"))\n\n# Combine into a data frame\ndata &lt;- data.frame(gender,\n                   gender_labeled)\n\ndata\n\n  gender gender_labeled\n1      1           Male\n2      2         Female\n3      1           Male\n4      2         Female\n5      2         Female"
   },
   {
     "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#descriptives-by-group",
@@ -2405,7 +2405,7 @@
     "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#descriptives-by-group-example",
     "title": "Measures of Variability",
     "section": "Descriptives by Group Example",
-    "text": "Descriptives by Group Example\n\n# average Sepal Length by iris species?"
+    "text": "Descriptives by Group Example"
   },
   {
     "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#descriptives-by-group-visualization",
@@ -2419,7 +2419,7 @@
     "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#visualizations-boxplots",
     "title": "Measures of Variability",
     "section": "Visualizations: Boxplots",
-    "text": "Visualizations: Boxplots\n\n\nBack to the iris dataset, distribution of Sepal Length by species\nAnatomy of a boxplot:\n\n○ “Minimum”\n\n\n○ 25th Quantile (Q1)\n\n\n○ Median\n\n\n○ 75th Quantile (Q3)\n\n\n○ “Maximum”\n\n\n○ Points representing outliers\n\n\n\n\n\n\n\n\n\n\n\n“Minimum” and “maximum” are not the true min and max\n\n○ Minimum: \\(Q1 - 1.5 * IQR\\)\n\n\n○ Maximum: \\(Q3 + 1.5 * IQR\\)\n\nMeans that the whiskers contain ~99% of the data, rest are outliers\n\n\n\nFor more explanation of the anatomy of a boxplot, feel free to check this post out from Statistics by Jim"
+    "text": "Visualizations: Boxplots\n\n\nBack to the iris dataset, distribution of Sepal Length by species\nAnatomy of a boxplot:\n\n○ “Minimum”\n\n\n○ 25th Quantile (Q1)\n\n\n○ Median\n\n\n○ 75th Quantile (Q3)\n\n\n○ “Maximum”\n\n\n○ Points representing outliers\n\n\n\n\n\n\n\n\n\n\n\n“Minimum” and “maximum” are not the true min and max\n\n○ Minimum: \\(Q1 - 1.5 * IQR\\)\n\n\n○ Maximum: \\(Q3 + 1.5 * IQR\\)\n\nMeans that the whiskers contain ~99% of the data, rest are outliers\n\n\nFor more explanation of the anatomy of a boxplot, feel free to check this post out from Statistics by Jim"
   },
   {
     "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#visualizations-boxplots-1",
@@ -2440,14 +2440,14 @@
     "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#lets-do-some-visualization",
     "title": "Measures of Variability",
     "section": "Let’s Do Some Visualization",
-    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Boxplot\n\n\nboxplot(x) function\nIts arguments are:\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot\n\n\nOptional arguments:\n\n\n○ main = title\n\n\n○ xlab = label for x-axis\n\n\n○ ylab = label for y-axis\n\n\n○ border = color for bar borders\n\n\n○ col = color for bars\n\n\n○ horizontal = T/F to switch\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length,\n     main = \"Boxplot of Sepal Length\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+    "text": "Let’s Do Some Visualization\nBase R Graphics: Boxplot\n\n\nboxplot(x) function\nIts arguments are:\n\nRequired arguments:\n\n\n○ x = vector (variable) you want to plot\n\n\nOptional arguments:\n\n\n○ main = title\n\n\n○ xlab = label for x-axis\n\n\n○ ylab = label for y-axis\n\n\n○ border = color for bar borders\n\n\n○ col = color for bars\n\n\n○ horizontal = T/F to switch\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length,\n     main = \"Boxplot of Sepal Length\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
   },
   {
     "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#lets-do-some-visualization-1",
     "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#lets-do-some-visualization-1",
     "title": "Measures of Variability",
     "section": "Let’s Do Some Visualization",
-    "text": "Let’s Do Some Visualization\n\nBase R Graphics: Boxplot\n\n\nTo group them, you can change the x to a “formula”\noutcome_var ~ group_var\nJust like we saw with aggregate()\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length ~ iris$Species,\n     main = \"Boxplot of Sepal Length by Species\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
+    "text": "Let’s Do Some Visualization\nBase R Graphics: Boxplot\n\n\nTo group them, you can change the x to a “formula”\noutcome_var ~ group_var\nJust like we saw with aggregate()\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboxplot(iris$Sepal.Length ~ iris$Species,\n     main = \"Boxplot of Sepal Length by Species\",\n     xlab = \"Sepal Length\",\n     border = \"gray35\",\n     col = \"skyblue\")"
   },
   {
     "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#visualizations-boxplot",
@@ -3043,5 +3043,96 @@
     "title": "Probability Distributions",
     "section": "Lab 4 Assignment!",
     "text": "Lab 4 Assignment!\nDon’t forget to sign up for posit::conf(2025) if you want to complete the extra credit assignment."
+  },
+  {
+    "objectID": "docs/assignments/PSYC2020L Assignment 2.html#mode-for-wind",
+    "href": "docs/assignments/PSYC2020L Assignment 2.html#mode-for-wind",
+    "title": "PSYC2020L Assignment 2",
+    "section": "13) Mode for Wind",
+    "text": "13) Mode for Wind\n\na) What is the mode for the Wind variable? How many times did it occur?"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html",
+    "title": "PSYC2020L Assignment 2",
+    "section": "",
+    "text": "Basic R functions\nDescriptive statistics\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well.\n\nAgain we might have some R HTML instead of .Rmd file issues. On the R HTML, it at least looked like on my end that it contained the same content as an .Rmd would, just not the same filetype? I told them that as long as their regular HTML file shows their code (which it should by default), it should be fine because we can always copy and run individual lines. Let me know if you have any issues. I don’t know why it converts to R HTML on their end!"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html#goals-for-review",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 2",
+    "section": "",
+    "text": "Basic R functions\nDescriptive statistics\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well.\n\nAgain we might have some R HTML instead of .Rmd file issues. On the R HTML, it at least looked like on my end that it contained the same content as an .Rmd would, just not the same filetype? I told them that as long as their regular HTML file shows their code (which it should by default), it should be fine because we can always copy and run individual lines. Let me know if you have any issues. I don’t know why it converts to R HTML on their end!"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html#setting-up",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html#setting-up",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 2 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory\n\ngetwd()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/assignments\"\n\nsetwd(\"path/to/folder\")\n\nError in setwd(\"path/to/folder\"): cannot change working directory\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site\"\n\n\n\nTheir instructions from me were to get their working directory and set it IF it wasn’t where they want it to be. So any of (or any combinations of) these three lines are correct. Although this one will have an error in the setwd() and theirs should not."
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html#basic-r-functions",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html#basic-r-functions",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Basic R Functions",
+    "text": "Basic R Functions\n\n3) Write an R function that takes in two numbers, multiplies them together, and returns the product\n\nproduct_func &lt;- function(num1, num2) {\n  num1 * num2\n}\n\n\nIf the function would successfully return the product of two numbers, that’s correct (doesn’t have to match mine exactly). Would love if they tested it, but I didn’t explicitly say that so not required.\n\n\n\n4) Write an R function that takes in three vectors, puts them in a dataframe, and returns the last two rows of the dataframe.\n\ndataframe_func &lt;- function(vec1, vec2, vec3) {\n  tail(data.frame(vec1, vec2, vec3), n = 2)\n}\n\n\nIf the function would successfully returns the last two rows of the dataframe, that’s correct (doesn’t have to match mine exactly). Would love if they tested it, but I didn’t explicitly say that so not required."
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html#data-summary",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html#data-summary",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Data Summary",
+    "text": "Data Summary\nWe will be using the airquality dataset for this assignment. Like the iris dataset, this comes preloaded in R. It contains information on daily air quality measurements in New York from May to September 1973.\n\n5) Show me the first five rows of the airquality dataset\n\nhead(airquality, n = 5)\n\n  Ozone Solar.R Wind Temp Month Day\n1    41     190  7.4   67     5   1\n2    36     118  8.0   72     5   2\n3    12     149 12.6   74     5   3\n4    18     313 11.5   62     5   4\n5    NA      NA 14.3   56     5   5\n\n\n\n\n6) Obtain the summary() statistics for this dataset\n\nsummary(airquality)\n\n     Ozone           Solar.R           Wind             Temp      \n Min.   :  1.00   Min.   :  7.0   Min.   : 1.700   Min.   :56.00  \n 1st Qu.: 18.00   1st Qu.:115.8   1st Qu.: 7.400   1st Qu.:72.00  \n Median : 31.50   Median :205.0   Median : 9.700   Median :79.00  \n Mean   : 42.13   Mean   :185.9   Mean   : 9.958   Mean   :77.88  \n 3rd Qu.: 63.25   3rd Qu.:258.8   3rd Qu.:11.500   3rd Qu.:85.00  \n Max.   :168.00   Max.   :334.0   Max.   :20.700   Max.   :97.00  \n NA's   :37       NA's   :7                                       \n     Month            Day      \n Min.   :5.000   Min.   : 1.0  \n 1st Qu.:6.000   1st Qu.: 8.0  \n Median :7.000   Median :16.0  \n Mean   :6.993   Mean   :15.8  \n 3rd Qu.:8.000   3rd Qu.:23.0  \n Max.   :9.000   Max.   :31.0"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html#ozone-descriptive-statistics",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html#ozone-descriptive-statistics",
+    "title": "PSYC2020L Assignment 2",
+    "section": "7) Ozone Descriptive Statistics",
+    "text": "7) Ozone Descriptive Statistics\n\na) What is the mean?\n\nmean(airquality$Ozone, na.rm = T)\n\n[1] 42.12931\n\n\n\n\nb) What is the median?\n\nmedian(airquality$Ozone, na.rm = T)\n\n[1] 31.5"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html#histograms-for-ozone",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html#histograms-for-ozone",
+    "title": "PSYC2020L Assignment 2",
+    "section": "8) Histograms for Ozone",
+    "text": "8) Histograms for Ozone\n\na) Obtain a histogram with breaks = 10\n\nhist(airquality$Ozone, breaks = 10)\n\n\n\n\n\n\n\n\n\n\nb) Obtain a histogram with breaks = 50\n\nhist(airquality$Ozone, breaks = 50)\n\n\n\n\n\n\n\n\n\n\nc) Obtain a histogram with breaks = 200\n\nhist(airquality$Ozone, breaks = 200)\n\n\n\n\n\n\n\n\n\n\nd) Compare three histograms above and describe the differences\nThe histograms with more breaks show the data with more details, but it can be harder to see the trends in the histograms with lots of breaks.\n\nSomething along this line works; doesn’t have to be exactly that. Feel free to be lenient as long as makes sense to you."
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html#boxplot-for-ozone",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html#boxplot-for-ozone",
+    "title": "PSYC2020L Assignment 2",
+    "section": "9) Boxplot for Ozone",
+    "text": "9) Boxplot for Ozone\n\nMISTAKE QUESTION! I had thought boxplots would be covered this week but took them out from the slides when I saw Dingjing’s lecture slides. Forgot to take them out of this 🙃. This question is dropped.\n\n\na) Obtain a boxplot for Ozone\n\n\nb) Is the data symmetrical? (Yes / No) How can you tell?\n\n\nc) Is the data skewed? (Yes / No) How can you tell?"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html#descriptive-statistics-for-temp",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html#descriptive-statistics-for-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "10) Descriptive statistics for Temp",
+    "text": "10) Descriptive statistics for Temp\n\na) What is the mean?\n\nmean(airquality$Temp)\n\n[1] 77.88235\n\n\n\n\nb) What is the median?\n\nmedian(airquality$Temp)\n\n[1] 79"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html#histogram-for-temp",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html#histogram-for-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "11) Histogram for Temp",
+    "text": "11) Histogram for Temp\n\na) Obtain a histogram with default number of breaks.\n\nhist(airquality$Temp)"
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html#comparison-between-ozone-and-temp",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html#comparison-between-ozone-and-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "12) Comparison between Ozone and Temp…",
+    "text": "12) Comparison between Ozone and Temp…\n\nBad phrasing on these two. All they have to do is say they’re different. They don’t have to include R code.\n\n\na) Does the mean change?\n\nmean(airquality$Ozone, na.rm = T)\n\n[1] 42.12931\n\nmean(airquality$Temp)\n\n[1] 77.88235\n\n\nYes, the mean is different.\n\n\nb) Does the median change?\n\nmedian(airquality$Ozone, na.rm = T)\n\n[1] 31.5\n\nmedian(airquality$Temp)\n\n[1] 79\n\n\nYes, the median is different."
+  },
+  {
+    "objectID": "assignments/PSYC2020L Assignment 2 Example.html#mode-for-wind",
+    "href": "assignments/PSYC2020L Assignment 2 Example.html#mode-for-wind",
+    "title": "PSYC2020L Assignment 2",
+    "section": "13) Mode for Wind",
+    "text": "13) Mode for Wind\n\na) What is the mode for the Wind variable? How many times did it occur?\n\nsort(table(airquality$Wind), decreasing = T)[1]\n\n11.5 \n  15 \n\n\nThe mode is 11.5. It occurred 15 times.\n\nCorrect answer is the important part here; they can use whatever R code solution to solve it (I gave a couple options)."
   }
 ]
