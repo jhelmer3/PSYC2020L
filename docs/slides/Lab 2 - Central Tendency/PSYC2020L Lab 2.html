@@ -223,6 +223,9 @@ Jessica Helmer
 <p>Learning objectives:<br>
 <strong>R:</strong> Projects, functions<br>
 <strong>Statistics:</strong> Central tendency</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="housekeeping" class="slide level2">
 <h2>Housekeeping</h2>
@@ -243,17 +246,17 @@ Jessica Helmer
 </div><div class="column" style="width:66%;">
 <h3 id="plotting">Plotting</h3>
 <p>Make sure to select the right variable for plotting!</p>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width,</span>
-<span id="cb1-2"><a></a>     <span class="at">col =</span> <span class="st">"#E50046"</span>)</span>
-<span id="cb1-3"><a></a><span class="fu">plot</span>(iris<span class="sc">$</span>Petal.Length, iris<span class="sc">$</span>Petal.Width,</span>
-<span id="cb1-4"><a></a>     <span class="at">col =</span> <span class="st">"#C7DB9C"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width,</span>
+<span id="cb2-2"><a></a>     <span class="at">col =</span> <span class="st">"#E50046"</span>)</span>
+<span id="cb2-3"><a></a><span class="fu">plot</span>(iris<span class="sc">$</span>Petal.Length, iris<span class="sc">$</span>Petal.Width,</span>
+<span id="cb2-4"><a></a>     <span class="at">col =</span> <span class="st">"#C7DB9C"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-2-1.png" width="384"></p>
+<p><img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-2-1.png" width="384"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-2-2.png" width="384"></p>
+<p><img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-2-2.png" width="384"></p>
 </div>
 </div>
 </div>
@@ -297,15 +300,15 @@ Jessica Helmer
 <p>○ Do need to install the <code>here</code> package first</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">install.packages</span>(<span class="st">"here"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">install.packages</span>(<span class="st">"here"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then, when you need a file, you can reference it relatively</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>here<span class="sc">::</span><span class="fu">here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>here<span class="sc">::</span><span class="fu">here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"lab 2"</span>, <span class="st">"cat.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"lab 2"</span>, <span class="st">"cat.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/lab 2/cat.png"</code></pre>
 </div>
@@ -321,7 +324,7 @@ Jessica Helmer
 <h2>Central Tendency Practice</h2>
 <p>Given this dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0 2 2 4</code></pre>
 </div>
@@ -334,7 +337,7 @@ Jessica Helmer
 <h2>Central Tendency Practice</h2>
 <p>Given this dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0 1 2 3</code></pre>
 </div>
@@ -348,7 +351,7 @@ Jessica Helmer
 <p>A <em>function</em> performs some operation on an <em>input</em> and produces some <em>output</em></p>
 <p>Saw this last week</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 1          5.1         3.5          1.4         0.2  setosa
@@ -366,7 +369,7 @@ Jessica Helmer
 <p>We can calculate central tendencies in two ways:</p>
 <p>Given this dataset, calculate the mean</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2  3 12  4  4</code></pre>
 </div>
@@ -405,7 +408,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBsZXQncyBjYWxjdWxhdGUg
 <h2>Central Tendency in R: Median</h2>
 <p>Given this dataset, calculate the median</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2  3 12  4  4</code></pre>
 </div>
@@ -444,7 +447,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBsZXQncyBjYWxjdWxhdGUg
 <h2>Central Tendency in R: Mode</h2>
 <p>Given this dataset, calculate the mode</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2  3 12  4  4</code></pre>
 </div>
@@ -520,15 +523,13 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyB3cml0ZSBhIGZ1bmN0aW9u
 <h2>Central Tendency in R: Mode</h2>
 <p>Given this dataset, calculate the mode</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># note from jess: considering switching to just showing table()</span></span>
-<span id="cb20-2"><a></a></span>
-<span id="cb20-3"><a></a><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2  3 12  4  4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>mode_func <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb22-2"><a></a>  <span class="fu">sort</span>(<span class="fu">table</span>(x), <span class="at">decreasing =</span> T)[<span class="dv">1</span>]</span>
-<span id="cb22-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>mode_func <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb23-2"><a></a>  <span class="fu">sort</span>(<span class="fu">table</span>(x), <span class="at">decreasing =</span> T)[<span class="dv">1</span>]</span>
+<span id="cb23-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>How does this work?</p>
 <div class="cell">
@@ -577,19 +578,33 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBsZXQncyBnZXQgZGVzY3Jp
 <p>Summary statistics are great, but don’t trust them alone!</p>
 <p>What do you think a dataset with these descriptives would look like?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>X_mean <span class="ot">&lt;-</span> <span class="fl">54.26</span></span>
-<span id="cb23-2"><a></a>Y_mean <span class="ot">&lt;-</span> <span class="fl">47.83</span></span>
-<span id="cb23-3"><a></a></span>
-<span id="cb23-4"><a></a>X_sd <span class="ot">&lt;-</span> <span class="fl">16.76</span></span>
-<span id="cb23-5"><a></a>Y_sd <span class="ot">&lt;-</span> <span class="fl">26.93</span></span>
-<span id="cb23-6"><a></a></span>
-<span id="cb23-7"><a></a>cor <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.06</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>X_mean <span class="ot">&lt;-</span> <span class="fl">54.26</span></span>
+<span id="cb24-2"><a></a>Y_mean <span class="ot">&lt;-</span> <span class="fl">47.83</span></span>
+<span id="cb24-3"><a></a></span>
+<span id="cb24-4"><a></a>X_sd <span class="ot">&lt;-</span> <span class="fl">16.76</span></span>
+<span id="cb24-5"><a></a>Y_sd <span class="ot">&lt;-</span> <span class="fl">26.93</span></span>
+<span id="cb24-6"><a></a></span>
+<span id="cb24-7"><a></a>cor <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.06</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="visualizations-1" class="slide level2">
 <h2>Visualizations!</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
 
-<img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
+</div>
+<img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
 <section id="visualizations-2" class="slide level2">
 <h2>Visualizations!</h2>
 <div class="quarto-figure quarto-figure-center">
@@ -646,7 +661,7 @@ What should graphs do?
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-24-1.png" width="384"></p>
+<p><img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-24-1.png" width="384"></p>
 </figure>
 </div>
 </div>
@@ -686,11 +701,11 @@ What should graphs do?
 <div class="columns">
 <div class="column fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-25-1.png" width="480"></p>
+<p><img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-25-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -712,7 +727,7 @@ What should graphs do?
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-26-1.png" width="480"></p>
+<p><img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-26-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -720,16 +735,16 @@ What should graphs do?
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width,</span>
-<span id="cb25-2"><a></a>     <span class="at">pch =</span> <span class="dv">19</span>,                 <span class="co"># solid circles</span></span>
-<span id="cb25-3"><a></a>     <span class="at">col =</span> <span class="st">"#377EB8"</span>,           <span class="co"># pleasant blue</span></span>
-<span id="cb25-4"><a></a>     <span class="at">cex =</span> <span class="fl">1.3</span>,                 <span class="co"># slightly larger points</span></span>
-<span id="cb25-5"><a></a>     <span class="at">xlab =</span> <span class="st">"Sepal Length"</span>,     <span class="co"># cleaner label</span></span>
-<span id="cb25-6"><a></a>     <span class="at">ylab =</span> <span class="st">"Sepal Width"</span>,</span>
-<span id="cb25-7"><a></a>     <span class="at">main =</span> <span class="st">"Sepal Length vs Sepal Width"</span>,</span>
-<span id="cb25-8"><a></a>     <span class="at">cex.lab =</span> <span class="fl">1.2</span>,             <span class="co"># bigger axis labels</span></span>
-<span id="cb25-9"><a></a>     <span class="at">cex.main =</span> <span class="fl">1.4</span>,            <span class="co"># bigger title</span></span>
-<span id="cb25-10"><a></a>     <span class="at">font.main =</span> <span class="dv">2</span>)             <span class="co"># bold title</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width,</span>
+<span id="cb27-2"><a></a>     <span class="at">pch =</span> <span class="dv">19</span>,                 <span class="co"># solid circles</span></span>
+<span id="cb27-3"><a></a>     <span class="at">col =</span> <span class="st">"#377EB8"</span>,           <span class="co"># pleasant blue</span></span>
+<span id="cb27-4"><a></a>     <span class="at">cex =</span> <span class="fl">1.3</span>,                 <span class="co"># slightly larger points</span></span>
+<span id="cb27-5"><a></a>     <span class="at">xlab =</span> <span class="st">"Sepal Length"</span>,     <span class="co"># cleaner label</span></span>
+<span id="cb27-6"><a></a>     <span class="at">ylab =</span> <span class="st">"Sepal Width"</span>,</span>
+<span id="cb27-7"><a></a>     <span class="at">main =</span> <span class="st">"Sepal Length vs Sepal Width"</span>,</span>
+<span id="cb27-8"><a></a>     <span class="at">cex.lab =</span> <span class="fl">1.2</span>,             <span class="co"># bigger axis labels</span></span>
+<span id="cb27-9"><a></a>     <span class="at">cex.main =</span> <span class="fl">1.4</span>,            <span class="co"># bigger title</span></span>
+<span id="cb27-10"><a></a>     <span class="at">font.main =</span> <span class="dv">2</span>)             <span class="co"># bold title</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -796,7 +811,7 @@ If you do not set specific values for non-essential subarguments, it will use th
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-28-1.png" width="480"></p>
+<p><img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-28-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -804,13 +819,13 @@ If you do not set specific values for non-essential subarguments, it will use th
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length,</span>
-<span id="cb26-2"><a></a>     <span class="at">breaks =</span> <span class="dv">7</span>,</span>
-<span id="cb26-3"><a></a>     <span class="at">main =</span> <span class="st">"Histogram of Sepal Length"</span>,</span>
-<span id="cb26-4"><a></a>     <span class="at">xlab =</span> <span class="st">"Sepal Length"</span>,</span>
-<span id="cb26-5"><a></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">9</span>),</span>
-<span id="cb26-6"><a></a>     <span class="at">border =</span> <span class="st">"white"</span>,</span>
-<span id="cb26-7"><a></a>     <span class="at">col =</span> <span class="st">"skyblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length,</span>
+<span id="cb28-2"><a></a>     <span class="at">breaks =</span> <span class="dv">7</span>,</span>
+<span id="cb28-3"><a></a>     <span class="at">main =</span> <span class="st">"Histogram of Sepal Length"</span>,</span>
+<span id="cb28-4"><a></a>     <span class="at">xlab =</span> <span class="st">"Sepal Length"</span>,</span>
+<span id="cb28-5"><a></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">9</span>),</span>
+<span id="cb28-6"><a></a>     <span class="at">border =</span> <span class="st">"white"</span>,</span>
+<span id="cb28-7"><a></a>     <span class="at">col =</span> <span class="st">"skyblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -828,7 +843,7 @@ If you do not set specific values for non-essential subarguments, it will use th
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-30-1.png" width="480"></p>
+<p><img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-30-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -838,7 +853,7 @@ If you do not set specific values for non-essential subarguments, it will use th
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-31-1.png" width="480"></p>
+<p><img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-31-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -856,7 +871,7 @@ If you do not set specific values for non-essential subarguments, it will use th
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-32-1.png" width="480"></p>
+<p><img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-32-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -866,7 +881,7 @@ If you do not set specific values for non-essential subarguments, it will use th
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-33-1.png" width="480"></p>
+<p><img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-33-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -885,7 +900,7 @@ If you do not set specific values for non-essential subarguments, it will use th
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020L-Lab-2_files/figure-revealjs/unnamed-chunk-34-1.png" width="1440"></p>
+<p><img data-src="PSYC2020L-Lab-2_files/figure-html/unnamed-chunk-34-1.png" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -893,43 +908,43 @@ If you do not set specific values for non-essential subarguments, it will use th
 </div>
 <div id="tabset-3-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>))</span>
-<span id="cb27-2"><a></a></span>
-<span id="cb27-3"><a></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(</span>
-<span id="cb27-4"><a></a>  <span class="at">plotlist =</span> <span class="fu">list</span>(</span>
-<span id="cb27-5"><a></a>    <span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
-<span id="cb27-6"><a></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
-<span id="cb27-7"><a></a>                     <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb27-8"><a></a>      <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb27-9"><a></a>      <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
-<span id="cb27-10"><a></a>      cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(),</span>
-<span id="cb27-11"><a></a>    </span>
-<span id="cb27-12"><a></a>    <span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
-<span id="cb27-13"><a></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
-<span id="cb27-14"><a></a>                     <span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
-<span id="cb27-15"><a></a>      <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb27-16"><a></a>      <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
-<span id="cb27-17"><a></a>      cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(),</span>
-<span id="cb27-18"><a></a>    </span>
-<span id="cb27-19"><a></a>    <span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
-<span id="cb27-20"><a></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
-<span id="cb27-21"><a></a>                     <span class="at">bins =</span> <span class="dv">100</span>) <span class="sc">+</span></span>
-<span id="cb27-22"><a></a>      <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb27-23"><a></a>      <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
-<span id="cb27-24"><a></a>      cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(),</span>
-<span id="cb27-25"><a></a>    </span>
-<span id="cb27-26"><a></a>    <span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
-<span id="cb27-27"><a></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
-<span id="cb27-28"><a></a>                     <span class="at">bins =</span> <span class="dv">100</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb27-29"><a></a>      <span class="fu">stat_function</span>(<span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">fun =</span> dnorm,</span>
-<span id="cb27-30"><a></a>                    <span class="at">n =</span> <span class="dv">101</span>, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb27-31"><a></a>                    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>),</span>
-<span id="cb27-32"><a></a>                    <span class="at">color =</span> <span class="st">"grey35"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb27-33"><a></a>      <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb27-34"><a></a>      <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
-<span id="cb27-35"><a></a>      cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>()</span>
-<span id="cb27-36"><a></a>  ),</span>
-<span id="cb27-37"><a></a>  <span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>))</span>
+<span id="cb29-2"><a></a></span>
+<span id="cb29-3"><a></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(</span>
+<span id="cb29-4"><a></a>  <span class="at">plotlist =</span> <span class="fu">list</span>(</span>
+<span id="cb29-5"><a></a>    <span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb29-6"><a></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
+<span id="cb29-7"><a></a>                     <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb29-8"><a></a>      <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb29-9"><a></a>      <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
+<span id="cb29-10"><a></a>      cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(),</span>
+<span id="cb29-11"><a></a>    </span>
+<span id="cb29-12"><a></a>    <span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb29-13"><a></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
+<span id="cb29-14"><a></a>                     <span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb29-15"><a></a>      <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb29-16"><a></a>      <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
+<span id="cb29-17"><a></a>      cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(),</span>
+<span id="cb29-18"><a></a>    </span>
+<span id="cb29-19"><a></a>    <span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb29-20"><a></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
+<span id="cb29-21"><a></a>                     <span class="at">bins =</span> <span class="dv">100</span>) <span class="sc">+</span></span>
+<span id="cb29-22"><a></a>      <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb29-23"><a></a>      <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
+<span id="cb29-24"><a></a>      cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(),</span>
+<span id="cb29-25"><a></a>    </span>
+<span id="cb29-26"><a></a>    <span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb29-27"><a></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
+<span id="cb29-28"><a></a>                     <span class="at">bins =</span> <span class="dv">100</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb29-29"><a></a>      <span class="fu">stat_function</span>(<span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">fun =</span> dnorm,</span>
+<span id="cb29-30"><a></a>                    <span class="at">n =</span> <span class="dv">101</span>, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb29-31"><a></a>                    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>),</span>
+<span id="cb29-32"><a></a>                    <span class="at">color =</span> <span class="st">"grey35"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb29-33"><a></a>      <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb29-34"><a></a>      <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
+<span id="cb29-35"><a></a>      cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>()</span>
+<span id="cb29-36"><a></a>  ),</span>
+<span id="cb29-37"><a></a>  <span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1187,82 +1202,6 @@ W10=
     window._ojs.selfContained = false;
     window._ojs.runtime.interpretFromScriptTags();
     </script>
-    
-
-    <script>
-
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
-      // slide changes (different for each slide format).
-
-      (function () {
-
-        // dispatch for htmlwidgets
-
-        function fireSlideEnter() {
-
-          const event = window.document.createEvent("Event");
-
-          event.initEvent("slideenter", true, true);
-
-          window.document.dispatchEvent(event);
-
-        }
-
-    
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          fireSlideEnter();
-
-    
-
-          // dispatch for shiny
-
-          if (window.jQuery) {
-
-            if (previousSlide) {
-
-              window.jQuery(previousSlide).trigger("hidden");
-
-            }
-
-            if (currentSlide) {
-
-              window.jQuery(currentSlide).trigger("shown");
-
-            }
-
-          }
-
-        }
-
-    
-
-        // hookup for slidy
-
-        if (window.w3c_slidy) {
-
-          window.w3c_slidy.add_observer(function (slide_num) {
-
-            // slide_num starts at position 1
-
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
-          });
-
-        }
-
-    
-
-      })();
-
-    </script>
-
-    
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

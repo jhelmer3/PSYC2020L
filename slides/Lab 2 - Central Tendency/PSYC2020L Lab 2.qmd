@@ -335,8 +335,6 @@ Let's go back to finding the mode
 Given this dataset, calculate the mode
 
 ```{r}
-# note from jess: considering switching to just showing table()
-
 c(2, 3, 12, 4, 4)
 
 mode_func <- function(x) {

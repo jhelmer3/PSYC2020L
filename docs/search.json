@@ -2384,7 +2384,7 @@
     "href": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#labeling-data",
     "title": "Measures of Variability",
     "section": "Labeling Data",
-    "text": "Labeling Data\n\n\nAdding meaningful labels or categories to your dataset.\nUseful for organizing and interpreting your data.\n\n○ E.g., Adding labels like “Pass” or “Fail” based on test scores.\n\n\n\n\n  id order rating\n1  1     2      3\n2  2     3      3\n3  3     1      5\n4  4     3      1\n5  5     2      5\n\n\n\n\n\n\n  id order    rating\n1  1 Pasta      Fair\n2  2 Salad      Fair\n3  3 Pizza Excellent\n4  4 Salad Very Poor\n5  5 Pasta Excellent"
+    "text": "Labeling Data\n\n\nAdding meaningful labels or categories to your dataset.\nUseful for organizing and interpreting your data.\n\n○ E.g., Adding labels like “Pass” or “Fail” based on test scores.\n\n\n\n\n  id order rating\n1  1     2      5\n2  2     3      3\n3  3     1      4\n4  4     1      4\n5  5     2      3\n\n\n\n\n\n\n  id order    rating\n1  1 Pasta Excellent\n2  2 Salad      Fair\n3  3 Pizza      Good\n4  4 Pizza      Good\n5  5 Pasta      Fair"
   },
   {
     "objectID": "slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html#key-functions-for-labeling-data",
@@ -2755,7 +2755,7 @@
     "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#outline",
     "title": "Central Tendency",
     "section": "Outline",
-    "text": "Outline\n\nAssignment 1 Review\nExtra Credit\nR Projects\nCentral Tendency Review\nR Functions\nCentral Tendency in R\n\nLearning objectives:\nR: Projects, functions\nStatistics: Central tendency"
+    "text": "Outline\n\nAssignment 1 Review\nExtra Credit\nR Projects\nCentral Tendency Review\nR Functions\nCentral Tendency in R\n\nLearning objectives:\nR: Projects, functions\nStatistics: Central tendency\n\nknitr::opts_chunk$set(echo = T)"
   },
   {
     "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#housekeeping",
@@ -2860,7 +2860,7 @@
     "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#central-tendency-in-r-mode-1",
     "title": "Central Tendency",
     "section": "Central Tendency in R: Mode",
-    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\n# note from jess: considering switching to just showing table()\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\nmode_func &lt;- function(x) {\n  sort(table(x), decreasing = T)[1]\n}\n\nHow does this work?"
+    "text": "Central Tendency in R: Mode\nGiven this dataset, calculate the mode\n\nc(2, 3, 12, 4, 4)\n\n[1]  2  3 12  4  4\n\nmode_func &lt;- function(x) {\n  sort(table(x), decreasing = T)[1]\n}\n\nHow does this work?"
   },
   {
     "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#descriptive-statistics-in-r",
@@ -2881,7 +2881,7 @@
     "href": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations-1",
     "title": "Central Tendency",
     "section": "Visualizations!",
-    "text": "Visualizations!"
+    "text": "Visualizations!\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
   },
   {
     "objectID": "slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html#visualizations-2",
@@ -3001,5 +3001,47 @@
     "title": "Psychological Statistics Lab",
     "section": "posit::conf(2025)",
     "text": "posit::conf(2025)\nAttend livestreamed sessions at posit::conf(2025) as an extra credit opportunity! See here for instructions."
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html",
+    "title": "Probability Distributions",
+    "section": "",
+    "text": "Assignment 2 Review\nProbability Distributions Review\nZ-Scores in R\nGenerating Data\n\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#outline",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#outline",
+    "title": "Probability Distributions",
+    "section": "",
+    "text": "Assignment 2 Review\nProbability Distributions Review\nZ-Scores in R\nGenerating Data\n\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#extra-credit-reminder",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#extra-credit-reminder",
+    "title": "Probability Distributions",
+    "section": "Extra Credit Reminder!",
+    "text": "Extra Credit Reminder!\nposit::conf(2025) is only a few days away!"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#assignment-2-review",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#assignment-2-review",
+    "title": "Probability Distributions",
+    "section": "Assignment 2 Review",
+    "text": "Assignment 2 Review\nPlaceholder for Assignment 2 mistakes"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#probability-distributions-review",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#probability-distributions-review",
+    "title": "Probability Distributions",
+    "section": "Probability Distributions Review",
+    "text": "Probability Distributions Review"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#lab-4-assignment",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#lab-4-assignment",
+    "title": "Probability Distributions",
+    "section": "Lab 4 Assignment!",
+    "text": "Lab 4 Assignment!\nDon’t forget to sign up for posit::conf(2025) if you want to complete the extra credit assignment."
   }
 ]
