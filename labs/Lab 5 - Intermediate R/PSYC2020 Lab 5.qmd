@@ -1,0 +1,840 @@
+---
+title: "Intermediate R: `tidyverse`"
+subtitle: "PSYC 2020-A01 / PSYC 6022-A01 | 2025-09-19 | Lab 5"
+author: "Jessica Helmer"
+format: 
+  live-revealjs:
+    slide-number: true
+    show-slide-number: all
+    css: PSYC2020L_styles.css
+engine: knitr
+execute:
+  echo: true
+width: 1200
+---
+
+## Outline
+
+* Assignment 4 Review
+* `tidyverse` Workflow
+* Full Analysis
+
+Learning objectives:  
+**R:** `tidyverse`
+
+
+## Housekeeping
+
+[input any housekeeping items here]
+
+## Assignment 4 Review
+
+[input any Assignment 4 review here]
+
+
+## The `tidyverse`
+
+:::: {.columns}
+::: {.column}
+What is the `tidyverse`???
+
+[`tidyverse` webpage](https://www.tidyverse.org/){preview-link="true"}
+
+R packages made for data science
+:::
+
+::: {.column}
+[![](r4de.jpg)](https://r4ds.hadley.nz/){.absolute top="100"}
+:::
+::::
+
+
+## Whole Game
+
+Pieces of the "whole game" of data science
+
+![](tidyflow.png)
+
+
+## Whole Game
+
+Today's plan:
+
+* Introduce each of these principles
+
+* Learn about `tidyverse` syntax
+
+* Cover some examples of `tidyverse` functions that fall into each category
+
+* Conduct our first "full analysis" by following the tidy workflow
+
+
+# Whole Game
+
+**Import** <span style="color: #C5C5C5;">→ Tidy → Transform → Visualize → Model → Communicate</span>
+
+
+## Import
+
+Bringing our data into R
+
+We've done this with the `read()` function family and / or the `rio` package
+
+...Neither of those are `tidyverse` packages
+
+But that's fine! This step is the simplest
+
+
+## Import: Today's dataset
+
+Dataset on pulse rates before and after exercise
+
+Can import from the internet
+
+```{r}
+pulse_data <- rio::import("http://www.statsci.org/data/oz/ms212.txt") 
+```
+
+Or download the .rds file from Canvas
+
+```{r, warning=F}
+pulse_data <- rio::import(here::here("labs", "Lab 5 - Intermediate R", "pulserates.rds"))
+```
+
+<div class="subpoint">○ .rds is a file extension for R data </div>
+
+
+## Import: Today's dataset
+
+<div style="font-size:75%">
+| Variable | Description|
+|------|------------------------------------------|
+|	Height |	Height (cm) |
+|	Weight |	Weight (kg) |
+|	Age |	Age (years) |
+|	Gender |	Sex (1 = male, 2 = female) |
+|	Smokes |	Regular smoker? (1 = yes, 2 = no) |
+|	Alcohol	|	Regular drinker? (1 = yes, 2 = no) |
+|	Exercise |	Frequency of exercise (1 = high, 2 = moderate, 3 = low) |
+|	Ran 	|	Whether the student ran or sat between the measurements (1 = ran, 2 = sat) |
+|	Pulse1	|	First pulse measurement (rate per minute) |
+|	Pulse2 	|	Second pulse measurement (rate per minute) |
+|	Year 	|	Year of class (93--98) |
+</div>
+
+
+## Import: Today's dataset
+
+Let's check out our data
+
+```{r, include=F}
+summary(pulse_data)
+str(pulse_data)
+head(pulse_data)
+```
+
+```{webr}
+# let's look at our data!
+
+```
+
+
+
+# Whole Game
+
+<span style="color: #C5C5C5;">Import → </span>**Tidy**<span style="color: #C5C5C5;"> → Transform → Visualize → Model → Communicate</span>
+
+
+## Tidy
+
+Refers to *tidy data*
+
+::: {style="font-size:75%;"}
+> "Happy families are all alike; every unhappy family is unhappy in its own way."\
+> --- Leo Tolstoy
+
+> "Tidy datasets are all alike, but every messy dataset is messy in its own way."\
+> --- Hadley Wickham
+:::
+
+Tidy data follow a consistent set of organizational principles
+
+More work up front but **much** easier to work with after
+
+
+## Tidy
+
+:::: {.columns}
+::: {.column width=32%}
+```{r, echo=F}
+pulse_data |>
+  dplyr::mutate(PersonId = dplyr::row_number()) |>
+  dplyr::select(PersonId, Height, Weight, Year) |>
+  head()
+```
+:::
+
+::: {.column width=2%}
+<!-- spacing -->
+:::
+
+::: {.column .fragment .fade-out width=32% data-fragment-index="1"}
+```{r, echo=F}
+pulse_data |>
+  dplyr::mutate(PersonId = dplyr::row_number()) |>
+  dplyr::select(PersonId, Height, Weight, Year) |>
+  tidyr::pivot_longer(c("Height", "Weight"),
+               names_to = "Variable", values_to = "Value") |>
+  as.data.frame() |>
+  head()
+```
+:::
+
+::: {.column width=2%}
+<!-- spacing -->
+:::
+
+::: {.column .fragment .fade-out width=32% data-fragment-index="1"}
+```{r, echo=F}
+pulse_data |>
+  dplyr::mutate(PersonId = dplyr::row_number(),
+         HeightToWeight = paste0(Height, "/", Weight)) |>
+  dplyr::select(PersonId, HeightToWeight, Year) |>
+  head()
+```
+:::
+::::
+
+All of these dataframes contain the same information, but one of them is much easier to work with...
+
+::: fragment
+Why?
+:::
+
+
+## Tidy: Principles
+
+Three rules to a tidy dataset
+
+1. Each variable is a column; each column is a variable.
+
+2. Each observation is a row; each row is an observation.
+
+3. Each value is a cell; each cell is a single value.
+
+![](https://r4ds.hadley.nz/images/tidy-1.png)
+
+::: footer
+<https://r4ds.hadley.nz/data-tidy.html#fig-tidy-structure>
+:::
+
+
+## Tidy: Why tidy?
+
+1. Consistency! Any sort of consistency in your data management will be beneficial.
+
+::: fragment
+What's often the primary argument of functions we've used?
+:::
+
+::: fragment
+2. R loves vectors! Having variables in columns plays well with many functions
+:::
+
+
+## Tidy: Is our data tidy?
+
+:::: {.columns}
+::: {.column width=80%}
+```{r}
+head(pulse_data, n = 10)
+```
+:::
+
+::: {.column width=15% style="font-size:75%"}
+1. Each variable is a column; each column is a variable.
+
+2. Each observation is a row; each row is an observation.
+
+3. Each value is a cell; each cell is a single value.
+:::
+::::
+
+
+## Tidy: For later...
+
+We will learn ways to make untidy data tidy in later classes
+
+For now, we are good, and can proceed with our analysis!
+
+
+
+# Whole Game
+
+<span style="color: #C5C5C5;">Import → Tidy → </span>**Transform**<span style="color: #C5C5C5;"> → Visualize → Model → Communicate</span>
+
+
+## Transform
+
+Usually, our data doesn't come to us with the variables exactly as we want them
+
+Sometimes we need...
+
+* New variables, based on our existing data or otherwise
+
+* A summarized version of our dataset
+
+* Reordered variables
+
+* Etc., etc., etc. Any others?
+
+
+## Transform: `tidyverse` syntax 
+
+The `tidyverse` website mentioned that each package shares a common language for their functions
+
+Based off of `dplyr` (one of the packages) verbs
+
+1. The first argument is always a data frame.
+
+2. The subsequent arguments typically describe which columns to operate on using the variable names (without quotes).
+
+3. The output is always a new data frame.
+
+::: footer
+<https://r4ds.hadley.nz/data-transform.html#dplyr-basics>
+:::
+
+
+## Transform: Load the `tidyverse`
+
+Let's get ready to actually use some `tidyverse` code!
+
+```{r, eval=F}
+install.packages("tidyverse")
+```
+
+```{r}
+library(tidyverse)
+```
+
+::: {.callout-note}
+Note the `Conflicts` section! Remember when we talked about overwriting?
+:::
+
+
+## Transform: More `tidyverse` syntax 
+
+One more thing...
+
+`tidyverse` verbs work best in a **pipe**: |>
+
+:::: {.columns}
+::: {.column}
+How we've been using functions:
+
+`output <- function(input)`
+:::
+
+::: {.column}
+Functions in a pipe:
+
+`output <- input |> function()`
+:::
+::::
+
+Why is this helpful?
+
+:::: {.columns}
+::: {.column}
+Many functions together:
+
+```
+anotherfunction(otherfunction(function(input)))
+```
+:::
+
+::: {.column}
+Functions in a pipe:
+
+```
+input |>
+  function() |>
+  otherfunction() |>
+  another function()
+```
+:::
+::::
+
+
+## Transform: Goals for our data
+
+In what ways should we transform our data?
+
+First, we need to figure out our questions!
+
+
+## Transform: Goals for our data
+
+<div style="font-size:75%">
+| Variable | Description|
+|------|------------------------------------------|
+|	Height |	Height (cm) |
+|	Weight |	Weight (kg) |
+|	Age |	Age (years) |
+|	Gender |	Sex (1 = male, 2 = female) |
+|	Smokes |	Regular smoker? (1 = yes, 2 = no) |
+|	Alcohol	|	Regular drinker? (1 = yes, 2 = no) |
+|	Exercise |	Frequency of exercise (1 = high, 2 = moderate, 3 = low) |
+|	Ran 	|	Whether the student ran or sat between the measurements (1 = ran, 2 = sat) |
+|	Pulse1	|	First pulse measurement (rate per minute) |
+|	Pulse2 	|	Second pulse measurement (rate per minute) |
+|	Year 	|	Year of class (93--98) |
+</div>
+
+
+## Transform: Goals for our data
+
+My questions: 
+
+1. Is the difference in pulse between the first and second measurement points different for people who ran or not?
+
+2. Does that difference vary by whether or not someone is a regular smoker?
+
+3. What is the relationship between first and second pulse measurements? Does this differ by smoking status?
+
+4. Class question!! (time pending)
+
+
+## Transform: Gameplan
+
+Transformation goals:
+
+1. Make a variable with the difference between the first and second pulse measurement points
+
+2. Code some of our numeric variables into their categories
+
+3. Subset our data to only include the relevant columns
+
+4. Summarize information based on our questions
+
+
+## Transform: Some relevant functions
+
+<div style="font-size:60%">
+|   |   |
+|---|---|
+| `mutate()` | adds, changes, renames columns |
+| `ifelse()` | changes a vector conditionally |
+| `select()` | selects specified columns |
+| `filter()` | selects specified rows |
+| `summarize()` | summarizes data |
+</div>
+
+Switching to RStudio...
+
+
+## Transform: Sample code
+
+#### Goal 1, 2, and 3: 
+
+1. Make a variable with the difference between the first and second pulse measurement points
+
+2. Code some of our numeric variables into their categories
+
+3. Subset our data to only include the relevant columns
+```{r}
+pulse_subset <- pulse_data |>
+  mutate(PulseDiff = Pulse2 - Pulse1,
+         Smokes = ifelse(Smokes == 1, "Yes",
+                            ifelse(Smokes == 2, "No", Smokes)),
+         Ran = ifelse(Ran == 1, "Ran",
+                         ifelse(Ran == 2, "Sat", Ran))) |>
+  select(Smokes, Ran, PulseDiff, Pulse1, Pulse2)
+```
+
+
+## Transform: Sample code
+
+#### Goal 4:
+
+4. Summarize information based on our questions
+```{r}
+pulse_subset |>
+  summarize(.by = Ran,
+            PulseDiffMean = mean(PulseDiff, na.rm=T))
+
+pulse_subset |>
+  summarize(.by = c(Ran, Smokes),
+            PulseDiffMean = mean(PulseDiff, na.rm=T))
+```
+
+
+
+# Whole Game
+
+<span style="color: #C5C5C5;">Import → Tidy → Transform → </span>**Visualize**<span style="color: #C5C5C5;"> → Model → Communicate</span>
+
+
+## Visualize
+
+So many numbers! Can we please visualize our data?
+
+::: {style="font-size:75%;"}
+> “The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey
+:::
+
+Yes! With the `ggplot2` package
+
+A bit of a different plotting system than we've done before
+
+But much more expansive and flexible (and much nicer looking, if you ask me!)
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+```{r, echo=F}
+pulse_subset |>
+  ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +
+  geom_point(size = 2.4) +
+  geom_smooth(method="lm") +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +
+  labs(x = "First Pulse", y = "Second Pulse") +
+  facet_wrap(~ Smokes, labeller = "label_both") +
+  theme_classic(base_size = 16) +
+  theme(legend.position = "bottom",
+        aspect.ratio = 1)
+```
+:::
+
+::: {.column width=33%}
+Let's begin at the end:
+:::
+::::
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+```{r}
+ggplot(data = pulse_subset)
+```
+:::
+
+::: {.column width=33%}
+When we just call the `ggplot()` function with our data as the first argument, we get this blank area
+
+`ggplot()` works by adding layers and layers onto a plot object
+
+> This is not a very exciting plot, but you can think of it like an empty canvas you’ll paint the remaining layers of your plot onto. — R4DS
+:::
+::::
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+```{r}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2))
+```
+:::
+
+::: {.column width=33%}
+Next, we want to tell `ggplot()` what information we want in our plot and where we want it
+
+We do this with the `aes()` ("aesthetics") function in the `mapping =` argument
+
+How variables are *mapped* onto specific parts of the plot
+
+To investigate the relationship between the first and second pulse measurements, we can choose to put `Pulse1` on the x-axis and `Pulse2` on the y-axis
+
+What do we get?
+
+Labels, axes, and a grid
+:::
+::::
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+```{r}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2)) +
+  geom_point()
+```
+:::
+
+::: {.column width=33%}
+Still no data, though
+
+Need to define some **geom**, a geometric display of our data
+
+Will usually start with `geom_`
+
+<div style="font-size:60%">
+|   |   |
+|---|---|
+| `geom_line()` | line graph |
+| `geom_bar()` | bar graph |
+| `geom_boxplot()` | boxplot |
+| `geom_point()` | scatterplot |
+</div>
+
+Can start addressing questions here!
+
+::: {.callout-note}
+Take note of the missing values warning!
+:::
+:::
+::::
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+```{r}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2)) +
+  geom_point() +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))
+```
+:::
+
+::: {.column width=33%}
+These variables are conceptually similar and should probably have the same scale
+
+Automatically generated axes are a good place to start
+
+But good practice to consider them each time
+:::
+::::
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+```{r}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
+  geom_point()
+```
+:::
+
+::: {.column width=33%}
+Adding aesthetics and layers
+
+Who in this group are the people who ran?
+
+Start: do we need to modify the aesthetic or the geom?
+
+What can we tell from this?
+:::
+::::
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+```{r}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
+  geom_point() +
+  geom_smooth(method="lm")
+```
+:::
+
+::: {.column width=33%}
+Adding aesthetics and layers
+
+Let's say we want to add a line to better represent the overall trend
+
+Start: do we need to modify the aesthetic or the geom?
+
+What can we tell from this?
+:::
+::::
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+```{r}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
+  geom_point() +
+  geom_smooth(method="lm")
+```
+:::
+
+::: {.column width=33%}
+Adding aesthetics and layers
+
+Let's say we want to add a line to better represent the overall trend
+
+Start: do we need to modify the aesthetic or the geom?
+
+What can we tell from this?
+:::
+::::
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+```{r}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+  facet_wrap(~ Smokes)
+```
+:::
+
+::: {.column width=33%}
+Let's say we want to look at this for smokers vs non-smokers
+
+What can we tell from this?
+:::
+::::
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+```{r}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+  facet_wrap(~ Smokes) +
+  theme_classic()
+```
+:::
+
+::: {.column width=33%}
+Let's say we want this plot to look nicer!!
+
+Built in themes
+:::
+::::
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+```{r}
+pulse_subset |>
+  ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +
+  geom_point(size = 2.4) +
+  geom_smooth(method="lm") +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +
+  labs(x = "First Pulse", y = "Second Pulse") +
+  facet_wrap(~ Smokes, labeller = "label_both") +
+  theme_classic(base_size = 16) +
+  theme(legend.position = "bottom",
+        aspect.ratio = 1)
+```
+:::
+
+::: {.column width=33%}
+Let's say we want this plot to look nicer!!
+
+Additional theming with `theme()`, `labs()`, and various arguments
+:::
+::::
+
+
+
+# Whole Game
+
+<span style="color: #C5C5C5;">Import → Tidy → Transform  → Visualize → </span>**Model**<span style="color: #C5C5C5;"> → Communicate</span>
+
+
+## Model
+
+At this point, we could take the statistical models we know and apply them to the data
+
+We haven't learned many yet, but we have learned some!
+
+`mean()`, `sd()` could combine to model the distribution of your data, etc.
+
+We will do more modeling later!
+
+
+
+# Whole Game
+
+<span style="color: #C5C5C5;">Import → Tidy → Transform  → Visualize → Model → </span>**Communicate**
+
+
+## Communicate
+
+We...have already learned ways to do this with RMarkdown!
+
+Statistics and visualizations are great, but to tell a good story it is often useful to accompany these with text explaining the key features or importance.
+
+And we've been practicing this all along by describing the plots!
+
+
+## Communicate: Pulse Measurements
+
+:::: {.columns}
+::: {.column width=66%}
+```{r}
+pulse_subset |>
+  ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +
+  geom_point(size = 2.4) +
+  geom_smooth(method="lm") +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +
+  labs(x = "First Pulse", y = "Second Pulse") +
+  facet_wrap(~ Smokes, labeller = "label_both") +
+  theme_classic(base_size = 16) +
+  theme(legend.position = "bottom",
+        aspect.ratio = 1)
+```
+:::
+
+::: {.column width=33% style="font-size:50%"}
+In this visualization, we can see a strong positive relationship between participants' pulse measurements at the first time point and their pulse measurements at the second time point. We can see that the individuals who ran in between the measurements had similar values on the x-axis (the first measurement) but much higher values at the second measurement. While it seems like there may be some differences in pulse between regular smokers and non-smokers, there is much fewer observations present for non-smokers.
+:::
+::::
+
+# Assignment 5
+
+

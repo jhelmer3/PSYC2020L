@@ -886,7 +886,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nProbability Distributions\nComing soon!"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides\n\n\n\n\n09/19 Lab 9\n\nIntermediate R\nComing soon!"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
@@ -3012,9 +3012,9 @@
   {
     "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#outline",
     "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#outline",
-    "title": "Probability Distributions",
-    "section": "",
-    "text": "Assignment 2 Review\nProbability Distributions Review\nZ-Scores in R\nGenerating Data\n\n\nknitr::opts_chunk$set(echo = T)"
+    "title": "Z-Scores",
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 2 Review\nProbability Distributions Review\nZ-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nLearning objectives:\nR: Packages, reading files, generating data\nStatistics: Z-scores"
   },
   {
     "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#extra-credit-reminder",
@@ -3026,21 +3026,21 @@
   {
     "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#assignment-2-review",
     "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#assignment-2-review",
-    "title": "Probability Distributions",
+    "title": "Z-Scores",
     "section": "Assignment 2 Review",
-    "text": "Assignment 2 Review\nPlaceholder for Assignment 2 mistakes"
+    "text": "Assignment 2 Review\n\nDon’t forget to rename the assignment!\nOverall really great work!"
   },
   {
     "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#probability-distributions-review",
     "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#probability-distributions-review",
     "title": "Probability Distributions",
     "section": "Probability Distributions Review",
-    "text": "Probability Distributions Review"
+    "text": "Probability Distributions Review\nPlaceholder for lecture content review"
   },
   {
     "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#lab-4-assignment",
     "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#lab-4-assignment",
-    "title": "Probability Distributions",
+    "title": "Z-Scores",
     "section": "Lab 4 Assignment!",
     "text": "Lab 4 Assignment!\nDon’t forget to sign up for posit::conf(2025) if you want to complete the extra credit assignment."
   },
@@ -3134,5 +3134,740 @@
     "title": "PSYC2020L Assignment 2",
     "section": "13) Mode for Wind",
     "text": "13) Mode for Wind\n\na) What is the mode for the Wind variable? How many times did it occur?\n\nsort(table(airquality$Wind), decreasing = T)[1]\n\n11.5 \n  15 \n\n\nThe mode is 11.5. It occurred 15 times.\n\nCorrect answer is the important part here; they can use whatever R code solution to solve it (I gave a couple options)."
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores-in-r",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores-in-r",
+    "title": "Z-Scores",
+    "section": "Z-Scores in R",
+    "text": "Z-Scores in R\nNeed to:\n\nTake out the mean\nScale by the standard deviation\n\ndata$variable_z &lt;- (data$variable - mean(data$variable)) / sd(data$variable)\n\n\n\n\n\n\n\n\n\nCan check to make sure things look right"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores",
+    "title": "Z-Scores",
+    "section": "Z-Scores",
+    "text": "Z-Scores\nTo “Z-score” or “standardize” your data\n\n○ Transform a variable such that the mean is zero and the standard deviation is one\n\n\n○ Matches the mean and SD of a “standard” normal distribution, \\(N(0, 1)\\)"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores-1",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores-1",
+    "title": "Z-Scores",
+    "section": "Z-Scores",
+    "text": "Z-Scores\nWhy standardize?\n\nPuts variables on the same (interpretable) scale\nHelps manage very large or very small numbers\nCan compare across distributions\nGives information about location relative to the rest of the distribution"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#generating-normal-data",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#generating-normal-data",
+    "title": "Z-Scores",
+    "section": "Generating Normal Data",
+    "text": "Generating Normal Data\nSometimes, we want to simulate data\n\n○ Demonstration\n\n\n○ Comparison\n\n\n○ Sanity check\n\nTo generate data drawn from a normal distribution, we can use rnorm(n, mean, sd)\n\n○ n = number of draws\n\n\n○ mean = desired mean of distribution\n\n\n○ sd = desired SD of distribution"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#generating-normal-data-1",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#generating-normal-data-1",
+    "title": "Z-Scores",
+    "section": "Generating Normal Data",
+    "text": "Generating Normal Data"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#probabilities-of-normal-values",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#probabilities-of-normal-values",
+    "title": "Z-Scores",
+    "section": "Probabilities of Normal Values",
+    "text": "Probabilities of Normal Values\nWithin a normal distribution, we can check the probability of a given value and the value at a given probability\n\n\nProbability of a Value\npnorm(q)\n\n○ q = value (or vector of values)\n\n\npnorm(0)\n\n[1] 0.5\n\npnorm(1)\n\n[1] 0.8413447\n\npnorm(c(-3, 3))\n\n[1] 0.001349898 0.998650102\n\n\n\nValue at a Probability\nqnorm(p)\n\n○ p = probability (or vector of probabilities)\n\n\nqnorm(.5)\n\n[1] 0\n\nqnorm(.9)\n\n[1] 1.281552\n\nqnorm(c(.025, .975))\n\n[1] -1.959964  1.959964"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nBase R has a lot of great stuff, but packages made by the community have even more great stuff"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#reading-files",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#reading-files",
+    "title": "Z-Scores",
+    "section": "Reading Files",
+    "text": "Reading Files\nSo far, we’ve only used preloaded data in R\nWe need to learn how to import data into R!\n1. Downloading\nFirst, we need to download the file and move it to our working directory (or a folder within our working directory)"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-1",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-1",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nSteps of using an R package:\n1. Installing\ninstall.packages(package)\n\n○ package = (character) package name\n\n\ninstall.packages(\"rio\")\n\nOnly have to do this once"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-2",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-2",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nSteps of using an R package:\n2. Loading\n\n\nlibrary(package)\n\n○ package = (not character) package name\n\nAt the top of your file\n\nlibrary(rio)\n\nBetter if you use many functions from that package in your script\n\npackage::package_function()\n\nrio::import()\n\nBetter if you use only a few functions from that package\nOr if you want to be more specific\n\n○ Sometimes a function from one package will overwrite a function from a different package, and this calls the specific one"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-3",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-3",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nSteps of using an R package:\n3. Using\nIf you use library(), you can then call the function with just its name\n\nimport()"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#reading-files-1",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#reading-files-1",
+    "title": "Z-Scores",
+    "section": "Reading Files",
+    "text": "Reading Files\n2. Reading\n\n\nBase R\nread() function family\nDepends on your file type\nread.csv(file) probably most common\n\n○ file = name of or path to file\n\nFile in working directory\n\nread.csv(\"tour_de_france.csv\")\n\nFile in subfolder\n\nread.csv(here::here(\"Lab 4\",\n                    \"tour_de_france.csv\"))\n\n\nrio Package\n\ntdf_data &lt;- rio::import(here::here(\"Lab 4\",\n                       \"tour_de_france.csv\"))\n\n\nMake sure to assign the data to a variable to keep it!\n\nhead(tdf_data)\n\n  year winner_avg_speed total_distance              winner winner_nationality\n1 1903            25.68           2428       Maurice Garin             France\n2 1904            25.27           2420        Henri Cornet             France\n3 1905            27.11           2994   Louis Trousselier             France\n4 1906            24.46           4545        Rene Pottier             France\n5 1907            28.47           4488 Lucien Petit-Breton             France\n6 1908            28.74           4488 Lucien Petit-Breton             France\n  starting_city\n1         Paris\n2         Paris\n3         Paris\n4         Paris\n5         Paris\n6         Paris"
+  },
+  {
+    "objectID": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#housekeeping",
+    "href": "slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#housekeeping",
+    "title": "Z-Scores",
+    "section": "Housekeeping",
+    "text": "Housekeeping\nExtra Credit Reminder\n\nposit::conf(2025) is only a few days away!\n\nGrading System Change\n\nThis week, I switched Assignment 1 from being out of 100% to being out of 10 points. Nothing’s changed about the actual grade—just the format of it! Let me know if you have any questions."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#outline",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#outline",
+    "title": "Intermediate R: tidyverse",
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 4 Review\ntidyverse Workflow\nFull Analysis\n\nLearning objectives:\nR: tidyverse"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#housekeeping",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#housekeeping",
+    "title": "Intermediate R: tidyverse",
+    "section": "Housekeeping",
+    "text": "Housekeeping\n[input any housekeeping items here]"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review",
+    "title": "Intermediate R: tidyverse",
+    "section": "Assignment 4 Review",
+    "text": "Assignment 4 Review\n[input any Assignment 4 review here]"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#the-tidyverse",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#the-tidyverse",
+    "title": "Intermediate R: tidyverse",
+    "section": "The tidyverse",
+    "text": "The tidyverse\n\n\nWhat is the tidyverse???\ntidyverse webpage\nR packages made for data science"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#whole-game",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#whole-game",
+    "title": "Intermediate R: tidyverse",
+    "section": "Whole Game",
+    "text": "Whole Game\nPieces of the “whole game” of data science"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import",
+    "title": "Intermediate R: tidyverse",
+    "section": "Import",
+    "text": "Import\nBringing our data into R\nWe’ve done this with the read() function family and / or the rio package\n…Neither of those are tidyverse packages\nBut that’s fine! This step is the simplest"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import-todays-dataset",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import-todays-dataset",
+    "title": "Intermediate R: tidyverse",
+    "section": "Import: Today’s dataset",
+    "text": "Import: Today’s dataset\nDataset on pulse rates before and after exercise\nCan import from the internet\n\npulse_data &lt;- rio::import(\"http://www.statsci.org/data/oz/ms212.txt\") \n\nOr download the .rds file from Canvas\n\npulse_data &lt;- rio::import(here::here(\"labs\", \"Lab 5 - Intermediate R\", \"pulserates.rds\"))\n\n\n○ .rds is a file extension for R data"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import-todays-dataset-1",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import-todays-dataset-1",
+    "title": "Intermediate R: tidyverse",
+    "section": "Import: Today’s dataset",
+    "text": "Import: Today’s dataset\n\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\nHeight\nHeight (cm)\n\n\nWeight\nWeight (kg)\n\n\nAge\nAge (years)\n\n\nGender\nSex (1 = male, 2 = female)\n\n\nSmokes\nRegular smoker? (1 = yes, 2 = no)\n\n\nAlcohol\nRegular drinker? (1 = yes, 2 = no)\n\n\nExercise\nFrequency of exercise (1 = high, 2 = moderate, 3 = low)\n\n\nRan\nWhether the student ran or sat between the measurements (1 = ran, 2 = sat)\n\n\nPulse1\nFirst pulse measurement (rate per minute)\n\n\nPulse2\nSecond pulse measurement (rate per minute)\n\n\nYear\nYear of class (93–98)"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidyverse-syntax",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidyverse-syntax",
+    "title": "Intermediate R: tidyverse",
+    "section": "tidyverse Syntax",
+    "text": "tidyverse Syntax\nThe tidyverse website mentioned that each package shares a common language for their functions\nBased off of dplyr (one of the packages) verbs\n\nThe first argument is always a data frame.\nThe subsequent arguments typically describe which columns to operate on using the variable names (without quotes).\nThe output is always a new data frame.\n\n\nhttps://r4ds.hadley.nz/data-transform.html#dplyr-basics"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#whole-game-1",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#whole-game-1",
+    "title": "Intermediate R: tidyverse",
+    "section": "Whole Game",
+    "text": "Whole Game\nToday’s plan:\n\nIntroduce each of these principles\nLearn about tidyverse syntax\nCover some examples of tidyverse functions that fall into each category\nConduct our first “full analysis” by following the tidy workflow"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import-todays-dataset-2",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import-todays-dataset-2",
+    "title": "Intermediate R: tidyverse",
+    "section": "Import: Today’s dataset",
+    "text": "Import: Today’s dataset\nLet’s check out our data"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy",
+    "title": "Intermediate R: tidyverse",
+    "section": "Tidy",
+    "text": "Tidy\nRefers to tidy data\n\n\n“Happy families are all alike; every unhappy family is unhappy in its own way.”\n— Leo Tolstoy\n\n\n“Tidy datasets are all alike, but every messy dataset is messy in its own way.”\n— Hadley Wickham\n\n\nTidy data follow a consistent set of organizational principles\nMore work up front but much easier to work with after"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-1",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-1",
+    "title": "Intermediate R: tidyverse",
+    "section": "Tidy",
+    "text": "Tidy\n\n\n\n\n  PersonId Height Weight Year\n1        1    173     57   93\n2        2    179     58   93\n3        3    167     62   93\n4        4    195     84   93\n5        5    173     64   93\n6        6    184     74   93\n\n\n\n\n\n\n\n  PersonId Year Variable Value\n1        1   93   Height   173\n2        1   93   Weight    57\n3        2   93   Height   179\n4        2   93   Weight    58\n5        3   93   Height   167\n6        3   93   Weight    62\n\n\n\n\n\n\n\n  PersonId HeightToWeight Year\n1        1         173/57   93\n2        2         179/58   93\n3        3         167/62   93\n4        4         195/84   93\n5        5         173/64   93\n6        6         184/74   93\n\n\n\nAll of these dataframes contain the same information, but one of them is much easier to work with…\n\nWhy?"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-principles",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-principles",
+    "title": "Intermediate R: tidyverse",
+    "section": "Tidy: Principles",
+    "text": "Tidy: Principles\nThree rules to a tidy dataset\n\nEach variable is a column; each column is a variable.\nEach observation is a row; each row is an observation.\nEach value is a cell; each cell is a single value.\n\n\n\nhttps://r4ds.hadley.nz/data-tidy.html#fig-tidy-structure"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-why-tidy",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-why-tidy",
+    "title": "Intermediate R: tidyverse",
+    "section": "Tidy: Why tidy?",
+    "text": "Tidy: Why tidy?\n\nConsistency! Any sort of consistency in your data management will be beneficial.\n\n\nWhat’s often the primary argument of functions we’ve used?\n\n\n\nR loves vectors! Having variables in columns plays well with many functions"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-is-our-data-tidy",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-is-our-data-tidy",
+    "title": "Intermediate R: tidyverse",
+    "section": "Tidy: Is our data tidy?",
+    "text": "Tidy: Is our data tidy?\n\n\n\nhead(pulse_data, n = 10)\n\n   Height Weight Age Gender Smokes Alcohol Exercise Ran Pulse1 Pulse2 Year\n1     173     57  18      2      2       1        2   2     86     88   93\n2     179     58  19      2      2       1        2   1     82    150   93\n3     167     62  18      2      2       1        1   1     96    176   93\n4     195     84  18      1      2       1        1   2     71     73   93\n5     173     64  18      2      2       1        3   2     90     88   93\n6     184     74  22      1      2       1        3   1     78    141   93\n7     162     57  20      2      2       1        2   2     68     72   93\n8     169     55  18      2      2       1        2   2     71     77   93\n9     164     56  19      2      2       1        1   2     68     68   93\n10    168     60  23      1      2       1        2   1     88    150   93\n\n\n\n\nEach variable is a column; each column is a variable.\nEach observation is a row; each row is an observation.\nEach value is a cell; each cell is a single value."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-for-later",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-for-later",
+    "title": "Intermediate R: tidyverse",
+    "section": "Tidy: For later…",
+    "text": "Tidy: For later…\nWe will learn ways to make untidy data tidy in later classes\nFor now, we are good, and can proceed with our analysis!"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform",
+    "text": "Transform\nUsually, our data doesn’t come to us with the variables exactly as we want them\nSometimes we need…\n\nNew variables, based on our existing data or otherwise\nA summarized version of our dataset\nReordered variables\nEtc., etc., etc. Any others?"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-tidyverse-syntax",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-tidyverse-syntax",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: tidyverse syntax",
+    "text": "Transform: tidyverse syntax\nThe tidyverse website mentioned that each package shares a common language for their functions\nBased off of dplyr (one of the packages) verbs\n\nThe first argument is always a data frame.\nThe subsequent arguments typically describe which columns to operate on using the variable names (without quotes).\nThe output is always a new data frame.\n\n\nhttps://r4ds.hadley.nz/data-transform.html#dplyr-basics"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-load-the-tidyverse",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-load-the-tidyverse",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: Load the tidyverse",
+    "text": "Transform: Load the tidyverse\nLet’s get ready to actually use some tidyverse code!\n\ninstall.packages(\"tidyverse\")\n\n\nlibrary(tidyverse)\n\n\n\n\n\n\n\nNote\n\n\nNote the Conflicts section! Remember when we talked about overwriting?"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-more-tidyverse-syntax",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-more-tidyverse-syntax",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: More tidyverse syntax",
+    "text": "Transform: More tidyverse syntax\nOne more thing…\ntidyverse verbs work best in a pipe: |&gt;\n\n\nHow we’ve been using functions:\noutput &lt;- function(input)\n\nFunctions in a pipe:\noutput &lt;- input |&gt; function()\n\nWhy is this helpful?\n\n\nMany functions together:\nanotherfunction(otherfunction(function(input)))\n\nFunctions in a pipe:\ninput |&gt;\n  function() |&gt;\n  otherfunction() |&gt;\n  another function()"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-goals-for-our-data",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-goals-for-our-data",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: Goals for our data",
+    "text": "Transform: Goals for our data\nIn what ways should we transform our data?\nFirst, we need to figure out our questions!"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-goals-for-our-data-1",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-goals-for-our-data-1",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: Goals for our data",
+    "text": "Transform: Goals for our data\n\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\nHeight\nHeight (cm)\n\n\nWeight\nWeight (kg)\n\n\nAge\nAge (years)\n\n\nGender\nSex (1 = male, 2 = female)\n\n\nSmokes\nRegular smoker? (1 = yes, 2 = no)\n\n\nAlcohol\nRegular drinker? (1 = yes, 2 = no)\n\n\nExercise\nFrequency of exercise (1 = high, 2 = moderate, 3 = low)\n\n\nRan\nWhether the student ran or sat between the measurements (1 = ran, 2 = sat)\n\n\nPulse1\nFirst pulse measurement (rate per minute)\n\n\nPulse2\nSecond pulse measurement (rate per minute)\n\n\nYear\nYear of class (93–98)"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-goals-for-our-data-2",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-goals-for-our-data-2",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: Goals for our data",
+    "text": "Transform: Goals for our data\nMy questions:\n\nIs the difference in pulse between the first and second measurement points different for people who ran or not?\nDoes that difference vary by whether or not someone is a regular smoker?\nWhat is the relationship between first and second pulse measurements? Does this differ by smoking status?\nClass question!! (time pending)"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-some-relevant-functions",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-some-relevant-functions",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: Some relevant functions",
+    "text": "Transform: Some relevant functions\n\n\n\n\nmutate()\nadds, changes, renames columns\n\n\nifelse()\nchanges a vector conditionally\n\n\nselect()\nselects specified columns\n\n\nfilter()\nselects specified rows\n\n\nsummarize()\nsummarizes data\n\n\n\n\nSwitching to RStudio…"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-sample-code",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-sample-code",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: Sample code",
+    "text": "Transform: Sample code\nGoal 1, 2, and 3:\n\nMake a variable with the difference between the first and second pulse measurement points\nCode some of our numeric variables into their categories\nSubset our data to only include the relevant columns\n\n\npulse_subset &lt;- pulse_data |&gt;\n  mutate(PulseDiff = Pulse2 - Pulse1,\n         Smokes = ifelse(Smokes == 1, \"Yes\",\n                            ifelse(Smokes == 2, \"No\", Smokes)),\n         Ran = ifelse(Ran == 1, \"Ran\",\n                         ifelse(Ran == 2, \"Sat\", Ran))) |&gt;\n  select(Smokes, Ran, PulseDiff, Pulse1, Pulse2)"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize",
+    "text": "Visualize\nSo many numbers! Can we please visualize our data?\n\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\nYes! With the ggplot2 package\nA bit of a different plotting system than we’ve done before\nBut much more expansive and flexible (and much nicer looking, if you ask me!)"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize: ggplot2",
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\n\n\n\n\n\n\n\n\n\nLet’s begin at the end:"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-1",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-1",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize: ggplot2",
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset)\n\n\n\n\n\n\n\n\n\nWhen we just call the ggplot() function with our data as the first argument, we get this blank area\nggplot() works by adding layers and layers onto a plot object\n\nThis is not a very exciting plot, but you can think of it like an empty canvas you’ll paint the remaining layers of your plot onto. — R4DS"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-2",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-2",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize: ggplot2",
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2))\n\n\n\n\n\n\n\n\n\nNext, we want to tell ggplot() what information we want in our plot and where we want it\nWe do this with the aes() (“aesthetics”) function in the mapping = argument\nHow variables are mapped onto specific parts of the plot\nTo investigate the relationship between the first and second pulse measurements, we can choose to put Pulse1 on the x-axis and Pulse2 on the y-axis\nWhat do we get?\nLabels, axes, and a grid"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-3",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-3",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize: ggplot2",
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nStill no data, though\nNeed to define some geom, a geometric display of our data\nWill usually start with geom_\n\n\n\n\ngeom_line()\nline graph\n\n\ngeom_bar()\nbar graph\n\n\ngeom_boxplot()\nboxplot\n\n\ngeom_point()\nscatterplot\n\n\n\n\nCan start addressing questions here!\n\n\n\n\n\n\nNote\n\n\nTake note of the missing values warning!"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-4",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-4",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize: ggplot2",
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2)) +\n  geom_point() +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))\n\n\n\n\n\n\n\n\n\nThese variables are conceptually similar and should probably have the same scale\nAutomatically generated axes are a good place to start\nBut good practice to consider them each time"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-5",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-5",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize: ggplot2",
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nAdding aesthetics and layers\nWho in this group are the people who ran?\nStart: do we need to modify the aesthetic or the geom?\nWhat can we tell from this?"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-6",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-6",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize: ggplot2",
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  geom_smooth(method=\"lm\")\n\n\n\n\n\n\n\n\n\nAdding aesthetics and layers\nLet’s say we want to add a line to better represent the overall trend\nStart: do we need to modify the aesthetic or the geom?\nWhat can we tell from this?"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-7",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-7",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize: ggplot2",
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  geom_smooth(method=\"lm\")\n\n\n\n\n\n\n\n\n\nAdding aesthetics and layers\nLet’s say we want to add a line to better represent the overall trend\nStart: do we need to modify the aesthetic or the geom?\nWhat can we tell from this?"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-8",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-8",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize: ggplot2",
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  geom_smooth(method=\"lm\") +\n  facet_wrap(~ Smokes)\n\n\n\n\n\n\n\n\n\nLet’s say we want to look at this for smokers vs non-smokers\nWhat can we tell from this?"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-9",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-9",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize: ggplot2",
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  geom_smooth(method=\"lm\") +\n  facet_wrap(~ Smokes) +\n  theme_classic()\n\n\n\n\n\n\n\n\n\nLet’s say we want this plot to look nicer!!\nBuilt in themes"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-10",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-10",
+    "title": "Intermediate R: tidyverse",
+    "section": "Visualize: ggplot2",
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\npulse_subset |&gt;\n  ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +\n  geom_point(size = 2.4) +\n  geom_smooth(method=\"lm\") +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +\n  labs(x = \"First Pulse\", y = \"Second Pulse\") +\n  facet_wrap(~ Smokes, labeller = \"label_both\") +\n  theme_classic(base_size = 16) +\n  theme(legend.position = \"bottom\",\n        aspect.ratio = 1)\n\n\n\n\n\n\n\n\n\nLet’s say we want this plot to look nicer!!\nAdditional theming with theme(), labs(), and various arguments"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#model",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#model",
+    "title": "Intermediate R: tidyverse",
+    "section": "Model",
+    "text": "Model\nAt this point, we could take the statistical models we know and apply them to the data\nWe haven’t learned many yet, but we have learned some!\nmean(), sd() could combine to model the distribution of your data, etc.\nWe will do more modeling later!"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#communicate",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#communicate",
+    "title": "Intermediate R: tidyverse",
+    "section": "Communicate",
+    "text": "Communicate\nWe…have already learned ways to do this with RMarkdown!\nStatistics and visualizations are great, but to tell a good story it is often useful to accompany these with text explaining the key features or importance.\nAnd we’ve been practicing this all along by describing the plots!"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#communicate-pulse-measurements",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#communicate-pulse-measurements",
+    "title": "Intermediate R: tidyverse",
+    "section": "Communicate: Pulse Measurements",
+    "text": "Communicate: Pulse Measurements\n\n\n\npulse_subset |&gt;\n  ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +\n  geom_point(size = 2.4) +\n  geom_smooth(method=\"lm\") +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +\n  labs(x = \"First Pulse\", y = \"Second Pulse\") +\n  facet_wrap(~ Smokes, labeller = \"label_both\") +\n  theme_classic(base_size = 16) +\n  theme(legend.position = \"bottom\",\n        aspect.ratio = 1)\n\n\n\n\n\n\n\n\n\nIn this visualization, we can see a strong positive relationship between participants’ pulse measurements at the first time point and their pulse measurements at the second time point. We can see that the individuals who ran in between the measurements had similar values on the x-axis (the first measurement) but much higher values at the second measurement. While it seems like there may be some differences in pulse between regular smokers and non-smokers, there is much fewer observations present for non-smokers."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-gameplan",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-gameplan",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: Gameplan",
+    "text": "Transform: Gameplan\nTransformation goals:\n\nMake a variable with the difference between the first and second pulse measurement points\nCode some of our numeric variables into their categories\nSubset our data to only include the relevant columns\nSummarize information based on our questions"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-sample-code-1",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-sample-code-1",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: Sample code",
+    "text": "Transform: Sample code\nGoal 4:\n\nSummarize information based on our questions\n\n\npulse_subset |&gt;\n  summarize(.by = Ran,\n            PulseDiffMean = mean(PulseDiff, na.rm=T))\n\n  Ran PulseDiffMean\n1 Sat       -1.0000\n2 Ran       51.3913\n\npulse_subset |&gt;\n  summarize(.by = c(Ran, Smokes),\n            PulseDiffMean = mean(PulseDiff, na.rm=T))\n\n  Ran Smokes PulseDiffMean\n1 Sat     No    -0.8363636\n2 Ran     No    51.6511628\n3 Sat    Yes    -2.1250000\n4 Ran    Yes    47.6666667"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#outline",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#outline",
+    "title": "Z-Scores",
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 2 Review\nProbability Distributions Review\nZ-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nLearning objectives:\nR: Packages, reading files, generating data\nStatistics: Z-scores"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#housekeeping",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#housekeeping",
+    "title": "Z-Scores",
+    "section": "Housekeeping",
+    "text": "Housekeeping\nExtra Credit Reminder\n\nposit::conf(2025) is only a few days away!\n\nGrading System Change\n\nThis week, I switched Assignment 1 from being out of 100% to being out of 10 points. Nothing’s changed about the actual grade—just the format of it! Let me know if you have any questions."
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#assignment-2-review",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#assignment-2-review",
+    "title": "Z-Scores",
+    "section": "Assignment 2 Review",
+    "text": "Assignment 2 Review\n\nDon’t forget to rename the assignment!\nOverall really great work!"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores",
+    "title": "Z-Scores",
+    "section": "Z-Scores",
+    "text": "Z-Scores\nTo “Z-score” or “standardize” your data\n\n○ Transform a variable such that the mean is zero and the standard deviation is one\n\n\n○ Matches the mean and SD of a “standard” normal distribution, \\(N(0, 1)\\)"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores-1",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores-1",
+    "title": "Z-Scores",
+    "section": "Z-Scores",
+    "text": "Z-Scores\nWhy standardize?\n\nPuts variables on the same (interpretable) scale\nHelps manage very large or very small numbers\nCan compare across distributions\nGives information about location relative to the rest of the distribution"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores-in-r",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#z-scores-in-r",
+    "title": "Z-Scores",
+    "section": "Z-Scores in R",
+    "text": "Z-Scores in R\nNeed to:\n\nTake out the mean\nScale by the standard deviation\n\ndata$variable_z &lt;- (data$variable - mean(data$variable)) / sd(data$variable)\n\n\n\n\n\n\n\n\n\nCan check to make sure things look right"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#generating-normal-data",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#generating-normal-data",
+    "title": "Z-Scores",
+    "section": "Generating Normal Data",
+    "text": "Generating Normal Data\nSometimes, we want to simulate data\n\n○ Demonstration\n\n\n○ Comparison\n\n\n○ Sanity check\n\nTo generate data drawn from a normal distribution, we can use rnorm(n, mean, sd)\n\n○ n = number of draws\n\n\n○ mean = desired mean of distribution\n\n\n○ sd = desired SD of distribution"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#generating-normal-data-1",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#generating-normal-data-1",
+    "title": "Z-Scores",
+    "section": "Generating Normal Data",
+    "text": "Generating Normal Data"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#probabilities-of-normal-values",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#probabilities-of-normal-values",
+    "title": "Z-Scores",
+    "section": "Probabilities of Normal Values",
+    "text": "Probabilities of Normal Values\nWithin a normal distribution, we can check the probability of a given value and the value at a given probability\n\n\nProbability of a Value\npnorm(q)\n\n○ q = value (or vector of values)\n\n\npnorm(0)\n\n[1] 0.5\n\npnorm(1)\n\n[1] 0.8413447\n\npnorm(c(-3, 3))\n\n[1] 0.001349898 0.998650102\n\n\n\nValue at a Probability\nqnorm(p)\n\n○ p = probability (or vector of probabilities)\n\n\nqnorm(.5)\n\n[1] 0\n\nqnorm(.9)\n\n[1] 1.281552\n\nqnorm(c(.025, .975))\n\n[1] -1.959964  1.959964"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nBase R has a lot of great stuff, but packages made by the community have even more great stuff"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-1",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-1",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nSteps of using an R package:\n1. Installing\ninstall.packages(package)\n\n○ package = (character) package name\n\n\ninstall.packages(\"rio\")\n\nOnly have to do this once"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-2",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-2",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nSteps of using an R package:\n2. Loading\n\n\nlibrary(package)\n\n○ package = (not character) package name\n\nAt the top of your file\n\nlibrary(rio)\n\nBetter if you use many functions from that package in your script\n\npackage::package_function()\n\nrio::import()\n\nBetter if you use only a few functions from that package\nOr if you want to be more specific\n\n○ Sometimes a function from one package will overwrite a function from a different package, and this calls the specific one"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-3",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#packages-in-r-3",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nSteps of using an R package:\n3. Using\nIf you use library(), you can then call the function with just its name\n\nimport()"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#reading-files",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#reading-files",
+    "title": "Z-Scores",
+    "section": "Reading Files",
+    "text": "Reading Files\nSo far, we’ve only used preloaded data in R\nWe need to learn how to import data into R!\n1. Downloading\nFirst, we need to download the file and move it to our working directory (or a folder within our working directory)"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#reading-files-1",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#reading-files-1",
+    "title": "Z-Scores",
+    "section": "Reading Files",
+    "text": "Reading Files\n2. Reading\n\n\nBase R\nread() function family\nDepends on your file type\nread.csv(file) probably most common\n\n○ file = name of or path to file\n\nFile in working directory\n\nread.csv(\"tour_de_france.csv\")\n\nFile in subfolder\n\nread.csv(here::here(\"Lab 4\",\n                    \"tour_de_france.csv\"))\n\n\nrio Package\n\ntdf_data &lt;- rio::import(here::here(\"Lab 4\",\n                       \"tour_de_france.csv\"))\n\n\nMake sure to assign the data to a variable to keep it!\n\nhead(tdf_data)\n\n  year winner_avg_speed total_distance              winner winner_nationality\n1 1903            25.68           2428       Maurice Garin             France\n2 1904            25.27           2420        Henri Cornet             France\n3 1905            27.11           2994   Louis Trousselier             France\n4 1906            24.46           4545        Rene Pottier             France\n5 1907            28.47           4488 Lucien Petit-Breton             France\n6 1908            28.74           4488 Lucien Petit-Breton             France\n  starting_city\n1         Paris\n2         Paris\n3         Paris\n4         Paris\n5         Paris\n6         Paris"
+  },
+  {
+    "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#lab-4-assignment",
+    "href": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#lab-4-assignment",
+    "title": "Z-Scores",
+    "section": "Lab 4 Assignment!",
+    "text": "Lab 4 Assignment!\nDon’t forget to sign up for posit::conf(2025) if you want to complete the extra credit assignment."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html",
+    "title": "Z-Scores",
+    "section": "",
+    "text": "Assignment 2 Review\nZ-Scores\nZ-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nLearning objectives:\nR: Packages, reading files, generating data\nStatistics: Z-scores\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#outline",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#outline",
+    "title": "Z-Scores",
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 2 Review\nZ-Scores\nZ-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nLearning objectives:\nR: Packages, reading files, generating data\nStatistics: Z-scores\n\nknitr::opts_chunk$set(echo = T)"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#housekeeping",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#housekeeping",
+    "title": "Z-Scores",
+    "section": "Housekeeping",
+    "text": "Housekeeping\nExtra Credit Reminder\n\nposit::conf(2025) is only a few days away!\n\nGrading System Change\n\nThis week, I switched Assignment 1 from being out of 100% to being out of 10 points. Nothing’s changed about the actual grade—just the format of it! Let me know if you have any questions."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#assignment-2-review",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#assignment-2-review",
+    "title": "Z-Scores",
+    "section": "Assignment 2 Review",
+    "text": "Assignment 2 Review\n\nDon’t forget to rename the assignment!\nOverall really great work!"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#z-scores",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#z-scores",
+    "title": "Z-Scores",
+    "section": "Z-Scores",
+    "text": "Z-Scores\nTo “Z-score” or “standardize” your data\n\n○ Transform a variable such that the mean is zero and the standard deviation is one\n\n\n○ Matches the mean and SD of a “standard” normal distribution, \\(N(0, 1)\\)"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#z-scores-1",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#z-scores-1",
+    "title": "Z-Scores",
+    "section": "Z-Scores",
+    "text": "Z-Scores\nWhy standardize?\n\nPuts variables on the same (interpretable) scale\nHelps manage very large or very small numbers\nCan compare across distributions\nGives information about location relative to the rest of the distribution"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#z-scores-in-r",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#z-scores-in-r",
+    "title": "Z-Scores",
+    "section": "Z-Scores in R",
+    "text": "Z-Scores in R\nNeed to:\n\nTake out the mean\nScale by the standard deviation\n\ndata$variable_z &lt;- (data$variable - mean(data$variable)) / sd(data$variable)\n\n\n\n\n\n\n\n\n\nCan check to make sure things look right"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#generating-normal-data",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#generating-normal-data",
+    "title": "Z-Scores",
+    "section": "Generating Normal Data",
+    "text": "Generating Normal Data\nSometimes, we want to simulate data\n\n○ Demonstration\n\n\n○ Comparison\n\n\n○ Sanity check\n\nTo generate data drawn from a normal distribution, we can use rnorm(n, mean, sd)\n\n○ n = number of draws\n\n\n○ mean = desired mean of distribution\n\n\n○ sd = desired SD of distribution"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#generating-normal-data-1",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#generating-normal-data-1",
+    "title": "Z-Scores",
+    "section": "Generating Normal Data",
+    "text": "Generating Normal Data"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#probabilities-of-normal-values",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#probabilities-of-normal-values",
+    "title": "Z-Scores",
+    "section": "Probabilities of Normal Values",
+    "text": "Probabilities of Normal Values\nWithin a normal distribution, we can check the probability of a given value and the value at a given probability\n\n\nProbability of a Value\npnorm(q)\n\n○ q = value (or vector of values)\n\n\npnorm(0)\n\n[1] 0.5\n\npnorm(1)\n\n[1] 0.8413447\n\npnorm(c(-3, 3))\n\n[1] 0.001349898 0.998650102\n\n\n\nValue at a Probability\nqnorm(p)\n\n○ p = probability (or vector of probabilities)\n\n\nqnorm(.5)\n\n[1] 0\n\nqnorm(.9)\n\n[1] 1.281552\n\nqnorm(c(.025, .975))\n\n[1] -1.959964  1.959964"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#packages-in-r",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#packages-in-r",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nBase R has a lot of great stuff, but packages made by the community have even more great stuff"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#packages-in-r-1",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#packages-in-r-1",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nSteps of using an R package:\n1. Installing\ninstall.packages(package)\n\n○ package = (character) package name\n\n\ninstall.packages(\"rio\")\n\nOnly have to do this once"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#packages-in-r-2",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#packages-in-r-2",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nSteps of using an R package:\n2. Loading\n\n\nlibrary(package)\n\n○ package = (not character) package name\n\nAt the top of your file\n\nlibrary(rio)\n\nBetter if you use many functions from that package in your script\n\npackage::package_function()\n\nrio::import()\n\nBetter if you use only a few functions from that package\nOr if you want to be more specific\n\n○ Sometimes a function from one package will overwrite a function from a different package, and this calls the specific one"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#packages-in-r-3",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#packages-in-r-3",
+    "title": "Z-Scores",
+    "section": "Packages in R",
+    "text": "Packages in R\nSteps of using an R package:\n3. Using\nIf you use library(), you can then call the function with just its name\n\nimport()"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#reading-files",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#reading-files",
+    "title": "Z-Scores",
+    "section": "Reading Files",
+    "text": "Reading Files\nSo far, we’ve only used preloaded data in R\nWe need to learn how to import data into R!\n1. Downloading\nFirst, we need to download the file and move it to our working directory (or a folder within our working directory)"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#reading-files-1",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#reading-files-1",
+    "title": "Z-Scores",
+    "section": "Reading Files",
+    "text": "Reading Files\n2. Reading\n\n\nBase R\nread() function family\nDepends on your file type\nread.csv(file) probably most common\n\n○ file = name of or path to file\n\nFile in working directory\n\nread.csv(\"tour_de_france.csv\")\n\nFile in subfolder\n\nread.csv(here::here(\"Lab 4\",\n                    \"tour_de_france.csv\"))\n\n\nrio Package\n\ntdf_data &lt;- rio::import(here::here(\"Lab 4\",\n                       \"tour_de_france.csv\"))\n\n\nMake sure to assign the data to a variable to keep it!\n\nhead(tdf_data)\n\n  year winner_avg_speed total_distance              winner winner_nationality\n1 1903            25.68           2428       Maurice Garin             France\n2 1904            25.27           2420        Henri Cornet             France\n3 1905            27.11           2994   Louis Trousselier             France\n4 1906            24.46           4545        Rene Pottier             France\n5 1907            28.47           4488 Lucien Petit-Breton             France\n6 1908            28.74           4488 Lucien Petit-Breton             France\n  starting_city\n1         Paris\n2         Paris\n3         Paris\n4         Paris\n5         Paris\n6         Paris"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#lab-4-assignment",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html#lab-4-assignment",
+    "title": "Z-Scores",
+    "section": "Lab 4 Assignment!",
+    "text": "Lab 4 Assignment!\nDon’t forget to sign up for posit::conf(2025) if you want to complete the extra credit assignment."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html",
+    "title": "PSYC2020L Assignment 4",
+    "section": "",
+    "text": "Z-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#goals-for-review",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 4",
+    "section": "",
+    "text": "Z-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#setting-up",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#setting-up",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 4 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block.\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site\"\n\n\n\n\n3) Read in the tour_de_france.csv file and assign it to a variable (e.g., tdf_data). Display the first six rows of this dataset.\n\ntdf &lt;- rio::import(here::here(\"labs\", \"Lab 4 - Z-Scores\", \"tour_de_france.csv\"))\nhead(tdf)\n\n  year winner_avg_speed total_distance              winner winner_nationality\n1 1903            25.68           2428       Maurice Garin             France\n2 1904            25.27           2420        Henri Cornet             France\n3 1905            27.11           2994   Louis Trousselier             France\n4 1906            24.46           4545        Rene Pottier             France\n5 1907            28.47           4488 Lucien Petit-Breton             France\n6 1908            28.74           4488 Lucien Petit-Breton             France\n  starting_city\n1         Paris\n2         Paris\n3         Paris\n4         Paris\n5         Paris\n6         Paris"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#measures-of-variability",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#measures-of-variability",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n4) What is the variance and SD of winner_avg_speed?\n\nvar(tdf$winner_avg_speed)\n\n[1] 26.94034\n\nsd(tdf$winner_avg_speed)\n\n[1] 5.190409\n\n\n\nIf they do some square or square root transformation to get one from the other, that works too.\n\n\n\n5) What is the variance and SD of total_distance?\n\nvar(tdf$total_distance)\n\n[1] 485801.2\n\nsd(tdf$total_distance)\n\n[1] 696.9944\n\n\n\nIf they do some square or square root transformation to get one from the other, that works too."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#z-scores",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#z-scores",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Z-Scores",
+    "text": "Z-Scores\n\n6) Create a new variable within the Tour de France data that contains the winner_avg_speed variable standardized. No output needed for this question.\n\ntdf$winner_avg_speed_z &lt;- (tdf$winner_avg_speed - mean(tdf$winner_avg_speed)) / sd(tdf$winner_avg_speed)\n\n\n\n7) Create a new variable within the Tour de France data that contains the total_distance variable standardized. No output needed for this question.\n\ntdf$total_distance_z &lt;- (tdf$total_distance - mean(tdf$total_distance)) / sd(tdf$total_distance)\n\n\n\n8) Calculate the variance and SD of the new z-scored version winner_avg_speed, and compare it to the original, non-z-scored version. What differences do you observe?\n\nvar(tdf$winner_avg_speed_z)\n\n[1] 1\n\nsd(tdf$winner_avg_speed_z)\n\n[1] 1\n\n\nThe variance and SD for the z-scored version are both one. This is because the z-score transformation sets the variance\n\n[or SD]\n\nto one. This obviously much less than the original variance of 26.94 and SD of 5.19."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#generation-from-normal-distribution",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#generation-from-normal-distribution",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Generation from Normal Distribution",
+    "text": "Generation from Normal Distribution\n\n9) Generate three vectors and assign them to variables: one with 10 draws from a standard normal distribution, one with 50 draws from a standard normal distribution, and one with 100 draws from a standard normal distribution. Display just the vector with 10 draws.\n\nnorm10 &lt;- rnorm(10, 0, 1)\nnorm50 &lt;- rnorm(50, 0, 1)\nnorm100 &lt;- rnorm(100, 0, 1)\nnorm10\n\n [1] -0.05792884  0.06180749  0.16834752 -0.99610295 -0.79677494  0.68779359\n [7]  0.88743199  0.46029414  0.15479190 -0.54760235\n\n\n\n\n10) Plot a histogram of the vector out of the three that will appear the most representative of the underlying standard normal distribution.\n\nhist(norm100)\n\n\n\n\n\n\n\n\n\n\n11) Create two more vectors and assign them to variables: one with 1000 draws from a normal distribution with mean of zero and SD of 2 and one with 1000 draws from a normal distribution with mean of 2 and variance of 4. No output is needed for this question.\n\nnorm02 &lt;- rnorm(1000, 0, 2)\nnorm22 &lt;- rnorm(1000, 2, sqrt(4))\n\n\n\n12) Plot each of the two vectors from (11) in a histogram. Set the x-axis limits to be the same for both (hint: use the ? tool if you don’t remember how to set axis limits!), and compare the two plots.\n\nhist(norm02, xlim = c(-6, 6))\n\n\n\n\n\n\n\nhist(norm22, xlim = c(-6, 6))\n\n\n\n\n\n\n\n\nThe histograms have the same variance, but the one with mean of 2 is shifted to the right."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#matrices",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#matrices",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Matrices",
+    "text": "Matrices\n\n13) Create a vector of sequential integers from 1 to 10 and assign it to a variable. No output is needed for this question.\n\nmyvec &lt;- 1:10\n\n\n\n14) Turn this vector in a 2 rows x 5 columns matrix that fills in the rows first. Assign this matrix to a variable and display the matrix as output.\n\nmymat &lt;- matrix(myvec, nrow = 2, ncol = 5, byrow = T)\nmymat\n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    1    2    3    4    5\n[2,]    6    7    8    9   10"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#indexing",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html#indexing",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Indexing",
+    "text": "Indexing\n\n15) From that matrix, please index:\n\n15a) The second row.\n\nmymat[2, ]\n\n[1]  6  7  8  9 10\n\n\n\n\n15b) The third column of the first row.\n\nmymat[1, 3]\n\n[1] 3\n\n\n\n\n15c) The second through fourth columns of the first and second rows.\n\nmymat[1:2, 2:4]\n\n     [,1] [,2] [,3]\n[1,]    2    3    4\n[2,]    7    8    9"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html",
+    "title": "PSYC2020L Assignment 4",
+    "section": "",
+    "text": "Probability Distributions Review\nZ-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#goals-for-review",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#goals-for-review",
+    "title": "PSYC2020L Assignment 4",
+    "section": "",
+    "text": "Probability Distributions Review\nZ-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#setting-up",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#setting-up",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 4 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block.\n\n\n3) Read in the tour_de_france.csv file and assign it to a variable (e.g., tdf_data). Display the first six rows of this dataset."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#measures-of-variability",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#measures-of-variability",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n4) What is the variance and SD of winner_avg_speed?\n\n\n5) What is the variance and SD of total_distance?"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#z-scores",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#z-scores",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Z-Scores",
+    "text": "Z-Scores\n\n6) Create a new variable within the Tour de France data that contains the winner_avg_speed variable standardized. No output needed for this question.\n\n\n7) Create a new variable within the Tour de France data that contains the total_distance variable standardized. No output needed for this question.\n\n\n8) Calculate the variance and SD of the new z-scored version winner_avg_speed, and compare it to the original, non-z-scored version. What differences do you observe?"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#generation-from-normal-distribution",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#generation-from-normal-distribution",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Generation from Normal Distribution",
+    "text": "Generation from Normal Distribution\n\n9) Generate three vectors and assign them to variables: one with 10 draws from a standard normal distribution, one with 50 draws from a standard normal distribution, and one with 100 draws from a standard normal distribution. Display just the vector with 10 draws.\n\n\n10) Plot a histogram of the vector out of the three that will appear the most representative of the underlying standard normal distribution.\n\n\n11) Create two more vectors and assign them to variables: one with 1000 draws from a normal distribution with mean of zero and SD of 2 and one with 1000 draws from a normal distribution with mean of 2 and variance of 4. No output is needed for this question.\n\n\n12) Plot each of the two vectors from (11) in a histogram. Set the x-axis limits to be the same for both (hint: use the ? tool if you don’t remember how to set axis limits!), and compare the two plots."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#matrices",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#matrices",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Matrices",
+    "text": "Matrices\n\n13) Create a vector of sequential integers from 1 to 10 and assign it to a variable. No output is needed for this question.\n\n\n14) Turn this vector in a 2 rows x 5 columns matrix that fills in the rows first. Assign this matrix to a variable and display the matrix as output."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#indexing",
+    "href": "labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html#indexing",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Indexing",
+    "text": "Indexing\n\n15) From that matrix, please index:\n\n15a) The second row.\n\n\n15b) The third column of the first row.\n\n\n15c) The second through fourth columns of the first and second rows."
   }
 ]

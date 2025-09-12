@@ -1,0 +1,161 @@
+---
+title: "PSYC2020L Assignment 2 Example"
+author: "[name]"
+date: "2025-08-29"
+output: html_document
+---
+
+## Goals for Review:
+
+* Basic R functions
+* Descriptive statistics
+
+For each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well. 
+
+<div style = "color:maroon">Again we might have some R HTML instead of .Rmd file issues. On the R HTML, it at least looked like on my end that it contained the same content as an .Rmd would, just not the same filetype? I told them that as long as their regular HTML file shows their code (which it should by default), it should be fine because we can always copy and run individual lines. Let me know if you have any issues. I don't know why it converts to R HTML on their end! </div>
+
+## Setting Up
+
+
+### 1) Rename this assignment as "Lab 2 Assignment [Last, First].Rmd" 
+
+### 2) Check and set your working directory
+```{r, error=T}
+getwd()
+setwd("path/to/folder")
+here::here()
+```
+<div style = "color:maroon">Their instructions from me were to get their working directory and set it IF it wasn't where they want it to be. So any of (or any combinations of) these three lines are correct. Although this one will have an error in the `setwd()` and theirs should not.</div>
+
+## Basic R Functions
+
+
+### 3) Write an R function that takes in two numbers, multiplies them together, and returns the product
+```{r}
+product_func <- function(num1, num2) {
+  num1 * num2
+}
+```
+<div style = "color:maroon">If the function would successfully return the product of two numbers, that's correct (doesn't have to match mine exactly). Would love if they tested it, but I didn't explicitly say that so not required.</div>
+
+### 4) Write an R function that takes in three vectors, puts them in a dataframe, and returns the last two rows of the dataframe.
+```{r}
+dataframe_func <- function(vec1, vec2, vec3) {
+  tail(data.frame(vec1, vec2, vec3), n = 2)
+}
+```
+<div style = "color:maroon">If the function would successfully returns the last two rows of the dataframe, that's correct (doesn't have to match mine exactly). Would love if they tested it, but I didn't explicitly say that so not required.</div>
+
+## Data Summary
+
+We will be using the `airquality` dataset for this assignment. Like the `iris` dataset, this comes preloaded in R. It contains information on daily air quality measurements in New York from May to September 1973.
+
+### 5) Show me the first five rows of the `airquality` dataset
+```{r}
+head(airquality, n = 5)
+```
+
+
+### 6) Obtain the `summary()` statistics for this dataset
+```{r}
+summary(airquality)
+```
+
+
+## 7) Ozone Descriptive Statistics
+
+### a) What is the mean?
+```{r}
+mean(airquality$Ozone, na.rm = T)
+```
+
+### b) What is the median?
+```{r}
+median(airquality$Ozone, na.rm = T)
+```
+
+
+## 8) Histograms for Ozone
+
+### a) Obtain a histogram with breaks = 10
+```{r}
+hist(airquality$Ozone, breaks = 10)
+```
+
+### b) Obtain a histogram with breaks = 50
+```{r}
+hist(airquality$Ozone, breaks = 50)
+```
+
+### c) Obtain a histogram with breaks = 200
+```{r}
+hist(airquality$Ozone, breaks = 200)
+```
+
+### d) Compare three histograms above and describe the differences
+The histograms with more breaks show the data with more details, but it can be harder to see the trends in the histograms with lots of breaks.
+<div style = "color:maroon">Something along this line works; doesn't have to be exactly that. Feel free to be lenient as long as makes sense to you.</div>
+
+## 9) Boxplot for Ozone
+
+<div style = "color:maroon">MISTAKE QUESTION! I had thought boxplots would be covered this week but took them out from the slides when I saw Dingjing's lecture slides. Forgot to take them out of this 🙃. This question is dropped. </div>
+
+### a) Obtain a boxplot for Ozone
+```{r}
+
+```
+
+### b) Is the data symmetrical? (Yes / No) How can you tell?
+
+### c) Is the data skewed? (Yes / No) How can you tell?
+
+
+## 10) Descriptive statistics for Temp
+
+### a) What is the mean?
+```{r}
+mean(airquality$Temp)
+```
+
+### b) What is the median?
+```{r}
+median(airquality$Temp)
+```
+
+
+## 11) Histogram for Temp
+
+### a) Obtain a histogram with default number of breaks.
+```{r}
+hist(airquality$Temp)
+```
+
+## 12) Comparison between Ozone and Temp...
+
+<div style = "color:maroon">Bad phrasing on these two. All they have to do is say they're different. They don't have to include R code. </div>
+
+### a) Does the mean change?
+```{r}
+mean(airquality$Ozone, na.rm = T)
+mean(airquality$Temp)
+```
+Yes, the mean is different.
+
+### b) Does the median change?
+```{r}
+median(airquality$Ozone, na.rm = T)
+median(airquality$Temp)
+```
+Yes, the median is different.
+
+## 13) Mode for Wind
+
+### a) What is the mode for the Wind variable? How many times did it occur?
+```{r}
+sort(table(airquality$Wind), decreasing = T)[1]
+```
+The mode is 11.5. It occurred 15 times.
+<div style = "color:maroon">Correct answer is the important part here; they can use whatever R code solution to solve it (I gave a couple options). </div>
+
+
+

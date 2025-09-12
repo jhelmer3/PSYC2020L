@@ -1,0 +1,341 @@
+---
+title: "*Z*-Scores"
+subtitle: "PSYC 2020-A01 / PSYC 6022-A01 | 2025-09-12 | Lab 4"
+author: "Jessica Helmer"
+format: 
+  live-revealjs:
+    slide-number: true
+    show-slide-number: all
+    css: PSYC2020L_styles.css
+engine: knitr
+width: 1200
+---
+
+## Outline
+
+* Assignment 2 Review
+* *Z*-Scores
+* *Z*-Scores in R
+* Generating Data
+* R Packages
+* Reading Files
+
+Learning objectives:  
+**R:** Packages, reading files, generating data
+
+**Statistics:** *Z*-scores
+
+```{r}
+
+knitr::opts_chunk$set(echo = T)
+
+```
+
+## Housekeeping
+
+#### Extra Credit Reminder
+
+* posit::conf(2025) is only a few days away!
+
+#### Grading System Change
+
+* This week, I switched Assignment 1 from being out of 100% to being out of 10 points. Nothing's changed about the actual grade---just the format of it! Let me know if you have any questions. 
+
+## Assignment 2 Review
+
+* Don't forget to rename the assignment!
+
+* Overall really great work!
+
+## *Z*-Scores
+
+To "*Z*-score" or "standardize" your data
+<div class="subpoint">○ Transform a variable such that the mean is zero and the standard deviation is one </div>
+<div class="subpoint">○ Matches the mean and SD of a "standard" normal distribution, $N(0, 1)$ </div>
+
+```{r, echo=F}
+#| fig-width: 4
+#| fig-height: 3
+#| layout-ncol: 3
+library(ggplot2)
+
+ggplot(data = iris, aes(x = Sepal.Width)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 bins = 10) +
+  stat_function(inherit.aes = FALSE, fun = dnorm,
+                n = 101, args = list(mean = 0, sd = 1),
+                color = "lightblue", linewidth = 2,
+                xlim = c(-3, 3)) +
+  coord_cartesian(xlim = c(0, 6), ylim = c(0, 1)) +
+  theme_classic()
+
+ggplot(data = iris, aes(x = Sepal.Width - mean(Sepal.Width))) +
+  geom_histogram(aes(y = after_stat(density)),
+                 bins = 10) +
+  stat_function(inherit.aes = FALSE, fun = dnorm,
+                n = 101, args = list(mean = 0, sd = 1),
+                color = "lightblue", linewidth = 2,
+                xlim = c(-3, 3)) +
+  coord_cartesian(xlim = c(-3, 3), ylim = c(0, 1)) +
+  theme_classic()
+
+ggplot(data = iris, aes(x = (Sepal.Width - mean(Sepal.Width)) / sd(Sepal.Width))) +
+  geom_histogram(aes(y = after_stat(density)),
+                 bins = 10) +
+  stat_function(inherit.aes = FALSE, fun = dnorm,
+                n = 101, args = list(mean = 0, sd = 1),
+                color = "lightblue", linewidth = 2,
+                xlim = c(-3, 3)) +
+  coord_cartesian(xlim = c(-3, 3), ylim = c(0, 1)) +
+  theme_classic()
+```
+
+## *Z*-Scores
+
+Why standardize?
+
+* Puts variables on the same (interpretable) scale
+
+* Helps manage very large or very small numbers
+
+* Can compare across distributions
+
+* Gives information about location relative to the rest of the distribution
+
+## *Z*-Scores in R
+
+Need to:
+
+1. Take out the mean
+
+2. Scale by the standard deviation
+
+`data$variable_z <- (data$variable - mean(data$variable)) / sd(data$variable)`
+
+
+```{webr}
+# let's z-score Petal.Length
+
+```
+
+::: fragment
+Can check to make sure things look right
+:::
+
+## Generating Normal Data {style="font-size:85%"}
+
+Sometimes, we want to simulate data
+
+<div class="subpoint">○ Demonstration </div>
+<div class="subpoint">○ Comparison </div>
+<div class="subpoint">○ Sanity check </div>
+
+To generate data drawn from a normal distribution, we can use `rnorm(n, mean, sd)`
+<div class="subpoint">○ `n` = number of draws </div>
+<div class="subpoint">○ `mean` = desired mean of distribution </div>
+<div class="subpoint">○ `sd` = desired SD of distribution </div>
+
+```{r, echo=F}
+#| fig-width: 2.5
+#| fig-height: 2.5
+#| layout-ncol: 3
+
+ggplot(data = data.frame(x = rnorm(10, 0, 1)), aes(x = x)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 bins = 10) +
+  stat_function(inherit.aes = FALSE, fun = dnorm,
+                n = 101, args = list(mean = 0, sd = 1),
+                color = "lightblue", linewidth = 2,
+                xlim = c(-3, 3)) +
+  coord_cartesian(xlim = c(-3, 3), ylim = c(0, 1)) +
+  labs(title = "n = 10") +
+  theme_classic()
+
+ggplot(data = data.frame(x = rnorm(50, 0, 1)), aes(x = x)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 bins = 10) +
+  stat_function(inherit.aes = FALSE, fun = dnorm,
+                n = 101, args = list(mean = 0, sd = 1),
+                color = "lightblue", linewidth = 2,
+                xlim = c(-3, 3)) +
+  coord_cartesian(xlim = c(-3, 3), ylim = c(0, 1)) +
+  labs(title = "n = 50") +
+  theme_classic()
+
+ggplot(data = data.frame(x = rnorm(500, 0, 1)), aes(x = x)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 bins = 10) +
+  stat_function(inherit.aes = FALSE, fun = dnorm,
+                n = 101, args = list(mean = 0, sd = 1),
+                color = "lightblue", linewidth = 2,
+                xlim = c(-3, 3)) +
+  coord_cartesian(xlim = c(-3, 3), ylim = c(0, 1)) +
+  labs(title = "n = 500") +
+  theme_classic()
+
+```
+
+## Generating Normal Data
+
+```{webr}
+# let's generate some data and then plot it
+
+```
+
+## Probabilities of Normal Values
+
+Within a normal distribution, we can check the probability of a given value and the value at a given probability
+
+:::: {.columns}
+::: {.column}
+#### Probability of a Value
+`pnorm(q)`
+<div class="subpoint">○ `q` = value (or vector of values) </div>
+```{r}
+pnorm(0)
+pnorm(1)
+pnorm(c(-3, 3))
+```
+:::
+
+::: {.column}
+#### Value at a Probability
+`qnorm(p)`
+<div class="subpoint">○ `p` = probability (or vector of probabilities) </div>
+```{r}
+qnorm(.5)
+qnorm(.9)
+qnorm(c(.025, .975))
+```
+:::
+::::
+
+## Packages in R
+
+Base R has a lot of great stuff, but *packages* made by the community have even more great stuff
+
+## Packages in R
+
+Steps of using an R package:
+
+#### 1. Installing
+
+`install.packages(package)`
+
+<div class="subpoint">○ `package` = (character) package name </div>
+
+```{r, eval=F}
+install.packages("rio")
+```
+Only have to do this once
+
+## Packages in R
+
+Steps of using an R package:
+
+#### 2. Loading
+
+:::: {.columns}
+:::{.column}
+`library(package)`
+<div class="subpoint">○ `package` = (not character) package name </div>
+
+At the top of your file
+```{r}
+library(rio)
+```
+
+Better if you use many functions from that package in your script
+:::
+
+:::{.column}
+`package::package_function()`
+```{r, eval=F}
+rio::import()
+```
+
+Better if you use only a few functions from that package
+
+Or if you want to be more specific
+<div class="subpoint">○ Sometimes a function from one package will overwrite a function from a different package, and this calls the specific one </div>
+:::
+::::
+
+## Packages in R
+
+Steps of using an R package:
+
+#### 3. Using
+If you use `library()`, you can then call the function with just its name
+
+```{r, eval=F}
+import()
+```
+
+## Reading Files
+
+So far, we've only used preloaded data in R
+
+We need to learn how to import data into R!
+
+#### 1. Downloading
+
+First, we need to download the file and move it to our working directory (or a folder within our working directory)
+
+## Reading Files
+
+#### 2. Reading
+
+:::: {.columns style="font-size:85%"}
+::: {.column}
+##### Base R
+`read()` function family
+
+Depends on your file type
+
+`read.csv(file)` probably most common
+<div class="subpoint">○ `file` = name of or path to file </div>
+
+###### File in working directory
+```{r, eval=F}
+#| code-line-numbers: false
+read.csv("tour_de_france.csv")
+```
+
+###### File in subfolder
+```{r, eval=F}
+#| code-line-numbers: false
+read.csv(here::here("Lab 4",
+                    "tour_de_france.csv"))
+```
+:::
+
+::: {.column}
+##### `rio` Package
+```{r, eval=F}
+#| code-line-numbers: false
+tdf_data <- rio::import(here::here("Lab 4",
+                       "tour_de_france.csv"))
+```
+:::
+::::
+
+Make sure to assign the data to a variable to keep it!
+
+```{r, echo=F}
+tdf_data <- rio::import(here::here("labs", "Lab 4 - Z-Scores", "tour_de_france.csv"))
+```
+```{r, eval=F, echo=F}
+tdf_data <- rio::import(here::here("Lab 4", "tour_de_france.csv"))
+```
+```{r}
+head(tdf_data)
+```
+
+## Lab 4 Assignment!
+
+Don't forget to sign up for [posit::conf(2025)](https://posit.co/conference/) if you want to complete the extra credit assignment.
+
+
+
+

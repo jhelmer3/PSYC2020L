@@ -1,0 +1,104 @@
+year,winner_avg_speed,total_distance,winner,winner_nationality,starting_city
+1903,25.68,2428,Maurice Garin,France,Paris
+1904,25.27,2420,Henri Cornet,France,Paris
+1905,27.11,2994,Louis Trousselier,France,Paris
+1906,24.46,4545,Rene Pottier,France,Paris
+1907,28.47,4488,Lucien Petit-Breton,France,Paris
+1908,28.74,4488,Lucien Petit-Breton ,France,Paris
+1909,28.66,4497,Francois Faber,Luxembourg,Paris
+1910,29.1,4737,Octave Lapize,France,Paris
+1911,27.32,5344,Gustave Garrigou,France,Paris
+1912,27.76,5289,Odile Defraye,Belgium,Paris
+1913,26.72,5287,Philippe Thys,Belgium,Paris
+1914,26.84,5380,Philippe Thys ,Belgium,Paris
+1919,24.06,5560,Firmin Lambot,Belgium,Paris
+1920,24.07,5503,Philippe Thys ,Belgium,Paris
+1921,24.72,5485,Leon Scieur,Belgium,Paris
+1922,24.2,5375,Firmin Lambot ,Belgium,Paris
+1923,24.23,5386,Henri Pelissier,France,Paris
+1924,24.25,5425,Ottavio Bottecchia,Italy,Paris
+1925,24.82,5440,Ottavio Bottecchia ,Italy,Paris
+1926,24.28,5745,Lucien Buysse,Belgium,Evian
+1927,27.22,5340,Nicolas Frantz,Luxembourg,Paris
+1928,28.4,5476,Nicolas Frantz ,Luxembourg,Paris
+1929,28.32,5257,Maurice De Waele,Belgium,Paris
+1930,28,4822,Andre Leducq,France,Paris
+1931,28.74,5091,Antonin Magne,France,Paris
+1932,29.05,4479,Andre Leducq ,France,Paris
+1933,29.82,4395,Georges Speicher,France,Paris
+1934,30.36,4470,Antonin Magne ,France,Paris
+1935,30.65,4338,Romain Maes,Belgium,Paris
+1936,31.11,4418,Sylvere Maes,Belgium,Paris
+1937,31.77,4415,Roger Lapebie,France,Paris
+1938,31.57,4694,Gino Bartali,Italy,Paris
+1939,31.99,4224,Sylvere Maes ,Belgium,Paris
+1947,31.41,4640,Jean Robic,France,Paris
+1948,33.44,4922,Gino Bartali ,Italy,Paris
+1949,32.12,4808,Fausto Coppi,Italy,Paris
+1950,32.78,4773,Ferdinand Kubler,Switzerland,Paris
+1951,32.95,4690,Hugo Koblet,Switzerland,Metz
+1952,32.23,4898,Fausto Coppi ,Italy,Brest
+1953,34.59,4476,Louison Bobet,France,Strasbourg
+1954,33.23,4656,Louison Bobet ,France,Amsterdam
+1955,34.45,4495,Louison Bobet ,France,Le Havre
+1956,36.27,4498,Roger Walkowiak,France,Reims
+1957,34.52,4665,Jacques Anquetil,France,Nantes
+1958,36.92,4319,Charly Gaul,Luxembourg,Brussels
+1959,35.47,4391,Federico Bahamontes,Spain,Mulhouse
+1960,37.21,4173,Gastone Nencini,Italy,Lille
+1961,36.03,4397,Jacques Anquetil ,France,Rouen
+1962,37.32,4274,Jacques Anquetil ,France,Nancy
+1963,37.09,4137,Jacques Anquetil ,France,Paris
+1964,35.42,4504,Jacques Anquetil ,France,Rennes
+1965,35.89,4177,Felice Gimondi,Italy,Cologne
+1966,36.76,4322,Lucien Aimar,France,Nancy
+1967,34.76,4758,Roger Pingeon,France,Angers
+1968,33.56,4492,Jan Janssen,Netherlands,Vittel
+1969,35.41,4117,Eddy Merckx,Belgium,Roubaix
+1970,35.59,4254,Eddy Merckx ,Belgium,Limoges
+1971,38.08,3608,Eddy Merckx ,Belgium,Mulhouse
+1972,35.51,3846,Eddy Merckx ,Belgium,Angers
+1973,33.41,4090,Luis Ocana,Spain,Scheveningen
+1974,35.24,4098,Eddy Merckx ,Belgium,Brest
+1975,34.91,3999,Bernard Thevenet,France,Charleroi
+1976,34.52,4016,Lucien Van Impe,Belgium,St. Jean de Monts
+1977,35.42,4092,Bernard Thevenet ,France,Fleurence
+1978,36.08,3914,Bernard Hinault,France,Leiden
+1979,36.51,3720,Bernard Hinault ,France,Fleurence
+1980,35.14,3946,Joop Zoetemelk,Netherlands,Frankfurt
+1981,38.96,3757,Bernard Hinault ,France,Nice
+1982,38.06,3512,Bernard Hinault ,France,Basel
+1983,36.23,3962,Laurent Fignon,France,Fontenay-sous-Bois
+1984,35.88,4021,Laurent Fignon ,France,Montreuil
+1985,36.23,4127,Bernard Hinault ,France,Plumelec
+1986,37.02,4083,Greg Lemond,USA,Boulogne-Billancourt
+1987,36.65,4231,Stephen Roche,IrelandIrish,West Berlin
+1988,38.91,3286,Pedro Delgado,Spain,Pornichet
+1989,37.49,3285,Greg LeMond ,USA,Luxembourg
+1990,38.26,3504,Greg LeMond ,USA,Furturoscope
+1991,38.75,3914,Miguel Indurain,Spain,Lyon
+1992,39.5,3983,Miguel Indurain ,Spain,San Sebastian
+1993,38.71,3714,Miguel Indurain ,Spain,Le Puy de Fou
+1994,38.38,3978,Miguel Indurain ,Spain,Lille
+1995,39.19,3653,Miguel Indurain ,Spain,St. Brieuc
+1996,39.23,3907,Bjarne Riis,Denmark,Hertogenbosch
+1997,39.23,3950,Jan Ullrich,Germany,Rouen
+1998,39.98,3875,Marco Pantani,Italy,Dublin
+1999,40.27,3686,Results voided,Results voided,Le Puy de Fou
+2000,39.56,3662,Results voided,Results voided,Futuroscope
+2001,40.02,3446,Results voided,Results voided,Dunkirk
+2002,39.93,3282,Results voided,Results voided,Luxembourg
+2003,40.94,3427,Results voided,Results voided,Paris
+2004,40.55,3391.1,Results voided,Results voided,Liege
+2005,41.65,3608,Results voided,Results voided,Fromentine
+2006,40.78,3657.1,Oscar Pereiro,Spain,Strasbourg
+2007,38.98,3547,Alberto Contador,Spain,London
+2008,40.5,3559.5,Carlos Sastre,Spain,Brest
+2009,40.31,3459.5,Alberto Contador ,Spain,Monaco
+2010,39.59,3641.9,Andy Schleck,Luxembourg,Rotterdam
+2011,39.79,3430,Cadel Evans,Australia,Le Barre de Monts
+2012,39.88,3496.9,Bradley Wiggins,United Kingdom,Liege
+2013,40.54,3403.5,Chris Froome,United Kingdom,Porto Vecchio
+2014,40.69,3659,Vincenzo Nibali,Italy,Leeds
+2015,39.64,3360.3,Chris Froome ,United Kingdom,Utrecht
+2016,39.62,3534,Chris Froome ,United Kingdom,Mont St. Michel

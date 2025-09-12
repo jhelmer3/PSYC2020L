@@ -130,10 +130,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -217,6 +213,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="check-and-set-your-working-directory" class="level3">
 <h3 class="anchored" data-anchor-id="check-and-set-your-working-directory">2) Check and set your working directory</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/labs/Lab 1 - Basic R"</code></pre>
+</div>
+</div>
+<div style="color:maroon">
+We ran out of time to cover setting working directory; this is all they have to do for this question.
+</div>
 </section>
 </section>
 <section id="r-basics" class="level2">
@@ -225,45 +230,118 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="compute">3) Compute:</h3>
 <section id="a-the-product-of-4-4" class="level4">
 <h4 class="anchored" data-anchor-id="a-the-product-of-4-4">a) The product of 4 * 4</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">*</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+</div>
 </section>
 <section id="b-4-squared" class="level4">
 <h4 class="anchored" data-anchor-id="b-4-squared">b) 4 squared</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">^</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+</div>
+<div style="color:maroon">
+The first one is more likely; it’s what I showed in class.
+</div>
 </section>
 <section id="c-the-remainder-from-dividing-16-by-3" class="level4">
 <h4 class="anchored" data-anchor-id="c-the-remainder-from-dividing-16-by-3">c) The remainder from dividing 16 by 3</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span> <span class="sc">%%</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
 </section>
 <section id="d-false-divided-by-true.-why-did-you-get-this-answer" class="level4">
 <h4 class="anchored" data-anchor-id="d-false-divided-by-true.-why-did-you-get-this-answer">d) <code>FALSE</code> divided by <code>TRUE</code>. Why did you get this answer?</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span> <span class="sc">/</span> <span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<p><code>FALSE</code> and <code>TRUE</code> are represented as 0 and 1 by R. When you divide 0 by 1, you get 0.</p>
 </section>
 </section>
 <section id="the-output-of-the-following-two-lines-of-code-is-different.-why-is-that" class="level3">
 <h3 class="anchored" data-anchor-id="the-output-of-the-following-two-lines-of-code-is-different.-why-is-that">4) The output of the following two lines of code is different. Why is that?</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.5</code></pre>
 </div>
 </div>
+<p>R follows standard the order of operations for math (PEMDAS). Because parentheses are evaluated first, the (3 + 2) becomes 5 in the second version, which is then divided by 2 to get 2.5. In the first version, the 2 / 2 is evaluated first, which becomes 1 and is then added to 3 to get 4.</p>
 </section>
 <section id="section" class="level3">
 <h3 class="anchored" data-anchor-id="section">4)</h3>
 <section id="a-create-a-vector-of-your-four-favorite-movies" class="level4">
 <h4 class="anchored" data-anchor-id="a-create-a-vector-of-your-four-favorite-movies">a) Create a vector of your four favorite movies</h4>
+<div style="color:maroon">
+These don’t have to have output as long as the syntax is correct.
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>my_movies <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dune: Part 1"</span>, <span class="st">"Dune: Part 2"</span>, <span class="st">"Third Movie"</span>, <span class="st">"Fourth Movie"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div style="color:maroon">
+They don’t have to assign it to a variable here; creating a vector is enough.
+</div>
 </section>
 <section id="b-create-a-vector-of-the-years-they-came-out" class="level4">
 <h4 class="anchored" data-anchor-id="b-create-a-vector-of-the-years-they-came-out">b) Create a vector of the years they came out</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>movie_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2022</span>, <span class="dv">2024</span>, <span class="dv">2000</span>, <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div style="color:maroon">
+They don’t have to assign it to a variable here; creating a vector is enough.
+</div>
 </section>
 <section id="c-create-a-vector-of-the-ratings-number-of-stars-out-of-five-that-you-think-they-deserve" class="level4">
 <h4 class="anchored" data-anchor-id="c-create-a-vector-of-the-ratings-number-of-stars-out-of-five-that-you-think-they-deserve">c) Create a vector of the ratings (number of stars out of five) that YOU think they deserve</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ratings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div style="color:maroon">
+They don’t have to assign it to a variable here; creating a vector is enough.
+</div>
 </section>
 <section id="d-put-all-those-vectors-in-a-dataframe-with-the-column-labels-fav_movie-year-and-my_rating" class="level4">
 <h4 class="anchored" data-anchor-id="d-put-all-those-vectors-in-a-dataframe-with-the-column-labels-fav_movie-year-and-my_rating">d) Put all those vectors in a dataframe with the column labels “fav_movie”, “year”, and “my_rating”</h4>
+<div style="color:maroon">
+Same here, doesn’t have to have output as long as the syntax is correct.
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">fav_movie =</span> my_movies,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> movie_years,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">my_rating =</span> ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     fav_movie year my_rating
+1 Dune: Part 1 2022         5
+2 Dune: Part 2 2024         5
+3  Third Movie 2000         5
+4 Fourth Movie 2000         5</code></pre>
+</div>
+</div>
+<div style="color:maroon">
+Whether they retype it by hand or use variable assignment is fine as long as the responses from a, b, and c match d.&nbsp;The variable names should be <code>fav_movie</code>, <code>year</code>, and <code>my_rating</code>.
+</div>
 </section>
 </section>
 <section id="show-me" class="level3">
@@ -271,11 +349,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="the-first-three-rows-of-the-iris-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="the-first-three-rows-of-the-iris-dataset">The first three rows of the <code>iris</code> dataset</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa</code></pre>
+</div>
+</div>
 </section>
 <section id="plot" class="level3">
 <h3 class="anchored" data-anchor-id="plot">6) Plot…</h3>
 <section id="a-scatterplot-with-petal.length-on-the-x-and-petal.width-on-the-y" class="level4">
 <h4 class="anchored" data-anchor-id="a-scatterplot-with-petal.length-on-the-x-and-petal.width-on-the-y">A scatterplot with Petal.Length on the x and Petal.Width on the y</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Petal.Length, iris<span class="sc">$</span>Petal.Width)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="PSYC2020L-Assignment-1_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -683,6 +780,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
 
 
 

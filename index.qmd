@@ -11,7 +11,7 @@ Welcome to the website for PSYC 2020-A01 **Psychological Statistics** / **PSYC 6
 
 ## posit::conf(2025)
 
-Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity! See here for [instructions](/assignments/Extra Credit 1.qmd).
+Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity! See here for [instructions](/labs/Extra Credit/Extra Credit 1.qmd).
 
 ## Labs
 
@@ -19,31 +19,33 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 08/22 - Lab 1
 #### Basic R
-[Slides](/slides/Lab 1 - Basic R/PSYC2020L Lab 1.qmd) | [Assignment](/assignments/PSYC2020L Assignment 1.rmd)
+[Slides](/labs/Lab 1 - Basic R/PSYC2020L Lab 1.qmd) | [Assignment](/labs/Lab 1 - Basic R/PSYC2020L Assignment 1.rmd)
 :::
 
 ::: {.column width=33%}
 ### 08/29 - Lab 2
 #### Central Tendency
-[Slides](/slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.qmd) | [Assignment](/assignments/PSYC2020L Assignment 2.rmd)
+[Slides](/labs/Lab 2 - Central Tendency/PSYC2020L Lab 2.qmd) | [Assignment](/labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.rmd)
 :::
 
 ::: {.column width=33%}
 ### 09/05 - Lab 3
 #### Measures of Variability
-[Slides](/slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.qmd) | No Assignment
+[Slides](/labs/Lab 3 - Measures of Variability/PSYC2020 Lab 3.qmd) | No Assignment
 :::
 ::::
 
 :::: {.columns}
 ::: {.column width=33%}
 ### 09/12 Lab 4
-#### Probability Distributions
-Coming soon!
+#### Z-Scores
+[Slides](/labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.qmd)
 :::
 
 ::: {.column width=33%}
-
+### 09/19 Lab 9
+#### Intermediate R
+Coming soon!
 :::
 
 ::: {.column width=33%}
