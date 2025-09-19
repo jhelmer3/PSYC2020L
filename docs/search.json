@@ -3230,8 +3230,8 @@
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#outline",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#outline",
     "title": "Intermediate R: tidyverse",
-    "section": "",
-    "text": "Assignment 4 Review\ntidyverse Workflow\nFull Analysis\n\nLearning objectives:\nR: tidyverse"
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 4 Review\ntidyverse Workflow\nFull Analysis\n\nLearning objectives:\nR: tidyverse"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#housekeeping",
@@ -3245,7 +3245,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review",
     "title": "Intermediate R: tidyverse",
     "section": "Assignment 4 Review",
-    "text": "Assignment 4 Review\n\nSkew vs Shift\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot2::ggplot(data.frame(x = rnorm(1000)),\n                ggplot2::aes(x = x)) +\n  ggplot2::geom_histogram(bins = 12) +\n  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +\n  ggplot2::theme_bw(base_size = 14)\n\nggplot2::ggplot(data.frame(x = rnorm(1000, mean = 3)),\n                ggplot2::aes(x = x)) +\n  ggplot2::geom_histogram(bins = 12) +\n  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +\n  ggplot2::theme_bw(base_size = 14)\n\nggplot2::ggplot(data.frame(x = rnorm(1000, 4, 3)),\n                ggplot2::aes(x = log(x))) +\n  ggplot2::geom_histogram(bins = 12) +\n  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +\n  ggplot2::theme_bw(base_size = 14)"
+    "text": "Assignment 4 Review\nSkew vs Shift\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot2::ggplot(data.frame(x = rnorm(1000)),\n                ggplot2::aes(x = x)) +\n  ggplot2::geom_histogram(bins = 12) +\n  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +\n  ggplot2::theme_bw(base_size = 14)\n\nggplot2::ggplot(data.frame(x = rnorm(1000, mean = 3)),\n                ggplot2::aes(x = x)) +\n  ggplot2::geom_histogram(bins = 12) +\n  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +\n  ggplot2::theme_bw(base_size = 14)\n\nggplot2::ggplot(data.frame(x = rnorm(1000, 4, 3)),\n                ggplot2::aes(x = log(x))) +\n  ggplot2::geom_histogram(bins = 12) +\n  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +\n  ggplot2::theme_bw(base_size = 14)"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#the-tidyverse",
@@ -3301,7 +3301,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import-todays-dataset-2",
     "title": "Intermediate R: tidyverse",
     "section": "Import: Today’s dataset",
-    "text": "Import: Today’s dataset\nLet’s check out our data\n\n# let's look at our data!\n\n# summary(), str(), head()\n# psych::describe()"
+    "text": "Import: Today’s dataset\nLet’s check out our data"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy",
@@ -3315,7 +3315,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-1",
     "title": "Intermediate R: tidyverse",
     "section": "Tidy",
-    "text": "Tidy\n\n\n\n\n  PersonId Height Weight Year\n1        1    173     57   93\n2        2    179     58   93\n3        3    167     62   93\n4        4    195     84   93\n5        5    173     64   93\n6        6    184     74   93\n\n\n\n\n\n\n\n  PersonId Year Variable Value\n1        1   93   Height   173\n2        1   93   Weight    57\n3        2   93   Height   179\n4        2   93   Weight    58\n5        3   93   Height   167\n6        3   93   Weight    62\n\n\n\n\n\n\n\n  PersonId HeightToWeight Year\n1        1         173/57   93\n2        2         179/58   93\n3        3         167/62   93\n4        4         195/84   93\n5        5         173/64   93\n6        6         184/74   93\n\n\n\n\nAll of these dataframes contain the same information, but one of them is much easier to work with…\n\nWhy?"
+    "text": "Tidy\n\n\n\n\n  PersonId Height Weight Year\n1        1    173     57   93\n2        2    179     58   93\n3        3    167     62   93\n4        4    195     84   93\n5        5    173     64   93\n6        6    184     74   93\n\n\n\n\n\n\n\n  PersonId Year Variable Value\n1        1   93   Height   173\n2        1   93   Weight    57\n3        2   93   Height   179\n4        2   93   Weight    58\n5        3   93   Height   167\n6        3   93   Weight    62\n\n\n\n\n\n\n\n  PersonId HeightToWeight Year\n1        1         173/57   93\n2        2         179/58   93\n3        3         167/62   93\n4        4         195/84   93\n5        5         173/64   93\n6        6         184/74   93\n\n\n\nAll of these dataframes contain the same information, but one of them is much easier to work with…\n\nWhy?"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-principles",
@@ -3364,14 +3364,14 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-load-the-tidyverse",
     "title": "Intermediate R: tidyverse",
     "section": "Transform: Load the tidyverse",
-    "text": "Transform: Load the tidyverse\nLet’s get ready to actually use some tidyverse code!\n\ninstall.packages(\"tidyverse\")\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote the Conflicts section! Remember when we talked about overwriting?"
+    "text": "Transform: Load the tidyverse\nLet’s get ready to actually use some tidyverse code!\n\ninstall.packages(\"tidyverse\")\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\n\n\n\n\n\nNote\n\n\nNote the Conflicts section! Remember when we talked about overwriting?"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-more-tidyverse-syntax",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-more-tidyverse-syntax",
     "title": "Intermediate R: tidyverse",
     "section": "Transform: More tidyverse syntax",
-    "text": "Transform: More tidyverse syntax\nOne more thing…\ntidyverse verbs work best in a pipe: |&gt;\n\n\nHow we’ve been using functions:\noutput &lt;- function(input)\n\nFunctions in a pipe:\noutput &lt;- input |&gt; function()\n\n\nWhy is this helpful?\n\n\nMany functions together:\nanotherfunction(otherfunction(function(input)))\n\nFunctions in a pipe:\ninput |&gt;\n  function() |&gt;\n  otherfunction() |&gt;\n  another function()"
+    "text": "Transform: More tidyverse syntax\nOne more thing…\ntidyverse verbs work best in a pipe: |&gt;\n\n\nHow we’ve been using functions:\noutput &lt;- function(input)\n\nFunctions in a pipe:\noutput &lt;- input |&gt; function()\n\nWhy is this helpful?\n\n\nMany functions together:\nanotherfunction(otherfunction(function(input)))\n\nFunctions in a pipe:\ninput |&gt;\n  function() |&gt;\n  otherfunction() |&gt;\n  another function()"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-goals-for-our-data",
@@ -3406,7 +3406,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-sample-code",
     "title": "Intermediate R: tidyverse",
     "section": "Transform: Sample code",
-    "text": "Transform: Sample code\n\nGoal 1, 2, and 3:\n\nMake a variable with the difference between the first and second pulse measurement points\nCode some of our numeric variables into their categories\nSubset our data to only include the relevant columns\n\n\npulse_subset &lt;- pulse_data |&gt;\n  mutate(PulseDiff = Pulse2 - Pulse1,\n         Smokes = factor(Smokes, levels = c(1, 2), labels = c(\"Yes\", \"No\")),\n         Ran = factor(Ran, levels = c(1, 2), labels = c(\"Ran\", \"Sat\"))) |&gt;\n  select(Smokes, Ran, Pulse1, Pulse2, PulseDiff)"
+    "text": "Transform: Sample code\nGoal 1, 2, and 3:\n\nMake a variable with the difference between the first and second pulse measurement points\nCode some of our numeric variables into their categories\nSubset our data to only include the relevant columns\n\n\npulse_subset &lt;- pulse_data |&gt;\n  mutate(PulseDiff = Pulse2 - Pulse1,\n         Smokes = factor(Smokes, levels = c(1, 2), labels = c(\"Yes\", \"No\")),\n         Ran = factor(Ran, levels = c(1, 2), labels = c(\"Ran\", \"Sat\"))) |&gt;\n  select(Smokes, Ran, Pulse1, Pulse2, PulseDiff)"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize",
@@ -3441,7 +3441,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-3",
     "title": "Intermediate R: tidyverse",
     "section": "Visualize: ggplot2",
-    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2)) +\n  geom_point()\n\n\n\n\n\nStill no data, though\nNeed to define some geom, a geometric display of our data\nWill usually start with geom_\n\n\n\n\ngeom_line()\nline graph\n\n\ngeom_bar()\nbar graph\n\n\ngeom_boxplot()\nboxplot\n\n\ngeom_point()\nscatterplot\n\n\n\n\nCan start addressing questions here!\n\n\n\n\n\n\nNote\n\n\n\nTake note of the missing values warning!"
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2)) +\n  geom_point()\n\n\n\n\n\nStill no data, though\nNeed to define some geom, a geometric display of our data\nWill usually start with geom_\n\n\n\n\ngeom_line()\nline graph\n\n\ngeom_bar()\nbar graph\n\n\ngeom_boxplot()\nboxplot\n\n\ngeom_point()\nscatterplot\n\n\n\n\nCan start addressing questions here!\n\n\n\n\n\n\nNote\n\n\nTake note of the missing values warning!"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-4",
@@ -3525,7 +3525,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-sample-code-1",
     "title": "Intermediate R: tidyverse",
     "section": "Transform: Sample code",
-    "text": "Transform: Sample code\n\nGoal 4:\n\nSummarize information based on our questions\n\n\npulse_subset |&gt;\n  summarize(.by = Ran,\n            PulseDiffMean = mean(PulseDiff, na.rm=T))\n\n  Ran PulseDiffMean\n1 Sat       -1.0000\n2 Ran       51.3913\n\npulse_subset |&gt;\n  summarize(.by = c(Ran, Smokes),\n            PulseDiffMean = mean(PulseDiff, na.rm=T))\n\n  Ran Smokes PulseDiffMean\n1 Sat     No    -0.8363636\n2 Ran     No    51.6511628\n3 Sat    Yes    -2.1250000\n4 Ran    Yes    47.6666667"
+    "text": "Transform: Sample code\nGoal 4:\n\nSummarize information based on our questions\n\n\npulse_subset |&gt;\n  summarize(.by = Ran,\n            PulseDiffMean = mean(PulseDiff, na.rm=T))\n\n  Ran PulseDiffMean\n1 Sat       -1.0000\n2 Ran       51.3913\n\npulse_subset |&gt;\n  summarize(.by = c(Ran, Smokes),\n            PulseDiffMean = mean(PulseDiff, na.rm=T))\n\n  Ran Smokes PulseDiffMean\n1 Sat     No    -0.8363636\n2 Ran     No    51.6511628\n3 Sat    Yes    -2.1250000\n4 Ran    Yes    47.6666667"
   },
   {
     "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#outline",
@@ -3931,14 +3931,14 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review-1",
     "title": "Intermediate R: tidyverse",
     "section": "Assignment 4 Review",
-    "text": "Assignment 4 Review\n\nMore Draws: More Representative"
+    "text": "Assignment 4 Review\nMore Draws: More Representative"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review-2",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review-2",
     "title": "Intermediate R: tidyverse",
     "section": "Assignment 4 Review",
-    "text": "Assignment 4 Review\n\nRMarkdown and Working Directories\nWe won’t have to worry about this today, but some things we can try:\n\n\nMake sure your .Rmd assignment file is in the same folder as your .Rproj file\nDefault directory for code chunks is folder that contains .rmd document\n\nIf .Rmd file is in the same folder as your .Rproj file and getwd() returns a different directory than your project folder, we can try\n\nknitr::opts_knit$set(root.dir = '/tmp')\n\nor\n\nhere::i_am(\"any_project_subfolders/assignment.Rmd\")"
+    "text": "Assignment 4 Review\nRMarkdown and Working Directories\nWe won’t have to worry about this today, but some things we can try:\n\n\nMake sure your .Rmd assignment file is in the same folder as your .Rproj file\nDefault directory for code chunks is folder that contains .rmd document\n\nIf .Rmd file is in the same folder as your .Rproj file and getwd() returns a different directory than your project folder, we can try\n\nknitr::opts_knit$set(root.dir = '/tmp')\n\nor\n\nhere::i_am(\"any_project_subfolders/assignment.Rmd\")"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html",
