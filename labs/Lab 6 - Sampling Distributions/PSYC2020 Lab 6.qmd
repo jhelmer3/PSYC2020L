@@ -1,0 +1,141 @@
+---
+title: "Sampling Distributions"
+subtitle: "PSYC 2020-A01 / PSYC 6022-A01 | 2025-09-26 | Lab 6"
+author: "Jessica Helmer"
+format: 
+  live-revealjs:
+    slide-number: true
+    show-slide-number: all
+    css: PSYC2020L_styles.css
+engine: knitr
+execute:
+  echo: true
+width: 1200
+---
+
+## Outline
+
+* Assignment 5 Review
+* Sampling Distributions
+
+Learning objectives:  
+**R:** `tidyverse`
+
+```{r, echo =F}
+library(tidyverse)
+```
+
+
+## Housekeeping
+
+[input any housekeeping items here]
+
+
+## Assignment 5 Review
+
+[input any Assignment 5 review here]
+
+
+## Sampling Distributions
+
+Important topic in statistics! Help us make inferences about the estimates we calculate
+
+:::: {.columns}
+::: {.column}
+#### Sample Distribution
+
+Distribution of the data within our sample
+
+:::
+
+::: {.column}
+#### Sample Distribution
+
+(More theoretical) distribution of our statistic over repeated sampling
+:::
+::::
+
+
+## Population
+
+```{r}
+sampcolor <- "turquoise"
+popsize <- 1000
+sampsize <- 50
+
+population <- data.frame(id = 1:popsize,
+                         x = rnorm(popsize)) %>%
+  mutate(y = runif(popsize, min = 0, max = dnorm(x)))
+
+sampling <- data.frame(sampmean = as.numeric())
+         
+population %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point() +
+  coord_cartesian(xlim = c(-3, 3), y = c(0, .5), expand = F) +
+  theme_classic(base_size = 14) +
+  labs(y = NULL) +
+  theme(axis.text.y = element_blank(),
+        axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        aspect.ratio = 1)
+```
+
+```{r}
+sampdist <- function() {
+  population <<- population %>%
+    mutate(samp = factor(ifelse(x %in% sample(x, sampsize), 1, 0), ordered = T))
+  
+  population %>%
+    ggplot(aes(x = x, y = y, color = samp)) +
+    geom_point() +
+    coord_cartesian(xlim = c(-3, 3), y = c(0, .5), expand = F) +
+    theme_classic(base_size = 14) +
+    scale_color_manual(NULL, values = c("black", sampcolor)) +
+    labs(y = NULL) +
+    guides(color = "none") +
+    theme(axis.text.y = element_blank(),
+          axis.line.y = element_blank(),
+          axis.ticks.y = element_blank(),
+          aspect.ratio = 1)
+}
+
+samplingdist <- function() {
+  sampling <<- sampling %>%
+    rbind(population %>% filter(samp == 1) %>% summarize(sampmean = sum(x) / sampsize))
+  
+  sampling %>%
+    ggplot(aes(x = sampmean)) +
+    geom_histogram(fill = sampcolor, color = NA, bins = 5, alpha = .6) +
+    geom_density(color = sampcolor, linewidth = 1) +
+    coord_cartesian(xlim = c(-3, 3), ylim = c(0, 5), expand = F) +
+    theme_classic(base_size = 14) +
+    labs(y = NULL) +
+    guides(color = "none") +
+    theme(axis.text.y = element_blank(),
+          axis.line.y = element_blank(),
+          axis.ticks.y = element_blank(),
+          aspect.ratio = 1)
+}
+```
+
+
+## Sample
+
+:::: {.columns}
+::: {.column}
+```{r}
+sampdist()
+```
+:::
+
+::: {.column}
+```{r}
+samplingdist()
+```
+:::
+::::
+
+
+
+

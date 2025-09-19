@@ -39,13 +39,13 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 09/12 Lab 4
 #### Z-Scores
-[Slides](/labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.qmd)
+[Slides](/labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.qmd) | [Assignment](/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.rmd)
 :::
 
 ::: {.column width=33%}
 ### 09/19 Lab 9
 #### Intermediate R
-Coming soon!
+[Slides](/labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.qmd)
 :::
 
 ::: {.column width=33%}

@@ -886,7 +886,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides\n\n\n\n\n09/19 Lab 9\n\nIntermediate R\nComing soon!"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 9\n\nIntermediate R\nSlides"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
@@ -3230,22 +3230,22 @@
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#outline",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#outline",
     "title": "Intermediate R: tidyverse",
-    "section": "Outline",
-    "text": "Outline\n\nAssignment 4 Review\ntidyverse Workflow\nFull Analysis\n\nLearning objectives:\nR: tidyverse"
+    "section": "",
+    "text": "Assignment 4 Review\ntidyverse Workflow\nFull Analysis\n\nLearning objectives:\nR: tidyverse"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#housekeeping",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#housekeeping",
     "title": "Intermediate R: tidyverse",
     "section": "Housekeeping",
-    "text": "Housekeeping\n[input any housekeeping items here]"
+    "text": "Housekeeping\nHow was the exam?\nHow was posit::conf(2025)?"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review",
     "title": "Intermediate R: tidyverse",
     "section": "Assignment 4 Review",
-    "text": "Assignment 4 Review\n[input any Assignment 4 review here]"
+    "text": "Assignment 4 Review\n\nSkew vs Shift\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot2::ggplot(data.frame(x = rnorm(1000)),\n                ggplot2::aes(x = x)) +\n  ggplot2::geom_histogram(bins = 12) +\n  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +\n  ggplot2::theme_bw(base_size = 14)\n\nggplot2::ggplot(data.frame(x = rnorm(1000, mean = 3)),\n                ggplot2::aes(x = x)) +\n  ggplot2::geom_histogram(bins = 12) +\n  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +\n  ggplot2::theme_bw(base_size = 14)\n\nggplot2::ggplot(data.frame(x = rnorm(1000, 4, 3)),\n                ggplot2::aes(x = log(x))) +\n  ggplot2::geom_histogram(bins = 12) +\n  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +\n  ggplot2::theme_bw(base_size = 14)"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#the-tidyverse",
@@ -3273,7 +3273,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import-todays-dataset",
     "title": "Intermediate R: tidyverse",
     "section": "Import: Today’s dataset",
-    "text": "Import: Today’s dataset\nDataset on pulse rates before and after exercise\nCan import from the internet\n\npulse_data &lt;- rio::import(\"http://www.statsci.org/data/oz/ms212.txt\") \n\nOr download the .rds file from Canvas\n\npulse_data &lt;- rio::import(here::here(\"labs\", \"Lab 5 - Intermediate R\", \"pulserates.rds\"))\n\n\n○ .rds is a file extension for R data"
+    "text": "Import: Today’s dataset\nDataset on pulse rates before and after exercise\nCan import from the internet\n\npulse_data &lt;- rio::import(\"http://www.statsci.org/data/oz/ms212.txt\") \n\nOr download the .rds file from Canvas\n\npulse_data &lt;- rio::import(here::here(\"labs\", \"Lab 5 - Intermediate R\", \"pulserates.rds\"))\n\n.rds is a file extension for R objects"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import-todays-dataset-1",
@@ -3301,7 +3301,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#import-todays-dataset-2",
     "title": "Intermediate R: tidyverse",
     "section": "Import: Today’s dataset",
-    "text": "Import: Today’s dataset\nLet’s check out our data"
+    "text": "Import: Today’s dataset\nLet’s check out our data\n\n# let's look at our data!\n\n# summary(), str(), head()\n# psych::describe()"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy",
@@ -3315,7 +3315,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-1",
     "title": "Intermediate R: tidyverse",
     "section": "Tidy",
-    "text": "Tidy\n\n\n\n\n  PersonId Height Weight Year\n1        1    173     57   93\n2        2    179     58   93\n3        3    167     62   93\n4        4    195     84   93\n5        5    173     64   93\n6        6    184     74   93\n\n\n\n\n\n\n\n  PersonId Year Variable Value\n1        1   93   Height   173\n2        1   93   Weight    57\n3        2   93   Height   179\n4        2   93   Weight    58\n5        3   93   Height   167\n6        3   93   Weight    62\n\n\n\n\n\n\n\n  PersonId HeightToWeight Year\n1        1         173/57   93\n2        2         179/58   93\n3        3         167/62   93\n4        4         195/84   93\n5        5         173/64   93\n6        6         184/74   93\n\n\n\nAll of these dataframes contain the same information, but one of them is much easier to work with…\n\nWhy?"
+    "text": "Tidy\n\n\n\n\n  PersonId Height Weight Year\n1        1    173     57   93\n2        2    179     58   93\n3        3    167     62   93\n4        4    195     84   93\n5        5    173     64   93\n6        6    184     74   93\n\n\n\n\n\n\n\n  PersonId Year Variable Value\n1        1   93   Height   173\n2        1   93   Weight    57\n3        2   93   Height   179\n4        2   93   Weight    58\n5        3   93   Height   167\n6        3   93   Weight    62\n\n\n\n\n\n\n\n  PersonId HeightToWeight Year\n1        1         173/57   93\n2        2         179/58   93\n3        3         167/62   93\n4        4         195/84   93\n5        5         173/64   93\n6        6         184/74   93\n\n\n\n\nAll of these dataframes contain the same information, but one of them is much easier to work with…\n\nWhy?"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#tidy-principles",
@@ -3350,7 +3350,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform",
     "title": "Intermediate R: tidyverse",
     "section": "Transform",
-    "text": "Transform\nUsually, our data doesn’t come to us with the variables exactly as we want them\nSometimes we need…\n\nNew variables, based on our existing data or otherwise\nA summarized version of our dataset\nReordered variables\nEtc., etc., etc. Any others?"
+    "text": "Transform\nUsually, our data doesn’t come to us with the variables exactly as we want them\nSometimes we need…\n\nNew variables, based on our existing data or otherwise\nSummarized version of our dataset\nReordered variables\nEtc., etc., etc. Any others?"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-tidyverse-syntax",
@@ -3364,14 +3364,14 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-load-the-tidyverse",
     "title": "Intermediate R: tidyverse",
     "section": "Transform: Load the tidyverse",
-    "text": "Transform: Load the tidyverse\nLet’s get ready to actually use some tidyverse code!\n\ninstall.packages(\"tidyverse\")\n\n\nlibrary(tidyverse)\n\n\n\n\n\n\n\nNote\n\n\nNote the Conflicts section! Remember when we talked about overwriting?"
+    "text": "Transform: Load the tidyverse\nLet’s get ready to actually use some tidyverse code!\n\ninstall.packages(\"tidyverse\")\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote the Conflicts section! Remember when we talked about overwriting?"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-more-tidyverse-syntax",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-more-tidyverse-syntax",
     "title": "Intermediate R: tidyverse",
     "section": "Transform: More tidyverse syntax",
-    "text": "Transform: More tidyverse syntax\nOne more thing…\ntidyverse verbs work best in a pipe: |&gt;\n\n\nHow we’ve been using functions:\noutput &lt;- function(input)\n\nFunctions in a pipe:\noutput &lt;- input |&gt; function()\n\nWhy is this helpful?\n\n\nMany functions together:\nanotherfunction(otherfunction(function(input)))\n\nFunctions in a pipe:\ninput |&gt;\n  function() |&gt;\n  otherfunction() |&gt;\n  another function()"
+    "text": "Transform: More tidyverse syntax\nOne more thing…\ntidyverse verbs work best in a pipe: |&gt;\n\n\nHow we’ve been using functions:\noutput &lt;- function(input)\n\nFunctions in a pipe:\noutput &lt;- input |&gt; function()\n\n\nWhy is this helpful?\n\n\nMany functions together:\nanotherfunction(otherfunction(function(input)))\n\nFunctions in a pipe:\ninput |&gt;\n  function() |&gt;\n  otherfunction() |&gt;\n  another function()"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-goals-for-our-data",
@@ -3399,14 +3399,14 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-some-relevant-functions",
     "title": "Intermediate R: tidyverse",
     "section": "Transform: Some relevant functions",
-    "text": "Transform: Some relevant functions\n\n\n\n\nmutate()\nadds, changes, renames columns\n\n\nifelse()\nchanges a vector conditionally\n\n\nselect()\nselects specified columns\n\n\nfilter()\nselects specified rows\n\n\nsummarize()\nsummarizes data\n\n\n\n\nSwitching to RStudio…"
+    "text": "Transform: Some relevant functions\n\n\n\n\nmutate()\nadds, changes, renames columns\n\n\nfactor()\nconverts numeric to factor data type\n\n\nselect()\nselects specified columns\n\n\nfilter()\nselects specified rows\n\n\nsummarize()\nsummarizes data\n\n\n\n\nSwitching to RStudio…"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-sample-code",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-sample-code",
     "title": "Intermediate R: tidyverse",
     "section": "Transform: Sample code",
-    "text": "Transform: Sample code\nGoal 1, 2, and 3:\n\nMake a variable with the difference between the first and second pulse measurement points\nCode some of our numeric variables into their categories\nSubset our data to only include the relevant columns\n\n\npulse_subset &lt;- pulse_data |&gt;\n  mutate(PulseDiff = Pulse2 - Pulse1,\n         Smokes = ifelse(Smokes == 1, \"Yes\",\n                            ifelse(Smokes == 2, \"No\", Smokes)),\n         Ran = ifelse(Ran == 1, \"Ran\",\n                         ifelse(Ran == 2, \"Sat\", Ran))) |&gt;\n  select(Smokes, Ran, PulseDiff, Pulse1, Pulse2)"
+    "text": "Transform: Sample code\n\nGoal 1, 2, and 3:\n\nMake a variable with the difference between the first and second pulse measurement points\nCode some of our numeric variables into their categories\nSubset our data to only include the relevant columns\n\n\npulse_subset &lt;- pulse_data |&gt;\n  mutate(PulseDiff = Pulse2 - Pulse1,\n         Smokes = factor(Smokes, levels = c(1, 2), labels = c(\"Yes\", \"No\")),\n         Ran = factor(Ran, levels = c(1, 2), labels = c(\"Ran\", \"Sat\"))) |&gt;\n  select(Smokes, Ran, Pulse1, Pulse2, PulseDiff)"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize",
@@ -3427,70 +3427,70 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-1",
     "title": "Intermediate R: tidyverse",
     "section": "Visualize: ggplot2",
-    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset)\n\n\n\n\n\n\n\n\n\nWhen we just call the ggplot() function with our data as the first argument, we get this blank area\nggplot() works by adding layers and layers onto a plot object\n\nThis is not a very exciting plot, but you can think of it like an empty canvas you’ll paint the remaining layers of your plot onto. — R4DS"
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = pulse_subset)\n\n\n\n\n\nWhen we just call the ggplot() function with our data as the first argument, we get this blank area\nggplot() works by adding layers and layers onto a plot object\n\nThis is not a very exciting plot, but you can think of it like an empty canvas you’ll paint the remaining layers of your plot onto. — R4DS"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-2",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-2",
     "title": "Intermediate R: tidyverse",
     "section": "Visualize: ggplot2",
-    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2))\n\n\n\n\n\n\n\n\n\nNext, we want to tell ggplot() what information we want in our plot and where we want it\nWe do this with the aes() (“aesthetics”) function in the mapping = argument\nHow variables are mapped onto specific parts of the plot\nTo investigate the relationship between the first and second pulse measurements, we can choose to put Pulse1 on the x-axis and Pulse2 on the y-axis\nWhat do we get?\nLabels, axes, and a grid"
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2))\n\n\n\n\n\nNext, we want to tell ggplot() what information we want in our plot and where we want it\nWe do this with the aes() (“aesthetics”) function in the mapping = argument\nHow variables are mapped onto specific parts of the plot\nTo investigate the relationship between the first and second pulse measurements, we can choose to put Pulse1 on the x-axis and Pulse2 on the y-axis\nWhat do we get?"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-3",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-3",
     "title": "Intermediate R: tidyverse",
     "section": "Visualize: ggplot2",
-    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nStill no data, though\nNeed to define some geom, a geometric display of our data\nWill usually start with geom_\n\n\n\n\ngeom_line()\nline graph\n\n\ngeom_bar()\nbar graph\n\n\ngeom_boxplot()\nboxplot\n\n\ngeom_point()\nscatterplot\n\n\n\n\nCan start addressing questions here!\n\n\n\n\n\n\nNote\n\n\nTake note of the missing values warning!"
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2)) +\n  geom_point()\n\n\n\n\n\nStill no data, though\nNeed to define some geom, a geometric display of our data\nWill usually start with geom_\n\n\n\n\ngeom_line()\nline graph\n\n\ngeom_bar()\nbar graph\n\n\ngeom_boxplot()\nboxplot\n\n\ngeom_point()\nscatterplot\n\n\n\n\nCan start addressing questions here!\n\n\n\n\n\n\nNote\n\n\n\nTake note of the missing values warning!"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-4",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-4",
     "title": "Intermediate R: tidyverse",
     "section": "Visualize: ggplot2",
-    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2)) +\n  geom_point() +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))\n\n\n\n\n\n\n\n\n\nThese variables are conceptually similar and should probably have the same scale\nAutomatically generated axes are a good place to start\nBut good practice to consider them each time"
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2)) +\n  geom_point() +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))\n\n\n\n\n\nThese variables are conceptually similar and should probably have the same scale\nAutomatically generated axes are a good place to start\nBut good practice to consider them each time"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-5",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-5",
     "title": "Intermediate R: tidyverse",
     "section": "Visualize: ggplot2",
-    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nAdding aesthetics and layers\nWho in this group are the people who ran?\nStart: do we need to modify the aesthetic or the geom?\nWhat can we tell from this?"
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))\n\n\n\n\n\nAdding aesthetics and layers\nWho in this group are the people who ran?\nStart: do we need to modify the aesthetic or the geom?\nWhat can we tell from this?"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-6",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-6",
     "title": "Intermediate R: tidyverse",
     "section": "Visualize: ggplot2",
-    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  geom_smooth(method=\"lm\")\n\n\n\n\n\n\n\n\n\nAdding aesthetics and layers\nLet’s say we want to add a line to better represent the overall trend\nStart: do we need to modify the aesthetic or the geom?\nWhat can we tell from this?"
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  geom_smooth(method=\"lm\") +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))\n\n\n\n\n\nAdding aesthetics and layers\nLet’s say we want to add a line to better represent the overall trend\nStart: do we need to modify the aesthetic or the geom?\nWhat can we tell from this?"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-7",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-7",
     "title": "Intermediate R: tidyverse",
     "section": "Visualize: ggplot2",
-    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  geom_smooth(method=\"lm\")\n\n\n\n\n\n\n\n\n\nAdding aesthetics and layers\nLet’s say we want to add a line to better represent the overall trend\nStart: do we need to modify the aesthetic or the geom?\nWhat can we tell from this?"
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  geom_smooth(method=\"lm\") +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +\n  facet_wrap(~ Smokes)\n\n\n\n\n\nLet’s say we want to look at this for smokers vs non-smokers\nWhat can we tell from this?"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-8",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-8",
     "title": "Intermediate R: tidyverse",
     "section": "Visualize: ggplot2",
-    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  geom_smooth(method=\"lm\") +\n  facet_wrap(~ Smokes)\n\n\n\n\n\n\n\n\n\nLet’s say we want to look at this for smokers vs non-smokers\nWhat can we tell from this?"
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  geom_smooth(method=\"lm\") +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +\n  facet_wrap(~ Smokes) +\n  theme_classic()\n\n\n\n\n\nLet’s say we want this plot to look nicer!!\nBuilt in themes"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-9",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-9",
     "title": "Intermediate R: tidyverse",
     "section": "Visualize: ggplot2",
-    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nggplot(data = pulse_subset,\n       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +\n  geom_point() +\n  geom_smooth(method=\"lm\") +\n  facet_wrap(~ Smokes) +\n  theme_classic()\n\n\n\n\n\n\n\n\n\nLet’s say we want this plot to look nicer!!\nBuilt in themes"
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npulse_subset |&gt;\n  ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +\n  geom_point(size = 2.4) +\n  geom_smooth(method=\"lm\") +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +\n  labs(x = \"First Pulse\", y = \"Second Pulse\") +\n  facet_wrap(~ Smokes, labeller = \"label_both\") +\n  theme_classic(base_size = 16) +\n  theme(legend.position = \"bottom\",\n        aspect.ratio = 1)\n\n\n\n\n\nLet’s say we want this plot to look nicer!!\nAdditional theming with theme(), labs(), and various arguments"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-10",
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#visualize-ggplot2-10",
     "title": "Intermediate R: tidyverse",
     "section": "Visualize: ggplot2",
-    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\npulse_subset |&gt;\n  ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +\n  geom_point(size = 2.4) +\n  geom_smooth(method=\"lm\") +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +\n  labs(x = \"First Pulse\", y = \"Second Pulse\") +\n  facet_wrap(~ Smokes, labeller = \"label_both\") +\n  theme_classic(base_size = 16) +\n  theme(legend.position = \"bottom\",\n        aspect.ratio = 1)\n\n\n\n\n\n\n\n\n\nLet’s say we want this plot to look nicer!!\nAdditional theming with theme(), labs(), and various arguments"
+    "text": "Visualize: ggplot2\nLet’s briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npulse_subset |&gt;\n  ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +\n  geom_point(size = 2.4) +\n  geom_smooth(method=\"lm\") +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +\n  labs(x = \"First Pulse\", y = \"Second Pulse\") +\n  facet_wrap(~ Smokes, labeller = \"label_both\") +\n  theme_classic(base_size = 16) +\n  theme(legend.position = \"bottom\",\n        aspect.ratio = 1)\n\n\n\n\n\nLet’s say we want this plot to look nicer!!\nAdditional theming with theme(), labs(), and various arguments"
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#model",
@@ -3511,7 +3511,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#communicate-pulse-measurements",
     "title": "Intermediate R: tidyverse",
     "section": "Communicate: Pulse Measurements",
-    "text": "Communicate: Pulse Measurements\n\n\n\npulse_subset |&gt;\n  ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +\n  geom_point(size = 2.4) +\n  geom_smooth(method=\"lm\") +\n  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +\n  labs(x = \"First Pulse\", y = \"Second Pulse\") +\n  facet_wrap(~ Smokes, labeller = \"label_both\") +\n  theme_classic(base_size = 16) +\n  theme(legend.position = \"bottom\",\n        aspect.ratio = 1)\n\n\n\n\n\n\n\n\n\nIn this visualization, we can see a strong positive relationship between participants’ pulse measurements at the first time point and their pulse measurements at the second time point. We can see that the individuals who ran in between the measurements had similar values on the x-axis (the first measurement) but much higher values at the second measurement. While it seems like there may be some differences in pulse between regular smokers and non-smokers, there is much fewer observations present for non-smokers."
+    "text": "Communicate: Pulse Measurements\n\n\n\n\n\n\n\n\n\n\n\n\nIn this visualization, we can see a strong positive relationship between participants’ pulse measurements at the first time point and their pulse measurements at the second time point. We can see that the individuals who ran in between the measurements had similar values on the x-axis (the first measurement) but much higher values at the second measurement. While it seems like there may be some differences in pulse between regular smokers and non-smokers, there is much fewer observations present for non-smokers."
   },
   {
     "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-gameplan",
@@ -3525,7 +3525,7 @@
     "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-sample-code-1",
     "title": "Intermediate R: tidyverse",
     "section": "Transform: Sample code",
-    "text": "Transform: Sample code\nGoal 4:\n\nSummarize information based on our questions\n\n\npulse_subset |&gt;\n  summarize(.by = Ran,\n            PulseDiffMean = mean(PulseDiff, na.rm=T))\n\n  Ran PulseDiffMean\n1 Sat       -1.0000\n2 Ran       51.3913\n\npulse_subset |&gt;\n  summarize(.by = c(Ran, Smokes),\n            PulseDiffMean = mean(PulseDiff, na.rm=T))\n\n  Ran Smokes PulseDiffMean\n1 Sat     No    -0.8363636\n2 Ran     No    51.6511628\n3 Sat    Yes    -2.1250000\n4 Ran    Yes    47.6666667"
+    "text": "Transform: Sample code\n\nGoal 4:\n\nSummarize information based on our questions\n\n\npulse_subset |&gt;\n  summarize(.by = Ran,\n            PulseDiffMean = mean(PulseDiff, na.rm=T))\n\n  Ran PulseDiffMean\n1 Sat       -1.0000\n2 Ran       51.3913\n\npulse_subset |&gt;\n  summarize(.by = c(Ran, Smokes),\n            PulseDiffMean = mean(PulseDiff, na.rm=T))\n\n  Ran Smokes PulseDiffMean\n1 Sat     No    -0.8363636\n2 Ran     No    51.6511628\n3 Sat    Yes    -2.1250000\n4 Ran    Yes    47.6666667"
   },
   {
     "objectID": "labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html#outline",
@@ -3869,5 +3869,187 @@
     "title": "PSYC2020L Assignment 4",
     "section": "Indexing",
     "text": "Indexing\n\n15) From that matrix, please index:\n\n15a) The second row.\n\n\n15b) The third column of the first row.\n\n\n15c) The second through fourth columns of the first and second rows."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-factor-variables",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-factor-variables",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: Factor Variables",
+    "text": "Transform: Factor Variables\nNew data type (to us): factor variable\nHow R works with categorical data\nSets fixed possibilities of values that the variable can take on\nIf you have a variable with days of the week…\n\n\n\ndays &lt;- c(\"Tues\", \"Wed\", \"Thurs\")\n\nNothing preventing typos and no sensible sorting\n\nmoredays &lt;- c(\"Teus\", \"Wed\", \"Thrus\")\nsort(days)\n\n[1] \"Thurs\" \"Tues\"  \"Wed\"  \n\n\n\nFactors help with both. Start by creating a vector of levels\n\nweekday_levels &lt;- c(\"Mon\", \"Tues\", \"Wed\", \"Thurs\", \"Fri\")\n\nAnd now make a factor\n\ndays_fct &lt;- factor(days, levels = weekday_levels)"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-factor-variables-1",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#transform-factor-variables-1",
+    "title": "Intermediate R: tidyverse",
+    "section": "Transform: Factor Variables",
+    "text": "Transform: Factor Variables\nWill convert to NA if not valid level\n\nfactor(moredays, levels = weekday_levels)\n\n[1] &lt;NA&gt; Wed  &lt;NA&gt;\nLevels: Mon Tues Wed Thurs Fri\n\n\nBetter sorting\n\nsort(days_fct)\n\n[1] Tues  Wed   Thurs\nLevels: Mon Tues Wed Thurs Fri"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#outline",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#outline",
+    "title": "Sampling Distributions",
+    "section": "",
+    "text": "Assignment 5 Review\nSampling Distributions\n\nLearning objectives:\nR: tidyverse"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#housekeeping",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#housekeeping",
+    "title": "Sampling Distributions",
+    "section": "Housekeeping",
+    "text": "Housekeeping\n[input any housekeeping items here]"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-5-review",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-5-review",
+    "title": "Sampling Distributions",
+    "section": "Assignment 5 Review",
+    "text": "Assignment 5 Review\n[input any Assignment 5 review here]"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sampling-distributions",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sampling-distributions",
+    "title": "Sampling Distributions",
+    "section": "Sampling Distributions",
+    "text": "Sampling Distributions\nImportant topic in statistics! Help us make inferences about the estimates we calculate\n\n\n\nSample Distribution\nDistribution of the data within our sample\n\n\n\nSample Distribution\n(More theoretical) distribution of our statistic over repeated sampling"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#population",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#population",
+    "title": "Sampling Distributions",
+    "section": "Population",
+    "text": "Population\n\nsampcolor &lt;- \"turquoise\"\npopsize &lt;- 1000\nsampsize &lt;- 50\n\npopulation &lt;- data.frame(id = 1:popsize,\n                         x = rnorm(popsize)) %&gt;%\n  mutate(y = runif(popsize, min = 0, max = dnorm(x)))\n\nsampling &lt;- data.frame(sampmean = as.numeric())\n         \npopulation %&gt;%\n  ggplot(aes(x = x, y = y)) +\n  geom_point() +\n  coord_cartesian(xlim = c(-3, 3), y = c(0, .5), expand = F) +\n  theme_classic(base_size = 14) +\n  labs(y = NULL) +\n  theme(axis.text.y = element_blank(),\n        axis.line.y = element_blank(),\n        axis.ticks.y = element_blank(),\n        aspect.ratio = 1)\n\n\n\n\n\n\n\n\n\nsampdist &lt;- function() {\n  population &lt;&lt;- population %&gt;%\n    mutate(samp = factor(ifelse(x %in% sample(x, sampsize), 1, 0), ordered = T))\n  \n  population %&gt;%\n    ggplot(aes(x = x, y = y, color = samp)) +\n    geom_point() +\n    coord_cartesian(xlim = c(-3, 3), y = c(0, .5), expand = F) +\n    theme_classic(base_size = 14) +\n    scale_color_manual(NULL, values = c(\"black\", sampcolor)) +\n    labs(y = NULL) +\n    guides(color = \"none\") +\n    theme(axis.text.y = element_blank(),\n          axis.line.y = element_blank(),\n          axis.ticks.y = element_blank(),\n          aspect.ratio = 1)\n}\n\nsamplingdist &lt;- function() {\n  sampling &lt;&lt;- sampling %&gt;%\n    rbind(population %&gt;% filter(samp == 1) %&gt;% summarize(sampmean = sum(x) / sampsize))\n  \n  sampling %&gt;%\n    ggplot(aes(x = sampmean)) +\n    geom_histogram(fill = sampcolor, color = NA, bins = 5, alpha = .6) +\n    geom_density(color = sampcolor, linewidth = 1) +\n    coord_cartesian(xlim = c(-3, 3), ylim = c(0, 5), expand = F) +\n    theme_classic(base_size = 14) +\n    labs(y = NULL) +\n    guides(color = \"none\") +\n    theme(axis.text.y = element_blank(),\n          axis.line.y = element_blank(),\n          axis.ticks.y = element_blank(),\n          aspect.ratio = 1)\n}"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample",
+    "title": "Sampling Distributions",
+    "section": "Sample",
+    "text": "Sample\n\n\n\nsampdist()\n\n\n\n\n\n\n\n\n\n\nsamplingdist()"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review-1",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review-1",
+    "title": "Intermediate R: tidyverse",
+    "section": "Assignment 4 Review",
+    "text": "Assignment 4 Review\n\nMore Draws: More Representative"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review-2",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html#assignment-4-review-2",
+    "title": "Intermediate R: tidyverse",
+    "section": "Assignment 4 Review",
+    "text": "Assignment 4 Review\n\nRMarkdown and Working Directories\nWe won’t have to worry about this today, but some things we can try:\n\n\nMake sure your .Rmd assignment file is in the same folder as your .Rproj file\nDefault directory for code chunks is folder that contains .rmd document\n\nIf .Rmd file is in the same folder as your .Rproj file and getwd() returns a different directory than your project folder, we can try\n\nknitr::opts_knit$set(root.dir = '/tmp')\n\nor\n\nhere::i_am(\"any_project_subfolders/assignment.Rmd\")"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html",
+    "title": "PSYC2020L Assignment 5",
+    "section": "",
+    "text": "tidyverse concepts\nImport\nTidy\nTransform\nModel\nVisualize\nCommunicate\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#goals-for-review",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 5",
+    "section": "",
+    "text": "tidyverse concepts\nImport\nTidy\nTransform\nModel\nVisualize\nCommunicate\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#setting-up",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#setting-up",
+    "title": "PSYC2020L Assignment 5",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 5 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Make sure to load the tidyverse package! Also, please install (feel free to delete the install code after installing) and load the palmerpenguins package.\n\n#knitr::opts_knit$set(root.dir = \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/MLM\")\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site\"\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(palmerpenguins)"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#import",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#import",
+    "title": "PSYC2020L Assignment 5",
+    "section": "Import",
+    "text": "Import\n\n3) Now that we’ve loaded the palmerpenguins package, we have access to a datset called penguins. We also have access to a dataset called penguins_raw, but we will not use this one. penguins is already an object / variable we can use, but if you’d like to assign it to a different variable name (totally up to you), feel free to do that here. Either way, use three functions to get a look at this data.\n\ngetwd()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/labs/Lab 5 - Intermediate R\"\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site\"\n\npeng &lt;- penguins # optional\n\n# acceptable functions (there may be more)\n# will comment out for brevity in the knitted file, but obviously should be printed in students'\n\n# head(peng)\n# summary(peng)\n# glimpse(peng)\n# str(peng)\n# psych::describe(peng)\n\n\n\n4) As may be obvious from the name, this dataset contains penguin measurements for different species! Use ?penguins to read a little bit more about the variables present.\n\n#?penguins"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#tidy",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#tidy",
+    "title": "PSYC2020L Assignment 5",
+    "section": "Tidy",
+    "text": "Tidy\n\n5) Per the rules we learned in lab, is this a tidy dataset? How do you know?\nYes, it is. Every variable is a column, every observation is a row, and each value is one cell."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#transform-model",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#transform-model",
+    "title": "PSYC2020L Assignment 5",
+    "section": "Transform & Model",
+    "text": "Transform & Model\nOverview: as the statistician on this penguin project, you have been given two tasks:\n1: Identify the mean and SD for flipper length by species\n2: Identify the minimum and maximum bill length-to-depth ratio for female penguins on the Biscoe island by year.\n3: Lastly, they want you to come up with and answer a question of your own with these data!\n\n6a) Let’s start with 1: Identify the mean and SD for flipper length by species. Starting with the penguins dataset, summarize() the data to get the mean and SD for flipper_length_mm by species. Don’t forget about the .by argument for the summarize() function!\nNote: there will be missing values for this dataset. Add the na.rm = TRUE argument to any mean() or SD() function to remove those.\n\npenguins |&gt;\n  summarize(.by = species,\n            flipper_length_mean = mean(flipper_length_mm, na.rm = T),\n            flipper_length_sd = sd(flipper_length_mm, na.rm = T))\n\n# A tibble: 3 × 3\n  species   flipper_length_mean flipper_length_sd\n  &lt;fct&gt;                   &lt;dbl&gt;             &lt;dbl&gt;\n1 Adelie                   190.              6.54\n2 Gentoo                   217.              6.48\n3 Chinstrap                196.              7.13\n\n\n\n\n6b) Discuss these findings (1–2 sentences).\nThe Gentoo penguins have the highest mean flipper length, but interestingly have the lowest SD! The Adelie penguins have the lowest mean flipper length. Or something like that. \n\n\n7a) Now let’s move on to 2: Identify the minimum and maximum bill length-to-depth ratio for female penguins on the Biscoe island by year. In one pipe, do the following things:\n\nCalculate the bill length-to-depth ratio by adding a column that divides bill_length_mm by bill_depth_mm.\nNarrow down the data to the desired penguins by filtering such that only female penguins on the Biscoe island remain.\nSummarize the data with two values: the minimum bill length-to-depth ratio and the maximum bill length-to-depth ratio. Do this by the year the measurement was collected.\n\n\npenguins |&gt;\n  mutate(bill_ltd = bill_length_mm / bill_depth_mm) |&gt;\n  filter(sex == \"female\" & island == \"Torgersen\") |&gt;\n  summarize(.by = year,\n            bill_ltd_min = min(bill_ltd),\n            bill_ltd_max = max(bill_ltd))\n\n# A tibble: 3 × 3\n   year bill_ltd_min bill_ltd_max\n  &lt;int&gt;        &lt;dbl&gt;        &lt;dbl&gt;\n1  2007         1.87         2.34\n2  2008         1.76         2.43\n3  2009         2.1          2.36\n\n\n\n\n7b) Discuss these findings (1–2 sentences).\nThe lowest minimum bill length-to-depth ratio for female penguins on the Biscoe island was collected in 2008. The highest maximum bill length-to-depth ratio for female penguins on the Biscoe island was also collected in 2008—that year had the largest range!\n\n\n8a) Come up with your own question to answer about this dataset! As info, this question will need to include at least two functions’ worth of tidyverse piping (i.e., data |&gt; function1() |&gt; function2()). First, just write your question below.\nHow does the mean of body_mass_g for female penguins vary over species and island?\n\n\n8b) Next, write the code that addresses your question.\n\npenguins |&gt; \n  filter(sex == \"female\") |&gt;\n  summarize(.by = c(species, island),\n            body_mass_mean = mean(body_mass_g))\n\n# A tibble: 5 × 3\n  species   island    body_mass_mean\n  &lt;fct&gt;     &lt;fct&gt;              &lt;dbl&gt;\n1 Adelie    Torgersen          3396.\n2 Adelie    Biscoe             3369.\n3 Adelie    Dream              3344.\n4 Gentoo    Biscoe             4680.\n5 Chinstrap Dream              3527.\n\n\n\n\n8c) Lastly, please discuss these findings (1–2 sentences).\nSome description that addresses their question and matches the findings."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#visualize",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html#visualize",
+    "title": "PSYC2020L Assignment 5",
+    "section": "Visualize",
+    "text": "Visualize\nNext, we will make two visualizations from this data. We will do this step by step like in the slides.\nOur first goal will be to make a scatterplot of bill length and depth with the dot color showing species. We will also add trend lines and some customization.\n\n9a) To start, using the ggplot() function, set up a grid that uses the penguins data. Put bill_length_mm on the x-axis and bill_depth_mm on the y-axis.\n\nggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm))\n\n\n\n\n\n\n\n\n\n\n9b) Next, let’s add some points. Feel free to copy down your code from the last question, and add the geom_() function that will create a scatter plot.\n\nggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +\n  geom_point()\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n9c) Please describe / discuss what you see in the plot above (1–2 sentences). Also—if R gave a warning, please describe what it’s telling you! No need to make any changes from the warning.\nOverall, there seems to be a positive relationship between bill length and depth. There seems to be some sort of clustering too; the points are not evenly dispersed across the plot. R warned about missing data. We need to be aware that two points were missing and that R has removed them from the visualization.\n\n\n9d) Now, let’s let the color of the points represent species. First, do we need to modify the aesthetic or the geom? How do you know?\nAesthetic, because color has to do with how the data maps onto the plot.\n\n\n9e) Now, modify the plot such that point color represents species.\n\nggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +\n  geom_point()\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n9f) Please describe / discuss what you see in the plot above. How does the color indicator add information about the trends in these data? (1–2 sentences).\nWe can now see the reason for the clustering—it totally had to do with species. Each specie seems to have a positive relationship between bill length and depth; they just also have different central tendencies for those variables.\n\n\n9g) Next, we are going to add trend lines to this plot, also as by species. Do we need to modify the aesthetic or the geom, and how do you know?\nGeom. We want to add a new layer of information to our plot, so we modify the geom.\n\n\n9h) Add the trend lines! Include the argument method = \"lm\" in your change.\n\nggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +\n  geom_point() +\n  geom_smooth(method = \"lm\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n9i) Lastly, please add some customization to this plot! Make at least three changes. For each change, please describe what you added / adjusted and why you think it betters the visualization.\n\nggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species, fill = species)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  facet_wrap(~ sex) +\n  labs(x = \"Bill Length\", y = \"Bill Depth\") +\n  theme_classic() +\n  theme(aspect.ratio = 1,\n        legend.position = \"bottom\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nI added faceting by sex, which enables us to glean extra information about these penguin measurement differences. I also added a theme, labels, and adjusted the aspect ratio to hopefully give a cleaner look. I modified the fill argument such that the color will match that of the lines and the points."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html",
+    "title": "PSYC2020L Assignment 5",
+    "section": "",
+    "text": "tidyverse concepts\nImport\nTidy\nTransform\nModel\nVisualize\nCommunicate\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#goals-for-review",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#goals-for-review",
+    "title": "PSYC2020L Assignment 5",
+    "section": "",
+    "text": "tidyverse concepts\nImport\nTidy\nTransform\nModel\nVisualize\nCommunicate\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#setting-up",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#setting-up",
+    "title": "PSYC2020L Assignment 5",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 5 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Make sure to load the tidyverse package! Also, please install (feel free to delete the install code after installing) and load the palmerpenguins package."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#import",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#import",
+    "title": "PSYC2020L Assignment 5",
+    "section": "Import",
+    "text": "Import\n\n3) Now that we’ve loaded the palmerpenguins package, we have access to a datset called penguins. We also have access to a dataset called penguins_raw, but we will not use this one. penguins is already an object / variable we can use, but if you’d like to assign it to a different variable name (totally up to you), feel free to do that here. Either way, use three functions to get a look at this data.\n\n\n4) As may be obvious from the name, this dataset contains penguin measurements for different species! Use ?penguins to read a little bit more about the variables present.\n\n#?penguins"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#tidy",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#tidy",
+    "title": "PSYC2020L Assignment 5",
+    "section": "Tidy",
+    "text": "Tidy\n\n5) Per the rules we learned in lab, is this a tidy dataset? How do you know?"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#transform-model",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#transform-model",
+    "title": "PSYC2020L Assignment 5",
+    "section": "Transform & Model",
+    "text": "Transform & Model\nOverview: as the statistician on this penguin project, you have been given two tasks:\n1: Identify the mean and SD for flipper length by species\n2: Identify the minimum and maximum bill length-to-depth ratio for female penguins on the Biscoe island by year.\n3: Lastly, they want you to come up with and answer a question of your own with these data!\n\n6a) Let’s start with 1: Identify the mean and SD for flipper length by species. Starting with the penguins dataset, summarize() the data to get the mean and SD for flipper_length_mm by species. Don’t forget about the .by argument for the summarize() function!\nNote: there will be missing values for this dataset. Add the na.rm = TRUE argument to any mean() or SD() function to remove those.\n\n\n6b) Discuss these findings (1–2 sentences).\n\n\n7a) Now let’s move on to 2: Identify the minimum and maximum bill length-to-depth ratio for female penguins on the Biscoe island by year. In one pipe, do the following things:\n\nCalculate the bill length-to-depth ratio by adding a column that divides bill_length_mm by bill_depth_mm.\nNarrow down the data to the desired penguins by filtering such that only female penguins on the Biscoe island remain.\nSummarize the data with two values: the minimum bill length-to-depth ratio and the maximum bill length-to-depth ratio. Do this by the year the measurement was collected.\n\n\n\n7b) Discuss these findings (1–2 sentences).\n\n\n8a) Come up with your own question to answer about this dataset! As info, this question will need to include at least two functions’ worth of tidyverse piping (i.e., data |&gt; function1() |&gt; function2()). First, just write your question below.\nHow does the mean of body_mass_g for female penguins vary over species and island?\n\n\n8b) Next, write the code that addresses your question.\n\n\n8c) Lastly, please discuss these findings (1–2 sentences)."
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#visualize",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html#visualize",
+    "title": "PSYC2020L Assignment 5",
+    "section": "Visualize",
+    "text": "Visualize\nNext, we will make two visualizations from this data. We will do this step by step like in the slides.\nOur first goal will be to make a scatterplot of bill length and depth with the dot color showing species. We will also add trend lines and some customization.\n\n9a) To start, using the ggplot() function, set up a grid that uses the penguins data. Put bill_length_mm on the x-axis and bill_depth_mm on the y-axis.\n\n\n9b) Next, let’s add some points. Feel free to copy down your code from the last question, and add the geom_() function that will create a scatter plot.\n\n\n9c) Please describe / discuss what you see in the plot above (1–2 sentences). Also—if R gave a warning, please describe what it’s telling you! No need to make any changes from the warning.\n\n\n9d) Now, let’s let the color of the points represent species. First, do we need to modify the aesthetic or the geom? How do you know?\n\n\n9e) Now, modify the plot such that point color represents species.\n\n\n9f) Please describe / discuss what you see in the plot above. How does the color indicator add information about the trends in these data? (1–2 sentences).\n\n\n9g) Next, we are going to add trend lines to this plot, also as by species. Do we need to modify the aesthetic or the geom, and how do you know?\n\n\n9h) Add the trend lines! Include the argument method = \"lm\" in your change.\n\n\n9i) Lastly, please add some customization to this plot! Make at least three changes. For each change, please describe what you added / adjusted and why you think it betters the visualization."
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html",
+    "title": "Sampling Distributions",
+    "section": "",
+    "text": "Assignment 5 Review\nSampling Distributions\n\nLearning objectives:\nR: tidyverse"
+  },
+  {
+    "objectID": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html",
+    "href": "labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html",
+    "title": "Intermediate R: tidyverse",
+    "section": "",
+    "text": "Assignment 4 Review\ntidyverse Workflow\nFull Analysis\n\nLearning objectives:\nR: tidyverse"
   }
 ]

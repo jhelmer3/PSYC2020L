@@ -7,10 +7,14 @@ format:
     slide-number: true
     show-slide-number: all
     css: PSYC2020L_styles.css
+webr:
+  packages:
+    - rio
 engine: knitr
 execute:
   echo: true
 width: 1200
+
 ---
 
 ## Outline
@@ -25,11 +29,139 @@ Learning objectives:
 
 ## Housekeeping
 
-[input any housekeeping items here]
+How was the exam?
+
+How was `posit::conf(2025)`?
+
 
 ## Assignment 4 Review
 
-[input any Assignment 4 review here]
+### Skew vs Shift
+
+::: {.panel-tabset}
+### Plot
+```{r, warning = F, echo = F}
+#| layout-ncol: 3
+#| fig-width: 3
+#| fig-height: 3
+ggplot2::ggplot(data.frame(x = rnorm(1000)),
+                ggplot2::aes(x = x)) +
+  ggplot2::geom_histogram(bins = 12) +
+  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +
+  ggplot2::theme_bw(base_size = 14)
+
+ggplot2::ggplot(data.frame(x = rnorm(1000, mean = 3)),
+                ggplot2::aes(x = x)) +
+  ggplot2::geom_histogram(bins = 12) +
+  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +
+  ggplot2::theme_bw(base_size = 14)
+
+ggplot2::ggplot(data.frame(x = rnorm(1000, 4, 3)),
+                ggplot2::aes(x = log(x))) +
+  ggplot2::geom_histogram(bins = 12) +
+  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +
+  ggplot2::theme_bw(base_size = 14)
+```
+### Code
+```{r, eval = F}
+ggplot2::ggplot(data.frame(x = rnorm(1000)),
+                ggplot2::aes(x = x)) +
+  ggplot2::geom_histogram(bins = 12) +
+  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +
+  ggplot2::theme_bw(base_size = 14)
+
+ggplot2::ggplot(data.frame(x = rnorm(1000, mean = 3)),
+                ggplot2::aes(x = x)) +
+  ggplot2::geom_histogram(bins = 12) +
+  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +
+  ggplot2::theme_bw(base_size = 14)
+
+ggplot2::ggplot(data.frame(x = rnorm(1000, 4, 3)),
+                ggplot2::aes(x = log(x))) +
+  ggplot2::geom_histogram(bins = 12) +
+  ggplot2::coord_cartesian(xlim = c(-3.5, 3.5)) +
+  ggplot2::theme_bw(base_size = 14)
+```
+:::
+
+
+## Assignment 4 Review
+
+### More Draws: More Representative
+
+```{r, echo=F}
+#| fig-width: 3
+#| fig-height: 3
+#| layout-ncol: 3
+
+ggplot2::ggplot(data = data.frame(x = rnorm(10, 0, 1)), ggplot2::aes(x = x)) +
+  ggplot2::geom_histogram(ggplot2::aes(y = ggplot2::after_stat(density)),
+                 bins = 12) +
+  ggplot2::stat_function(inherit.aes = FALSE, fun = dnorm,
+                n = 101, args = list(mean = 0, sd = 1),
+                color = "lightblue", linewidth = 2,
+                xlim = c(-3, 3)) +
+  ggplot2::coord_cartesian(xlim = c(-3, 3), ylim = c(0, 1)) +
+  ggplot2::labs(title = "n = 10") +
+  ggplot2::theme_classic()
+
+ggplot2::ggplot(data = data.frame(x = rnorm(50, 0, 1)), ggplot2::aes(x = x)) +
+  ggplot2::geom_histogram(ggplot2::aes(y = ggplot2::after_stat(density)),
+                 bins = 12) +
+  ggplot2::stat_function(inherit.aes = FALSE, fun = dnorm,
+                n = 101, args = list(mean = 0, sd = 1),
+                color = "lightblue", linewidth = 2,
+                xlim = c(-3, 3)) +
+  ggplot2::coord_cartesian(xlim = c(-3, 3), ylim = c(0, 1)) +
+  ggplot2::labs(title = "n = 50") +
+  ggplot2::theme_classic()
+
+ggplot2::ggplot(data = data.frame(x = rnorm(500, 0, 1)), ggplot2::aes(x = x)) +
+  ggplot2::geom_histogram(ggplot2::aes(y = ggplot2::after_stat(density)),
+                 bins = 12) +
+  ggplot2::stat_function(inherit.aes = FALSE, fun = dnorm,
+                n = 101, args = list(mean = 0, sd = 1),
+                color = "lightblue", linewidth = 2,
+                xlim = c(-3, 3)) +
+  ggplot2::coord_cartesian(xlim = c(-3, 3), ylim = c(0, 1)) +
+  ggplot2::labs(title = "n = 500") +
+  ggplot2::theme_classic()
+
+```
+
+
+## Assignment 4 Review
+
+### RMarkdown and Working Directories
+
+We won't have to worry about this today, but some things we can try:
+
+:::: {.columns style="font-size:75%"}
+::: {.column width=33%}
+Make sure your .Rmd assignment file is in the same folder as your .Rproj file
+
+Default directory for code chunks is folder that contains .rmd document
+:::
+
+::: {.column width=33%}
+If .Rmd file is in the same folder as your .Rproj file and `getwd()` returns a different directory than your project folder, we can try
+
+```{r, eval=F}
+#| code-line-numbers: false
+knitr::opts_knit$set(root.dir = '/tmp')
+```
+or
+
+```{r, eval=F}
+#| code-line-numbers: false
+here::i_am("any_project_subfolders/assignment.Rmd")
+```
+:::
+
+::: {.column width=33%}
+![](knit-wd.png)
+:::
+::::
 
 
 ## The `tidyverse`
@@ -101,7 +233,7 @@ Or download the .rds file from Canvas
 pulse_data <- rio::import(here::here("labs", "Lab 5 - Intermediate R", "pulserates.rds"))
 ```
 
-<div class="subpoint">○ .rds is a file extension for R data </div>
+.rds is a file extension for R objects
 
 
 ## Import: Today's dataset
@@ -136,6 +268,8 @@ head(pulse_data)
 ```{webr}
 # let's look at our data!
 
+# summary(), str(), head()
+# psych::describe()
 ```
 
 
@@ -244,14 +378,14 @@ What's often the primary argument of functions we've used?
 
 ## Tidy: Is our data tidy?
 
-:::: {.columns}
-::: {.column width=80%}
+:::: {.columns style="font-size:75%"}
+::: {.column width=70%}
 ```{r}
 head(pulse_data, n = 10)
 ```
 :::
 
-::: {.column width=15% style="font-size:75%"}
+::: {.column width=30%}
 1. Each variable is a column; each column is a variable.
 
 2. Each observation is a row; each row is an observation.
@@ -282,7 +416,7 @@ Sometimes we need...
 
 * New variables, based on our existing data or otherwise
 
-* A summarized version of our dataset
+* Summarized version of our dataset
 
 * Reordered variables
 
@@ -314,7 +448,7 @@ Let's get ready to actually use some `tidyverse` code!
 install.packages("tidyverse")
 ```
 
-```{r}
+```{r, message=T}
 library(tidyverse)
 ```
 
@@ -346,7 +480,7 @@ Functions in a pipe:
 Why is this helpful?
 
 :::: {.columns}
-::: {.column}
+::: {.column .fragment}
 Many functions together:
 
 ```
@@ -354,7 +488,7 @@ anotherfunction(otherfunction(function(input)))
 ```
 :::
 
-::: {.column}
+::: {.column .fragment}
 Functions in a pipe:
 
 ```
@@ -419,13 +553,64 @@ Transformation goals:
 4. Summarize information based on our questions
 
 
+## Transform: Factor Variables
+
+New data type (to us): **factor** variable
+
+How R works with categorical data
+
+Sets fixed possibilities of values that the variable can take on 
+
+If you have a variable with days of the week...
+
+:::: {.columns}
+::: {.column}
+```{r}
+days <- c("Tues", "Wed", "Thurs")
+```
+
+Nothing preventing typos and no sensible sorting
+```{r}
+moredays <- c("Teus", "Wed", "Thrus")
+sort(days)
+```
+:::
+
+::: {.column .fragment}
+Factors help with both. Start by creating a vector of *levels*
+```{r}
+#| code-line-numbers: false
+weekday_levels <- c("Mon", "Tues", "Wed", "Thurs", "Fri")
+```
+
+And now make a factor
+```{r}
+#| code-line-numbers: false
+days_fct <- factor(days, levels = weekday_levels)
+```
+:::
+::::
+
+
+## Transform: Factor Variables
+
+Will convert to `NA` if not valid level
+```{r}
+factor(moredays, levels = weekday_levels)
+```
+Better sorting
+```{r}
+sort(days_fct)
+```
+
+
 ## Transform: Some relevant functions
 
 <div style="font-size:60%">
 |   |   |
 |---|---|
 | `mutate()` | adds, changes, renames columns |
-| `ifelse()` | changes a vector conditionally |
+| `factor()` | converts numeric to factor data type |
 | `select()` | selects specified columns |
 | `filter()` | selects specified rows |
 | `summarize()` | summarizes data |
@@ -446,11 +631,9 @@ Switching to RStudio...
 ```{r}
 pulse_subset <- pulse_data |>
   mutate(PulseDiff = Pulse2 - Pulse1,
-         Smokes = ifelse(Smokes == 1, "Yes",
-                            ifelse(Smokes == 2, "No", Smokes)),
-         Ran = ifelse(Ran == 1, "Ran",
-                         ifelse(Ran == 2, "Sat", Ran))) |>
-  select(Smokes, Ran, PulseDiff, Pulse1, Pulse2)
+         Smokes = factor(Smokes, levels = c(1, 2), labels = c("Yes", "No")),
+         Ran = factor(Ran, levels = c(1, 2), labels = c("Ran", "Sat"))) |>
+  select(Smokes, Ran, Pulse1, Pulse2, PulseDiff)
 ```
 
 
@@ -495,7 +678,7 @@ But much more expansive and flexible (and much nicer looking, if you ask me!)
 
 Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
 
-:::: {.columns style="font-size:60%"}
+:::: {.columns}
 ::: {.column width=66%}
 ```{r, echo=F}
 pulse_subset |>
@@ -523,9 +706,17 @@ Let's briefly explore a different question: what is the relationship between the
 
 :::: {.columns style="font-size:60%"}
 ::: {.column width=66%}
-```{r}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
 ggplot(data = pulse_subset)
 ```
+
+### Code
+```{r, eval = F}
+ggplot(data = pulse_subset)
+```
+:::
 :::
 
 ::: {.column width=33%}
@@ -544,10 +735,19 @@ Let's briefly explore a different question: what is the relationship between the
 
 :::: {.columns style="font-size:60%"}
 ::: {.column width=66%}
-```{r}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
 ggplot(data = pulse_subset,
        mapping = aes(x = Pulse1, y = Pulse2))
 ```
+
+### Code
+```{r, eval = F}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2))
+```
+:::
 :::
 
 ::: {.column width=33%}
@@ -560,8 +760,6 @@ How variables are *mapped* onto specific parts of the plot
 To investigate the relationship between the first and second pulse measurements, we can choose to put `Pulse1` on the x-axis and `Pulse2` on the y-axis
 
 What do we get?
-
-Labels, axes, and a grid
 :::
 ::::
 
@@ -572,11 +770,21 @@ Let's briefly explore a different question: what is the relationship between the
 
 :::: {.columns style="font-size:60%"}
 ::: {.column width=66%}
-```{r}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
 ggplot(data = pulse_subset,
        mapping = aes(x = Pulse1, y = Pulse2)) +
   geom_point()
 ```
+
+### Code
+```{r, eval = F}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2)) +
+  geom_point()
+```
+:::
 :::
 
 ::: {.column width=33%}
@@ -610,12 +818,23 @@ Let's briefly explore a different question: what is the relationship between the
 
 :::: {.columns style="font-size:60%"}
 ::: {.column width=66%}
-```{r}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
 ggplot(data = pulse_subset,
        mapping = aes(x = Pulse1, y = Pulse2)) +
   geom_point() +
   coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))
 ```
+
+### Code
+```{r, eval = F}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2)) +
+  geom_point() +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))
+```
+:::
 :::
 
 ::: {.column width=33%}
@@ -634,11 +853,23 @@ Let's briefly explore a different question: what is the relationship between the
 
 :::: {.columns style="font-size:60%"}
 ::: {.column width=66%}
-```{r}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
 ggplot(data = pulse_subset,
        mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
-  geom_point()
+  geom_point() +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))
 ```
+
+### Code
+```{r, eval = F}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
+  geom_point() +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))
+```
+:::
 :::
 
 ::: {.column width=33%}
@@ -659,65 +890,66 @@ Let's briefly explore a different question: what is the relationship between the
 
 :::: {.columns style="font-size:60%"}
 ::: {.column width=66%}
-```{r}
-ggplot(data = pulse_subset,
-       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
-  geom_point() +
-  geom_smooth(method="lm")
-```
-:::
-
-::: {.column width=33%}
-Adding aesthetics and layers
-
-Let's say we want to add a line to better represent the overall trend
-
-Start: do we need to modify the aesthetic or the geom?
-
-What can we tell from this?
-:::
-::::
-
-
-## Visualize: `ggplot2`
-
-Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
-
-:::: {.columns style="font-size:60%"}
-::: {.column width=66%}
-```{r}
-ggplot(data = pulse_subset,
-       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
-  geom_point() +
-  geom_smooth(method="lm")
-```
-:::
-
-::: {.column width=33%}
-Adding aesthetics and layers
-
-Let's say we want to add a line to better represent the overall trend
-
-Start: do we need to modify the aesthetic or the geom?
-
-What can we tell from this?
-:::
-::::
-
-
-## Visualize: `ggplot2`
-
-Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
-
-:::: {.columns style="font-size:60%"}
-::: {.column width=66%}
-```{r}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
 ggplot(data = pulse_subset,
        mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
   geom_point() +
   geom_smooth(method="lm") +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))
+```
+
+### Code
+```{r, eval = F}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180))
+```
+:::
+:::
+
+::: {.column width=33%}
+Adding aesthetics and layers
+
+Let's say we want to add a line to better represent the overall trend
+
+Start: do we need to modify the aesthetic or the geom?
+
+What can we tell from this?
+:::
+::::
+
+
+## Visualize: `ggplot2`
+
+Let's briefly explore a different question: what is the relationship between the pulse measurements at the two different time points?
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +
   facet_wrap(~ Smokes)
 ```
+
+### Code
+```{r, eval = F}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +
+  facet_wrap(~ Smokes)
+```
+:::
 :::
 
 ::: {.column width=33%}
@@ -734,14 +966,29 @@ Let's briefly explore a different question: what is the relationship between the
 
 :::: {.columns style="font-size:60%"}
 ::: {.column width=66%}
-```{r}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
 ggplot(data = pulse_subset,
        mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
   geom_point() +
   geom_smooth(method="lm") +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +
   facet_wrap(~ Smokes) +
   theme_classic()
 ```
+
+### Code
+```{r, eval = F}
+ggplot(data = pulse_subset,
+       mapping = aes(x = Pulse1, y = Pulse2, color = Ran)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +
+  facet_wrap(~ Smokes) +
+  theme_classic()
+```
+:::
 :::
 
 ::: {.column width=33%}
@@ -758,7 +1005,9 @@ Let's briefly explore a different question: what is the relationship between the
 
 :::: {.columns style="font-size:60%"}
 ::: {.column width=66%}
-```{r}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
 pulse_subset |>
   ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +
   geom_point(size = 2.4) +
@@ -770,6 +1019,21 @@ pulse_subset |>
   theme(legend.position = "bottom",
         aspect.ratio = 1)
 ```
+
+### Code
+```{r, eval = F}
+pulse_subset |>
+  ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +
+  geom_point(size = 2.4) +
+  geom_smooth(method="lm") +
+  coord_cartesian(xlim = c(40, 180), ylim = c(40, 180)) +
+  labs(x = "First Pulse", y = "Second Pulse") +
+  facet_wrap(~ Smokes, labeller = "label_both") +
+  theme_classic(base_size = 16) +
+  theme(legend.position = "bottom",
+        aspect.ratio = 1)
+```
+:::
 :::
 
 ::: {.column width=33%}
@@ -814,9 +1078,9 @@ And we've been practicing this all along by describing the plots!
 
 ## Communicate: Pulse Measurements
 
-:::: {.columns}
-::: {.column width=66%}
-```{r}
+:::: {.columns style="font-size:70%"}
+::: {.column width=60%}
+```{r, echo=F}
 pulse_subset |>
   ggplot(aes(x = Pulse1, y = Pulse2, color = Ran, fill = Ran)) +
   geom_point(size = 2.4) +
@@ -830,7 +1094,7 @@ pulse_subset |>
 ```
 :::
 
-::: {.column width=33% style="font-size:50%"}
+::: {.column width=33%}
 In this visualization, we can see a strong positive relationship between participants' pulse measurements at the first time point and their pulse measurements at the second time point. We can see that the individuals who ran in between the measurements had similar values on the x-axis (the first measurement) but much higher values at the second measurement. While it seems like there may be some differences in pulse between regular smokers and non-smokers, there is much fewer observations present for non-smokers.
 :::
 ::::

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/index.html</loc>
-    <lastmod>2025-09-12T14:29:01.550Z</lastmod>
+    <lastmod>2025-09-19T14:47:45.699Z</lastmod>
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 1 - Basic R/PSYC2020L Lab 1.html</loc>
@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html</loc>
-    <lastmod>2025-09-11T21:43:44.520Z</lastmod>
+    <lastmod>2025-09-19T14:47:45.716Z</lastmod>
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html</loc>
@@ -111,5 +111,17 @@
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html</loc>
     <lastmod>2025-09-11T12:45:47.909Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html</loc>
+    <lastmod>2025-09-19T14:47:45.721Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html</loc>
+    <lastmod>2025-09-19T14:47:45.716Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html</loc>
+    <lastmod>2025-09-19T14:47:45.716Z</lastmod>
   </url>
 </urlset>
