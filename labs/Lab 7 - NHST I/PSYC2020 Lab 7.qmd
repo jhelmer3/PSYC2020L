@@ -1,0 +1,535 @@
+---
+title: "NHST I"
+subtitle: "PSYC 2020-A01 / PSYC 6022-A01 | 2025-10-03 | Lab 7"
+author: "Jessica Helmer"
+format: 
+  live-revealjs:
+    slide-number: true
+    show-slide-number: all
+    css: PSYC2020L_styles.css
+engine: knitr
+webr:
+  packages:
+    - rio
+    - datasets
+execute:
+  echo: true
+width: 1200
+---
+
+## Outline
+
+* Assignment 6 Review
+* NHST Review
+* Exploratory data analysis
+
+Learning objectives:  
+**R:** Making data tidy, line graphs
+
+```{r, echo =F}
+library(tidyverse)
+```
+
+
+## Housekeeping
+
+[placeholder for any housekeeping stuff]
+
+
+## Assignment 5 Review
+
+[placeholder for Assignment 5 review]
+
+
+## NHST Review
+
+Null Hypothesis Significance Testing
+
+[placeholder for more NHST review]
+
+
+# Exploratory Data Analysis
+
+## Exploratory Data Analysis
+
+:::: {.columns}
+::: {.column}
+Going to once again heavily lean on this book!
+
+Feel free to reference for more R content
+:::
+
+::: {.column}
+![https://r4ds.hadley.nz/](https://r4ds.hadley.nz/cover.jpg){.absolute top="100"}
+:::
+::::
+
+
+## Exploratory Data Analysis (EDA): Overview
+
+Whether you have a specific testing plan or not, need to explore your data
+
+<div class="subpoint">○ Otherwise, leaving information on the table! </div>
+
+<div class="subpoint">○ If nothing else, need to investigate quality of your data </div>
+
+An iterative cycle: 
+
+1. Generate questions about your data.
+
+2. Search for answers by visualizing, transforming, and modelling your data.
+
+3. Use what you learn to refine your questions and / or generate new questions.
+
+
+## Exploratory Data Analysis (EDA): Overview
+
+Your goal is to develop an understanding of your data
+
+Useful to use questions as guides
+
+::: fragment
+We've done this some so far! Today we're going to focus in on it.
+:::
+
+::: fragment
+Good questions are not always clear at the beginning, but try to follow up every question with a new one.
+:::
+
+
+## Exploratory Data Analysis (EDA): Questions
+
+Some good general questions:
+
+1. What type of variation occurs within my variables?
+
+2. What type of associations occur between / among my variables?
+
+::: fragment
+In statistics, we learn ways to identify particularly strong variation or associations. 
+
+In EDA, we can still get a strong sense of these relationships without statistical tests.
+
+<div class="subpoint">○ Can guide future confirmatory testing </div>
+
+<div class="subpoint">○ May be representative of population-level relationships with large samples </div>
+:::
+
+
+## EDA: Looking for variation
+
+Review: what is variation?
+
+::: fragment
+Spread or dispersion in our data
+
+Can also think about the amount of differences we see in our measurement of something
+:::
+
+::: fragment
+We have statistics to give us summaries of the amount of variance in our data, but that doesn't tell us exactly what it looks like.
+:::
+
+## Remember This?
+
+![](https://www.research.autodesk.com/app/uploads/2023/03/AllDinos-2.png)
+
+## EDA: Variation
+
+We're gonna play with the `diamonds` dataset included within the `tidyverse` library.
+
+```{r}
+diamonds
+```
+
+```{r}
+nrow(diamonds)
+```
+
+
+## EDA: Variation
+
+Let's start by looking at the distribution of weights (`carat`)
+
+How might we look at this?
+
+::: fragment
+```{r}
+ggplot(diamonds, aes(x = carat)) +
+  geom_histogram(binwidth = 0.5)
+```
+:::
+
+## EDA: What to look for?
+
+* Which values are the most common? Why?
+
+* Which values are rare? Why? Does that match your expectations?
+
+* Can you see any unusual patterns? What might explain them?
+
+::: fragment
+Want to rely on our curiousity (what do we want to know more about?) and our skepticism (how could this be misleading?)
+:::
+
+
+## EDA: Small diamonds
+
+Let's start by zooming in on small diamonds
+
+::: fragment
+```{r}
+diamonds |>
+  filter(carat <= 3) |>
+  ggplot(aes(x = carat)) +
+  geom_histogram(binwidth = 0.5)
+```
+:::
+
+::: fragment
+What do we want to know more about?
+
+How might this be misleading?
+:::
+
+
+## EDA: Small diamonds
+
+Let's look at this distribution with more precision!
+
+::: fragment
+```{r}
+diamonds |>
+  filter(carat <= 3) |>
+  ggplot(aes(x = carat)) +
+  geom_histogram(binwidth = 0.01)
+```
+:::
+
+::: fragment
+Questions?
+:::
+
+::: fragment
+Why are there more diamonds at whole carats and common fractions of carats?
+
+Why are there more diamonds slightly to the right of each peak than there are slightly to the left of each peak?
+:::
+
+
+## EDA: Clustering
+
+Seeing clustering may mean we have subgroups in our data
+
+```{r}
+diamonds |>
+  filter(carat <= 3) |>
+  ggplot(aes(x = carat)) +
+  geom_histogram(binwidth = 0.01)
+```
+
+* How are the observations within each subgroup similar to each other?
+
+* How are the observations in separate clusters different from each other?
+
+* How can you explain or describe the clusters?
+
+* Why might the appearance of clusters be misleading?
+
+
+## EDA: Unusual Values
+
+Like outliers! Things that don't fit the rest of the pattern.
+
+Let's look at the `y` variable (diamond width) in this dataset
+
+::: fragment
+```{r}
+ggplot(diamonds, aes(x = y)) + 
+  geom_histogram(binwidth = 0.5)
+```
+:::
+
+::: fragment
+What do we notice?
+:::
+
+
+## EDA: Unusual Values
+
+Can't even see any outliers because the high points are so high
+
+Let's zoom in (`coord_cartesian()`)
+
+::: fragment
+```{r}
+ggplot(diamonds, aes(x = y)) + 
+  geom_histogram(binwidth = 0.5) +
+  coord_cartesian(ylim = c(0, 50))
+```
+:::
+
+::: {.callout-note .fragment}
+`ggplot2` also has `xlim()` and `ylim()` functions, but they are different: they throw away the data outside the limits
+:::
+
+::: fragment
+Where are the unusual data?
+:::
+
+
+## EDA: Unusual Values
+
+When we find unusual values, it's good to then go back to the data
+
+```{r}
+diamonds |> 
+  filter(y < 3 | y > 20) |> 
+  select(price, x, y, z) |>
+  arrange(y)
+```
+
+::: fragment
+Since width cannot be zero, we know we found missing data that was coded as zero!
+:::
+
+::: fragment
+What's going on with the large ones? Can we use other variables to infer if they're accurate or not?
+:::
+
+
+## EDA: Unusual Values
+
+Outliers: what do?
+
+Above all else, be transparent, and don't remove them without making a note in your report
+
+Lots and lots of potential ways of dealing with outliers, and lots and lots of ways that can have implications for your analysis
+
+A basic guide is to try doing your analysis with and without the outliers to see how much impact removing them has
+
+More on that in advanced statistics classes!
+
+
+## EDA: Unusual values
+
+For our purposes, let's at least change those unusual values to `r NA`
+
+::: fragment
+```{r}
+diamonds2 <- diamonds |>
+  mutate(y = ifelse(y < 3 | y > 20, NA, y))
+
+ggplot(diamonds2, aes(x = y)) + 
+  geom_histogram(binwidth = 0.5, na.rm = T)
+```
+:::
+
+
+## Histograms: An aesthetics interlude
+
+What can we do to change the appearance of a `geom_histogram()`?
+
+```{r}
+ggplot(diamonds2, aes(x = y)) + 
+  geom_histogram(binwidth = 0.5, na.rm = T,
+                 fill = "seagreen3", color = "seagreen",
+                 alpha = .5, linewidth = 1.5)
+```
+
+
+## EDA: Categorical and numeric variable associations
+
+How might the price of a diamond vary by its quality (`cut`)?
+
+::: fragment
+```{r}
+diamonds |>
+  ggplot(aes(y = price, x = cut)) +
+  geom_boxplot()
+```
+:::
+
+::: fragment
+What do we want to know more about?
+
+How might this be misleading?
+:::
+
+## EDA: Categorical and numeric variable associations
+
+Want to see the distributions as well too!
+
+::: fragment
+```{r}
+diamonds |>
+  ggplot(aes(y = price, x = cut)) +
+  geom_violin() +
+  geom_boxplot(width = .1)
+```
+:::
+
+::: fragment
+Notice that `cut` was already ordered for us! Thank you, `factor`s!
+:::
+
+::: fragment
+```{r}
+diamonds |> pull(cut) |> levels()
+```
+:::
+
+
+## Factors: An ordering interlude
+
+What if our variable is a factor, but we want to order it by a different variable?
+
+::: fragment
+```{r}
+levels(diamonds$color)
+fct_reorder(diamonds$color, diamonds$price) |> levels()
+
+diamonds |>
+  ggplot(aes(y = price, x = fct_reorder(color, -price))) + # or .desc = T
+  geom_violin() +
+  geom_boxplot(width = .1)
+```
+:::
+
+
+## Boxplots and Violinplots: An aesthetics interlude
+
+::: fragment
+```{r}
+diamonds |>
+  ggplot(aes(x = price, y = cut)) +
+  geom_violin(color = "skyblue3", fill = "skyblue",
+              alpha = .4, linewidth = .5, linetype = "dashed") +
+  geom_boxplot(width = .08, color = "skyblue3", whisker.color = NA,
+               fill = "transparent", linewidth = .8,
+               outliers = F, notch = T)
+```
+:::
+
+
+## EDA: Categorical and categorical variable associations
+
+Often exploring counts and / or proportions
+
+::: fragment
+```{r}
+diamonds |>
+  ggplot(aes(x = color)) +
+  geom_bar()
+```
+:::
+
+::: fragment
+Does this change for diamonds of different qualities (`cut`s)?
+:::
+
+
+## EDA: Categorical and categorical variable associations
+
+Often exploring counts and / or proportions
+
+::: fragment
+```{r}
+diamonds |>
+  ggplot(aes(x = color, fill = cut)) +
+  geom_bar(position = "dodge")
+```
+:::
+
+::: fragment
+Is the total count for each color obscuring the proportions of qualities within color?
+:::
+
+
+## EDA: Categorical and categorical variable associations
+
+Often exploring counts and / or proportions
+
+::: fragment
+```{r}
+diamonds |>
+  ggplot(aes(x = color, fill = cut)) +
+  geom_bar(position = "fill")
+```
+:::
+
+::: fragment
+Seems more like there's not many differences here!
+:::
+
+
+## EDA: Numeric and numeric variable associations
+
+Scatterplot!
+
+::: fragment
+```{r}
+diamonds |>
+  ggplot(aes(x = carat, y = price)) +
+  geom_point()
+```
+:::
+
+::: fragment
+Hard to see the trends at the bottom?
+:::
+
+
+## EDA: Numeric and numeric variable associations
+
+Scatterplot!
+
+```{r}
+diamonds |>
+  ggplot(aes(x = carat, y = price)) +
+  geom_point(alpha = .05)
+```
+
+::: fragment
+What's that clustering? Any guesses?
+:::
+
+
+## EDA: Numeric and numeric variable associations
+
+Scatterplot!
+
+::: fragment
+```{r}
+diamonds |>
+  ggplot(aes(x = carat, y = price, color = color)) +
+  geom_point(alpha = .05, shape = 16,
+             size = 2) +
+  guides(color = guide_legend(override.aes = list(alpha = 1)))
+```
+:::
+
+
+## Assignment 7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

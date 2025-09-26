@@ -1,0 +1,23 @@
+---
+title: "PSYC2020L Assignment 7"
+author: "[name]"
+date: "2025-10-03"
+output: html_document
+---
+
+## Goals for Review:
+
+* Exploratory Data Analysis
+
+For each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well. 
+
+
+## Setting Up
+
+### 1) Rename this assignment as "Lab 7 Assignment [Last, First].Rmd" 
+
+### 2) Check and set (if needed) your working directory. If you'd like to load packages with `library()`, please do so in this block. Make sure to load the `tidyverse` package!
+```{r}
+library(tidyverse)
+here::here()
+```

@@ -886,7 +886,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 9\n\nIntermediate R\nSlides"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 9\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/19 Lab 9\n\nSampling Distributions\nSlides"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
@@ -3888,36 +3888,36 @@
     "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#outline",
     "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#outline",
     "title": "Sampling Distributions",
-    "section": "",
-    "text": "Assignment 5 Review\nSampling Distributions\n\nLearning objectives:\nR: tidyverse"
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 5 Review\nSampling Distributions\n\nLearning objectives:\nR: Making data tidy, line graphs"
   },
   {
     "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#housekeeping",
     "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#housekeeping",
     "title": "Sampling Distributions",
     "section": "Housekeeping",
-    "text": "Housekeeping\n[input any housekeeping items here]"
+    "text": "Housekeeping\nLecture the next couple weeks will be a little more theoretical\nWe’ll be doing a bit more general data science, analytics stuff in lab\nWe’ll be back matched up to do some modeling!"
   },
   {
     "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-5-review",
     "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-5-review",
     "title": "Sampling Distributions",
     "section": "Assignment 5 Review",
-    "text": "Assignment 5 Review\n[input any Assignment 5 review here]"
+    "text": "Assignment 5 Review\n[placeholder for Assignment 5 review]"
   },
   {
     "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sampling-distributions",
     "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sampling-distributions",
     "title": "Sampling Distributions",
     "section": "Sampling Distributions",
-    "text": "Sampling Distributions\nImportant topic in statistics! Help us make inferences about the estimates we calculate\n\n\n\nSample Distribution\nDistribution of the data within our sample\n\n\n\nSample Distribution\n(More theoretical) distribution of our statistic over repeated sampling"
+    "text": "Sampling Distributions\nImportant topic in statistics! Help us make inferences about the estimates we calculate\n\n\nSample Distribution\nDistribution of the data within our sample\n\nSample Distribution\n(More theoretical) distribution of our statistic over repeated sampling"
   },
   {
     "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#population",
     "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#population",
     "title": "Sampling Distributions",
     "section": "Population",
-    "text": "Population\n\nsampcolor &lt;- \"turquoise\"\npopsize &lt;- 1000\nsampsize &lt;- 50\n\npopulation &lt;- data.frame(id = 1:popsize,\n                         x = rnorm(popsize)) %&gt;%\n  mutate(y = runif(popsize, min = 0, max = dnorm(x)))\n\nsampling &lt;- data.frame(sampmean = as.numeric())\n         \npopulation %&gt;%\n  ggplot(aes(x = x, y = y)) +\n  geom_point() +\n  coord_cartesian(xlim = c(-3, 3), y = c(0, .5), expand = F) +\n  theme_classic(base_size = 14) +\n  labs(y = NULL) +\n  theme(axis.text.y = element_blank(),\n        axis.line.y = element_blank(),\n        axis.ticks.y = element_blank(),\n        aspect.ratio = 1)\n\n\n\n\n\n\n\n\n\nsampdist &lt;- function() {\n  population &lt;&lt;- population %&gt;%\n    mutate(samp = factor(ifelse(x %in% sample(x, sampsize), 1, 0), ordered = T))\n  \n  population %&gt;%\n    ggplot(aes(x = x, y = y, color = samp)) +\n    geom_point() +\n    coord_cartesian(xlim = c(-3, 3), y = c(0, .5), expand = F) +\n    theme_classic(base_size = 14) +\n    scale_color_manual(NULL, values = c(\"black\", sampcolor)) +\n    labs(y = NULL) +\n    guides(color = \"none\") +\n    theme(axis.text.y = element_blank(),\n          axis.line.y = element_blank(),\n          axis.ticks.y = element_blank(),\n          aspect.ratio = 1)\n}\n\nsamplingdist &lt;- function() {\n  sampling &lt;&lt;- sampling %&gt;%\n    rbind(population %&gt;% filter(samp == 1) %&gt;% summarize(sampmean = sum(x) / sampsize))\n  \n  sampling %&gt;%\n    ggplot(aes(x = sampmean)) +\n    geom_histogram(fill = sampcolor, color = NA, bins = 5, alpha = .6) +\n    geom_density(color = sampcolor, linewidth = 1) +\n    coord_cartesian(xlim = c(-3, 3), ylim = c(0, 5), expand = F) +\n    theme_classic(base_size = 14) +\n    labs(y = NULL) +\n    guides(color = \"none\") +\n    theme(axis.text.y = element_blank(),\n          axis.line.y = element_blank(),\n          axis.ticks.y = element_blank(),\n          aspect.ratio = 1)\n}"
+    "text": "Population"
   },
   {
     "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample",
@@ -4051,5 +4051,621 @@
     "title": "Intermediate R: tidyverse",
     "section": "",
     "text": "Assignment 4 Review\ntidyverse Workflow\nFull Analysis\n\nLearning objectives:\nR: tidyverse"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-5-review-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-5-review-1",
+    "title": "Sampling Distributions",
+    "section": "Assignment 5 Review",
+    "text": "Assignment 5 Review\nSummarizing Factor Variables\nBack to the does exercise depend on substance use (smoking) question!\n\n\n\npulse_data |&gt;\n  select(ExerciseFct, SmokesFct) |&gt;\n  table()\n\n           SmokesFct\nExerciseFct Yes No\n   High       0 14\n   Moderate   6 53\n   Low        5 32\n\n\n\n\npulse_data |&gt;\n  select(ExerciseFct, SmokesFct) |&gt;\n  table() |&gt;\n  prop.table() |&gt;\n  round(3)\n\n           SmokesFct\nExerciseFct   Yes    No\n   High     0.000 0.127\n   Moderate 0.055 0.482\n   Low      0.045 0.291"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-1",
+    "title": "Sampling Distributions",
+    "section": "Sample",
+    "text": "Sample\n\n\n\nsampdist()\n\n\n\n\n\n\n\n\n\n\nsamplingdist()"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-2",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-2",
+    "title": "Sampling Distributions",
+    "section": "Sample",
+    "text": "Sample\n\n\n\nsampdist()\n\n\n\n\n\n\n\n\n\n\nsamplingdist()"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-3",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-3",
+    "title": "Sampling Distributions",
+    "section": "Sample",
+    "text": "Sample\n\n\n\nsampdist()\n\n\n\n\n\n\n\n\n\n\nsamplingdist()"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-4",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-4",
+    "title": "Sampling Distributions",
+    "section": "Sample",
+    "text": "Sample\n\n\n\nsampdist()\n\n\n\n\n\n\n\n\n\n\nsamplingdist()"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-5",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-5",
+    "title": "Sampling Distributions",
+    "section": "Sample",
+    "text": "Sample\n\n\n\nsampdist()\n\n\n\n\n\n\n\n\n\n\nsamplingdist()"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-6",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-6",
+    "title": "Sampling Distributions",
+    "section": "Sample",
+    "text": "Sample\n\n\n\nsampdist()\n\n\n\n\n\n\n\n\n\n\nsamplingdist()"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-7",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-7",
+    "title": "Sampling Distributions",
+    "section": "Sample",
+    "text": "Sample\n\n\n\nsampdist()\n\n\n\n\n\n\n\n\n\n\nsamplingdist()"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-8",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-8",
+    "title": "Sampling Distributions",
+    "section": "Sample",
+    "text": "Sample\n\n\n\nsampdist()\n\n\n\n\n\n\n\n\n\n\nsamplingdist()"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-9",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sample-9",
+    "title": "Sampling Distributions",
+    "section": "Sample",
+    "text": "Sample\n\n\n\nsampdist()\n\n\n\n\n\n\n\n\n\n\nsamplingdist()"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#tidy-data",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#tidy-data",
+    "title": "Sampling Distributions",
+    "section": "Tidy Data",
+    "text": "Tidy Data\nIn a lot of cases, your data will not come in tidy\nNeed to know how to work with this!"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#let-us-review",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#let-us-review",
+    "title": "Sampling Distributions",
+    "section": "Let Us Review…",
+    "text": "Let Us Review…\nWhat are the tidy principles?\n\nThree rules to a tidy dataset\n\n\nEach variable is a column; each column is a variable.\nEach observation is a row; each row is an observation.\nEach value is a cell; each cell is a single value."
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#long-vs.-wide-data",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#long-vs.-wide-data",
+    "title": "Sampling Distributions",
+    "section": "Long vs. Wide Data",
+    "text": "Long vs. Wide Data\nLong: each observation is a row (tidy)\n\n○ Observation does not necessarily mean “person”\n\n\n○ Can be within-person measurements over time\n\nWide: columns might represent different “values” of a variables"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#long-vs.-wide-data-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#long-vs.-wide-data-1",
+    "title": "Sampling Distributions",
+    "section": "Long vs. Wide Data",
+    "text": "Long vs. Wide Data\n\n\n\n\n# A tibble: 9 × 3\n  person   book   score\n  &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;\n1 Harry    book 1     3\n2 Harry    book 2     2\n3 Harry    book 3     3\n4 Ron      book 1     1\n5 Ron      book 2     2\n6 Ron      book 3     2\n7 Hermione book 1     2\n8 Hermione book 2     2\n9 Hermione book 3     3\n\n\n\n\n\n# A tibble: 3 × 4\n  person   `book 1` `book 2` `book 3`\n  &lt;chr&gt;       &lt;int&gt;    &lt;int&gt;    &lt;int&gt;\n1 Harry           3        2        3\n2 Ron             1        2        2\n3 Hermione        2        2        3\n\n\n\nWide data common in spreadsheets, data from survey platforms\nLong data typically easier to work with"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#key-functions",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#key-functions",
+    "title": "Sampling Distributions",
+    "section": "Key Functions",
+    "text": "Key Functions\n\n\nWide to Long\npivot_longer()\n\nlongdat &lt;- dat %&gt;%\n  pivot_longer(cols = c(\"book 1\", \"book 2\", \"book 3\"),\n               names_to = \"book\", values_to = \"score\")\nlongdat\n\n# A tibble: 9 × 3\n  person   book   score\n  &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;\n1 Harry    book 1     3\n2 Harry    book 2     2\n3 Harry    book 3     3\n4 Ron      book 1     1\n5 Ron      book 2     2\n6 Ron      book 3     2\n7 Hermione book 1     2\n8 Hermione book 2     2\n9 Hermione book 3     3\n\n\n\nLong to Wide\npivot_wider()\n\nwidedat &lt;- longdat %&gt;%\n  pivot_wider(names_from = book, values_from = score)\nwidedat\n\n# A tibble: 3 × 4\n  person   `book 1` `book 2` `book 3`\n  &lt;chr&gt;       &lt;int&gt;    &lt;int&gt;    &lt;int&gt;\n1 Harry           3        2        3\n2 Ron             1        2        2\n3 Hermione        2        2        3"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#key-functions-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#key-functions-1",
+    "title": "Sampling Distributions",
+    "section": "Key Functions",
+    "text": "Key Functions\n\n\nWide to Long\npivot_longer()\n\n○ cols = set of columns to pivot\n\n\n○ names_to = name of new column with the column names from before\n\n\n○ values_from = name of new column with the values from before\n\n\nLong to Wide\npivot_wider()\n\n○ names_from = column with values to be column names\n\n\n○ values_from = column with values to be in those columns"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-1",
+    "title": "Sampling Distributions",
+    "section": "Some Examples: Example 1",
+    "text": "Some Examples: Example 1\n\ntable1\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583\n\n\n\nLooks good!"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-2",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-2",
+    "title": "Sampling Distributions",
+    "section": "Some Examples: Example 2",
+    "text": "Some Examples: Example 2\n\ntable2\n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583\n\n\n\nTo RStudio!!"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-2-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-2-1",
+    "title": "Sampling Distributions",
+    "section": "Some Examples: Example 2",
+    "text": "Some Examples: Example 2\nExample code\n\ntable2 |&gt; \n  pivot_wider(names_from = type, values_from = count)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-3",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-3",
+    "title": "Sampling Distributions",
+    "section": "Some Examples: Example 3",
+    "text": "Some Examples: Example 3\n\ntable3\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\n\nIt’s unfortunately pretty common to get data that has multiple values in a cell!\n\n\nNew function!\nseparate_wider_delim()\n\n○ delim = character to split on\n\n\n\nTo RStudio!!"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-3-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-3-1",
+    "title": "Sampling Distributions",
+    "section": "Some Examples: Example 3",
+    "text": "Some Examples: Example 3\nExample code\n\ntable3 |&gt;\n  separate_wider_delim(cols = rate, delim = \"/\",\n                       names = c(\"cases\", \"population\")) |&gt;\n  mutate(cases = as.numeric(cases),\n         population = as.numeric(population),\n         rate = cases / population)\n\n# A tibble: 6 × 5\n  country      year  cases population      rate\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071 0.0000373\n2 Afghanistan  2000   2666   20595360 0.000129 \n3 Brazil       1999  37737  172006362 0.000219 \n4 Brazil       2000  80488  174504898 0.000461 \n5 China        1999 212258 1272915272 0.000167 \n6 China        2000 213766 1280428583 0.000167 \n\n\n\n\nas.numeric() attempts to convert to numeric data type\n\n\nIf you create columns in a mutate() call, you can refer to those columns in the same call after you create them\n\n\n\nSome Examples: Example 4\ntable4a\ntable4b\n\n\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\n# A tibble: 3 × 3\n  country         `1999`     `2000`\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan   19987071   20595360\n2 Brazil       172006362  174504898\n3 China       1272915272 1280428583\n\n\n\n\nSometimes we get data in multiple pieces\n\n\n\nNew function!\nfull_join()\n\n○ x = left dataframe to join\n\n\n○ y = right dataframe to join\n\n\n○ by = character, matching column(s) in both dataframes\n\n\n○ ‘join by’ columns need to have exact same name in both\n\n\nTo RStudio!!\n\n\n\nSome Examples: Example 4\nExample code\n\n\n\ntable4a_long &lt;- table4a %&gt;%\n  pivot_longer(c(\"1999\", \"2000\"),\n               names_to = \"year\", values_to = \"cases\")\n\ntable4b_long &lt;- table4b %&gt;%\n  pivot_longer(c(\"1999\", \"2000\"),\n               names_to = \"year\", values_to = \"cases\")\n\nfull_join(table4a_long, table4b_long, by = c(\"country\", \"year\"))\n\n# A tibble: 6 × 4\n  country     year  cases.x    cases.y\n  &lt;chr&gt;       &lt;chr&gt;   &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan 1999      745   19987071\n2 Afghanistan 2000     2666   20595360\n3 Brazil      1999    37737  172006362\n4 Brazil      2000    80488  174504898\n5 China       1999   212258 1272915272\n6 China       2000   213766 1280428583\n\n\n\n\nfull_join(\n  table4a %&gt;%\n    pivot_longer(c(\"1999\", \"2000\"),\n                 names_to = \"year\", values_to = \"cases\"),\n  table4b %&gt;%\n    pivot_longer(c(\"1999\", \"2000\"),\n                 names_to = \"year\", values_to = \"cases\"),\n  by = c(\"country\", \"year\")\n)\n\n# A tibble: 6 × 4\n  country     year  cases.x    cases.y\n  &lt;chr&gt;       &lt;chr&gt;   &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan 1999      745   19987071\n2 Afghanistan 2000     2666   20595360\n3 Brazil      1999    37737  172006362\n4 Brazil      2000    80488  174504898\n5 China       1999   212258 1272915272\n6 China       2000   213766 1280428583\n\n\n\n\n\nSome Examples: Example 5\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\npaste() and paste0() combine characters into one string\n\n○ paste() adds a space between inputs\n\n\n○ paste0() does not\n\n\n\nTo RStudio!!\n\n\n\nSome Examples: Example 5\nExample code\n\ntable5 |&gt;\n  separate_wider_delim(cols = rate, delim = \"/\",\n                       names = c(\"cases\", \"population\")) |&gt;\n  mutate(cases = as.numeric(cases),\n         population = as.numeric(population),\n         rate = cases / population,\n         year = paste0(century, year) |&gt; as.numeric(),\n         .keep = \"unused\")\n\n# A tibble: 6 × 5\n  country      year  cases population      rate\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071 0.0000373\n2 Afghanistan  2000   2666   20595360 0.000129 \n3 Brazil       1999  37737  172006362 0.000219 \n4 Brazil       2000  80488  174504898 0.000461 \n5 China        1999 212258 1272915272 0.000167 \n6 China        2000 213766 1280428583 0.000167 \n\n\n\n\nSelecting Functions\nSometimes, we want to select many columns (to pivot, to remove, etc.)\nNotice the documentation for pivot_longer()\n&lt;tidy-select&gt; functions\n\n○ starts_with() and ends_with()\n\n\n\nSelecting Functions\n\n\nSimple example, but…\n\ndat &lt;- data.frame(id = 1:5,\n           Q1 = rbinom(5, 1, .1),\n           Q2 = rbinom(5, 1, .2),\n           Q3 = rbinom(5, 1, .3),\n           Q4 = rbinom(5, 1, .4),\n           Q5 = rbinom(5, 1, .5))\ndat\n\n  id Q1 Q2 Q3 Q4 Q5\n1  1  0  0  0  0  1\n2  2  0  0  1  1  0\n3  3  0  0  1  0  1\n4  4  0  0  0  1  1\n5  5  0  0  0  0  0\n\n\n\n\ndat |&gt;\n  pivot_longer(cols = starts_with(\"Q\"),\n               names_to = \"question\", values_to = \"correct\")\n\n# A tibble: 25 × 3\n      id question correct\n   &lt;int&gt; &lt;chr&gt;      &lt;int&gt;\n 1     1 Q1             0\n 2     1 Q2             0\n 3     1 Q3             0\n 4     1 Q4             0\n 5     1 Q5             1\n 6     2 Q1             0\n 7     2 Q2             0\n 8     2 Q3             1\n 9     2 Q4             1\n10     2 Q5             0\n# ℹ 15 more rows\n\n\n\n\n\nVisualize: ggplot2 line graphs\nLet’s see some chicks grow!\n\n\n\nChickWeight |&gt; head(20)\n\n   weight Time Chick Diet\n1      42    0     1    1\n2      51    2     1    1\n3      59    4     1    1\n4      64    6     1    1\n5      76    8     1    1\n6      93   10     1    1\n7     106   12     1    1\n8     125   14     1    1\n9     149   16     1    1\n10    171   18     1    1\n11    199   20     1    1\n12    205   21     1    1\n13     40    0     2    1\n14     49    2     2    1\n15     58    4     2    1\n16     72    6     2    1\n17     84    8     2    1\n18    103   10     2    1\n19    122   12     2    1\n20    138   14     2    1\n\n\n\n\n\n\n\nVisualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight))\n\n\n\n\n\nStart like we did before, with just a grid\n\n\n\nVisualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight)) +\n  geom_line()\n\n\n\n\n\nAdd a geom_line()\n\nLooks wacky!\n\n\nIf we want different lines for different groups of observations (here, different chicks), need to specify the group argument within the aes() function\n\n\n\n\nVisualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +\n  geom_line()\n\n\n\n\n\nWhat can we see from this?\nAny critiques / limitations?\n\nHard to see individual lines in beginnings\nCan modify appearance of our geoms\n\n○ alpha = number [0, 1] representing opacity\n\n\n\n\n\nVisualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +\n  geom_line(alpha = .4, linewidth = 1, color = \"skyblue3\") +\n  theme_classic()\n\n\n\n\n\nChanged theme to better see color\n\nLine representing the whole trend?\n\n\n\n\nVisualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +\n  geom_line(alpha = .4, linewidth = 1, color = \"skyblue3\") +\n  stat_summary(aes(x = Time, y = weight), geom = \"line\",\n              fun = mean, inherit.aes = F, linewidth = 2) +\n  theme_classic()\n\n\n\n\n\nGreat! Now let’s do some finishing touches\n\n\n\nVisualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +\n  geom_line(alpha = .4, linewidth = 1, color = \"skyblue3\") +\n  stat_summary(aes(x = Time, y = weight), geom = \"line\",\n              fun = mean, inherit.aes = F, linewidth = 2) +\n  coord_cartesian(expand = F) +\n  labs(x = \"Days Since Birth\", y = \"Weight (g)\") +\n  theme_classic(base_size = 14)\n\n\n\n\n\nGreat! Now let’s do some finishing touches\n\n\n\nAssignment 6"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-4",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-4",
+    "title": "Sampling Distributions",
+    "section": "Some Examples: Example 4",
+    "text": "Some Examples: Example 4\ntable4a\ntable4b\n\n\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\n# A tibble: 3 × 3\n  country         `1999`     `2000`\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan   19987071   20595360\n2 Brazil       172006362  174504898\n3 China       1272915272 1280428583\n\n\n\n\nSometimes we get data in multiple pieces\n\n\n\nNew function!\nfull_join()\n\n○ x = left dataframe to join\n\n\n○ y = right dataframe to join\n\n\n○ by = character, matching column(s) in both dataframes\n\n\n○ ‘join by’ columns need to have exact same name in both\n\n\nTo RStudio!!"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-4-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-4-1",
+    "title": "Sampling Distributions",
+    "section": "Some Examples: Example 4",
+    "text": "Some Examples: Example 4\nExample code\n\n\n\ntable4a_long &lt;- table4a %&gt;%\n  pivot_longer(c(\"1999\", \"2000\"),\n               names_to = \"year\", values_to = \"cases\")\n\ntable4b_long &lt;- table4b %&gt;%\n  pivot_longer(c(\"1999\", \"2000\"),\n               names_to = \"year\", values_to = \"cases\")\n\nfull_join(table4a_long, table4b_long, by = c(\"country\", \"year\"))\n\n# A tibble: 6 × 4\n  country     year  cases.x    cases.y\n  &lt;chr&gt;       &lt;chr&gt;   &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan 1999      745   19987071\n2 Afghanistan 2000     2666   20595360\n3 Brazil      1999    37737  172006362\n4 Brazil      2000    80488  174504898\n5 China       1999   212258 1272915272\n6 China       2000   213766 1280428583\n\n\n\n\nfull_join(\n  table4a %&gt;%\n    pivot_longer(c(\"1999\", \"2000\"),\n                 names_to = \"year\", values_to = \"cases\"),\n  table4b %&gt;%\n    pivot_longer(c(\"1999\", \"2000\"),\n                 names_to = \"year\", values_to = \"cases\"),\n  by = c(\"country\", \"year\")\n)\n\n# A tibble: 6 × 4\n  country     year  cases.x    cases.y\n  &lt;chr&gt;       &lt;chr&gt;   &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan 1999      745   19987071\n2 Afghanistan 2000     2666   20595360\n3 Brazil      1999    37737  172006362\n4 Brazil      2000    80488  174504898\n5 China       1999   212258 1272915272\n6 China       2000   213766 1280428583"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-5",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-5",
+    "title": "Sampling Distributions",
+    "section": "Some Examples: Example 5",
+    "text": "Some Examples: Example 5\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\npaste() and paste0() combine characters into one string\n\n○ paste() adds a space between inputs\n\n\n○ paste0() does not\n\n\n\nTo RStudio!!"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-5-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-5-1",
+    "title": "Sampling Distributions",
+    "section": "Some Examples: Example 5",
+    "text": "Some Examples: Example 5\nExample code\n\ntable5 |&gt;\n  separate_wider_delim(cols = rate, delim = \"/\",\n                       names = c(\"cases\", \"population\")) |&gt;\n  mutate(cases = as.numeric(cases),\n         population = as.numeric(population),\n         rate = cases / population,\n         year = paste0(century, year) |&gt; as.numeric(),\n         .keep = \"unused\")\n\n# A tibble: 6 × 5\n  country      year  cases population      rate\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071 0.0000373\n2 Afghanistan  2000   2666   20595360 0.000129 \n3 Brazil       1999  37737  172006362 0.000219 \n4 Brazil       2000  80488  174504898 0.000461 \n5 China        1999 212258 1272915272 0.000167 \n6 China        2000 213766 1280428583 0.000167"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#selecting-functions",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#selecting-functions",
+    "title": "Sampling Distributions",
+    "section": "Selecting Functions",
+    "text": "Selecting Functions\nSometimes, we want to select many columns (to pivot, to remove, etc.)\nNotice the documentation for pivot_longer()\n&lt;tidy-select&gt; functions\n\n○ starts_with() and ends_with()"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#ggplot2-line-graphs",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#ggplot2-line-graphs",
+    "title": "Sampling Distributions",
+    "section": "ggplot2 Line Graphs",
+    "text": "ggplot2 Line Graphs\nLet’s see some chicks grow!\n\n\n\nChickWeight |&gt; head(20)\n\n   weight Time Chick Diet\n1      42    0     1    1\n2      51    2     1    1\n3      59    4     1    1\n4      64    6     1    1\n5      76    8     1    1\n6      93   10     1    1\n7     106   12     1    1\n8     125   14     1    1\n9     149   16     1    1\n10    171   18     1    1\n11    199   20     1    1\n12    205   21     1    1\n13     40    0     2    1\n14     49    2     2    1\n15     58    4     2    1\n16     72    6     2    1\n17     84    8     2    1\n18    103   10     2    1\n19    122   12     2    1\n20    138   14     2    1\n\n\n\n\n\n[ggplot2 line graphs. Emphasize grouping arguments and scale layers, opacity.]"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-6",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-6",
+    "title": "Sampling Distributions",
+    "section": "Assignment 6",
+    "text": "Assignment 6"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#selecting-functions-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#selecting-functions-1",
+    "title": "Sampling Distributions",
+    "section": "Selecting Functions",
+    "text": "Selecting Functions\n\n\nSimple example, but…\n\ndat &lt;- data.frame(id = 1:5,\n           Q1 = rbinom(5, 1, .1),\n           Q2 = rbinom(5, 1, .2),\n           Q3 = rbinom(5, 1, .3),\n           Q4 = rbinom(5, 1, .4),\n           Q5 = rbinom(5, 1, .5))\ndat\n\n  id Q1 Q2 Q3 Q4 Q5\n1  1  0  0  0  0  1\n2  2  0  0  1  1  0\n3  3  0  0  1  0  1\n4  4  0  0  0  1  1\n5  5  0  0  0  0  0\n\n\n\n\ndat |&gt;\n  pivot_longer(cols = starts_with(\"Q\"),\n               names_to = \"question\", values_to = \"correct\")\n\n# A tibble: 25 × 3\n      id question correct\n   &lt;int&gt; &lt;chr&gt;      &lt;int&gt;\n 1     1 Q1             0\n 2     1 Q2             0\n 3     1 Q3             0\n 4     1 Q4             0\n 5     1 Q5             1\n 6     2 Q1             0\n 7     2 Q2             0\n 8     2 Q3             1\n 9     2 Q4             1\n10     2 Q5             0\n# ℹ 15 more rows"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs",
+    "title": "Sampling Distributions",
+    "section": "Visualize: ggplot2 line graphs",
+    "text": "Visualize: ggplot2 line graphs\nLet’s see some chicks grow!\n\n\n\nChickWeight |&gt; head(20)\n\n   weight Time Chick Diet\n1      42    0     1    1\n2      51    2     1    1\n3      59    4     1    1\n4      64    6     1    1\n5      76    8     1    1\n6      93   10     1    1\n7     106   12     1    1\n8     125   14     1    1\n9     149   16     1    1\n10    171   18     1    1\n11    199   20     1    1\n12    205   21     1    1\n13     40    0     2    1\n14     49    2     2    1\n15     58    4     2    1\n16     72    6     2    1\n17     84    8     2    1\n18    103   10     2    1\n19    122   12     2    1\n20    138   14     2    1"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-1",
+    "title": "Sampling Distributions",
+    "section": "Visualize: ggplot2 line graphs",
+    "text": "Visualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight))\n\n\n\n\n\nStart like we did before, with just a grid"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-2",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-2",
+    "title": "Sampling Distributions",
+    "section": "Visualize: ggplot2 line graphs",
+    "text": "Visualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight)) +\n  geom_line()\n\n\n\n\n\nAdd a geom_line()\n\nLooks wacky!\n\n\nIf we want different lines for different groups of observations (here, different chicks), need to specify the group argument within the aes() function"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-3",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-3",
+    "title": "Sampling Distributions",
+    "section": "Visualize: ggplot2 line graphs",
+    "text": "Visualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +\n  geom_line()\n\n\n\n\n\nWhat can we see from this?\nAny critiques / limitations?\n\nHard to see individual lines in beginnings\nCan modify appearance of our geoms\n\n○ alpha = number [0, 1] representing opacity"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-4",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-4",
+    "title": "Sampling Distributions",
+    "section": "Visualize: ggplot2 line graphs",
+    "text": "Visualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +\n  geom_line(alpha = .4, linewidth = 1, color = \"skyblue3\") +\n  theme_classic()\n\n\n\n\n\nChanged theme to better see color\n\nLine representing the whole trend?"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-5",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-5",
+    "title": "Sampling Distributions",
+    "section": "Visualize: ggplot2 line graphs",
+    "text": "Visualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +\n  geom_line(alpha = .4, linewidth = 1, color = \"skyblue3\") +\n  stat_summary(aes(x = Time, y = weight), geom = \"line\",\n              fun = mean, inherit.aes = F, linewidth = 2) +\n  theme_classic()\n\n\n\n\n\nGreat! Now let’s do some finishing touches"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-6",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs-6",
+    "title": "Sampling Distributions",
+    "section": "Visualize: ggplot2 line graphs",
+    "text": "Visualize: ggplot2 line graphs\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +\n  geom_line(alpha = .4, linewidth = 1, color = \"skyblue3\") +\n  stat_summary(aes(x = Time, y = weight), geom = \"line\",\n              fun = mean, inherit.aes = F, linewidth = 2) +\n  coord_cartesian(expand = F) +\n  labs(x = \"Days Since Birth\", y = \"Weight (g)\") +\n  theme_classic(base_size = 14)\n\n\n\n\n\nGreat! Now let’s do some finishing touches"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#lab-5-review",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#lab-5-review",
+    "title": "Sampling Distributions",
+    "section": "Lab 5 Review",
+    "text": "Lab 5 Review\nInternal Structure of data.frames\nRepresented as a list of vectors (vectors being the columns in our data)\nMakes operating on columns easy!"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#lab-5-review-1",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#lab-5-review-1",
+    "title": "Sampling Distributions",
+    "section": "Lab 5 Review",
+    "text": "Lab 5 Review\nSummarizing Factor Variables\nBack to the does exercise depend on substance use (smoking) question!\n\n\n\npulse_data |&gt;\n  select(ExerciseFct, SmokesFct) |&gt;\n  table()\n\n           SmokesFct\nExerciseFct Yes No\n   High       0 14\n   Moderate   6 53\n   Low        5 32\n\n\n\n\npulse_data |&gt;\n  select(ExerciseFct, SmokesFct) |&gt;\n  table() |&gt;\n  prop.table() |&gt;\n  round(3)\n\n           SmokesFct\nExerciseFct   Yes    No\n   High     0.000 0.127\n   Moderate 0.055 0.482\n   Low      0.045 0.291"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-5-review-packages-and-knitting",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-5-review-packages-and-knitting",
+    "title": "Sampling Distributions",
+    "section": "Assignment 5 Review: Packages and Knitting",
+    "text": "Assignment 5 Review: Packages and Knitting\nRemove or comment out install.packages() from your RMarkdown file when you’re ready to knit\nBut make sure you’re reading the instructions closely (including which packages to library())\nThe knitting program doesn’t know from where to install packages by default\n\n○ But no real reason to keep installation code after installing for our purposes"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-5-review-summarize-review",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-5-review-summarize-review",
+    "title": "Sampling Distributions",
+    "section": "Assignment 5 Review: summarize() review",
+    "text": "Assignment 5 Review: summarize() review\nsummarize(data, .by = grouping_variable, summarized_var_1 = someSummaryFunction(var_1))\nExample: trying to summarize scores across students, by test\n\n\n\ntest_data\n\n  student    test score\n1       1    Math 96.57\n2       1 Science 93.11\n3       1 Reading 71.99\n4       2    Math 94.91\n5       2 Science 53.05\n6       2 Reading 82.00\n7       3    Math 99.51\n8       3 Science 90.48\n9       3 Reading 82.27\n\n\n\n\ntest_data |&gt;\n  summarize(.by = test,\n            score_mean = mean(score),\n            score_sd = sd(score))\n\n     test score_mean  score_sd\n1    Math   96.99667  2.329492\n2 Science   78.88000 22.408054\n3 Reading   78.75333  5.858774\n\n\n\nsummary() gives us printed output, summarize() gives us a condensed dataframe that we can keep working with"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#outline",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#outline",
+    "title": "NHST I",
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 6 Review\nNHST Review\nExploratory data analysis\n\nLearning objectives:\nR: Making data tidy, line graphs"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#housekeeping",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#housekeeping",
+    "title": "NHST I",
+    "section": "Housekeeping",
+    "text": "Housekeeping\n[placeholder for any housekeeping stuff]"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#assignment-5-review",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#assignment-5-review",
+    "title": "NHST I",
+    "section": "Assignment 5 Review",
+    "text": "Assignment 5 Review\n[placeholder for Assignment 5 review]"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#nhst-review",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#nhst-review",
+    "title": "NHST I",
+    "section": "NHST Review",
+    "text": "NHST Review\nNull Hypothesis Significance Testing\n[placeholder for more NHST review]"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#exploratory-data-analysis-1",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#exploratory-data-analysis-1",
+    "title": "NHST I",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis\n\n\nGoing to once again heavily lean on this book!\nFeel free to reference for more R content\n\n\n\n\nhttps://r4ds.hadley.nz/"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#exploratory-data-analysis-eda-overview",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#exploratory-data-analysis-eda-overview",
+    "title": "NHST I",
+    "section": "Exploratory Data Analysis (EDA): Overview",
+    "text": "Exploratory Data Analysis (EDA): Overview\nWhether you have a specific testing plan or not, need to explore your data\n\n○ Otherwise, leaving information on the table!\n\n\n○ If nothing else, need to investigate quality of your data\n\nAn iterative cycle:\n\nGenerate questions about your data.\nSearch for answers by visualizing, transforming, and modelling your data.\nUse what you learn to refine your questions and / or generate new questions."
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#exploratory-data-analysis-eda-overview-1",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#exploratory-data-analysis-eda-overview-1",
+    "title": "NHST I",
+    "section": "Exploratory Data Analysis (EDA): Overview",
+    "text": "Exploratory Data Analysis (EDA): Overview\nYour goal is to develop an understanding of your data\nUseful to use questions as guides\n\nWe’ve done this some so far! Today we’re going to focus in on it.\n\n\nGood questions are not always clear at the beginning, but try to follow up every question with a new one."
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#exploratory-data-analysis-eda-questions",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#exploratory-data-analysis-eda-questions",
+    "title": "NHST I",
+    "section": "Exploratory Data Analysis (EDA): Questions",
+    "text": "Exploratory Data Analysis (EDA): Questions\nSome good general questions:\n\nWhat type of variation occurs within my variables?\nWhat type of associations occur between / among my variables?\n\n\nIn statistics, we learn ways to identify particularly strong variation or associations.\nIn EDA, we can still get a strong sense of these relationships without statistical tests.\n\n○ Can guide future confirmatory testing\n\n\n○ May be representative of population-level relationships with large samples"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-looking-for-variation",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-looking-for-variation",
+    "title": "NHST I",
+    "section": "EDA: Looking for variation",
+    "text": "EDA: Looking for variation\nReview: what is variation?\n\nSpread or dispersion in our data\nCan also think about the amount of differences we see in our measurement of something\n\n\nWe have statistics to give us summaries of the amount of variance in our data, but that doesn’t tell us exactly what it looks like."
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#remember-this",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#remember-this",
+    "title": "NHST I",
+    "section": "Remember This?",
+    "text": "Remember This?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-variation",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-variation",
+    "title": "NHST I",
+    "section": "EDA: Variation",
+    "text": "EDA: Variation\nWe’re gonna play with the diamonds dataset included within the tidyverse library.\n\ndiamonds\n\n# A tibble: 53,940 × 10\n   carat cut       color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47\n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53\n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49\n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39\n# ℹ 53,930 more rows\n\n\n\nnrow(diamonds)\n\n[1] 53940"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-variation-1",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-variation-1",
+    "title": "NHST I",
+    "section": "EDA: Variation",
+    "text": "EDA: Variation\nLet’s start by looking at the distribution of weights (carat)\nHow might we look at this?\n\n\nggplot(diamonds, aes(x = carat)) +\n  geom_histogram(binwidth = 0.5)"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-what-to-look-for",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-what-to-look-for",
+    "title": "NHST I",
+    "section": "EDA: What to look for?",
+    "text": "EDA: What to look for?\n\nWhich values are the most common? Why?\nWhich values are rare? Why? Does that match your expectations?\nCan you see any unusual patterns? What might explain them?\n\n\nWant to rely on our curiousity (what do we want to know more about?) and our skepticism (how could this be misleading?)"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-small-diamonds",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-small-diamonds",
+    "title": "NHST I",
+    "section": "EDA: Small diamonds",
+    "text": "EDA: Small diamonds\nLet’s start by zooming in on small diamonds\n\n\ndiamonds |&gt;\n  filter(carat &lt;= 3) |&gt;\n  ggplot(aes(x = carat)) +\n  geom_histogram(binwidth = 0.5)\n\n\n\n\n\n\n\n\n\n\nWhat do we want to know more about?\nHow might this be misleading?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-small-diamonds-1",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-small-diamonds-1",
+    "title": "NHST I",
+    "section": "EDA: Small diamonds",
+    "text": "EDA: Small diamonds\nLet’s look at this distribution with more precision!\n\n\ndiamonds |&gt;\n  filter(carat &lt;= 3) |&gt;\n  ggplot(aes(x = carat)) +\n  geom_histogram(binwidth = 0.01)\n\n\n\n\n\n\n\n\n\n\nQuestions?\n\n\nWhy are there more diamonds at whole carats and common fractions of carats?\nWhy are there more diamonds slightly to the right of each peak than there are slightly to the left of each peak?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-clustering",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-clustering",
+    "title": "NHST I",
+    "section": "EDA: Clustering",
+    "text": "EDA: Clustering\nSeeing clustering may mean we have subgroups in our data\n\ndiamonds |&gt;\n  filter(carat &lt;= 3) |&gt;\n  ggplot(aes(x = carat)) +\n  geom_histogram(binwidth = 0.01)\n\n\n\nHow are the observations within each subgroup similar to each other?\nHow are the observations in separate clusters different from each other?\nHow can you explain or describe the clusters?\nWhy might the appearance of clusters be misleading?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values",
+    "title": "NHST I",
+    "section": "EDA: Unusual Values",
+    "text": "EDA: Unusual Values\nLike outliers! Things that don’t fit the rest of the pattern.\nLet’s look at the y variable (diamond width) in this dataset\n\n\nggplot(diamonds, aes(x = y)) + \n  geom_histogram(binwidth = 0.5)\n\n\n\n\n\n\n\n\n\n\nWhat do we notice?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-1",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-1",
+    "title": "NHST I",
+    "section": "EDA: Unusual Values",
+    "text": "EDA: Unusual Values\nCan’t even see any outliers because the high points are so high\nLet’s zoom in (coord_cartesian())\n\n\nggplot(diamonds, aes(x = y)) + \n  geom_histogram(binwidth = 0.5) +\n  coord_cartesian(ylim = c(0, 50))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nggplot2 also has xlim() and ylim() functions, but they are different: they throw away the data outside the limits\n\n\n\n\n\nWhere are the unusual data?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-2",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-2",
+    "title": "NHST I",
+    "section": "EDA: Unusual Values",
+    "text": "EDA: Unusual Values\nWhen we find unusual values, it’s good to then go back to the data\n\ndiamonds |&gt; \n  filter(y &lt; 3 | y &gt; 20) |&gt; \n  select(price, x, y, z) |&gt;\n  arrange(y)\n\n# A tibble: 9 × 4\n  price     x     y     z\n  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  5139  0      0    0   \n2  6381  0      0    0   \n3 12800  0      0    0   \n4 15686  0      0    0   \n5 18034  0      0    0   \n6  2130  0      0    0   \n7  2130  0      0    0   \n8  2075  5.15  31.8  5.12\n9 12210  8.09  58.9  8.06\n\n\n\nSince width cannot be zero, we know we found missing data that was coded as zero!\n\n\nWhat’s going on with the large ones? Can we use other variables to infer if they’re accurate or not?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-3",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-3",
+    "title": "NHST I",
+    "section": "EDA: Unusual Values",
+    "text": "EDA: Unusual Values\nOutliers: what do?\nAbove all else, be transparent, and don’t remove them without making a note in your report\nLots and lots of potential ways of dealing with outliers, and lots and lots of ways that can have implications for your analysis\nA basic guide is to try doing your analysis with and without the outliers to see how much impact removing them has\nMore on that in advanced statistics classes!"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-4",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-4",
+    "title": "NHST I",
+    "section": "EDA: Unusual values",
+    "text": "EDA: Unusual values\nFor our purposes, let’s at least change those unusual values to NA\n\n\ndiamonds2 &lt;- diamonds |&gt;\n  mutate(y = ifelse(y &lt; 3 | y &gt; 20, NA, y))\n\nggplot(diamonds2, aes(x = y)) + \n  geom_histogram(binwidth = 0.5, na.rm = T)"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#histograms-an-aesthetics-interlude",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#histograms-an-aesthetics-interlude",
+    "title": "NHST I",
+    "section": "Histograms: An aesthetics interlude",
+    "text": "Histograms: An aesthetics interlude\nWhat can we do to change the appearance of a geom_histogram()?\n\nggplot(diamonds2, aes(x = y)) + \n  geom_histogram(binwidth = 0.5, na.rm = T,\n                 fill = \"seagreen3\", color = \"seagreen\",\n                 alpha = .5, linewidth = 1.5)"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-numeric-variable-associations",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-numeric-variable-associations",
+    "title": "NHST I",
+    "section": "EDA: Categorical and numeric variable associations",
+    "text": "EDA: Categorical and numeric variable associations\nHow might the price of a diamond vary by its quality (cut)?\n\n\ndiamonds |&gt;\n  ggplot(aes(y = price, x = cut)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\nWhat do we want to know more about?\nHow might this be misleading?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-numeric-variable-associations-1",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-numeric-variable-associations-1",
+    "title": "NHST I",
+    "section": "EDA: Categorical and numeric variable associations",
+    "text": "EDA: Categorical and numeric variable associations\nWant to see the distributions as well too!\n\n\ndiamonds |&gt;\n  ggplot(aes(y = price, x = cut)) +\n  geom_violin() +\n  geom_boxplot(width = .1)\n\n\n\n\n\n\n\n\n\n\nNotice that cut was already ordered for us! Thank you, factors!\n\n\n\ndiamonds |&gt; pull(cut) |&gt; levels()\n\n[1] \"Fair\"      \"Good\"      \"Very Good\" \"Premium\"   \"Ideal\""
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#factors-an-ordering-interlude",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#factors-an-ordering-interlude",
+    "title": "NHST I",
+    "section": "Factors: An ordering interlude",
+    "text": "Factors: An ordering interlude\nWhat if our variable is a factor, but we want to order it by a different variable?\n\n\nlevels(diamonds$color)\n\n[1] \"D\" \"E\" \"F\" \"G\" \"H\" \"I\" \"J\"\n\nfct_reorder(diamonds$color, diamonds$price) |&gt; levels()\n\n[1] \"E\" \"D\" \"G\" \"F\" \"H\" \"I\" \"J\"\n\ndiamonds |&gt;\n  ggplot(aes(y = price, x = fct_reorder(color, -price))) + # or .desc = T\n  geom_violin() +\n  geom_boxplot(width = .1)"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#boxplots-and-violinplots-an-aesthetics-interlude",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#boxplots-and-violinplots-an-aesthetics-interlude",
+    "title": "NHST I",
+    "section": "Boxplots and Violinplots: An aesthetics interlude",
+    "text": "Boxplots and Violinplots: An aesthetics interlude\n\n\ndiamonds |&gt;\n  ggplot(aes(x = price, y = cut)) +\n  geom_violin(color = \"skyblue3\", fill = \"skyblue\",\n              alpha = .4, linewidth = .5, linetype = \"dashed\") +\n  geom_boxplot(width = .08, color = \"skyblue3\", whisker.color = NA,\n               fill = \"transparent\", linewidth = .8,\n               outliers = F, notch = T)"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations",
+    "title": "NHST I",
+    "section": "EDA: Categorical and categorical variable associations",
+    "text": "EDA: Categorical and categorical variable associations\nOften exploring counts and / or proportions\n\n\ndiamonds |&gt;\n  ggplot(aes(x = color)) +\n  geom_bar()\n\n\n\n\n\n\n\n\n\n\nDoes this change for diamonds of different qualities (cuts)?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations-1",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations-1",
+    "title": "NHST I",
+    "section": "EDA: Categorical and categorical variable associations",
+    "text": "EDA: Categorical and categorical variable associations\nOften exploring counts and / or proportions\n\n\ndiamonds |&gt;\n  ggplot(aes(x = color, fill = cut)) +\n  geom_bar(position = \"dodge\")\n\n\n\n\n\n\n\n\n\n\nIs the total count for each color obscuring the proportions of qualities within color?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations-2",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations-2",
+    "title": "NHST I",
+    "section": "EDA: Categorical and categorical variable associations",
+    "text": "EDA: Categorical and categorical variable associations\nOften exploring counts and / or proportions\n\n\ndiamonds |&gt;\n  ggplot(aes(x = color, fill = cut)) +\n  geom_bar(position = \"fill\")\n\n\n\n\n\n\n\n\n\n\nSeems more like there’s not many differences here!"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations",
+    "title": "NHST I",
+    "section": "EDA: Numeric and numeric variable associations",
+    "text": "EDA: Numeric and numeric variable associations\nScatterplot!\n\n\ndiamonds |&gt;\n  ggplot(aes(x = carat, y = price)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\nHard to see the trends at the bottom?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations-1",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations-1",
+    "title": "NHST I",
+    "section": "EDA: Numeric and numeric variable associations",
+    "text": "EDA: Numeric and numeric variable associations\nScatterplot!\n\ndiamonds |&gt;\n  ggplot(aes(x = carat, y = price)) +\n  geom_point(alpha = .05)\n\n\n\nWhat’s that clustering? Any guesses?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations-2",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations-2",
+    "title": "NHST I",
+    "section": "EDA: Numeric and numeric variable associations",
+    "text": "EDA: Numeric and numeric variable associations\nScatterplot!\n\n\ndiamonds |&gt;\n  ggplot(aes(x = carat, y = price, color = color)) +\n  geom_point(alpha = .05, shape = 16,\n             size = 2) +\n  guides(color = guide_legend(override.aes = list(alpha = 1)))"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#assignment-7",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#assignment-7",
+    "title": "NHST I",
+    "section": "Assignment 7",
+    "text": "Assignment 7"
+  },
+  {
+    "objectID": "labs/PSYC2020 Assignment 7 Example.html",
+    "href": "labs/PSYC2020 Assignment 7 Example.html",
+    "title": "PSYC2020L Assignment 7",
+    "section": "",
+    "text": "Exploratory Data Analysis\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/PSYC2020 Assignment 7 Example.html#goals-for-review",
+    "href": "labs/PSYC2020 Assignment 7 Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 7",
+    "section": "",
+    "text": "Exploratory Data Analysis\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/PSYC2020 Assignment 7 Example.html#setting-up",
+    "href": "labs/PSYC2020 Assignment 7 Example.html#setting-up",
+    "title": "PSYC2020L Assignment 7",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 7 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Make sure to load the tidyverse package!\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site\""
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html",
+    "title": "PSYC2020L Assignment 6",
+    "section": "",
+    "text": "Tidying data\nLine graphs\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html#goals-for-review",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 6",
+    "section": "",
+    "text": "Tidying data\nLine graphs\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html#setting-up",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html#setting-up",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 6 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Make sure to load the tidyverse package!\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(palmerpenguins)\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site\""
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html#import",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html#import",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Import",
+    "text": "Import\n\n3) The tidyverse package includes a dataset called billboard that has song rankings for the Billboard Top 100 songs from the year 2000. Use the head() function to display the first six rows. Then, use the names() to look at the column names.\n\nhead(billboard)\n\n# A tibble: 6 × 79\n  artist      track date.entered   wk1   wk2   wk3   wk4   wk5   wk6   wk7   wk8\n  &lt;chr&gt;       &lt;chr&gt; &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 2 Pac       Baby… 2000-02-26      87    82    72    77    87    94    99    NA\n2 2Ge+her     The … 2000-09-02      91    87    92    NA    NA    NA    NA    NA\n3 3 Doors Do… Kryp… 2000-04-08      81    70    68    67    66    57    54    53\n4 3 Doors Do… Loser 2000-10-21      76    76    72    69    67    65    55    59\n5 504 Boyz    Wobb… 2000-04-15      57    34    25    17    17    31    36    49\n6 98^0        Give… 2000-08-19      51    39    34    26    26    19     2     2\n# ℹ 68 more variables: wk9 &lt;dbl&gt;, wk10 &lt;dbl&gt;, wk11 &lt;dbl&gt;, wk12 &lt;dbl&gt;,\n#   wk13 &lt;dbl&gt;, wk14 &lt;dbl&gt;, wk15 &lt;dbl&gt;, wk16 &lt;dbl&gt;, wk17 &lt;dbl&gt;, wk18 &lt;dbl&gt;,\n#   wk19 &lt;dbl&gt;, wk20 &lt;dbl&gt;, wk21 &lt;dbl&gt;, wk22 &lt;dbl&gt;, wk23 &lt;dbl&gt;, wk24 &lt;dbl&gt;,\n#   wk25 &lt;dbl&gt;, wk26 &lt;dbl&gt;, wk27 &lt;dbl&gt;, wk28 &lt;dbl&gt;, wk29 &lt;dbl&gt;, wk30 &lt;dbl&gt;,\n#   wk31 &lt;dbl&gt;, wk32 &lt;dbl&gt;, wk33 &lt;dbl&gt;, wk34 &lt;dbl&gt;, wk35 &lt;dbl&gt;, wk36 &lt;dbl&gt;,\n#   wk37 &lt;dbl&gt;, wk38 &lt;dbl&gt;, wk39 &lt;dbl&gt;, wk40 &lt;dbl&gt;, wk41 &lt;dbl&gt;, wk42 &lt;dbl&gt;,\n#   wk43 &lt;dbl&gt;, wk44 &lt;dbl&gt;, wk45 &lt;dbl&gt;, wk46 &lt;dbl&gt;, wk47 &lt;dbl&gt;, wk48 &lt;dbl&gt;, …\n\nnames(billboard)\n\n [1] \"artist\"       \"track\"        \"date.entered\" \"wk1\"          \"wk2\"         \n [6] \"wk3\"          \"wk4\"          \"wk5\"          \"wk6\"          \"wk7\"         \n[11] \"wk8\"          \"wk9\"          \"wk10\"         \"wk11\"         \"wk12\"        \n[16] \"wk13\"         \"wk14\"         \"wk15\"         \"wk16\"         \"wk17\"        \n[21] \"wk18\"         \"wk19\"         \"wk20\"         \"wk21\"         \"wk22\"        \n[26] \"wk23\"         \"wk24\"         \"wk25\"         \"wk26\"         \"wk27\"        \n[31] \"wk28\"         \"wk29\"         \"wk30\"         \"wk31\"         \"wk32\"        \n[36] \"wk33\"         \"wk34\"         \"wk35\"         \"wk36\"         \"wk37\"        \n[41] \"wk38\"         \"wk39\"         \"wk40\"         \"wk41\"         \"wk42\"        \n[46] \"wk43\"         \"wk44\"         \"wk45\"         \"wk46\"         \"wk47\"        \n[51] \"wk48\"         \"wk49\"         \"wk50\"         \"wk51\"         \"wk52\"        \n[56] \"wk53\"         \"wk54\"         \"wk55\"         \"wk56\"         \"wk57\"        \n[61] \"wk58\"         \"wk59\"         \"wk60\"         \"wk61\"         \"wk62\"        \n[66] \"wk63\"         \"wk64\"         \"wk65\"         \"wk66\"         \"wk67\"        \n[71] \"wk68\"         \"wk69\"         \"wk70\"         \"wk71\"         \"wk72\"        \n[76] \"wk73\"         \"wk74\"         \"wk75\"         \"wk76\""
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html#tidy",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html#tidy",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Tidy",
+    "text": "Tidy\n\n4a) Is the billboards dataset in wide or long format? How can you tell?\nWide! An “observation” here is a ranking in a given week, but all the weeks are in columns. They don’t have to specifically mention that an observation is a ranking in a week, but just something like this. \n\n\n4b) Using the ? tool on the dataset and / or the output from #3, please describe the contents of this dataset (specificially, an overview of what you can find in the columns) (1–2 sentences).\n\n#?billboards\n\nIn this dataset, we can find the artist name, track name, date that the track entered, and rankings for 76 weeks starting in 2000.\n\n\n4c) Given what you said in #4a, would you want to use the pivot_longer() or pivot_wider() function on this data?\npivot_longer()\n\n\n5) Using a pipe, let’s do a few things:\n\nTidy the data as you planned to in #4c,\nMutate the column with the numbered weeks so that it’s just numeric (hint: the parse_number() function will extract numbers from a string. Feel free to review its documentation with ?),\nAssign this tidied version to a variable so we can continue using it.\n\nAfter the pipe, print the first six rows from this tidied version.\n\nbillboard_l &lt;- billboard |&gt;\n  pivot_longer(cols = starts_with(\"wk\"),\n               names_to = \"week\", values_to = \"ranking\") |&gt;\n  mutate(week = parse_number(week))\nhead(billboard_l)\n\n# A tibble: 6 × 5\n  artist track                   date.entered  week ranking\n  &lt;chr&gt;  &lt;chr&gt;                   &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 2 Pac  Baby Don't Cry (Keep... 2000-02-26       1      87\n2 2 Pac  Baby Don't Cry (Keep... 2000-02-26       2      82\n3 2 Pac  Baby Don't Cry (Keep... 2000-02-26       3      72\n4 2 Pac  Baby Don't Cry (Keep... 2000-02-26       4      77\n5 2 Pac  Baby Don't Cry (Keep... 2000-02-26       5      87\n6 2 Pac  Baby Don't Cry (Keep... 2000-02-26       6      94"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html#visualization",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html#visualization",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Visualization",
+    "text": "Visualization\n\n7a) Now, let’s plot some of this data. Let’s make a line graph that has time (week) on the x-axis and a song’s ranking on the y-axis. Start by using the ggplot() function to make a grid with axes (no geoms yet).\n\nbillboard_l |&gt;\n  ggplot(aes(x = week, y = ranking))\n\n\n\n\n\n\n\n\n\n\n7b) Now, let’s add a geom_line() to show the rankings of the different songs over time. Remember you will need to add a group argument to your aes.\n\nbillboard_l |&gt;\n  ggplot(aes(x = week, y = ranking, group = track)) +\n  geom_line()\n\nWarning: Removed 18723 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\n\n\n\n\n\n\n\n\n\n7c) Because higher is “worse” for rankings, let’s reverse the y-axis so higher on the y is “better” by adding a scale layer. The function scale_y_reverse() will do this for us! Add it on to your plot just like you would add a new layer.\n\nbillboard_l |&gt;\n  ggplot(aes(x = week, y = ranking, group = track)) +\n  geom_line() +\n  scale_y_reverse()\n\nWarning: Removed 18723 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\n\n\n\n\n\n\n\n\n\n7d) Modify the alpha argument within your geom to make it easier to see the patterns.\n\nbillboard_l |&gt;\n  ggplot(aes(x = week, y = ranking, group = track)) +\n  geom_line(alpha = .5) +\n  scale_y_reverse()\n\nWarning: Removed 18723 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\n\n\n\n\n\n\n\n\n\n7d) Make three more modifications to this plot.\n\nbillboard_l |&gt;\n  ggplot(aes(x = week, y = ranking, group = track)) +\n  geom_line(alpha = .3) +\n  scale_y_reverse() +\n  coord_cartesian(expand = F) +\n  labs(x = \"Week\", y = \"Ranking\") +\n  theme_classic(base_size = 14)\n\nWarning: Removed 18723 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\n\n\n\n\n\n\n\n\n\n7e) Describe what you see in this plot (1–2 sentences).\nSong rankings seem to increase and then fall soon after."
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html",
+    "title": "PSYC2020L Assignment 6",
+    "section": "",
+    "text": "Tidying data\nLine graphs\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#goals-for-review",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#goals-for-review",
+    "title": "PSYC2020L Assignment 6",
+    "section": "",
+    "text": "Tidying data\nLine graphs\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#setting-up",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#setting-up",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 6 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Make sure to load the tidyverse package!"
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#import",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#import",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Import",
+    "text": "Import\n\n3) The tidyverse package includes a dataset called billboard that has song rankings for the Billboard Top 100 songs from the year 2000. Use the head() function to display the first six rows. Then, use the names() to look at the column names."
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#tidy",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#tidy",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Tidy",
+    "text": "Tidy\n\n4a) Is the billboards dataset in wide or long format? How can you tell?\n\n\n4b) Using the ? tool on the dataset and / or the output from #3, please describe the contents of this dataset (specificially, an overview of what you can find in the columns) (1–2 sentences).\n\n\n4c) Given what you said in #4a, would you want to use the pivot_longer() or pivot_wider() function on this data?\n\n\n5) Using a pipe, let’s do a few things:\n\nTidy the data as you planned to in #4c,\nMutate the column with the numbered weeks so that it’s just numeric (hint: the parse_number() function will extract numbers from a string. Feel free to review its documentation with ?),\nAssign this tidied version to a variable so we can continue using it.\n\nAfter the pipe, print the first six rows from this tidied version."
+  },
+  {
+    "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#visualization",
+    "href": "labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#visualization",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Visualization",
+    "text": "Visualization\n\n7a) Now, let’s plot some of this data. Let’s make a line graph that has time (week) on the x-axis and a song’s ranking on the y-axis. Start by using the ggplot() function to make a grid with axes (no geoms yet).\n\n\n7b) Now, let’s add a geom_line() to show the rankings of the different songs over time. Remember you will need to add a group argument to your aes.\n\n\n7c) Because higher is “worse” for rankings, let’s reverse the y-axis so higher on the y is “better” by adding a scale layer. The function scale_y_reverse() will do this for us! Add it on to your plot just like you would add a new layer.\n\n\n7d) Modify the alpha argument within your geom to make it easier to see the patterns.\n\n\n7d) Make three more modifications to this plot.\n\n\n7e) Describe what you see in this plot (1–2 sentences)."
   }
 ]

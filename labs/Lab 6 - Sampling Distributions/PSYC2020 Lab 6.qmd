@@ -8,6 +8,10 @@ format:
     show-slide-number: all
     css: PSYC2020L_styles.css
 engine: knitr
+webr:
+  packages:
+    - rio
+    - datasets
 execute:
   echo: true
 width: 1200
@@ -19,7 +23,7 @@ width: 1200
 * Sampling Distributions
 
 Learning objectives:  
-**R:** `tidyverse`
+**R:** Making data tidy, line graphs
 
 ```{r, echo =F}
 library(tidyverse)
@@ -28,12 +32,102 @@ library(tidyverse)
 
 ## Housekeeping
 
-[input any housekeeping items here]
+Lecture the next couple weeks will be a little more theoretical
+
+We'll be doing a bit more general data science, analytics stuff in lab
+
+We'll be back matched up to do some modeling!
 
 
-## Assignment 5 Review
+## Lab 5 Review
 
-[input any Assignment 5 review here]
+### Internal Structure of `data.frame`s
+
+Represented as a list of vectors (vectors being the columns in our data)
+
+Makes operating on columns easy!
+
+
+## Lab 5 Review
+
+### Summarizing Factor Variables
+
+Back to the does exercise depend on substance use (smoking) question!
+
+```{r, echo=F}
+pulse_data <- rio::import("http://www.statsci.org/data/oz/ms212.txt") |>
+  mutate(PulseDiff = Pulse2 - Pulse1,
+         SmokesFct = factor(Smokes, levels = c(1, 2), labels = c("Yes", "No")),
+         RanFct = factor(Ran, levels = c(1, 2), labels = c("Ran", "Sat")),
+         ExerciseFct = factor(Exercise, levels = c(1, 2, 3), labels = c("High", "Moderate", "Low"))) |>
+  select(SmokesFct, RanFct, ExerciseFct, PulseDiff, Pulse1, Pulse2)
+```
+
+:::: {.columns}
+::: {.column}
+```{r}
+pulse_data |>
+  select(ExerciseFct, SmokesFct) |>
+  table()
+```
+:::
+
+::: {.column}
+```{r}
+pulse_data |>
+  select(ExerciseFct, SmokesFct) |>
+  table() |>
+  prop.table() |>
+  round(3)
+```
+:::
+::::
+
+
+## Assignment 5 Review: Packages and Knitting
+
+Remove or comment out `install.packages()` from your RMarkdown file when you're ready to knit
+
+But make sure you're reading the instructions closely (including which packages to `library()`)
+
+The knitting program doesn't know from where to install packages by default
+
+<div class="subpoint">○ But no real reason to keep installation code after installing for our purposes </div>
+
+
+## Assignment 5 Review: `summarize()` review
+
+`summarize(data, .by = grouping_variable, summarized_var_1 = someSummaryFunction(var_1))`
+
+Example: trying to summarize scores across students, by test
+
+:::: {.columns}
+::: {.column}
+```{r, echo = F}
+test_data <- data.frame(student = rep(1:3, times = 3),
+           test = rep(c("Math", "Science", "Reading"), each = 3),
+           score = rep(c(rbeta(3, 30, 1),
+                         rbeta(3, 10, 1.5),
+                         rbeta(3, 10, 3)))) |>
+  mutate(score = round(score * 100, 2)) |>
+  arrange(student)
+```
+```{r}
+test_data
+```
+:::
+
+::: {.column}
+```{r}
+test_data |>
+  summarize(.by = test,
+            score_mean = mean(score),
+            score_sd = sd(score))
+```
+:::
+::::
+
+`summary()` gives us printed output, `summarize()` gives us a condensed dataframe that we can keep working with
 
 
 ## Sampling Distributions
@@ -58,10 +152,10 @@ Distribution of the data within our sample
 
 ## Population
 
-```{r}
+```{r, echo = F}
 sampcolor <- "turquoise"
 popsize <- 1000
-sampsize <- 50
+sampsize <- 20
 
 population <- data.frame(id = 1:popsize,
                          x = rnorm(popsize)) %>%
@@ -81,7 +175,7 @@ population %>%
         aspect.ratio = 1)
 ```
 
-```{r}
+```{r, echo = F}
 sampdist <- function() {
   population <<- population %>%
     mutate(samp = factor(ifelse(x %in% sample(x, sampsize), 1, 0), ordered = T))
@@ -106,8 +200,8 @@ samplingdist <- function() {
   
   sampling %>%
     ggplot(aes(x = sampmean)) +
-    geom_histogram(fill = sampcolor, color = NA, bins = 5, alpha = .6) +
-    geom_density(color = sampcolor, linewidth = 1) +
+    geom_histogram(fill = sampcolor, color = NA, binwidth = .3) +
+    geom_density(color = sampcolor, linewidth = 1, alpha = .3) +
     coord_cartesian(xlim = c(-3, 3), ylim = c(0, 5), expand = F) +
     theme_classic(base_size = 14) +
     labs(y = NULL) +
@@ -125,16 +219,751 @@ samplingdist <- function() {
 :::: {.columns}
 ::: {.column}
 ```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
 sampdist()
 ```
 :::
 
 ::: {.column}
 ```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
 samplingdist()
 ```
 :::
 ::::
+
+
+## Sample
+
+:::: {.columns}
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+sampdist()
+```
+:::
+
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+samplingdist()
+```
+:::
+::::
+
+
+## Sample
+
+:::: {.columns}
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+sampdist()
+```
+:::
+
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+samplingdist()
+```
+:::
+::::
+
+
+## Sample
+
+:::: {.columns}
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+sampdist()
+```
+:::
+
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+samplingdist()
+```
+:::
+::::
+
+
+## Sample
+
+:::: {.columns}
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+sampdist()
+```
+:::
+
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+samplingdist()
+```
+:::
+::::
+
+
+## Sample
+
+:::: {.columns}
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+sampdist()
+```
+:::
+
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+samplingdist()
+```
+:::
+::::
+
+
+## Sample
+
+:::: {.columns}
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+sampdist()
+```
+:::
+
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+samplingdist()
+```
+:::
+::::
+
+
+## Sample
+
+:::: {.columns}
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+sampdist()
+```
+:::
+
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+samplingdist()
+```
+:::
+::::
+
+
+## Sample
+
+:::: {.columns}
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+sampdist()
+```
+:::
+
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+samplingdist()
+```
+:::
+::::
+
+
+## Sample
+
+:::: {.columns}
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+sampdist()
+```
+:::
+
+::: {.column}
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+samplingdist()
+```
+:::
+::::
+
+
+## Tidy Data
+
+In a lot of cases, your data will not come in tidy
+
+Need to know how to work with this!
+
+
+## Let Us Review...
+
+What are the tidy principles?
+
+::: fragment
+Three rules to a tidy dataset
+
+<div style="font-size:70%">
+1. Each variable is a column; each column is a variable.
+
+2. Each observation is a row; each row is an observation.
+
+3. Each value is a cell; each cell is a single value.
+</div>
+
+![](https://r4ds.hadley.nz/images/tidy-1.png)
+:::
+
+
+## Long vs. Wide Data
+
+Long: each observation is a row (tidy)
+
+<div class="subpoint">○ Observation does not necessarily mean "person" </div>
+
+<div class="subpoint">○ Can be within-person measurements over time </div>
+
+Wide: columns might represent different "values" of a variables
+
+
+## Long vs. Wide Data
+
+:::: {.columns}
+::: {.column}
+```{r, echo=F}
+dat <- data.frame(person = c("Harry", "Ron", "Hermione")) %>%
+  expand_grid(book = c("book 1", "book 2", "book 3")) %>%
+  mutate(score = rbinom(book, 3, .7))
+dat
+```
+:::
+
+::: {.column}
+```{r, echo=F}
+dat <- dat %>%
+  pivot_wider(id_cols = person,
+              names_from = book, values_from = score)
+dat
+```
+:::
+::::
+
+Wide data common in spreadsheets, data from survey platforms
+
+Long data typically easier to work with
+
+
+## Key Functions
+
+:::: {.columns}
+::: {.column}
+##### Wide to Long
+`pivot_longer()`
+```{r}
+#| code-line-numbers: false
+longdat <- dat %>%
+  pivot_longer(cols = c("book 1", "book 2", "book 3"),
+               names_to = "book", values_to = "score")
+longdat
+```
+:::
+
+::: {.column}
+##### Long to Wide
+`pivot_wider()`
+```{r}
+#| code-line-numbers: false
+widedat <- longdat %>%
+  pivot_wider(names_from = book, values_from = score)
+widedat
+```
+:::
+::::
+
+
+## Key Functions
+
+:::: {.columns}
+::: {.column}
+##### Wide to Long
+`pivot_longer()`
+<div class="subpoint">○ `cols` = set of columns to pivot </div>
+<div class="subpoint">○ `names_to` = name of new column with the column names from before </div>
+<div class="subpoint">○ `values_from` = name of new column with the values from before </div>
+:::
+
+::: {.column}
+##### Long to Wide
+`pivot_wider()`
+<div class="subpoint">○ `names_from` = column with values to be column names </div>
+<div class="subpoint">○ `values_from` = column with values to be in those columns </div>
+:::
+::::
+
+
+## Some Examples: Example 1
+
+```{r}
+table1
+```
+
+::: fragment
+Looks good!
+:::
+
+
+## Some Examples: Example 2
+
+```{r}
+table2
+```
+
+::: fragment
+To RStudio!!
+:::
+
+
+## Some Examples: Example 2
+
+Example code
+
+```{r}
+table2 |> 
+  pivot_wider(names_from = type, values_from = count)
+```
+
+
+## Some Examples: Example 3
+
+```{r}
+table3
+```
+
+::: fragment
+It's unfortunately pretty common to get data that has multiple values in a cell!
+:::
+
+::: fragment
+New function!
+
+`separate_wider_delim()`
+<div class="subpoint">○ `delim` = character to split on </div>
+:::
+
+::: fragment
+To RStudio!!
+:::
+
+
+## Some Examples: Example 3
+
+Example code
+
+```{r}
+table3 |>
+  separate_wider_delim(cols = rate, delim = "/",
+                       names = c("cases", "population")) |>
+  mutate(cases = as.numeric(cases),
+         population = as.numeric(population),
+         rate = cases / population)
+```
+
+<div style="font-size:70%">
+::: fragment
+`as.numeric()` attempts to convert to numeric data type
+:::
+
+::: fragment
+If you create columns in a `mutate()` call, you can refer to those columns in the same call after you create them
+</div>
+:::
+
+
+## Some Examples: Example 4
+
+```{r}
+#| layout-ncol: 2
+table4a
+table4b
+```
+
+::: fragment
+Sometimes we get data in multiple pieces
+:::
+
+:::: {.columns}
+::: {.column .fragment width=70%}
+New function!
+
+`full_join()`
+<div class="subpoint">○ `x` = left dataframe to join </div>
+<div class="subpoint">○ `y` = right dataframe to join </div>
+<div class="subpoint">○ `by` = character, matching column(s) in both dataframes </div>
+<div class="subsubpoint">○ 'join by' columns need to have exact same name in both </div>
+:::
+
+::: {.column .fragment}
+To RStudio!!
+:::
+::::
+
+
+## Some Examples: Example 4
+
+Example code
+
+:::: {.columns}
+::: {.column}
+```{r}
+#| code-line-numbers: false
+table4a_long <- table4a %>%
+  pivot_longer(c("1999", "2000"),
+               names_to = "year", values_to = "cases")
+
+table4b_long <- table4b %>%
+  pivot_longer(c("1999", "2000"),
+               names_to = "year", values_to = "cases")
+
+full_join(table4a_long, table4b_long, by = c("country", "year"))
+```
+:::
+
+::: {.column}
+```{r}
+#| code-line-numbers: false
+full_join(
+  table4a %>%
+    pivot_longer(c("1999", "2000"),
+                 names_to = "year", values_to = "cases"),
+  table4b %>%
+    pivot_longer(c("1999", "2000"),
+                 names_to = "year", values_to = "cases"),
+  by = c("country", "year")
+)
+```
+:::
+::::
+
+
+## Some Examples: Example 5
+
+```{r}
+table5
+```
+
+::: fragment
+`paste()` and `paste0()` combine characters into one string
+<div class="subpoint">○ `paste()` adds a space between inputs </div>
+<div class="subpoint">○ `paste0()` does not </div>
+:::
+
+::: fragment
+To RStudio!!
+:::
+
+
+## Some Examples: Example 5
+
+Example code
+
+```{r}
+table5 |>
+  separate_wider_delim(cols = rate, delim = "/",
+                       names = c("cases", "population")) |>
+  mutate(cases = as.numeric(cases),
+         population = as.numeric(population),
+         rate = cases / population,
+         year = paste0(century, year) |> as.numeric(),
+         .keep = "unused")
+```
+
+
+## Selecting Functions
+
+Sometimes, we want to select many columns (to pivot, to remove, etc.)
+
+Notice the documentation for `pivot_longer()`
+
+`<tidy-select>` functions
+
+<div class="subpoint">○ `starts_with()` and `ends_with()` </div>
+
+
+## Selecting Functions
+
+:::: {.columns}
+::: {.column}
+Simple example, but...
+```{r}
+dat <- data.frame(id = 1:5,
+           Q1 = rbinom(5, 1, .1),
+           Q2 = rbinom(5, 1, .2),
+           Q3 = rbinom(5, 1, .3),
+           Q4 = rbinom(5, 1, .4),
+           Q5 = rbinom(5, 1, .5))
+dat
+```
+:::
+
+::: {.column .fragment}
+```{r}
+dat |>
+  pivot_longer(cols = starts_with("Q"),
+               names_to = "question", values_to = "correct")
+```
+:::
+::::
+
+
+## Visualize: `ggplot2` line graphs
+
+Let's see some chicks grow!
+
+:::: {.columns}
+::: {.column}
+```{r}
+ChickWeight |> head(20)
+```
+:::
+
+::: {.column}
+![](https://marialouisedesign.com/wp-content/uploads/2022/03/Baby-Chicks-15.jpg)
+:::
+::::
+
+
+## Visualize: `ggplot2` line graphs
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
+ggplot(ChickWeight, aes(x = Time, y = weight))
+```
+
+### Code
+```{r, eval = F}
+ggplot(ChickWeight, aes(x = Time, y = weight))
+```
+:::
+:::
+
+::: {.column width=33%}
+Start like we did before, with just a grid
+:::
+::::
+
+
+## Visualize: `ggplot2` line graphs
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
+ggplot(ChickWeight, aes(x = Time, y = weight)) +
+  geom_line()
+```
+
+### Code
+```{r, eval = F}
+ggplot(ChickWeight, aes(x = Time, y = weight)) +
+  geom_line()
+```
+:::
+:::
+
+::: {.column width=33%}
+Add a `geom_line()`
+
+::: fragment
+Looks wacky!
+:::
+
+::: fragment
+If we want different lines for different groups of observations (here, different chicks), need to specify the `group` argument within the `aes()` function
+:::
+:::
+::::
+
+
+## Visualize: `ggplot2` line graphs
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
+ggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +
+  geom_line()
+```
+
+### Code
+```{r, eval = F}
+ggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +
+  geom_line()
+```
+:::
+:::
+
+::: {.column width=33%}
+What can we see from this?
+
+Any critiques / limitations?
+
+::: fragment
+Hard to see individual lines in beginnings
+
+Can modify appearance of our geoms
+
+<div class="subpoint">○ `alpha` = number [0, 1] representing opacity</div>
+:::
+:::
+::::
+
+
+## Visualize: `ggplot2` line graphs
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
+ggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +
+  geom_line(alpha = .4, linewidth = 1, color = "skyblue3") +
+  theme_classic()
+```
+
+### Code
+```{r, eval = F}
+ggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +
+  geom_line(alpha = .4, linewidth = 1, color = "skyblue3") +
+  theme_classic()
+```
+:::
+:::
+
+::: {.column width=33%}
+Changed theme to better see color
+
+::: fragment
+Line representing the whole trend?
+:::
+:::
+::::
+
+
+## Visualize: `ggplot2` line graphs
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
+ggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +
+  geom_line(alpha = .4, linewidth = 1, color = "skyblue3") +
+  stat_summary(aes(x = Time, y = weight), geom = "line",
+              fun = mean, inherit.aes = F, linewidth = 2) +
+  theme_classic()
+```
+
+### Code
+```{r, eval = F}
+ggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +
+  geom_line(alpha = .4, linewidth = 1, color = "skyblue3") +
+  stat_summary(aes(x = Time, y = weight), geom = "line",
+              fun = mean, inherit.aes = F, linewidth = 2) +
+  theme_classic()
+```
+:::
+:::
+
+::: {.column width=33%}
+Great! Now let's do some finishing touches
+:::
+::::
+
+
+## Visualize: `ggplot2` line graphs
+
+:::: {.columns style="font-size:60%"}
+::: {.column width=66%}
+::: {.panel-tabset}
+### Plot
+```{r, echo = F}
+ggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +
+  geom_line(alpha = .4, linewidth = 1, color = "skyblue3") +
+  stat_summary(aes(x = Time, y = weight), geom = "line",
+              fun = mean, inherit.aes = F, linewidth = 2) +
+  coord_cartesian(expand = F) +
+  labs(x = "Days Since Birth", y = "Weight (g)") +
+  theme_classic(base_size = 14)
+```
+
+### Code
+```{r, eval = F}
+ggplot(ChickWeight, aes(x = Time, y = weight, group = Chick)) +
+  geom_line(alpha = .4, linewidth = 1, color = "skyblue3") +
+  stat_summary(aes(x = Time, y = weight), geom = "line",
+              fun = mean, inherit.aes = F, linewidth = 2) +
+  coord_cartesian(expand = F) +
+  labs(x = "Days Since Birth", y = "Weight (g)") +
+  theme_classic(base_size = 14)
+```
+:::
+:::
+
+::: {.column width=33%}
+Great! Now let's do some finishing touches
+:::
+::::
+
+
+## Assignment 6
+
+
+
+
+
+
+
+
 
 
 
