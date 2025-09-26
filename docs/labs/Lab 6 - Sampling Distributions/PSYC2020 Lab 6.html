@@ -285,15 +285,15 @@ ExerciseFct   Yes    No
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>test_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  student    test score
-1       1    Math 96.57
-2       1 Science 93.11
-3       1 Reading 71.99
-4       2    Math 94.91
-5       2 Science 53.05
-6       2 Reading 82.00
-7       3    Math 99.51
-8       3 Science 90.48
-9       3 Reading 82.27</code></pre>
+1       1    Math 98.37
+2       1 Science 94.51
+3       1 Reading 67.21
+4       2    Math 98.46
+5       2 Science 78.00
+6       2 Reading 78.12
+7       3    Math 95.65
+8       3 Science 88.25
+9       3 Reading 88.61</code></pre>
 </div>
 </div>
 </div><div class="column">
@@ -304,9 +304,9 @@ ExerciseFct   Yes    No
 <span id="cb7-4"><a></a>            <span class="at">score_sd =</span> <span class="fu">sd</span>(score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     test score_mean  score_sd
-1    Math   96.99667  2.329492
-2 Science   78.88000 22.408054
-3 Reading   78.75333  5.858774</code></pre>
+1    Math   97.49333  1.597008
+2 Science   86.92000  8.334969
+3 Reading   77.98000 10.700687</code></pre>
 </div>
 </div>
 </div></div>
@@ -640,12 +640,12 @@ ExerciseFct   Yes    No
   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;
 1 Harry    book 1     3
 2 Harry    book 2     2
-3 Harry    book 3     3
-4 Ron      book 1     1
-5 Ron      book 2     2
+3 Harry    book 3     1
+4 Ron      book 1     2
+5 Ron      book 2     3
 6 Ron      book 3     2
 7 Hermione book 1     2
-8 Hermione book 2     2
+8 Hermione book 2     3
 9 Hermione book 3     3</code></pre>
 </div>
 </div>
@@ -655,9 +655,9 @@ ExerciseFct   Yes    No
 <pre><code># A tibble: 3 × 4
   person   `book 1` `book 2` `book 3`
   &lt;chr&gt;       &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
-1 Harry           3        2        3
-2 Ron             1        2        2
-3 Hermione        2        2        3</code></pre>
+1 Harry           3        2        1
+2 Ron             2        3        2
+3 Hermione        2        3        3</code></pre>
 </div>
 </div>
 </div></div>
@@ -681,12 +681,12 @@ ExerciseFct   Yes    No
   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;
 1 Harry    book 1     3
 2 Harry    book 2     2
-3 Harry    book 3     3
-4 Ron      book 1     1
-5 Ron      book 2     2
+3 Harry    book 3     1
+4 Ron      book 1     2
+5 Ron      book 2     3
 6 Ron      book 3     2
 7 Hermione book 1     2
-8 Hermione book 2     2
+8 Hermione book 2     3
 9 Hermione book 3     3</code></pre>
 </div>
 </div>
@@ -701,9 +701,9 @@ ExerciseFct   Yes    No
 <pre><code># A tibble: 3 × 4
   person   `book 1` `book 2` `book 3`
   &lt;chr&gt;       &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
-1 Harry           3        2        3
-2 Ron             1        2        2
-3 Hermione        2        2        3</code></pre>
+1 Harry           3        2        1
+2 Ron             2        3        2
+3 Hermione        2        3        3</code></pre>
 </div>
 </div>
 </div></div>
@@ -851,14 +851,13 @@ ExerciseFct   Yes    No
 6 China        2000 213766 1280428583 0.000167 </code></pre>
 </div>
 </div>
-<div style="font-size:70%">
 <div class="fragment">
 <p><code>as.numeric()</code> attempts to convert to numeric data type</p>
 </div>
 <div class="fragment">
 <p>If you create columns in a <code>mutate()</code> call, you can refer to those columns in the same call after you create them</p>
 </div>
-</div>
+</section>
 <section id="some-examples-example-4" class="slide level2">
 <h2>Some Examples: Example 4</h2>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>table4a</span>
@@ -886,8 +885,7 @@ ExerciseFct   Yes    No
 <div class="fragment">
 <p>Sometimes we get data in multiple pieces</p>
 </div>
-<div class="columns">
-<div class="column fragment" style="width:70%;">
+<div class="fragment">
 <p>New function!</p>
 <code>full_join()</code>
 <div class="subpoint">
@@ -902,9 +900,10 @@ ExerciseFct   Yes    No
 <div class="subsubpoint">
 ○ ‘join by’ columns need to have exact same name in both
 </div>
-</div><div class="column fragment">
+</div>
+<div class="fragment">
 <p>To RStudio!!</p>
-</div></div>
+</div>
 </section>
 <section id="some-examples-example-4-1" class="slide level2">
 <h2>Some Examples: Example 4</h2>
@@ -1036,11 +1035,11 @@ ExerciseFct   Yes    No
 <span id="cb56-7"><a></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  id Q1 Q2 Q3 Q4 Q5
-1  1  0  0  0  0  1
-2  2  0  0  1  1  0
-3  3  0  0  1  0  1
-4  4  0  0  0  1  1
-5  5  0  0  0  0  0</code></pre>
+1  1  1  0  0  0  0
+2  2  0  0  1  1  1
+3  3  0  0  0  0  1
+4  4  1  0  0  0  0
+5  5  0  0  1  0  1</code></pre>
 </div>
 </div>
 </div><div class="column fragment">
@@ -1052,16 +1051,16 @@ ExerciseFct   Yes    No
 <pre><code># A tibble: 25 × 3
       id question correct
    &lt;int&gt; &lt;chr&gt;      &lt;int&gt;
- 1     1 Q1             0
+ 1     1 Q1             1
  2     1 Q2             0
  3     1 Q3             0
  4     1 Q4             0
- 5     1 Q5             1
+ 5     1 Q5             0
  6     2 Q1             0
  7     2 Q2             0
  8     2 Q3             1
  9     2 Q4             1
-10     2 Q5             0
+10     2 Q5             1
 # ℹ 15 more rows</code></pre>
 </div>
 </div>
@@ -1311,8 +1310,6 @@ ExerciseFct   Yes    No
 <h2>Assignment 6</h2>
 
 
-</section>
-</section></div>
 <script type="ojs-module-contents">
 eyJjb250ZW50cyI6W119
 </script>
@@ -1327,13 +1324,13 @@ eyJjb250ZW50cyI6W119
 <script type="vfs-file">
 W10=
 </script>
-
-    <div class="quarto-auto-generated-content" style="display: none;">
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 
 </div>
 </div></div>
-  
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="../../site_libs/revealjs/dist/reveal.js"></script>

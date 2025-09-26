@@ -45,7 +45,7 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 09/19 Lab 9
 #### Intermediate R
-[Slides](/labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.qmd) | [Assignment](/labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.rmd)
+[Slides](/labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.qmd) 
 :::
 
 ::: {.column width=33%}

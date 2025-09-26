@@ -603,14 +603,12 @@ table3 |>
          rate = cases / population)
 ```
 
-<div style="font-size:70%">
 ::: fragment
 `as.numeric()` attempts to convert to numeric data type
 :::
 
 ::: fragment
 If you create columns in a `mutate()` call, you can refer to those columns in the same call after you create them
-</div>
 :::
 
 
@@ -626,8 +624,7 @@ table4b
 Sometimes we get data in multiple pieces
 :::
 
-:::: {.columns}
-::: {.column .fragment width=70%}
+::: fragment
 New function!
 
 `full_join()`
@@ -637,11 +634,9 @@ New function!
 <div class="subsubpoint">○ 'join by' columns need to have exact same name in both </div>
 :::
 
-::: {.column .fragment}
+::: fragment
 To RStudio!!
 :::
-::::
-
 
 ## Some Examples: Example 4
 
