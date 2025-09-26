@@ -886,7 +886,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 9\n\nIntermediate R\nSlides\n\n\n\n\n09/19 Lab 9\n\nSampling Distributions\nSlides"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 9\n\nIntermediate R\nSlides\n\n\n\n\n09/26 Lab 9\n\nSampling Distributions\nSlides"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
@@ -3910,7 +3910,7 @@
     "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#sampling-distributions",
     "title": "Sampling Distributions",
     "section": "Sampling Distributions",
-    "text": "Sampling Distributions\nImportant topic in statistics! Help us make inferences about the estimates we calculate\n\n\nSample Distribution\nDistribution of the data within our sample\n\nSample Distribution\n(More theoretical) distribution of our statistic over repeated sampling"
+    "text": "Sampling Distributions\nImportant topic in statistics! Help us make inferences about the estimates we calculate\n\n\nSample Distribution\nDistribution of the data within our sample\n\nSampling Distribution\n(More theoretical) distribution of our statistic over repeated sampling"
   },
   {
     "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#population",
@@ -4148,21 +4148,21 @@
     "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#long-vs.-wide-data-1",
     "title": "Sampling Distributions",
     "section": "Long vs. Wide Data",
-    "text": "Long vs. Wide Data\n\n\n\n\n# A tibble: 9 × 3\n  person   book   score\n  &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;\n1 Harry    book 1     1\n2 Harry    book 2     3\n3 Harry    book 3     3\n4 Ron      book 1     3\n5 Ron      book 2     3\n6 Ron      book 3     1\n7 Hermione book 1     2\n8 Hermione book 2     3\n9 Hermione book 3     1\n\n\n\n\n\n# A tibble: 3 × 4\n  person   `book 1` `book 2` `book 3`\n  &lt;chr&gt;       &lt;int&gt;    &lt;int&gt;    &lt;int&gt;\n1 Harry           1        3        3\n2 Ron             3        3        1\n3 Hermione        2        3        1\n\n\n\nWide data common in spreadsheets, data from survey platforms\nLong data typically easier to work with"
+    "text": "Long vs. Wide Data\n\n\n\n\n# A tibble: 9 × 3\n  person   book   score\n  &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;\n1 Harry    book 1     1\n2 Harry    book 2     3\n3 Harry    book 3     0\n4 Ron      book 1     2\n5 Ron      book 2     1\n6 Ron      book 3     2\n7 Hermione book 1     1\n8 Hermione book 2     2\n9 Hermione book 3     2\n\n\n\n\n\n# A tibble: 3 × 4\n  person   `book 1` `book 2` `book 3`\n  &lt;chr&gt;       &lt;int&gt;    &lt;int&gt;    &lt;int&gt;\n1 Harry           1        3        0\n2 Ron             2        1        2\n3 Hermione        1        2        2\n\n\n\nWide data common in spreadsheets, data from survey platforms\nLong data typically easier to work with"
   },
   {
     "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#key-functions",
     "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#key-functions",
     "title": "Sampling Distributions",
     "section": "Key Functions",
-    "text": "Key Functions\n\n\nWide to Long\npivot_longer()\n\nlongdat &lt;- dat %&gt;%\n  pivot_longer(cols = c(\"book 1\", \"book 2\", \"book 3\"),\n               names_to = \"book\", values_to = \"score\")\nlongdat\n\n# A tibble: 9 × 3\n  person   book   score\n  &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;\n1 Harry    book 1     1\n2 Harry    book 2     3\n3 Harry    book 3     3\n4 Ron      book 1     3\n5 Ron      book 2     3\n6 Ron      book 3     1\n7 Hermione book 1     2\n8 Hermione book 2     3\n9 Hermione book 3     1\n\n\n\nLong to Wide\npivot_wider()\n\nwidedat &lt;- longdat %&gt;%\n  pivot_wider(names_from = book, values_from = score)\nwidedat\n\n# A tibble: 3 × 4\n  person   `book 1` `book 2` `book 3`\n  &lt;chr&gt;       &lt;int&gt;    &lt;int&gt;    &lt;int&gt;\n1 Harry           1        3        3\n2 Ron             3        3        1\n3 Hermione        2        3        1"
+    "text": "Key Functions\n\n\nWide to Long\npivot_longer()\n\nlongdat &lt;- dat %&gt;%\n  pivot_longer(cols = c(\"book 1\", \"book 2\", \"book 3\"),\n               names_to = \"book\", values_to = \"score\")\nlongdat\n\n# A tibble: 9 × 3\n  person   book   score\n  &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;\n1 Harry    book 1     1\n2 Harry    book 2     3\n3 Harry    book 3     0\n4 Ron      book 1     2\n5 Ron      book 2     1\n6 Ron      book 3     2\n7 Hermione book 1     1\n8 Hermione book 2     2\n9 Hermione book 3     2\n\n\n\nLong to Wide\npivot_wider()\n\nwidedat &lt;- longdat %&gt;%\n  pivot_wider(names_from = book, values_from = score)\nwidedat\n\n# A tibble: 3 × 4\n  person   `book 1` `book 2` `book 3`\n  &lt;chr&gt;       &lt;int&gt;    &lt;int&gt;    &lt;int&gt;\n1 Harry           1        3        0\n2 Ron             2        1        2\n3 Hermione        1        2        2"
   },
   {
     "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#key-functions-1",
     "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#key-functions-1",
     "title": "Sampling Distributions",
     "section": "Key Functions",
-    "text": "Key Functions\n\n\nWide to Long\npivot_longer()\n\n○ cols = set of columns to pivot\n\n\n○ names_to = name of new column with the column names from before\n\n\n○ values_from = name of new column with the values from before\n\n\nLong to Wide\npivot_wider()\n\n○ names_from = column with values to be column names\n\n\n○ values_from = column with values to be in those columns"
+    "text": "Key Functions\n\n\nWide to Long\npivot_longer()\n\n○ cols = set of columns to pivot\n\n\n○ names_to = name of new column with the column names from before\n\n\n○ values_to = name of new column with the values from before\n\n\nLong to Wide\npivot_wider()\n\n○ names_from = column with values to be column names\n\n\n○ values_from = column with values to be in those columns"
   },
   {
     "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#some-examples-example-1",
@@ -4253,7 +4253,7 @@
     "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#selecting-functions-1",
     "title": "Sampling Distributions",
     "section": "Selecting Functions",
-    "text": "Selecting Functions\n\n\nSimple example, but…\n\ndat &lt;- data.frame(id = 1:5,\n           Q1 = rbinom(5, 1, .1),\n           Q2 = rbinom(5, 1, .2),\n           Q3 = rbinom(5, 1, .3),\n           Q4 = rbinom(5, 1, .4),\n           Q5 = rbinom(5, 1, .5))\ndat\n\n  id Q1 Q2 Q3 Q4 Q5\n1  1  1  0  0  0  0\n2  2  0  0  1  0  0\n3  3  0  1  1  0  0\n4  4  0  0  0  1  0\n5  5  0  1  0  1  1\n\n\n\n\ndat |&gt;\n  pivot_longer(cols = starts_with(\"Q\"),\n               names_to = \"question\", values_to = \"correct\")\n\n# A tibble: 25 × 3\n      id question correct\n   &lt;int&gt; &lt;chr&gt;      &lt;int&gt;\n 1     1 Q1             1\n 2     1 Q2             0\n 3     1 Q3             0\n 4     1 Q4             0\n 5     1 Q5             0\n 6     2 Q1             0\n 7     2 Q2             0\n 8     2 Q3             1\n 9     2 Q4             0\n10     2 Q5             0\n# ℹ 15 more rows"
+    "text": "Selecting Functions\n\n\nSimple example, but…\n\ndat &lt;- data.frame(id = 1:5,\n           Q1 = rbinom(5, 1, .1),\n           Q2 = rbinom(5, 1, .2),\n           Q3 = rbinom(5, 1, .3),\n           Q4 = rbinom(5, 1, .4),\n           Q5 = rbinom(5, 1, .5))\ndat\n\n  id Q1 Q2 Q3 Q4 Q5\n1  1  0  0  0  1  1\n2  2  0  0  1  1  1\n3  3  0  0  0  1  1\n4  4  0  0  0  0  0\n5  5  0  0  0  1  1\n\n\n\n\ndat |&gt;\n  pivot_longer(cols = starts_with(\"Q\"),\n               names_to = \"question\", values_to = \"correct\")\n\n# A tibble: 25 × 3\n      id question correct\n   &lt;int&gt; &lt;chr&gt;      &lt;int&gt;\n 1     1 Q1             0\n 2     1 Q2             0\n 3     1 Q3             0\n 4     1 Q4             1\n 5     1 Q5             1\n 6     2 Q1             0\n 7     2 Q2             0\n 8     2 Q3             1\n 9     2 Q4             1\n10     2 Q5             1\n# ℹ 15 more rows"
   },
   {
     "objectID": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#visualize-ggplot2-line-graphs",
@@ -4330,7 +4330,7 @@
     "href": "labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html#assignment-5-review-summarize-review",
     "title": "Sampling Distributions",
     "section": "Assignment 5 Review: summarize() review",
-    "text": "Assignment 5 Review: summarize() review\nsummarize(data, .by = grouping_variable, summarized_var_1 = someSummaryFunction(var_1))\nExample: trying to summarize scores across students, by test\n\n\n\ntest_data\n\n  student    test score\n1       1    Math 93.65\n2       1 Science 92.32\n3       1 Reading 71.34\n4       2    Math 99.55\n5       2 Science 87.39\n6       2 Reading 43.64\n7       3    Math 99.23\n8       3 Science 93.90\n9       3 Reading 88.87\n\n\n\n\ntest_data |&gt;\n  summarize(.by = test,\n            score_mean = mean(score),\n            score_sd = sd(score))\n\n     test score_mean  score_sd\n1    Math   97.47667  3.317851\n2 Science   91.20333  3.395620\n3 Reading   67.95000 22.804765\n\n\n\nsummary() gives us printed output, summarize() gives us a condensed dataframe that we can keep working with"
+    "text": "Assignment 5 Review: summarize() review\nsummarize(data, .by = grouping_variable, summarized_var_1 = someSummaryFunction(var_1))\nExample: trying to summarize scores across students, by test\n\n\n\ntest_data\n\n  student    test score\n1       1    Math 98.73\n2       1 Science 60.01\n3       1 Reading 79.50\n4       2    Math 91.41\n5       2 Science 76.78\n6       2 Reading 85.70\n7       3    Math 95.11\n8       3 Science 87.87\n9       3 Reading 97.02\n\n\n\n\ntest_data |&gt;\n  summarize(.by = test,\n            score_mean = mean(score),\n            score_sd = sd(score))\n\n     test score_mean  score_sd\n1    Math   95.08333  3.660073\n2 Science   74.88667 14.026170\n3 Reading   87.40667  8.883813\n\n\n\nsummary() gives us printed output, summarize() gives us a condensed dataframe that we can keep working with"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#outline",

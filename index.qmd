@@ -49,7 +49,7 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 :::
 
 ::: {.column width=33%}
-### 09/19 Lab 9
+### 09/26 Lab 9
 #### Sampling Distributions
 [Slides](/labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.qmd)
 :::
