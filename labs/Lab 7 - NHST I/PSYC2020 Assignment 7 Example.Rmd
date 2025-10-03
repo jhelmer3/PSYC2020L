@@ -1,0 +1,260 @@
+---
+title: "PSYC2020L Assignment 7"
+author: "[name]"
+date: "2025-10-03"
+output: html_document
+---
+
+## Goals for Review:
+
+* Exploratory Data Analysis
+
+
+## Setting Up
+
+### 1) Rename this assignment as "Lab 7 Assignment [Last, First].Rmd" 
+
+### 2) Check and set (if needed) your working directory. If you'd like to load packages with `library()`, please do so in this block. Make sure to load the `tidyverse` package!
+```{r}
+library(tidyverse)
+
+here::here()
+```
+
+
+## Import
+
+### 3) With the `tidyverse` package, we have acess to the `diamonds` dataset. Use three functions to get a look at this data.
+```{r}
+head(diamonds)
+summary(diamonds)
+glimpse(diamonds)
+```
+
+
+## Exploration
+
+
+### 4a) Let's continue exploring the relationships influencing a diamond's `price`. Let's start by building on what we saw about the relationship between a diamond's quality (`cut`) and its `price.` With `cut` on the x-axis and `price` on the y-axis, make a violin and boxplot graph.
+```{r}
+diamonds |>
+  ggplot(aes(x = cut, y = price)) +
+  geom_violin() +
+  geom_boxplot()
+```
+
+### 4b) Make three modifications to this visualization that you think improve it. Describe your reasoning for each modification.
+```{r}
+diamonds |>
+  ggplot(aes(x = cut, y = price)) +
+  geom_violin() +
+  geom_boxplot(width = .05, outliers = F) +
+  theme_classic()
+```
+
+I decreased the width of the boxplots to make them easier to see over the violins, and I changed the theme to make it visually cleaner. I also removed the outliers from the boxplot because they are already represented in the violinplot.
+
+### 4b) Box and violinplots are helpful, but it is also often helpful to see the datapoints themselves. The `geom_jitter()` function will add the points correctly to where they lie on the y-axis, but a bit scattered around the x-axis (because the x-axis is not numeric). Add this geom (you may also want to decrease the `alpha` value).
+```{r}
+diamonds |>
+  ggplot(aes(x = cut, y = price)) +
+  geom_violin() +
+  geom_boxplot(width = .05, outliers = F) +
+  geom_jitter(alpha = .01) +
+  theme_classic()
+```
+
+### 4d) What relationship(s) do we see in this plot?
+
+Diamond price seems to decrease with quality, which I think is counter-intuitive!
+
+### 4e) Say we wanted to zoom in on the distributions of the lower-priced diamonds. Make two different plots: one that zooms in with `coord_cartesian()`, and one that zooms in with `ggplot2`'s `ylim()`. What is the difference, and which one do you think is generally best practice to use? Feel free to check the `?ylim` documentation
+```{r}
+diamonds |>
+  ggplot(aes(x = cut, y = price)) +
+  geom_violin() +
+  geom_boxplot(width = .05, outliers = F) +
+  geom_jitter(alpha = .01) +
+  coord_cartesian(ylim = c(0, 5000)) +
+  theme_classic()
+
+diamonds |>
+  ggplot(aes(x = cut, y = price)) +
+  geom_violin() +
+  geom_boxplot(width = .05, outliers = F) +
+  geom_jitter(alpha = .01) +
+  ylim(0, 5000) +
+  theme_classic()
+```
+
+The `coord_cartesian()` function does not remove data; it just zooms in on the axis. You can tell that the `ylim()` function removed data from the warning and from the way the violinplots end at the top. The `coord_cartesian()` function is generally better to use because it does not remove the data
+
+### 5a) Let's step back and explore the distributions of the `price` variable with histograms. Make two versions: one with 10 bins and one with 50 bins. What do you notice about this plot?
+```{r}
+diamonds |>
+  ggplot(aes(x = price)) +
+  geom_histogram(bins = 10)
+
+diamonds |>
+  ggplot(aes(x = price)) +
+  geom_histogram(bins = 50)
+```
+
+There seems to be a very sharp spike on the lower end of the price distribution. It is very skewed. 
+
+### 5b) Swap the histogram to a density plot. Also, map the density plot line `color` to the `cut` of the diamond.
+```{r}
+diamonds |>
+  ggplot(aes(x = price, color = cut)) +
+  geom_density()
+```
+
+### 5c) Make three modifications to the density plot that you think improve it. Describe your reasoning for each modification.
+```{r}
+diamonds |>
+  ggplot(aes(x = price, color = cut)) +
+  geom_density(linewidth = 2) +
+  coord_cartesian(expand = F) +
+  theme_classic(base_size = 14)
+```
+I changed the linewidth and background color (through `theme_classic()`) to make the plot more readable. I also increased the font size for aesthetics.
+
+### 5d) Describe what you see in the plot now. Does this explain anything you noticed in 5a?
+
+Yes, it seems like the "ideal" quality diamonds make up the most of that spike in the lower end that we saw in 5a. 
+
+### 6a) Perhaps the relationship between diamond quality (`cut`) and `price` has to do with its size. Let's first look at the relationship between `price` and size, and then we will see if it can explain the `price`. To do this, create a cleaner version of the `diamonds` dataset in one pipe that:
+
+1. Has `x`, `y`, and `z` each in their own row for each diamond,
+
+2. Uses `mutate()` to change diamond sizes at 0mm or above 20mm to `NA` (based on what we saw in class), and
+
+3. Changes the `x`, `y`, and `z` variables to be a factor with labels indicating the dimension they measure (feel free to reference `?diamonds` for data information and `?factor` for factor syntax).
+```{r}
+diamonds_clean <- diamonds |>
+  pivot_longer(c(x, y, z),
+               names_to = "dimension", values_to = "measurement") |>
+  mutate(measurement = ifelse(measurement > 20 | measurement == 0, NA, measurement),
+         dimension = factor(dimension, levels = c("x", "y", "z"), labels = c("length", "width", "depth")))
+```
+
+6b) Now, let's look at the relationship between diamond size and quality. Using your cleaned dataframe, start by making a histogram with the size measurement on the x-axis. Change the default number of bins to a better one (in your opinion).
+```{r}
+diamonds_clean |>
+  ggplot(aes(x = measurement)) +
+  geom_histogram(bins = 15) 
+```
+
+### 6c) Use the `facet_wrap()` function to facet the histogram by the type of measurement. You can use the `scales = "free_x"` argument to let the x-axis scales automatically generate for each facet (as opposed to them all sharing the same).
+```{r}
+diamonds_clean |>
+  ggplot(aes(x = measurement)) +
+  geom_histogram(bins = 15) +
+  facet_wrap(~ dimension, scales = "free_x")
+```
+
+### 6d) Let's add in the diamond quality (`cut`) as the fill color. Also, change the `position` argument to `"fill"` to best see the proportions.
+```{r}
+diamonds_clean |>
+  ggplot(aes(x = measurement, fill = cut)) +
+  geom_histogram(bins = 15, position = "fill") +
+  facet_wrap(~ dimension, scales = "free_x")
+```
+
+### 6e) What do you see in this plot? (1--3 sentences)
+
+Most of the small diamonds are the ideal quality. Seems like ideal cut diamonds are often small! The largest diamonds are more in the upper range of size.
+
+### 7a) Let's bring it all together by looking at size, cut, and price all in the same visualization. Still using your cleaned version of the dataset, make a scatterplot with the size measurement on the x-axis, the price on the y-axis, and color denoting the cut. Use the `facet_wrap()` function again to facet by the type of measurement. You may want to take down the `alpha` value of the points!
+```{r}
+diamonds_clean |>
+  ggplot(aes(x = measurement, y = price, color = cut)) +
+  geom_point(alpha = .02) +
+  facet_wrap(~ dimension, scales = "free_x")
+```
+
+### 7b) Describe what you see in this plot. (1--3 sentences)
+
+Diamond price has a strong positive relationship with each measurement, and it seems like this may be explaining why better quality diamonds are less expensive---they are also usually smaller. Most of the yellow points are on the left side of the plot (the better quality diamonds are on the lower end of the size dimension) and, in trend with size and price, are cheaper.
+
+### 7c) Make three modifications to this plot that you think improve it. Describe your reasoning for each modification.
+```{r}
+diamonds_clean |>
+  ggplot(aes(x = measurement, y = price, color = cut)) +
+  geom_point(alpha = .02, shape = 16) +
+  facet_wrap(~ dimension, scales = "free_x") +
+  theme_classic(base_size = 14) +
+  labs(x = "Measurement", y = "Price", color = "Cut") +
+  guides(color = guide_legend(override.aes = list(alpha = 1, size = 3))) +
+  theme(aspect.ratio = 1)
+```
+
+Explanations, explanations, blah blah etc.
+
+### 8a) To finish up, you're going to do some exploratory data analysis on your own! Pick a variable that's not size or price, and explore its relationship other variables (other variable can be size or price). This section will be pretty open-ended, so feel free to explore and play around with this data!
+
+Start by plotting the distribution of your chosen variable with a histogram. Make sure to play around with the number of bins to look for any interesting trends. For the question, display one histogram that either (a) has number of bins that is a good representation of the data or (b) has number of bins that shows something interesting about the data.
+```{r}
+diamonds |>
+  ggplot(aes(x = carat)) +
+  geom_histogram(bins = 500)
+```
+
+### 8b) Describe what you see in the histogram (1--2 sentences).
+
+We see a lot of spikes at the round values and more data at lower decimal points than high.
+
+### 8c) Now, use some plot to look at this variable's relationship with some other variable.
+```{r}
+diamonds_clean |>
+  filter(dimension == "depth") |>
+  ggplot(aes(x = carat, y = price)) +
+  geom_point(alpha = .05, shape = 16)
+```
+
+### 8d) Describe what you see. (1--2 sentences)
+
+There is a strong positive relationship between a diamond's weight and its price.
+
+### 8e) Consider a third variable that may be related to your first variable (or your second variable as well). What would you expect the relationship to look like?
+
+Diamond clarity is likely related to price, but I'm not sure it wuld be related to weight. I would expect to see higher-clarity diamonds with higher prices but still relatively evenly distributed across weight.
+
+### 8f) Incorporate a third variable, either by including it in the previous plot as an additional aesthetic or by making a separate plot. Either way, the new visualization should be able to confirm or challenge your expectation of what the relationship would look like!
+```{r}
+diamonds_clean |>
+  filter(dimension == "depth") |>
+  ggplot(aes(x = carat, y = price, color = clarity)) +
+  geom_point(alpha = .05, shape = 16)
+```
+
+### 8g) What do you see in this plot? Does it match your expectations? (1--3 sentences).
+
+I think so! It looks like clarity is only at the higher range of price. I think the higher-clarity diamonds do seem to be more at the lower end of weight, though. 
+
+### 8h) Make three modifications to this plot! Describe your reasoning for each modification. Try (okay if not) to add a modification that you have not used before.
+```{r}
+diamonds_clean |>
+  filter(dimension == "depth") |>
+  ggplot(aes(x = carat, y = price, color = clarity)) +
+  geom_point(alpha = .05, shape = 16) +
+  scale_y_continuous("Price", labels = scales::label_currency()) +
+  guides(color = guide_legend(override.aes = list(alpha = 1, size = 3)),
+        x = guide_axis(cap = T), y = guide_axis(cap = T)) +
+  labs(x = "Carat", color = "Clarity") +
+  theme_classic(base_size = 15) +
+  theme(legend.position = "bottom",
+        aspect.ratio = 1)
+```
+
+
+
+
+
+
+
+
+
+
+
+

@@ -536,14 +536,14 @@
     "href": "labs/Lab 1 - Basic R/PSYC2020L Assignment 1.html#setting-up",
     "title": "PSYC2020L Assignment 1",
     "section": "Setting Up",
-    "text": "Setting Up\n\n1) Rename this assignment as “Lab 1 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory"
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 1 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory\n\ngetwd()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L/labs/Lab 1 - Basic R\"\n\n\n\nWe ran out of time to cover setting working directory; this is all they have to do for this question."
   },
   {
     "objectID": "labs/Lab 1 - Basic R/PSYC2020L Assignment 1.html#r-basics",
     "href": "labs/Lab 1 - Basic R/PSYC2020L Assignment 1.html#r-basics",
     "title": "PSYC2020L Assignment 1",
     "section": "R Basics",
-    "text": "R Basics\n\n3) Compute:\n\na) The product of 4 * 4\n\n\nb) 4 squared\n\n\nc) The remainder from dividing 16 by 3\n\n\nd) FALSE divided by TRUE. Why did you get this answer?\n\n\n\n4) The output of the following two lines of code is different. Why is that?\n\n3 + 2 / 2\n\n[1] 4\n\n\n\n(3 + 2) / 2\n\n[1] 2.5\n\n\n\n\n4)\n\na) Create a vector of your four favorite movies\n\n\nb) Create a vector of the years they came out\n\n\nc) Create a vector of the ratings (number of stars out of five) that YOU think they deserve\n\n\nd) Put all those vectors in a dataframe with the column labels “fav_movie”, “year”, and “my_rating”\n\n\n\n5) Show me…\n\n\nThe first three rows of the iris dataset\n\n\n6) Plot…\n\nA scatterplot with Petal.Length on the x and Petal.Width on the y"
+    "text": "R Basics\n\n3) Compute:\n\na) The product of 4 * 4\n\n4 * 4\n\n[1] 16\n\n\n\n\nb) 4 squared\n\n4 ^ 2\n\n[1] 16\n\n# or\n4 ** 2\n\n[1] 16\n\n\n\nThe first one is more likely; it’s what I showed in class.\n\n\n\nc) The remainder from dividing 16 by 3\n\n16 %% 3\n\n[1] 1\n\n\n\n\nd) FALSE divided by TRUE. Why did you get this answer?\n\nFALSE / TRUE\n\n[1] 0\n\n\nFALSE and TRUE are represented as 0 and 1 by R. When you divide 0 by 1, you get 0.\n\n\n\n4) The output of the following two lines of code is different. Why is that?\n\n3 + 2 / 2\n\n[1] 4\n\n\n\n(3 + 2) / 2\n\n[1] 2.5\n\n\nR follows standard the order of operations for math (PEMDAS). Because parentheses are evaluated first, the (3 + 2) becomes 5 in the second version, which is then divided by 2 to get 2.5. In the first version, the 2 / 2 is evaluated first, which becomes 1 and is then added to 3 to get 4.\n\n\n4)\n\na) Create a vector of your four favorite movies\n\nThese don’t have to have output as long as the syntax is correct.\n\n\nmy_movies &lt;- c(\"Dune: Part 1\", \"Dune: Part 2\", \"Third Movie\", \"Fourth Movie\")\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nb) Create a vector of the years they came out\n\nmovie_years &lt;- c(2022, 2024, 2000, 2000)\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nc) Create a vector of the ratings (number of stars out of five) that YOU think they deserve\n\nratings &lt;- c(5, 5, 5, 5)\n\n\nThey don’t have to assign it to a variable here; creating a vector is enough.\n\n\n\nd) Put all those vectors in a dataframe with the column labels “fav_movie”, “year”, and “my_rating”\n\nSame here, doesn’t have to have output as long as the syntax is correct.\n\n\ndata.frame(fav_movie = my_movies,\n           year = movie_years,\n           my_rating = ratings)\n\n     fav_movie year my_rating\n1 Dune: Part 1 2022         5\n2 Dune: Part 2 2024         5\n3  Third Movie 2000         5\n4 Fourth Movie 2000         5\n\n\n\nWhether they retype it by hand or use variable assignment is fine as long as the responses from a, b, and c match d. The variable names should be fav_movie, year, and my_rating.\n\n\n\n\n5) Show me…\n\n\nThe first three rows of the iris dataset\n\nhead(iris, n = 3)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n\n\n\n\n6) Plot…\n\nA scatterplot with Petal.Length on the x and Petal.Width on the y\n\nplot(iris$Petal.Length, iris$Petal.Width)"
   },
   {
     "objectID": "labs/Lab 1 - Basic R/PSYC2020L Lab 1.html",
@@ -886,7 +886,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 9\n\nIntermediate R\nSlides\n\n\n\n\n09/26 Lab 9\n\nSampling Distributions\nSlides"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 5\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/26 Lab 6\n\nSampling Distributions\nSlides | Assignment\n\n\n\n\n\n\n\n09/12 Lab 7\n\nNHST I\nSlides\n\n\n\n\n09/19 Lab 8\n\nNHST II\nComing soon!\n\n\n\n\n09/26 Lab 9\n\nConfidence Intervals\nComing soon!"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
@@ -4337,7 +4337,7 @@
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#outline",
     "title": "NHST I",
     "section": "Outline",
-    "text": "Outline\n\nAssignment 6 Review\nNHST Review\nExploratory data analysis\n\nLearning objectives:\nR: Making data tidy, line graphs"
+    "text": "Outline\n\nAssignment 6 Review\nNHST Review\nExploratory data analysis\n\nLearning objectives:\nR: Exploratory data analysis"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#housekeeping",
@@ -4358,7 +4358,7 @@
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#nhst-review",
     "title": "NHST I",
     "section": "NHST Review",
-    "text": "NHST Review\nNull Hypothesis Significance Testing\n[placeholder for more NHST review]"
+    "text": "NHST Review\nNull Hypothesis Significance Testing\n\nStandard deviation measure of variance in the data distribution\nStandard error measure of variance in the sampling distribution\n\nHow do these two compare?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#exploratory-data-analysis-1",
@@ -4428,133 +4428,133 @@
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-small-diamonds",
     "title": "NHST I",
     "section": "EDA: Small diamonds",
-    "text": "EDA: Small diamonds\nLet’s start by zooming in on small diamonds\n\n\ndiamonds |&gt;\n  filter(carat &lt;= 3) |&gt;\n  ggplot(aes(x = carat)) +\n  geom_histogram(binwidth = 0.5)\n\n\n\n\n\n\n\n\n\n\nWhat do we want to know more about?\nHow might this be misleading?"
+    "text": "EDA: Small diamonds\nLet’s start by zooming in on small diamonds\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = carat)) +\n  geom_histogram(binwidth = 0.5) +\n  coord_cartesian(xlim = c(0, 3))\n\n\n\n\n\n\n\nWhat do we want to know more about?\nHow might this be misleading?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-small-diamonds-1",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-small-diamonds-1",
     "title": "NHST I",
     "section": "EDA: Small diamonds",
-    "text": "EDA: Small diamonds\nLet’s look at this distribution with more precision!\n\n\ndiamonds |&gt;\n  filter(carat &lt;= 3) |&gt;\n  ggplot(aes(x = carat)) +\n  geom_histogram(binwidth = 0.01)\n\n\n\n\n\n\n\n\n\n\nQuestions?\n\n\nWhy are there more diamonds at whole carats and common fractions of carats?\nWhy are there more diamonds slightly to the right of each peak than there are slightly to the left of each peak?"
+    "text": "EDA: Small diamonds\nLet’s look at this distribution with more precision!\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = carat)) +\n  geom_histogram(binwidth = 0.01) +\n  coord_cartesian(xlim = c(0, 3))\n\n\n\n\n\n\n\nQuestions?\n\n\nWhy are there more diamonds at whole carats and common fractions of carats?\nWhy are there more diamonds slightly to the right of each peak than there are slightly to the left of each peak?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-clustering",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-clustering",
     "title": "NHST I",
     "section": "EDA: Clustering",
-    "text": "EDA: Clustering\nSeeing clustering may mean we have subgroups in our data\n\ndiamonds |&gt;\n  filter(carat &lt;= 3) |&gt;\n  ggplot(aes(x = carat)) +\n  geom_histogram(binwidth = 0.01)\n\n\n\nHow are the observations within each subgroup similar to each other?\nHow are the observations in separate clusters different from each other?\nHow can you explain or describe the clusters?\nWhy might the appearance of clusters be misleading?"
+    "text": "EDA: Clustering\nSeeing clustering may mean we have subgroups in our data\n\nHow are the observations within each subgroup similar to each other?\nHow are the observations in separate clusters different from each other?\nHow can you explain or describe the clusters?\nWhy might the appearance of clusters be misleading?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values",
     "title": "NHST I",
     "section": "EDA: Unusual Values",
-    "text": "EDA: Unusual Values\nLike outliers! Things that don’t fit the rest of the pattern.\nLet’s look at the y variable (diamond width) in this dataset\n\n\nggplot(diamonds, aes(x = y)) + \n  geom_histogram(binwidth = 0.5)\n\n\n\n\n\n\n\n\n\n\nWhat do we notice?"
+    "text": "EDA: Unusual Values\nLike outliers! Things that don’t fit the rest of the pattern.\nLet’s look at the y variable (diamond width) in this dataset\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(diamonds, aes(x = y)) + \n  geom_histogram(binwidth = 0.5)\n\n\n\n\n\n\n\nWhat do we notice?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-1",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-1",
     "title": "NHST I",
     "section": "EDA: Unusual Values",
-    "text": "EDA: Unusual Values\nCan’t even see any outliers because the high points are so high\nLet’s zoom in (coord_cartesian())\n\n\nggplot(diamonds, aes(x = y)) + \n  geom_histogram(binwidth = 0.5) +\n  coord_cartesian(ylim = c(0, 50))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nggplot2 also has xlim() and ylim() functions, but they are different: they throw away the data outside the limits\n\n\n\n\n\nWhere are the unusual data?"
+    "text": "EDA: Unusual Values\nCan’t even see any outliers because the high points are so high\nLet’s zoom in (coord_cartesian())\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(diamonds, aes(x = y)) + \n  geom_histogram(binwidth = 0.5) +\n  coord_cartesian(ylim = c(0, 50))\n\n\n\n\n\n\n\nWhere are the unusual data?\n\n\n\n\n\n\n\n\nNote\n\n\nggplot2 also has xlim() and ylim() functions, but they are different: they throw away the data outside the limits"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-2",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-2",
     "title": "NHST I",
     "section": "EDA: Unusual Values",
-    "text": "EDA: Unusual Values\nWhen we find unusual values, it’s good to then go back to the data\n\ndiamonds |&gt; \n  filter(y &lt; 3 | y &gt; 20) |&gt; \n  select(price, x, y, z) |&gt;\n  arrange(y)\n\n# A tibble: 9 × 4\n  price     x     y     z\n  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  5139  0      0    0   \n2  6381  0      0    0   \n3 12800  0      0    0   \n4 15686  0      0    0   \n5 18034  0      0    0   \n6  2130  0      0    0   \n7  2130  0      0    0   \n8  2075  5.15  31.8  5.12\n9 12210  8.09  58.9  8.06\n\n\n\nSince width cannot be zero, we know we found missing data that was coded as zero!\n\n\nWhat’s going on with the large ones? Can we use other variables to infer if they’re accurate or not?"
+    "text": "EDA: Unusual Values\nWhen we find unusual values, it’s good to then go back to the data\n\n\n\n\ndiamonds |&gt; \n  filter(y &lt; 3 | y &gt; 20) |&gt; \n  select(price, x, y, z) |&gt;\n  arrange(y)\n\n# A tibble: 9 × 4\n  price     x     y     z\n  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  5139  0      0    0   \n2  6381  0      0    0   \n3 12800  0      0    0   \n4 15686  0      0    0   \n5 18034  0      0    0   \n6  2130  0      0    0   \n7  2130  0      0    0   \n8  2075  5.15  31.8  5.12\n9 12210  8.09  58.9  8.06\n\n\n\n\n\nSince width cannot be zero, we know we found missing data that was coded as zero!\n\n\nWhat’s going on with the large ones? Can we use other variables to infer if they’re accurate or not?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-3",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-3",
     "title": "NHST I",
     "section": "EDA: Unusual Values",
-    "text": "EDA: Unusual Values\nOutliers: what do?\nAbove all else, be transparent, and don’t remove them without making a note in your report\nLots and lots of potential ways of dealing with outliers, and lots and lots of ways that can have implications for your analysis\nA basic guide is to try doing your analysis with and without the outliers to see how much impact removing them has\nMore on that in advanced statistics classes!"
+    "text": "EDA: Unusual Values\nOutliers: what do?\n\nAbove all else, be transparent, and don’t remove them without making a note in your report\n\n\nLots and lots of potential ways of dealing with outliers, and lots and lots of ways that can have implications for your analysis\nA basic guide is to try doing your analysis with and without the outliers to see how much impact removing them has\n\n\nMore on that in advanced statistics classes!"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-4",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-unusual-values-4",
     "title": "NHST I",
     "section": "EDA: Unusual values",
-    "text": "EDA: Unusual values\nFor our purposes, let’s at least change those unusual values to NA\n\n\ndiamonds2 &lt;- diamonds |&gt;\n  mutate(y = ifelse(y &lt; 3 | y &gt; 20, NA, y))\n\nggplot(diamonds2, aes(x = y)) + \n  geom_histogram(binwidth = 0.5, na.rm = T)"
+    "text": "EDA: Unusual values\nFor our purposes, let’s at least change those unusual values to NA\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds2 &lt;- diamonds |&gt;\n  mutate(y = ifelse(y &lt; 3 | y &gt; 20, NA, y))\n\nggplot(diamonds2, aes(x = y)) + \n  geom_histogram(binwidth = 0.5, na.rm = T)"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#histograms-an-aesthetics-interlude",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#histograms-an-aesthetics-interlude",
     "title": "NHST I",
     "section": "Histograms: An aesthetics interlude",
-    "text": "Histograms: An aesthetics interlude\nWhat can we do to change the appearance of a geom_histogram()?\n\nggplot(diamonds2, aes(x = y)) + \n  geom_histogram(binwidth = 0.5, na.rm = T,\n                 fill = \"seagreen3\", color = \"seagreen\",\n                 alpha = .5, linewidth = 1.5)"
+    "text": "Histograms: An aesthetics interlude\nWhat can we do to change the appearance of a geom_histogram()?\n\n\nggplot(diamonds2, aes(x = y)) + \n  geom_histogram(binwidth = 0.5, na.rm = T,\n                 fill = \"seagreen3\", color = \"seagreen\",\n                 alpha = .5, linewidth = 1.5)"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-numeric-variable-associations",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-numeric-variable-associations",
     "title": "NHST I",
     "section": "EDA: Categorical and numeric variable associations",
-    "text": "EDA: Categorical and numeric variable associations\nHow might the price of a diamond vary by its quality (cut)?\n\n\ndiamonds |&gt;\n  ggplot(aes(y = price, x = cut)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\nWhat do we want to know more about?\nHow might this be misleading?"
+    "text": "EDA: Categorical and numeric variable associations\nHow might the price of a diamond vary by its quality (cut)?\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(y = price, x = cut)) +\n  geom_boxplot()\n\n\n\n\n\n\n\nWhat do we want to know more about?\nHow might this be misleading?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-numeric-variable-associations-1",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-numeric-variable-associations-1",
     "title": "NHST I",
     "section": "EDA: Categorical and numeric variable associations",
-    "text": "EDA: Categorical and numeric variable associations\nWant to see the distributions as well too!\n\n\ndiamonds |&gt;\n  ggplot(aes(y = price, x = cut)) +\n  geom_violin() +\n  geom_boxplot(width = .1)\n\n\n\n\n\n\n\n\n\n\nNotice that cut was already ordered for us! Thank you, factors!\n\n\n\ndiamonds |&gt; pull(cut) |&gt; levels()\n\n[1] \"Fair\"      \"Good\"      \"Very Good\" \"Premium\"   \"Ideal\""
+    "text": "EDA: Categorical and numeric variable associations\nWant to see the distributions as well too!\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(y = price, x = cut)) +\n  geom_violin() +\n  geom_boxplot(width = .1)\n\n\n\n\n\n\n\nNotice that cut was already ordered for us! Thank you, factors!\n\n\n\ndiamonds |&gt;\n  pull(cut) |&gt;\n  levels()\n\n[1] \"Fair\"      \"Good\"      \"Very Good\" \"Premium\"   \"Ideal\""
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#factors-an-ordering-interlude",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#factors-an-ordering-interlude",
     "title": "NHST I",
     "section": "Factors: An ordering interlude",
-    "text": "Factors: An ordering interlude\nWhat if our variable is a factor, but we want to order it by a different variable?\n\n\nlevels(diamonds$color)\n\n[1] \"D\" \"E\" \"F\" \"G\" \"H\" \"I\" \"J\"\n\nfct_reorder(diamonds$color, diamonds$price) |&gt; levels()\n\n[1] \"E\" \"D\" \"G\" \"F\" \"H\" \"I\" \"J\"\n\ndiamonds |&gt;\n  ggplot(aes(y = price, x = fct_reorder(color, -price))) + # or .desc = T\n  geom_violin() +\n  geom_boxplot(width = .1)"
+    "text": "Factors: An ordering interlude\nWhat if our variable is a factor, but we want to order it by a different variable?\n\n\nPlotCode\n\n\n\n\n[1] \"D\" \"E\" \"F\" \"G\" \"H\" \"I\" \"J\"\n\n\n[1] \"E\" \"D\" \"G\" \"F\" \"H\" \"I\" \"J\"\n\n\n\n\n\n\n\n\n\n\n\n\nlevels(diamonds$color)\nfct_reorder(diamonds$color, diamonds$price) |&gt; levels()\n\ndiamonds |&gt;\n  ggplot(aes(y = price, x = fct_reorder(color, -price))) + # or .desc = T\n  geom_violin() +\n  geom_boxplot(width = .1)"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#boxplots-and-violinplots-an-aesthetics-interlude",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#boxplots-and-violinplots-an-aesthetics-interlude",
     "title": "NHST I",
     "section": "Boxplots and Violinplots: An aesthetics interlude",
-    "text": "Boxplots and Violinplots: An aesthetics interlude\n\n\ndiamonds |&gt;\n  ggplot(aes(x = price, y = cut)) +\n  geom_violin(color = \"skyblue3\", fill = \"skyblue\",\n              alpha = .4, linewidth = .5, linetype = \"dashed\") +\n  geom_boxplot(width = .08, color = \"skyblue3\", whisker.color = NA,\n               fill = \"transparent\", linewidth = .8,\n               outliers = F, notch = T)"
+    "text": "Boxplots and Violinplots: An aesthetics interlude\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = price, y = cut)) +\n  geom_violin(color = \"skyblue3\", fill = \"skyblue\",\n              alpha = .4, linewidth = .5, linetype = \"dashed\") +\n  geom_boxplot(width = .08, color = \"skyblue3\", whisker.color = NA,\n               fill = \"transparent\", linewidth = .8,\n               outliers = F, notch = T)"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations",
     "title": "NHST I",
     "section": "EDA: Categorical and categorical variable associations",
-    "text": "EDA: Categorical and categorical variable associations\nOften exploring counts and / or proportions\n\n\ndiamonds |&gt;\n  ggplot(aes(x = color)) +\n  geom_bar()\n\n\n\n\n\n\n\n\n\n\nDoes this change for diamonds of different qualities (cuts)?"
+    "text": "EDA: Categorical and categorical variable associations\nOften exploring counts and / or proportions\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = color)) +\n  geom_bar()\n\n\n\n\n\n\n\nDoes this change for diamonds of different qualities (cuts)?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations-1",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations-1",
     "title": "NHST I",
     "section": "EDA: Categorical and categorical variable associations",
-    "text": "EDA: Categorical and categorical variable associations\nOften exploring counts and / or proportions\n\n\ndiamonds |&gt;\n  ggplot(aes(x = color, fill = cut)) +\n  geom_bar(position = \"dodge\")\n\n\n\n\n\n\n\n\n\n\nIs the total count for each color obscuring the proportions of qualities within color?"
+    "text": "EDA: Categorical and categorical variable associations\nOften exploring counts and / or proportions\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = color, fill = cut)) +\n  geom_bar()\n\n\n\n\n\n\n\nStacked bar chart: is this easy to read?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations-2",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations-2",
     "title": "NHST I",
     "section": "EDA: Categorical and categorical variable associations",
-    "text": "EDA: Categorical and categorical variable associations\nOften exploring counts and / or proportions\n\n\ndiamonds |&gt;\n  ggplot(aes(x = color, fill = cut)) +\n  geom_bar(position = \"fill\")\n\n\n\n\n\n\n\n\n\n\nSeems more like there’s not many differences here!"
+    "text": "EDA: Categorical and categorical variable associations\nOften exploring counts and / or proportions\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = color, fill = cut)) +\n  geom_bar(position = \"dodge\")\n\n\n\n\n\n\n\nIs the total count for each color obscuring the proportions of qualities within color?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations",
     "title": "NHST I",
     "section": "EDA: Numeric and numeric variable associations",
-    "text": "EDA: Numeric and numeric variable associations\nScatterplot!\n\n\ndiamonds |&gt;\n  ggplot(aes(x = carat, y = price)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\nHard to see the trends at the bottom?"
+    "text": "EDA: Numeric and numeric variable associations\nScatterplot!\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = carat, y = price)) +\n  geom_point()\n\n\n\n\n\n\n\nHard to see the trends at the bottom?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations-1",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations-1",
     "title": "NHST I",
     "section": "EDA: Numeric and numeric variable associations",
-    "text": "EDA: Numeric and numeric variable associations\nScatterplot!\n\ndiamonds |&gt;\n  ggplot(aes(x = carat, y = price)) +\n  geom_point(alpha = .05)\n\n\n\nWhat’s that clustering? Any guesses?"
+    "text": "EDA: Numeric and numeric variable associations\nScatterplot!\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = carat, y = price)) +\n  geom_point(alpha = .05)\n\n\n\n\n\n\n\nWhat’s that clustering? Any guesses?"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations-2",
     "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-numeric-and-numeric-variable-associations-2",
     "title": "NHST I",
     "section": "EDA: Numeric and numeric variable associations",
-    "text": "EDA: Numeric and numeric variable associations\nScatterplot!\n\n\ndiamonds |&gt;\n  ggplot(aes(x = carat, y = price, color = color)) +\n  geom_point(alpha = .05, shape = 16,\n             size = 2) +\n  guides(color = guide_legend(override.aes = list(alpha = 1)))"
+    "text": "EDA: Numeric and numeric variable associations\nScatterplot!\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = carat, y = price, color = color)) +\n  geom_point(alpha = .05, shape = 16,\n             size = 2) +\n  guides(color = guide_legend(override.aes = list(alpha = 1)))"
   },
   {
     "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#assignment-7",
@@ -4716,5 +4716,306 @@
     "title": "PSYC2020L Assignment 5",
     "section": "Visualize",
     "text": "Visualize\nNext, we will make two visualizations from this data. We will do this step by step like in the slides.\nOur first goal will be to make a scatterplot of bill length and depth with the dot color showing species. We will also add trend lines and some customization.\n\n9a) To start, using the ggplot() function, set up a grid that uses the penguins data. Put bill_length_mm on the x-axis and bill_depth_mm on the y-axis.\n\n\n9b) Next, let’s add some points. Feel free to copy down your code from the last question, and add the geom_() function that will create a scatter plot.\n\n\n9c) Please describe / discuss what you see in the plot above (1–2 sentences). Also—if R gave a warning, please describe what it’s telling you! No need to make any changes from the warning.\n\n\n9d) Now, let’s let the color of the points represent species. First, do we need to modify the aesthetic or the geom? How do you know?\n\n\n9e) Now, modify the plot such that point color represents species.\n\n\n9f) Please describe / discuss what you see in the plot above. How does the color indicator add information about the trends in these data? (1–2 sentences).\n\n\n9g) Next, we are going to add trend lines to this plot, also as by species. Do we need to modify the aesthetic or the geom, and how do you know?\n\n\n9h) Add the trend lines! Include the argument method = \"lm\" in your change.\n\n\n9i) Lastly, please add some customization to this plot! Make at least three changes. For each change, please describe what you added / adjusted and why you think it betters the visualization."
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#outline",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#outline",
+    "title": "NHST II",
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 7 Review\nNHST II Review\nImport Deep Dive\n\nLearning objectives:\nR: Importing"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#housekeeping",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#housekeeping",
+    "title": "NHST II",
+    "section": "Housekeeping",
+    "text": "Housekeeping\n[placeholder for any housekeeping stuff]"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#assignment-7-review",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#assignment-7-review",
+    "title": "NHST II",
+    "section": "Assignment 7 Review",
+    "text": "Assignment 7 Review\n[placeholder for Assignment 7 review]"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#nhst-ii-review",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#nhst-ii-review",
+    "title": "NHST II",
+    "section": "NHST II Review",
+    "text": "NHST II Review\n[placeholder for any NHST II review]"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review",
+    "title": "NHST II",
+    "section": "Working Directory Review",
+    "text": "Working Directory Review\nOur working directory is where R starts looking for files when we ask it to\nIn RMarkdown, knitr (which knits our document) overrides working directory changes within a chunk\nRelative paths let us specify paths to a file from a starting point folder\nBy default,\n\n○ RMarkdown’s starting point is the document’s folder\n\n\n○ here::here()’s starting point is the project’s folder\n\n\n○ R script’s starting point is the project’s folder"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-1",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-1",
+    "title": "NHST II",
+    "section": "Working Directory Review",
+    "text": "Working Directory Review\nYou can change where RMarkdown knits to (this will also change where the .html output appears)"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-2",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-2",
+    "title": "NHST II",
+    "section": "Working Directory Review",
+    "text": "Working Directory Review\nHow would we specify paths to each of these files?\nDocuments/PSYC2020L\n├── PSYC2020L.Rproj\n├── Lab 1\n│   ├── data1.csv\n│   ├── script1.R\n│   ├── rmdfile1.Rmd\n├── Lab 2\n│   ├── data2.csv\n└───┴── rmdfile2.Rmd\n\n\nscript1.R to data1.csv\n\"Lab 1/data1.csv\" or here::here(\"Lab 1\", \"data1.csv\")\n\nrmdfile1.Rmd to data1.csv\n\"data1.csv\" or here::here(\"Lab 1\", \"data1.csv\")\n\nrmdfile2.Rmd to data1.csv\n\"../data2.csv\" or here::here(\"Lab 1\", \"data1.csv\")"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-3",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-3",
+    "title": "NHST II",
+    "section": "Working Directory Review",
+    "text": "Working Directory Review"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo",
+    "title": "NHST II",
+    "section": "Hypothesis Testing Demo",
+    "text": "Hypothesis Testing Demo\nWe start by assuming the null hypothesis (\\(H_0\\)) is true. Let’s say our null hypothesis is that the population mean of some happiness scale is 10 (\\(\\mu = 10\\)). In this situation, we also know that the population variance on this scale is 4 (\\(\\sigma^2 = 4, \\sigma = 2\\)).\nIf the null hypothesis were true, this is what we’d expect to see:"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-4",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-4",
+    "title": "NHST II",
+    "section": "Working Directory Review",
+    "text": "Working Directory Review"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-5",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-5",
+    "title": "NHST II",
+    "section": "Working Directory Review",
+    "text": "Working Directory Review"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-6",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-6",
+    "title": "NHST II",
+    "section": "Working Directory Review",
+    "text": "Working Directory Review\nLet’s do this for real!\nDownload the data.csv file off Canvas\nMake a test R script (could be regular R script if you follow along) and test RMarkdown document\nLet’s make sure we can all read files in both formats"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-1",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-1",
+    "title": "NHST II",
+    "section": "Hypothesis Testing Demo",
+    "text": "Hypothesis Testing Demo\n\nn_pop &lt;- 1000\nn_samp &lt;- 20\npop_mean &lt;- 10\npop_sd &lt;- 2\nsamp_mean &lt;- 12\n\n\n\nnull &lt;- data.frame(x = seq(-20, 20, length.out = n_pop)) |&gt;\n  mutate(y = rnorm(n_pop, pop_mean, pop_sd),\n         dens = dnorm(y, pop_mean, pop_sd)) \n\nalt &lt;- data.frame(x = seq(-20, 20, length.out = n_samp)) |&gt;\n  mutate(y = rnorm(n_samp, samp_mean, pop_sd),\n         dens = dnorm(y, samp_mean, pop_sd))"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1",
+    "title": "NHST II",
+    "section": "Hypothesis Testing Demo: Scenario 1",
+    "text": "Hypothesis Testing Demo: Scenario 1\n\nPlotCode"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-2",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-2",
+    "title": "NHST II",
+    "section": "Hypothesis Testing Demo",
+    "text": "Hypothesis Testing Demo\n\nPlotCode"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#archive--",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#archive--",
+    "title": "NHST II",
+    "section": "ARCHIVE —-",
+    "text": "ARCHIVE —-"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1-1",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1-1",
+    "title": "NHST II",
+    "section": "Hypothesis Testing Demo: Scenario 1",
+    "text": "Hypothesis Testing Demo: Scenario 1\n\nPlotCode"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1-2",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1-2",
+    "title": "NHST II",
+    "section": "Hypothesis Testing Demo: Scenario 1",
+    "text": "Hypothesis Testing Demo: Scenario 1\n\nPlotCode"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1-3",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1-3",
+    "title": "NHST II",
+    "section": "Hypothesis Testing Demo: Scenario 1",
+    "text": "Hypothesis Testing Demo: Scenario 1\n\nPlotCode"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1-4",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1-4",
+    "title": "NHST II",
+    "section": "Hypothesis Testing Demo: Scenario 1",
+    "text": "Hypothesis Testing Demo: Scenario 1\n\nPlotCode"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1-5",
+    "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-scenario-1-5",
+    "title": "NHST II",
+    "section": "Hypothesis Testing Demo: Scenario 1",
+    "text": "Hypothesis Testing Demo: Scenario 1\n\nPlotCode"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#assignment-6-review",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#assignment-6-review",
+    "title": "NHST I",
+    "section": "Assignment 6 Review",
+    "text": "Assignment 6 Review\n\nMake sure to upload your knitted .html file!\nAnd to still be monitoring working directories"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations-3",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#eda-categorical-and-categorical-variable-associations-3",
+    "title": "NHST I",
+    "section": "EDA: Categorical and categorical variable associations",
+    "text": "EDA: Categorical and categorical variable associations\nOften exploring counts and / or proportions\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = color, fill = cut)) +\n  geom_bar(position = \"fill\")\n\n\n\n\n\n\n\nSeems more like there’s not many differences here!"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#nhst-review-1",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#nhst-review-1",
+    "title": "NHST I",
+    "section": "NHST Review",
+    "text": "NHST Review\nCan use the standard error to get a z-value for our observed mean\n\nFor that z-value, what might z = 3 imply? What might we say about it?\n\n\n\nFor that z-value, what might z = 0 imply? What might we say about it?"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#remember-this-1",
+    "href": "labs/Lab 7 - NHST I/PSYC2020 Lab 7.html#remember-this-1",
+    "title": "NHST I",
+    "section": "Remember this?",
+    "text": "Remember this?"
+  },
+  {
+    "objectID": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html",
+    "href": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html",
+    "title": "PSYC2020L Assignment 6",
+    "section": "",
+    "text": "Tidying data\nLine graphs\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#goals-for-review",
+    "href": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#goals-for-review",
+    "title": "PSYC2020L Assignment 6",
+    "section": "",
+    "text": "Tidying data\nLine graphs\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#setting-up",
+    "href": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#setting-up",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 6 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Make sure to load the tidyverse package!"
+  },
+  {
+    "objectID": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#import",
+    "href": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#import",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Import",
+    "text": "Import\n\n3) The tidyverse package includes a dataset called billboard that has song rankings for the Billboard Top 100 songs from the year 2000. Use the head() function to display the first six rows. Then, use the names() to look at the column names."
+  },
+  {
+    "objectID": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#tidy",
+    "href": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#tidy",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Tidy",
+    "text": "Tidy\n\n4a) Is the billboards dataset in wide or long format? How can you tell?\n\n\n4b) Using the ? tool on the dataset and / or the output from #3, please describe the contents of this dataset (specificially, an overview of what you can find in the columns) (1–2 sentences).\n\n\n4c) Given what you said in #4a, would you want to use the pivot_longer() or pivot_wider() function on this data?\n\n\n5) Using a pipe, let’s do a few things:\n\nTidy the data as you planned to in #4c,\nMutate the column with the numbered weeks so that it’s just numeric (hint: the parse_number() function will extract numbers from a string. Feel free to review its documentation with ?),\nAssign this tidied version to a variable so we can continue using it.\n\nAfter the pipe, print the first six rows from this tidied version."
+  },
+  {
+    "objectID": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#visualization",
+    "href": "docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html#visualization",
+    "title": "PSYC2020L Assignment 6",
+    "section": "Visualization",
+    "text": "Visualization\n\n7a) Now, let’s plot some of this data. Let’s make a line graph that has time (week) on the x-axis and a song’s ranking on the y-axis. Start by using the ggplot() function to make a grid with axes (no geoms yet).\n\n\n7b) Now, let’s add a geom_line() to show the rankings of the different songs over time. Remember you will need to add a group argument to your aes.\n\n\n7c) Because higher is “worse” for rankings, let’s reverse the y-axis so higher on the y is “better” by adding a scale layer. The function scale_y_reverse() will do this for us! Add it on to your plot just like you would add a new layer.\n\n\n7d) Modify the alpha argument within your geom to make it easier to see the patterns.\n\n\n7d) Make three more modifications to this plot.\n\n\n7e) Describe what you see in this plot (1–2 sentences)."
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html",
+    "title": "PSYC2020L Assignment 2",
+    "section": "",
+    "text": "Basic R functions\nDescriptive statistics\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#goals-for-review",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#goals-for-review",
+    "title": "PSYC2020L Assignment 2",
+    "section": "",
+    "text": "Basic R functions\nDescriptive statistics\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#setting-up",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#setting-up",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 2 Assignment [Last, First].Rmd”\n\n\n2) Check and set your working directory"
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#basic-r-functions",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#basic-r-functions",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Basic R Functions",
+    "text": "Basic R Functions\n\n3) Write an R function that takes in two numbers, multiplies them together, and returns the product\n\n\n4) Write an R function that takes in three vectors, puts them in a dataframe, and returns the last two rows of the dataframe."
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#data-summary",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#data-summary",
+    "title": "PSYC2020L Assignment 2",
+    "section": "Data Summary",
+    "text": "Data Summary\nWe will be using the airquality dataset for this assignment. Like the iris dataset, this comes preloaded in R. It contains information on daily air quality measurements in New York from May to September 1973.\n\n5) Show me the first five rows of the airquality dataset\n\n\n6) Obtain the summary() statistics for this dataset"
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#ozone-descriptive-statistics",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#ozone-descriptive-statistics",
+    "title": "PSYC2020L Assignment 2",
+    "section": "7) Ozone Descriptive Statistics",
+    "text": "7) Ozone Descriptive Statistics\n\na) What is the mean?\n\n\nb) What is the median?"
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#histograms-for-ozone",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#histograms-for-ozone",
+    "title": "PSYC2020L Assignment 2",
+    "section": "8) Histograms for Ozone",
+    "text": "8) Histograms for Ozone\n\na) Obtain a histogram with breaks = 10\n\n\nb) Obtain a histogram with breaks = 50\n\n\nc) Obtain a histogram with breaks = 200\n\n\nd) Compare three histograms above and describe the differences"
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#boxplot-for-ozone",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#boxplot-for-ozone",
+    "title": "PSYC2020L Assignment 2",
+    "section": "9) Boxplot for Ozone",
+    "text": "9) Boxplot for Ozone\n\na) Obtain a boxplot for Ozone\n\n\nb) Is the data symmetrical? (Yes / No) How can you tell?\n\n\nc) Is the data skewed? (Yes / No) How can you tell?"
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#descriptive-statistics-for-temp",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#descriptive-statistics-for-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "10) Descriptive statistics for Temp",
+    "text": "10) Descriptive statistics for Temp\n\na) What is the mean?\n\n\nb) What is the median?"
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#histogram-for-temp",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#histogram-for-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "11) Histogram for Temp",
+    "text": "11) Histogram for Temp\n\na) Obtain a histogram with default number of breaks."
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#comparison-between-ozone-and-temp",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#comparison-between-ozone-and-temp",
+    "title": "PSYC2020L Assignment 2",
+    "section": "12) Comparison between Ozone and Temp…",
+    "text": "12) Comparison between Ozone and Temp…\n\na) Does the mean change?\n\n\nb) Does the median change?"
+  },
+  {
+    "objectID": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#mode-for-wind",
+    "href": "labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html#mode-for-wind",
+    "title": "PSYC2020L Assignment 2",
+    "section": "13) Mode for Wind",
+    "text": "13) Mode for Wind\n\na) What is the mode for the Wind variable? How many times did it occur?"
   }
 ]

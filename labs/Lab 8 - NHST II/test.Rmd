@@ -1,0 +1,42 @@
+---
+title: "Working Directory Demo"
+author: "Jessica Helmer"
+date: "2025-10-02"
+output: html_document
+---
+
+My file structure: 
+
+```
+Documents/PSYC2020L
+├── PSYC2020L.Rproj
+└── labs
+    ├── Lab 7 - NHST I
+    ├── r4ds.jpg
+    └── Lab 8 - NHST II
+        ├── test.Rmd
+        └── R.png
+```
+
+```{r}
+getwd()
+here::here()
+```
+
+#### Getting `R` Picture
+```{r, out.height=200, out.width=200}
+knitr::include_graphics("R.png")
+```
+
+```{r, out.height=200, out.width=200}
+knitr::include_graphics(here::here("labs", "Lab 8 - NHST II", "R.png"))
+```
+
+#### Getting `r4ds` Picture
+```{r}
+knitr::include_graphics("../Lab 7 - NHST I/r4ds.jpg")
+```
+
+```{r}
+knitr::include_graphics(here::here("labs", "Lab 7 - NHST I", "r4ds.jpg"))
+```

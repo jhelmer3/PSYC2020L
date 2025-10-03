@@ -1,0 +1,167 @@
+---
+title: "PSYC2020L Assignment 7"
+author: "[name]"
+date: "2025-10-03"
+output: html_document
+---
+
+## Goals for Review:
+
+* Exploratory Data Analysis
+
+
+## Setting Up
+
+### 1) Rename this assignment as "Lab 7 Assignment [Last, First].Rmd" 
+
+### 2) Check and set (if needed) your working directory. If you'd like to load packages with `library()`, please do so in this block. Make sure to load the `tidyverse` package!
+```{r}
+
+```
+
+
+## Import
+
+### 3) With the `tidyverse` package, we have acess to the `diamonds` dataset. Use three functions to get a look at this data.
+```{r}
+
+```
+
+
+## Exploration
+
+### 4a) Let's continue exploring the relationships influencing a diamond's `price`. Let's start by building on what we saw about the relationship between a diamond's quality (`cut`) and its `price.` With `cut` on the x-axis and `price` on the y-axis, make a violin and boxplot graph.
+```{r}
+
+```
+
+### 4b) Make three modifications to this visualization that you think improve it. Describe your reasoning for each modification.
+```{r}
+
+```
+
+
+
+### 4b) Box and violinplots are helpful, but it is also often helpful to see the datapoints themselves. The `geom_jitter()` function will add the points correctly to where they lie on the y-axis, but a bit scattered around the x-axis (because the x-axis is not numeric). Add this geom (you may also want to decrease the `alpha` value).
+```{r}
+
+```
+
+### 4d) What relationship(s) do we see in this plot?
+
+
+
+### 4e) Say we wanted to zoom in on the distributions of the lower-priced diamonds. Make two different plots: one that zooms in with `coord_cartesian()`, and one that zooms in with `ggplot2`'s `ylim()`. What is the difference, and which one do you think is generally best practice to use? Feel free to check the `?ylim` documentation.
+```{r}
+
+```
+
+### 5a) Let's step back and explore the distributions of the `price` variable with histograms. Make two versions: one with 10 bins and one with 50 bins. What do you notice about this plot?
+```{r}
+
+```
+
+### 5b) Swap the histogram to a `geom_density()` plot. Also, map the density plot line `color` to the `cut` of the diamond.
+```{r}
+
+```
+
+### 5c) Make three modifications to the density plot that you think improve it. Describe your reasoning for each modification.
+```{r}
+
+```
+
+
+
+### 5d) Describe what you see in the plot now. Does this explain anything you noticed in 5a?
+
+
+
+### 6a) Perhaps the relationship between diamond quality (`cut`) and `price` has to do with its size. Let's first look at the relationship between `price` and size, and then we will see if it can explain the `price`. To do this, create a cleaner version of the `diamonds` dataset in one pipe that:
+
+1. Has `x`, `y`, and `z` each in their own row for each diamond,
+
+2. Uses `mutate()` to change diamond sizes at 0mm or above 20mm to `NA` (based on what we saw in class), and
+
+3. Changes the `x`, `y`, and `z` variables to be a factor with labels indicating the dimension they measure (feel free to reference `?diamonds` for data information and `?factor` for factor syntax).
+```{r}
+
+```
+
+### 6b) Now, let's look at the relationship between diamond size and quality. Using your cleaned dataframe, start by making a histogram with the size measurement on the x-axis. Change the default number of bins to a better one (in your opinion).
+```{r}
+
+```
+
+### 6c) Use the `facet_wrap()` function to facet the histogram by the type of measurement. You can use the `scales = "free_x"` argument to let the x-axis scales automatically generate for each facet (as opposed to them all sharing the same).
+```{r}
+
+```
+
+### 6d) Let's add in the diamond quality (`cut`) as the fill color. Also, change the `position` argument to `"fill"` to best see the proportions.
+```{r}
+
+```
+
+### 6e) What do you see in this plot? (1--3 sentences)
+
+
+
+### 7a) Let's bring it all together by looking at size, cut, and price all in the same visualization. Still using your cleaned version of the dataset, make a scatterplot with the size measurement on the x-axis, the price on the y-axis, and color denoting the cut. Use the `facet_wrap()` function again to facet by the type of measurement. You may want to take down the `alpha` value of the points!
+```{r}
+
+```
+
+### 7b) Describe what you see in this plot. (1--3 sentences)
+
+
+
+### 7c) Make three modifications to this plot that you think improve it. Describe your reasoning for each modification.
+```{r}
+
+```
+
+
+## More Exploration
+
+To finish up, you're going to do some exploratory data analysis on your own! Pick a variable that's not size or price, and explore its relationship other variables (other variable can be size or price). This section will be pretty open-ended, so feel free to explore and play around with this data!
+
+### 8a) Start by plotting the distribution of your chosen variable with a histogram. Make sure to play around with the number of bins to look for any interesting trends. For the question, display one histogram that either (a) has number of bins that is a good representation of the data or (b) has number of bins that shows something interesting about the data.
+```{r}
+
+```
+
+### 8b) Describe what you see in the histogram (1--2 sentences).
+
+
+
+### 8c) Now, use some plot to look at this variable's relationship with some other variable.
+```{r}
+
+```
+
+### 8d) Describe what you see. (1--2 sentences)
+
+
+
+### 8e) Consider a third variable that may be related to your first variable (or your second variable as well). What would you expect the relationship to look like?
+
+
+
+### 8f) Incorporate a third variable, either by including it in the previous plot as an additional aesthetic or by making a separate plot. Either way, the new visualization should be able to confirm or challenge your expectation of what the relationship would look like!
+```{r}
+
+```
+
+### 8g) What do you see in this plot? Does it match your expectations? (1--3 sentences).
+
+
+
+### 8h) Make three modifications to this plot! Describe your reasoning for each modification. Try (okay if not) to add a modification that you have not used before.
+```{r}
+
+```
+
+
+
+

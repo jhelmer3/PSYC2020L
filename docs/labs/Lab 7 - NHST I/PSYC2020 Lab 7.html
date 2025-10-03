@@ -218,20 +218,35 @@ Jessica Helmer
 <li>Exploratory data analysis</li>
 </ul>
 <p>Learning objectives:<br>
-<strong>R:</strong> Making data tidy, line graphs</p>
+<strong>R:</strong> Exploratory data analysis</p>
 </section>
-<section id="housekeeping" class="slide level2">
-<h2>Housekeeping</h2>
-<p>[placeholder for any housekeeping stuff]</p>
-</section>
-<section id="assignment-5-review" class="slide level2">
-<h2>Assignment 5 Review</h2>
-<p>[placeholder for Assignment 5 review]</p>
+<section id="assignment-6-review" class="slide level2">
+<h2>Assignment 6 Review</h2>
+<ul>
+<li><p>Make sure to upload your knitted .html file!</p></li>
+<li><p>And to still be monitoring working directories</p></li>
+</ul>
 </section>
 <section id="nhst-review" class="slide level2">
 <h2>NHST Review</h2>
 <p>Null Hypothesis Significance Testing</p>
-<p>[placeholder for more NHST review]</p>
+<ul>
+<li><p>Standard deviation measure of variance in the data distribution</p></li>
+<li><p>Standard error measure of variance in the sampling distribution</p></li>
+</ul>
+<p>How do these two compare?</p>
+</section>
+<section id="nhst-review-1" class="slide level2">
+<h2>NHST Review</h2>
+<p>Can use the standard error to get a <em>z</em>-value for our observed mean</p>
+<ul>
+<li>For that <em>z</em>-value, what might <em>z</em> = 3 imply? What might we say about it?</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>For that <em>z</em>-value, what might <em>z</em> = 0 imply? What might we say about it?</li>
+</ul>
+</div>
 </section>
 <section>
 <section id="exploratory-data-analysis" class="title-slide slide level1 center">
@@ -245,9 +260,9 @@ Jessica Helmer
 <p>Going to once again heavily lean on this book!</p>
 <p>Feel free to reference for more R content</p>
 </div><div class="column">
-<div class="quarto-figure quarto-figure-center" style="top: 100px; ">
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://r4ds.hadley.nz/cover.jpg" class="absolute"></p>
+<p><img data-src="https://r4ds.hadley.nz/cover.jpg"></p>
 <figcaption>https://r4ds.hadley.nz/</figcaption>
 </figure>
 </div>
@@ -374,12 +389,14 @@ Jessica Helmer
 <section id="eda-small-diamonds" class="slide level2">
 <h2>EDA: Small diamonds</h2>
 <p>Let’s start by zooming in on small diamonds</p>
+<div class="columns">
+<div class="column" style="width:66%;">
 <div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Plot</a></li><li><a href="#tabset-1-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">filter</span>(carat <span class="sc">&lt;=</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span></span>
-<span id="cb6-4"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -389,29 +406,56 @@ Jessica Helmer
 </div>
 </div>
 </div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
 <div class="fragment">
 <p>What do we want to know more about?</p>
 <p>How might this be misleading?</p>
 </div>
+</div></div>
 </section>
 <section id="eda-small-diamonds-1" class="slide level2">
 <h2>EDA: Small diamonds</h2>
 <p>Let’s look at this distribution with more precision!</p>
+<div class="columns" style="font-size:70%">
+<div class="column" style="width:66%;">
 <div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Plot</a></li><li><a href="#tabset-2-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a></a>  <span class="fu">filter</span>(carat <span class="sc">&lt;=</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span></span>
-<span id="cb7-4"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.01</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
 <div class="fragment">
 <p>Questions?</p>
 </div>
@@ -419,18 +463,12 @@ Jessica Helmer
 <p>Why are there more diamonds at whole carats and common fractions of carats?</p>
 <p>Why are there more diamonds slightly to the right of each peak than there are slightly to the left of each peak?</p>
 </div>
+</div></div>
 </section>
 <section id="eda-clustering" class="slide level2">
 <h2>EDA: Clustering</h2>
 <p>Seeing clustering may mean we have subgroups in our data</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a></a>  <span class="fu">filter</span>(carat <span class="sc">&lt;=</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span></span>
-<span id="cb8-4"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><ul>
+<ul>
 <li><p>How are the observations within each subgroup similar to each other?</p></li>
 <li><p>How are the observations in separate clusters different from each other?</p></li>
 <li><p>How can you explain or describe the clusters?</p></li>
@@ -441,32 +479,14 @@ Jessica Helmer
 <h2>EDA: Unusual Values</h2>
 <p>Like outliers! Things that don’t fit the rest of the pattern.</p>
 <p>Let’s look at the <code>y</code> variable (diamond width) in this dataset</p>
+<div class="columns">
+<div class="column" style="width:66%;">
 <div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Plot</a></li><li><a href="#tabset-3-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
-<span id="cb9-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p>What do we notice?</p>
-</div>
-</section>
-<section id="eda-unusual-values-1" class="slide level2">
-<h2>EDA: Unusual Values</h2>
-<p>Can’t even see any outliers because the high points are so high</p>
-<p>Let’s zoom in (<code>coord_cartesian()</code>)</p>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
-<span id="cb10-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb10-3"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -475,6 +495,56 @@ Jessica Helmer
 </div>
 </div>
 </div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>What do we notice?</p>
+</div>
+</div></div>
+</section>
+<section id="eda-unusual-values-1" class="slide level2">
+<h2>EDA: Unusual Values</h2>
+<p>Can’t even see any outliers because the high points are so high</p>
+<p>Let’s zoom in (<code>coord_cartesian()</code>)</p>
+<div class="columns">
+<div class="column" style="width:66%;">
+<div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Plot</a></li><li><a href="#tabset-4-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>Where are the unusual data?</p>
 </div>
 <div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
@@ -491,18 +561,19 @@ Jessica Helmer
 </div>
 </div>
 </div>
-<div class="fragment">
-<p>Where are the unusual data?</p>
-</div>
+</div></div>
 </section>
 <section id="eda-unusual-values-2" class="slide level2">
 <h2>EDA: Unusual Values</h2>
 <p>When we find unusual values, it’s good to then go back to the data</p>
+<div class="columns">
+<div class="column" style="width:66%;">
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>diamonds <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a></a>  <span class="fu">filter</span>(y <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">|</span> y <span class="sc">&gt;</span> <span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-3"><a></a>  <span class="fu">select</span>(price, x, y, z) <span class="sc">|&gt;</span></span>
-<span id="cb11-4"><a></a>  <span class="fu">arrange</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>diamonds <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a></a>  <span class="fu">filter</span>(y <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">|</span> y <span class="sc">&gt;</span> <span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a></a>  <span class="fu">select</span>(price, x, y, z) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a></a>  <span class="fu">arrange</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 4
   price     x     y     z
@@ -518,83 +589,41 @@ Jessica Helmer
 9 12210  8.09  58.9  8.06</code></pre>
 </div>
 </div>
+</div>
+</div><div class="column" style="width:33%;">
 <div class="fragment">
 <p>Since width cannot be zero, we know we found missing data that was coded as zero!</p>
 </div>
 <div class="fragment">
 <p>What’s going on with the large ones? Can we use other variables to infer if they’re accurate or not?</p>
 </div>
+</div></div>
 </section>
 <section id="eda-unusual-values-3" class="slide level2">
 <h2>EDA: Unusual Values</h2>
 <p>Outliers: what do?</p>
+<div class="fragment">
 <p>Above all else, be transparent, and don’t remove them without making a note in your report</p>
+</div>
+<div class="fragment">
 <p>Lots and lots of potential ways of dealing with outliers, and lots and lots of ways that can have implications for your analysis</p>
 <p>A basic guide is to try doing your analysis with and without the outliers to see how much impact removing them has</p>
+</div>
+<div class="fragment">
 <p>More on that in advanced statistics classes!</p>
+</div>
 </section>
 <section id="eda-unusual-values-4" class="slide level2">
 <h2>EDA: Unusual values</h2>
 <p>For our purposes, let’s at least change those unusual values to NA</p>
+<div class="columns">
+<div class="column" style="width:66%;">
 <div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Plot</a></li><li><a href="#tabset-5-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>diamonds2 <span class="ot">&lt;-</span> diamonds <span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">ifelse</span>(y <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">|</span> y <span class="sc">&gt;</span> <span class="dv">20</span>, <span class="cn">NA</span>, y))</span>
-<span id="cb13-3"><a></a></span>
-<span id="cb13-4"><a></a><span class="fu">ggplot</span>(diamonds2, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
-<span id="cb13-5"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="histograms-an-aesthetics-interlude" class="slide level2">
-<h2>Histograms: An aesthetics interlude</h2>
-<p>What can we do to change the appearance of a <code>geom_histogram()</code>?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(diamonds2, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
-<span id="cb14-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">na.rm =</span> T,</span>
-<span id="cb14-3"><a></a>                 <span class="at">fill =</span> <span class="st">"seagreen3"</span>, <span class="at">color =</span> <span class="st">"seagreen"</span>,</span>
-<span id="cb14-4"><a></a>                 <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
-<section id="eda-categorical-and-numeric-variable-associations" class="slide level2">
-<h2>EDA: Categorical and numeric variable associations</h2>
-<p>How might the price of a diamond vary by its quality (<code>cut</code>)?</p>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> cut)) <span class="sc">+</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p>What do we want to know more about?</p>
-<p>How might this be misleading?</p>
-</div>
-</section>
-<section id="eda-categorical-and-numeric-variable-associations-1" class="slide level2">
-<h2>EDA: Categorical and numeric variable associations</h2>
-<p>Want to see the distributions as well too!</p>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> cut)) <span class="sc">+</span></span>
-<span id="cb16-3"><a></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb16-4"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -604,35 +633,31 @@ Jessica Helmer
 </div>
 </div>
 </div>
-<div class="fragment">
-<p>Notice that <code>cut</code> was already ordered for us! Thank you, <code>factor</code>s!</p>
-</div>
-<div class="fragment">
+<div id="tabset-5-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>diamonds <span class="sc">|&gt;</span> <span class="fu">pull</span>(cut) <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Fair"      "Good"      "Very Good" "Premium"   "Ideal"    </code></pre>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>diamonds2 <span class="ot">&lt;-</span> diamonds <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">ifelse</span>(y <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">|</span> y <span class="sc">&gt;</span> <span class="dv">20</span>, <span class="cn">NA</span>, y))</span>
+<span id="cb12-3"><a></a></span>
+<span id="cb12-4"><a></a><span class="fu">ggplot</span>(diamonds2, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
+<span id="cb12-5"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+
+</div></div>
 </section>
-<section id="factors-an-ordering-interlude" class="slide level2">
-<h2>Factors: An ordering interlude</h2>
-<p>What if our variable is a factor, but we want to order it by a different variable?</p>
+<section id="histograms-an-aesthetics-interlude" class="slide level2">
+<h2>Histograms: An aesthetics interlude</h2>
+<p>What can we do to change the appearance of a <code>geom_histogram()</code>?</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">levels</span>(diamonds<span class="sc">$</span>color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "D" "E" "F" "G" "H" "I" "J"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">fct_reorder</span>(diamonds<span class="sc">$</span>color, diamonds<span class="sc">$</span>price) <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "E" "D" "G" "F" "H" "I" "J"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb23-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> <span class="fu">fct_reorder</span>(color, <span class="sc">-</span>price))) <span class="sc">+</span> <span class="co"># or .desc = T</span></span>
-<span id="cb23-3"><a></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb23-4"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(diamonds2, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">na.rm =</span> T,</span>
+<span id="cb13-3"><a></a>                 <span class="at">fill =</span> <span class="st">"seagreen3"</span>, <span class="at">color =</span> <span class="st">"seagreen"</span>,</span>
+<span id="cb13-4"><a></a>                 <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -643,17 +668,17 @@ Jessica Helmer
 </div>
 </div>
 </section>
-<section id="boxplots-and-violinplots-an-aesthetics-interlude" class="slide level2">
-<h2>Boxplots and Violinplots: An aesthetics interlude</h2>
+<section id="eda-categorical-and-numeric-variable-associations" class="slide level2">
+<h2>EDA: Categorical and numeric variable associations</h2>
+<p>How might the price of a diamond vary by its quality (<code>cut</code>)?</p>
+<div class="columns">
+<div class="column" style="width:66%;">
 <div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Plot</a></li><li><a href="#tabset-6-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb24-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> cut)) <span class="sc">+</span></span>
-<span id="cb24-3"><a></a>  <span class="fu">geom_violin</span>(<span class="at">color =</span> <span class="st">"skyblue3"</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>,</span>
-<span id="cb24-4"><a></a>              <span class="at">alpha =</span> .<span class="dv">4</span>, <span class="at">linewidth =</span> .<span class="dv">5</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb24-5"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">08</span>, <span class="at">color =</span> <span class="st">"skyblue3"</span>, <span class="at">whisker.color =</span> <span class="cn">NA</span>,</span>
-<span id="cb24-6"><a></a>               <span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">linewidth =</span> .<span class="dv">8</span>,</span>
-<span id="cb24-7"><a></a>               <span class="at">outliers =</span> F, <span class="at">notch =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -663,36 +688,38 @@ Jessica Helmer
 </div>
 </div>
 </div>
-</section>
-<section id="eda-categorical-and-categorical-variable-associations" class="slide level2">
-<h2>EDA: Categorical and categorical variable associations</h2>
-<p>Often exploring counts and / or proportions</p>
-<div class="fragment">
+<div id="tabset-6-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb25-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> color)) <span class="sc">+</span></span>
-<span id="cb25-3"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> cut)) <span class="sc">+</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
+</div>
+</div><div class="column" style="width:33%;">
 <div class="fragment">
-<p>Does this change for diamonds of different qualities (<code>cut</code>s)?</p>
+<p>What do we want to know more about?</p>
+<p>How might this be misleading?</p>
 </div>
+</div></div>
 </section>
-<section id="eda-categorical-and-categorical-variable-associations-1" class="slide level2">
-<h2>EDA: Categorical and categorical variable associations</h2>
-<p>Often exploring counts and / or proportions</p>
+<section id="remember-this-1" class="slide level2">
+<h2>Remember this?</h2>
+
+<img data-src="datasaurus_boxplots.gif" class="r-stretch"></section>
+<section id="eda-categorical-and-numeric-variable-associations-1" class="slide level2">
+<h2>EDA: Categorical and numeric variable associations</h2>
+<p>Want to see the distributions as well too!</p>
+<div class="columns">
+<div class="column" style="width:66%;">
 <div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Plot</a></li><li><a href="#tabset-7-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb26-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> color, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
-<span id="cb26-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -702,84 +729,355 @@ Jessica Helmer
 </div>
 </div>
 </div>
-<div class="fragment">
-<p>Is the total count for each color obscuring the proportions of qualities within color?</p>
+<div id="tabset-7-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> cut)) <span class="sc">+</span></span>
+<span id="cb15-3"><a></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb15-4"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>Notice that <code>cut</code> was already ordered for us! Thank you, <code>factor</code>s!</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(cut) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Fair"      "Good"      "Very Good" "Premium"   "Ideal"    </code></pre>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="factors-an-ordering-interlude" class="slide level2">
+<h2>Factors: An ordering interlude</h2>
+<p>What if our variable is a factor, but we want to order it by a different variable?</p>
+<div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Plot</a></li><li><a href="#tabset-8-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "D" "E" "F" "G" "H" "I" "J"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "E" "D" "G" "F" "H" "I" "J"</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-8-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">levels</span>(diamonds<span class="sc">$</span>color)</span>
+<span id="cb20-2"><a></a><span class="fu">fct_reorder</span>(diamonds<span class="sc">$</span>color, diamonds<span class="sc">$</span>price) <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span>
+<span id="cb20-3"><a></a></span>
+<span id="cb20-4"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb20-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> <span class="fu">fct_reorder</span>(color, <span class="sc">-</span>price))) <span class="sc">+</span> <span class="co"># or .desc = T</span></span>
+<span id="cb20-6"><a></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb20-7"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="boxplots-and-violinplots-an-aesthetics-interlude" class="slide level2">
+<h2>Boxplots and Violinplots: An aesthetics interlude</h2>
+<div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Plot</a></li><li><a href="#tabset-9-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-9-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> cut)) <span class="sc">+</span></span>
+<span id="cb21-3"><a></a>  <span class="fu">geom_violin</span>(<span class="at">color =</span> <span class="st">"skyblue3"</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb21-4"><a></a>              <span class="at">alpha =</span> .<span class="dv">4</span>, <span class="at">linewidth =</span> .<span class="dv">5</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">08</span>, <span class="at">color =</span> <span class="st">"skyblue3"</span>, <span class="at">whisker.color =</span> <span class="cn">NA</span>,</span>
+<span id="cb21-6"><a></a>               <span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">linewidth =</span> .<span class="dv">8</span>,</span>
+<span id="cb21-7"><a></a>               <span class="at">outliers =</span> F, <span class="at">notch =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="eda-categorical-and-categorical-variable-associations" class="slide level2">
+<h2>EDA: Categorical and categorical variable associations</h2>
+<p>Often exploring counts and / or proportions</p>
+<div class="columns">
+<div class="column" style="width:66%;">
+<div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Plot</a></li><li><a href="#tabset-10-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-10-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> color)) <span class="sc">+</span></span>
+<span id="cb22-3"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>Does this change for diamonds of different qualities (<code>cut</code>s)?</p>
+</div>
+</div></div>
+</section>
+<section id="eda-categorical-and-categorical-variable-associations-1" class="slide level2">
+<h2>EDA: Categorical and categorical variable associations</h2>
+<p>Often exploring counts and / or proportions</p>
+<div class="columns">
+<div class="column" style="width:66%;">
+<div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Plot</a></li><li><a href="#tabset-11-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-28-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-11-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> color, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
+<span id="cb23-3"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>Stacked bar chart: is this easy to read?</p>
+</div>
+</div></div>
 </section>
 <section id="eda-categorical-and-categorical-variable-associations-2" class="slide level2">
 <h2>EDA: Categorical and categorical variable associations</h2>
 <p>Often exploring counts and / or proportions</p>
+<div class="columns">
+<div class="column" style="width:66%;">
 <div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Plot</a></li><li><a href="#tabset-12-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> color, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
-<span id="cb27-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
+<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-30-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
+<div id="tabset-12-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> color, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
+<span id="cb24-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>Is the total count for each color obscuring the proportions of qualities within color?</p>
+</div>
+</div></div>
+</section>
+<section id="eda-categorical-and-categorical-variable-associations-3" class="slide level2">
+<h2>EDA: Categorical and categorical variable associations</h2>
+<p>Often exploring counts and / or proportions</p>
+<div class="columns">
+<div class="column" style="width:66%;">
+<div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Plot</a></li><li><a href="#tabset-13-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-32-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-13-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> color, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
+<span id="cb25-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
 <div class="fragment">
 <p>Seems more like there’s not many differences here!</p>
 </div>
+</div></div>
 </section>
 <section id="eda-numeric-and-numeric-variable-associations" class="slide level2">
 <h2>EDA: Numeric and numeric variable associations</h2>
 <p>Scatterplot!</p>
+<div class="columns">
+<div class="column" style="width:66%;">
 <div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">Plot</a></li><li><a href="#tabset-14-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-14-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb28-3"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
+<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
+<div id="tabset-14-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb26-3"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
 <div class="fragment">
 <p>Hard to see the trends at the bottom?</p>
 </div>
+</div></div>
 </section>
 <section id="eda-numeric-and-numeric-variable-associations-1" class="slide level2">
 <h2>EDA: Numeric and numeric variable associations</h2>
 <p>Scatterplot!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb29-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb29-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"><div class="fragment">
-<p>What’s that clustering? Any guesses?</p>
-</div>
-</section>
-<section id="eda-numeric-and-numeric-variable-associations-2" class="slide level2">
-<h2>EDA: Numeric and numeric variable associations</h2>
-<p>Scatterplot!</p>
+<div class="columns">
+<div class="column" style="width:66%;">
 <div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-15" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-15-1">Plot</a></li><li><a href="#tabset-15-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-15-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb30-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> color)) <span class="sc">+</span></span>
-<span id="cb30-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">05</span>, <span class="at">shape =</span> <span class="dv">16</span>,</span>
-<span id="cb30-4"><a></a>             <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb30-5"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-23-1.png" width="960"></p>
+<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-36-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
+<div id="tabset-15-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb27-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>What’s that clustering? Any guesses?</p>
+</div>
+</div></div>
+</section>
+<section id="eda-numeric-and-numeric-variable-associations-2" class="slide level2">
+<h2>EDA: Numeric and numeric variable associations</h2>
+<p>Scatterplot!</p>
+<div class="columns">
+<div class="column" style="width:66%;">
+<div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-16" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-16-1">Plot</a></li><li><a href="#tabset-16-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-16-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="PSYC2020-Lab-7_files/figure-revealjs/unnamed-chunk-38-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-16-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> color)) <span class="sc">+</span></span>
+<span id="cb28-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">05</span>, <span class="at">shape =</span> <span class="dv">16</span>,</span>
+<span id="cb28-4"><a></a>             <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+
+</div></div>
 </section>
 <section id="assignment-7" class="slide level2">
 <h2>Assignment 7</h2>
