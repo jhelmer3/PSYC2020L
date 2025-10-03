@@ -57,19 +57,19 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 
 :::: {.columns}
 ::: {.column width=33%}
-### 09/12 Lab 7
+### 10/03 Lab 7
 #### NHST I
 [Slides](/labs/Lab 7 - NHST I/PSYC2020 Lab 7.qmd) 
 :::
 
 ::: {.column width=33%}
-### 09/19 Lab 8
+### 10/10 Lab 8
 #### NHST II
 Coming soon!
 :::
 
 ::: {.column width=33%}
-### 09/26 Lab 9
+### 10/17 Lab 9
 #### Confidence Intervals
 Coming soon!
 :::
