@@ -1795,7 +1795,7 @@ Documents/PSYC2020L
 
 Let's do this for real!
 
-Download the `data.csv` file off Canvas
+Download the `testdata.csv` file off Canvas
 
 Make a test R script (could be regular R script if you follow along) and test RMarkdown document
 

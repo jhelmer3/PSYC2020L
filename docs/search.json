@@ -4799,7 +4799,7 @@
     "href": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#working-directory-review-6",
     "title": "NHST II",
     "section": "Working Directory Review",
-    "text": "Working Directory Review\nLet’s do this for real!\nDownload the data.csv file off Canvas\nMake a test R script (could be regular R script if you follow along) and test RMarkdown document\nLet’s make sure we can all read files in both formats"
+    "text": "Working Directory Review\nLet’s do this for real!\nDownload the testdata.csv file off Canvas\nMake a test R script (could be regular R script if you follow along) and test RMarkdown document\nLet’s make sure we can all read files in both formats"
   },
   {
     "objectID": "labs/Lab 8 - NHST II/PSYC2020 Lab 8.html#hypothesis-testing-demo-1",
@@ -5479,5 +5479,47 @@
     "title": "PSYC2020L Assignment 8",
     "section": "Z-Tests",
     "text": "Z-Tests\nYou’ve been tasked with testing whether the scores from this sample of students differ from the population means.\n\n5a) Let’s say the population mean for SAT scores is 1200 and the population SD is 110. What are your null and alternative hypotheses?\nThe null hypothesis is that the observed mean of SAT scores is equal to the population mean of 1200.\n\n\n5b) Calculate the z-test statistic for this sample of SAT scores against the population.\n\n(mean(dat$SAT, na.rm = T) - 1200) / (110 / sqrt(sum(!is.na(dat$SAT))))\n\n[1] 5.373589\n\n\n\n\n5c) What is the p-value of that z-statistic?\n\npnorm((mean(dat$SAT, na.rm = T) - 1200) / (110 / sqrt(sum(!is.na(dat$SAT)))), lower.tail = F)\n\n[1] 3.859228e-08\n\n\n\n\n5d) Provide an interpretation for this z-test given the test statistic and p-value.\nWe reject the null hypothesis. There is a significant difference between the observed sample mean and the population mean.\n\n\n6a) Let’s say the population mean for ACT scores is 29 and the population variance is 64. What are your null and alternative hypotheses?\nThe null hypothesis is that the observed mean of ACT scores is equal to the population mean of 28.\n\n\n6b) Calculate the z-test statistic for this sample of ACT scores against the population.\n\n(mean(dat$ACT, na.rm = T) - 29) / (sqrt(64) / sqrt(sum(!is.na(dat$ACT))))\n\n[1] -1.497684\n\n\n\n\n6c) What is the p-value of that z-statistic?\n\npnorm((mean(dat$ACT, na.rm = T) - 29) / (sqrt(64) / sqrt(sum(!is.na(dat$ACT)))))\n\n[1] 0.06710766\n\n\n\n\n6d) Provide an interpretation for this z-test given the test statistic and p-value.\nWe retain the null hypothesis. In this sample we do not see a significant difference between the observed sample mean and the population mean of ACT scores."
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/Lab 8 Assignment.html",
+    "href": "labs/Lab 8 - NHST II/Lab 8 Assignment.html",
+    "title": "PSYC2020L Assignment 8",
+    "section": "",
+    "text": "Importing\nNHST"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/Lab 8 Assignment.html#goals-for-review",
+    "href": "labs/Lab 8 - NHST II/Lab 8 Assignment.html#goals-for-review",
+    "title": "PSYC2020L Assignment 8",
+    "section": "",
+    "text": "Importing\nNHST"
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/Lab 8 Assignment.html#setting-up",
+    "href": "labs/Lab 8 - NHST II/Lab 8 Assignment.html#setting-up",
+    "title": "PSYC2020L Assignment 8",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 8 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block."
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/Lab 8 Assignment.html#import",
+    "href": "labs/Lab 8 - NHST II/Lab 8 Assignment.html#import",
+    "title": "PSYC2020L Assignment 8",
+    "section": "Import",
+    "text": "Import\n\n3) Download the testdata.csv file from Canvas, and relocate it to the folder for this lab. Import the csv into R. Try knitting the document right after this question for simpler troubleshooting! This data contains three variables:\n\n\n\nname\ndescription\nnotes\n\n\n\n\nid\nexaminee identifier\n\n\n\nSAT\nSAT score\ncan theoretically range 400–1600\n\n\nACT\nACT score\ncan theoretically range 1–36\n\n\n\nDisplay the first few rows of this data."
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/Lab 8 Assignment.html#eda",
+    "href": "labs/Lab 8 - NHST II/Lab 8 Assignment.html#eda",
+    "title": "PSYC2020L Assignment 8",
+    "section": "EDA",
+    "text": "EDA\n\n4) Explore or report on the SAT variable in three different ways. Examples include making a plot, commenting on the shape of the distribution, numerical summary statistics (e.g, mean, SD, range), etc.\n\n\n4) Explore or report on the ACT variable in three different ways. Examples include making a plot, commenting on the shape of the distribution, numerical summary statistics (e.g, mean, SD, range), etc."
+  },
+  {
+    "objectID": "labs/Lab 8 - NHST II/Lab 8 Assignment.html#z-tests",
+    "href": "labs/Lab 8 - NHST II/Lab 8 Assignment.html#z-tests",
+    "title": "PSYC2020L Assignment 8",
+    "section": "Z-Tests",
+    "text": "Z-Tests\nYou’ve been tasked with testing whether the scores from this sample of students differ from the population means.\n\n5a) Let’s say the population mean for SAT scores is 1200 and the population SD is 110. What are your null and alternative hypotheses?\n\n\n5b) Calculate the z-test statistic for this sample of SAT scores against the population.\n\n\n5c) What is the p-value of that z-statistic?\n\n\n5d) Provide an interpretation for this z-test given the test statistic and p-value.\n\n\n6a) Let’s say the population mean for ACT scores is 29 and the population variance is 64. What are your null and alternative hypotheses?\n\n\n6b) Calculate the z-test statistic for this sample of ACT scores against the population.\n\n\n6c) What is the p-value of that z-statistic?\n\n\n6d) Provide an interpretation for this z-test given the test statistic and p-value."
   }
 ]
