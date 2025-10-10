@@ -32,63 +32,62 @@ library(tidyverse)
 ```
 
 
-## Homework 2 Review
+<!-- ## Homework 2 Review -->
 
-2b) A new supplier provides bolts with the same mean length (10 cm) but a smaller standard deviation. How would this affect the *z*-score of the factory’s products, and what would it imply for the quality control process?
+<!-- 2b) A new supplier provides bolts with the same mean length (10 cm) but a smaller standard deviation. How would this affect the *z*-score of the factory’s products, and what would it imply for the quality control process? -->
 
-Correct answer: There is no change!
+<!-- Correct answer: There is no change! -->
 
-```{r}
-#| echo: false
-#| layout-ncol: 2
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- #| layout-ncol: 2 -->
 
-dens <- density(rnorm(1000000, 10, 0.1))
-dens_df <- data.frame(x = dens$x, y = dens$y) |>
-  mutate(z = (x - 10) / 0.1)
+<!-- dens <- density(rnorm(1000000, 10, 0.1)) -->
+<!-- dens_df <- data.frame(x = dens$x, y = dens$y) |> -->
+<!--   mutate(z = (x - 10) / 0.1) -->
 
-ggplot(dens_df, aes(x = x, y = y)) +
-  geom_line() +
-  geom_area(data = dens_df,
-            aes(x = x, y = y), fill = NA) +
-  geom_area(data = filter(dens_df, z < -3),
-            aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) +
-  geom_area(data = filter(dens_df, z > 3),
-            aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) +
-  geom_vline(aes(xintercept = -3 * 0.1 + 10), color = "red") +
-  geom_vline(aes(xintercept = 3 * 0.1 + 10), color = "red") +
-  annotate("text", label = filter(dens_df, z < -3 | z > 3) |>
-             nrow() |>
-             as.character() |>
-             paste("rejected"),
-           x = 10, y = 2, size = 8) + 
-  coord_cartesian(xlim = c(9.6, 10.4)) +
-  labs(title = "SD = 0.1cm") +
-  theme_classic(base_size = 15)
+<!-- ggplot(dens_df, aes(x = x, y = y)) + -->
+<!--   geom_line() + -->
+<!--   geom_area(data = dens_df, -->
+<!--             aes(x = x, y = y), fill = NA) + -->
+<!--   geom_area(data = filter(dens_df, z < -3), -->
+<!--             aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) + -->
+<!--   geom_area(data = filter(dens_df, z > 3), -->
+<!--             aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) + -->
+<!--   geom_vline(aes(xintercept = -3 * 0.1 + 10), color = "red") + -->
+<!--   geom_vline(aes(xintercept = 3 * 0.1 + 10), color = "red") + -->
+<!--   annotate("text", label = filter(dens_df, z < -3 | z > 3) |> -->
+<!--              nrow() |> -->
+<!--              as.character() |> -->
+<!--              paste("rejected"), -->
+<!--            x = 10, y = 2, size = 8) +  -->
+<!--   coord_cartesian(xlim = c(9.6, 10.4)) + -->
+<!--   labs(title = "SD = 0.1cm") + -->
+<!--   theme_classic(base_size = 15) -->
 
-dens <- density(rnorm(1000000, 10, 0.01))
-dens_df <- data.frame(x = dens$x, y = dens$y) |>
-  mutate(z = (x - 10) / 0.01)
+<!-- dens <- density(rnorm(1000000, 10, 0.01)) -->
+<!-- dens_df <- data.frame(x = dens$x, y = dens$y) |> -->
+<!--   mutate(z = (x - 10) / 0.01) -->
 
-ggplot(dens_df, aes(x = x, y = y)) +
-  geom_line() +
-  geom_area(data = dens_df,
-            aes(x = x, y = y), fill = NA) +
-  geom_area(data = filter(dens_df, z < -3),
-            aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) +
-  geom_area(data = filter(dens_df, z > 3),
-            aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) +
-  geom_vline(aes(xintercept = -3 * 0.01 + 10), color = "red") +
-  geom_vline(aes(xintercept = 3 * 0.01 + 10), color = "red") +
-  annotate("text", label = filter(dens_df, z < -3 | z > 3) |>
-             nrow() |>
-             as.character() |>
-             paste("rejected"),
-           x = 10, y = 2, size = 8) + 
-  coord_cartesian(xlim = c(9.6, 10.4)) +
-  labs(title = "SD = 0.05cm") +
-  theme_classic(base_size = 15)
-```
-
+<!-- ggplot(dens_df, aes(x = x, y = y)) + -->
+<!--   geom_line() + -->
+<!--   geom_area(data = dens_df, -->
+<!--             aes(x = x, y = y), fill = NA) + -->
+<!--   geom_area(data = filter(dens_df, z < -3), -->
+<!--             aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) + -->
+<!--   geom_area(data = filter(dens_df, z > 3), -->
+<!--             aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) + -->
+<!--   geom_vline(aes(xintercept = -3 * 0.01 + 10), color = "red") + -->
+<!--   geom_vline(aes(xintercept = 3 * 0.01 + 10), color = "red") + -->
+<!--   annotate("text", label = filter(dens_df, z < -3 | z > 3) |> -->
+<!--              nrow() |> -->
+<!--              as.character() |> -->
+<!--              paste("rejected"), -->
+<!--            x = 10, y = 2, size = 8) +  -->
+<!--   coord_cartesian(xlim = c(9.6, 10.4)) + -->
+<!--   labs(title = "SD = 0.05cm") + -->
+<!--   theme_classic(base_size = 15) -->
+<!-- ``` -->
 
 
 ## Hypothesis Testing Demo

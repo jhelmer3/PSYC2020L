@@ -219,21 +219,55 @@ Jessica Helmer
 </ul>
 <p>Learning objectives:<br>
 <strong>R:</strong> Importing</p>
-</section>
-<section id="homework-2-review" class="slide level2">
-<h2>Homework 2 Review</h2>
-<p>2b) A new supplier provides bolts with the same mean length (10 cm) but a smaller standard deviation. How would this affect the <em>z</em>-score of the factory’s products, and what would it imply for the quality control process?</p>
-<p>Correct answer: There is no change!</p>
-<div class="cell quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-2-2.png" width="960"></p>
-</div>
-</div>
-</div>
+<!-- ## Homework 2 Review -->
+<!-- 2b) A new supplier provides bolts with the same mean length (10 cm) but a smaller standard deviation. How would this affect the *z*-score of the factory’s products, and what would it imply for the quality control process? -->
+<!-- Correct answer: There is no change! -->
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- #| layout-ncol: 2 -->
+<!-- dens <- density(rnorm(1000000, 10, 0.1)) -->
+<!-- dens_df <- data.frame(x = dens$x, y = dens$y) |> -->
+<!--   mutate(z = (x - 10) / 0.1) -->
+<!-- ggplot(dens_df, aes(x = x, y = y)) + -->
+<!--   geom_line() + -->
+<!--   geom_area(data = dens_df, -->
+<!--             aes(x = x, y = y), fill = NA) + -->
+<!--   geom_area(data = filter(dens_df, z < -3), -->
+<!--             aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) + -->
+<!--   geom_area(data = filter(dens_df, z > 3), -->
+<!--             aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) + -->
+<!--   geom_vline(aes(xintercept = -3 * 0.1 + 10), color = "red") + -->
+<!--   geom_vline(aes(xintercept = 3 * 0.1 + 10), color = "red") + -->
+<!--   annotate("text", label = filter(dens_df, z < -3 | z > 3) |> -->
+<!--              nrow() |> -->
+<!--              as.character() |> -->
+<!--              paste("rejected"), -->
+<!--            x = 10, y = 2, size = 8) +  -->
+<!--   coord_cartesian(xlim = c(9.6, 10.4)) + -->
+<!--   labs(title = "SD = 0.1cm") + -->
+<!--   theme_classic(base_size = 15) -->
+<!-- dens <- density(rnorm(1000000, 10, 0.01)) -->
+<!-- dens_df <- data.frame(x = dens$x, y = dens$y) |> -->
+<!--   mutate(z = (x - 10) / 0.01) -->
+<!-- ggplot(dens_df, aes(x = x, y = y)) + -->
+<!--   geom_line() + -->
+<!--   geom_area(data = dens_df, -->
+<!--             aes(x = x, y = y), fill = NA) + -->
+<!--   geom_area(data = filter(dens_df, z < -3), -->
+<!--             aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) + -->
+<!--   geom_area(data = filter(dens_df, z > 3), -->
+<!--             aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) + -->
+<!--   geom_vline(aes(xintercept = -3 * 0.01 + 10), color = "red") + -->
+<!--   geom_vline(aes(xintercept = 3 * 0.01 + 10), color = "red") + -->
+<!--   annotate("text", label = filter(dens_df, z < -3 | z > 3) |> -->
+<!--              nrow() |> -->
+<!--              as.character() |> -->
+<!--              paste("rejected"), -->
+<!--            x = 10, y = 2, size = 8) +  -->
+<!--   coord_cartesian(xlim = c(9.6, 10.4)) + -->
+<!--   labs(title = "SD = 0.05cm") + -->
+<!--   theme_classic(base_size = 15) -->
+<!-- ``` -->
 </section>
 <section id="hypothesis-testing-demo" class="slide level2">
 <h2>Hypothesis Testing Demo</h2>
@@ -265,7 +299,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -311,7 +345,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -346,7 +380,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -385,7 +419,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -428,7 +462,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -467,7 +501,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -530,7 +564,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -562,7 +596,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -597,7 +631,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -636,7 +670,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -679,7 +713,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -718,7 +752,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -778,7 +812,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-36-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-35-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -810,7 +844,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-38-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-37-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -845,7 +879,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-40-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-39-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -884,7 +918,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-42-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-41-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -927,7 +961,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-44-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-43-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -966,7 +1000,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-46-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-45-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1027,7 +1061,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-50-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-49-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1059,7 +1093,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-52-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-51-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1094,7 +1128,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-54-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-53-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1133,7 +1167,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-56-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-55-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1176,7 +1210,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-58-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-57-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1215,7 +1249,7 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-60-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-59-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1393,13 +1427,13 @@ Jessica Helmer
 <div class="cell quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-67-1.png" width="384"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-66-1.png" width="384"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-67-2.png" width="384"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-66-2.png" width="384"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-67-3.png" width="384"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-66-3.png" width="384"></p>
 </div>
 </div>
 </div>
