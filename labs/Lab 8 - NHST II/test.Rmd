@@ -12,7 +12,7 @@ Documents/PSYC2020L
 ├── PSYC2020L.Rproj
 └── labs
     ├── Lab 7 - NHST I
-    ├── r4ds.jpg
+    |   └──r4ds.jpg
     └── Lab 8 - NHST II
         ├── test.Rmd
         └── R.png

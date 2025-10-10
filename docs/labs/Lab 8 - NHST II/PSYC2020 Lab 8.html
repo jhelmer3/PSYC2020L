@@ -220,42 +220,40 @@ Jessica Helmer
 <p>Learning objectives:<br>
 <strong>R:</strong> Importing</p>
 </section>
-<section id="housekeeping" class="slide level2">
-<h2>Housekeeping</h2>
-<p>[placeholder for any housekeeping stuff]</p>
-</section>
-<section id="assignment-7-review" class="slide level2">
-<h2>Assignment 7 Review</h2>
-<p>[placeholder for Assignment 7 review]</p>
-</section>
-<section id="nhst-ii-review" class="slide level2">
-<h2>NHST II Review</h2>
-<p>[placeholder for any NHST II review]</p>
+<section id="homework-2-review" class="slide level2">
+<h2>Homework 2 Review</h2>
+<p>2b) A new supplier provides bolts with the same mean length (10 cm) but a smaller standard deviation. How would this affect the <em>z</em>-score of the factory’s products, and what would it imply for the quality control process?</p>
+<p>Correct answer: There is no change!</p>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-2-2.png" width="960"></p>
+</div>
+</div>
+</div>
 </section>
 <section id="hypothesis-testing-demo" class="slide level2">
 <h2>Hypothesis Testing Demo</h2>
 <p>We start by assuming the null hypothesis (<span class="math inline">\(H_0\)</span>) is true. Let’s say our null hypothesis is that the population mean of some happiness scale is 10 (<span class="math inline">\(\mu = 10\)</span>). In this situation, we also know that the population variance on this scale is 4 (<span class="math inline">\(\sigma^2 = 4, \sigma = 2\)</span>).</p>
-<p>If the null hypothesis were true, this is what we’d expect to see:</p>
+<p>Let’s set this up:</p>
 </section>
 <section id="hypothesis-testing-demo-1" class="slide level2">
 <h2>Hypothesis Testing Demo</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>n_pop <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb1-2"><a></a>n_samp <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb1-3"><a></a>pop_mean <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb1-4"><a></a>pop_sd <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb1-5"><a></a>samp_mean <span class="ot">&lt;-</span> <span class="dv">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a></a>pop_mean <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb1-3"><a></a>pop_sd <span class="ot">&lt;-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>null <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="at">length.out =</span> n_pop)) <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">rnorm</span>(n_pop, pop_mean, pop_sd),</span>
-<span id="cb2-3"><a></a>         <span class="at">dens =</span> <span class="fu">dnorm</span>(y, pop_mean, pop_sd)) </span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a>alt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="at">length.out =</span> n_samp)) <span class="sc">|&gt;</span></span>
-<span id="cb2-6"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">rnorm</span>(n_samp, samp_mean, pop_sd),</span>
-<span id="cb2-7"><a></a>         <span class="at">dens =</span> <span class="fu">dnorm</span>(y, samp_mean, pop_sd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a></a>         <span class="at">dens =</span> <span class="fu">dnorm</span>(y, pop_mean, pop_sd)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>If the null hypothesis were true, this is what we’d expect to see:</p>
 </section>
 <section id="hypothesis-testing-demo-scenario-1" class="slide level2">
 <h2>Hypothesis Testing Demo: Scenario 1</h2>
@@ -267,19 +265,43 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-1-2">
-
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb3-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb3-3"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb3-4"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb3-5"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb3-9"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
 </section>
 <section id="hypothesis-testing-demo-scenario-1-1" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 1</h2>
+<p>Let’s then collect a sample of 20 people. Say they have a sample mean of about 12.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>n_samp <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb4-2"><a></a>samp_mean <span class="ot">&lt;-</span> <span class="dv">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>alt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="at">length.out =</span> n_samp)) <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">rnorm</span>(n_samp, samp_mean, pop_sd),</span>
+<span id="cb5-3"><a></a>         <span class="at">dens =</span> <span class="fu">dnorm</span>(y, samp_mean, pop_sd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-1-2" class="slide level2">
 <h2>Hypothesis Testing Demo: Scenario 1</h2>
 <div class="panel-tabset">
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Plot</a></li><li><a href="#tabset-2-2">Code</a></li></ul>
@@ -289,19 +311,32 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-2-2">
-
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb6-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb6-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb6-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb6-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb6-7"><a></a>           <span class="at">color =</span> <span class="st">"firebrick1"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb6-8"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb6-9"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb6-10"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb6-11"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb6-12"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="hypothesis-testing-demo-scenario-1-2" class="slide level2">
+<section id="hypothesis-testing-demo-scenario-1-3" class="slide level2">
 <h2>Hypothesis Testing Demo: Scenario 1</h2>
 <div class="panel-tabset">
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Plot</a></li><li><a href="#tabset-3-2">Code</a></li></ul>
@@ -311,19 +346,36 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-3-2">
-
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb7-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb7-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb7-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb7-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb7-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb7-7"><a></a>           <span class="at">color =</span> <span class="st">"firebrick1"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb7-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"bar(x) == "</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb7-10"><a></a>                               <span class="at">parse =</span> T,</span>
+<span id="cb7-11"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"firebrick1"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb7-12"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb7-13"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb7-14"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb7-15"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb7-16"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="hypothesis-testing-demo-scenario-1-3" class="slide level2">
+<section id="hypothesis-testing-demo-scenario-1-4" class="slide level2">
 <h2>Hypothesis Testing Demo: Scenario 1</h2>
 <div class="panel-tabset">
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Plot</a></li><li><a href="#tabset-4-2">Code</a></li></ul>
@@ -333,19 +385,40 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-4-2">
-
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb8-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb8-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb8-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb8-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb8-7"><a></a>           <span class="at">color =</span> <span class="st">"firebrick1"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb8-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"bar(x) == "</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb8-10"><a></a>                               <span class="at">parse =</span> T,</span>
+<span id="cb8-11"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"firebrick1"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb8-12"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb8-13"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"firebrick1"</span>,</span>
+<span id="cb8-14"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb8-15"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb8-16"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb8-17"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb8-18"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb8-19"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb8-20"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="hypothesis-testing-demo-scenario-1-4" class="slide level2">
+<section id="hypothesis-testing-demo-scenario-1-5" class="slide level2">
 <h2>Hypothesis Testing Demo: Scenario 1</h2>
 <div class="panel-tabset">
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Plot</a></li><li><a href="#tabset-5-2">Code</a></li></ul>
@@ -355,19 +428,36 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-5-2">
-
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb9-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens),</span>
+<span id="cb9-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb9-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb9-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb9-7"><a></a>           <span class="at">color =</span> <span class="st">"firebrick1"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens),</span>
+<span id="cb9-9"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"firebrick1"</span>,</span>
+<span id="cb9-10"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb9-11"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb9-12"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb9-13"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb9-14"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb9-15"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb9-16"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="hypothesis-testing-demo-scenario-1-5" class="slide level2">
+<section id="hypothesis-testing-demo-scenario-1-6" class="slide level2">
 <h2>Hypothesis Testing Demo: Scenario 1</h2>
 <div class="panel-tabset">
 <ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Plot</a></li><li><a href="#tabset-6-2">Code</a></li></ul>
@@ -377,295 +467,973 @@ Jessica Helmer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-6-2">
-
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb10-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens),</span>
+<span id="cb10-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb10-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb10-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp))), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb10-7"><a></a>           <span class="at">color =</span> <span class="st">"firebrick1"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> (<span class="fu">mean</span>(y) <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)),</span>
+<span id="cb10-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"z ="</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb10-10"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"firebrick1"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb10-11"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens),</span>
+<span id="cb10-12"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"firebrick1"</span>,</span>
+<span id="cb10-13"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb10-14"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb10-15"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb10-16"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb10-17"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb10-18"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb10-19"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="archive--" class="slide level2">
-<h2>ARCHIVE —-</h2>
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
-<!-- dat <- data.frame(x = seq(0, 20, length.out = n_pop)) |> -->
-<!--   mutate(null = dnorm(x, mean = 10, sd = 2)) -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x, y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- dat <- data.frame(x = seq(-20, 40, length.out = n_pop)) -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x, y = dnorm(x, mean = 10, sd = 2))) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-<!-- Let's say we collect a sample of 20 people, and we calculate the mean, and $\bar{X} = 9.5$: -->
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
-<!-- n_samp <- 20 -->
-<!-- dat1 <- data.frame(x = seq(0, 20, length.out = n_samp), -->
-<!--                    y = rnorm(n_samp, 9.5, 2)) -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x, y = dnorm(x, mean = 10, sd = 2))) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = dnorm(x, 9.5, 2)), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- n_samp <- 20 -->
-<!-- dat1 <- data.frame(x = seq(0, 20, length.out = 20)) |> -->
-<!--   mutate(y = rnorm(x, 9.5, 2), -->
-<!--          observed = dnorm(x, 9.5, 2), -->
-<!--          height = runif(n_samp, 0, observed)) -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x, y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-<!-- $z = \frac{\bar{X} - \mu}{\sigma / \sqrt{N}}$ -->
-<!-- Use $\sigma / \sqrt{N}$ to standardize both distributions -->
-<!-- In this scenario, $\sigma / \sqrt{N} = 2 / \sqrt{2} = 0.447$ -->
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
-<!-- se <- 2 / sqrt(n_samp) -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = dnorm(x))) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(x = x / se, -->
-<!--                                                y = dnorm(x, 9.5, 2)), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y / se), inherit.aes = F, sides = "b", -->
-<!--             color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   #coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y  / se), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y  / se), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 40), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y  / se), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 40), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-<!-- $z = \frac{\bar{X} - \mu}{\sigma / \sqrt{N}}$ -->
-<!-- Now that we're standardized, let's subtract the standardized population mean out of both distributions -->
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = dnorm(x))) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(x = x / se - (10 / se), -->
-<!--                                                y = dnorm(x, 9.5, 2)), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y / se), inherit.aes = F, sides = "b", -->
-<!--             color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   #coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se - (10 / se), y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y  / se - (10 / (x / se))), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 40), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = dnorm(x))) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(x = x / se - (10 / se), -->
-<!--                                                y = dnorm(x, 9.5, 2)), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y / se), inherit.aes = F, sides = "b", -->
-<!--             color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(-10, 10), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se - (10 / se), y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y  / se - (10 / (x / se))), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(-3, 3), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
+<section id="hypothesis-testing-demo-scenario-2" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 2</h2>
+<p>Now let’s try an example with the same mean difference, but the population variance is larger</p>
+<p><span class="math inline">\(\mu = 10, \sigma^2 = 64, \sigma = 8\)</span></p>
+<p>Let’s then collect a sample of 20 people. Say they have a sample mean of about 12.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>pop_sd <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb11-2"><a></a>n_samp <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb11-3"><a></a>samp_mean <span class="ot">&lt;-</span> <span class="dv">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>null <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="at">length.out =</span> n_pop)) <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">rnorm</span>(n_pop, pop_mean, pop_sd),</span>
+<span id="cb12-3"><a></a>         <span class="at">dens =</span> <span class="fu">dnorm</span>(y, pop_mean, pop_sd)) </span>
+<span id="cb12-4"><a></a></span>
+<span id="cb12-5"><a></a>alt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="at">length.out =</span> n_samp)) <span class="sc">|&gt;</span></span>
+<span id="cb12-6"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">rnorm</span>(n_samp, samp_mean, pop_sd),</span>
+<span id="cb12-7"><a></a>         <span class="at">dens =</span> <span class="fu">dnorm</span>(y, samp_mean, pop_sd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-2-1" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 2</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Plot</a></li><li><a href="#tabset-7-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb13-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb13-3"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb13-4"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb13-5"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb13-7"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb13-8"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb13-9"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-2-2" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 2</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Plot</a></li><li><a href="#tabset-8-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-8-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb14-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb14-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb14-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb14-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb14-7"><a></a>           <span class="at">color =</span> <span class="st">"skyblue"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb14-8"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb14-9"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb14-10"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb14-11"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb14-12"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-2-3" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 2</h2>
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Plot</a></li><li><a href="#tabset-9-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-9-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb15-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb15-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb15-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb15-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb15-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb15-7"><a></a>           <span class="at">color =</span> <span class="st">"skyblue"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb15-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb15-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"bar(x) == "</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb15-10"><a></a>                               <span class="at">parse =</span> T,</span>
+<span id="cb15-11"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb15-12"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb15-13"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb15-14"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb15-15"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb15-16"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-2-4" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 2</h2>
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Plot</a></li><li><a href="#tabset-10-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-10-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb16-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb16-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb16-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb16-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb16-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb16-7"><a></a>           <span class="at">color =</span> <span class="st">"skyblue"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb16-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb16-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"bar(x) == "</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb16-10"><a></a>                               <span class="at">parse =</span> T,</span>
+<span id="cb16-11"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb16-12"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb16-13"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb16-14"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb16-15"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb16-16"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb16-17"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb16-18"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb16-19"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb16-20"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-2-5" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 2</h2>
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Plot</a></li><li><a href="#tabset-11-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-11-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb17-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens),</span>
+<span id="cb17-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb17-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb17-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb17-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb17-7"><a></a>           <span class="at">color =</span> <span class="st">"skyblue"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb17-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens),</span>
+<span id="cb17-9"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb17-10"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb17-11"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb17-12"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb17-13"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb17-14"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb17-15"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb17-16"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-2-6" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 2</h2>
+<div class="panel-tabset">
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Plot</a></li><li><a href="#tabset-12-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-12-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb18-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens),</span>
+<span id="cb18-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb18-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb18-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb18-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp))), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb18-7"><a></a>           <span class="at">color =</span> <span class="st">"skyblue"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb18-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> (<span class="fu">mean</span>(y) <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)),</span>
+<span id="cb18-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"z ="</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb18-10"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb18-11"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens),</span>
+<span id="cb18-12"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb18-13"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb18-14"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb18-15"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb18-16"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb18-17"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb18-18"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb18-19"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-3" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 3</h2>
+<p>Let’s try the same population parameters, but take a bigger sample!</p>
+<p>Let’s then collect a sample of 200 people. Say they have a sample mean of about 12.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>n_samp <span class="ot">&lt;-</span> <span class="dv">200</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>null <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="at">length.out =</span> n_pop)) <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">rnorm</span>(n_pop, pop_mean, pop_sd),</span>
+<span id="cb20-3"><a></a>         <span class="at">dens =</span> <span class="fu">dnorm</span>(y, pop_mean, pop_sd)) </span>
+<span id="cb20-4"><a></a></span>
+<span id="cb20-5"><a></a>alt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="at">length.out =</span> n_samp)) <span class="sc">|&gt;</span></span>
+<span id="cb20-6"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">rnorm</span>(n_samp, samp_mean, pop_sd),</span>
+<span id="cb20-7"><a></a>         <span class="at">dens =</span> <span class="fu">dnorm</span>(y, samp_mean, pop_sd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-3-1" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 3</h2>
+<div class="panel-tabset">
+<ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Plot</a></li><li><a href="#tabset-13-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-36-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-13-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb21-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb21-3"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb21-4"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb21-6"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb21-7"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb21-8"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb21-9"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-3-2" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 3</h2>
+<div class="panel-tabset">
+<ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">Plot</a></li><li><a href="#tabset-14-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-14-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-38-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-14-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb22-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb22-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb22-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb22-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb22-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb22-7"><a></a>           <span class="at">color =</span> <span class="st">"springgreen3"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb22-8"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb22-9"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb22-10"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb22-11"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb22-12"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-3-3" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 3</h2>
+<div class="panel-tabset">
+<ul id="tabset-15" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-15-1">Plot</a></li><li><a href="#tabset-15-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-15-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-40-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-15-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb23-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb23-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb23-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb23-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb23-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb23-7"><a></a>           <span class="at">color =</span> <span class="st">"springgreen3"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb23-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb23-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"bar(x) == "</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb23-10"><a></a>                               <span class="at">parse =</span> T,</span>
+<span id="cb23-11"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"springgreen3"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb23-12"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb23-13"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb23-14"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb23-15"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb23-16"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-3-4" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 3</h2>
+<div class="panel-tabset">
+<ul id="tabset-16" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-16-1">Plot</a></li><li><a href="#tabset-16-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-16-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-42-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-16-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb24-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb24-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb24-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb24-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb24-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb24-7"><a></a>           <span class="at">color =</span> <span class="st">"springgreen3"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb24-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb24-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"bar(x) == "</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb24-10"><a></a>                               <span class="at">parse =</span> T,</span>
+<span id="cb24-11"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"springgreen3"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb24-12"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb24-13"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"springgreen3"</span>,</span>
+<span id="cb24-14"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb24-15"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb24-16"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb24-17"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb24-18"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb24-19"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb24-20"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-3-5" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 3</h2>
+<div class="panel-tabset">
+<ul id="tabset-17" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-17-1">Plot</a></li><li><a href="#tabset-17-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-17-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-44-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-17-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb25-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens),</span>
+<span id="cb25-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb25-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb25-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb25-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb25-7"><a></a>           <span class="at">color =</span> <span class="st">"springgreen3"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb25-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens),</span>
+<span id="cb25-9"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"springgreen3"</span>,</span>
+<span id="cb25-10"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb25-11"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb25-12"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb25-13"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb25-14"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb25-15"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb25-16"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-3-6" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 3</h2>
+<div class="panel-tabset">
+<ul id="tabset-18" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-18-1">Plot</a></li><li><a href="#tabset-18-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-18-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-46-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-18-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb26-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens),</span>
+<span id="cb26-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb26-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb26-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb26-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp))), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb26-7"><a></a>           <span class="at">color =</span> <span class="st">"springgreen3"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb26-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> (<span class="fu">mean</span>(y) <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)),</span>
+<span id="cb26-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"z ="</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb26-10"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"springgreen3"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb26-11"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens),</span>
+<span id="cb26-12"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"springgreen3"</span>,</span>
+<span id="cb26-13"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb26-14"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb26-15"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb26-16"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb26-17"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb26-18"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb26-19"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-4" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 4</h2>
+<p>Now let’s say there’s a huge difference between our population mean and sample mean. But, we only took a sample of 5 people.</p>
+<p><span class="math inline">\(\mu = 10, \sigma^2 = 4, \sigma = 2\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>n_samp <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb27-2"><a></a>samp_mean <span class="ot">&lt;-</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>null <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="at">length.out =</span> n_pop)) <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">rnorm</span>(n_pop, pop_mean, pop_sd),</span>
+<span id="cb28-3"><a></a>         <span class="at">dens =</span> <span class="fu">dnorm</span>(y, pop_mean, pop_sd)) </span>
+<span id="cb28-4"><a></a></span>
+<span id="cb28-5"><a></a>alt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="at">length.out =</span> n_samp)) <span class="sc">|&gt;</span></span>
+<span id="cb28-6"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">rnorm</span>(n_samp, samp_mean, pop_sd),</span>
+<span id="cb28-7"><a></a>         <span class="at">dens =</span> <span class="fu">dnorm</span>(y, samp_mean, pop_sd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-4-1" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 4</h2>
+<div class="panel-tabset">
+<ul id="tabset-19" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-19-1">Plot</a></li><li><a href="#tabset-19-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-19-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-50-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-19-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">ggplot</span>(null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb29-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb29-3"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb29-4"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb29-5"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb29-6"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb29-7"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb29-8"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb29-9"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-4-2" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 4</h2>
+<div class="panel-tabset">
+<ul id="tabset-20" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-20-1">Plot</a></li><li><a href="#tabset-20-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-20-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-52-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-20-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb30-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb30-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb30-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb30-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb30-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb30-7"><a></a>           <span class="at">color =</span> <span class="st">"orchid2"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb30-8"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb30-9"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb30-10"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb30-11"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb30-12"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-4-3" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 4</h2>
+<div class="panel-tabset">
+<ul id="tabset-21" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-21-1">Plot</a></li><li><a href="#tabset-21-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-21-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-54-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-21-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb31-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb31-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb31-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb31-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb31-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb31-7"><a></a>           <span class="at">color =</span> <span class="st">"orchid2"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb31-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb31-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"bar(x) == "</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb31-10"><a></a>                               <span class="at">parse =</span> T,</span>
+<span id="cb31-11"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"orchid2"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb31-12"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb31-13"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb31-14"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb31-15"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb31-16"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-4-4" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 4</h2>
+<div class="panel-tabset">
+<ul id="tabset-22" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-22-1">Plot</a></li><li><a href="#tabset-22-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-22-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-56-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-22-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb32-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb32-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb32-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb32-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb32-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb32-7"><a></a>           <span class="at">color =</span> <span class="st">"orchid2"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb32-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb32-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"bar(x) == "</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb32-10"><a></a>                               <span class="at">parse =</span> T,</span>
+<span id="cb32-11"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"orchid2"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb32-12"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> dens),</span>
+<span id="cb32-13"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"orchid2"</span>,</span>
+<span id="cb32-14"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb32-15"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb32-16"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb32-17"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb32-18"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb32-19"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb32-20"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-4-5" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 4</h2>
+<div class="panel-tabset">
+<ul id="tabset-23" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-23-1">Plot</a></li><li><a href="#tabset-23-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-23-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-58-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-23-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb33-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens),</span>
+<span id="cb33-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb33-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb33-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb33-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb33-7"><a></a>           <span class="at">color =</span> <span class="st">"orchid2"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb33-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> y <span class="sc">-</span> pop_mean, <span class="at">y =</span> dens),</span>
+<span id="cb33-9"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"orchid2"</span>,</span>
+<span id="cb33-10"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb33-11"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb33-12"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb33-13"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb33-14"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb33-15"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb33-16"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-demo-scenario-4-6" class="slide level2">
+<h2>Hypothesis Testing Demo: Scenario 4</h2>
+<div class="panel-tabset">
+<ul id="tabset-24" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-24-1">Plot</a></li><li><a href="#tabset-24-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-24-1">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-60-1.png" class="quarto-figure quarto-figure-center" style="height:80.0%" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-24-2">
+<div class="cell" data-layout-align="center" data-layout-valign="center">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">ggplot</span>(alt, <span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens)) <span class="sc">+</span></span>
+<span id="cb34-2"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="at">data =</span> null, <span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens),</span>
+<span id="cb34-3"><a></a>                              <span class="at">label =</span> <span class="st">"null"</span>, <span class="at">color =</span> <span class="st">"gray75"</span>,</span>
+<span id="cb34-4"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb34-5"><a></a>                              <span class="at">hjust =</span> .<span class="dv">25</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb34-6"><a></a>  <span class="fu">geom_rug</span>(<span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp))), <span class="at">inherit.aes =</span> F, <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb34-7"><a></a>           <span class="at">color =</span> <span class="st">"orchid2"</span>, <span class="at">linewidth =</span> <span class="fl">1.4</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb34-8"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textvline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> (<span class="fu">mean</span>(y) <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)),</span>
+<span id="cb34-9"><a></a>                                   <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"z ="</span>, <span class="fu">round</span>(<span class="fu">after_stat</span>(xintercept), <span class="dv">2</span>))),</span>
+<span id="cb34-10"><a></a>                               <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"orchid2"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb34-11"><a></a>  geomtextpath<span class="sc">::</span><span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">x =</span> (y <span class="sc">-</span> pop_mean) <span class="sc">/</span> (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n_samp)), <span class="at">y =</span> dens),</span>
+<span id="cb34-12"><a></a>                              <span class="at">label =</span> <span class="st">"implied distribution"</span>, <span class="at">color =</span> <span class="st">"orchid2"</span>,</span>
+<span id="cb34-13"><a></a>                              <span class="at">linewidth =</span> <span class="fl">2.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb34-14"><a></a>                              <span class="at">hjust =</span> .<span class="dv">75</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb34-15"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> F, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb34-16"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb34-17"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb34-18"><a></a>  cowplot<span class="sc">::</span><span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb34-19"><a></a>  <span class="fu">theme</span>(<span class="at">margins =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-z-test-in-r" class="slide level2">
+<h2>Example <em>Z</em>-test in R</h2>
+<p>Let’s do an example in R. Since we’re so familiar with it, let’s use the <code>iris</code> dataset.</p>
+<p>Suppose we have a friend who’s a renowned flower researcher. This friend tells us that the population mean for irises is 4cm for petal lengths and 3cm for petal widths. The population variance for both is 4. This friend has collected the iris data and would like us to test if the sample means for petal length and petal width are different than the population mean.</p>
+<p>Let’s set this up!</p>
+</section>
+<section id="example-z-test-in-r-1" class="slide level2">
+<h2>Example <em>Z</em>-test in R</h2>
+<p>First: what is our null hypothesis? Alternative?</p>
+<div class="columns">
+<div class="column">
+<h4 id="petal-length">Petal Length</h4>
+<p><span class="math inline">\(H_0: \class{fragment}{\mu_{length} = 4}\)</span></p>
+<p><span class="math inline">\(H_A: \class{fragment}{\mu_{length} \neq 4}\)</span></p>
+</div><div class="column">
+<h4 id="petal-width">Petal Width</h4>
+<p><span class="math inline">\(H_0: \class{fragment}{\mu_{width} = 3}\)</span></p>
+<p><span class="math inline">\(H_A: \class{fragment}{\mu_{length} \neq 3}\)</span></p>
+</div></div>
+</section>
+<section id="example-z-test-in-r-2" class="slide level2">
+<h2>Example <em>Z</em>-test in R</h2>
+<p>What are our estimates and parameters?</p>
+<div class="columns" style="font-size:80%">
+<div class="column">
+<h4 id="petal-length-1">Petal Length</h4>
+<p>N: <span class="fragment"><code>length(iris$Petal.Length)</code> = 150</span></p>
+<p><span class="math inline">\(\bar{x}:\)</span> <span class="fragment"><code>mean(iris$Petal.Length)</code> = 3.76</span></p>
+<p><span class="math inline">\(\mu_{length}: \class{fragment}{4}\)</span></p>
+<p><span class="math inline">\(\sigma: \class{fragment}{\sqrt{\sigma^2}=\sqrt4=2}\)</span></p>
+</div><div class="column">
+<h4 id="petal-width-1">Petal Width</h4>
+<p>N: <span class="fragment"><code>length(iris$Petal.Width)</code> = 150</span></p>
+<p><span class="math inline">\(\bar{x}:\)</span> <span class="fragment"><code>mean(iris$Petal.Width)</code> = 1.2</span></p>
+<p><span class="math inline">\(\mu_{length}: \class{fragment}{3}\)</span></p>
+<p><span class="math inline">\(\sigma: \class{fragment}{\sqrt{\sigma^2}=\sqrt4=2}\)</span></p>
+</div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><code>length()</code> vs <code>nrow()</code>: <code>length()</code> returns the length of a vector, and <code>nrow()</code> returns the number of rows in a dataframe. For both, what might go wrong here?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="example-z-test-in-r-3" class="slide level2">
+<h2>Example <em>Z</em>-test in R</h2>
+<p>Let’s calculate these <em>z</em>-statistics.</p>
+<div class="columns">
+<div class="column">
+<h4 id="petal-length-2">Petal Length</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>samp_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length)</span>
+<span id="cb35-2"><a aria-hidden="true" tabindex="-1"></a>pop_mean <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb35-3"><a aria-hidden="true" tabindex="-1"></a>pop_sd <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">4</span>)</span>
+<span id="cb35-4"><a aria-hidden="true" tabindex="-1"></a>samp_n <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(iris<span class="sc">$</span>Petal.Length))</span>
+<span id="cb35-5"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a aria-hidden="true" tabindex="-1"></a>z_Petal.Length <span class="ot">&lt;-</span> (samp_mean <span class="sc">-</span> pop_mean) <span class="sc">/</span></span>
+<span id="cb35-7"><a aria-hidden="true" tabindex="-1"></a>  (pop_sd <span class="sc">/</span> <span class="fu">sqrt</span>(samp_n))</span>
+<span id="cb35-8"><a aria-hidden="true" tabindex="-1"></a>z_Petal.Length</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.481941</code></pre>
+</div>
+</div>
+</div><div class="column">
+<h4 id="petal-width-2">Petal Width</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a>z_Petal.Width <span class="ot">&lt;-</span> (<span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Width) <span class="sc">-</span> <span class="dv">3</span>) <span class="sc">/</span></span>
+<span id="cb37-2"><a aria-hidden="true" tabindex="-1"></a>  (<span class="fu">sqrt</span>(<span class="dv">4</span>) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(iris<span class="sc">$</span>Petal.Length))))</span>
+<span id="cb37-3"><a aria-hidden="true" tabindex="-1"></a>z_Petal.Width</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -11.02679</code></pre>
+</div>
+</div>
+</div></div>
+<p>Interpretation?</p>
+</section>
+<section id="z-distribution-in-r" class="slide level2">
+<h2><em>Z</em>-Distribution in R</h2>
+<p>Since a standard normal distribution. and <em>z</em>-distribution are the same, we can use the <code>norm()</code> function family to examine the distribution.</p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p>Sampling from <em>z</em>-distribution</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">rnorm</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  0.51594139  1.79543362 -0.54505247  1.76562800 -0.06737896 -1.39235310
+ [7]  0.87729246  1.02919715  2.01662311 -0.80411997</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<p>Probability of a given <em>z</em>-value</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.96</span>, <span class="fl">1.96</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0249979 0.9750021</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">pnorm</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9986501</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">pnorm</span>(<span class="dv">3</span>, <span class="at">lower.tail =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.001349898</code></pre>
+</div>
+</div>
+<div style="font-size:60%">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><code>pnorm()</code> gives the probability at or less than the value supplied. <code>p</code>-values look at the probability of that or more extreme values, so we use <code>lower.tail=FALSE</code> to get a <em>p</em>-value for a <em>z</em>-value greater than zero.</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<p><em>z</em>-value at a given probability</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">qnorm</span>(<span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.959964  1.959964</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="fu">qnorm</span>(.<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="quick-lower.tail-demo" class="slide level2">
+<h2>Quick <code>lower.tail</code> Demo</h2>
+<div class="cell quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-67-1.png" width="384"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-67-2.png" width="384"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img data-src="PSYC2020-Lab-8_files/figure-revealjs/unnamed-chunk-67-3.png" width="384"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="example-z-test-in-r-4" class="slide level2">
+<h2>Example <em>Z</em>-test in R</h2>
+<p>Let’s calculate these <em>z</em>-statistics.</p>
+<div class="columns">
+<div class="column">
+<h4 id="petal-length-3">Petal Length</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>z_Petal.Length</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.481941</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a><span class="fu">pnorm</span>(z_Petal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.06917796</code></pre>
+</div>
+</div>
+</div><div class="column">
+<h4 id="petal-width-3">Petal Width</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a aria-hidden="true" tabindex="-1"></a>z_Petal.Width</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -11.02679</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(z_Petal.Width)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.419134e-28</code></pre>
+</div>
+</div>
+</div></div>
+<p>Interpretation?</p>
 </section>
 <section>
 <section id="working-directory-workshop" class="title-slide slide level1 center">
@@ -674,7 +1442,7 @@ Jessica Helmer
 </section>
 <section id="working-directory-review" class="slide level2">
 <h2>Working Directory Review</h2>
-<p>Our <code>working directory</code> is where R starts looking for files when we ask it to</p>
+<p>Our <em>working directory</em> is where R starts looking for files when we ask it to</p>
 <p>In RMarkdown, <code>knitr</code> (which knits our document) overrides working directory changes within a chunk</p>
 <p>Relative paths let us specify paths to a file from a starting point folder</p>
 <p>By default,</p>
@@ -708,13 +1476,13 @@ Jessica Helmer
 <div class="columns" style="font-size:70%">
 <div class="column" style="width:33%;">
 <p><code>script1.R</code> to <code>data1.csv</code></p>
-<p><code>"Lab 1/data1.csv"</code> or <code>here::here("Lab 1", "data1.csv")</code></p>
+<p><span class="fragment"><code>"Lab 1/data1.csv"</code> or <code>here::here("Lab 1", "data1.csv")</code></span></p>
 </div><div class="column" style="width:33%;">
 <p><code>rmdfile1.Rmd</code> to <code>data1.csv</code></p>
-<p><code>"data1.csv"</code> or <code>here::here("Lab 1", "data1.csv")</code></p>
+<p><span class="fragment"><code>"data1.csv"</code> or <code>here::here("Lab 1", "data1.csv")</code></span></p>
 </div><div class="column" style="width:33%;">
 <p><code>rmdfile2.Rmd</code> to <code>data1.csv</code></p>
-<p><code>"../data2.csv"</code> or <code>here::here("Lab 1", "data1.csv")</code></p>
+<p><span class="fragment"><code>"../data2.csv"</code> or <code>here::here("Lab 1", "data1.csv")</code></span></p>
 </div></div>
 </section>
 <section id="working-directory-review-3" class="slide level2">
@@ -735,6 +1503,9 @@ Jessica Helmer
 <p>Download the <code>data.csv</code> file off Canvas</p>
 <p>Make a test R script (could be regular R script if you follow along) and test RMarkdown document</p>
 <p>Let’s make sure we can all read files in both formats</p>
+</section>
+<section id="assignment-8" class="slide level2">
+<h2>Assignment 8</h2>
 
 
 <script type="ojs-module-contents">

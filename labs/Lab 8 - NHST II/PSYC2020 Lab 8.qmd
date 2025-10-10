@@ -15,6 +15,7 @@ webr:
 execute:
   echo: true
 width: 1200
+cache: true
 ---
 
 ## Outline
@@ -31,50 +32,147 @@ library(tidyverse)
 ```
 
 
-## Housekeeping
+## Homework 2 Review
 
-[placeholder for any housekeeping stuff]
+2b) A new supplier provides bolts with the same mean length (10 cm) but a smaller standard deviation. How would this affect the *z*-score of the factory’s products, and what would it imply for the quality control process?
 
+Correct answer: There is no change!
 
-## Assignment 7 Review
+```{r}
+#| echo: false
+#| layout-ncol: 2
 
-[placeholder for Assignment 7 review]
+dens <- density(rnorm(1000000, 10, 0.1))
+dens_df <- data.frame(x = dens$x, y = dens$y) |>
+  mutate(z = (x - 10) / 0.1)
 
+ggplot(dens_df, aes(x = x, y = y)) +
+  geom_line() +
+  geom_area(data = dens_df,
+            aes(x = x, y = y), fill = NA) +
+  geom_area(data = filter(dens_df, z < -3),
+            aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) +
+  geom_area(data = filter(dens_df, z > 3),
+            aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) +
+  geom_vline(aes(xintercept = -3 * 0.1 + 10), color = "red") +
+  geom_vline(aes(xintercept = 3 * 0.1 + 10), color = "red") +
+  annotate("text", label = filter(dens_df, z < -3 | z > 3) |>
+             nrow() |>
+             as.character() |>
+             paste("rejected"),
+           x = 10, y = 2, size = 8) + 
+  coord_cartesian(xlim = c(9.6, 10.4)) +
+  labs(title = "SD = 0.1cm") +
+  theme_classic(base_size = 15)
 
-## NHST II Review
+dens <- density(rnorm(1000000, 10, 0.01))
+dens_df <- data.frame(x = dens$x, y = dens$y) |>
+  mutate(z = (x - 10) / 0.01)
 
-[placeholder for any NHST II review]
+ggplot(dens_df, aes(x = x, y = y)) +
+  geom_line() +
+  geom_area(data = dens_df,
+            aes(x = x, y = y), fill = NA) +
+  geom_area(data = filter(dens_df, z < -3),
+            aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) +
+  geom_area(data = filter(dens_df, z > 3),
+            aes(x = x, y = y), fill = "red", color = "red", alpha = 0.6) +
+  geom_vline(aes(xintercept = -3 * 0.01 + 10), color = "red") +
+  geom_vline(aes(xintercept = 3 * 0.01 + 10), color = "red") +
+  annotate("text", label = filter(dens_df, z < -3 | z > 3) |>
+             nrow() |>
+             as.character() |>
+             paste("rejected"),
+           x = 10, y = 2, size = 8) + 
+  coord_cartesian(xlim = c(9.6, 10.4)) +
+  labs(title = "SD = 0.05cm") +
+  theme_classic(base_size = 15)
+```
+
 
 
 ## Hypothesis Testing Demo
 
 We start by assuming the null hypothesis ($H_0$) is true. Let's say our null hypothesis is that the population mean of some happiness scale is 10 ($\mu = 10$). In this situation, we also know that the population variance on this scale is 4 ($\sigma^2 = 4, \sigma = 2$).
 
-If the null hypothesis were true, this is what we'd expect to see:
+Let's set this up:
 
 
 ## Hypothesis Testing Demo
 
 ```{r}
 n_pop <- 1000
-n_samp <- 20
 pop_mean <- 10
 pop_sd <- 2
-samp_mean <- 12
 ```
-
 <br>
-
 ```{r}
 null <- data.frame(x = seq(-20, 20, length.out = n_pop)) |>
   mutate(y = rnorm(n_pop, pop_mean, pop_sd),
          dens = dnorm(y, pop_mean, pop_sd)) 
+```
 
+```{r, echo =F}
+set.seed(11)
+```
+
+If the null hypothesis were true, this is what we'd expect to see:
+
+## Hypothesis Testing Demo: Scenario 1
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(null, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(null, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+## Hypothesis Testing Demo: Scenario 1
+
+Let's then collect a sample of 20 people. Say they have a sample mean of about 12.
+```{r}
+n_samp <- 20
+samp_mean <- 12
+```
+<br>
+```{r}
 alt <- data.frame(x = seq(-20, 20, length.out = n_samp)) |>
   mutate(y = rnorm(n_samp, samp_mean, pop_sd),
          dens = dnorm(y, samp_mean, pop_sd))
 ```
 
+
 ## Hypothesis Testing Demo: Scenario 1
 
 ::: panel-tabset
@@ -90,7 +188,9 @@ ggplot(alt, aes(x = y, y = dens)) +
                               label = "null", color = "gray75",
                               linewidth = 2.2, linetype = "dashed",
                               hjust = .25, size = 10) +
-  coord_cartesian(expand = F) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "firebrick1", linewidth = 1.4, alpha = .8) +
+  coord_cartesian(expand = F, clip = "off") +
   labs(y = NULL) +
   guides(color = "none", y = "none") +
   cowplot::theme_cowplot(font_size = 24) +
@@ -98,6 +198,24 @@ ggplot(alt, aes(x = y, y = dens)) +
 ```
 
 ### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "firebrick1", linewidth = 1.4, alpha = .8) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
 :::
 
 
@@ -118,37 +236,11 @@ ggplot(alt, aes(x = y, y = dens)) +
                               hjust = .25, size = 10) +
   geom_rug(aes(x = y), inherit.aes = F, sides = "b",
            color = "firebrick1", linewidth = 1.4, alpha = .8) +
-  coord_cartesian(expand = F) +
-  labs(y = NULL) +
-  guides(color = "none", y = "none") +
-  cowplot::theme_cowplot(font_size = 24) +
-  theme(margins = margin(10, 10, 10, 10))
-```
-
-### Code
-:::
-
-
-## Hypothesis Testing Demo: Scenario 1
-
-::: panel-tabset
-### Plot
-
-```{r, echo = F}
-#| out-height: 80%
-#| layout-valign: center
-#| fig-align: center
-
-ggplot(alt, aes(x = y, y = dens)) +
-  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
-                              label = "null", color = "gray75",
-                              linewidth = 2.2, linetype = "dashed",
-                              hjust = .25, size = 10) +
-  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
-           color = "firebrick1", linewidth = 1.4, alpha = .8) +
-  geomtextpath::geom_textvline(aes(xintercept = mean(y)), label = "observed mean",
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
                                size = 10, color = "firebrick1", linewidth = 1.5) +
-  coord_cartesian(expand = F) +
+  coord_cartesian(expand = F, clip = "off") +
   labs(y = NULL) +
   guides(color = "none", y = "none") +
   cowplot::theme_cowplot(font_size = 24) +
@@ -156,6 +248,29 @@ ggplot(alt, aes(x = y, y = dens)) +
 ```
 
 ### Code
+
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "firebrick1", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "firebrick1", linewidth = 1.5) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
 :::
 
 
@@ -176,13 +291,15 @@ ggplot(alt, aes(x = y, y = dens)) +
                               hjust = .25, size = 10) +
   geom_rug(aes(x = y), inherit.aes = F, sides = "b",
            color = "firebrick1", linewidth = 1.4, alpha = .8) +
-  geomtextpath::geom_textvline(aes(xintercept = mean(y)), label = "observed mean",
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
                                size = 10, color = "firebrick1", linewidth = 1.5) +
   geomtextpath::geom_textline(aes(x = y, y = dens),
                               label = "implied distribution", color = "firebrick1",
                               linewidth = 2.2, linetype = "dashed",
                               hjust = .75, size = 10) +
-  coord_cartesian(expand = F) +
+  coord_cartesian(expand = F, clip = "off") +
   labs(y = NULL) +
   guides(color = "none", y = "none") +
   cowplot::theme_cowplot(font_size = 24) +
@@ -190,6 +307,32 @@ ggplot(alt, aes(x = y, y = dens)) +
 ```
 
 ### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "firebrick1", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "firebrick1", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = y, y = dens),
+                              label = "implied distribution", color = "firebrick1",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
 :::
 
 
@@ -214,7 +357,7 @@ ggplot(alt, aes(x = y - pop_mean, y = dens)) +
                               label = "implied distribution", color = "firebrick1",
                               linewidth = 2.2, linetype = "dashed",
                               hjust = .75, size = 10) +
-  coord_cartesian(expand = F) +
+  coord_cartesian(expand = F, clip = "off") +
   labs(y = NULL) +
   guides(color = "none", y = "none") +
   cowplot::theme_cowplot(font_size = 24) +
@@ -222,6 +365,29 @@ ggplot(alt, aes(x = y - pop_mean, y = dens)) +
 ```
 
 ### Code
+
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y - pop_mean, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y - pop_mean, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y - pop_mean), inherit.aes = F, sides = "b",
+           color = "firebrick1", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textline(aes(x = y - pop_mean, y = dens),
+                              label = "implied distribution", color = "firebrick1",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
 :::
 
 
@@ -235,6 +401,42 @@ ggplot(alt, aes(x = y - pop_mean, y = dens)) +
 #| layout-valign: center
 #| fig-align: center
 
+ggplot(alt |>
+         mutate(z = (y - pop_mean) / (pop_sd / sqrt(n_samp)),
+                dens = dnorm(z, (mean(y) - pop_mean) / (pop_sd / sqrt(n_samp)), pop_sd / sqrt(n_samp))), 
+       aes(x = z,
+           y = dens)) +
+  geomtextpath::geom_textline(data = null |>
+                                mutate(z = (y - pop_mean) / (pop_sd / sqrt(n_samp)),
+                                       dens = dnorm(z, 0, pop_sd / sqrt(n_samp))), 
+                              aes(x = z,
+                                  y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = z), inherit.aes = F, sides = "b",
+           color = "firebrick1", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(z),
+                                   label = paste("z =", round(after_stat(xintercept), 2))),
+                               size = 10, color = "firebrick1", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = z,
+                                  y = dens),
+                              label = "implied distribution", color = "firebrick1",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
 ggplot(alt, aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens)) +
   geomtextpath::geom_textline(data = null, aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens),
                               label = "null", color = "gray75",
@@ -243,13 +445,60 @@ ggplot(alt, aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens)) +
   geom_rug(aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp))), inherit.aes = F, sides = "b",
            color = "firebrick1", linewidth = 1.4, alpha = .8) +
   geomtextpath::geom_textvline(aes(xintercept = (mean(y) - pop_mean) / (pop_sd / sqrt(n_samp)),
-                                   label = after_stat(xintercept)),
+                                   label = paste("z =", round(after_stat(xintercept), 2))),
                                size = 10, color = "firebrick1", linewidth = 1.5) +
   geomtextpath::geom_textline(aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens),
                               label = "implied distribution", color = "firebrick1",
                               linewidth = 2.2, linetype = "dashed",
                               hjust = .75, size = 10) +
-  coord_cartesian(expand = F) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+
+## Hypothesis Testing Demo: Scenario 2
+
+Now let's try an example with the same mean difference, but the population variance is larger
+
+$\mu = 10, \sigma^2 = 64, \sigma = 8$
+
+Let's then collect a sample of 20 people. Say they have a sample mean of about 12.
+```{r}
+pop_sd <- 8
+n_samp <- 20
+samp_mean <- 12
+```
+<br>
+```{r}
+null <- data.frame(x = seq(-20, 20, length.out = n_pop)) |>
+  mutate(y = rnorm(n_pop, pop_mean, pop_sd),
+         dens = dnorm(y, pop_mean, pop_sd)) 
+
+alt <- data.frame(x = seq(-20, 20, length.out = n_samp)) |>
+  mutate(y = rnorm(n_samp, samp_mean, pop_sd),
+         dens = dnorm(y, samp_mean, pop_sd))
+```
+
+## Hypothesis Testing Demo: Scenario 2
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(null, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
   labs(y = NULL) +
   guides(color = "none", y = "none") +
   cowplot::theme_cowplot(font_size = 24) +
@@ -257,336 +506,1218 @@ ggplot(alt, aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens)) +
 ```
 
 ### Code
+
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(null, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
 :::
 
-## ARCHIVE ----
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
-<!-- dat <- data.frame(x = seq(0, 20, length.out = n_pop)) |> -->
-<!--   mutate(null = dnorm(x, mean = 10, sd = 2)) -->
+## Hypothesis Testing Demo: Scenario 2
 
-<!-- dat |> -->
-<!--   ggplot(aes(x = x, y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
+::: panel-tabset
+### Plot
 
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- dat <- data.frame(x = seq(-20, 40, length.out = n_pop)) -->
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
 
-<!-- dat |> -->
-<!--   ggplot(aes(x = x, y = dnorm(x, mean = 10, sd = 2))) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "skyblue", linewidth = 1.4, alpha = .8) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
 
+### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
 
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-
-<!-- Let's say we collect a sample of 20 people, and we calculate the mean, and $\bar{X} = 9.5$: -->
-
-
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
-
-<!-- n_samp <- 20 -->
-
-<!-- dat1 <- data.frame(x = seq(0, 20, length.out = n_samp), -->
-<!--                    y = rnorm(n_samp, 9.5, 2)) -->
-
-<!-- dat |> -->
-<!--   ggplot(aes(x = x, y = dnorm(x, mean = 10, sd = 2))) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = dnorm(x, 9.5, 2)), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- n_samp <- 20 -->
-
-<!-- dat1 <- data.frame(x = seq(0, 20, length.out = 20)) |> -->
-<!--   mutate(y = rnorm(x, 9.5, 2), -->
-<!--          observed = dnorm(x, 9.5, 2), -->
-<!--          height = runif(n_samp, 0, observed)) -->
-
-<!-- dat |> -->
-<!--   ggplot(aes(x = x, y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "skyblue", linewidth = 1.4, alpha = .8) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
 
 
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
+## Hypothesis Testing Demo: Scenario 2
 
-<!-- $z = \frac{\bar{X} - \mu}{\sigma / \sqrt{N}}$ -->
+::: panel-tabset
+### Plot
 
-<!-- Use $\sigma / \sqrt{N}$ to standardize both distributions -->
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
 
-<!-- In this scenario, $\sigma / \sqrt{N} = 2 / \sqrt{2} = 0.447$ -->
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "skyblue", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "skyblue", linewidth = 1.5) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
 
+### Code
 
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
 
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
-
-<!-- se <- 2 / sqrt(n_samp) -->
-
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = dnorm(x))) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(x = x / se, -->
-<!--                                                y = dnorm(x, 9.5, 2)), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y / se), inherit.aes = F, sides = "b", -->
-<!--             color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   #coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y  / se), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "skyblue", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "skyblue", linewidth = 1.5) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
 
 
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
+## Hypothesis Testing Demo: Scenario 2
 
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
+::: panel-tabset
+### Plot
 
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y  / se), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 40), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
 
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y  / se), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 40), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "skyblue", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "skyblue", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = y, y = dens),
+                              label = "implied distribution", color = "skyblue",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
 
+### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
 
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-
-<!-- $z = \frac{\bar{X} - \mu}{\sigma / \sqrt{N}}$ -->
-
-<!-- Now that we're standardized, let's subtract the standardized population mean out of both distributions -->
-
-
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
-
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
-
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = dnorm(x))) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(x = x / se - (10 / se), -->
-<!--                                                y = dnorm(x, 9.5, 2)), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y / se), inherit.aes = F, sides = "b", -->
-<!--             color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   #coord_cartesian(ylim = c(0, .3), xlim = c(0, 20), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se - (10 / se), y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y  / se - (10 / (x / se))), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(0, 40), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "skyblue", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "skyblue", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = y, y = dens),
+                              label = "implied distribution", color = "skyblue",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
 
 
-<!-- ## Hypothesis Testing Demo: Scenario 1 -->
+## Hypothesis Testing Demo: Scenario 2
 
-<!-- ::: panel-tabset -->
-<!-- ### Plot -->
-<!-- ```{r, echo=F} -->
-<!-- #| out-height: 80% -->
-<!-- #| layout-valign: center -->
-<!-- #| fig-align: center -->
+::: panel-tabset
+### Plot
 
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se, y = dnorm(x))) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(x = x / se - (10 / se), -->
-<!--                                                y = dnorm(x, 9.5, 2)), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y / se), inherit.aes = F, sides = "b", -->
-<!--             color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(-10, 10), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
 
-<!-- ### Code -->
-<!-- ```{r, eval=F} -->
-<!-- dat |> -->
-<!--   ggplot(aes(x = x / se - (10 / se), y = null)) + -->
-<!--   geomtextpath::geom_textline(label = "null", color = "gray75", -->
-<!--                               linewidth = 2.2, linetype = "dashed", -->
-<!--                               hjust = .25, size = 10) + -->
-<!--   geomtextpath::geom_textline(data = dat1, aes(y = observed), label = "observed", -->
-<!--                               color = "firebrick1", -->
-<!--                               linewidth = 2.2,  -->
-<!--                               hjust = .75, size = 10) + -->
-<!--   geom_rug(data = dat1, aes(x = y  / se - (10 / (x / se))), inherit.aes = F, sides = "b", -->
-<!--            color = "firebrick1", linewidth = 1.4, alpha = .8) + -->
-<!--   coord_cartesian(ylim = c(0, .3), xlim = c(-3, 3), expand = F) + -->
-<!--   labs(x = "Happiness", y = NULL) + -->
-<!--   guides(color = "none", y = "none") + -->
-<!--   cowplot::theme_cowplot(font_size = 24) + -->
-<!--   theme(margins = margin(10, 10, 10, 10)) -->
-<!-- ``` -->
-<!-- ::: -->
+ggplot(alt, aes(x = y - pop_mean, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y - pop_mean, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y - pop_mean), inherit.aes = F, sides = "b",
+           color = "skyblue", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textline(aes(x = y - pop_mean, y = dens),
+                              label = "implied distribution", color = "skyblue",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y - pop_mean, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y - pop_mean, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y - pop_mean), inherit.aes = F, sides = "b",
+           color = "skyblue", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textline(aes(x = y - pop_mean, y = dens),
+                              label = "implied distribution", color = "skyblue",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 2
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt |>
+         mutate(z = (y - pop_mean) / (pop_sd / sqrt(n_samp)),
+                dens = dnorm(z, (mean(y) - pop_mean) / (pop_sd / sqrt(n_samp)), pop_sd / sqrt(n_samp))), 
+       aes(x = z,
+           y = dens)) +
+  geomtextpath::geom_textline(data = null |>
+                                mutate(z = (y - pop_mean) / (pop_sd / sqrt(n_samp)),
+                                       dens = dnorm(z, 0, pop_sd/ sqrt(n_samp))), 
+                              aes(x = z,
+                                  y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = z), inherit.aes = F, sides = "b",
+           color = "skyblue", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(z),
+                                   label = paste("z =", round(after_stat(xintercept), 2))),
+                               size = 10, color = "skyblue", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = z,
+                                  y = dens),
+                              label = "implied distribution", color = "skyblue",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp))), inherit.aes = F, sides = "b",
+           color = "skyblue", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = (mean(y) - pop_mean) / (pop_sd / sqrt(n_samp)),
+                                   label = paste("z =", round(after_stat(xintercept), 2))),
+                               size = 10, color = "skyblue", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens),
+                              label = "implied distribution", color = "skyblue",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 3
+
+Let's try the same population parameters, but take a bigger sample!
+
+Let's then collect a sample of 200 people. Say they have a sample mean of about 12.
+```{r}
+n_samp <- 200
+```
+<br>
+```{r}
+null <- data.frame(x = seq(-20, 20, length.out = n_pop)) |>
+  mutate(y = rnorm(n_pop, pop_mean, pop_sd),
+         dens = dnorm(y, pop_mean, pop_sd)) 
+
+alt <- data.frame(x = seq(-20, 20, length.out = n_samp)) |>
+  mutate(y = rnorm(n_samp, samp_mean, pop_sd),
+         dens = dnorm(y, samp_mean, pop_sd))
+```
+
+## Hypothesis Testing Demo: Scenario 3
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(null, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(null, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 3
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "springgreen3", linewidth = 1.4, alpha = .8) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "springgreen3", linewidth = 1.4, alpha = .8) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 3
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "springgreen3", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "springgreen3", linewidth = 1.5) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "springgreen3", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "springgreen3", linewidth = 1.5) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 3
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "springgreen3", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "springgreen3", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = y, y = dens),
+                              label = "implied distribution", color = "springgreen3",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "springgreen3", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "springgreen3", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = y, y = dens),
+                              label = "implied distribution", color = "springgreen3",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 3
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y - pop_mean, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y - pop_mean, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y - pop_mean), inherit.aes = F, sides = "b",
+           color = "springgreen3", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textline(aes(x = y - pop_mean, y = dens),
+                              label = "implied distribution", color = "springgreen3",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y - pop_mean, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y - pop_mean, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y - pop_mean), inherit.aes = F, sides = "b",
+           color = "springgreen3", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textline(aes(x = y - pop_mean, y = dens),
+                              label = "implied distribution", color = "springgreen3",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 3
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt |>
+         mutate(z = (y - pop_mean) / (pop_sd / sqrt(n_samp)),
+                dens = dnorm(z, (mean(y) - pop_mean) / (pop_sd / sqrt(n_samp)), pop_sd / sqrt(n_samp))), 
+       aes(x = z,
+           y = dens)) +
+  geomtextpath::geom_textline(data = null |>
+                                mutate(z = (y - pop_mean) / (pop_sd / sqrt(n_samp)),
+                                       dens = dnorm(z, 0, pop_sd / sqrt(n_samp))), 
+                              aes(x = z,
+                                  y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = z), inherit.aes = F, sides = "b",
+           color = "springgreen3", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(z),
+                                   label = paste("z =", round(after_stat(xintercept), 2))),
+                               size = 10, color = "springgreen3", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = z,
+                                  y = dens),
+                              label = "implied distribution", color = "springgreen3",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp))), inherit.aes = F, sides = "b",
+           color = "springgreen3", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = (mean(y) - pop_mean) / (pop_sd / sqrt(n_samp)),
+                                   label = paste("z =", round(after_stat(xintercept), 2))),
+                               size = 10, color = "springgreen3", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens),
+                              label = "implied distribution", color = "springgreen3",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 4
+
+Now let's say there's a huge difference between our population mean and sample mean. But, we only took a sample of 5 people.
+
+$\mu = 10, \sigma^2 = 4, \sigma = 2$
+```{r}
+n_samp <- 5
+samp_mean <- 20
+```
+<br>
+```{r}
+null <- data.frame(x = seq(-20, 20, length.out = n_pop)) |>
+  mutate(y = rnorm(n_pop, pop_mean, pop_sd),
+         dens = dnorm(y, pop_mean, pop_sd)) 
+
+alt <- data.frame(x = seq(-20, 20, length.out = n_samp)) |>
+  mutate(y = rnorm(n_samp, samp_mean, pop_sd),
+         dens = dnorm(y, samp_mean, pop_sd))
+```
+
+## Hypothesis Testing Demo: Scenario 4
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(null, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(null, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 4
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "orchid2", linewidth = 1.4, alpha = .8) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "orchid2", linewidth = 1.4, alpha = .8) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 4
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "orchid2", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "orchid2", linewidth = 1.5) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "orchid2", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "orchid2", linewidth = 1.5) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 4
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "orchid2", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "orchid2", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = y, y = dens),
+                              label = "implied distribution", color = "orchid2",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y), inherit.aes = F, sides = "b",
+           color = "orchid2", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(y),
+                                   label = paste0("bar(x) == ", round(after_stat(xintercept), 2))),
+                               parse = T,
+                               size = 10, color = "orchid2", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = y, y = dens),
+                              label = "implied distribution", color = "orchid2",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 4
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y - pop_mean, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y - pop_mean, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y - pop_mean), inherit.aes = F, sides = "b",
+           color = "orchid2", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textline(aes(x = y - pop_mean, y = dens),
+                              label = "implied distribution", color = "orchid2",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = y - pop_mean, y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = y - pop_mean, y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = y - pop_mean), inherit.aes = F, sides = "b",
+           color = "orchid2", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textline(aes(x = y - pop_mean, y = dens),
+                              label = "implied distribution", color = "orchid2",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Hypothesis Testing Demo: Scenario 4
+
+::: panel-tabset
+### Plot
+
+```{r, echo = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt |>
+         mutate(z = (y - pop_mean) / (pop_sd / sqrt(n_samp)),
+                dens = dnorm(z, (mean(y) - pop_mean) / (pop_sd / sqrt(n_samp)), pop_sd / sqrt(n_samp))), 
+       aes(x = z,
+           y = dens)) +
+  geomtextpath::geom_textline(data = null |>
+                                mutate(z = (y - pop_mean) / (pop_sd / sqrt(n_samp)),
+                                       dens = dnorm(z, 0, pop_sd / sqrt(n_samp))), 
+                              aes(x = z,
+                                  y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = z), inherit.aes = F, sides = "b",
+           color = "orchid2", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = mean(z),
+                                   label = paste("z =", round(after_stat(xintercept), 2))),
+                               size = 10, color = "orchid2", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = z,
+                                  y = dens),
+                              label = "implied distribution", color = "orchid2",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(xlim = c(-10, 10), expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+
+### Code
+```{r, eval = F}
+#| out-height: 80%
+#| layout-valign: center
+#| fig-align: center
+
+ggplot(alt, aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens)) +
+  geomtextpath::geom_textline(data = null, aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens),
+                              label = "null", color = "gray75",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .25, size = 10) +
+  geom_rug(aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp))), inherit.aes = F, sides = "b",
+           color = "orchid2", linewidth = 1.4, alpha = .8) +
+  geomtextpath::geom_textvline(aes(xintercept = (mean(y) - pop_mean) / (pop_sd / sqrt(n_samp)),
+                                   label = paste("z =", round(after_stat(xintercept), 2))),
+                               size = 10, color = "orchid2", linewidth = 1.5) +
+  geomtextpath::geom_textline(aes(x = (y - pop_mean) / (pop_sd / sqrt(n_samp)), y = dens),
+                              label = "implied distribution", color = "orchid2",
+                              linewidth = 2.2, linetype = "dashed",
+                              hjust = .75, size = 10) +
+  coord_cartesian(expand = F, clip = "off") +
+  labs(y = NULL) +
+  guides(color = "none", y = "none") +
+  cowplot::theme_cowplot(font_size = 24) +
+  theme(margins = margin(10, 10, 10, 10))
+```
+:::
+
+
+## Example *Z*-test in R
+
+Let's do an example in R. Since we're so familiar with it, let's use the `iris` dataset.
+
+Suppose we have a friend who's a renowned flower researcher. This friend tells us that the population mean for irises is 4cm for petal lengths and 3cm for petal widths. The population variance for both is 4. This friend has collected the iris data and would like us to test if the sample means for petal length and petal width are different than the population mean.
+
+Let's set this up!
+
+
+## Example *Z*-test in R
+
+First: what is our null hypothesis? Alternative?
+
+:::: columns
+::: column
+#### Petal Length
+$H_0: \class{fragment}{\mu_{length} = 4}$
+
+$H_A: \class{fragment}{\mu_{length} \neq 4}$
+:::
+
+::: column
+#### Petal Width
+$H_0: \class{fragment}{\mu_{width} = 3}$
+
+$H_A: \class{fragment}{\mu_{length} \neq 3}$
+:::
+::::
+
+
+## Example *Z*-test in R
+
+What are our estimates and parameters?
+
+:::: {.columns style="font-size:80%"}
+::: column
+#### Petal Length
+N: [`length(iris$Petal.Length)` = `r length(iris$Petal.Length)`]{.fragment}
+
+$\bar{x}:$ [`mean(iris$Petal.Length)` = `r mean(iris$Petal.Length) |> round(2)`]{.fragment}
+
+$\mu_{length}: \class{fragment}{4}$
+
+$\sigma: \class{fragment}{\sqrt{\sigma^2}=\sqrt4=2}$
+:::
+
+::: column
+#### Petal Width
+N: [`length(iris$Petal.Width)` = `r length(iris$Petal.Width)`]{.fragment}
+
+$\bar{x}:$ [`mean(iris$Petal.Width)` = `r mean(iris$Petal.Width) |> round(2)`]{.fragment}
+
+$\mu_{length}: \class{fragment}{3}$
+
+$\sigma: \class{fragment}{\sqrt{\sigma^2}=\sqrt4=2}$
+:::
+::::
+
+::: callout-note
+`length()` vs `nrow()`: `length()` returns the length of a vector, and `nrow()` returns the number of rows in a dataframe. For both, what might go wrong here?
+:::
+
+
+## Example *Z*-test in R
+
+Let's calculate these *z*-statistics.
+
+:::: columns
+::: column
+#### Petal Length
+```{r}
+#| code-line-numbers: false
+samp_mean <- mean(iris$Petal.Length)
+pop_mean <- 4
+pop_sd <- sqrt(4)
+samp_n <- sum(!is.na(iris$Petal.Length))
+
+z_Petal.Length <- (samp_mean - pop_mean) /
+  (pop_sd / sqrt(samp_n))
+z_Petal.Length
+```
+:::
+
+::: column
+#### Petal Width
+```{r}
+#| code-line-numbers: false
+z_Petal.Width <- (mean(iris$Petal.Width) - 3) /
+  (sqrt(4) / sqrt(sum(!is.na(iris$Petal.Length))))
+z_Petal.Width
+```
+:::
+::::
+
+Interpretation?
+
+
+## *Z*-Distribution in R
+
+Since a standard normal distribution. and *z*-distribution are the same, we can use the `norm()` function family to examine the distribution.
+
+
+:::: columns
+::: {.column width="33%"}
+Sampling from *z*-distribution
+```{r}
+rnorm(10)
+```
+:::
+
+::: {.column width="33%"}
+Probability of a given *z*-value
+```{r}
+pnorm(c(-1.96, 1.96))
+pnorm(3)
+pnorm(3, lower.tail = F)
+```
+::: {.callout-note style="font-size:60%"}
+`pnorm()` gives the probability at or less than the value supplied. `p`-values look at the probability of that or more extreme values, so we use `lower.tail=FALSE` to get a *p*-value for a *z*-value greater than zero.
+:::
+:::
+
+::: {.column width="33%"}
+*z*-value at a given probability
+```{r}
+qnorm(c(.025, .975))
+qnorm(.5)
+```
+:::
+::::
+
+
+## Quick `lower.tail` Demo
+
+```{r}
+#| layout-ncol: 3
+#| fig-width: 4
+#| fig-height: 3.5
+#| echo: false
+dat <- data.frame(x = seq(-5, 5, length.out = 1000),
+                  y = dnorm(seq(-5, 5, length.out = 1000), 0, 1))
+
+dat |>
+  ggplot(aes(x = x, y = y)) +
+  geom_area(data = dat |> filter(x < -1.67), aes(x = x, y = y), fill = 'salmon', alpha = .8) +
+  geom_line() +
+  annotate("text", x = -4.7, y = .38, label = paste0("pnorm(-1.67) = ", round(pnorm(-1.67), 2)),
+           hjust = 0) +
+  coord_cartesian(expand = F) +
+  guides(y = "none") +
+  labs(y = NULL) +
+  theme_classic(base_size = 16)
+
+dat |>
+  ggplot(aes(x = x, y = y)) +
+  geom_area(data = dat |> filter(x < 0), aes(x = x, y = y), fill = 'salmon', alpha = .8) +
+  geom_line() +
+  annotate("text", x = -4.7, y = .38, label = paste0("pnorm(0) = ", round(pnorm(0), 2)),
+           hjust = 0) +
+  coord_cartesian(expand = F) +
+  guides(y = "none") +
+  labs(y = NULL) +
+  theme_classic(base_size = 16)
+
+dat |>
+  ggplot(aes(x = x, y = y)) +
+  geom_area(data = dat |> filter(x < 1.67), aes(x = x, y = y), fill = 'salmon', alpha = .8) +
+  geom_line() +
+  annotate("text", x = -4.7, y = .38, label = paste0("pnorm(1.67) = ", round(pnorm(1.67), 2)),
+           hjust = 0) +
+  annotate("text", x = -4.7, y = .35, label = paste0("pnorm(1.67, lower.tail=T) = ", round(pnorm(1.67, lower.tail = T), 2)),
+           hjust = 0) +
+  coord_cartesian(expand = F) +
+  guides(y = "none") +
+  labs(y = NULL) +
+  theme_classic(base_size = 16)
+```
+
+
+## Example *Z*-test in R
+
+Let's calculate these *z*-statistics.
+
+:::: columns
+::: column
+#### Petal Length
+```{r}
+z_Petal.Length
+pnorm(z_Petal.Length)
+```
+:::
+
+::: column
+#### Petal Width
+```{r}
+#| code-line-numbers: false
+z_Petal.Width
+pnorm(z_Petal.Width)
+```
+:::
+::::
+
+Interpretation?
+
 
 
 # Working Directory Workshop
 
+
 ## Working Directory Review
 
-Our `working directory` is where R starts looking for files when we ask it to
+Our *working directory* is where R starts looking for files when we ask it to
 
 In RMarkdown, `knitr` (which knits our document) overrides working directory changes within a chunk
 
@@ -628,19 +1759,19 @@ Documents/PSYC2020L
 ::: {.column width=33%}
 `script1.R` to `data1.csv` 
 
-`"Lab 1/data1.csv"` or `here::here("Lab 1", "data1.csv")`
+[`"Lab 1/data1.csv"` or `here::here("Lab 1", "data1.csv")`]{.fragment}
 :::
 
 ::: {.column width=33%}
 `rmdfile1.Rmd` to `data1.csv` 
 
-`"data1.csv"` or `here::here("Lab 1", "data1.csv")`
+[`"data1.csv"` or `here::here("Lab 1", "data1.csv")`]{.fragment}
 :::
 
 ::: {.column width=33%}
 `rmdfile2.Rmd` to `data1.csv` 
 
-`"../data2.csv"` or `here::here("Lab 1", "data1.csv")`
+[`"../data2.csv"` or `here::here("Lab 1", "data1.csv")`]{.fragment}
 :::
 ::::
 
@@ -671,7 +1802,7 @@ Make a test R script (could be regular R script if you follow along) and test RM
 Let's make sure we can all read files in both formats
 
 
-
+## Assignment 8
 
 
 

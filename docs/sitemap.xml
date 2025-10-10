@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/index.html</loc>
-    <lastmod>2025-10-03T14:25:27.678Z</lastmod>
+    <lastmod>2025-10-10T13:54:27.227Z</lastmod>
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 1 - Basic R/PSYC2020L Lab 1.html</loc>
@@ -146,7 +146,7 @@
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 8 - NHST II/PSYC2020 Lab 8.html</loc>
-    <lastmod>2025-10-02T19:56:45.811Z</lastmod>
+    <lastmod>2025-10-10T13:45:01.855Z</lastmod>
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html</loc>
@@ -155,5 +155,17 @@
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html</loc>
     <lastmod>2025-10-02T15:52:17.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html</loc>
+    <lastmod>2025-10-09T21:45:25.338Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 8 - NHST II/test.html</loc>
+    <lastmod>2025-10-10T13:47:34.676Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 8 - NHST II/Lab 8 Assignment Example.html</loc>
+    <lastmod>2025-10-06T17:36:43.156Z</lastmod>
   </url>
 </urlset>
