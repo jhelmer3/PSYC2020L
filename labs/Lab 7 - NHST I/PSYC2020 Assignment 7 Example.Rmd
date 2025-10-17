@@ -138,7 +138,7 @@ diamonds_clean <- diamonds |>
          dimension = factor(dimension, levels = c("x", "y", "z"), labels = c("length", "width", "depth")))
 ```
 
-6b) Now, let's look at the relationship between diamond size and quality. Using your cleaned dataframe, start by making a histogram with the size measurement on the x-axis. Change the default number of bins to a better one (in your opinion).
+### 6b) Now, let's look at the relationship between diamond size and quality. Using your cleaned dataframe, start by making a histogram with the size measurement on the x-axis. Change the default number of bins to a better one (in your opinion).
 ```{r}
 diamonds_clean |>
   ggplot(aes(x = measurement)) +

@@ -1,0 +1,82 @@
+---
+title: "PSYC2020L Assignment 9"
+author: "[name]"
+date: "2025-10-17"
+output: html_document
+---
+
+## Goals for Review:
+
+* Confidence Intervals
+* One Sample T-Tests
+* Effect Size
+
+
+## Setting Up
+
+### 1) Rename this assignment as "Lab 9 Assignment [Last, First].Rmd" 
+
+### 2) Check and set (if needed) your working directory. If you'd like to load packages with `library()`, please do so in this block. 
+```{r}
+
+```
+
+
+## Confidence Intervals
+
+### 3a) Calculate the 95% confidence interval around the mean for iris sepal length, and report its interpretation.
+
+```{r}
+
+```
+
+
+
+### 3b) Would you expect the 99% confidence interval around the mean for iris sepal length to be wider or narrower than that of the 95th? What about the 67% confidence interval?
+
+.
+
+### 3c) Calculate the 67% confidence interval around the mean for iris sepal length, and report its interpretation.
+
+```{r}
+
+```
+
+
+
+
+## One-Sample *T*-Test
+
+### 4a) A professor claims that students spend 4.5 hours per day studying. You're not so sure! You are given a dataset (`studytimes.csv`) that contains the study hours of 25 students. Your goal is to load the dataset into R and analyze whether the mean study time is significantly different from 4.5 hours using a one-sample *t*-test. First, load the data in and display the first few rows.
+
+```{r}
+
+```
+
+### 4b) Write the null and alternative hypotheses for a two-tailed test.
+
+
+
+### 4c) Perform a one-sample *t*-test using the dataset.
+
+```{r}
+
+```
+
+### 4d) Report the *p*-value and interpret the results at α = 0.05.
+
+
+
+### 4e) Report the 95% confidence interval for the mean study time. Does the confidence interval include 4.5 hours? What does that mean in terms of hypothesis testing?
+
+
+
+### 4f) What is the effect size of the difference between the sample mean and the hypothesized mean?
+
+```{r}
+
+```
+
+### 4g) Interpret the effect size.
+
+

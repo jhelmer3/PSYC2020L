@@ -1,0 +1,18 @@
+---
+title: "scratch"
+author: "Jessica Helmer"
+date: "2025-10-17"
+output: html_document
+---
+
+```{r}
+options(scipen = 999)
+library(tidyverse)
+```
+
+```{r}
+hwytest <- t.test(mpg$hwy, mu = 30)
+hwytest$p.value
+```
+
+The p-value for the highway t-test was `r hwytest$p.value`.

@@ -48,8 +48,8 @@ ggplot(dat, aes(x = SAT)) +
   geom_histogram(bins = 15, fill = "slategray2", color = "steelblue", linewidth = .2) +
   coord_cartesian(expand = F) +
   theme_classic(base_size = 16)
-range(dat$SAT)
-mean(dat$SAT)
+range(dat$SAT, na.rm = T)
+mean(dat$SAT, na.rm = T)
 ```
 
 ### 4) Explore or report on the ACT variable in three different ways. Examples include making a plot, commenting on the shape of the distribution, numerical summary statistics (e.g, mean, SD, range), etc.
@@ -69,16 +69,20 @@ You've been tasked with testing whether the scores from this sample of students 
 
 ### 5a) Let's say the population mean for SAT scores is 1200 and the population SD is 110. What are your null and alternative hypotheses?
 
-The null hypothesis is that the observed mean of SAT scores is equal to the population mean of 1200.
+The null hypothesis is that the observed mean of SAT scores is equal to the hypothesized population mean of 1200. The alternative is that the observed mean of SAT scores is not equal to the hypothesized population mean of 1200.
 
 ### 5b) Calculate the *z*-test statistic for this sample of SAT scores against the population.
 ```{r}
 (mean(dat$SAT, na.rm = T) - 1200) / (110 / sqrt(sum(!is.na(dat$SAT))))
+
+(mean(dat$SAT, na.rm = T) - 1200) / (110 / length(dat$SAT)) # ideally they do the top one but this is finee
 ```
 
 ### 5c) What is the *p*-value of that *z*-statistic?
 ```{r}
 pnorm((mean(dat$SAT, na.rm = T) - 1200) / (110 / sqrt(sum(!is.na(dat$SAT)))), lower.tail = F)
+
+pnorm((mean(dat$SAT, na.rm = T) - 1200) / (110 / length(dat$SAT)), lower.tail = F) # for if they do the top one
 ```
 
 ### 5d) Provide an interpretation for this *z*-test given the test statistic and *p*-value.
@@ -88,16 +92,20 @@ We reject the null hypothesis. There is a significant difference between the obs
 
 ### 6a) Let's say the population mean for ACT scores is 29 and the population variance is 64. What are your null and alternative hypotheses?
 
-The null hypothesis is that the observed mean of ACT scores is equal to the population mean of 28.
+The null hypothesis is that the observed mean of ACT scores is equal to the population mean of 28. The alternative is that the observed mean of ACT scores is not equal to the hypothesized population mean of 28.
 
 ### 6b) Calculate the *z*-test statistic for this sample of ACT scores against the population.
 ```{r}
 (mean(dat$ACT, na.rm = T) - 29) / (sqrt(64) / sqrt(sum(!is.na(dat$ACT))))
+
+(mean(dat$ACT, na.rm = T) - 29) / (sqrt(64) / length(dat$ACT)) # is fineeeeee
 ```
 
 ### 6c) What is the *p*-value of that *z*-statistic?
 ```{r}
 pnorm((mean(dat$ACT, na.rm = T) - 29) / (sqrt(64) / sqrt(sum(!is.na(dat$ACT)))))
+
+pnorm((mean(dat$ACT, na.rm = T) - 29) / (sqrt(64) / length(dat$ACT))) # okayyyy if use the length() function before
 ```
 
 ### 6d) Provide an interpretation for this *z*-test given the test statistic and *p*-value.

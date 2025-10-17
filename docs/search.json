@@ -5261,14 +5261,14 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#assignment-8-review",
     "title": "Confidence Intervals",
     "section": "Assignment 8 Review",
-    "text": "Assignment 8 Review\n[placeholder for Assignment 8 review]"
+    "text": "Assignment 8 Review\nTwo ways to approach two-tailed p-values\n\n\nConceptually: split your alpha onto either side of the distribution\nTechnically test each side (both positive and negative cutoff), but know that e.g., negative z-value isn’t going to beat the positive cutoff\nCompare against split alpha (2.5%, p = .025) on either side.\n\npnorm(-1.7)\n\n[1] 0.04456546\n\n\nFine for just reject / retain decisions (if compare it against correct alpha)\n\nTo report the p-value specifically for the entire test, would need to multiply by 2.\n\npnorm(-1.7)*2\n\n[1] 0.08913093\n\n\nAccount for probability of being more extreme in both directions"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-intervals",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-intervals",
     "title": "Confidence Intervals",
     "section": "Confidence Intervals",
-    "text": "Confidence Intervals\nMost common: 95% CI\n\n○ Interpretation: If you were to take 100 samples, 95 CIs of your 100 samples will contain the true mean\n\nFor standard normal,\n\n\n\nCI\nz cutoff\ngenerally\n\n\n\n\n99.7%\n[-3, 3]\n[\\(\\bar{x} - 3 * SD\\), \\(\\bar{x} + 3 * SD\\)]\n\n\n95%\n[-2, 2]\n[\\(\\bar{x} - 2 * SD\\), \\(\\bar{x} + 2 * SD\\)]\n\n\n68%\n[-1, 1]\n[\\(\\bar{x} - 1 * SD\\), \\(\\bar{x} + 1 * SD\\)]\n\n\n\n\n\n\n\n\n\nNote\n\n\nWe say 2 here, but what number does the 95% CI really correspond to? 1.96"
+    "text": "Confidence Intervals\nMost common: 95% CI\n\n○ Interpretation: If you were to take 100 samples, 95 CIs of your 100 samples will contain the true mean\n\nFor standard normal,\n\n\n\n\n\n\n\n\nCI\nz cutoff\ngenerally\n\n\n\n\n99.7%\n[-3, 3]\n[\\(\\bar{x} - 3 * SD\\), \\(\\bar{x} + 3 * SD\\)]\n\n\n95%\n[-1.96, 1.96]\n[\\(\\bar{x} - 1.96 * SD\\), \\(\\bar{x} + 1.96 * SD\\)]\n\n\n68%\n[-1, 1]\n[\\(\\bar{x} - 1 * SD\\), \\(\\bar{x} + 1 * SD\\)]"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-and-width",
@@ -5289,14 +5289,14 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cutoff-z-values-example",
     "title": "Confidence Intervals",
     "section": "Cutoff Z-Values Example",
-    "text": "Cutoff Z-Values Example\nSay you want to find the cutoff z values for some confidence interval\nTwo examples: 95% CI and 97.3% CI (one typical, one as exercise)\n\nWe want the \\(\\alpha = 1 -\\) confidence level piece to be equal on both sides\n\n\n\n95% CI \\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqnorm(c(.025, .975))\n\n[1] -1.959964  1.959964\n\n\n\n97.3% CI \\(\\alpha = 1 - .973 = 2.7\\%\\) on both sides\nSo \\(.027 / 2 = .0135\\) on each side\nNeed value for \\(.0135\\) and \\(.95 + .0135\\) (\\([.0135, .9865]\\))\n\nqnorm(c(.0135, 0.9865))\n\n[1] -2.211518  2.211518\n\n\n\n\nWhich one has a higher confidence level? Which one has a larger width?"
+    "text": "Cutoff Z-Values Example\nSay you want to find the cutoff z values for some confidence interval\nTwo examples: 95% CI and 97.3% CI (one typical, one as exercise)\n\nWe want the \\(\\alpha = 1 -\\) confidence level piece to be equal on both sides\n\n\n\n95% CI\n\\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqnorm(c(.025, .975))\n\n[1] -1.959964  1.959964\n\n\n\n97.3% CI\n\\(\\alpha = 1 - .973 = 2.7\\%\\) on both sides\nSo \\(.027 / 2 = .0135\\) on each side\nNeed value for \\(.0135\\) and \\(.95 + .0135\\) (\\([.0135, .9865]\\))\n\nqnorm(c(.0135, 0.9865))\n\n[1] -2.211518  2.211518\n\n\n\n\nWhich one has a higher confidence level? Which one has a larger width?"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-example",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-example",
     "title": "Confidence Intervals",
     "section": "Confidence Interval Example",
-    "text": "Confidence Interval Example\nLet’s find a 95% confidence interval of the mean for iris Petal Length\n\nhead(iris$Petal.Length)\n\n[1] 1.4 1.4 1.3 1.5 1.4 1.7\n\nx_bar &lt;- mean(iris$Petal.Length)\nx_sd &lt;- sd(iris$Petal.Length)\nn &lt;- length(iris$Petal.Length) # although remember to be thinking about missing data\n\nz_cutoff &lt;- qnorm(.975)\n\nPetal.Length.CI &lt;- c(x_bar - z_cutoff * x_sd / sqrt(n), x_bar + z_cutoff * x_sd / sqrt(n))\nPetal.Length.CI\n\n[1] 3.475499 4.040501\n\n\nIf we collected samples of petal length many times, we would expect the interval [3.47, 4.04] to contain the true population mean of petal length 95% of the time."
+    "text": "Confidence Interval Example\nLet’s find a 95% confidence interval of the mean for iris Petal Length\n\n\nhead(iris$Petal.Length)\n\n[1] 1.4 1.4 1.3 1.5 1.4 1.7\n\nx_bar &lt;- mean(iris$Petal.Length)\nx_sd &lt;- sd(iris$Petal.Length)\nn &lt;- length(iris$Petal.Length) # although remember to be thinking about missing data\n\nz_cutoff &lt;- qnorm(.975)\n\nPetal.Length.CI &lt;- c(x_bar - z_cutoff * x_sd / sqrt(n), x_bar + z_cutoff * x_sd / sqrt(n))\nPetal.Length.CI\n\n[1] 3.475499 4.040501\n\n\n\nIf we collected samples of petal length many times, we would expect the interval [3.47, 4.04] to contain the true population mean of petal length 95% of the time."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#z--vs.-t-distribution",
@@ -5310,21 +5310,21 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-generally",
     "title": "Confidence Intervals",
     "section": "Confidence Interval Generally",
-    "text": "Confidence Interval Generally\nDerived with sample mean (\\(\\bar{x}\\)) and standard error (\\(\\frac{\\sigma}{\\sqrt n}\\))\n\\(CI = \\bar{x} \\pm z \\frac{\\sigma}{\\sqrt n}\\) or\n\\(CI = [\\bar{x} - z \\frac{\\sigma}{\\sqrt n}, \\bar{x} + z \\frac{\\sigma}{\\sqrt n}]\\)\n\n\n\n\n\n\nFood for Thought\n\n\nWith this formula, we would only use the positive version of the z cutoff, so that the lower bound ends up lower than the mean and the higher bound ends up higher. You can also think instead as both adding the z cutoff—it just ends up becoming a minus sign because the lower bound has a negative z cutoff."
+    "text": "Confidence Interval Generally\nDerived with sample mean (\\(\\bar{x}\\)) and standard error (\\(\\frac{s}{\\sqrt n}\\))\n\\(CI = \\bar{x} \\pm z \\frac{s}{\\sqrt n}\\) or\n\\(CI = [\\bar{x} - z \\frac{s}{\\sqrt n}, \\bar{x} + z \\frac{s}{\\sqrt n}]\\)\n\n\n\n\n\n\nFood for Thought\n\n\nWith this formula, we would only use the positive version of the z cutoff, so that the lower bound ends up lower than the mean and the higher bound ends up higher. You can also think instead as both adding the z cutoff—it just ends up becoming a minus sign because the lower bound has a negative z cutoff."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-example-1",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-example-1",
     "title": "Confidence Intervals",
     "section": "Confidence Interval Example",
-    "text": "Confidence Interval Example\nLet’s find a 80% confidence interval of the mean for iris Sepal Length\n\nhead(iris$Sepal.Length)\n\n[1] 5.1 4.9 4.7 4.6 5.0 5.4\n\nSepal.Length.CI &lt;- c(mean(iris$Petal.Length) - qnorm(.9) * sd(iris$Petal.Length) /\n                       sqrt(sum(!is.na(iris$Sepal.Length))),\n                     \n                     mean(iris$Petal.Length) + qnorm(.9) * sd(iris$Petal.Length) /\n                       sqrt(sum(!is.na(iris$Sepal.Length))))\nSepal.Length.CI\n\n[1] 3.573282 3.942718\n\n\nIf we collected samples of petal length many times, we would expect the interval [3.57, 3.94] to contain the true population mean of petal length 95% of the time."
+    "text": "Confidence Interval Example\nLet’s find a 80% confidence interval of the mean for iris Sepal Length\n\n\nhead(iris$Sepal.Length)\n\n[1] 5.1 4.9 4.7 4.6 5.0 5.4\n\nSepal.Length.CI &lt;- c(mean(iris$Petal.Length) - qnorm(.9) * sd(iris$Petal.Length) /\n                       sqrt(sum(!is.na(iris$Sepal.Length))),\n                     \n                     mean(iris$Petal.Length) + qnorm(.9) * sd(iris$Petal.Length) /\n                       sqrt(sum(!is.na(iris$Sepal.Length))))\nSepal.Length.CI\n\n[1] 3.573282 3.942718\n\n\n\nIf we collected samples of petal length many times, we would expect the interval [3.57, 3.94] to contain the true population mean of petal length 95% of the time."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-intervals-and-nhst",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-intervals-and-nhst",
     "title": "Confidence Intervals",
     "section": "Confidence Intervals and NHST",
-    "text": "Confidence Intervals and NHST\nIf a 95% confidence interval does not contain a value, that is mathematically equivalent to it being “significantly different” from that value.\nE.g., if your null hypothesis \\(H_0\\) was that the mean of petal length is no different from an expected population mean of 3.3, would you reject or accept the null hypothesis?\n\nPetal.Length.CI\n\n[1] 3.475499 4.040501\n\n\nWe would reject the null hypothesis because the 95% CI does not include 3.3."
+    "text": "Confidence Intervals and NHST\nIf a 95% confidence interval does not contain a value, that is mathematically equivalent to it being “significantly different” from that value.\nE.g., if your null hypothesis \\(H_0\\) was that the mean of petal length is no different from an expected population mean of 3.3, would you reject or retain the null hypothesis?\n\nPetal.Length.CI\n\n[1] 3.475499 4.040501\n\n\nWe would reject the null hypothesis because the 95% CI does not include 3.3."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#z--vs.-t-distribution-1",
@@ -5359,7 +5359,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-how-many-tails",
     "title": "Confidence Intervals",
     "section": "T-Test: How many tails?",
-    "text": "T-Test: How many tails?\nNeed to consider whether to use a “one-tail” or “two-tail” t-test.\n\n\nOne-Tail (One-Sided)\nWe want to test whether something is lower or higher than a value, but not both\nOnly one limit\n\nTwo-Tails (Two-Sided)\nWe want to test whether something is either lower or higher than a value\nTwo limits (like how we’ve been doing z-tests"
+    "text": "T-Test: How many tails?\nNeed to consider whether to use a “one-tail” or “two-tail” t-test.\n\n\nOne-Tail (One-Sided)\nWe want to test whether something is lower or higher than a value, but not both\nOnly one limit\n\nTwo-Tails (Two-Sided)\nWe want to test whether something is either lower or higher than a value\nTwo limits"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-how-many-tails-1",
@@ -5387,35 +5387,35 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cutoff-t-values-example",
     "title": "Confidence Intervals",
     "section": "Cutoff T-Values Example",
-    "text": "Cutoff T-Values Example\nSay you want to find the cutoff t values\nTwo examples: t(df = 3) and t(df = 37) for \\(\\alpha = .05\\)\nBoth upper one-tailed and two-tailed\n\nWhich will have the larger magnitude cutoff values?\n\n\n\nOne-Tailed\nAll of our \\(\\alpha = .05\\) goes on the upper side\nNeed a cutoff for \\(.95\\)\n\nqt(p = .95, df = 3, lower.tail = F)\n\n[1] -2.353363\n\nqt(p = .95, df = 37, lower.tail = F)\n\n[1] -1.687094\n\n\n\\(t_{crit}(3) = -2.35\\)\n\\(t_{crit}(37) = -1.69\\)\n\nTwo-Tailed\n\\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqt(p = c(.025, .975), df = 3)\n\n[1] -3.182446  3.182446\n\nqt(p = c(.025, .975), df = 37)\n\n[1] -2.026192  2.026192\n\n\n\\(t_{crit}(3) = [-3.18, -3.18]\\)\n\\(t_{crit}(37) = [-2.03  2.06]\\)\n\n\nSymmetrical cutoffs, so can also just flip sign"
+    "text": "Cutoff T-Values Example\nSay you want to find the cutoff t values: t(df = 3) and t(df = 37) for \\(\\alpha = .05\\), want both upper one-tailed and two-tailed\n\nWhich will have the larger magnitude cutoff values?\n\n\n\nOne-Tailed\nAll of our \\(\\alpha = .05\\) goes on the upper side\nNeed a cutoff for \\(.95\\)\n\nqt(p = .95, df = 3)\n\n[1] 2.353363\n\nqt(p = .05, df = 37, lower.tail = F)\n\n[1] 1.687094\n\n\n\\(t_{crit}(3) = 2.35\\)\n\\(t_{crit}(37) = 1.69\\)\n\nTwo-Tailed\n\\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqt(p = c(.025, .975), df = 3)\n\n[1] -3.182446  3.182446\n\nqt(p = c(.025, .975), df = 37)\n\n[1] -2.026192  2.026192\n\n\n\\(t_{crit}(3) = [-3.18, 3.18]\\)\n\\(t_{crit}(37) = [-2.03, 2.06]\\)"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#one-sample-t-test-generally",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#one-sample-t-test-generally",
     "title": "Confidence Intervals",
     "section": "One-Sample T-Test Generally",
-    "text": "One-Sample T-Test Generally\nAsks “is there a question between our sample and the population?”\nDerived with sample mean (\\(\\bar{x}\\)), population mean (\\(\\mu\\)), and standard error (\\(\\frac{\\bar{\\sigma}}{\\sqrt n}\\))\n\\[t = \\frac{\\bar{x} - \\mu}{\\frac{\\bar{\\sigma}}{\\sqrt{n}}}\\]\nWith a t-test, we don’t have a known population SD (\\(\\sigma\\)), so we use the SD we observe in our sample \\(\\bar{\\sigma}\\)\nGet our t-statistic and compare it to a critical t cutoff value"
+    "text": "One-Sample T-Test Generally\nAsks “is there a question between our sample and the population?”\nDerived with sample mean (\\(\\bar{x}\\)), population mean (\\(\\mu\\)), and standard error (\\(\\frac{s}{\\sqrt n}\\))\n\\[t = \\frac{\\bar{x} - \\mu}{\\frac{s}{\\sqrt{n}}}\\]\nWith a t-test, we don’t have a known population SD (\\(\\sigma\\)), so we use the SD we observe in our sample \\(s\\)\nGet our t-statistic and compare it to a critical t cutoff value"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-example",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-example",
     "title": "Confidence Intervals",
     "section": "T-Test Example",
-    "text": "T-Test Example\nLet’s say a researcher claims the average highway miles per gallon across all cars is 30mpg. They collect a sample of 234 cars and would like you to test this. We do not know the population standard deviation.\n\nOne- or two-tailed?\n\n\nhead(mpg$hwy)\n\n[1] 29 29 31 30 26 26\n\nx_bar &lt;- mean(mpg$hwy)\nx_sd &lt;- sd(mpg$hwy)\nn &lt;- length(mpg$hwy) # although remember to be thinking about missing data\ndf &lt;- n - 1\n\nt_cutoff &lt;- qt(.975, df)\n\nhwy_t_stat &lt;- (x_bar - 30) / (x_sd / sqrt(n))\nhwy_t_stat\n\n[1] -16.85174\n\n\nOur observed t-statistic exceeds our cutoff t-statistic, so we reject the null."
+    "text": "T-Test Example\nLet’s say a researcher claims the average highway miles per gallon across all cars is 30mpg. They collect a sample of 234 cars and would like you to test this. We do not know the population standard deviation.\n\nOne- or two-tailed?\n\n\n\n\nhead(mpg$hwy)\n\n[1] 29 29 31 30 26 26\n\nx_bar &lt;- mean(mpg$hwy)\nx_sd &lt;- sd(mpg$hwy)\nn &lt;- length(mpg$hwy) # although remember to be thinking about missing data\ndf &lt;- n - 1\n\nt_cutoff &lt;- qt(.975, df)\n\nhwy_t_stat &lt;- (x_bar - 30) / (x_sd / sqrt(n))\nhwy_t_stat\n\n[1] -16.85174\n\n\n\nOur observed t-statistic exceeds our cutoff t-statistic, so we reject the null."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-function",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-function",
     "title": "Confidence Intervals",
     "section": "T-Test Function",
-    "text": "T-Test Function\nAlternatively, we can use t.test(x)\n\n○ x = vector of numeric data\n\n\n○ mu = hypothesized population mean (default is 0)\n\n\n○ alternative = one of \"two.sided\", \"less\", \"greater\" (default is \"two.sided\")\n\n\nt.test(mpg$hwy, mu = 30, alternative = \"two.sided\")\n\n\n    One Sample t-test\n\ndata:  mpg$hwy\nt = -16.852, df = 233, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 30\n95 percent confidence interval:\n 22.67324 24.20710\nsample estimates:\nmean of x \n 23.44017 \n\n\n[placeholder for output interpretation]"
+    "text": "T-Test Function\nAlternatively, we can use t.test(x)\n\n○ x = vector of numeric data\n\n\n○ mu = hypothesized population mean (default is 0)\n\n\n○ alternative = one of \"two.sided\", \"less\", \"greater\" (default is \"two.sided\")\n\n\n\n\nt.test(mpg$hwy, mu = 30, alternative = \"two.sided\")\n\n\n    One Sample t-test\n\ndata:  mpg$hwy\nt = -16.852, df = 233, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 30\n95 percent confidence interval:\n 22.67324 24.20710\nsample estimates:\nmean of x \n 23.44017 \n\n\n\nWe see a significant difference between our observed sample mean and our hypothesized population mean."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-example-1",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-example-1",
     "title": "Confidence Intervals",
     "section": "T-Test Example",
-    "text": "T-Test Example\nLet’s say a different researcher claims the average city miles per gallon across all cars is 30mpg. They collect a sample of 234 cars You are confident they are wrong—you think it is certainly less than that. We do not know the population standard deviation.\n\nOne- or two-tailed?\n\n\nt.test(mpg$cty, mu = 30, alternative = \"less\")\n\n\n    One Sample t-test\n\ndata:  mpg$cty\nt = -47.233, df = 233, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is less than 30\n95 percent confidence interval:\n     -Inf 17.31843\nsample estimates:\nmean of x \n 16.85897 \n\n\n[placeholder for output interpretation]"
+    "text": "T-Test Example\nLet’s say a different researcher claims the average city miles per gallon across all cars is 30mpg. They collect a sample of 234 cars You are confident they are wrong—you think it is certainly less than that. We do not know the population standard deviation.\n\nOne- or two-tailed?\n\n\n\n\nt.test(mpg$cty, mu = 30, alternative = \"less\")\n\n\n    One Sample t-test\n\ndata:  mpg$cty\nt = -47.233, df = 233, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is less than 30\n95 percent confidence interval:\n     -Inf 17.31843\nsample estimates:\nmean of x \n 16.85897 \n\n\n\nWe see a significant difference between our observed sample mean and our hypothesized population mean."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-and-nhst",
@@ -5521,5 +5521,124 @@
     "title": "PSYC2020L Assignment 8",
     "section": "Z-Tests",
     "text": "Z-Tests\nYou’ve been tasked with testing whether the scores from this sample of students differ from the population means.\n\n5a) Let’s say the population mean for SAT scores is 1200 and the population SD is 110. What are your null and alternative hypotheses?\n\n\n5b) Calculate the z-test statistic for this sample of SAT scores against the population.\n\n\n5c) What is the p-value of that z-statistic?\n\n\n5d) Provide an interpretation for this z-test given the test statistic and p-value.\n\n\n6a) Let’s say the population mean for ACT scores is 29 and the population variance is 64. What are your null and alternative hypotheses?\n\n\n6b) Calculate the z-test statistic for this sample of ACT scores against the population.\n\n\n6c) What is the p-value of that z-statistic?\n\n\n6d) Provide an interpretation for this z-test given the test statistic and p-value."
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#one-more-example",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#one-more-example",
+    "title": "Confidence Intervals",
+    "section": "One More Example",
+    "text": "One More Example\n[Rmisc::CI()]"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d",
+    "title": "Confidence Intervals",
+    "section": "Cohen’s D",
+    "text": "Cohen’s D\nStandardized mean difference, interpretable effect size\nDerived with two means (represented as \\(\\mu_1\\) and \\(\\mu_2\\)) and standard deviation (\\(s\\))\n\\[d = \\frac{\\mu_1 - \\mu_2}{s}\\]\nFor a one-sample t test, \\(\\mu_1\\) would be our sample mean \\(\\bar{x}\\), \\(\\mu_2\\) would be our population mean \\(\\mu\\), and the standard deviation \\(\\sigma\\) would be our observed standard deviation \\(s\\).\nNot a statistical test—just a measure of difference."
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-example",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-example",
+    "title": "Confidence Intervals",
+    "section": "Cohen’s D Example",
+    "text": "Cohen’s D Example\nLet’s say a researcher claims the average highway miles per gallon across all cars is 30mpg. We found earlier that the sample had a significant difference between the hypothesized and sample mean. What is the effect size of that difference?\n\\[d = \\frac{\\bar{x} - \\mu}{s}\\]\n\n\nx_bar &lt;- mean(mpg$hwy)\nx_sd &lt;- sd(mpg$hwy)\n\nd &lt;- (x_bar - 30) / x_sd\nd\n\n[1] -1.101633\n\n\n\nHow would be characterize this difference? What is the direction?"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-strength-visualization",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-strength-visualization",
+    "title": "Confidence Intervals",
+    "section": "Cohen’s D Strength Visualization",
+    "text": "Cohen’s D Strength Visualization\nBased on mean (\\(\\bar{x}\\) = round(x_bar, 2) = 23.44) and SD (\\(\\bar{\\sigma}\\) = round(x_sd, 2) = 5.95) of cars’ highway MPG (hwy).\nSolved backwards for (\\(\\mu\\)) based on different potential levels of d. “What would the hypothesized mean have to have been to get different levels of Cohen’s d?”\n\\[\\bar{x} - d \\times s = \\mu\\]\n\ndat &lt;- data.frame(x = rnorm(100000, x_bar, x_sd))\n\nmu_ex1 &lt;- x_bar - .2 * x_sd\nmu_ex2 &lt;- x_bar - .5 * x_sd\nmu_ex3 &lt;- x_bar - .8 * x_sd"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-strength-visualization-1",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-strength-visualization-1",
+    "title": "Confidence Intervals",
+    "section": "Cohen’s D Strength Visualization",
+    "text": "Cohen’s D Strength Visualization\n“What would the hypothesized mean have to have been to get different levels of Cohen’s d?”"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-strength-visualization-2",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-strength-visualization-2",
+    "title": "Confidence Intervals",
+    "section": "Cohen’s D Strength Visualization",
+    "text": "Cohen’s D Strength Visualization\n“What would the hypothesized mean have to have been to get different levels of Cohen’s d?”"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-in-r",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-in-r",
+    "title": "Confidence Intervals",
+    "section": "Cohen’s D in R",
+    "text": "Cohen’s D in R\nThere are functions for Cohen’s d in R, but they apply more to two samples of means.\n\n○ Instead of one sample and a population mean\n\nFor now, simpler to just program it ourselves (x_bar - mu) / x_sd\nTwo samples will come later!"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-example-output",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-example-output",
+    "title": "Confidence Intervals",
+    "section": "T-Test Example Output",
+    "text": "T-Test Example Output\n\n\n\nhwy_ttest &lt;- t.test(mpg$cty, mu = 30)\nhwy_ttest\n\n\n    One Sample t-test\n\ndata:  mpg$cty\nt = -47.233, df = 233, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 30\n95 percent confidence interval:\n 16.31083 17.40712\nsample estimates:\nmean of x \n 16.85897 \n\n#?t.test\n\n\n\nhwy_ttest$statistic\n\n        t \n-47.23252 \n\nhwy_ttest$p.value\n\n[1] 2.581229e-121\n\n\n\n\nhwy_ttest$conf.int\n\n[1] 16.31083 17.40712\nattr(,\"conf.level\")\n[1] 0.95\n\n\n\n\nCan use these in RMarkdown documents with inline R chunks."
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-tests-and-confidence-intervals",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-tests-and-confidence-intervals",
+    "title": "Confidence Intervals",
+    "section": "T-Tests and Confidence Intervals",
+    "text": "T-Tests and Confidence Intervals\nThe t.test() function includes a CI value! But…\n\n\n\nt.test(mpg$cty, mu = 30) |&gt; \n  pluck(\"conf.int\") |&gt; \n  c()\n\n[1] 16.31083 17.40712\n\n\n\n\nc(mean(mpg$cty) - qnorm(.975) * sd(mpg$cty) /\n    sqrt(sum(!is.na(mpg$cty))),\n  \n  mean(mpg$cty) + qnorm(.975) * sd(mpg$cty) /\n    sqrt(sum(!is.na(mpg$cty))))\n\n[1] 16.31367 17.40428\n\n\n\nThey’re not the same!\nThe built-in functions in R for confidence intervals in R often follow a t-distribution instead of a z-distribution. We want the z-distribution in our class, but as we saw, the differences will be very small for large samples."
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-tests-and-nhst",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-tests-and-nhst",
+    "title": "Confidence Intervals",
+    "section": "T-Tests and NHST",
+    "text": "T-Tests and NHST\nRemember, even when the statistic is small, for two-tailed tests (because negative), we reject when we exceed the bounds of our critical value.\nFor one-tailed tests, it needs to exceed the bound of that tail’s cutoff.\n\nReject or retain null?"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#assignment-7-review",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#assignment-7-review",
+    "title": "Confidence Intervals",
+    "section": "Assignment 7 Review",
+    "text": "Assignment 7 Review\nTwo ways to approach two-tailed p-values\n\n\nConceptually: split your alpha onto either side of the distribution\nTechnically test each side (both positive and negative cutoff), but know that e.g., negative z-value isn’t going to beat the positive cutoff\nCompare against split alpha (2.5%, p = .025) on either side.\n\npnorm(-1.7)\n\n[1] 0.04456546\n\n\nFine for just reject / retain decisions (if compare it against correct alpha)\n\nTo report the p-value specifically for the entire test, would need to multiply by 2.\n\npnorm(-1.7)*2\n\n[1] 0.08913093\n\n\nAccount for probability of being more extreme in both directions"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-how-many-tails",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-how-many-tails",
+    "title": "Confidence Intervals",
+    "section": "Testing: How many tails?",
+    "text": "Testing: How many tails?\nNeed to consider whether to use a “one-tail” or “two-tail” t-test.\n\n\nOne-Tail (One-Sided)\n\n\n\n\n\n\n\n\n\n\nTwo-Tails (Two-Sided)"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-how-many-tails-1",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-how-many-tails-1",
+    "title": "Confidence Intervals",
+    "section": "Testing: How many tails?",
+    "text": "Testing: How many tails?\nNotice that two-tailed tests are harder to “beat.”"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#assignment-8-review-1",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#assignment-8-review-1",
+    "title": "Confidence Intervals",
+    "section": "Assignment 8 Review",
+    "text": "Assignment 8 Review\nRemember to check the correct tail of the distribution"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-intervals-1",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-intervals-1",
+    "title": "Confidence Intervals",
+    "section": "Confidence Intervals",
+    "text": "Confidence Intervals\nMost common: 95% CI\n\n○ Interpretation: If you were to take 100 samples, 95 CIs of your 100 samples will contain the true mean\n\nFor standard normal,\n\n\n\n\n\n\n\n\nCI\nz cutoff\ngenerally\n\n\n\n\n99.7%\n[-3, 3]\n[\\(\\bar{x} - 3 * SD\\), \\(\\bar{x} + 3 * SD\\)]\n\n\n95%\n[-1.96, 1.96]\n[\\(\\bar{x} - 1.96 * SD\\), \\(\\bar{x} + 1.96 * SD\\)]\n\n\n68%\n[-1, 1]\n[\\(\\bar{x} - 1 * SD\\), \\(\\bar{x} + 1 * SD\\)]"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cutoff-z-values-example-1",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cutoff-z-values-example-1",
+    "title": "Confidence Intervals",
+    "section": "Cutoff Z-Values Example",
+    "text": "Cutoff Z-Values Example\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndata.frame(x = seq(-5, 5, length.out = 1000)) |&gt;\n  mutate(y = dnorm(x)) |&gt;\n  ggplot(aes(x = x, y = y)) +\n  geom_line(linewidth = 1.5, color = \"skyblue3\") +\n  annotate(\"errorbar\", xmin = qnorm(c((1 - .973) / 2)), xmax = qnorm((1 - .973) / 2 + .973),\n           y = .48, width = .02) +\n  annotate(\"text\", label = \"97.3%\", y = .48, x = 0, vjust = -.3, size = 6) +\n  annotate(\"errorbar\", xmin = qnorm(c((1 - .95) / 2)), xmax = qnorm((1 - .95) / 2 + .95),\n           y = .42, width = .02) +\n  annotate(\"text\", label = \"95%\", y = .42, x = 0, vjust = -.3, size = 6) +\n  scale_x_continuous(breaks = c(qnorm(c((1 - .973) / 2)), qnorm(c((1 - .95) / 2)),\n                                0, \n                                qnorm(c((1 - .95) / 2) + .95), qnorm((1 - .973) / 2 + .973)) |&gt;\n                       round(2)) +\n  coord_cartesian(clip = \"off\", ylim = c(0, .5), xlim = c(-5, 5), expand = F) +\n  guides(y = \"none\") +\n  labs(x = NULL, y = NULL) +\n  theme_classic(base_size = 10) +\n  theme(axis.text.x = element_text(angle = 30))"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-and-nhst",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-and-nhst",
+    "title": "Confidence Intervals",
+    "section": "Testing and NHST",
+    "text": "Testing and NHST\nRemember, even when the statistic is small, for two-tailed tests (because negative), we reject when we exceed the bounds of our critical value.\nFor one-tailed tests, it needs to exceed the bound of that tail’s cutoff.\n\nReject or retain null?"
   }
 ]

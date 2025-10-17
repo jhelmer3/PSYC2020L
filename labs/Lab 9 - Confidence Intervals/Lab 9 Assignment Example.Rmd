@@ -1,0 +1,88 @@
+---
+title: "PSYC2020L Assignment 9"
+author: "[name]"
+date: "2025-10-17"
+output: html_document
+---
+
+## Goals for Review:
+
+* Confidence Intervals
+* One Sample T-Tests
+
+
+## Setting Up
+
+### 1) Rename this assignment as "Lab 9 Assignment [Last, First].Rmd" 
+
+### 2) Check and set (if needed) your working directory. If you'd like to load packages with `library()`, please do so in this block. 
+```{r}
+library(tidyverse)
+
+here::here()
+```
+
+
+## Confidence Intervals
+
+### 3a) Calculate the 95% confidence interval around the mean for iris sepal length, and report its interpretation.
+
+```{r}
+Rmisc::CI(iris$Sepal.Length)
+```
+
+If we were to repeat this data collection many times, 95% of the time, the true mean will fall within the interval [`r Rmisc::CI(iris$Sepal.Length)[3]`, `r Rmisc::CI(iris$Sepal.Length)[1]`].
+
+### 3b) Would you expect the 99% confidence interval around the mean for iris sepal length to be wider or narrower than that of the 95th? What about the 67% confidence interval?
+
+The 99th would be wider and the 67th would be narrower.
+
+### 3c) Calculate the 67% confidence interval around the mean for iris sepal length, and report its interpretation.
+
+```{r}
+Rmisc::CI(iris$Sepal.Length, ci = .67)
+```
+
+If we were to repeat this data collection many times, 95% of the time, the true mean will fall within the interval [`r Rmisc::CI(iris$Sepal.Length, ci = .67)[3]`, `r Rmisc::CI(iris$Sepal.Length, ci = .67)[1]`].
+
+
+## One-Sample *T*-Test
+
+### 4a) A professor claims that students spend 4.5 hours per day studying. You're not so sure! You are given a dataset (`studytimes.csv`) that contains the study hours of 25 students. Your goal is to load the dataset into R and analyze whether the mean study time is significantly different from 4.5 hours using a one-sample *t*-test. First, load the data in and display the first few rows.
+
+```{r}
+study <- rio::import(here::here("labs", "Lab 9 - Confidence Intervals", "studytimes.csv"))
+head(study)
+mean(study$study_time)
+sd(study$study_time)
+```
+
+### 4b) Write the null and alternative hypotheses for a two-tailed test.
+
+Null: The sample mean of study time is equal to 4.5 hours.
+
+Alternative: The sample mean of study time is not equal to 4.5 hours.
+
+### 4c) Perform a one-sample *t*-test using the dataset.
+
+```{r}
+t.test(study$study_time, mu = 4.5)
+```
+
+### 4d) Report the *p*-value and interpret the results at α = 0.05.
+
+The *p*-value is .384. We found no significant difference between the sample mean and the hypothesized value of 4.5 hours.
+
+### 4e) Report the 95% confidence interval for the mean study time. Does the confidence interval include 4.5 hours? What does that mean in terms of hypothesis testing?
+
+The 95% CI is [4.30, 5.01]. Because this contains our hypothesized value of 4.5 hours, we know the difference between the sample mean and hypothesized mean is not significant at the α = .05 level.
+
+### 4f) What is the effect size of the difference between the sample mean and the hypothesized mean?
+
+```{r}
+(mean(study$study_time) - 4.5) / sd(study$study_time)
+```
+
+### 4g) Interpret the effect size.
+
+The Cohen's *d* value was 0.178. This is a small effect.
