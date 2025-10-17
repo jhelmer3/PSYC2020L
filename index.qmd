@@ -39,7 +39,7 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 09/12 Lab 4
 #### Z-Scores
-[Slides](/labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.qmd) | [Assignment](/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.rmd)
+[Slides](/labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.qmd) | [Assignment]()
 :::
 
 ::: {.column width=33%}
@@ -59,7 +59,7 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 10/03 Lab 7
 #### NHST I
-[Slides](/labs/Lab 7 - NHST I/PSYC2020 Lab 7.qmd) | [Assignment](/labs/Lab 7 - NHST I/PSYC2020L Assignment 7.rmd)
+[Slides](/labs/Lab 7 - NHST I/PSYC2020 Lab 7.qmd) | [Assignment]()
 :::
 
 ::: {.column width=33%}
