@@ -467,18 +467,18 @@ Jessica Helmer
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.1 4.9 4.7 4.6 5.0 5.4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>Sepal.Length.CI <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length) <span class="sc">-</span> <span class="fu">qnorm</span>(.<span class="dv">9</span>) <span class="sc">*</span> <span class="fu">sd</span>(iris<span class="sc">$</span>Petal.Length) <span class="sc">/</span></span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>Sepal.Length.CI <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">-</span> <span class="fu">qnorm</span>(.<span class="dv">9</span>) <span class="sc">*</span> <span class="fu">sd</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">/</span></span>
 <span id="cb16-2"><a></a>                       <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(iris<span class="sc">$</span>Sepal.Length))),</span>
 <span id="cb16-3"><a></a>                     </span>
-<span id="cb16-4"><a></a>                     <span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length) <span class="sc">+</span> <span class="fu">qnorm</span>(.<span class="dv">9</span>) <span class="sc">*</span> <span class="fu">sd</span>(iris<span class="sc">$</span>Petal.Length) <span class="sc">/</span></span>
+<span id="cb16-4"><a></a>                     <span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">+</span> <span class="fu">qnorm</span>(.<span class="dv">9</span>) <span class="sc">*</span> <span class="fu">sd</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">/</span></span>
 <span id="cb16-5"><a></a>                       <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(iris<span class="sc">$</span>Sepal.Length))))</span>
 <span id="cb16-6"><a></a>Sepal.Length.CI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.573282 3.942718</code></pre>
+<pre><code>[1] 5.756686 5.929981</code></pre>
 </div>
 </div>
 </div>
-<p><span class="fragment">If we collected samples of petal length many times, we would expect the interval [3.57, 3.94] to contain the true population mean of petal length 95% of the time.</span></p>
+<p><span class="fragment">If we collected samples of sepal length many times, we would expect the interval [3.57, 3.94] to contain the true population mean of petal length 80% of the time.</span></p>
 </section>
 <section id="confidence-intervals-and-nhst" class="slide level2">
 <h2>Confidence Intervals and NHST</h2>
@@ -855,7 +855,7 @@ attr(,"conf.level")
 <section id="cohens-d-strength-visualization-2" class="slide level2">
 <h2>Cohen’s <em>D</em> Strength Visualization</h2>
 <p>“What would the hypothesized mean have to have been to get different levels of Cohen’s <em>d</em>?”</p>
-<div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">

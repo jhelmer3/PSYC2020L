@@ -307,16 +307,16 @@ Let's find a 80% confidence interval of the mean for iris Sepal Length
 ```{r}
 head(iris$Sepal.Length)
 
-Sepal.Length.CI <- c(mean(iris$Petal.Length) - qnorm(.9) * sd(iris$Petal.Length) /
+Sepal.Length.CI <- c(mean(iris$Sepal.Length) - qnorm(.9) * sd(iris$Sepal.Length) /
                        sqrt(sum(!is.na(iris$Sepal.Length))),
                      
-                     mean(iris$Petal.Length) + qnorm(.9) * sd(iris$Petal.Length) /
+                     mean(iris$Sepal.Length) + qnorm(.9) * sd(iris$Sepal.Length) /
                        sqrt(sum(!is.na(iris$Sepal.Length))))
 Sepal.Length.CI
 ```
 :::
 
-[If we collected samples of petal length many times, we would expect the interval [3.57, 3.94] to contain the true population mean of petal length 95% of the time.]{.fragment}
+[If we collected samples of sepal length many times, we would expect the interval [3.57, 3.94] to contain the true population mean of petal length 80% of the time.]{.fragment}
 
 
 ## Confidence Intervals and NHST

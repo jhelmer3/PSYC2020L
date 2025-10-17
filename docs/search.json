@@ -5317,7 +5317,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-example-1",
     "title": "Confidence Intervals",
     "section": "Confidence Interval Example",
-    "text": "Confidence Interval Example\nLet’s find a 80% confidence interval of the mean for iris Sepal Length\n\n\nhead(iris$Sepal.Length)\n\n[1] 5.1 4.9 4.7 4.6 5.0 5.4\n\nSepal.Length.CI &lt;- c(mean(iris$Petal.Length) - qnorm(.9) * sd(iris$Petal.Length) /\n                       sqrt(sum(!is.na(iris$Sepal.Length))),\n                     \n                     mean(iris$Petal.Length) + qnorm(.9) * sd(iris$Petal.Length) /\n                       sqrt(sum(!is.na(iris$Sepal.Length))))\nSepal.Length.CI\n\n[1] 3.573282 3.942718\n\n\n\nIf we collected samples of petal length many times, we would expect the interval [3.57, 3.94] to contain the true population mean of petal length 95% of the time."
+    "text": "Confidence Interval Example\nLet’s find a 80% confidence interval of the mean for iris Sepal Length\n\n\nhead(iris$Sepal.Length)\n\n[1] 5.1 4.9 4.7 4.6 5.0 5.4\n\nSepal.Length.CI &lt;- c(mean(iris$Sepal.Length) - qnorm(.9) * sd(iris$Sepal.Length) /\n                       sqrt(sum(!is.na(iris$Sepal.Length))),\n                     \n                     mean(iris$Sepal.Length) + qnorm(.9) * sd(iris$Sepal.Length) /\n                       sqrt(sum(!is.na(iris$Sepal.Length))))\nSepal.Length.CI\n\n[1] 5.756686 5.929981\n\n\n\nIf we collected samples of sepal length many times, we would expect the interval [3.57, 3.94] to contain the true population mean of petal length 80% of the time."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-intervals-and-nhst",
@@ -5682,5 +5682,12 @@
     "title": "PSYC2020L Assignment 8",
     "section": "Z-Tests",
     "text": "Z-Tests\nYou’ve been tasked with testing whether the scores from this sample of students differ from the population means.\n\n5a) Let’s say the population mean for SAT scores is 1200 and the population SD is 110. What are your null and alternative hypotheses?\n\n\n5b) Calculate the z-test statistic for this sample of SAT scores against the population.\n\n\n5c) What is the p-value of that z-statistic?\n\n\n5d) Provide an interpretation for this z-test given the test statistic and p-value.\n\n\n6a) Let’s say the population mean for ACT scores is 29 and the population variance is 64. What are your null and alternative hypotheses?\n\n\n6b) Calculate the z-test statistic for this sample of ACT scores against the population.\n\n\n6c) What is the p-value of that z-statistic?\n\n\n6d) Provide an interpretation for this z-test given the test statistic and p-value."
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/lab 9 scratch.html",
+    "href": "labs/Lab 9 - Confidence Intervals/lab 9 scratch.html",
+    "title": "scratch",
+    "section": "",
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\nhwytest &lt;- t.test(mpg$hwy, mu = 30)\nhwytest$statistic\n\n        t \n-16.85174 \n\n\nThe t-statistic was -16.8517377."
   }
 ]

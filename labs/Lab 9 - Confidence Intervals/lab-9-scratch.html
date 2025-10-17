@@ -357,8 +357,7 @@ display: none;
 </div>
 
 
-<pre class="r"><code>options(scipen = 999)
-library(tidyverse)</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
@@ -370,9 +369,10 @@ library(tidyverse)</code></pre>
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 <pre class="r"><code>hwytest &lt;- t.test(mpg$hwy, mu = 30)
-hwytest$p.value</code></pre>
-<pre><code>## [1] 0.000000000000000000000000000000000000000003338529</code></pre>
-<p>The p-value for the highway t-test was 0.</p>
+hwytest$statistic</code></pre>
+<pre><code>##         t 
+## -16.85174</code></pre>
+<p>The t-statistic was -16.8517377.</p>
 
 
 
