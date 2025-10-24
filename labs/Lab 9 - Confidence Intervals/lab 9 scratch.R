@@ -145,9 +145,9 @@ x_sd <- sd(mpg$hwy)
 
 cohens_d <- (x_bar - 30) / x_sd
 
+mytest <- t.test(iris$Sepal.Length)
 
-
-
+mytest$statistic |> unname()
 
 
 

@@ -1,0 +1,45 @@
+.subpoint {
+  font-size: 90%;
+  margin-left: 1.5em;
+  margin-top: -0.4em;
+  margin-bottom: 0.3em;
+}
+
+span.subpoint {
+  position: relative;
+  top: -0.8em;
+}
+
+.subpoint-narrow {
+  font-size: 90%;
+  padding-left: .75em;
+  margin-top: -0.4em;
+  margin-bottom: 0.3em;
+}
+
+.subsubpoint {
+  font-size: 90%;
+  margin-left: .75em;
+  margin-top: -0.4em;
+  margin-bottom: 0.3em;
+}
+
+.reveal .slide-logo {
+  height: 128px !important;
+  width: 182px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+section.slide.title-slide {
+  position: relative !important;
+  height: 100vh !important;     /* full viewport height */
+  display: block !important;    /* cancel reveal.js flex centering */
+}
+
+section.slide.title-slide > .r-fit-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -66%);
+}

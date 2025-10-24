@@ -1,0 +1,129 @@
+---
+title: "PSYC2020L Assignment 10"
+author: "[name]"
+date: "2025-10-24"
+output: html_document
+---
+
+## Goals for Review:
+
+* Communication
+
+
+## Setting Up
+
+### 1) Rename this assignment as "Lab 10 Assignment [Last, First].Rmd" 
+
+### 2) Check and set (if needed) your working directory. If you'd like to load packages with `library()`, please do so in this block. Please load the `tidyverse`!. 
+```{r}
+here::here()
+
+library(tidyverse)
+```
+
+
+## Communication
+
+In this assignment, we will be working with the `msleep` dataset that comes with the `tidyverse` library. This data set has information of the sleep characteristics for different mammals! Check out the data with `?msleep` to read a little bit about the variables (feel free to comment out or remove afterwards. 
+
+### 3) Then, use three functions to get a sense of the data.
+
+```{r}
+head(msleep)
+str(msleep)
+summary(msleep)
+```
+
+
+### 4a) Plot the distributions of the variables `sleep_total` and `bodywt` in two separate plots. Feel free to use whatever type of distributional geom you prefer.
+```{r}
+ggplot(msleep, aes(x = sleep_total)) +
+  geom_histogram(bins = 12)
+
+ggplot(msleep, aes(x = bodywt)) +
+  geom_histogram(bins = 15)
+```
+
+### 4b) Describe what you see in the plots above.
+
+The `sleep_total` variable is normal-ish, with pretty thick tails. It appears pretty symmetrical. The `body_wt` variable has some very large outliers!
+
+### 5a) Make a scatterplot with body weight on the x-axis and total sleep on the y-axis.
+```{r}
+msleep |>
+  ggplot(aes(x = bodywt, y = sleep_total)) +
+  geom_point()
+```
+
+### 5b) Label two points you consider interesting / outliers with the type of animal they are (Hint: first, `filter()` the data to see what the animal names are for the points you select. Then, `annotate()` the data with a `text` geom at `x` and `y` values close to the selected points. You can absolutely use another solution to label if you'd like; this is just one way).
+```{r}
+msleep |>
+  filter(bodywt > 2000)
+
+msleep |>
+  ggplot(aes(x = bodywt, y = sleep_total)) +
+  geom_point() +
+  annotate("text", x = 2300, y = 5, label = "Asian elephant") +
+  annotate("text", x = 6300, y = 5, label = "African elephant")
+```
+
+### 5c) Modify the x-axis label and y-axis label to be more readable and descriptive. Make sure to add units!
+```{r}
+msleep |>
+  ggplot(aes(x = bodywt, y = sleep_total)) +
+  geom_point() +
+  annotate("text", x = 2300, y = 5, label = "Asian elephant") +
+  annotate("text", x = 6300, y = 5, label = "African elephant") +
+  labs(y = "Total Sleep (hrs)", x = "Body Weight (kg)")
+```
+
+### 6a) Let's say you're more interested in larger mammals. Create a new version of the dataset that only has mammals under 45kg. Also, create a new variable that represents the ratio of brain weight to body weight (Hint: divide brain weight by body weight).
+```{r}
+large_mammals <- filter(msleep, bodywt > 45) |>
+  mutate(brain_prop = brainwt / bodywt)
+```
+
+### 6b) Create a scatterplot that evaluates the association between the brain-to-body weight proportion variable you created (put that on the x-axis) and total hours of sleep.
+```{r}
+large_mammals |>
+  ggplot(aes(x = brain_prop, y = sleep_total)) +
+  geom_point()
+```
+
+
+### 6c) Emphasize the points on the graph that represent herbivores (Hint: make a filtered version of the dataset that only includes carnivores and layer on another `geom_point()`). Add a text annotation on the plot that indicates the group is herbivores.
+```{r}
+large_mammals |>
+  ggplot(aes(x = brain_prop, y = sleep_total)) +
+  geom_point() +
+  geom_point(data = filter(large_mammals, vore == "herbi"), color = "seagreen") +
+  annotate("text", y = 5, x = .002, label = "herbivores", color = "seagreen")
+```
+
+
+### 7) Make one more scatterplot of two variables of interest. Make at least two annotations to the plot of things / trends you find interesting. Some ideas: label your favorite mammal on the plot with its name, add a reference line, highlight endangered animals, etc. Add a label and descriptive title to this plot. Try to make this plot as self-explanatory as possible!
+```{r}
+ggplot(msleep, aes(x = sleep_total, y = sleep_rem)) +
+  geom_point() +
+  geom_point(data = filter(msleep, vore == "carni"), color = "lightpink") +
+  geomtextpath::geom_textsmooth(data = filter(msleep, vore == "carni"), color = "lightpink",
+                                label = "carnivores", method = "lm", hjust = .8) +
+  geom_point(data = filter(msleep, genus == "Felis"), color = "salmon") +
+  geom_point(data = filter(msleep, genus == "Felis"), color = "salmon", shape = "circle open", size = 3) +
+  annotate("text", x = 12, y = 3.5, label = "house cat", color = "salmon") +
+  labs(x = "Total Sleep (hrs)", y = "REM Sleep (hrs)", title = "REM Sleep Trends Positively with Total Sleep",
+       subtitle = "The same holds for carnivores.") +
+  theme_classic()
+```
+
+
+
+
+
+
+
+
+
+
+
+

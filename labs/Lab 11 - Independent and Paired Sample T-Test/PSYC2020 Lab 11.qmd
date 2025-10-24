@@ -1,0 +1,313 @@
+---
+title: "Independent and Paired Sample *T*-Test"
+subtitle: "PSYC 2020-A01 / PSYC 6022-A01 | 2025-10-31 | Lab 11"
+author: "Jessica Helmer"
+format: 
+  revealjs:
+    slide-number: true
+    show-slide-number: all
+    css: PSYC2020L_styles.css
+    preview-links: true
+engine: knitr
+webr:
+  packages:
+    - rio
+    - datasets
+execute:
+  echo: true
+width: 1200
+cache: true
+---
+
+## Outline
+
+* Assignment 10 Review
+* Independent Sample *T*-Test
+* Paired Sample *T*-Test
+
+Learning objectives:
+**R:** *T*-Tests
+
+```{r}
+#| echo: false
+library(tidyverse)
+```
+
+
+## Assignment 10 Review
+
+[placeholder for Assignment 10 review]
+
+
+## *T*-Statistic Cutoffs
+
+Say you want to find the cutoff *t* values: t(df = 3) and t(df = 37) for $\alpha = .05$, want both upper one-tailed and two-tailed
+
+::: fragment
+Which will have the larger magnitude cutoff values?
+:::
+
+:::: {.columns .fragment style="font-size:70%"}
+::: column
+**One-Tailed**
+
+All of our $\alpha = .05$ goes on the upper side
+
+Need a cutoff for $.95$
+```{r}
+qt(p = .95, df = 3)
+
+qt(p = .05, df = 37, lower.tail = F)
+```
+$t_{crit}(3) = 2.35$
+
+$t_{crit}(37) = 1.69$
+:::
+
+::: column
+**Two-Tailed**
+
+$\alpha = 1 - .95 = 5\%$ on both sides
+
+So $.05 / 2 = .025$ on each side
+
+Need value for $.025$ and $.95 + .025$ ($[.025, .975]$)
+```{r}
+qt(p = c(.025, .975), df = 3)
+
+qt(p = c(.025, .975), df = 37)
+```
+$t_{crit}(3) = [-3.18, 3.18]$
+
+$t_{crit}(37) = [-2.03, 2.06]$
+:::
+::::
+
+
+## Types of *T*-Tests
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20250128171318605791/Types-of-t-test.webp)
+
+
+## Independent Sample *T*-Test
+
+Might want to compare two samples of observations
+
+[○ Post-graduation salaries of GT vs. UGA grads]{.subpoint}
+
+[○ Treatment vs. control group]{.subpoint}
+
+[○ Cats vs. dogs]{.subpoint}
+
+We can represent each group with their mean on some outcome and compare the means
+
+Consider whether the mean difference is significant but also have to account for different levels of variability within group
+
+
+## Independent Sample *T*-Test: Pooled SD
+
+Need to pool the sample SDs while noting different sample sizes
+
+$$ s_p^2 = \frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{(n_1 - 1) + (n_2 - 1)} = \frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}$$
+
+
+## Independent Sample *T*-Test: Pooled SD
+
+Note that when sample size is equal (i.e., $n_1 = n_2 = n$),
+
+::: math
+\begin{array}{ll}
+  s_p^2 \bigg|_{n_1 = n_2 = n} & = \frac{(n - 1) s_1^2 + (n - 1) s_2^2}{(n - 1) + (n - 1)} = \frac{(n - 1) (s_1^2 + s_2^2)}{(n - 1) + (n - 1)} \\[0.6em]
+   & = \frac{(n - 1) (s_1^2 + s_2^2)}{2(n - 1)} = \frac{s_1^2 + s_2^2}{2}
+\end{array}
+:::
+
+::: fragment
+Square root to get back to standard deviation
+
+$$ s_p = \sqrt{s_p^2} = \sqrt{\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{(n_1 - 1) + (n_2 - 1)}} = \sqrt{\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}} $$
+:::
+
+
+## Independent Sample *T*-Test: Test statistic
+
+$$ t = \frac{\bar{x_1} - \bar{x_2}}{\sqrt{\frac{s_p^2}{n_1} + \frac{s_p^2}{n_2}}} = \frac{\bar{x_1} - \bar{x_2}}{s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$$
+
+[Compare against critical *t*-value with df = $n - 1$]{.fragment}
+
+
+## Independent Sample *T*-Test: R Calculation
+
+```{r}
+#| echo: false
+candy <- rio::import(here::here("labs",
+                                "Lab 11 - Independent and Paired Sample T-Test",
+                                "candydata.csv"))
+```
+
+```{r}
+summary(candy)
+
+ccorn <- candy |> filter(candy == "candy corn") |> pluck("sales")
+choc <- candy |> filter(candy == "chocolate") |> pluck("sales")
+
+ccorn
+choc
+```
+
+
+## Independent Sample *T*-Test: R Calculation
+
+```{r}
+x_bar_ccorn <- mean(ccorn)
+sd_ccorn <- sd(ccorn)
+n_ccorn <- length(ccorn)
+
+x_bar_choc <- mean(choc)
+sd_choc <- sd(choc)
+n_choc <- length(choc)
+
+pooled_sd <- sqrt( ((n_ccorn - 1) * sd_ccorn^2 + (n_choc - 1) * sd_choc^2) /
+                     ((n_ccorn - 1) + (n_choc - 1)) )
+pooled_sd
+```
+
+## Independent Sample *T*-Test: R Calculation
+
+```{r}
+df <- (n_ccorn - 1) + (n_choc - 1)
+
+t_crit <- qt(c(.025, .975), df)
+t_crit
+```
+
+If our observed *t*-statistic exceeds the bounds of [-2.02, 2.02], we reject the null.
+
+```{r}
+t_stat <- (x_bar_ccorn - x_bar_choc) / (pooled_sd * sqrt(1 / n_ccorn + 1 / n_choc))
+t_stat
+```
+
+[We reject the null! Can we tell which had a larger mean?]{.fragment}
+
+
+## Independent Sample *T*-Test: R Function
+
+```{r}
+t.test(sales ~ candy, candy, var.equal = T)
+```
+
+
+## Paired Sample *T*-Test
+
+Comparing the same subjects under two conditions (typically two timepoints)
+
+[○ Stress levels before vs. after a test]{.subpoint}
+
+[○ Reaction times before vs. after caffiene consumption]{.subpoint}
+
+[○ Anxiety levels before vs. after a mindfulness intervention]{.subpoint}
+
+We can still use the mean to represent the observations in each condition and make comparisons
+
+This time, focus on difference scores (individual differences in the observations between the two conditions)
+
+
+## Paired Sample *T*-Test
+
+Need difference score for each observation $d_i = x_2 - x_1$
+
+Then, get mean difference $\bar{d} = \frac{d_1+d_2+...+d_n}{n}$ and standard deviation of those difference scores $s_d = \sqrt{\frac{(d_1-\bar{d})^2 + (d_2-\bar{d})^2 + ... + (d_n-\bar{d})^2}{n - 1}}$
+
+$$ t = \frac{\bar{d} - \mu_{d_0}}{\frac{s_d}{\sqrt{n}}} = \text{(usually)} \frac{\bar{d} - 0}{\frac{s_d}{\sqrt{n}}} = \frac{\bar{d}}{\frac{s_d}{\sqrt{n}}}$$
+
+Compare against critical *t*-value with df = $n - 1$
+
+
+## Paired Sample *T*-Test: R Calculation
+
+```{r}
+#| include: false
+pumpkins <- data.frame(pumpkin = 1:20,
+           oct1 = rnorm(20, 12, 3)) |>
+  mutate(oct31 = oct1 - rnorm(20, 3, 1),
+         across(everything(), ~ round(.x, 2)))
+```
+
+```{r}
+#| echo: false
+pumpkin <- rio::import(here::here("labs", "Lab 11 - Independent and Paired Sample T-Test", "pumpkindata.csv")) |>
+  mutate(diff = Oct1 - Oct31)
+```
+
+```{r}
+mean_diff <- mean(pumpkin$diff)
+sd_diff <- sd(pumpkin$diff)
+df <- nrow(pumpkin) - 1
+
+qt(c(.025, .975), df)
+
+t_stat <- (mean_diff - 0) / (sd_diff / sqrt(nrow(pumpkin)))
+t_stat
+```
+
+
+## Paired Sample *T*-Test: R Function
+
+```{r}
+t.test(pumpkin$Oct1, pumpkin$Oct31, paired = T, var.equal = T)
+```
+
+
+## Assumptions
+
+[placeholder for assumtions: align with lecture slides when available]
+
+
+## Cohen's *D* Revisited
+
+Now that we have two groups, R functions for Cohen's *D* will be more helpful to us. The `cohens_d()` function from the `effectsize` package allows for many formats of inputs.
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+(x_bar_ccorn - x_bar_choc) / pooled_sd
+
+effectsize::cohens_d(sales ~ candy, data = candy)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+mean_diff / sd_diff
+
+effectsize::cohens_d(pumpkin$Oct1, pumpkin$Oct31, paired = T)
+```
+:::
+::::
+
+
+## *T*-Test: Interpretation and write-up
+
+An [independent samples / repeated measures] *t*-test analysis was conducted between [group 1] and [group 2]. We [fail to reject / reject] H0 [in favor of H1], *t*([df]) = [____], *p* [< 0.05 / p-value]. There [is / is not] a significant difference between the mean [DV] of [group 1] and [group 2] in our sample.
+
+
+# {.nostretch}
+
+:::{.r-fit-text}
+**Happy Halloween!**
+:::
+
+![](pumpkin1.png){.absolute bottom=0 right=0 width="200px"}
+
+![](pumpkin2.png){.absolute bottom=0 left=500 width="215px"}
+
+![](pumpkin3.png){.absolute bottom=0 left=0 width="200px"}
+
+
+
+
+
+
+
+

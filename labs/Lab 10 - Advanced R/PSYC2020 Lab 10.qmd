@@ -1,0 +1,771 @@
+---
+title: "Advanced R"
+subtitle: "PSYC 2020-A01 / PSYC 6022-A01 | 2025-10-24 | Lab 10"
+author: "Jessica Helmer"
+format: 
+  live-revealjs:
+    slide-number: true
+    show-slide-number: all
+    css: PSYC2020L_styles.css
+    preview-links: true
+engine: knitr
+webr:
+  packages:
+    - rio
+    - datasets
+execute:
+  echo: true
+width: 1200
+cache: true
+---
+
+## Outline
+
+* Assignment 9 Review
+* Communication with Visualizations
+* Communication with Quarto
+
+Learning objectives:  
+**R:** Plot annotations
+
+```{r}
+#| echo: false
+library(tidyverse)
+```
+
+
+## Mid-Course Survey
+
+* Scratch code
+
+* Mid-class breaks
+
+
+## Assignment 9 Review
+
+Great work!
+
+
+# Data Communication
+
+
+## Communication
+
+:::: {.columns}
+::: {.column}
+Going to once again heavily lean on this book!
+
+Feel free to reference for more R content
+:::
+
+::: {.column}
+![https://r4ds.hadley.nz/](https://r4ds.hadley.nz/cover.jpg)
+:::
+::::
+
+
+## Communication
+
+:::: {.columns}
+::: {.column}
+#### Exploratory Data Analysis
+
+* Audience: self
+
+* Goal: understanding / exploring data
+
+* You already know what's in the plot
+:::
+
+::: {.column}
+#### Data Communication
+
+* Audience: others
+
+* Goal: communicating and showing data. Make as self-explanatory as possible
+
+* Won't already know what's in the plot
+:::
+::::
+
+Exploratory to "expository" (intended to explain or describe something)
+
+
+## Today's Data
+
+Mostly using the fuel economy `mpg` dataset that comes with the `tidyverse` library today
+
+```{r}
+head(mpg, 10)
+```
+
+
+## Labels
+
+Easiest place to start with making visualizations more self-explanatory
+
+:::: {.columns}
+::: {.column width="66%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    x = "Engine displacement (L)",
+    y = "Highway fuel economy (mpg)",
+    color = "Car type",
+    title = "Fuel efficiency generally decreases with engine size",
+    subtitle = "Two seaters (sports cars) are an exception because of their light weight",
+    caption = "Data from fueleconomy.gov")
+```
+
+### Code
+```{r}
+#| eval: false
+#| code-line-numbers: false
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    x = "Engine displacement (L)",
+    y = "Highway fuel economy (mpg)",
+    color = "Car type",
+    title = "Fuel efficiency generally decreases with engine size",
+    subtitle = "Two seaters (sports cars) are an exception
+    because of their light weight",
+    caption = "Data from fueleconomy.gov")
+```
+:::
+:::
+
+::: {.column width="33%"}
+::: {style="font-size:80%"}
+Goal of title is to explain the main finding (not just “a scatterplot of engine displacement vs. fuel economy”)
+
+Good to include units
+:::
+:::
+::::
+
+
+## Annotations
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {style="font-size:80%"}
+Label individual points or groups of points
+
+`geom_text()` is like `geom_point()`, except it displays text from an `label` argument within the `aes()` function (still also needs `x` and `y` mappings)
+
+Starting with this...
+
+[And with the goal of labeling these lines directly]{.fragment}
+:::
+:::
+
+::: {.column width="50%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(se = FALSE)
+```
+
+### Code
+```{r}
+#| eval: false
+ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(se = FALSE)
+```
+:::
+:::
+::::
+
+
+## Annotations
+
+Can start by making a dataframe of labels. Example goal: label by type of drive (front-wheel, rear-wheel, four-wheel)
+
+::: fragment
+```{r}
+mpg_labels <- mpg |>
+  summarize(.by = drv,
+            displ = mean(displ),
+            hwy = mean(hwy)) |>
+  mutate(drive_type = case_when(drv == "4" ~ "four-wheel drive",
+                                drv == "f" ~ "front-wheel drive",
+                                drv == "r" ~ "rear-wheel drive"))
+mpg_labels
+```
+:::
+
+
+## `case_when()` Reference
+
+Use the `case_when()` function to change the contents of a column based on some condition
+
+`case_when(logical ~ new_value)`
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+grades <- rnorm(10, 75, 10)
+grades
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+case_when(grades < 60 ~ "F",
+          grades < 70 ~ "D",
+          grades < 80 ~ "C",
+          grades < 90 ~ "B",
+          grades <= 100 ~ "A",
+          .default = NA)
+```
+:::
+::::
+
+
+## Annotations
+
+Then, we can use those labels in the `data` argument for a `geom_text()`
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(se = FALSE) +
+  geom_text(
+    data = mpg_labels,
+    aes(label = drive_type))
+```
+
+### Code
+```{r}
+#| eval: false
+ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(se = FALSE) +
+  geom_text(
+    data = mpg_labels,
+    aes(label = drive_type))
+```
+:::
+
+
+## Annotations
+
+Some ways to make this look nicer...but still overlap
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(se = FALSE) +
+  geom_text(
+    data = mpg_labels,
+    aes(x = displ, y = hwy, label = drive_type),
+    fontface = "bold", size = 6, hjust = "left", vjust = "bottom") +
+  theme(legend.position = "none")
+```
+
+### Code
+```{r}
+#| eval: false
+ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(se = FALSE) +
+  geom_text(
+    data = mpg_labels,
+    aes(x = displ, y = hwy, label = drive_type),
+    fontface = "bold", size = 6, hjust = "left", vjust = "bottom") +
+  theme(legend.position = "none")
+```
+:::
+
+
+## Annotations: `ggrepel`
+
+Can use `geom_label_repel()` function from the `ggrepel` package to help with this
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(se = FALSE) +
+  ggrepel::geom_label_repel(
+    data = mpg_labels,
+    aes(x = displ, y = hwy, label = drive_type),
+    fontface = "bold", size = 6, hjust = "left", vjust = "bottom") +
+  theme(legend.position = "none")
+```
+
+### Code
+```{r}
+#| eval: false
+ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(se = FALSE) +
+  ggrepel::geom_label_repel(
+    data = mpg_labels,
+    aes(x = displ, y = hwy, label = drive_type),
+    fontface = "bold", size = 6, hjust = "left", vjust = "bottom") +
+  theme(legend.position = "none")
+```
+:::
+
+
+## Annotations: `geomtextpath`
+
+Or, why make your audience have to look back and forth between labels and lines?
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {style="font-size:80%"}
+Enter the `geomtextpath` package with its `geom_textsmooth()`.
+
+Adds label directly onto the line (doesn't need its own `x` and `y` mappings).
+:::
+:::
+
+::: {.column width="50%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+mpg |>
+  mutate(drive_type = case_when(drv == "4" ~ "four-wheel drive",
+                                drv == "f" ~ "front-wheel drive",
+                                drv == "r" ~ "rear-wheel drive")) |>
+  ggplot(aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geomtextpath::geom_textsmooth(aes(label = drive_type), se = FALSE, size = 6) +
+  theme(legend.position = "none")
+```
+
+### Code
+```{r}
+#| eval: false
+mpg |>
+  mutate(drive_type = case_when(drv == "4" ~ "four-wheel drive",
+                                drv == "f" ~ "front-wheel drive",
+                                drv == "r" ~ "rear-wheel drive")) |>
+  ggplot(aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geomtextpath::geom_textsmooth(aes(label = drive_type), se = FALSE, size = 6) +
+  theme(legend.position = "none")
+```
+:::
+:::
+::::
+
+
+## Annotations: `geomtextpath`
+
+The `geomtextpath` package has geom functions for most aesthetics, with three changes:
+
+1. Either call `library(geomtextpath)` or specifically call the function with `geomtextpath::` (my preference)
+
+2. Add `text` or `label` before the geom name (e.g., `geom_textline()`, `geom_labelsmooth()`)
+
+3. Give it a `label` mapping (if label from the data) or `label` argument (if just some text)
+
+
+## Annotations: `geomtextpath`
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+mpg |>
+  mutate(drive_type = case_when(drv == "4" ~ "four-wheel drive",
+                                drv == "f" ~ "front-wheel drive",
+                                drv == "r" ~ "rear-wheel drive")) |>
+  ggplot(aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geomtextpath::geom_textsmooth(aes(label = drive_type), se = FALSE, size = 6) +
+  theme(legend.position = "none")
+```
+
+### Code
+```{r}
+#| eval: false
+#| code-line-numbers: false
+mpg |>
+  mutate(drive_type = case_when(drv == "4" ~ "four-wheel drive",
+                                drv == "f" ~ "front-wheel drive",
+                                drv == "r" ~ "rear-wheel drive")) |>
+  ggplot(aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.3) +
+  geomtextpath::geom_textsmooth(aes(label = drive_type),
+                                se = FALSE, size = 6) +
+  theme(legend.position = "none")
+```
+:::
+:::
+
+::: {.column width="50%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+mpg |>
+  mutate(drive_type = case_when(drv == "4" ~ "four-wheel drive",
+                                drv == "f" ~ "front-wheel drive",
+                                drv == "r" ~ "rear-wheel drive")) |>
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point(alpha = 0.3) +
+  geomtextpath::geom_textsmooth(label = "this is a smooth line", se = FALSE, size = 6) +
+  theme(legend.position = "none")
+```
+
+### Code
+```{r}
+#| eval: false
+#| code-line-numbers: false
+mpg |>
+  mutate(drive_type = case_when(drv == "4" ~ "four-wheel drive",
+                                drv == "f" ~ "front-wheel drive",
+                                drv == "r" ~ "rear-wheel drive")) |>
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point(alpha = 0.3) +
+  geomtextpath::geom_textsmooth(label = "this is a smooth line",
+                                se = FALSE, size = 6) +
+  theme(legend.position = "none")
+```
+:::
+:::
+::::
+
+
+## Annotations: Identifying Outliers
+
+Let's say we want to display the models of the cars that are more outliers here.
+
+```{r}
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point()
+```
+
+
+## Annotations: Identifying Outliers
+
+First, let's make a dataframe of just the outliers
+
+```{r}
+potential_outliers <- mpg |>
+  filter(hwy > 40 | (hwy > 20 & displ > 5))
+potential_outliers
+```
+
+
+## Annotations: Identifying Outliers
+
+Now, we can layer them onto the plot
+
+:::: {.columns}
+::: {.column width="66%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  ggrepel::geom_text_repel(data = potential_outliers, aes(label = model)) +
+  geom_point(data = potential_outliers, color = "red") +
+  geom_point(data = potential_outliers,
+    color = "red", size = 3, shape = "circle open"
+  )
+```
+
+### Code
+```{r}
+#| eval: false
+#| code-line-numbers: false
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  ggrepel::geom_text_repel(data = potential_outliers, aes(label = model)) +
+  geom_point(data = potential_outliers, color = "red") +
+  geom_point(data = potential_outliers,
+    color = "red", size = 3, shape = "circle open"
+  )
+```
+:::
+:::
+
+::: {.column width="33%"}
+Note the additional `geom_point()` layer with the `"circle open"` shape to add some extra emphasis.
+
+:::
+::::
+
+
+## Annotations: Some other useful geoms
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  geom_point(data = filter(mpg, class == "2seater"),
+             color = "skyblue3") +
+  geom_segment(data = filter(mpg, class == "2seater"),
+               aes(xend = displ + .05, x = 6.6,
+                   yend = hwy + .05, y = 29),
+               arrow = arrow(angle = 20, length = unit(.1, "inches")),
+               color = "skyblue3") +
+  annotate("text", x = 6.6, y = 30, label = "two-seaters",
+           size = 5, hjust = "center",
+           color = "skyblue3") +
+  geomtextpath::geom_texthline(aes(yintercept = mean(hwy)),
+                               label = "hwy sample mean", size = 6) +
+  theme_classic()
+```
+
+### Code
+```{r}
+#| eval: false
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  geom_point(data = filter(mpg, class == "2seater"),
+             color = "skyblue3") +
+  geom_segment(data = filter(mpg, class == "2seater"),
+               aes(xend = displ + .05, x = 6.6,
+                   yend = hwy + .05, y = 29),
+               arrow = arrow(angle = 20, length = unit(.1, "inches")),
+               color = "skyblue3") +
+  annotate("text", x = 6.6, y = 30, label = "two-seaters",
+           size = 5, hjust = "center",
+           color = "skyblue3") +
+  geomtextpath::geom_texthline(aes(yintercept = mean(hwy)),
+                               label = "hwy sample mean", size = 6) +
+  theme_classic()
+```
+
+:::
+
+
+## Annotate: `annotate()`
+
+Helpful for adding bits of information or explanatory text to a plot (not mapped from or a subset of data)
+
+[○ Make the main point of the visualization more immediately obvious]{.subpoint}
+
+Can start with some text:
+
+```{r}
+trend_text <- "Larger engine sizes tend to have lower fuel economy." |>
+  str_wrap(width = 30)
+trend_text
+```
+
+:::: {.columns style="font-size:80%"}
+::: {.column width="50%"}
+`str_wrap(string)` function breaks text into multiple lines
+
+[○ `string` = string you want to wrap]{.subpoint}
+
+[○ `width` = target line width (in number of characters)]{.subpoint}
+
+:::
+
+::: {.column width="50%"}
+`\n` represents a "new line" character (like a line break)
+:::
+::::
+
+
+## Annotate: `annotate()`
+
+`annotate()` function looks for all the required aesthetics for the selected geom.
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  annotate(geom = "label", x = 3.5, y = 38,
+    label = trend_text,
+    hjust = "left", color = "red") +
+  annotate(geom = "segment",
+    x = 3, y = 35, xend = 5, yend = 25, color = "red",
+    arrow = arrow(type = "closed"))
+```
+
+### Code
+```{r}
+#| eval: false
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  annotate(geom = "label", x = 3.5, y = 38,
+    label = trend_text,
+    hjust = "left", color = "red") +
+  annotate(geom = "segment",
+    x = 3, y = 35, xend = 5, yend = 25, color = "red",
+    arrow = arrow(type = "closed"))
+```
+:::
+
+
+# Quarto
+
+
+## Quarto
+
+Framework for combining code, results, and writing.
+
+> Quarto files are designed to be used in three ways:
+
+::: {style="font-size:80%"}
+> For communicating to decision-makers, who want to focus on the conclusions, not the code behind the analysis.
+
+> For collaborating with other data scientists (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).
+
+> As an environment in which to do data science, as a modern-day lab notebook where you can capture not only what you did, but also what you were thinking.
+
+:::
+
+::: footer
+<https://r4ds.hadley.nz/quarto.html#introduction>
+:::
+
+
+## Quarto vs. RMarkdown
+
+Like RMarkdown, but...better!
+
+RMarkdown had many extensions to make books, presentations, etc. This unifies all of them.
+
+> In a way, Quarto reflects everything that was learned from expanding and supporting the R Markdown ecosystem over a decade.
+
+Quarto uses the Quarto Command Line Interface (CLI), but RStudio automatically installs and loads it when needed.
+
+*NOT* an R package. If we want help, we refer to the [Quarto Documentation](https://quarto.org/).
+
+::: footer
+<https://r4ds.hadley.nz/quarto.html#introduction>
+:::
+
+
+## Quarto Gallery
+
+Some Quarto possibilities...
+
+[Quarto Gallery](https://quarto.org/docs/gallery/){.btn .btn-outline-primary .btn role="button"}
+
+::: fragment
+Also...my slides and the [course website](https://jhelmer3.github.io/PSYC2020L/).
+:::
+
+
+## Quarto Files
+
+<style>
+.reveal pre code {
+  max-height: none !important;
+  overflow: visible !important;
+}
+</style>
+
+:::: {.columns style="font-size:70%"}
+::: {.column width="50%"}
+```{r}
+#| echo: false
+readr::read_file("diamond-sizes.qmd") |> cat()
+```
+:::
+
+::: {.column width="50%"}
+Just a text file with extension `.qmd`, contains...
+
+1.  An (optional) **YAML header** surrounded by `---`s.
+
+2.  **Chunks** of R code surrounded by ```` ``` ````.
+
+3.  Text mixed with simple text formatting like `# heading` and `_italics_`.
+:::
+::::
+
+
+## Quarto Documents, Presentations, Websites, oh my!
+
+Many different formats of outputs and purposes.
+
+All have code, figures, etc. all coming from the same place.
+
+No need for copying and pasting, figure output updates when the code does.
+
+Great way of documenting your work and sharing with others.
+
+
+## Quarto Documents, Presentations, Websites, oh my!
+
+Check out the [R4DS book](https://r4ds.hadley.nz/quarto.html) and [Quarto Documentation](https://quarto.org/) for more learning.
+
+Can pair with [GitHub](https://github.com/) to create easily shareable, version-controlled reports.
+
+[○ See [*Happy Git and GitHub for the useR*](https://happygitwithr.com/) for more (how I learned!)]{.subpoint}
+
+
+# Assignment 10
+
+
+
+
+
+
+
+

@@ -387,6 +387,7 @@ data.frame(x = seq(-5, 5, length.out = 1000)) |>
   theme_classic(base_size = 16) 
 ```
 
+
 ## *Z*- vs. *T*-Distribution
 
 ```{r}
@@ -578,49 +579,7 @@ dat |>
 ```
 
 
-## Cutoff *T*-Values Example
 
-Say you want to find the cutoff *t* values: t(df = 3) and t(df = 37) for $\alpha = .05$, want both upper one-tailed and two-tailed
-
-::: fragment
-Which will have the larger magnitude cutoff values?
-:::
-
-:::: {.columns .fragment style="font-size:70%"}
-::: column
-**One-Tailed**
-
-All of our $\alpha = .05$ goes on the upper side
-
-Need a cutoff for $.95$
-```{r}
-qt(p = .95, df = 3)
-
-qt(p = .05, df = 37, lower.tail = F)
-```
-$t_{crit}(3) = 2.35$
-
-$t_{crit}(37) = 1.69$
-:::
-
-::: column
-**Two-Tailed**
-
-$\alpha = 1 - .95 = 5\%$ on both sides 
-
-So $.05 / 2 = .025$ on each side
-
-Need value for $.025$ and $.95 + .025$ ($[.025, .975]$)
-```{r}
-qt(p = c(.025, .975), df = 3)
-
-qt(p = c(.025, .975), df = 37)
-```
-$t_{crit}(3) = [-3.18, 3.18]$
-
-$t_{crit}(37) = [-2.03, 2.06]$
-:::
-::::
 
 
 ## One-Sample *T*-Test Generally

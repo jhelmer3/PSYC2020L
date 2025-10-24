@@ -173,5 +173,17 @@
   },
   "docs/labs/Lab 8 - NHST II/Lab 8 Assignment.rmd": {
     "Lab 8 Assignment.html": "13af71e2"
+  },
+  "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.qmd": {
+    "PSYC2020 Lab 10.html": "8805de5d"
+  },
+  "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.qmd": {
+    "PSYC2020 Lab 11.html": "872eb9f2"
+  },
+  "labs/Lab 10 - Advanced R/diamond-sizes.qmd": {
+    "diamond-sizes.html": "05de7af0"
+  },
+  "labs/Lab 10 - Advanced R/Lab 10 Assignment Example.Rmd": {
+    "Lab 10 Assignment Example.html": "c790e046"
   }
 }

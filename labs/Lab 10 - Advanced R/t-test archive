@@ -1,0 +1,206 @@
+## One-Sample *T*-Test Review
+
+[placeholder for t-test examples. key focuses that didn't get covered last lab: degrees of freedom, critical t-values
+
+
+## *Z*- vs. *T*-Distribution
+
+```{r}
+#| echo: false
+#| fig-align: center
+data.frame(x = seq(-5, 5, length.out = 1000)) |>
+  mutate(normal = dnorm(x),
+         t1 = dt(x, 1),
+         t2 = dt(x, 2),
+         t5 = dt(x, 5),
+         t10 = dt(x, 10)) |>
+  ggplot(aes(x = x)) +
+  geomtextpath::geom_textline(aes(y = normal, label = "standard normal"),
+                              hjust = .1, size = 6, linewidth = 1.5, color = "gray60") +
+  coord_cartesian(clip = "off", xlim = c(-5, 5), expand = F) +
+  guides(y = "none") +
+  labs(x = NULL, y = NULL) +
+  theme_classic(base_size = 16) 
+```
+
+
+## *Z*- vs. *T*-Distribution
+
+```{r}
+#| echo: false
+#| fig-align: center
+data.frame(x = seq(-5, 5, length.out = 1000)) |>
+  mutate(normal = dnorm(x),
+         t1 = dt(x, 1),
+         t2 = dt(x, 2),
+         t5 = dt(x, 5),
+         t10 = dt(x, 10)) |>
+  ggplot(aes(x = x)) +
+  geomtextpath::geom_textline(aes(y = normal, label = "standard normal"),
+                              hjust = .1, size = 6, linewidth = 1.5, color = "gray60") +
+  geomtextpath::geom_textline(aes(y = t1, label = "t(df=1)"),
+                              hjust = .28, size = 6, linewidth = 1.5, color = "skyblue") +
+  coord_cartesian(clip = "off", xlim = c(-5, 5), expand = F) +
+  guides(y = "none") +
+  labs(x = NULL, y = NULL) +
+  theme_classic(base_size = 16) 
+```
+
+
+## *Z*- vs. *T*-Distribution
+
+```{r}
+#| echo: false
+#| fig-align: center
+data.frame(x = seq(-5, 5, length.out = 1000)) |>
+  mutate(normal = dnorm(x),
+         t1 = dt(x, 1),
+         t2 = dt(x, 2),
+         t5 = dt(x, 5),
+         t10 = dt(x, 10)) |>
+  ggplot(aes(x = x)) +
+  geomtextpath::geom_textline(aes(y = normal, label = "standard normal"),
+                              hjust = .1, size = 6, linewidth = 1.5, color = "gray60") +
+  geomtextpath::geom_textline(aes(y = t1, label = "t(df=1)"),
+                              hjust = .28, size = 6, linewidth = 1.5, color = "skyblue") +
+  geomtextpath::geom_textline(aes(y = t2, label = "t(df=2)"),
+                              hjust = .35, size = 6, linewidth = 1.5, color = "steelblue") +
+  coord_cartesian(clip = "off", xlim = c(-5, 5), expand = F) +
+  guides(y = "none") +
+  labs(x = NULL, y = NULL) +
+  theme_classic(base_size = 16) 
+```
+
+
+## *Z*- vs. *T*-Distribution
+
+```{r}
+#| echo: false
+#| fig-align: center
+data.frame(x = seq(-5, 5, length.out = 1000)) |>
+  mutate(normal = dnorm(x),
+         t1 = dt(x, 1),
+         t2 = dt(x, 2),
+         t5 = dt(x, 5),
+         t10 = dt(x, 10)) |>
+  ggplot(aes(x = x)) +
+  geomtextpath::geom_textline(aes(y = normal, label = "standard normal"),
+                              hjust = .1, size = 6, linewidth = 1.5, color = "gray60") +
+  geomtextpath::geom_textline(aes(y = t1, label = "t(df=1)"),
+                              hjust = .28, size = 6, linewidth = 1.5, color = "skyblue") +
+  geomtextpath::geom_textline(aes(y = t2, label = "t(df=2)"),
+                              hjust = .35, size = 6, linewidth = 1.5, color = "steelblue") +
+  geomtextpath::geom_textline(aes(y = t10, label = "t(df=10)"), 
+                            hjust = .4, size = 6, linewidth = 1.5, color = "steelblue4") +
+  coord_cartesian(clip = "off", xlim = c(-5, 5), expand = F) +
+  guides(y = "none") +
+  labs(x = NULL, y = NULL) +
+  theme_classic(base_size = 16) 
+```
+
+
+## *Z*- vs. *T*-Distribution
+
+```{r}
+#| echo: false
+#| fig-align: center
+data.frame(x = seq(-5, 5, length.out = 1000)) |>
+  mutate(normal = dnorm(x),
+         t1 = dt(x, 1),
+         t2 = dt(x, 2),
+         t5 = dt(x, 5),
+         t10 = dt(x, 10),
+         t100 = dt(x, 100)) |>
+  ggplot(aes(x = x)) +
+  geomtextpath::geom_textline(aes(y = normal, label = "standard normal"),
+                              hjust = .1, size = 6, linewidth = 1.5, color = "gray60") +
+  geomtextpath::geom_textline(aes(y = t1, label = "t(df=1)"),
+                              hjust = .28, size = 6, linewidth = 1.5, color = "skyblue") +
+  geomtextpath::geom_textline(aes(y = t2, label = "t(df=2)"),
+                              hjust = .35, size = 6, linewidth = 1.5, color = "steelblue") +
+  geomtextpath::geom_textline(aes(y = t10, label = "t(df=10)"), 
+                            hjust = .4, size = 6, linewidth = 1.5, color = "steelblue4") +
+  geomtextpath::geom_textline(aes(y = t100, label = "t(df=100)"), 
+                            hjust = .48, size = 6, linewidth = 1.5, color = "royalblue4") +
+  coord_cartesian(clip = "off", xlim = c(-5, 5), expand = F) +
+  guides(y = "none") +
+  labs(x = NULL, y = NULL) +
+  theme_classic(base_size = 16) 
+```
+
+
+## Cutoff *T*-Values Example
+
+Say you want to find the cutoff *t* values: t(df = 3) and t(df = 37) for $\alpha = .05$, want both upper one-tailed and two-tailed
+
+::: fragment
+Which will have the larger magnitude cutoff values?
+:::
+
+:::: {.columns .fragment style="font-size:70%"}
+::: column
+**One-Tailed**
+
+All of our $\alpha = .05$ goes on the upper side
+
+Need a cutoff for $.95$
+```{r}
+qt(p = .95, df = 3)
+
+qt(p = .05, df = 37, lower.tail = F)
+```
+$t_{crit}(3) = 2.35$
+
+$t_{crit}(37) = 1.69$
+:::
+
+::: column
+**Two-Tailed**
+
+$\alpha = 1 - .95 = 5\%$ on both sides 
+
+So $.05 / 2 = .025$ on each side
+
+Need value for $.025$ and $.95 + .025$ ($[.025, .975]$)
+```{r}
+qt(p = c(.025, .975), df = 3)
+
+qt(p = c(.025, .975), df = 37)
+```
+$t_{crit}(3) = [-3.18, 3.18]$
+
+$t_{crit}(37) = [-2.03, 2.06]$
+:::
+::::
+
+
+## *T*-Test Example
+
+Let's say a researcher claims the average highway miles per gallon across all cars is 30mpg. They collect a sample of 234 cars and would like you to test this. We do not know the population standard deviation.
+
+::: fragment
+One- or two-tailed?
+:::
+
+:::: {.columns style="font-size:80%"}
+::: {.column .fragment width="75%"}
+```{r}
+head(mpg$hwy)
+
+x_bar <- mean(mpg$hwy)
+x_sd <- sd(mpg$hwy)
+n <- length(mpg$hwy) # although remember to be thinking about missing data
+df <- n - 1
+
+t_cutoff <- qt(.975, df)
+
+hwy_t_stat <- (x_bar - 30) / (x_sd / sqrt(n))
+hwy_t_stat
+```
+:::
+
+::: {.column width="25%"}
+[Our observed *t*-statistic exceeds our cutoff *t*-statistic, so we reject the null.]{.fragment}
+:::
+::::
+

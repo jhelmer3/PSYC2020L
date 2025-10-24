@@ -886,7 +886,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 5\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/26 Lab 6\n\nSampling Distributions\nSlides | Assignment\n\n\n\n\n\n\n\n10/03 Lab 7\n\nNHST I\nSlides | Assignment\n\n\n\n\n10/10 Lab 8\n\nNHST II\nSlides | Assignment\n\n\n\n\n10/17 Lab 9\n\nConfidence Intervals\nSlides"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 5\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/26 Lab 6\n\nSampling Distributions\nSlides | Assignment\n\n\n\n\n\n\n\n10/03 Lab 7\n\nNHST I\nSlides | Assignment\n\n\n\n\n10/10 Lab 8\n\nNHST II\nSlides | Assignment\n\n\n\n\n10/17 Lab 9\n\nConfidence Intervals\nSlides\n\n\n\n\n\n\n\n10/24 Lab 10\n\nAdvanced R\nSlides\n\n\n\n\n10/31 Lab 11 🎃\n\nIndependent and Paired Samples T-Test\nComing soon! No assignment.\n\n\n\n\n11/07 Lab 12\n\nChi-Squared Test\nComing soon!"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
@@ -5253,8 +5253,8 @@
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#outline",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#outline",
     "title": "Confidence Intervals",
-    "section": "Outline",
-    "text": "Outline\n\nAssignment 8 Review\nConfidence Intervals\nOne-Sample t-test\n\nLearning objectives:\nR: CI and t-statistics in R"
+    "section": "",
+    "text": "Assignment 8 Review\nConfidence Intervals\nOne-Sample t-test\n\nLearning objectives:\nR: CI and t-statistics in R\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#assignment-8-review",
@@ -5289,7 +5289,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cutoff-z-values-example",
     "title": "Confidence Intervals",
     "section": "Cutoff Z-Values Example",
-    "text": "Cutoff Z-Values Example\nSay you want to find the cutoff z values for some confidence interval\nTwo examples: 95% CI and 97.3% CI (one typical, one as exercise)\n\nWe want the \\(\\alpha = 1 -\\) confidence level piece to be equal on both sides\n\n\n\n95% CI\n\\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqnorm(c(.025, .975))\n\n[1] -1.959964  1.959964\n\n\n\n97.3% CI\n\\(\\alpha = 1 - .973 = 2.7\\%\\) on both sides\nSo \\(.027 / 2 = .0135\\) on each side\nNeed value for \\(.0135\\) and \\(.95 + .0135\\) (\\([.0135, .9865]\\))\n\nqnorm(c(.0135, 0.9865))\n\n[1] -2.211518  2.211518\n\n\n\n\nWhich one has a higher confidence level? Which one has a larger width?"
+    "text": "Cutoff Z-Values Example\nSay you want to find the cutoff z values for some confidence interval\nTwo examples: 95% CI and 97.3% CI (one typical, one as exercise)\n\nWe want the \\(\\alpha = 1 -\\) confidence level piece to be equal on both sides\n\n\n\n\n95% CI\n\\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqnorm(c(.025, .975))\n\n[1] -1.959964  1.959964\n\n\n\n\n\n97.3% CI\n\\(\\alpha = 1 - .973 = 2.7\\%\\) on both sides\nSo \\(.027 / 2 = .0135\\) on each side\nNeed value for \\(.0135\\) and \\(.95 + .0135\\) (\\([.0135, .9865]\\))\n\nqnorm(c(.0135, 0.9865))\n\n[1] -2.211518  2.211518\n\n\n\n\n\n\nWhich one has a higher confidence level? Which one has a larger width?"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-example",
@@ -5310,7 +5310,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-generally",
     "title": "Confidence Intervals",
     "section": "Confidence Interval Generally",
-    "text": "Confidence Interval Generally\nDerived with sample mean (\\(\\bar{x}\\)) and standard error (\\(\\frac{s}{\\sqrt n}\\))\n\\(CI = \\bar{x} \\pm z \\frac{s}{\\sqrt n}\\) or\n\\(CI = [\\bar{x} - z \\frac{s}{\\sqrt n}, \\bar{x} + z \\frac{s}{\\sqrt n}]\\)\n\n\n\n\n\n\nFood for Thought\n\n\nWith this formula, we would only use the positive version of the z cutoff, so that the lower bound ends up lower than the mean and the higher bound ends up higher. You can also think instead as both adding the z cutoff—it just ends up becoming a minus sign because the lower bound has a negative z cutoff."
+    "text": "Confidence Interval Generally\nDerived with sample mean (\\(\\bar{x}\\)) and standard error (\\(\\frac{s}{\\sqrt n}\\))\n\\(CI = \\bar{x} \\pm z \\frac{s}{\\sqrt n}\\) or\n\\(CI = [\\bar{x} - z \\frac{s}{\\sqrt n}, \\bar{x} + z \\frac{s}{\\sqrt n}]\\)\n\n\n\n\n\n\nFood for Thought\n\n\n\nWith this formula, we would only use the positive version of the z cutoff, so that the lower bound ends up lower than the mean and the higher bound ends up higher. You can also think instead as both adding the z cutoff—it just ends up becoming a minus sign because the lower bound has a negative z cutoff."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-example-1",
@@ -5359,7 +5359,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-how-many-tails",
     "title": "Confidence Intervals",
     "section": "T-Test: How many tails?",
-    "text": "T-Test: How many tails?\nNeed to consider whether to use a “one-tail” or “two-tail” t-test.\n\n\nOne-Tail (One-Sided)\nWe want to test whether something is lower or higher than a value, but not both\nOnly one limit\n\nTwo-Tails (Two-Sided)\nWe want to test whether something is either lower or higher than a value\nTwo limits"
+    "text": "T-Test: How many tails?\nNeed to consider whether to use a “one-tail” or “two-tail” t-test.\n\n\n\nOne-Tail (One-Sided)\nWe want to test whether something is lower or higher than a value, but not both\nOnly one limit\n\n\n\nTwo-Tails (Two-Sided)\nWe want to test whether something is either lower or higher than a value\nTwo limits"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-how-many-tails-1",
@@ -5562,7 +5562,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-strength-visualization-2",
     "title": "Confidence Intervals",
     "section": "Cohen’s D Strength Visualization",
-    "text": "Cohen’s D Strength Visualization\n“What would the hypothesized mean have to have been to get different levels of Cohen’s d?”"
+    "text": "Cohen’s D Strength Visualization\n“What would the hypothesized mean have to have been to get different levels of Cohen’s d?”\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = mu_ex1, label = \"d = 0.2\"), : All aesthetics have length 1, but the data has 100000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = mu_ex2, label = \"d = 0.5\"), : All aesthetics have length 1, but the data has 100000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = mu_ex3, label = \"d = 0.8\"), : All aesthetics have length 1, but the data has 100000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-in-r",
@@ -5576,14 +5576,14 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-example-output",
     "title": "Confidence Intervals",
     "section": "T-Test Example Output",
-    "text": "T-Test Example Output\n\n\n\nhwy_ttest &lt;- t.test(mpg$cty, mu = 30)\nhwy_ttest\n\n\n    One Sample t-test\n\ndata:  mpg$cty\nt = -47.233, df = 233, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 30\n95 percent confidence interval:\n 16.31083 17.40712\nsample estimates:\nmean of x \n 16.85897 \n\n#?t.test\n\n\n\nhwy_ttest$statistic\n\n        t \n-47.23252 \n\nhwy_ttest$p.value\n\n[1] 2.581229e-121\n\n\n\n\nhwy_ttest$conf.int\n\n[1] 16.31083 17.40712\nattr(,\"conf.level\")\n[1] 0.95\n\n\n\n\nCan use these in RMarkdown documents with inline R chunks."
+    "text": "T-Test Example Output\n\n\n\nhwy_ttest &lt;- t.test(mpg$cty, mu = 30)\nhwy_ttest\n\n\n    One Sample t-test\n\ndata:  mpg$cty\nt = -47.233, df = 233, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 30\n95 percent confidence interval:\n 16.31083 17.40712\nsample estimates:\nmean of x \n 16.85897 \n\n#?t.test\n\n\n\nhwy_ttest$statistic\n\n        t \n-47.23252 \n\nhwy_ttest$p.value\n\n[1] 2.581229e-121\n\n\n\n\nhwy_ttest$conf.int\n\n[1] 16.31083 17.40712\nattr(,\"conf.level\")\n[1] 0.95\n\n\n\n\n\nCan use these in RMarkdown documents with inline R chunks."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-tests-and-confidence-intervals",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-tests-and-confidence-intervals",
     "title": "Confidence Intervals",
     "section": "T-Tests and Confidence Intervals",
-    "text": "T-Tests and Confidence Intervals\nThe t.test() function includes a CI value! But…\n\n\n\nt.test(mpg$cty, mu = 30) |&gt; \n  pluck(\"conf.int\") |&gt; \n  c()\n\n[1] 16.31083 17.40712\n\n\n\n\nc(mean(mpg$cty) - qnorm(.975) * sd(mpg$cty) /\n    sqrt(sum(!is.na(mpg$cty))),\n  \n  mean(mpg$cty) + qnorm(.975) * sd(mpg$cty) /\n    sqrt(sum(!is.na(mpg$cty))))\n\n[1] 16.31367 17.40428\n\n\n\nThey’re not the same!\nThe built-in functions in R for confidence intervals in R often follow a t-distribution instead of a z-distribution. We want the z-distribution in our class, but as we saw, the differences will be very small for large samples."
+    "text": "T-Tests and Confidence Intervals\nThe t.test() function includes a CI value! But…\n\n\n\nt.test(mpg$cty, mu = 30) |&gt; \n  pluck(\"conf.int\") |&gt; \n  c()\n\n[1] 16.31083 17.40712\n\n\n\n\nc(mean(mpg$cty) - qnorm(.975) * sd(mpg$cty) /\n    sqrt(sum(!is.na(mpg$cty))),\n  \n  mean(mpg$cty) + qnorm(.975) * sd(mpg$cty) /\n    sqrt(sum(!is.na(mpg$cty))))\n\n[1] 16.31367 17.40428\n\n\n\n\nThey’re not the same!\nThe built-in functions in R for confidence intervals in R often follow a t-distribution instead of a z-distribution. We want the z-distribution in our class, but as we saw, the differences will be very small for large samples."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-tests-and-nhst",
@@ -5604,14 +5604,14 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-how-many-tails",
     "title": "Confidence Intervals",
     "section": "Testing: How many tails?",
-    "text": "Testing: How many tails?\nNeed to consider whether to use a “one-tail” or “two-tail” t-test.\n\n\nOne-Tail (One-Sided)\n\n\n\n\n\n\n\n\n\n\nTwo-Tails (Two-Sided)"
+    "text": "Testing: How many tails?\nNeed to consider whether to use a “one-tail” or “two-tail” t-test.\n\n\n\nOne-Tail (One-Sided)\n\n\n\n\n\n\n\n\n\n\n\n\nTwo-Tails (Two-Sided)"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-how-many-tails-1",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-how-many-tails-1",
     "title": "Confidence Intervals",
     "section": "Testing: How many tails?",
-    "text": "Testing: How many tails?\nNotice that two-tailed tests are harder to “beat.”"
+    "text": "Testing: How many tails?\nNotice that two-tailed tests are harder to “beat.”\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.025), label = \"2.5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.05), label = \"5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#assignment-8-review-1",
@@ -5639,7 +5639,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-and-nhst",
     "title": "Confidence Intervals",
     "section": "Testing and NHST",
-    "text": "Testing and NHST\nRemember, even when the statistic is small, for two-tailed tests (because negative), we reject when we exceed the bounds of our critical value.\nFor one-tailed tests, it needs to exceed the bound of that tail’s cutoff.\n\nReject or retain null?"
+    "text": "Testing and NHST\nRemember, even when the statistic is small, for two-tailed tests (because negative), we reject when we exceed the bounds of our critical value.\nFor one-tailed tests, it needs to exceed the bound of that tail’s cutoff.\n\nReject or retain null?\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.025), label = \"2.5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.975), label = \"2.5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.001), label = \"observed t-stat\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.025), label = \"2.5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.975), label = \"2.5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.2), label = \"observed t-stat\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.05), label = \"5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.99999), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row."
   },
   {
     "objectID": "docs/labs/Lab 8 - NHST II/Lab 8 Assignment.html",
@@ -5689,5 +5689,460 @@
     "title": "scratch",
     "section": "",
     "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\nhwytest &lt;- t.test(mpg$hwy, mu = 30)\nhwytest$statistic\n\n        t \n-16.85174 \n\n\nThe t-statistic was -16.8517377."
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#outline",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#outline",
+    "title": "Advanced R",
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 9 Review\nCommunication with Visualizations\nCommunication with Quarto\n\nLearning objectives:\nR: Plot annotations"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#assignment-9-review",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#assignment-9-review",
+    "title": "Advanced R",
+    "section": "Assignment 9 Review",
+    "text": "Assignment 9 Review\nGreat work!"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#one-sample-t-test-review",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#one-sample-t-test-review",
+    "title": "Advanced R",
+    "section": "One-Sample T-Test Review",
+    "text": "One-Sample T-Test Review\n[placeholder for t-test examples. key focuses that didn’t get covered last lab: degrees of freedom, critical t-values"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#z--vs.-t-distribution",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#z--vs.-t-distribution",
+    "title": "Advanced R",
+    "section": "Z- vs. T-Distribution",
+    "text": "Z- vs. T-Distribution"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#z--vs.-t-distribution-1",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#z--vs.-t-distribution-1",
+    "title": "Advanced R",
+    "section": "Z- vs. T-Distribution",
+    "text": "Z- vs. T-Distribution"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#z--vs.-t-distribution-2",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#z--vs.-t-distribution-2",
+    "title": "Advanced R",
+    "section": "Z- vs. T-Distribution",
+    "text": "Z- vs. T-Distribution"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#z--vs.-t-distribution-3",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#z--vs.-t-distribution-3",
+    "title": "Advanced R",
+    "section": "Z- vs. T-Distribution",
+    "text": "Z- vs. T-Distribution"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#z--vs.-t-distribution-4",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#z--vs.-t-distribution-4",
+    "title": "Advanced R",
+    "section": "Z- vs. T-Distribution",
+    "text": "Z- vs. T-Distribution"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#cutoff-t-values-example",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#cutoff-t-values-example",
+    "title": "Advanced R",
+    "section": "Cutoff T-Values Example",
+    "text": "Cutoff T-Values Example\nSay you want to find the cutoff t values: t(df = 3) and t(df = 37) for \\(\\alpha = .05\\), want both upper one-tailed and two-tailed\n\nWhich will have the larger magnitude cutoff values?\n\n\n\nOne-Tailed\nAll of our \\(\\alpha = .05\\) goes on the upper side\nNeed a cutoff for \\(.95\\)\n\nqt(p = .95, df = 3)\n\n[1] 2.353363\n\nqt(p = .05, df = 37, lower.tail = F)\n\n[1] 1.687094\n\n\n\\(t_{crit}(3) = 2.35\\)\n\\(t_{crit}(37) = 1.69\\)\n\nTwo-Tailed\n\\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqt(p = c(.025, .975), df = 3)\n\n[1] -3.182446  3.182446\n\nqt(p = c(.025, .975), df = 37)\n\n[1] -2.026192  2.026192\n\n\n\\(t_{crit}(3) = [-3.18, 3.18]\\)\n\\(t_{crit}(37) = [-2.03, 2.06]\\)"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#t-test-example",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#t-test-example",
+    "title": "Advanced R",
+    "section": "T-Test Example",
+    "text": "T-Test Example\nLet’s say a researcher claims the average highway miles per gallon across all cars is 30mpg. They collect a sample of 234 cars and would like you to test this. We do not know the population standard deviation.\n\nOne- or two-tailed?\n\n\n\n\nhead(mpg$hwy)\n\n[1] 29 29 31 30 26 26\n\nx_bar &lt;- mean(mpg$hwy)\nx_sd &lt;- sd(mpg$hwy)\nn &lt;- length(mpg$hwy) # although remember to be thinking about missing data\ndf &lt;- n - 1\n\nt_cutoff &lt;- qt(.975, df)\n\nhwy_t_stat &lt;- (x_bar - 30) / (x_sd / sqrt(n))\nhwy_t_stat\n\n[1] -16.85174\n\n\n\nOur observed t-statistic exceeds our cutoff t-statistic, so we reject the null."
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#communication-1",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#communication-1",
+    "title": "Advanced R",
+    "section": "Communication",
+    "text": "Communication\n\n\nExploratory Data Analysis\n\nAudience: self\nGoal: understanding / exploring data\nYou already know what’s in the plot\n\n\nData Communication\n\nAudience: others\nGoal: communicating and showing data. Make as self-explanatory as possible\nWon’t already know what’s in the plot\n\n\nExploratory to “expository” (intended to explain or describe something)"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#communication-2",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#communication-2",
+    "title": "Advanced R",
+    "section": "Communication",
+    "text": "Communication\n\n\nExploratory Data Analysis\n\nAudience: self\nGoal: understanding / exploring data\nYou already know what’s in the plot\n\n\nData Communication\n\nAudience: others\nGoal: communicating and showing data. Make as self-explanatory as possible\nWon’t already know what’s in the plot\n\n\nExploratory to expository"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#todays-data",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#todays-data",
+    "title": "Advanced R",
+    "section": "Today’s Data",
+    "text": "Today’s Data\nMostly using the fuel economy mpg dataset that comes with the tidyverse library today\n\nhead(mpg, 10)\n\n# A tibble: 10 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;\n 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…\n 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…\n 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…\n 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…\n 5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…\n 6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…\n 7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…\n 8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…\n 9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…\n10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#labels",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#labels",
+    "title": "Advanced R",
+    "section": "Labels",
+    "text": "Labels\nEasiest place to start with making visualizations more self-explanatory\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point(aes(color = class)) +\n  geom_smooth(se = FALSE) +\n  labs(\n    x = \"Engine displacement (L)\",\n    y = \"Highway fuel economy (mpg)\",\n    color = \"Car type\",\n    title = \"Fuel efficiency generally decreases with engine size\",\n    subtitle = \"Two seaters (sports cars) are an exception\n    because of their light weight\",\n    caption = \"Data from fueleconomy.gov\")\n\n\n\n\n\n\nGoal of title is to explain the main finding (not just “a scatterplot of engine displacement vs. fuel economy”)\nGood to include units"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations",
+    "title": "Advanced R",
+    "section": "Annotations",
+    "text": "Annotations\n\n\n\nLabel individual points or groups of points\ngeom_text() is like geom_point(), except it displays text from an label argument within the aes() function (still also needs x and y mappings)\nStarting with this…\nAnd with the goal of labeling these lines directly\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point(alpha = 0.3) +\n  geom_smooth(se = FALSE)"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-1",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-1",
+    "title": "Advanced R",
+    "section": "Annotations",
+    "text": "Annotations\nCan start by making a dataframe of labels. Example goal: label by type of drive (front-wheel, rear-wheel, four-wheel)\n\n\nmpg_labels &lt;- mpg |&gt;\n  summarize(.by = drv,\n            displ = mean(displ),\n            hwy = mean(hwy)) |&gt;\n  mutate(drive_type = case_when(drv == \"4\" ~ \"four-wheel drive\",\n                                drv == \"f\" ~ \"front-wheel drive\",\n                                drv == \"r\" ~ \"rear-wheel drive\"))\nmpg_labels\n\n# A tibble: 3 × 4\n  drv   displ   hwy drive_type       \n  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            \n1 f      2.56  28.2 front-wheel drive\n2 4      4.00  19.2 four-wheel drive \n3 r      5.18  21   rear-wheel drive"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-2",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-2",
+    "title": "Advanced R",
+    "section": "Annotations",
+    "text": "Annotations\nThen, we can use those labels in the data argument for a geom_text()\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point(alpha = 0.3) +\n  geom_smooth(se = FALSE) +\n  geom_text(\n    data = mpg_labels,\n    aes(label = drive_type))"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#checking-panel",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#checking-panel",
+    "title": "Advanced R",
+    "section": "Checking Panel",
+    "text": "Checking Panel"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-3",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-3",
+    "title": "Advanced R",
+    "section": "Annotations",
+    "text": "Annotations\nSome ways to make this look nicer…but still overlap\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point(alpha = 0.3) +\n  geom_smooth(se = FALSE) +\n  geom_text(\n    data = mpg_labels,\n    aes(x = displ, y = hwy, label = drive_type),\n    fontface = \"bold\", size = 6, hjust = \"left\", vjust = \"bottom\") +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-ggrepel",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-ggrepel",
+    "title": "Advanced R",
+    "section": "Annotations: ggrepel",
+    "text": "Annotations: ggrepel\nCan use geom_label_repel() function from the ggrepel package to help with this\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point(alpha = 0.3) +\n  geom_smooth(se = FALSE) +\n  ggrepel::geom_label_repel(\n    data = mpg_labels,\n    aes(x = displ, y = hwy, label = drive_type),\n    fontface = \"bold\", size = 6, hjust = \"left\", vjust = \"bottom\") +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-geomtextpath",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-geomtextpath",
+    "title": "Advanced R",
+    "section": "Annotations: geomtextpath",
+    "text": "Annotations: geomtextpath\nOr, why make your audience have to look back and forth between labels and lines?\n\n\n\nEnter the geomtextpath package with its geom_textsmooth().\nAdds label directly onto the line (doesn’t need its own x and y mappings).\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmpg |&gt;\n  mutate(drive_type = case_when(drv == \"4\" ~ \"four-wheel drive\",\n                                drv == \"f\" ~ \"front-wheel drive\",\n                                drv == \"r\" ~ \"rear-wheel drive\")) |&gt;\n  ggplot(aes(x = displ, y = hwy, color = drv)) +\n  geom_point(alpha = 0.3) +\n  geomtextpath::geom_textsmooth(aes(label = drive_type), se = FALSE, size = 6) +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-geomtextpath-1",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-geomtextpath-1",
+    "title": "Advanced R",
+    "section": "Annotations: geomtextpath",
+    "text": "Annotations: geomtextpath\nThe geomtextpath package has geom functions for most aesthetics, with three changes:\n\nEither call library(geomtextpath) or specifically call the function with geomtextpath:: (my preference)\nAdd text or label before the geom name (e.g., geom_textline(), geom_labelsmooth())\nGive it a label mapping (if label from the data) or label argument (if just some text)"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-identifying-outliers",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-identifying-outliers",
+    "title": "Advanced R",
+    "section": "Annotations: Identifying Outliers",
+    "text": "Annotations: Identifying Outliers\nLet’s say we want to display the models of the cars that are more outliers here.\n\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point()"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-identifying-outliers-1",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-identifying-outliers-1",
+    "title": "Advanced R",
+    "section": "Annotations: Identifying Outliers",
+    "text": "Annotations: Identifying Outliers\nFirst, let’s make a dataframe of just the outliers\n\npotential_outliers &lt;- mpg |&gt;\n  filter(hwy &gt; 40 | (hwy &gt; 20 & displ &gt; 5))\npotential_outliers\n\n# A tibble: 9 × 11\n  manufacturer model      displ  year   cyl trans  drv     cty   hwy fl    class\n  &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;\n1 chevrolet    corvette     5.7  1999     8 manua… r        16    26 p     2sea…\n2 chevrolet    corvette     5.7  1999     8 auto(… r        15    23 p     2sea…\n3 chevrolet    corvette     6.2  2008     8 manua… r        16    26 p     2sea…\n4 chevrolet    corvette     6.2  2008     8 auto(… r        15    25 p     2sea…\n5 chevrolet    corvette     7    2008     8 manua… r        15    24 p     2sea…\n6 pontiac      grand prix   5.3  2008     8 auto(… f        16    25 p     mids…\n7 volkswagen   jetta        1.9  1999     4 manua… f        33    44 d     comp…\n8 volkswagen   new beetle   1.9  1999     4 manua… f        35    44 d     subc…\n9 volkswagen   new beetle   1.9  1999     4 auto(… f        29    41 d     subc…"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-identifying-outliers-2",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-identifying-outliers-2",
+    "title": "Advanced R",
+    "section": "Annotations: Identifying Outliers",
+    "text": "Annotations: Identifying Outliers\nNow, we can layer them onto the plot\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  ggrepel::geom_text_repel(data = potential_outliers, aes(label = model)) +\n  geom_point(data = potential_outliers, color = \"red\") +\n  geom_point(data = potential_outliers,\n    color = \"red\", size = 3, shape = \"circle open\"\n  )\n\n\n\n\n\nNote the additional geom_point() layer with the \"circle open\" shape to add some extra emphasis."
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-some-other-useful-geoms",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-some-other-useful-geoms",
+    "title": "Advanced R",
+    "section": "Annotations: Some other useful geoms",
+    "text": "Annotations: Some other useful geoms\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  geom_point(data = filter(mpg, class == \"2seater\"),\n             color = \"skyblue3\") +\n  geom_segment(data = filter(mpg, class == \"2seater\"),\n               aes(xend = displ + .05, x = 6.6,\n                   yend = hwy + .05, y = 29),\n               arrow = arrow(angle = 20, length = unit(.1, \"inches\")),\n               color = \"skyblue3\") +\n  annotate(\"text\", x = 6.6, y = 30, label = \"two-seaters\",\n           size = 5, hjust = \"center\",\n           color = \"skyblue3\") +\n  geomtextpath::geom_texthline(aes(yintercept = mean(hwy)),\n                               label = \"hwy sample mean\", size = 6) +\n  theme_classic()"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotate-annotate",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotate-annotate",
+    "title": "Advanced R",
+    "section": "Annotate: annotate()",
+    "text": "Annotate: annotate()\nHelpful for adding bits of information or explanatory text to a plot (not mapped from or a subset of data)\n○ Make the main point of the visualization more immediately obvious\nCan start with some text:\n\ntrend_text &lt;- \"Larger engine sizes tend to have lower fuel economy.\" |&gt;\n  str_wrap(width = 30)\ntrend_text\n\n[1] \"Larger engine sizes tend to\\nhave lower fuel economy.\"\n\n\n\n\nstr_wrap(string) function breaks text into multiple lines\n○ string = string you want to wrap\n○ width = target line width (in number of characters)\n\n\\n represents a “new line” character (like a line break)"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-geomtextpath-2",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotations-geomtextpath-2",
+    "title": "Advanced R",
+    "section": "Annotations: geomtextpath",
+    "text": "Annotations: geomtextpath\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmpg |&gt;\n  mutate(drive_type = case_when(drv == \"4\" ~ \"four-wheel drive\",\n                                drv == \"f\" ~ \"front-wheel drive\",\n                                drv == \"r\" ~ \"rear-wheel drive\")) |&gt;\n  ggplot(aes(x = displ, y = hwy, color = drv)) +\n  geom_point(alpha = 0.3) +\n  geomtextpath::geom_textsmooth(aes(label = drive_type),\n                                se = FALSE, size = 6) +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmpg |&gt;\n  mutate(drive_type = case_when(drv == \"4\" ~ \"four-wheel drive\",\n                                drv == \"f\" ~ \"front-wheel drive\",\n                                drv == \"r\" ~ \"rear-wheel drive\")) |&gt;\n  ggplot(aes(x = displ, y = hwy)) +\n  geom_point(alpha = 0.3) +\n  geomtextpath::geom_textsmooth(label = \"this is a smooth line\",\n                                se = FALSE, size = 6) +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotate-annotate-1",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#annotate-annotate-1",
+    "title": "Advanced R",
+    "section": "Annotate: annotate()",
+    "text": "Annotate: annotate()\nannotate() function looks for all the required aesthetics for the selected geom.\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  annotate(geom = \"label\", x = 3.5, y = 38,\n    label = trend_text,\n    hjust = \"left\", color = \"red\") +\n  annotate(geom = \"segment\",\n    x = 3, y = 35, xend = 5, yend = 25, color = \"red\",\n    arrow = arrow(type = \"closed\"))"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-1",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-1",
+    "title": "Advanced R",
+    "section": "Quarto",
+    "text": "Quarto\nFramework for combining code, results, and writing.\n\nQuarto files are designed to be used in three ways:\n\n\n\nFor communicating to decision-makers, who want to focus on the conclusions, not the code behind the analysis.\n\n\nFor collaborating with other data scientists (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).\n\n\nAs an environment in which to do data science, as a modern-day lab notebook where you can capture not only what you did, but also what you were thinking.\n\n\n\nhttps://r4ds.hadley.nz/quarto.html#introduction"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-vs.-rmarkdown",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-vs.-rmarkdown",
+    "title": "Advanced R",
+    "section": "Quarto vs. RMarkdown",
+    "text": "Quarto vs. RMarkdown\nLike RMarkdown, but…better!\nRMarkdown had many extensions to make books, presentations, etc. This unifies all of them.\n\nIn a way, Quarto reflects everything that was learned from expanding and supporting the R Markdown ecosystem over a decade.\n\nQuarto uses the Quarto Command Line Interface (CLI), but RStudio automatically installs and loads it when needed.\nNOT an R package. If we want help, we refer to the Quarto Documentation.\n\nhttps://r4ds.hadley.nz/quarto.html#introduction"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-gallery",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-gallery",
+    "title": "Advanced R",
+    "section": "Quarto Gallery",
+    "text": "Quarto Gallery\nSome Quarto possibilities…\nQuarto Gallery\n\nAlso…my slides and the course website."
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-files",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-files",
+    "title": "Advanced R",
+    "section": "Quarto Files",
+    "text": "Quarto Files\n\n\n\n\n\n---\ntitle: \"Diamond sizes\"\ndate: 2022-09-12\nformat: html\n---\n\n```{r}\n#| label: setup\n#| include: false\n\nlibrary(tidyverse)\n\nsmaller &lt;- diamonds |&gt; \n  filter(carat &lt;= 2.5)\n```\n\nWe have data about `r nrow(diamonds)` diamonds.\nOnly `r nrow(diamonds) - nrow(smaller)` are larger than 2.5 carats.\nThe distribution of the remainder is shown below:\n\n```{r}\n#| label: plot-smaller-diamonds\n#| echo: false\n\nsmaller |&gt; \n  ggplot(aes(x = carat)) + \n  geom_freqpoly(binwidth = 0.01)\n```\n\n\n\nJust a text file with extension .qmd, contains…\n\nAn (optional) YAML header surrounded by ---s.\nChunks of R code surrounded by ```.\nText mixed with simple text formatting like # heading and _italics_."
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#new",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#new",
+    "title": "Advanced R",
+    "section": "new",
+    "text": "new\n\n\n\n\n---\ntitle: \"Diamond sizes\"\ndate: 2022-09-12\nformat: html\n---\n\n```{r}\n#| label: setup\n#| include: false\n\nlibrary(tidyverse)\n\nsmaller &lt;- diamonds |&gt; \n  filter(carat &lt;= 2.5)\n```\n\nWe have data about `r nrow(diamonds)` diamonds.\nOnly `r nrow(diamonds) - nrow(smaller)` are larger than 2.5 carats.\nThe distribution of the remainder is shown below:\n\n```{r}\n#| label: plot-smaller-diamonds\n#| echo: false\n\nsmaller |&gt; \n  ggplot(aes(x = carat)) + \n  geom_freqpoly(binwidth = 0.01)\n```\n\n\n\nContains…\nsome stuff"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-documents-presentations-websites-oh-my",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-documents-presentations-websites-oh-my",
+    "title": "Advanced R",
+    "section": "Quarto Documents, Presentations, Websites, oh my!",
+    "text": "Quarto Documents, Presentations, Websites, oh my!\nMany different formats of outputs and purposes.\nAll have code, figures, etc. all coming from the same place.\nNo need for copying and pasting, figure output updates when the code does.\nGreat way of documenting your work and sharing with others."
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-documents-presentations-websites-oh-my-1",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#quarto-documents-presentations-websites-oh-my-1",
+    "title": "Advanced R",
+    "section": "Quarto Documents, Presentations, Websites, oh my!",
+    "text": "Quarto Documents, Presentations, Websites, oh my!\nCheck out the R4DS book and Quarto Documentation for more learning.\nCan pair with GitHub to create easily shareable, version-controlled reports.\n○ See Happy Git and GitHub for the useR for more (how I learned!)"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#outline",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#outline",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 10 Review\nIndependent Sample T-Test\nPaired Sample T-Test\n\nLearning objectives: R: T-Tests"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#assignment-10-review",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#assignment-10-review",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Assignment 10 Review",
+    "text": "Assignment 10 Review\n[placeholder for Assignment 10 review]"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#types-of-t-tests",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#types-of-t-tests",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Types of T-Tests",
+    "text": "Types of T-Tests"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Independent Sample T-Test",
+    "text": "Independent Sample T-Test\nMight want to compare two samples of observations\n○ Post-graduation salaries of GT vs. UGA grads\n○ Treatment vs. control group\n○ Cats vs. dogs\nWe can represent each group with their mean on some outcome and compare the means\nConsider whether the mean difference is significant but also have to account for different levels of variability within group"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-1",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-1",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Independent Sample T-Test",
+    "text": "Independent Sample T-Test\nNeed to pool the sample SDs while taking into consideration different sample sizes\n\\[ s_p^2 = \\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{(n_1 - 1) + (n_2 - 1)} = \\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}\\]\n\n\\[ s_p = \\sqrt{s_p^2} = \\sqrt{\\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{(n_1 - 1) + (n_2 - 1)}} = \\sqrt{\\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}} \\]\n\n\n\\[ t = \\frac{\\bar{x_1} - \\bar{x_2}}{\\sqrt{\\frac{s_p^2}{n_1} + \\frac{s_p^2}{n_2}}} = \\frac{\\bar{x_1} - \\bar{x_2}}{s_p^2\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}\\]\n\nCompare against critical t-value with df = \\(n - 1\\)"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-calculation",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-calculation",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Independent Sample T-Test: R Calculation",
+    "text": "Independent Sample T-Test: R Calculation\n\nsummary(candy)\n\n    candy               sales      \n Length:40          Min.   : 2.12  \n Class :character   1st Qu.: 5.48  \n Mode  :character   Median : 9.75  \n                    Mean   :10.15  \n                    3rd Qu.:15.32  \n                    Max.   :17.83  \n\nccorn &lt;- candy |&gt; filter(candy == \"candy corn\") |&gt; pluck(\"sales\")\nchoc &lt;- candy |&gt; filter(candy == \"chocolate\") |&gt; pluck(\"sales\")\n\nccorn\n\n [1] 5.51 4.09 5.57 6.85 4.83 8.60 4.53 2.12 7.60 3.24 4.82 5.56 6.17 4.53 6.15\n[16] 3.75 6.61 5.39 6.44 4.82\n\nchoc\n\n [1] 17.06 14.46 14.21 14.66 16.90 13.16 17.83 10.90 11.31 15.46 15.52 13.72\n[13] 15.43 17.10 14.97 15.94 15.70 15.29 12.24 17.09"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-function",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-function",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Independent Sample T-Test: R Function",
+    "text": "Independent Sample T-Test: R Function\n\nt.test(sales ~ candy, candy, var.equal = T)\n\n\n    Two Sample t-test\n\ndata:  sales by candy\nt = -17.498, df = 38, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means between group candy corn and group chocolate is not equal to 0\n95 percent confidence interval:\n -10.697796  -8.479204\nsample estimates:\nmean in group candy corn  mean in group chocolate \n                  5.3590                  14.9475"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Paired Sample T-Test",
+    "text": "Paired Sample T-Test\nComparing the same subjects under two conditions (typically two timepoints)\n○ Stress levels before vs. after a test\n○ Reaction times before vs. after caffiene consumption\n○ Anxiety levels before vs. after a mindfulness intervention\nWe can still use the mean to represent the observations in each condition and make comparisons\nThis time, focus on difference scores (individual differences in the observations between the two conditions)"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test-1",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test-1",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Paired Sample T-Test",
+    "text": "Paired Sample T-Test\nNeed difference score for each observation \\(d_i = x_2 - x_1\\)\nThen, get mean difference \\(\\bar{d} = \\frac{d_1+d_2+...+d_n}{n}\\) and standard deviation of those difference scores \\(s_d = \\sqrt{\\frac{(d_1-\\bar{d})^2 + (d_2-\\bar{d})^2 + ... + (d_n-\\bar{d})^2}{n - 1}}\\)\n\\[ t = \\frac{\\bar{d} - \\mu_{d_0}}{\\frac{s_d}{\\sqrt{n}}} = \\text{(usually)} \\frac{\\bar{d} - 0}{\\frac{s_d}{\\sqrt{n}}} = \\frac{\\bar{d}}{\\frac{s_d}{\\sqrt{n}}}\\]\nCompare against critical t-value with df = \\(n - 1\\)"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test-r-calculation",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test-r-calculation",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Paired Sample T-Test: R Calculation",
+    "text": "Paired Sample T-Test: R Calculation\n\nmean_diff &lt;- mean(pumpkin$diff)\nsd_diff &lt;- sd(pumpkin$diff)\ndf &lt;- nrow(pumpkin) - 1\n\nqt(c(.025, .975), df)\n\n[1] -2.093024  2.093024\n\nt_stat &lt;- (mean_diff - 0) / (sd_diff / sqrt(nrow(pumpkin)))\nt_stat\n\n[1] 11.59213"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test-r-function",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test-r-function",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Paired Sample T-Test: R Function",
+    "text": "Paired Sample T-Test: R Function\n\nt.test(pumpkin$Oct1, pumpkin$Oct31, paired = T, var.equal = T)\n\n\n    Paired t-test\n\ndata:  pumpkin$Oct1 and pumpkin$Oct31\nt = 11.592, df = 19, p-value = 4.636e-10\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n 2.55216 3.67684\nsample estimates:\nmean difference \n         3.1145"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#assumptions",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#assumptions",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Assumptions",
+    "text": "Assumptions\n[placeholder for assumtions: align with lecture slides when available]"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#cohens-d-revisited",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#cohens-d-revisited",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Cohen’s D Revisited",
+    "text": "Cohen’s D Revisited\nNow that we have two groups, R functions for Cohen’s D will be more helpful to us. The cohens_d() function from the effectsize package allows for many formats of inputs.\n\n\n\n(x_bar_ccorn - x_bar_choc) / pooled_sd\n\n[1] -5.533478\n\neffectsize::cohens_d(sales ~ candy, data = candy)\n\nCohen's d |         95% CI\n--------------------------\n-5.53     | [-6.91, -4.14]\n\n- Estimated using pooled SD.\n\n\n\n\nmean_diff / sd_diff\n\n[1] 2.592079\n\neffectsize::cohens_d(pumpkin$Oct1, pumpkin$Oct31, paired = T)\n\nCohen's d |       95% CI\n------------------------\n2.59      | [1.66, 3.51]"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#t-test-interpretation-and-write-up",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#t-test-interpretation-and-write-up",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "T-Test: Interpretation and write-up",
+    "text": "T-Test: Interpretation and write-up\nAn [independent samples / repeated measures] t-test analysis was conducted between [group 1] and [group 2]. We [fail to reject / reject] H0 [in favor of H1], t([df]) = [____], p [&lt; 0.05 / p-value]. There [is / is not] a significant difference between the mean [DV] of [group 1] and [group 2] in our sample."
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#t-statistic-cutoffs",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#t-statistic-cutoffs",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "T-Statistic Cutoffs",
+    "text": "T-Statistic Cutoffs\nSay you want to find the cutoff t values: t(df = 3) and t(df = 37) for \\(\\alpha = .05\\), want both upper one-tailed and two-tailed\n\nWhich will have the larger magnitude cutoff values?\n\n\n\nOne-Tailed\nAll of our \\(\\alpha = .05\\) goes on the upper side\nNeed a cutoff for \\(.95\\)\n\nqt(p = .95, df = 3)\n\n[1] 2.353363\n\nqt(p = .05, df = 37, lower.tail = F)\n\n[1] 1.687094\n\n\n\\(t_{crit}(3) = 2.35\\)\n\\(t_{crit}(37) = 1.69\\)\n\nTwo-Tailed\n\\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqt(p = c(.025, .975), df = 3)\n\n[1] -3.182446  3.182446\n\nqt(p = c(.025, .975), df = 37)\n\n[1] -2.026192  2.026192\n\n\n\\(t_{crit}(3) = [-3.18, 3.18]\\)\n\\(t_{crit}(37) = [-2.03, 2.06]\\)"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-pooled-sd",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-pooled-sd",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Independent Sample T-Test: Pooled SD",
+    "text": "Independent Sample T-Test: Pooled SD\nNeed to pool the sample SDs while noting different sample sizes\n\\[ s_p^2 = \\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{(n_1 - 1) + (n_2 - 1)} = \\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}\\]"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-test-statistic",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-test-statistic",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Independent Sample T-Test: Test statistic",
+    "text": "Independent Sample T-Test: Test statistic\n\\[ t = \\frac{\\bar{x_1} - \\bar{x_2}}{\\sqrt{\\frac{s_p^2}{n_1} + \\frac{s_p^2}{n_2}}} = \\frac{\\bar{x_1} - \\bar{x_2}}{s_p\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}\\]\nCompare against critical t-value with df = \\(n - 1\\)"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-calculation-1",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-calculation-1",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Independent Sample T-Test: R Calculation",
+    "text": "Independent Sample T-Test: R Calculation\n\nx_bar_ccorn &lt;- mean(ccorn)\nsd_ccorn &lt;- sd(ccorn)\nn_ccorn &lt;- length(ccorn)\n\nx_bar_choc &lt;- mean(choc)\nsd_choc &lt;- sd(choc)\nn_choc &lt;- length(choc)\n\npooled_sd &lt;- sqrt( ((n_ccorn - 1) * sd_ccorn^2 + (n_choc - 1) * sd_choc^2) /\n                     ((n_ccorn - 1) + (n_choc - 1)) )\npooled_sd\n\n[1] 1.732816"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-calculation-2",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-calculation-2",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Independent Sample T-Test: R Calculation",
+    "text": "Independent Sample T-Test: R Calculation\n\ndf &lt;- (n_ccorn - 1) + (n_choc - 1)\n\nt_crit &lt;- qt(c(.025, .975), df)\nt_crit\n\n[1] -2.024394  2.024394\n\n\nIf our observed t-statistic exceeds the bounds of [-2.02, 2.02], we reject the null.\n\nt_stat &lt;- (x_bar_ccorn - x_bar_choc) / (pooled_sd * sqrt(1 / n_ccorn + 1 / n_choc))\nt_stat\n\n[1] -17.49839\n\n\nWe reject the null! Can we tell which had a larger mean?"
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-pooled-sd-1",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-pooled-sd-1",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "Independent Sample T-Test: Pooled SD",
+    "text": "Independent Sample T-Test: Pooled SD\nNote that when sample size is equal (i.e., \\(n_1 = n_2 = n\\)),\n\n\\[\\begin{array}{ll}\n  s_p^2 \\bigg|_{n_1 = n_2 = n} & = \\frac{(n - 1) s_1^2 + (n - 1) s_2^2}{(n - 1) + (n - 1)} = \\frac{(n - 1) (s_1^2 + s_2^2)}{(n - 1) + (n - 1)} \\\\[0.6em]\n   & = \\frac{(n - 1) (s_1^2 + s_2^2)}{2(n - 1)} = \\frac{s_1^2 + s_2^2}{2}\n\\end{array}\\]\n\n\nSquare root to get back to standard deviation\n\\[ s_p = \\sqrt{s_p^2} = \\sqrt{\\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{(n_1 - 1) + (n_2 - 1)}} = \\sqrt{\\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}} \\]"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#mid-course-survey",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#mid-course-survey",
+    "title": "Advanced R",
+    "section": "Mid-Course Survey",
+    "text": "Mid-Course Survey\n\nScratch code\nMid-class breaks"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#communication",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#communication",
+    "title": "Advanced R",
+    "section": "Communication",
+    "text": "Communication\n\n\nGoing to once again heavily lean on this book!\nFeel free to reference for more R content\n\n\n\n\nhttps://r4ds.hadley.nz/"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#case_when-reference",
+    "href": "labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html#case_when-reference",
+    "title": "Advanced R",
+    "section": "case_when() Reference",
+    "text": "case_when() Reference\nUse the case_when() function to change the contents of a column based on some condition\ncase_when(logical ~ new_value)\n\n\n\ngrades &lt;- rnorm(10, 75, 10)\ngrades\n\n [1] 57.18712 84.68568 80.48602 74.16250 62.41695 77.29268 72.82202 71.54923\n [9] 67.99412 66.01027\n\n\n\n\ncase_when(grades &lt; 60 ~ \"F\",\n          grades &lt; 70 ~ \"D\",\n          grades &lt; 80 ~ \"C\",\n          grades &lt; 90 ~ \"B\",\n          grades &lt;= 100 ~ \"A\",\n          .default = NA)\n\n [1] \"F\" \"B\" \"B\" \"C\" \"D\" \"C\" \"C\" \"C\" \"D\" \"D\""
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html",
+    "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "Assignment 8 Review\nConfidence Intervals\nOne-Sample t-test\n\nLearning objectives:\nR: CI and t-statistics in R\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/diamond-sizes.html",
+    "href": "labs/Lab 10 - Advanced R/diamond-sizes.html",
+    "title": "Diamond sizes",
+    "section": "",
+    "text": "We have data about 53940 diamonds. Only 126 are larger than 2.5 carats. The distribution of the remainder is shown below:"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/Lab 10 Assignment Example.html",
+    "href": "labs/Lab 10 - Advanced R/Lab 10 Assignment Example.html",
+    "title": "PSYC2020L Assignment 10",
+    "section": "",
+    "text": "Communication"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/Lab 10 Assignment Example.html#goals-for-review",
+    "href": "labs/Lab 10 - Advanced R/Lab 10 Assignment Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 10",
+    "section": "",
+    "text": "Communication"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/Lab 10 Assignment Example.html#setting-up",
+    "href": "labs/Lab 10 - Advanced R/Lab 10 Assignment Example.html#setting-up",
+    "title": "PSYC2020L Assignment 10",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 10 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Please load the tidyverse!.\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L\"\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/Lab 10 Assignment Example.html#communication",
+    "href": "labs/Lab 10 - Advanced R/Lab 10 Assignment Example.html#communication",
+    "title": "PSYC2020L Assignment 10",
+    "section": "Communication",
+    "text": "Communication\nIn this assignment, we will be working with the msleep dataset that comes with the tidyverse library. This data set has information of the sleep characteristics for different mammals! Check out the data with ?msleep to read a little bit about the variables (feel free to comment out or remove afterwards.\n\n3) Then, use three functions to get a sense of the data.\n\nhead(msleep)\n\n# A tibble: 6 × 11\n  name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake\n  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n1 Cheetah Acin… carni Carn… lc                  12.1      NA        NA      11.9\n2 Owl mo… Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  \n3 Mounta… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6\n4 Greate… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1\n5 Cow     Bos   herbi Arti… domesticated         4         0.7       0.667  20  \n6 Three-… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6\n# ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;\n\nstr(msleep)\n\ntibble [83 × 11] (S3: tbl_df/tbl/data.frame)\n $ name        : chr [1:83] \"Cheetah\" \"Owl monkey\" \"Mountain beaver\" \"Greater short-tailed shrew\" ...\n $ genus       : chr [1:83] \"Acinonyx\" \"Aotus\" \"Aplodontia\" \"Blarina\" ...\n $ vore        : chr [1:83] \"carni\" \"omni\" \"herbi\" \"omni\" ...\n $ order       : chr [1:83] \"Carnivora\" \"Primates\" \"Rodentia\" \"Soricomorpha\" ...\n $ conservation: chr [1:83] \"lc\" NA \"nt\" \"lc\" ...\n $ sleep_total : num [1:83] 12.1 17 14.4 14.9 4 14.4 8.7 7 10.1 3 ...\n $ sleep_rem   : num [1:83] NA 1.8 2.4 2.3 0.7 2.2 1.4 NA 2.9 NA ...\n $ sleep_cycle : num [1:83] NA NA NA 0.133 0.667 ...\n $ awake       : num [1:83] 11.9 7 9.6 9.1 20 9.6 15.3 17 13.9 21 ...\n $ brainwt     : num [1:83] NA 0.0155 NA 0.00029 0.423 NA NA NA 0.07 0.0982 ...\n $ bodywt      : num [1:83] 50 0.48 1.35 0.019 600 ...\n\nsummary(msleep)\n\n     name              genus               vore              order          \n Length:83          Length:83          Length:83          Length:83         \n Class :character   Class :character   Class :character   Class :character  \n Mode  :character   Mode  :character   Mode  :character   Mode  :character  \n                                                                            \n                                                                            \n                                                                            \n                                                                            \n conservation        sleep_total      sleep_rem      sleep_cycle    \n Length:83          Min.   : 1.90   Min.   :0.100   Min.   :0.1167  \n Class :character   1st Qu.: 7.85   1st Qu.:0.900   1st Qu.:0.1833  \n Mode  :character   Median :10.10   Median :1.500   Median :0.3333  \n                    Mean   :10.43   Mean   :1.875   Mean   :0.4396  \n                    3rd Qu.:13.75   3rd Qu.:2.400   3rd Qu.:0.5792  \n                    Max.   :19.90   Max.   :6.600   Max.   :1.5000  \n                                    NA's   :22      NA's   :51      \n     awake          brainwt            bodywt        \n Min.   : 4.10   Min.   :0.00014   Min.   :   0.005  \n 1st Qu.:10.25   1st Qu.:0.00290   1st Qu.:   0.174  \n Median :13.90   Median :0.01240   Median :   1.670  \n Mean   :13.57   Mean   :0.28158   Mean   : 166.136  \n 3rd Qu.:16.15   3rd Qu.:0.12550   3rd Qu.:  41.750  \n Max.   :22.10   Max.   :5.71200   Max.   :6654.000  \n                 NA's   :27                          \n\n\n\n\n4a) Plot the distributions of the variables sleep_total and bodywt in two separate plots. Feel free to use whatever type of distributional geom you prefer.\n\nggplot(msleep, aes(x = sleep_total)) +\n  geom_histogram(bins = 12)\n\n\n\n\n\n\n\nggplot(msleep, aes(x = bodywt)) +\n  geom_histogram(bins = 15)\n\n\n\n\n\n\n\n\n\n\n4b) Describe what you see in the plots above.\nThe sleep_total variable is normal-ish, with pretty thick tails. It appears pretty symmetrical. The body_wt variable has some very large outliers!\n\n\n5a) Make a scatterplot with body weight on the x-axis and total sleep on the y-axis.\n\nmsleep |&gt;\n  ggplot(aes(x = bodywt, y = sleep_total)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n5b) Label two points you consider interesting / outliers with the type of animal they are (Hint: first, filter() the data to see what the animal names are for the points you select. Then, annotate() the data with a text geom at x and y values close to the selected points. You can absolutely use another solution to label if you’d like; this is just one way).\n\nmsleep |&gt;\n  filter(bodywt &gt; 2000)\n\n# A tibble: 2 × 11\n  name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake\n  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n1 Asian … Elep… herbi Prob… en                   3.9        NA          NA  20.1\n2 Africa… Loxo… herbi Prob… vu                   3.3        NA          NA  20.7\n# ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;\n\nmsleep |&gt;\n  ggplot(aes(x = bodywt, y = sleep_total)) +\n  geom_point() +\n  annotate(\"text\", x = 2300, y = 5, label = \"Asian elephant\") +\n  annotate(\"text\", x = 6300, y = 5, label = \"African elephant\")\n\n\n\n\n\n\n\n\n\n\n5c) Modify the x-axis label and y-axis label to be more readable and descriptive. Make sure to add units!\n\nmsleep |&gt;\n  ggplot(aes(x = bodywt, y = sleep_total)) +\n  geom_point() +\n  annotate(\"text\", x = 2300, y = 5, label = \"Asian elephant\") +\n  annotate(\"text\", x = 6300, y = 5, label = \"African elephant\") +\n  labs(y = \"Total Sleep (hrs)\", x = \"Body Weight (kg)\")\n\n\n\n\n\n\n\n\n\n\n6a) Let’s say you’re more interested in larger mammals. Create a new version of the dataset that only has mammals under 45kg. Also, create a new variable that represents the ratio of brain weight to body weight (Hint: divide brain weight by body weight).\n\nlarge_mammals &lt;- filter(msleep, bodywt &gt; 45) |&gt;\n  mutate(brain_prop = brainwt / bodywt)\n\n\n\n6b) Create a scatterplot that evaluates the association between the brain-to-body weight proportion variable you created (put that on the x-axis) and total hours of sleep.\n\nlarge_mammals |&gt;\n  ggplot(aes(x = brain_prop, y = sleep_total)) +\n  geom_point()\n\nWarning: Removed 8 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n6c) Emphasize the points on the graph that represent herbivores (Hint: make a filtered version of the dataset that only includes carnivores and layer on another geom_point()). Add a text annotation on the plot that indicates the group is herbivores.\n\nlarge_mammals |&gt;\n  ggplot(aes(x = brain_prop, y = sleep_total)) +\n  geom_point() +\n  geom_point(data = filter(large_mammals, vore == \"herbi\"), color = \"seagreen\") +\n  annotate(\"text\", y = 5, x = .002, label = \"herbivores\", color = \"seagreen\")\n\nWarning: Removed 8 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n7) Make one more scatterplot of two variables of interest. Make at least two annotations to the plot of things / trends you find interesting. Some ideas: label your favorite mammal on the plot with its name, add a reference line, highlight endangered animals, etc. Add a label and descriptive title to this plot. Try to make this plot as self-explanatory as possible!\n\nggplot(msleep, aes(x = sleep_total, y = sleep_rem)) +\n  geom_point() +\n  geom_point(data = filter(msleep, vore == \"carni\"), color = \"lightpink\") +\n  geomtextpath::geom_textsmooth(data = filter(msleep, vore == \"carni\"), color = \"lightpink\",\n                                label = \"carnivores\", method = \"lm\", hjust = .8) +\n  geom_point(data = filter(msleep, genus == \"Felis\"), color = \"salmon\") +\n  geom_point(data = filter(msleep, genus == \"Felis\"), color = \"salmon\", shape = \"circle open\", size = 3) +\n  annotate(\"text\", x = 12, y = 3.5, label = \"house cat\", color = \"salmon\") +\n  labs(x = \"Total Sleep (hrs)\", y = \"REM Sleep (hrs)\", title = \"REM Sleep Trends Positively with Total Sleep\",\n       subtitle = \"The same holds for carnivores.\") +\n  theme_classic()\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 9 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 22 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\nWarning: Removed 9 rows containing missing values or values outside the scale range\n(`geom_point()`)."
   }
 ]

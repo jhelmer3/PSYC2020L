@@ -76,3 +76,23 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::::
 
 
+:::: {.columns}
+::: {.column width=33%}
+### 10/24 Lab 10
+#### Advanced R
+[Slides](/labs/Lab 10 - Advanced R/PSYC2020 Lab 10.qmd)
+:::
+
+::: {.column width=33%}
+### 10/31 Lab 11 🎃
+#### Independent and Paired Samples *T*-Test
+Coming soon! No assignment. 
+:::
+
+::: {.column width=33%}
+### 11/07 Lab 12
+#### Chi-Squared Test
+Coming soon!
+:::
+::::
+

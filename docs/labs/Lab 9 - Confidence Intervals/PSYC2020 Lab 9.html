@@ -1,217 +1,254 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jessica Helmer">
+
+<title>Confidence Intervals – PSYC 2020L</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
-  <meta name="author" content="Jessica Helmer">
-  <title>PSYC 2020L – Confidence Intervals</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-      vertical-align: middle;
-    }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
       }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
-  <link rel="stylesheet" href="PSYC2020L_styles.css">
-  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
-    .reveal div.sourceCode {
-      margin: 0;
-      overflow: auto;
-    }
-    .reveal div.hanging-indent {
-      margin-left: 1em;
-      text-indent: -1em;
-    }
-    .reveal .slide:not(.center) {
-      height: 100%;
-    }
-    .reveal .slide.scrollable {
-      overflow-y: auto;
-    }
-    .reveal .footnotes {
-      height: 100%;
-      overflow-y: auto;
-    }
-    .reveal .slide .absolute {
-      position: absolute;
-      display: block;
-    }
-    .reveal .footnotes ol {
-      counter-reset: ol;
-      list-style-type: none; 
-      margin-left: 0;
-    }
-    .reveal .footnotes ol li:before {
-      counter-increment: ol;
-      content: counter(ol) ". "; 
-    }
-    .reveal .footnotes ol li > p:first-child {
-      display: inline-block;
-    }
-    .reveal .slide ul,
-    .reveal .slide ol {
-      margin-bottom: 0.5em;
-    }
-    .reveal .slide ul li,
-    .reveal .slide ol li {
-      margin-top: 0.4em;
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide ul[role="tablist"] li {
-      margin-bottom: 0;
-    }
-    .reveal .slide ul li > *:first-child,
-    .reveal .slide ol li > *:first-child {
-      margin-block-start: 0;
-    }
-    .reveal .slide ul li > *:last-child,
-    .reveal .slide ol li > *:last-child {
-      margin-block-end: 0;
-    }
-    .reveal .slide .columns:nth-child(3) {
-      margin-block-start: 0.8em;
-    }
-    .reveal blockquote {
-      box-shadow: none;
-    }
-    .reveal .tippy-content>* {
-      margin-top: 0.2em;
-      margin-bottom: 0.7em;
-    }
-    .reveal .tippy-content>*:last-child {
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide > img.stretch.quarto-figure-center,
-    .reveal .slide > img.r-stretch.quarto-figure-center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-left,
-    .reveal .slide > img.r-stretch.quarto-figure-left  {
-      display: block;
-      margin-left: 0;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-right,
-    .reveal .slide > img.r-stretch.quarto-figure-right  {
-      display: block;
-      margin-left: auto;
-      margin-right: 0; 
-    }
-  </style>
-  <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-  <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
-<body class="quarto-light">
-  <div class="reveal">
-    <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Confidence Intervals</h1>
-  <p class="subtitle">PSYC 2020-A01 / PSYC 6022-A01 | 2025-10-17 | Lab 9</p>
+<body class="nav-fixed quarto-light">
 
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Jessica Helmer 
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">PSYC 2020L</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline">Outline</a></li>
+  <li><a href="#assignment-8-review" id="toc-assignment-8-review" class="nav-link" data-scroll-target="#assignment-8-review">Assignment 8 Review</a></li>
+  <li><a href="#assignment-8-review-1" id="toc-assignment-8-review-1" class="nav-link" data-scroll-target="#assignment-8-review-1">Assignment 8 Review</a></li>
+  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence Intervals</a>
+  <ul class="collapse">
+  <li><a href="#confidence-intervals-1" id="toc-confidence-intervals-1" class="nav-link" data-scroll-target="#confidence-intervals-1">Confidence Intervals</a></li>
+  <li><a href="#confidence-interval-and-width" id="toc-confidence-interval-and-width" class="nav-link" data-scroll-target="#confidence-interval-and-width">Confidence Interval and Width</a></li>
+  <li><a href="#cis-for-symmetric-distributions" id="toc-cis-for-symmetric-distributions" class="nav-link" data-scroll-target="#cis-for-symmetric-distributions">CIs for Symmetric Distributions</a></li>
+  <li><a href="#cutoff-z-values-example" id="toc-cutoff-z-values-example" class="nav-link" data-scroll-target="#cutoff-z-values-example">Cutoff <em>Z</em>-Values Example</a></li>
+  <li><a href="#cutoff-z-values-example-1" id="toc-cutoff-z-values-example-1" class="nav-link" data-scroll-target="#cutoff-z-values-example-1">Cutoff <em>Z</em>-Values Example</a></li>
+  <li><a href="#confidence-interval-generally" id="toc-confidence-interval-generally" class="nav-link" data-scroll-target="#confidence-interval-generally">Confidence Interval Generally</a></li>
+  <li><a href="#confidence-interval-example" id="toc-confidence-interval-example" class="nav-link" data-scroll-target="#confidence-interval-example">Confidence Interval Example</a></li>
+  <li><a href="#confidence-interval-example-1" id="toc-confidence-interval-example-1" class="nav-link" data-scroll-target="#confidence-interval-example-1">Confidence Interval Example</a></li>
+  <li><a href="#confidence-intervals-and-nhst" id="toc-confidence-intervals-and-nhst" class="nav-link" data-scroll-target="#confidence-intervals-and-nhst">Confidence Intervals and NHST</a></li>
+  </ul></li>
+  <li><a href="#from-z-to-t-no-longer-normal" id="toc-from-z-to-t-no-longer-normal" class="nav-link" data-scroll-target="#from-z-to-t-no-longer-normal">From <em>Z</em> to <em>T</em>: No longer normal</a>
+  <ul class="collapse">
+  <li><a href="#z--vs.-t-distribution" id="toc-z--vs.-t-distribution" class="nav-link" data-scroll-target="#z--vs.-t-distribution"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</a></li>
+  <li><a href="#z--vs.-t-distribution-1" id="toc-z--vs.-t-distribution-1" class="nav-link" data-scroll-target="#z--vs.-t-distribution-1"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</a></li>
+  <li><a href="#z--vs.-t-distribution-2" id="toc-z--vs.-t-distribution-2" class="nav-link" data-scroll-target="#z--vs.-t-distribution-2"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</a></li>
+  <li><a href="#z--vs.-t-distribution-3" id="toc-z--vs.-t-distribution-3" class="nav-link" data-scroll-target="#z--vs.-t-distribution-3"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</a></li>
+  <li><a href="#z--vs.-t-distribution-4" id="toc-z--vs.-t-distribution-4" class="nav-link" data-scroll-target="#z--vs.-t-distribution-4"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</a></li>
+  <li><a href="#z--vs.-t-distribution-5" id="toc-z--vs.-t-distribution-5" class="nav-link" data-scroll-target="#z--vs.-t-distribution-5"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</a></li>
+  <li><a href="#t-test-how-many-tails" id="toc-t-test-how-many-tails" class="nav-link" data-scroll-target="#t-test-how-many-tails"><em>T</em>-Test: How many tails?</a></li>
+  <li><a href="#testing-how-many-tails" id="toc-testing-how-many-tails" class="nav-link" data-scroll-target="#testing-how-many-tails">Testing: How many tails?</a></li>
+  <li><a href="#testing-how-many-tails-1" id="toc-testing-how-many-tails-1" class="nav-link" data-scroll-target="#testing-how-many-tails-1">Testing: How many tails?</a></li>
+  <li><a href="#one-sample-t-test-generally" id="toc-one-sample-t-test-generally" class="nav-link" data-scroll-target="#one-sample-t-test-generally">One-Sample <em>T</em>-Test Generally</a></li>
+  <li><a href="#t-test-example" id="toc-t-test-example" class="nav-link" data-scroll-target="#t-test-example"><em>T</em>-Test Example</a></li>
+  <li><a href="#t-test-function" id="toc-t-test-function" class="nav-link" data-scroll-target="#t-test-function"><em>T</em>-Test Function</a></li>
+  <li><a href="#t-test-example-1" id="toc-t-test-example-1" class="nav-link" data-scroll-target="#t-test-example-1"><em>T</em>-Test Example</a></li>
+  <li><a href="#t-test-example-output" id="toc-t-test-example-output" class="nav-link" data-scroll-target="#t-test-example-output"><em>T</em>-Test Example Output</a></li>
+  <li><a href="#t-tests-and-confidence-intervals" id="toc-t-tests-and-confidence-intervals" class="nav-link" data-scroll-target="#t-tests-and-confidence-intervals"><em>T</em>-Tests and Confidence Intervals</a></li>
+  <li><a href="#testing-and-nhst" id="toc-testing-and-nhst" class="nav-link" data-scroll-target="#testing-and-nhst">Testing and NHST</a></li>
+  <li><a href="#cohens-d" id="toc-cohens-d" class="nav-link" data-scroll-target="#cohens-d">Cohen’s <em>D</em></a></li>
+  <li><a href="#cohens-d-example" id="toc-cohens-d-example" class="nav-link" data-scroll-target="#cohens-d-example">Cohen’s <em>D</em> Example</a></li>
+  <li><a href="#cohens-d-strength-visualization" id="toc-cohens-d-strength-visualization" class="nav-link" data-scroll-target="#cohens-d-strength-visualization">Cohen’s <em>D</em> Strength Visualization</a></li>
+  <li><a href="#cohens-d-strength-visualization-1" id="toc-cohens-d-strength-visualization-1" class="nav-link" data-scroll-target="#cohens-d-strength-visualization-1">Cohen’s <em>D</em> Strength Visualization</a></li>
+  <li><a href="#cohens-d-strength-visualization-2" id="toc-cohens-d-strength-visualization-2" class="nav-link" data-scroll-target="#cohens-d-strength-visualization-2">Cohen’s <em>D</em> Strength Visualization</a></li>
+  <li><a href="#cohens-d-in-r" id="toc-cohens-d-in-r" class="nav-link" data-scroll-target="#cohens-d-in-r">Cohen’s <em>D</em> in R</a></li>
+  <li><a href="#assignment-9" id="toc-assignment-9" class="nav-link" data-scroll-target="#assignment-9">Assignment 9</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="PSYC2020 Lab 9.html"><i class="bi bi-file-slides"></i>RevealJS (live)</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Confidence Intervals</h1>
+<p class="subtitle lead">PSYC 2020-A01 / PSYC 6022-A01 | 2025-10-17 | Lab 9</p>
 </div>
 
-</section>
-<section id="outline" class="slide level2">
-<h2>Outline</h2>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jessica Helmer </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="outline" class="level2">
+<h2 class="anchored" data-anchor-id="outline">Outline</h2>
 <ul>
 <li>Assignment 8 Review</li>
 <li>Confidence Intervals</li>
@@ -219,9 +256,23 @@ Jessica Helmer
 </ul>
 <p>Learning objectives:<br>
 <strong>R:</strong> CI and <em>t</em>-statistics in R</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   4.0.0     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
 </section>
-<section id="assignment-8-review" class="slide level2">
-<h2>Assignment 8 Review</h2>
+<section id="assignment-8-review" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-8-review">Assignment 8 Review</h2>
 <p>Two ways to approach two-tailed p-values</p>
 <div class="columns" style="font-size:80%">
 <div class="column">
@@ -229,7 +280,7 @@ Jessica Helmer
 <p>Technically test each side (both positive and negative cutoff), but know that e.g., negative <em>z</em>-value isn’t going to beat the positive cutoff</p>
 <p>Compare against split alpha (2.5%, <em>p</em> = .025) on either side.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.04456546</code></pre>
 </div>
@@ -238,44 +289,42 @@ Jessica Helmer
 </div><div class="column">
 <p>To report the <em>p</em>-value specifically for the entire test, would need to multiply by 2.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.7</span>)<span class="sc">*</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.7</span>)<span class="sc">*</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.08913093</code></pre>
 </div>
 </div>
 <p>Account for probability of being more extreme in both directions</p>
-</div></div>
+</div>
+</div>
 </section>
-<section id="assignment-8-review-1" class="slide level2">
-<h2>Assignment 8 Review</h2>
+<section id="assignment-8-review-1" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-8-review-1">Assignment 8 Review</h2>
 <p>Remember to check the correct tail of the distribution</p>
 <div class="cell quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-4-1.png" width="384"></p>
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="384"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-4-2.png" width="384"></p>
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="384"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-4-3.png" width="384"></p>
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid" width="384"></p>
 </div>
 </div>
 </div>
 </section>
-<section>
-<section id="confidence-intervals" class="title-slide slide level1 center">
+<section id="confidence-intervals" class="level1">
 <h1>Confidence Intervals</h1>
-
-</section>
-<section id="confidence-intervals-1" class="slide level2">
-<h2>Confidence Intervals</h2>
+<section id="confidence-intervals-1" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-intervals-1">Confidence Intervals</h2>
 <p>Most common: 95% CI</p>
 <div class="subsubpoint">
 ○ Interpretation: If you were to take 100 samples, 95 CIs of your 100 samples will contain the true mean
 </div>
 <p>For standard normal,</p>
-<table class="caption-top">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 10%">
 <col style="width: 23%">
@@ -307,8 +356,8 @@ Jessica Helmer
 </tbody>
 </table>
 </section>
-<section id="confidence-interval-and-width" class="slide level2">
-<h2>Confidence Interval and Width</h2>
+<section id="confidence-interval-and-width" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-interval-and-width">Confidence Interval and Width</h2>
 <p>Confidence Level (<span class="math inline">\(1 - \alpha\)</span>) can communicate uncertainty about your results</p>
 <div class="subpoint">
 ○ Designated proportion of such intervals that will include the true population value
@@ -324,11 +373,12 @@ Jessica Helmer
 <p>Confidence level proportional to confidence interval width</p>
 </div><div class="column" style="width:65%;">
 
-</div></div>
-<p><img data-src="https://stats.libretexts.org/@api/deki/files/850/standard_deviation.png?revision=1&amp;size=bestfit&amp;width=784&amp;height=398" class="absolute" style="bottom: 0px; right: 0px; "></p>
+</div>
+</div>
+<p><img src="https://stats.libretexts.org/@api/deki/files/850/standard_deviation.png?revision=1&amp;size=bestfit&amp;width=784&amp;height=398" class="absolute img-fluid" data-bottom="0" data-right="0"></p>
 </section>
-<section id="cis-for-symmetric-distributions" class="slide level2">
-<h2>CIs for Symmetric Distributions</h2>
+<section id="cis-for-symmetric-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="cis-for-symmetric-distributions">CIs for Symmetric Distributions</h2>
 <p>When a distribution is symmetric, CIs for that distribution are also symmetric</p>
 <div class="subpoint">
 ○ Includes normal (e.g., <em>z</em>-) distribution
@@ -336,10 +386,10 @@ Jessica Helmer
 <div class="subpoint">
 ○ <em>t</em> distribution
 </div>
-
-<img data-src="https://miro.medium.com/v2/resize:fit:1400/1*Mk6EV8oIB1jlbQWcRzNRdg.png" class="r-stretch"></section>
-<section id="cutoff-z-values-example" class="slide level2">
-<h2>Cutoff <em>Z</em>-Values Example</h2>
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/1*Mk6EV8oIB1jlbQWcRzNRdg.png" class="img-fluid"></p>
+</section>
+<section id="cutoff-z-values-example" class="level2">
+<h2 class="anchored" data-anchor-id="cutoff-z-values-example">Cutoff <em>Z</em>-Values Example</h2>
 <p>Say you want to find the cutoff <em>z</em> values for some confidence interval</p>
 <p>Two examples: 95% CI and 97.3% CI (one typical, one as exercise)</p>
 <div class="fragment">
@@ -347,110 +397,115 @@ Jessica Helmer
 </div>
 <div class="columns fragment" style="font-size:80%">
 <div class="column">
-<h4 id="ci">95% CI</h4>
+<section id="ci" class="level4">
+<h4 class="anchored" data-anchor-id="ci">95% CI</h4>
 <p><span class="math inline">\(\alpha = 1 - .95 = 5\%\)</span> on both sides</p>
 <p>So <span class="math inline">\(.05 / 2 = .025\)</span> on each side</p>
 <p>Need value for <span class="math inline">\(.025\)</span> and <span class="math inline">\(.95 + .025\)</span> (<span class="math inline">\([.025, .975]\)</span>)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">qnorm</span>(<span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.959964  1.959964</code></pre>
 </div>
 </div>
+</section>
 </div><div class="column">
-<h4 id="ci-1">97.3% CI</h4>
+<section id="ci-1" class="level4">
+<h4 class="anchored" data-anchor-id="ci-1">97.3% CI</h4>
 <p><span class="math inline">\(\alpha = 1 - .973 = 2.7\%\)</span> on both sides</p>
 <p>So <span class="math inline">\(.027 / 2 = .0135\)</span> on each side</p>
 <p>Need value for <span class="math inline">\(.0135\)</span> and <span class="math inline">\(.95 + .0135\)</span> (<span class="math inline">\([.0135, .9865]\)</span>)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">qnorm</span>(<span class="fu">c</span>(.<span class="dv">0135</span>, <span class="fl">0.9865</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fu">c</span>(.<span class="dv">0135</span>, <span class="fl">0.9865</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -2.211518  2.211518</code></pre>
 </div>
 </div>
-</div></div>
+</section>
+</div>
+</div>
 <div class="fragment">
 <p>Which one has a higher confidence level? Which one has a larger width?</p>
 </div>
 </section>
-<section id="cutoff-z-values-example-1" class="slide level2">
-<h2>Cutoff <em>Z</em>-Values Example</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Plot</a></li><li><a href="#tabset-1-2">Code</a></li></ul>
+<section id="cutoff-z-values-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="cutoff-z-values-example-1">Cutoff <em>Z</em>-Values Example</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Code</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="864"></p>
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="864"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-1-2">
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">dnorm</span>(x)) <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb9-4"><a></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.5</span>, <span class="at">color =</span> <span class="st">"skyblue3"</span>) <span class="sc">+</span></span>
-<span id="cb9-5"><a></a>  <span class="fu">annotate</span>(<span class="st">"errorbar"</span>, <span class="at">xmin =</span> <span class="fu">qnorm</span>(<span class="fu">c</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">973</span>) <span class="sc">/</span> <span class="dv">2</span>)), <span class="at">xmax =</span> <span class="fu">qnorm</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">973</span>) <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> .<span class="dv">973</span>),</span>
-<span id="cb9-6"><a></a>           <span class="at">y =</span> .<span class="dv">48</span>, <span class="at">width =</span> .<span class="dv">02</span>) <span class="sc">+</span></span>
-<span id="cb9-7"><a></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">label =</span> <span class="st">"97.3%"</span>, <span class="at">y =</span> .<span class="dv">48</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="sc">-</span>.<span class="dv">3</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb9-8"><a></a>  <span class="fu">annotate</span>(<span class="st">"errorbar"</span>, <span class="at">xmin =</span> <span class="fu">qnorm</span>(<span class="fu">c</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">95</span>) <span class="sc">/</span> <span class="dv">2</span>)), <span class="at">xmax =</span> <span class="fu">qnorm</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">95</span>) <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> .<span class="dv">95</span>),</span>
-<span id="cb9-9"><a></a>           <span class="at">y =</span> .<span class="dv">42</span>, <span class="at">width =</span> .<span class="dv">02</span>) <span class="sc">+</span></span>
-<span id="cb9-10"><a></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">label =</span> <span class="st">"95%"</span>, <span class="at">y =</span> .<span class="dv">42</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="sc">-</span>.<span class="dv">3</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb9-11"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="fu">qnorm</span>(<span class="fu">c</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">973</span>) <span class="sc">/</span> <span class="dv">2</span>)), <span class="fu">qnorm</span>(<span class="fu">c</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">95</span>) <span class="sc">/</span> <span class="dv">2</span>)),</span>
-<span id="cb9-12"><a></a>                                <span class="dv">0</span>, </span>
-<span id="cb9-13"><a></a>                                <span class="fu">qnorm</span>(<span class="fu">c</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">95</span>) <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">+</span> .<span class="dv">95</span>), <span class="fu">qnorm</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">973</span>) <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> .<span class="dv">973</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb9-14"><a></a>                       <span class="fu">round</span>(<span class="dv">2</span>)) <span class="sc">+</span></span>
-<span id="cb9-15"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>), <span class="at">expand =</span> F) <span class="sc">+</span></span>
-<span id="cb9-16"><a></a>  <span class="fu">guides</span>(<span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb9-17"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb9-18"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb9-19"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">30</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">dnorm</span>(x)) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.5</span>, <span class="at">color =</span> <span class="st">"skyblue3"</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"errorbar"</span>, <span class="at">xmin =</span> <span class="fu">qnorm</span>(<span class="fu">c</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">973</span>) <span class="sc">/</span> <span class="dv">2</span>)), <span class="at">xmax =</span> <span class="fu">qnorm</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">973</span>) <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> .<span class="dv">973</span>),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> .<span class="dv">48</span>, <span class="at">width =</span> .<span class="dv">02</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">label =</span> <span class="st">"97.3%"</span>, <span class="at">y =</span> .<span class="dv">48</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="sc">-</span>.<span class="dv">3</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"errorbar"</span>, <span class="at">xmin =</span> <span class="fu">qnorm</span>(<span class="fu">c</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">95</span>) <span class="sc">/</span> <span class="dv">2</span>)), <span class="at">xmax =</span> <span class="fu">qnorm</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">95</span>) <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> .<span class="dv">95</span>),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> .<span class="dv">42</span>, <span class="at">width =</span> .<span class="dv">02</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">label =</span> <span class="st">"95%"</span>, <span class="at">y =</span> .<span class="dv">42</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="sc">-</span>.<span class="dv">3</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="fu">qnorm</span>(<span class="fu">c</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">973</span>) <span class="sc">/</span> <span class="dv">2</span>)), <span class="fu">qnorm</span>(<span class="fu">c</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">95</span>) <span class="sc">/</span> <span class="dv">2</span>)),</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                                <span class="dv">0</span>, </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">qnorm</span>(<span class="fu">c</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">95</span>) <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">+</span> .<span class="dv">95</span>), <span class="fu">qnorm</span>((<span class="dv">1</span> <span class="sc">-</span> .<span class="dv">973</span>) <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> .<span class="dv">973</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">round</span>(<span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>), <span class="at">expand =</span> F) <span class="sc">+</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">y =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">30</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="confidence-interval-generally" class="slide level2">
-<h2>Confidence Interval Generally</h2>
+<section id="confidence-interval-generally" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-interval-generally">Confidence Interval Generally</h2>
 <p>Derived with sample mean (<span class="math inline">\(\bar{x}\)</span>) and standard error (<span class="math inline">\(\frac{s}{\sqrt n}\)</span>)</p>
 <p><span class="math inline">\(CI = \bar{x} \pm z \frac{s}{\sqrt n}\)</span> or</p>
 <p><span class="math inline">\(CI = [\bar{x} - z \frac{s}{\sqrt n}, \bar{x} + z \frac{s}{\sqrt n}]\)</span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Food for Thought</strong></p>
+<div class="callout-title-container flex-fill">
+Food for Thought
 </div>
-<div class="callout-content">
+</div>
+<div class="callout-body-container callout-body">
 <p>With this formula, we would only use the positive version of the <em>z</em> cutoff, so that the lower bound ends up lower than the mean and the higher bound ends up higher. You can also think instead as both adding the <em>z</em> cutoff—it just ends up becoming a minus sign because the lower bound has a negative <em>z</em> cutoff.</p>
 </div>
 </div>
-</div>
 </section>
-<section id="confidence-interval-example" class="slide level2">
-<h2>Confidence Interval Example</h2>
+<section id="confidence-interval-example" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-interval-example">Confidence Interval Example</h2>
 <p>Let’s find a 95% confidence interval of the mean for iris Petal Length</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">head</span>(iris<span class="sc">$</span>Petal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris<span class="sc">$</span>Petal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.4 1.4 1.3 1.5 1.4 1.7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>x_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length)</span>
-<span id="cb12-2"><a></a>x_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(iris<span class="sc">$</span>Petal.Length)</span>
-<span id="cb12-3"><a></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(iris<span class="sc">$</span>Petal.Length) <span class="co"># although remember to be thinking about missing data</span></span>
-<span id="cb12-4"><a></a></span>
-<span id="cb12-5"><a></a>z_cutoff <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(.<span class="dv">975</span>)</span>
-<span id="cb12-6"><a></a></span>
-<span id="cb12-7"><a></a>Petal.Length.CI <span class="ot">&lt;-</span> <span class="fu">c</span>(x_bar <span class="sc">-</span> z_cutoff <span class="sc">*</span> x_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n), x_bar <span class="sc">+</span> z_cutoff <span class="sc">*</span> x_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
-<span id="cb12-8"><a></a>Petal.Length.CI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(iris<span class="sc">$</span>Petal.Length)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(iris<span class="sc">$</span>Petal.Length) <span class="co"># although remember to be thinking about missing data</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>z_cutoff <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(.<span class="dv">975</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>Petal.Length.CI <span class="ot">&lt;-</span> <span class="fu">c</span>(x_bar <span class="sc">-</span> z_cutoff <span class="sc">*</span> x_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n), x_bar <span class="sc">+</span> z_cutoff <span class="sc">*</span> x_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>Petal.Length.CI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.475499 4.040501</code></pre>
 </div>
@@ -458,21 +513,21 @@ Jessica Helmer
 </div>
 <p><span class="fragment">If we collected samples of petal length many times, we would expect the interval [3.47, 4.04] to contain the true population mean of petal length 95% of the time.</span></p>
 </section>
-<section id="confidence-interval-example-1" class="slide level2">
-<h2>Confidence Interval Example</h2>
+<section id="confidence-interval-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-interval-example-1">Confidence Interval Example</h2>
 <p>Let’s find a 80% confidence interval of the mean for iris Sepal Length</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">head</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.1 4.9 4.7 4.6 5.0 5.4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>Sepal.Length.CI <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">-</span> <span class="fu">qnorm</span>(.<span class="dv">9</span>) <span class="sc">*</span> <span class="fu">sd</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">/</span></span>
-<span id="cb16-2"><a></a>                       <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(iris<span class="sc">$</span>Sepal.Length))),</span>
-<span id="cb16-3"><a></a>                     </span>
-<span id="cb16-4"><a></a>                     <span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">+</span> <span class="fu">qnorm</span>(.<span class="dv">9</span>) <span class="sc">*</span> <span class="fu">sd</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">/</span></span>
-<span id="cb16-5"><a></a>                       <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(iris<span class="sc">$</span>Sepal.Length))))</span>
-<span id="cb16-6"><a></a>Sepal.Length.CI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Sepal.Length.CI <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">-</span> <span class="fu">qnorm</span>(.<span class="dv">9</span>) <span class="sc">*</span> <span class="fu">sd</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">/</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(iris<span class="sc">$</span>Sepal.Length))),</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                     </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">+</span> <span class="fu">qnorm</span>(.<span class="dv">9</span>) <span class="sc">*</span> <span class="fu">sd</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">/</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(iris<span class="sc">$</span>Sepal.Length))))</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>Sepal.Length.CI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.756686 5.929981</code></pre>
 </div>
@@ -480,148 +535,172 @@ Jessica Helmer
 </div>
 <p><span class="fragment">If we collected samples of sepal length many times, we would expect the interval [3.57, 3.94] to contain the true population mean of petal length 80% of the time.</span></p>
 </section>
-<section id="confidence-intervals-and-nhst" class="slide level2">
-<h2>Confidence Intervals and NHST</h2>
+<section id="confidence-intervals-and-nhst" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-intervals-and-nhst">Confidence Intervals and NHST</h2>
 <p>If a 95% confidence interval does not contain a value, that is mathematically equivalent to it being “significantly different” from that value.</p>
 <p>E.g., if your null hypothesis <span class="math inline">\(H_0\)</span> was that the mean of petal length is no different from an expected population mean of 3.3, would you reject or retain the null hypothesis?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>Petal.Length.CI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Petal.Length.CI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.475499 4.040501</code></pre>
 </div>
 </div>
 <p><span class="fragment">We would reject the null hypothesis because the 95% CI does not include 3.3.</span></p>
-</section></section>
-<section>
-<section id="from-z-to-t-no-longer-normal" class="title-slide slide level1 center">
-<h1>From <em>Z</em> to <em>T</em>: No longer normal</h1>
-
 </section>
-<section id="z--vs.-t-distribution" class="slide level2">
-<h2><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
+</section>
+<section id="from-z-to-t-no-longer-normal" class="level1">
+<h1>From <em>Z</em> to <em>T</em>: No longer normal</h1>
+<section id="z--vs.-t-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="z--vs.-t-distribution"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
 <p><em>T</em>-distribution has thicker tails</p>
 <p>As df increases, it looks more like a standard normal distribution</p>
 <p>With df = <span class="math inline">\(\infty\)</span>, exactly follows a normal distribution (so approximates with large df)</p>
 </section>
-<section id="z--vs.-t-distribution-1" class="slide level2">
-<h2><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
-
-<img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="z--vs.-t-distribution-2" class="slide level2">
-<h2><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
-
-<img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="z--vs.-t-distribution-3" class="slide level2">
-<h2><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
-
-<img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="z--vs.-t-distribution-4" class="slide level2">
-<h2><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
-
-<img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="z--vs.-t-distribution-5" class="slide level2">
-<h2><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
-
-<img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="t-test-how-many-tails" class="slide level2">
-<h2><em>T</em>-Test: How many tails?</h2>
+<section id="z--vs.-t-distribution-1" class="level2">
+<h2 class="anchored" data-anchor-id="z--vs.-t-distribution-1"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="z--vs.-t-distribution-2" class="level2">
+<h2 class="anchored" data-anchor-id="z--vs.-t-distribution-2"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="z--vs.-t-distribution-3" class="level2">
+<h2 class="anchored" data-anchor-id="z--vs.-t-distribution-3"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="z--vs.-t-distribution-4" class="level2">
+<h2 class="anchored" data-anchor-id="z--vs.-t-distribution-4"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="z--vs.-t-distribution-5" class="level2">
+<h2 class="anchored" data-anchor-id="z--vs.-t-distribution-5"><em>Z</em>- vs.&nbsp;<em>T</em>-Distribution</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="t-test-how-many-tails" class="level2">
+<h2 class="anchored" data-anchor-id="t-test-how-many-tails"><em>T</em>-Test: How many tails?</h2>
 <p>Need to consider whether to use a “one-tail” or “two-tail” <em>t</em>-test.</p>
 <div class="columns">
 <div class="column">
-<h4 id="one-tail-one-sided">One-Tail (One-Sided)</h4>
+<section id="one-tail-one-sided" class="level4">
+<h4 class="anchored" data-anchor-id="one-tail-one-sided">One-Tail (One-Sided)</h4>
 <p>We want to test whether something is lower or higher than a value, but <strong>not both</strong></p>
 <p>Only one limit</p>
+</section>
 </div><div class="column">
-<h4 id="two-tails-two-sided">Two-Tails (Two-Sided)</h4>
+<section id="two-tails-two-sided" class="level4">
+<h4 class="anchored" data-anchor-id="two-tails-two-sided">Two-Tails (Two-Sided)</h4>
 <p>We want to test whether something is either lower or higher than a value</p>
 <p>Two limits</p>
-</div></div>
 </section>
-<section id="testing-how-many-tails" class="slide level2">
-<h2>Testing: How many tails?</h2>
+</div>
+</div>
+</section>
+<section id="testing-how-many-tails" class="level2">
+<h2 class="anchored" data-anchor-id="testing-how-many-tails">Testing: How many tails?</h2>
 <p>Need to consider whether to use a “one-tail” or “two-tail” <em>t</em>-test.</p>
 <div class="columns">
 <div class="column">
-<h4 id="one-tail-one-sided-1">One-Tail (One-Sided)</h4>
+<section id="one-tail-one-sided-1" class="level4">
+<h4 class="anchored" data-anchor-id="one-tail-one-sided-1">One-Tail (One-Sided)</h4>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="336"></p>
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="336"></p>
 </figure>
 </div>
 </div>
 </div>
-</div><div class="column">
-<h4 id="two-tails-two-sided-1">Two-Tails (Two-Sided)</h4>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="336"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
 </section>
-<section id="testing-how-many-tails-1" class="slide level2">
-<h2>Testing: How many tails?</h2>
+</div><div class="column">
+<section id="two-tails-two-sided-1" class="level4">
+<h4 class="anchored" data-anchor-id="two-tails-two-sided-1">Two-Tails (Two-Sided)</h4>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="336"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</section>
+<section id="testing-how-many-tails-1" class="level2">
+<h2 class="anchored" data-anchor-id="testing-how-many-tails-1">Testing: How many tails?</h2>
 <p>Notice that two-tailed tests are harder to “beat.”</p>
-
-<img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" width="816"></section>
-<section id="cutoff-t-values-example" class="slide level2">
-<h2>Cutoff <em>T</em>-Values Example</h2>
-<p>Say you want to find the cutoff <em>t</em> values: t(df = 3) and t(df = 37) for <span class="math inline">\(\alpha = .05\)</span>, want both upper one-tailed and two-tailed</p>
-<div class="fragment">
-<p>Which will have the larger magnitude cutoff values?</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.025), label = "2.5% cutoff"), : All aesthetics have length 1, but the data has 1000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
-<div class="columns fragment" style="font-size:70%">
-<div class="column">
-<p><strong>One-Tailed</strong></p>
-<p>All of our <span class="math inline">\(\alpha = .05\)</span> goes on the upper side</p>
-<p>Need a cutoff for <span class="math inline">\(.95\)</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">qt</span>(<span class="at">p =</span> .<span class="dv">95</span>, <span class="at">df =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.353363</code></pre>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.05), label = "5% cutoff"), : All aesthetics have length 1, but the data has 1000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">qt</span>(<span class="at">p =</span> .<span class="dv">05</span>, <span class="at">df =</span> <span class="dv">37</span>, <span class="at">lower.tail =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.687094</code></pre>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="816"></p>
+</figure>
 </div>
 </div>
-<p><span class="math inline">\(t_{crit}(3) = 2.35\)</span></p>
-<p><span class="math inline">\(t_{crit}(37) = 1.69\)</span></p>
-</div><div class="column">
-<p><strong>Two-Tailed</strong></p>
-<p><span class="math inline">\(\alpha = 1 - .95 = 5\%\)</span> on both sides</p>
-<p>So <span class="math inline">\(.05 / 2 = .025\)</span> on each side</p>
-<p>Need value for <span class="math inline">\(.025\)</span> and <span class="math inline">\(.95 + .025\)</span> (<span class="math inline">\([.025, .975]\)</span>)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">qt</span>(<span class="at">p =</span> <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), <span class="at">df =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -3.182446  3.182446</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">qt</span>(<span class="at">p =</span> <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), <span class="at">df =</span> <span class="dv">37</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -2.026192  2.026192</code></pre>
-</div>
-</div>
-<p><span class="math inline">\(t_{crit}(3) = [-3.18, 3.18]\)</span></p>
-<p><span class="math inline">\(t_{crit}(37) = [-2.03, 2.06]\)</span></p>
-</div></div>
 </section>
-<section id="one-sample-t-test-generally" class="slide level2">
-<h2>One-Sample <em>T</em>-Test Generally</h2>
+<section id="one-sample-t-test-generally" class="level2">
+<h2 class="anchored" data-anchor-id="one-sample-t-test-generally">One-Sample <em>T</em>-Test Generally</h2>
 <p>Asks “is there a question between our sample and the population?”</p>
 <p>Derived with sample mean (<span class="math inline">\(\bar{x}\)</span>), population mean (<span class="math inline">\(\mu\)</span>), and standard error (<span class="math inline">\(\frac{s}{\sqrt n}\)</span>)</p>
 <p><span class="math display">\[t = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}\]</span></p>
 <p>With a <em>t</em>-test, we don’t have a known population SD (<span class="math inline">\(\sigma\)</span>), so we use the SD we observe in our sample <span class="math inline">\(s\)</span></p>
 <p>Get our <em>t</em>-statistic and compare it to a critical <em>t</em> cutoff value</p>
 </section>
-<section id="t-test-example" class="slide level2">
-<h2><em>T</em>-Test Example</h2>
+<section id="t-test-example" class="level2">
+<h2 class="anchored" data-anchor-id="t-test-example"><em>T</em>-Test Example</h2>
 <p>Let’s say a researcher claims the average highway miles per gallon across all cars is 30mpg. They collect a sample of 234 cars and would like you to test this. We do not know the population standard deviation.</p>
 <div class="fragment">
 <p>One- or two-tailed?</p>
@@ -629,29 +708,30 @@ Jessica Helmer
 <div class="columns" style="font-size:80%">
 <div class="column fragment" style="width:75%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">head</span>(mpg<span class="sc">$</span>hwy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mpg<span class="sc">$</span>hwy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 29 29 31 30 26 26</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>x_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(mpg<span class="sc">$</span>hwy)</span>
-<span id="cb30-2"><a></a>x_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(mpg<span class="sc">$</span>hwy)</span>
-<span id="cb30-3"><a></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(mpg<span class="sc">$</span>hwy) <span class="co"># although remember to be thinking about missing data</span></span>
-<span id="cb30-4"><a></a>df <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb30-5"><a></a></span>
-<span id="cb30-6"><a></a>t_cutoff <span class="ot">&lt;-</span> <span class="fu">qt</span>(.<span class="dv">975</span>, df)</span>
-<span id="cb30-7"><a></a></span>
-<span id="cb30-8"><a></a>hwy_t_stat <span class="ot">&lt;-</span> (x_bar <span class="sc">-</span> <span class="dv">30</span>) <span class="sc">/</span> (x_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
-<span id="cb30-9"><a></a>hwy_t_stat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(mpg<span class="sc">$</span>hwy)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>x_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(mpg<span class="sc">$</span>hwy)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(mpg<span class="sc">$</span>hwy) <span class="co"># although remember to be thinking about missing data</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>t_cutoff <span class="ot">&lt;-</span> <span class="fu">qt</span>(.<span class="dv">975</span>, df)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>hwy_t_stat <span class="ot">&lt;-</span> (x_bar <span class="sc">-</span> <span class="dv">30</span>) <span class="sc">/</span> (x_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>hwy_t_stat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -16.85174</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:25%;">
 <p><span class="fragment">Our observed <em>t</em>-statistic exceeds our cutoff <em>t</em>-statistic, so we reject the null.</span></p>
-</div></div>
+</div>
+</div>
 </section>
-<section id="t-test-function" class="slide level2">
-<h2><em>T</em>-Test Function</h2>
+<section id="t-test-function" class="level2">
+<h2 class="anchored" data-anchor-id="t-test-function"><em>T</em>-Test Function</h2>
 <p>Alternatively, we can use <code>t.test(x)</code></p>
 <div class="subpoint">
 ○ <code>x</code> = vector of numeric data
@@ -665,7 +745,7 @@ Jessica Helmer
 <div class="columns" style="font-size:80%">
 <div class="column fragment" style="width:75%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(mpg<span class="sc">$</span>hwy, <span class="at">mu =</span> <span class="dv">30</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(mpg<span class="sc">$</span>hwy, <span class="at">mu =</span> <span class="dv">30</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -682,10 +762,11 @@ mean of x
 </div>
 </div><div class="column" style="width:25%;">
 <p><span class="fragment">We see a significant difference between our observed sample mean and our hypothesized population mean.</span></p>
-</div></div>
+</div>
+</div>
 </section>
-<section id="t-test-example-1" class="slide level2">
-<h2><em>T</em>-Test Example</h2>
+<section id="t-test-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="t-test-example-1"><em>T</em>-Test Example</h2>
 <p>Let’s say a different researcher claims the average <strong>city</strong> miles per gallon across all cars is 30mpg. They collect a sample of 234 cars You are confident they are wrong—you think it is certainly less than that. We do not know the population standard deviation.</p>
 <div class="fragment">
 <p>One- or two-tailed?</p>
@@ -693,7 +774,7 @@ mean of x
 <div class="columns" style="font-size:80%">
 <div class="column fragment" style="width:75%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">t.test</span>(mpg<span class="sc">$</span>cty, <span class="at">mu =</span> <span class="dv">30</span>, <span class="at">alternative =</span> <span class="st">"less"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(mpg<span class="sc">$</span>cty, <span class="at">mu =</span> <span class="dv">30</span>, <span class="at">alternative =</span> <span class="st">"less"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -710,15 +791,16 @@ mean of x
 </div>
 </div><div class="column" style="width:25%;">
 <p><span class="fragment">We see a significant difference between our observed sample mean and our hypothesized population mean.</span></p>
-</div></div>
+</div>
+</div>
 </section>
-<section id="t-test-example-output" class="slide level2">
-<h2><em>T</em>-Test Example Output</h2>
+<section id="t-test-example-output" class="level2">
+<h2 class="anchored" data-anchor-id="t-test-example-output"><em>T</em>-Test Example Output</h2>
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>hwy_ttest <span class="ot">&lt;-</span> <span class="fu">t.test</span>(mpg<span class="sc">$</span>cty, <span class="at">mu =</span> <span class="dv">30</span>)</span>
-<span id="cb36-2"><a></a>hwy_ttest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>hwy_ttest <span class="ot">&lt;-</span> <span class="fu">t.test</span>(mpg<span class="sc">$</span>cty, <span class="at">mu =</span> <span class="dv">30</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>hwy_ttest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -732,23 +814,23 @@ sample estimates:
 mean of x 
  16.85897 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="co">#?t.test</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#?t.test</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>hwy_ttest<span class="sc">$</span>statistic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>hwy_ttest<span class="sc">$</span>statistic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        t 
 -47.23252 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>hwy_ttest<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>hwy_ttest<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.581229e-121</code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>hwy_ttest<span class="sc">$</span>conf.int</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>hwy_ttest<span class="sc">$</span>conf.int</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 16.31083 17.40712
 attr(,"conf.level")
@@ -756,77 +838,119 @@ attr(,"conf.level")
 </div>
 </div>
 </div>
-</div></div>
+</div>
+</div>
 <p>Can use these in RMarkdown documents with inline R chunks.</p>
 </section>
-<section id="t-tests-and-confidence-intervals" class="slide level2">
-<h2><em>T</em>-Tests and Confidence Intervals</h2>
+<section id="t-tests-and-confidence-intervals" class="level2">
+<h2 class="anchored" data-anchor-id="t-tests-and-confidence-intervals"><em>T</em>-Tests and Confidence Intervals</h2>
 <p>The <code>t.test()</code> function includes a CI value! But…</p>
 <div class="columns fragment">
 <div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(mpg<span class="sc">$</span>cty, <span class="at">mu =</span> <span class="dv">30</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">"conf.int"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb45-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(mpg<span class="sc">$</span>cty, <span class="at">mu =</span> <span class="dv">30</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">"conf.int"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 16.31083 17.40712</code></pre>
 </div>
 </div>
 </div><div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">mean</span>(mpg<span class="sc">$</span>cty) <span class="sc">-</span> <span class="fu">qnorm</span>(.<span class="dv">975</span>) <span class="sc">*</span> <span class="fu">sd</span>(mpg<span class="sc">$</span>cty) <span class="sc">/</span></span>
-<span id="cb47-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(mpg<span class="sc">$</span>cty))),</span>
-<span id="cb47-3"><a aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb47-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(mpg<span class="sc">$</span>cty) <span class="sc">+</span> <span class="fu">qnorm</span>(.<span class="dv">975</span>) <span class="sc">*</span> <span class="fu">sd</span>(mpg<span class="sc">$</span>cty) <span class="sc">/</span></span>
-<span id="cb47-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(mpg<span class="sc">$</span>cty))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">mean</span>(mpg<span class="sc">$</span>cty) <span class="sc">-</span> <span class="fu">qnorm</span>(.<span class="dv">975</span>) <span class="sc">*</span> <span class="fu">sd</span>(mpg<span class="sc">$</span>cty) <span class="sc">/</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(mpg<span class="sc">$</span>cty))),</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(mpg<span class="sc">$</span>cty) <span class="sc">+</span> <span class="fu">qnorm</span>(.<span class="dv">975</span>) <span class="sc">*</span> <span class="fu">sd</span>(mpg<span class="sc">$</span>cty) <span class="sc">/</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(mpg<span class="sc">$</span>cty))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 16.31367 17.40428</code></pre>
 </div>
 </div>
-</div></div>
+</div>
+</div>
 <p><span class="fragment">They’re not the same!</span></p>
 <p><span class="fragment">The built-in functions in R for confidence intervals in R often follow a <em>t</em>-distribution instead of a <em>z</em>-distribution. We want the <em>z</em>-distribution in our class, but as we saw, the differences will be very small for large samples.</span></p>
 </section>
-<section id="testing-and-nhst" class="slide level2">
-<h2>Testing and NHST</h2>
+<section id="testing-and-nhst" class="level2">
+<h2 class="anchored" data-anchor-id="testing-and-nhst">Testing and NHST</h2>
 <p>Remember, even when the statistic is small, for two-tailed tests (because negative), we reject when we exceed the bounds of our critical value.</p>
 <p>For one-tailed tests, it needs to exceed the bound of that tail’s cutoff.</p>
 <div class="fragment">
 <p>Reject or retain null?</p>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.025), label = "2.5% cutoff"), : All aesthetics have length 1, but the data has 1000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.975), label = "2.5% cutoff"), : All aesthetics have length 1, but the data has 1000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.001), label = "observed t-stat"), : All aesthetics have length 1, but the data has 1000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.025), label = "2.5% cutoff"), : All aesthetics have length 1, but the data has 1000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.975), label = "2.5% cutoff"), : All aesthetics have length 1, but the data has 1000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.2), label = "observed t-stat"), : All aesthetics have length 1, but the data has 1000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.05), label = "5% cutoff"), : All aesthetics have length 1, but the data has 1000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.99999), : All aesthetics have length 1, but the data has 1000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-30-1.png" width="384"></p>
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="384"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-30-2.png" width="384"></p>
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-28-2.png" class="img-fluid" width="384"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-30-3.png" width="384"></p>
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-28-3.png" class="img-fluid" width="384"></p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="cohens-d" class="slide level2">
-<h2>Cohen’s <em>D</em></h2>
+<section id="cohens-d" class="level2">
+<h2 class="anchored" data-anchor-id="cohens-d">Cohen’s <em>D</em></h2>
 <p>Standardized mean difference, interpretable effect size</p>
 <p>Derived with two means (represented as <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span>) and standard deviation (<span class="math inline">\(s\)</span>)</p>
 <p><span class="math display">\[d = \frac{\mu_1 - \mu_2}{s}\]</span></p>
 <p>For a one-sample <em>t</em> test, <span class="math inline">\(\mu_1\)</span> would be our sample mean <span class="math inline">\(\bar{x}\)</span>, <span class="math inline">\(\mu_2\)</span> would be our population mean <span class="math inline">\(\mu\)</span>, and the standard deviation <span class="math inline">\(\sigma\)</span> would be our observed standard deviation <span class="math inline">\(s\)</span>.</p>
 <p>Not a statistical test—just a measure of difference.</p>
 </section>
-<section id="cohens-d-example" class="slide level2">
-<h2>Cohen’s <em>D</em> Example</h2>
+<section id="cohens-d-example" class="level2">
+<h2 class="anchored" data-anchor-id="cohens-d-example">Cohen’s <em>D</em> Example</h2>
 <p>Let’s say a researcher claims the average highway miles per gallon across all cars is 30mpg. We found earlier that the sample had a significant difference between the hypothesized and sample mean. What is the effect size of that difference?</p>
 <p><span class="math display">\[d = \frac{\bar{x} - \mu}{s}\]</span></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>x_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(mpg<span class="sc">$</span>hwy)</span>
-<span id="cb49-2"><a></a>x_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(mpg<span class="sc">$</span>hwy)</span>
-<span id="cb49-3"><a></a></span>
-<span id="cb49-4"><a></a>d <span class="ot">&lt;-</span> (x_bar <span class="sc">-</span> <span class="dv">30</span>) <span class="sc">/</span> x_sd</span>
-<span id="cb49-5"><a></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>x_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(mpg<span class="sc">$</span>hwy)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>x_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(mpg<span class="sc">$</span>hwy)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> (x_bar <span class="sc">-</span> <span class="dv">30</span>) <span class="sc">/</span> x_sd</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.101633</code></pre>
 </div>
@@ -834,55 +958,78 @@ attr(,"conf.level")
 </div>
 <p><span class="fragment">How would be characterize this difference? What is the direction?</span></p>
 </section>
-<section id="cohens-d-strength-visualization" class="slide level2">
-<h2>Cohen’s <em>D</em> Strength Visualization</h2>
+<section id="cohens-d-strength-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="cohens-d-strength-visualization">Cohen’s <em>D</em> Strength Visualization</h2>
 <p>Based on mean (<span class="math inline">\(\bar{x}\)</span> = <code>round(x_bar, 2)</code> = 23.44) and SD (<span class="math inline">\(\bar{\sigma}\)</span> = <code>round(x_sd, 2)</code> = 5.95) of cars’ highway MPG (<code>hwy</code>).</p>
 <p>Solved backwards for (<span class="math inline">\(\mu\)</span>) based on different potential levels of <em>d</em>. “What would the hypothesized mean have to have been to get different levels of Cohen’s <em>d</em>?”</p>
 <p><span class="math display">\[\bar{x} - d \times s = \mu\]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100000</span>, x_bar, x_sd))</span>
-<span id="cb51-2"><a></a></span>
-<span id="cb51-3"><a></a>mu_ex1 <span class="ot">&lt;-</span> x_bar <span class="sc">-</span> .<span class="dv">2</span> <span class="sc">*</span> x_sd</span>
-<span id="cb51-4"><a></a>mu_ex2 <span class="ot">&lt;-</span> x_bar <span class="sc">-</span> .<span class="dv">5</span> <span class="sc">*</span> x_sd</span>
-<span id="cb51-5"><a></a>mu_ex3 <span class="ot">&lt;-</span> x_bar <span class="sc">-</span> .<span class="dv">8</span> <span class="sc">*</span> x_sd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100000</span>, x_bar, x_sd))</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>mu_ex1 <span class="ot">&lt;-</span> x_bar <span class="sc">-</span> .<span class="dv">2</span> <span class="sc">*</span> x_sd</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>mu_ex2 <span class="ot">&lt;-</span> x_bar <span class="sc">-</span> .<span class="dv">5</span> <span class="sc">*</span> x_sd</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>mu_ex3 <span class="ot">&lt;-</span> x_bar <span class="sc">-</span> .<span class="dv">8</span> <span class="sc">*</span> x_sd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="cohens-d-strength-visualization-1" class="slide level2">
-<h2>Cohen’s <em>D</em> Strength Visualization</h2>
+<section id="cohens-d-strength-visualization-1" class="level2">
+<h2 class="anchored" data-anchor-id="cohens-d-strength-visualization-1">Cohen’s <em>D</em> Strength Visualization</h2>
 <p>“What would the hypothesized mean have to have been to get different levels of Cohen’s <em>d</em>?”</p>
-
-<img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center r-stretch" width="480"></section>
-<section id="cohens-d-strength-visualization-2" class="slide level2">
-<h2>Cohen’s <em>D</em> Strength Visualization</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="cohens-d-strength-visualization-2" class="level2">
+<h2 class="anchored" data-anchor-id="cohens-d-strength-visualization-2">Cohen’s <em>D</em> Strength Visualization</h2>
 <p>“What would the hypothesized mean have to have been to get different levels of Cohen’s <em>d</em>?”</p>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = mu_ex1, label = "d = 0.2"), : All aesthetics have length 1, but the data has 100000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = mu_ex2, label = "d = 0.5"), : All aesthetics have length 1, but the data has 100000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geomtextpath::geom_textvline(aes(xintercept = mu_ex3, label = "d = 0.8"), : All aesthetics have length 1, but the data has 100000 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-34-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-34-2.png" class="quarto-figure quarto-figure-center" width="480"></p>
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-32-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="PSYC2020-Lab-9_files/figure-revealjs/unnamed-chunk-34-3.png" class="quarto-figure quarto-figure-center" width="480"></p>
+<figure class="figure">
+<p><img src="PSYC2020-Lab-9_files/figure-html/unnamed-chunk-32-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="cohens-d-in-r" class="slide level2">
-<h2>Cohen’s <em>D</em> in R</h2>
+<section id="cohens-d-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="cohens-d-in-r">Cohen’s <em>D</em> in R</h2>
 There are functions for Cohen’s <em>d</em> in R, but they apply more to two samples of means.
 <div class="subpoint">
 ○ Instead of one sample and a population mean
@@ -890,494 +1037,429 @@ There are functions for Cohen’s <em>d</em> in R, but they apply more to two sa
 <p>For now, simpler to just program it ourselves <code>(x_bar - mu) / x_sd</code></p>
 <p>Two samples will come later!</p>
 </section>
-<section id="assignment-9" class="slide level2">
-<h2>Assignment 9</h2>
+<section id="assignment-9" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-9">Assignment 9</h2>
 
 
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
-<div id="exercise-loading-status" class="d-flex gap-2">
+</section>
+</section>
 
-</div>
-<div class="spinner-grow spinner-grow-sm">
-
-</div>
-</div>
-<script type="vfs-file">
-W10=
-</script>
-</section></section>
-    </div>
-  <div class="quarto-auto-generated-content" style="display: none;">
-<div class="footer footer-default">
-
-</div>
-</div></div>
-
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
-
-      // Full list of configuration options available at:
-      // https://revealjs.com/config/
-      Reveal.initialize({
-'controlsAuto': true,
-'previewLinksAuto': false,
-'pdfSeparateFragments': false,
-'autoAnimateEasing': "ease",
-'autoAnimateDuration': 1,
-'autoAnimateUnmatched': true,
-'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': false,
- 
-        // Display controls in the bottom right corner
-        controls: false,
-
-        // Help the user learn the controls by providing hints, for example by
-        // bouncing the down arrow when they first encounter a vertical slide
-        controlsTutorial: false,
-
-        // Determines where controls appear, "edges" or "bottom-right"
-        controlsLayout: 'edges',
-
-        // Visibility rule for backwards navigation arrows; "faded", "hidden"
-        // or "visible"
-        controlsBackArrows: 'faded',
-
-        // Display a presentation progress bar
-        progress: true,
-
-        // Display the page number of the current slide
-        slideNumber: 'c/t',
-
-        // 'all', 'print', or 'speaker'
-        showSlideNumber: 'all',
-
-        // Add the current slide number to the URL hash so that reloading the
-        // page/copying the URL will return you to the same slide
-        hash: true,
-
-        // Start with 1 for the hash rather than 0
-        hashOneBasedIndex: false,
-
-        // Flags if we should monitor the hash and change slides accordingly
-        respondToHashChanges: true,
-
-        // Push each slide change to the browser history
-        history: true,
-
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
-
-        // Enable the slide overview mode
-        overview: true,
-
-        // Disables the default reveal.js slide layout (scaling and centering)
-        // so that you can use custom CSS layout
-        disableLayout: false,
-
-        // Vertical centering of slides
-        center: false,
-
-        // Enables touch navigation on devices with touch input
-        touch: true,
-
-        // Loop the presentation
-        loop: false,
-
-        // Change the presentation direction to be RTL
-        rtl: false,
-
-        // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'linear',
-
-        // Randomizes the order of slides each time the presentation loads
-        shuffle: false,
-
-        // Turns fragments on and off globally
-        fragments: true,
-
-        // Flags whether to include the current fragment in the URL,
-        // so that reloading brings you to the same fragment position
-        fragmentInURL: false,
-
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
-
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
-
-        // Flags if it should be possible to pause the presentation (blackout)
-        pause: true,
-
-        // Flags if speaker notes should be visible to all viewers
-        showNotes: false,
-
-        // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
-
-        // Global override for preloading lazy-loaded iframes (null/true/false)
-        preloadIframes: null,
-
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 0,
-
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
-
-        // Use this method for navigation when auto-sliding
-        autoSlideMethod: null,
-
-        // Specify the average time in seconds that you think you will spend
-        // presenting each slide. This is used to show a pacing timer in the
-        // speaker view
-        defaultTiming: null,
-
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-
-        // The display mode that will be used to show slides
-        display: 'block',
-
-        // Hide cursor if inactive
-        hideInactiveCursor: true,
-
-        // Time before the cursor is hidden (in ms)
-        hideCursorTime: 5000,
-
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
-
-        // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
-
-        // Transition speed (default/fast/slow)
-        transitionSpeed: 'default',
-
-        // Transition style for full page slide backgrounds
-        // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'none',
-
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
-
-        // Number of slides away from the current that are visible on mobile
-        // devices. It is advisable to set this to a lower number than
-        // viewDistance in order to save resources.
-        mobileViewDistance: 2,
-
-        // The "normal" size of the presentation, aspect ratio will be preserved
-        // when the presentation is scaled to fit different resolutions. Can be
-        // specified using percentage units.
-        width: 1200,
-
-        height: 700,
-
-        // Factor of the display size that should remain empty around the content
-        margin: 0.1,
-
-        math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
-        // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
-
-          RevealMath,
-          RevealNotes,
-          RevealSearch,
-          RevealZoom
-        ]
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
-    </script>
-    <script type="ojs-module-contents">
-    eyJjb250ZW50cyI6W119
-    </script>
-    <script type="module">
-    if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-    window._ojs.paths.runtimeToDoc = "../../labs/Lab 9 - Confidence Intervals";
-    window._ojs.paths.runtimeToRoot = "../..";
-    window._ojs.paths.docToRoot = "../..";
-    window._ojs.selfContained = false;
-    window._ojs.runtime.interpretFromScriptTags();
-    </script>
-    
-
-    <script>
-
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
-      // slide changes (different for each slide format).
-
-      (function () {
-
-        // dispatch for htmlwidgets
-
-        function fireSlideEnter() {
-
-          const event = window.document.createEvent("Event");
-
-          event.initEvent("slideenter", true, true);
-
-          window.document.dispatchEvent(event);
-
-        }
-
-    
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          fireSlideEnter();
-
-    
-
-          // dispatch for shiny
-
-          if (window.jQuery) {
-
-            if (previousSlide) {
-
-              window.jQuery(previousSlide).trigger("hidden");
-
-            }
-
-            if (currentSlide) {
-
-              window.jQuery(currentSlide).trigger("shown");
-
-            }
-
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jhelmer3\.github\.io\/PSYC2020L\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-
         }
-
-    
-
-        // hookup for slidy
-
-        if (window.w3c_slidy) {
-
-          window.w3c_slidy.add_observer(function (slide_num) {
-
-            // slide_num starts at position 1
-
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
-          });
-
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-
-    
-
-      })();
-
-    </script>
-
-    
-
-    <script id="quarto-html-after-body" type="application/javascript">
-      window.document.addEventListener("DOMContentLoaded", function (event) {
-        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-        tabsets.forEach(function(tabset) {
-          const tabby = new Tabby('#' + tabset.id);
-        });
-        const isCodeAnnotation = (el) => {
-          for (const clz of el.classList) {
-            if (clz.startsWith('code-annotation-')) {                     
-              return true;
-            }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
-          return false;
         }
-        const onCopySuccess = function(e) {
-          // button target
-          const button = e.trigger;
-          // don't keep focus
-          button.blur();
-          // flash "checked"
-          button.classList.add('code-copy-button-checked');
-          var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
-          let tooltip;
-          if (window.bootstrap) {
-            button.setAttribute("data-bs-toggle", "tooltip");
-            button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
-            tooltip = new bootstrap.Tooltip(button, 
-              { trigger: "manual", 
-                customClass: "code-copy-button-tooltip",
-                offset: [0, -8]});
-            tooltip.show();    
-          }
-          setTimeout(function() {
-            if (tooltip) {
-              tooltip.hide();
-              button.removeAttribute("data-bs-title");
-              button.removeAttribute("data-bs-toggle");
-              button.removeAttribute("data-bs-placement");
-            }
-            button.setAttribute("title", currentTitle);
-            button.classList.remove('code-copy-button-checked');
-          }, 1000);
-          // clear code selection
-          e.clearSelection();
-        }
-        const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
-            }
-            return codeEl.innerText;
-        }
-        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-          text: getTextToCopy
-        });
-        clipboard.on('success', onCopySuccess);
-        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-            text: getTextToCopy,
-            container: window.document.getElementById('quarto-embedded-source-code-modal')
-          });
-          clipboardModal.on('success', onCopySuccess);
-        }
-          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-          var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/jhelmer3\.github\.io\/PSYC2020L\/");
-          var isInternal = (href) => {
-              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-          }
-          // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-          for (var i=0; i<links.length; i++) {
-            const link = links[i];
-            if (!isInternal(link.href)) {
-              // undo the damage that might have been done by quarto-nav.js in the case of
-              // links that we want to consider external
-              if (link.dataset.originalHref !== undefined) {
-                link.href = link.dataset.originalHref;
-              }
-            }
-          }
-        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-          const config = {
-            allowHTML: true,
-            maxWidth: 500,
-            delay: 100,
-            arrow: false,
-            appendTo: function(el) {
-                return el.closest('section.slide') || el.parentElement;
-            },
-            interactive: true,
-            interactiveBorder: 10,
-            theme: 'light-border',
-            placement: 'bottom-start',
-          };
-          if (contentFn) {
-            config.content = contentFn;
-          }
-          if (onTriggerFn) {
-            config.onTrigger = onTriggerFn;
-          }
-          if (onUntriggerFn) {
-            config.onUntrigger = onUntriggerFn;
-          }
-            config['offset'] = [0,0];
-            config['maxWidth'] = 700;
-          window.tippy(el, config); 
-        }
-        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-        for (var i=0; i<noterefs.length; i++) {
-          const ref = noterefs[i];
-          tippyHover(ref, function() {
-            // use id or data attribute instead here
-            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-            try { href = new URL(href).hash; } catch {}
-            const id = href.replace(/^#\/?/, "");
-            const note = window.document.getElementById(id);
-            if (note) {
-              return note.innerHTML;
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
             } else {
-              return "";
+              container.appendChild(child.cloneNode(true));
+              break;
             }
-          });
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        const findCites = (el) => {
-          const parentEl = el.parentElement;
-          if (parentEl) {
-            const cites = parentEl.dataset.cites;
-            if (cites) {
-              return {
-                el,
-                cites: cites.split(' ')
-              };
-            } else {
-              return findCites(el.parentElement)
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
             }
           } else {
-            return undefined;
-          }
-        };
-        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-        for (var i=0; i<bibliorefs.length; i++) {
-          const ref = bibliorefs[i];
-          const citeInfo = findCites(ref);
-          if (citeInfo) {
-            tippyHover(citeInfo.el, function() {
-              var popup = window.document.createElement('div');
-              citeInfo.cites.forEach(function(cite) {
-                var citeDiv = window.document.createElement('div');
-                citeDiv.classList.add('hanging-indent');
-                citeDiv.classList.add('csl-entry');
-                var biblioDiv = window.document.getElementById('ref-' + cite);
-                if (biblioDiv) {
-                  citeDiv.innerHTML = biblioDiv.innerHTML;
-                }
-                popup.appendChild(citeDiv);
-              });
-              return popup.innerHTML;
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
             });
           }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
         }
+      }, function(instance) {
       });
-      </script>
-    
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
 
 </body></html>
