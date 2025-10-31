@@ -6059,7 +6059,7 @@
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-test-statistic",
     "title": "Independent and Paired Sample T-Test",
     "section": "Independent Sample T-Test: Test statistic",
-    "text": "Independent Sample T-Test: Test statistic\n\\[ t = \\frac{\\bar{x_1} - \\bar{x_2}}{\\sqrt{\\frac{s_p^2}{n_1} + \\frac{s_p^2}{n_2}}} = \\frac{\\bar{x_1} - \\bar{x_2}}{s_p\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}\\]\nCompare against critical t-value with df = \\(n - 1\\)"
+    "text": "Independent Sample T-Test: Test statistic\n\\[ t = \\frac{\\bar{x_1} - \\bar{x_2}}{\\sqrt{\\frac{s_p^2}{n_1} + \\frac{s_p^2}{n_2}}} = \\frac{\\bar{x_1} - \\bar{x_2}}{s_p\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}\\]\nCompare against critical t-value with df = \\((n_1 - 1) + (n_2 - 2)\\)"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-calculation-1",
