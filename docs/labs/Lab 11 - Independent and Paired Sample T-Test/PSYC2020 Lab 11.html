@@ -213,15 +213,16 @@ Jessica Helmer
 <li>Independent Sample <em>T</em>-Test</li>
 <li>Paired Sample <em>T</em>-Test</li>
 </ul>
-<p>Learning objectives: <strong>R:</strong> <em>T</em>-Tests</p>
+<p>Learning objectives:</p>
+<p><strong>R:</strong> <em>T</em>-Tests</p>
 </section>
 <section id="assignment-10-review" class="slide level2">
 <h2>Assignment 10 Review</h2>
-<p>[placeholder for Assignment 10 review]</p>
+<p>Great work!</p>
 </section>
 <section id="t-statistic-cutoffs" class="slide level2">
 <h2><em>T</em>-Statistic Cutoffs</h2>
-<p>Say you want to find the cutoff <em>t</em> values: t(df = 3) and t(df = 37) for <span class="math inline">\(\alpha = .05\)</span>, want both upper one-tailed and two-tailed</p>
+<p>Say you want to find the cutoff <em>t</em> values: <span class="math inline">\(t(\text{df}=3)\)</span> and <span class="math inline">\(t(\text{df}=37)\)</span> for <span class="math inline">\(\alpha = .05\)</span>, both upper one-tailed and two-tailed.</p>
 <div class="fragment">
 <p>Which will have the larger magnitude cutoff values?</p>
 </div>
@@ -240,8 +241,8 @@ Jessica Helmer
 <pre><code>[1] 1.687094</code></pre>
 </div>
 </div>
-<p><span class="math inline">\(t_{crit}(3) = 2.35\)</span></p>
-<p><span class="math inline">\(t_{crit}(37) = 1.69\)</span></p>
+<p><span class="math inline">\(t_{crit}(\text{df}=3) = 2.35\)</span></p>
+<p><span class="math inline">\(t_{crit}(\text{df}=37) = 1.69\)</span></p>
 </div><div class="column">
 <p><strong>Two-Tailed</strong></p>
 <p><span class="math inline">\(\alpha = 1 - .95 = 5\%\)</span> on both sides</p>
@@ -257,10 +258,14 @@ Jessica Helmer
 <pre><code>[1] -2.026192  2.026192</code></pre>
 </div>
 </div>
-<p><span class="math inline">\(t_{crit}(3) = [-3.18, 3.18]\)</span></p>
-<p><span class="math inline">\(t_{crit}(37) = [-2.03, 2.06]\)</span></p>
+<p><span class="math inline">\(t_{crit}(\text{df}=3) = [-3.18, 3.18]\)</span></p>
+<p><span class="math inline">\(t_{crit}(\text{df}=37) = [-2.03, 2.03]\)</span></p>
 </div></div>
 </section>
+<section id="t-statistic-cutoffs-table" class="slide level2">
+<h2><em>T</em>-Statistic Cutoffs: Table</h2>
+
+<img data-src="https://www.tdistributiontable.com/wp-content/uploads/2020/08/t-table.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="types-of-t-tests" class="slide level2">
 <h2>Types of <em>T</em>-Tests</h2>
 
@@ -312,14 +317,16 @@ Jessica Helmer
                     Max.   :17.83  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>ccorn <span class="ot">&lt;-</span> candy <span class="sc">|&gt;</span> <span class="fu">filter</span>(candy <span class="sc">==</span> <span class="st">"candy corn"</span>) <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">"sales"</span>)</span>
-<span id="cb11-2"><a></a>choc <span class="ot">&lt;-</span> candy <span class="sc">|&gt;</span> <span class="fu">filter</span>(candy <span class="sc">==</span> <span class="st">"chocolate"</span>) <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">"sales"</span>)</span>
-<span id="cb11-3"><a></a></span>
-<span id="cb11-4"><a></a>ccorn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a></a>choc <span class="ot">&lt;-</span> candy <span class="sc">|&gt;</span> <span class="fu">filter</span>(candy <span class="sc">==</span> <span class="st">"chocolate"</span>) <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">"sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>ccorn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 5.51 4.09 5.57 6.85 4.83 8.60 4.53 2.12 7.60 3.24 4.82 5.56 6.17 4.53 6.15
 [16] 3.75 6.61 5.39 6.44 4.82</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>choc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>choc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 17.06 14.46 14.21 14.66 16.90 13.16 17.83 10.90 11.31 15.46 15.52 13.72
 [13] 15.43 17.10 14.97 15.94 15.70 15.29 12.24 17.09</code></pre>
@@ -328,48 +335,55 @@ Jessica Helmer
 </section>
 <section id="independent-sample-t-test-r-calculation-1" class="slide level2">
 <h2>Independent Sample <em>T</em>-Test: R Calculation</h2>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>x_bar_ccorn <span class="ot">&lt;-</span> <span class="fu">mean</span>(ccorn)</span>
-<span id="cb15-2"><a></a>sd_ccorn <span class="ot">&lt;-</span> <span class="fu">sd</span>(ccorn)</span>
-<span id="cb15-3"><a></a>n_ccorn <span class="ot">&lt;-</span> <span class="fu">length</span>(ccorn)</span>
-<span id="cb15-4"><a></a></span>
-<span id="cb15-5"><a></a>x_bar_choc <span class="ot">&lt;-</span> <span class="fu">mean</span>(choc)</span>
-<span id="cb15-6"><a></a>sd_choc <span class="ot">&lt;-</span> <span class="fu">sd</span>(choc)</span>
-<span id="cb15-7"><a></a>n_choc <span class="ot">&lt;-</span> <span class="fu">length</span>(choc)</span>
-<span id="cb15-8"><a></a></span>
-<span id="cb15-9"><a></a>pooled_sd <span class="ot">&lt;-</span> <span class="fu">sqrt</span>( ((n_ccorn <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> sd_ccorn<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (n_choc <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> sd_choc<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span></span>
-<span id="cb15-10"><a></a>                     ((n_ccorn <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">+</span> (n_choc <span class="sc">-</span> <span class="dv">1</span>)) )</span>
-<span id="cb15-11"><a></a>pooled_sd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>x_bar_ccorn <span class="ot">&lt;-</span> <span class="fu">mean</span>(ccorn)</span>
+<span id="cb16-2"><a></a>sd_ccorn <span class="ot">&lt;-</span> <span class="fu">sd</span>(ccorn)</span>
+<span id="cb16-3"><a></a>n_ccorn <span class="ot">&lt;-</span> <span class="fu">length</span>(ccorn)</span>
+<span id="cb16-4"><a></a></span>
+<span id="cb16-5"><a></a>x_bar_choc <span class="ot">&lt;-</span> <span class="fu">mean</span>(choc)</span>
+<span id="cb16-6"><a></a>sd_choc <span class="ot">&lt;-</span> <span class="fu">sd</span>(choc)</span>
+<span id="cb16-7"><a></a>n_choc <span class="ot">&lt;-</span> <span class="fu">length</span>(choc)</span>
+<span id="cb16-8"><a></a></span>
+<span id="cb16-9"><a></a>pooled_sd <span class="ot">&lt;-</span> <span class="fu">sqrt</span>( ((n_ccorn <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> sd_ccorn<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (n_choc <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> sd_choc<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span></span>
+<span id="cb16-10"><a></a>                     ((n_ccorn <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">+</span> (n_choc <span class="sc">-</span> <span class="dv">1</span>)) )</span>
+<span id="cb16-11"><a></a>pooled_sd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.732816</code></pre>
+</div>
 </div>
 </div>
 </section>
 <section id="independent-sample-t-test-r-calculation-2" class="slide level2">
 <h2>Independent Sample <em>T</em>-Test: R Calculation</h2>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>df <span class="ot">&lt;-</span> (n_ccorn <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">+</span> (n_choc <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb17-2"><a></a></span>
-<span id="cb17-3"><a></a>t_crit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), df)</span>
-<span id="cb17-4"><a></a>t_crit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>df <span class="ot">&lt;-</span> (n_ccorn <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">+</span> (n_choc <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb18-2"><a></a></span>
+<span id="cb18-3"><a></a>t_crit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), df)</span>
+<span id="cb18-4"><a></a>t_crit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -2.024394  2.024394</code></pre>
 </div>
 </div>
 <p>If our observed <em>t</em>-statistic exceeds the bounds of [-2.02, 2.02], we reject the null.</p>
+</div>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>t_stat <span class="ot">&lt;-</span> (x_bar_ccorn <span class="sc">-</span> x_bar_choc) <span class="sc">/</span> (pooled_sd <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">/</span> n_ccorn <span class="sc">+</span> <span class="dv">1</span> <span class="sc">/</span> n_choc))</span>
-<span id="cb19-2"><a></a>t_stat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>t_stat <span class="ot">&lt;-</span> (x_bar_ccorn <span class="sc">-</span> x_bar_choc) <span class="sc">/</span> (pooled_sd <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">/</span> n_ccorn <span class="sc">+</span> <span class="dv">1</span> <span class="sc">/</span> n_choc))</span>
+<span id="cb20-2"><a></a>t_stat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -17.49839</code></pre>
+</div>
 </div>
 </div>
 <p><span class="fragment">We reject the null! Can we tell which had a larger mean?</span></p>
 </section>
 <section id="independent-sample-t-test-r-function" class="slide level2">
 <h2>Independent Sample <em>T</em>-Test: R Function</h2>
+<p><code>t.test(outcome ~ group_var, data, var.equal = T)</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">t.test</span>(sales <span class="sc">~</span> candy, candy, <span class="at">var.equal =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">t.test</span>(sales <span class="sc">~</span> candy, candy, <span class="at">var.equal =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Two Sample t-test
@@ -403,26 +417,33 @@ mean in group candy corn  mean in group chocolate
 </section>
 <section id="paired-sample-t-test-r-calculation" class="slide level2">
 <h2>Paired Sample <em>T</em>-Test: R Calculation</h2>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>mean_diff <span class="ot">&lt;-</span> <span class="fu">mean</span>(pumpkin<span class="sc">$</span>diff)</span>
-<span id="cb23-2"><a></a>sd_diff <span class="ot">&lt;-</span> <span class="fu">sd</span>(pumpkin<span class="sc">$</span>diff)</span>
-<span id="cb23-3"><a></a>df <span class="ot">&lt;-</span> <span class="fu">nrow</span>(pumpkin) <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb23-4"><a></a></span>
-<span id="cb23-5"><a></a><span class="fu">qt</span>(<span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>pumpkin <span class="ot">&lt;-</span> pumpkin <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a></a>  <span class="fu">mutate</span>(<span class="at">diff =</span> Oct1 <span class="sc">-</span> Oct31)</span>
+<span id="cb24-3"><a></a></span>
+<span id="cb24-4"><a></a>mean_diff <span class="ot">&lt;-</span> <span class="fu">mean</span>(pumpkin<span class="sc">$</span>diff)</span>
+<span id="cb24-5"><a></a>sd_diff <span class="ot">&lt;-</span> <span class="fu">sd</span>(pumpkin<span class="sc">$</span>diff)</span>
+<span id="cb24-6"><a></a>df <span class="ot">&lt;-</span> <span class="fu">nrow</span>(pumpkin) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb24-7"><a></a></span>
+<span id="cb24-8"><a></a><span class="fu">qt</span>(<span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -2.093024  2.093024</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>t_stat <span class="ot">&lt;-</span> (mean_diff <span class="sc">-</span> <span class="dv">0</span>) <span class="sc">/</span> (sd_diff <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">nrow</span>(pumpkin)))</span>
-<span id="cb25-2"><a></a>t_stat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>t_stat <span class="ot">&lt;-</span> (mean_diff <span class="sc">-</span> <span class="dv">0</span>) <span class="sc">/</span> (sd_diff <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">nrow</span>(pumpkin)))</span>
+<span id="cb26-2"><a></a>t_stat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11.59213</code></pre>
 </div>
 </div>
+</div>
+<p><span class="fragment">We can reject the null in favor of the alternative that there is a difference in pumpkin weights between October 1st and October 31st in the population!</span></p>
 </section>
 <section id="paired-sample-t-test-r-function" class="slide level2">
 <h2>Paired Sample <em>T</em>-Test: R Function</h2>
+<p><code>t.test(y1_vector, y2_vector, paired = T, var.equal = T)</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">t.test</span>(pumpkin<span class="sc">$</span>Oct1, pumpkin<span class="sc">$</span>Oct31, <span class="at">paired =</span> T, <span class="at">var.equal =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">t.test</span>(pumpkin<span class="sc">$</span>Oct1, pumpkin<span class="sc">$</span>Oct31, <span class="at">paired =</span> T, <span class="at">var.equal =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
@@ -438,21 +459,18 @@ mean difference
 </div>
 </div>
 </section>
-<section id="assumptions" class="slide level2">
-<h2>Assumptions</h2>
-<p>[placeholder for assumtions: align with lecture slides when available]</p>
-</section>
 <section id="cohens-d-revisited" class="slide level2">
 <h2>Cohen’s <em>D</em> Revisited</h2>
 <p>Now that we have two groups, R functions for Cohen’s <em>D</em> will be more helpful to us. The <code>cohens_d()</code> function from the <code>effectsize</code> package allows for many formats of inputs.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>(x_bar_ccorn <span class="sc">-</span> x_bar_choc) <span class="sc">/</span> pooled_sd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a>(x_bar_ccorn <span class="sc">-</span> x_bar_choc) <span class="sc">/</span> pooled_sd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -5.533478</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(sales <span class="sc">~</span> candy, <span class="at">data =</span> candy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(sales <span class="sc">~</span> candy,</span>
+<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> candy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cohen's d |         95% CI
 --------------------------
@@ -463,11 +481,12 @@ mean difference
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>mean_diff <span class="sc">/</span> sd_diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>mean_diff <span class="sc">/</span> sd_diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.592079</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(pumpkin<span class="sc">$</span>Oct1, pumpkin<span class="sc">$</span>Oct31, <span class="at">paired =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(pumpkin<span class="sc">$</span>Oct1, pumpkin<span class="sc">$</span>Oct31,</span>
+<span id="cb36-2"><a aria-hidden="true" tabindex="-1"></a>                     <span class="at">paired =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cohen's d |       95% CI
 ------------------------
@@ -478,9 +497,9 @@ mean difference
 </section>
 <section id="t-test-interpretation-and-write-up" class="slide level2">
 <h2><em>T</em>-Test: Interpretation and write-up</h2>
-<p>An [independent samples / repeated measures] <em>t</em>-test analysis was conducted between [group 1] and [group 2]. We [fail to reject / reject] H0 [in favor of H1], <em>t</em>([df]) = [____], <em>p</em> [&lt; 0.05 / p-value]. There [is / is not] a significant difference between the mean [DV] of [group 1] and [group 2] in our sample.</p>
+<p>An [independent samples / repeated measures] <em>t</em>-test analysis was conducted between [group 1] and [group 2]. We [<span class="blue">fail to reject</span> / <span class="gold">reject</span>] H0 [<span class="gold">in favor of H1</span>], <em>t</em>([df]) = [____], <em>p</em> [<span class="gold">&lt; 0.05</span> / <span class="blue">p-value</span>]. We [<span class="blue">did not</span>] observe[<span class="gold">d</span>] a significant difference between the mean [DV] of [group 1] and [group 2] in our sample.</p>
 </section>
-<section id="section" class="title-slide slide level1 nostretch center">
+<section id="section" class="title-slide slide level1 nostretch center" data-background-image="https://img1.picmix.com/output/stamp/normal/2/7/1/5/2365172_f0bd0.gif" data-background-size="contain">
 <h1></h1>
 <div class="r-fit-text">
 <p><strong>Happy Halloween!</strong></p>

@@ -79,7 +79,7 @@ msleep |>
 
 ### 6a) Let's say you're more interested in larger mammals. Create a new version of the dataset that only has mammals under 45kg. Also, create a new variable that represents the ratio of brain weight to body weight (Hint: divide brain weight by body weight).
 ```{r}
-large_mammals <- filter(msleep, bodywt > 45) |>
+large_mammals <- filter(msleep, bodywt < 45) |>
   mutate(brain_prop = brainwt / bodywt)
 ```
 

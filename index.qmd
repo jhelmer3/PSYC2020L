@@ -86,7 +86,7 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 10/31 Lab 11 🎃
 #### Independent and Paired Samples *T*-Test
-Coming soon! No assignment. 
+[Slides](/labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.qmd)
 :::
 
 ::: {.column width=33%}

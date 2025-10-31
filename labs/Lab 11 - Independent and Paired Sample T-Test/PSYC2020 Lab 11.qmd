@@ -26,6 +26,7 @@ cache: true
 * Paired Sample *T*-Test
 
 Learning objectives:
+
 **R:** *T*-Tests
 
 ```{r}
@@ -36,12 +37,12 @@ library(tidyverse)
 
 ## Assignment 10 Review
 
-[placeholder for Assignment 10 review]
+Great work!
 
 
 ## *T*-Statistic Cutoffs
 
-Say you want to find the cutoff *t* values: t(df = 3) and t(df = 37) for $\alpha = .05$, want both upper one-tailed and two-tailed
+Say you want to find the cutoff *t* values: $t(\text{df}=3)$ and $t(\text{df}=37)$ for $\alpha = .05$, both upper one-tailed and two-tailed.
 
 ::: fragment
 Which will have the larger magnitude cutoff values?
@@ -59,9 +60,9 @@ qt(p = .95, df = 3)
 
 qt(p = .05, df = 37, lower.tail = F)
 ```
-$t_{crit}(3) = 2.35$
+$t_{crit}(\text{df}=3) = 2.35$
 
-$t_{crit}(37) = 1.69$
+$t_{crit}(\text{df}=37) = 1.69$
 :::
 
 ::: column
@@ -77,11 +78,16 @@ qt(p = c(.025, .975), df = 3)
 
 qt(p = c(.025, .975), df = 37)
 ```
-$t_{crit}(3) = [-3.18, 3.18]$
+$t_{crit}(\text{df}=3) = [-3.18, 3.18]$
 
-$t_{crit}(37) = [-2.03, 2.06]$
+$t_{crit}(\text{df}=37) = [-2.03, 2.03]$
 :::
 ::::
+
+
+## *T*-Statistic Cutoffs: Table
+
+![](https://www.tdistributiontable.com/wp-content/uploads/2020/08/t-table.png){fig-align="center"}
 
 
 ## Types of *T*-Tests
@@ -150,7 +156,9 @@ summary(candy)
 
 ccorn <- candy |> filter(candy == "candy corn") |> pluck("sales")
 choc <- candy |> filter(candy == "chocolate") |> pluck("sales")
-
+```
+<br>
+```{r}
 ccorn
 choc
 ```
@@ -158,6 +166,7 @@ choc
 
 ## Independent Sample *T*-Test: R Calculation
 
+::: fragment
 ```{r}
 x_bar_ccorn <- mean(ccorn)
 sd_ccorn <- sd(ccorn)
@@ -171,9 +180,11 @@ pooled_sd <- sqrt( ((n_ccorn - 1) * sd_ccorn^2 + (n_choc - 1) * sd_choc^2) /
                      ((n_ccorn - 1) + (n_choc - 1)) )
 pooled_sd
 ```
+:::
 
 ## Independent Sample *T*-Test: R Calculation
 
+::: fragment
 ```{r}
 df <- (n_ccorn - 1) + (n_choc - 1)
 
@@ -182,16 +193,21 @@ t_crit
 ```
 
 If our observed *t*-statistic exceeds the bounds of [-2.02, 2.02], we reject the null.
+:::
 
+::: fragment
 ```{r}
 t_stat <- (x_bar_ccorn - x_bar_choc) / (pooled_sd * sqrt(1 / n_ccorn + 1 / n_choc))
 t_stat
 ```
+:::
 
 [We reject the null! Can we tell which had a larger mean?]{.fragment}
 
 
 ## Independent Sample *T*-Test: R Function
+
+`t.test(outcome ~ group_var, data, var.equal = T)`
 
 ```{r}
 t.test(sales ~ candy, candy, var.equal = T)
@@ -226,6 +242,7 @@ Compare against critical *t*-value with df = $n - 1$
 
 ## Paired Sample *T*-Test: R Calculation
 
+::: fragment
 ```{r}
 #| include: false
 pumpkins <- data.frame(pumpkin = 1:20,
@@ -236,11 +253,13 @@ pumpkins <- data.frame(pumpkin = 1:20,
 
 ```{r}
 #| echo: false
-pumpkin <- rio::import(here::here("labs", "Lab 11 - Independent and Paired Sample T-Test", "pumpkindata.csv")) |>
-  mutate(diff = Oct1 - Oct31)
+pumpkin <- rio::import(here::here("labs", "Lab 11 - Independent and Paired Sample T-Test", "pumpkindata.csv"))
 ```
 
 ```{r}
+pumpkin <- pumpkin |>
+  mutate(diff = Oct1 - Oct31)
+
 mean_diff <- mean(pumpkin$diff)
 sd_diff <- sd(pumpkin$diff)
 df <- nrow(pumpkin) - 1
@@ -250,18 +269,18 @@ qt(c(.025, .975), df)
 t_stat <- (mean_diff - 0) / (sd_diff / sqrt(nrow(pumpkin)))
 t_stat
 ```
+:::
+
+[We can reject the null in favor of the alternative that there is a difference in pumpkin weights between October 1st and October 31st in the population!]{.fragment}
 
 
 ## Paired Sample *T*-Test: R Function
 
+`t.test(y1_vector, y2_vector, paired = T, var.equal = T)`
+
 ```{r}
 t.test(pumpkin$Oct1, pumpkin$Oct31, paired = T, var.equal = T)
 ```
-
-
-## Assumptions
-
-[placeholder for assumtions: align with lecture slides when available]
 
 
 ## Cohen's *D* Revisited
@@ -271,17 +290,21 @@ Now that we have two groups, R functions for Cohen's *D* will be more helpful to
 :::: {.columns}
 ::: {.column width="50%"}
 ```{r}
+#| code-line-numbers: false
 (x_bar_ccorn - x_bar_choc) / pooled_sd
 
-effectsize::cohens_d(sales ~ candy, data = candy)
+effectsize::cohens_d(sales ~ candy,
+                     data = candy)
 ```
 :::
 
 ::: {.column width="50%"}
 ```{r}
+#| code-line-numbers: false
 mean_diff / sd_diff
 
-effectsize::cohens_d(pumpkin$Oct1, pumpkin$Oct31, paired = T)
+effectsize::cohens_d(pumpkin$Oct1, pumpkin$Oct31,
+                     paired = T)
 ```
 :::
 ::::
@@ -289,10 +312,10 @@ effectsize::cohens_d(pumpkin$Oct1, pumpkin$Oct31, paired = T)
 
 ## *T*-Test: Interpretation and write-up
 
-An [independent samples / repeated measures] *t*-test analysis was conducted between [group 1] and [group 2]. We [fail to reject / reject] H0 [in favor of H1], *t*([df]) = [____], *p* [< 0.05 / p-value]. There [is / is not] a significant difference between the mean [DV] of [group 1] and [group 2] in our sample.
+An [independent samples / repeated measures] *t*-test analysis was conducted between [group 1] and [group 2]. We [[fail to reject]{.blue} / [reject]{.gold}] H0 [[in favor of H1]{.gold}], *t*([df]) = [____], *p* [[< 0.05]{.gold} / [p-value]{.blue}]. We [[did not]{.blue}] observe[[d]{.gold}] a significant difference between the mean [DV] of [group 1] and [group 2] in our sample.
 
 
-# {.nostretch}
+# {.nostretch background-image="https://img1.picmix.com/output/stamp/normal/2/7/1/5/2365172_f0bd0.gif" background-size="contain"} 
 
 :::{.r-fit-text}
 **Happy Halloween!**

@@ -389,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-lets-say-youre-more-interested-in-larger-mammals.-create-a-new-version-of-the-dataset-that-only-has-mammals-under-45kg.-also-create-a-new-variable-that-represents-the-ratio-of-brain-weight-to-body-weight-hint-divide-brain-weight-by-body-weight." class="level3">
 <h3 class="anchored" data-anchor-id="a-lets-say-youre-more-interested-in-larger-mammals.-create-a-new-version-of-the-dataset-that-only-has-mammals-under-45kg.-also-create-a-new-variable-that-represents-the-ratio-of-brain-weight-to-body-weight-hint-divide-brain-weight-by-body-weight.">6a) Let’s say you’re more interested in larger mammals. Create a new version of the dataset that only has mammals under 45kg. Also, create a new variable that represents the ratio of brain weight to body weight (Hint: divide brain weight by body weight).</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>large_mammals <span class="ot">&lt;-</span> <span class="fu">filter</span>(msleep, bodywt <span class="sc">&gt;</span> <span class="dv">45</span>) <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>large_mammals <span class="ot">&lt;-</span> <span class="fu">filter</span>(msleep, bodywt <span class="sc">&lt;</span> <span class="dv">45</span>) <span class="sc">|&gt;</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">brain_prop =</span> brainwt <span class="sc">/</span> bodywt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -400,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> brain_prop, <span class="at">y =</span> sleep_total)) <span class="sc">+</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 8 rows containing missing values or values outside the scale range
+<pre><code>Warning: Removed 19 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
@@ -421,11 +421,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">filter</span>(large_mammals, vore <span class="sc">==</span> <span class="st">"herbi"</span>), <span class="at">color =</span> <span class="st">"seagreen"</span>) <span class="sc">+</span></span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">y =</span> <span class="dv">5</span>, <span class="at">x =</span> .<span class="dv">002</span>, <span class="at">label =</span> <span class="st">"herbivores"</span>, <span class="at">color =</span> <span class="st">"seagreen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 8 rows containing missing values or values outside the scale range
+<pre><code>Warning: Removed 19 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+<pre><code>Warning: Removed 11 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">

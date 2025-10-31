@@ -886,7 +886,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 5\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/26 Lab 6\n\nSampling Distributions\nSlides | Assignment\n\n\n\n\n\n\n\n10/03 Lab 7\n\nNHST I\nSlides | Assignment\n\n\n\n\n10/10 Lab 8\n\nNHST II\nSlides | Assignment\n\n\n\n\n10/17 Lab 9\n\nConfidence Intervals\nSlides\n\n\n\n\n\n\n\n10/24 Lab 10\n\nAdvanced R\nSlides\n\n\n\n\n10/31 Lab 11 🎃\n\nIndependent and Paired Samples T-Test\nComing soon! No assignment.\n\n\n\n\n11/07 Lab 12\n\nChi-Squared Test\nComing soon!"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 5\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/26 Lab 6\n\nSampling Distributions\nSlides | Assignment\n\n\n\n\n\n\n\n10/03 Lab 7\n\nNHST I\nSlides | Assignment\n\n\n\n\n10/10 Lab 8\n\nNHST II\nSlides | Assignment\n\n\n\n\n10/17 Lab 9\n\nConfidence Intervals\nSlides\n\n\n\n\n\n\n\n10/24 Lab 10\n\nAdvanced R\nSlides\n\n\n\n\n10/31 Lab 11 🎃\n\nIndependent and Paired Samples T-Test\nSlides\n\n\n\n\n11/07 Lab 12\n\nChi-Squared Test\nComing soon!"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
@@ -5947,14 +5947,14 @@
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#outline",
     "title": "Independent and Paired Sample T-Test",
     "section": "Outline",
-    "text": "Outline\n\nAssignment 10 Review\nIndependent Sample T-Test\nPaired Sample T-Test\n\nLearning objectives: R: T-Tests"
+    "text": "Outline\n\nAssignment 10 Review\nIndependent Sample T-Test\nPaired Sample T-Test\n\nLearning objectives:\nR: T-Tests"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#assignment-10-review",
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#assignment-10-review",
     "title": "Independent and Paired Sample T-Test",
     "section": "Assignment 10 Review",
-    "text": "Assignment 10 Review\n[placeholder for Assignment 10 review]"
+    "text": "Assignment 10 Review\nGreat work!"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#types-of-t-tests",
@@ -5982,14 +5982,14 @@
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-calculation",
     "title": "Independent and Paired Sample T-Test",
     "section": "Independent Sample T-Test: R Calculation",
-    "text": "Independent Sample T-Test: R Calculation\n\nsummary(candy)\n\n    candy               sales      \n Length:40          Min.   : 2.12  \n Class :character   1st Qu.: 5.48  \n Mode  :character   Median : 9.75  \n                    Mean   :10.15  \n                    3rd Qu.:15.32  \n                    Max.   :17.83  \n\nccorn &lt;- candy |&gt; filter(candy == \"candy corn\") |&gt; pluck(\"sales\")\nchoc &lt;- candy |&gt; filter(candy == \"chocolate\") |&gt; pluck(\"sales\")\n\nccorn\n\n [1] 5.51 4.09 5.57 6.85 4.83 8.60 4.53 2.12 7.60 3.24 4.82 5.56 6.17 4.53 6.15\n[16] 3.75 6.61 5.39 6.44 4.82\n\nchoc\n\n [1] 17.06 14.46 14.21 14.66 16.90 13.16 17.83 10.90 11.31 15.46 15.52 13.72\n[13] 15.43 17.10 14.97 15.94 15.70 15.29 12.24 17.09"
+    "text": "Independent Sample T-Test: R Calculation\n\nsummary(candy)\n\n    candy               sales      \n Length:40          Min.   : 2.12  \n Class :character   1st Qu.: 5.48  \n Mode  :character   Median : 9.75  \n                    Mean   :10.15  \n                    3rd Qu.:15.32  \n                    Max.   :17.83  \n\nccorn &lt;- candy |&gt; filter(candy == \"candy corn\") |&gt; pluck(\"sales\")\nchoc &lt;- candy |&gt; filter(candy == \"chocolate\") |&gt; pluck(\"sales\")\n\n\n\nccorn\n\n [1] 5.51 4.09 5.57 6.85 4.83 8.60 4.53 2.12 7.60 3.24 4.82 5.56 6.17 4.53 6.15\n[16] 3.75 6.61 5.39 6.44 4.82\n\nchoc\n\n [1] 17.06 14.46 14.21 14.66 16.90 13.16 17.83 10.90 11.31 15.46 15.52 13.72\n[13] 15.43 17.10 14.97 15.94 15.70 15.29 12.24 17.09"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-function",
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-function",
     "title": "Independent and Paired Sample T-Test",
     "section": "Independent Sample T-Test: R Function",
-    "text": "Independent Sample T-Test: R Function\n\nt.test(sales ~ candy, candy, var.equal = T)\n\n\n    Two Sample t-test\n\ndata:  sales by candy\nt = -17.498, df = 38, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means between group candy corn and group chocolate is not equal to 0\n95 percent confidence interval:\n -10.697796  -8.479204\nsample estimates:\nmean in group candy corn  mean in group chocolate \n                  5.3590                  14.9475"
+    "text": "Independent Sample T-Test: R Function\nt.test(outcome ~ group_var, data, var.equal = T)\n\nt.test(sales ~ candy, candy, var.equal = T)\n\n\n    Two Sample t-test\n\ndata:  sales by candy\nt = -17.498, df = 38, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means between group candy corn and group chocolate is not equal to 0\n95 percent confidence interval:\n -10.697796  -8.479204\nsample estimates:\nmean in group candy corn  mean in group chocolate \n                  5.3590                  14.9475"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test",
@@ -6010,42 +6010,42 @@
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test-r-calculation",
     "title": "Independent and Paired Sample T-Test",
     "section": "Paired Sample T-Test: R Calculation",
-    "text": "Paired Sample T-Test: R Calculation\n\nmean_diff &lt;- mean(pumpkin$diff)\nsd_diff &lt;- sd(pumpkin$diff)\ndf &lt;- nrow(pumpkin) - 1\n\nqt(c(.025, .975), df)\n\n[1] -2.093024  2.093024\n\nt_stat &lt;- (mean_diff - 0) / (sd_diff / sqrt(nrow(pumpkin)))\nt_stat\n\n[1] 11.59213"
+    "text": "Paired Sample T-Test: R Calculation\n\n\npumpkin &lt;- pumpkin |&gt;\n  mutate(diff = Oct1 - Oct31)\n\nmean_diff &lt;- mean(pumpkin$diff)\nsd_diff &lt;- sd(pumpkin$diff)\ndf &lt;- nrow(pumpkin) - 1\n\nqt(c(.025, .975), df)\n\n[1] -2.093024  2.093024\n\nt_stat &lt;- (mean_diff - 0) / (sd_diff / sqrt(nrow(pumpkin)))\nt_stat\n\n[1] 11.59213\n\n\n\nWe can reject the null in favor of the alternative that there is a difference in pumpkin weights between October 1st and October 31st in the population!"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test-r-function",
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#paired-sample-t-test-r-function",
     "title": "Independent and Paired Sample T-Test",
     "section": "Paired Sample T-Test: R Function",
-    "text": "Paired Sample T-Test: R Function\n\nt.test(pumpkin$Oct1, pumpkin$Oct31, paired = T, var.equal = T)\n\n\n    Paired t-test\n\ndata:  pumpkin$Oct1 and pumpkin$Oct31\nt = 11.592, df = 19, p-value = 4.636e-10\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n 2.55216 3.67684\nsample estimates:\nmean difference \n         3.1145"
+    "text": "Paired Sample T-Test: R Function\nt.test(y1_vector, y2_vector, paired = T, var.equal = T)\n\nt.test(pumpkin$Oct1, pumpkin$Oct31, paired = T, var.equal = T)\n\n\n    Paired t-test\n\ndata:  pumpkin$Oct1 and pumpkin$Oct31\nt = 11.592, df = 19, p-value = 4.636e-10\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n 2.55216 3.67684\nsample estimates:\nmean difference \n         3.1145"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#assumptions",
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#assumptions",
     "title": "Independent and Paired Sample T-Test",
     "section": "Assumptions",
-    "text": "Assumptions\n[placeholder for assumtions: align with lecture slides when available]"
+    "text": "Assumptions\n[placeholder for assumptions: align with lecture slides when available]"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#cohens-d-revisited",
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#cohens-d-revisited",
     "title": "Independent and Paired Sample T-Test",
     "section": "Cohen’s D Revisited",
-    "text": "Cohen’s D Revisited\nNow that we have two groups, R functions for Cohen’s D will be more helpful to us. The cohens_d() function from the effectsize package allows for many formats of inputs.\n\n\n\n(x_bar_ccorn - x_bar_choc) / pooled_sd\n\n[1] -5.533478\n\neffectsize::cohens_d(sales ~ candy, data = candy)\n\nCohen's d |         95% CI\n--------------------------\n-5.53     | [-6.91, -4.14]\n\n- Estimated using pooled SD.\n\n\n\n\nmean_diff / sd_diff\n\n[1] 2.592079\n\neffectsize::cohens_d(pumpkin$Oct1, pumpkin$Oct31, paired = T)\n\nCohen's d |       95% CI\n------------------------\n2.59      | [1.66, 3.51]"
+    "text": "Cohen’s D Revisited\nNow that we have two groups, R functions for Cohen’s D will be more helpful to us. The cohens_d() function from the effectsize package allows for many formats of inputs.\n\n\n\n(x_bar_ccorn - x_bar_choc) / pooled_sd\n\n[1] -5.533478\n\neffectsize::cohens_d(sales ~ candy,\n                     data = candy)\n\nCohen's d |         95% CI\n--------------------------\n-5.53     | [-6.91, -4.14]\n\n- Estimated using pooled SD.\n\n\n\n\nmean_diff / sd_diff\n\n[1] 2.592079\n\neffectsize::cohens_d(pumpkin$Oct1, pumpkin$Oct31,\n                     paired = T)\n\nCohen's d |       95% CI\n------------------------\n2.59      | [1.66, 3.51]"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#t-test-interpretation-and-write-up",
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#t-test-interpretation-and-write-up",
     "title": "Independent and Paired Sample T-Test",
     "section": "T-Test: Interpretation and write-up",
-    "text": "T-Test: Interpretation and write-up\nAn [independent samples / repeated measures] t-test analysis was conducted between [group 1] and [group 2]. We [fail to reject / reject] H0 [in favor of H1], t([df]) = [____], p [&lt; 0.05 / p-value]. There [is / is not] a significant difference between the mean [DV] of [group 1] and [group 2] in our sample."
+    "text": "T-Test: Interpretation and write-up\nAn [independent samples / repeated measures] t-test analysis was conducted between [group 1] and [group 2]. We [fail to reject / reject] H0 [in favor of H1], t([df]) = [____], p [&lt; 0.05 / p-value]. We [did not] observe[d] a significant difference between the mean [DV] of [group 1] and [group 2] in our sample."
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#t-statistic-cutoffs",
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#t-statistic-cutoffs",
     "title": "Independent and Paired Sample T-Test",
     "section": "T-Statistic Cutoffs",
-    "text": "T-Statistic Cutoffs\nSay you want to find the cutoff t values: t(df = 3) and t(df = 37) for \\(\\alpha = .05\\), want both upper one-tailed and two-tailed\n\nWhich will have the larger magnitude cutoff values?\n\n\n\nOne-Tailed\nAll of our \\(\\alpha = .05\\) goes on the upper side\nNeed a cutoff for \\(.95\\)\n\nqt(p = .95, df = 3)\n\n[1] 2.353363\n\nqt(p = .05, df = 37, lower.tail = F)\n\n[1] 1.687094\n\n\n\\(t_{crit}(3) = 2.35\\)\n\\(t_{crit}(37) = 1.69\\)\n\nTwo-Tailed\n\\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqt(p = c(.025, .975), df = 3)\n\n[1] -3.182446  3.182446\n\nqt(p = c(.025, .975), df = 37)\n\n[1] -2.026192  2.026192\n\n\n\\(t_{crit}(3) = [-3.18, 3.18]\\)\n\\(t_{crit}(37) = [-2.03, 2.06]\\)"
+    "text": "T-Statistic Cutoffs\nSay you want to find the cutoff t values: \\(t(\\text{df}=3)\\) and \\(t(\\text{df}=37)\\) for \\(\\alpha = .05\\), both upper one-tailed and two-tailed.\n\nWhich will have the larger magnitude cutoff values?\n\n\n\nOne-Tailed\nAll of our \\(\\alpha = .05\\) goes on the upper side\nNeed a cutoff for \\(.95\\)\n\nqt(p = .95, df = 3)\n\n[1] 2.353363\n\nqt(p = .05, df = 37, lower.tail = F)\n\n[1] 1.687094\n\n\n\\(t_{crit}(\\text{df}=3) = 2.35\\)\n\\(t_{crit}(\\text{df}=37) = 1.69\\)\n\nTwo-Tailed\n\\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqt(p = c(.025, .975), df = 3)\n\n[1] -3.182446  3.182446\n\nqt(p = c(.025, .975), df = 37)\n\n[1] -2.026192  2.026192\n\n\n\\(t_{crit}(\\text{df}=3) = [-3.18, 3.18]\\)\n\\(t_{crit}(\\text{df}=37) = [-2.03, 2.03]\\)"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-pooled-sd",
@@ -6066,14 +6066,14 @@
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-calculation-1",
     "title": "Independent and Paired Sample T-Test",
     "section": "Independent Sample T-Test: R Calculation",
-    "text": "Independent Sample T-Test: R Calculation\n\nx_bar_ccorn &lt;- mean(ccorn)\nsd_ccorn &lt;- sd(ccorn)\nn_ccorn &lt;- length(ccorn)\n\nx_bar_choc &lt;- mean(choc)\nsd_choc &lt;- sd(choc)\nn_choc &lt;- length(choc)\n\npooled_sd &lt;- sqrt( ((n_ccorn - 1) * sd_ccorn^2 + (n_choc - 1) * sd_choc^2) /\n                     ((n_ccorn - 1) + (n_choc - 1)) )\npooled_sd\n\n[1] 1.732816"
+    "text": "Independent Sample T-Test: R Calculation\n\n\nx_bar_ccorn &lt;- mean(ccorn)\nsd_ccorn &lt;- sd(ccorn)\nn_ccorn &lt;- length(ccorn)\n\nx_bar_choc &lt;- mean(choc)\nsd_choc &lt;- sd(choc)\nn_choc &lt;- length(choc)\n\npooled_sd &lt;- sqrt( ((n_ccorn - 1) * sd_ccorn^2 + (n_choc - 1) * sd_choc^2) /\n                     ((n_ccorn - 1) + (n_choc - 1)) )\npooled_sd\n\n[1] 1.732816"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-calculation-2",
     "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-r-calculation-2",
     "title": "Independent and Paired Sample T-Test",
     "section": "Independent Sample T-Test: R Calculation",
-    "text": "Independent Sample T-Test: R Calculation\n\ndf &lt;- (n_ccorn - 1) + (n_choc - 1)\n\nt_crit &lt;- qt(c(.025, .975), df)\nt_crit\n\n[1] -2.024394  2.024394\n\n\nIf our observed t-statistic exceeds the bounds of [-2.02, 2.02], we reject the null.\n\nt_stat &lt;- (x_bar_ccorn - x_bar_choc) / (pooled_sd * sqrt(1 / n_ccorn + 1 / n_choc))\nt_stat\n\n[1] -17.49839\n\n\nWe reject the null! Can we tell which had a larger mean?"
+    "text": "Independent Sample T-Test: R Calculation\n\n\ndf &lt;- (n_ccorn - 1) + (n_choc - 1)\n\nt_crit &lt;- qt(c(.025, .975), df)\nt_crit\n\n[1] -2.024394  2.024394\n\n\nIf our observed t-statistic exceeds the bounds of [-2.02, 2.02], we reject the null.\n\n\n\nt_stat &lt;- (x_bar_ccorn - x_bar_choc) / (pooled_sd * sqrt(1 / n_ccorn + 1 / n_choc))\nt_stat\n\n[1] -17.49839\n\n\n\nWe reject the null! Can we tell which had a larger mean?"
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#independent-sample-t-test-pooled-sd-1",
@@ -6143,6 +6143,244 @@
     "href": "labs/Lab 10 - Advanced R/Lab 10 Assignment Example.html#communication",
     "title": "PSYC2020L Assignment 10",
     "section": "Communication",
-    "text": "Communication\nIn this assignment, we will be working with the msleep dataset that comes with the tidyverse library. This data set has information of the sleep characteristics for different mammals! Check out the data with ?msleep to read a little bit about the variables (feel free to comment out or remove afterwards.\n\n3) Then, use three functions to get a sense of the data.\n\nhead(msleep)\n\n# A tibble: 6 × 11\n  name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake\n  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n1 Cheetah Acin… carni Carn… lc                  12.1      NA        NA      11.9\n2 Owl mo… Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  \n3 Mounta… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6\n4 Greate… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1\n5 Cow     Bos   herbi Arti… domesticated         4         0.7       0.667  20  \n6 Three-… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6\n# ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;\n\nstr(msleep)\n\ntibble [83 × 11] (S3: tbl_df/tbl/data.frame)\n $ name        : chr [1:83] \"Cheetah\" \"Owl monkey\" \"Mountain beaver\" \"Greater short-tailed shrew\" ...\n $ genus       : chr [1:83] \"Acinonyx\" \"Aotus\" \"Aplodontia\" \"Blarina\" ...\n $ vore        : chr [1:83] \"carni\" \"omni\" \"herbi\" \"omni\" ...\n $ order       : chr [1:83] \"Carnivora\" \"Primates\" \"Rodentia\" \"Soricomorpha\" ...\n $ conservation: chr [1:83] \"lc\" NA \"nt\" \"lc\" ...\n $ sleep_total : num [1:83] 12.1 17 14.4 14.9 4 14.4 8.7 7 10.1 3 ...\n $ sleep_rem   : num [1:83] NA 1.8 2.4 2.3 0.7 2.2 1.4 NA 2.9 NA ...\n $ sleep_cycle : num [1:83] NA NA NA 0.133 0.667 ...\n $ awake       : num [1:83] 11.9 7 9.6 9.1 20 9.6 15.3 17 13.9 21 ...\n $ brainwt     : num [1:83] NA 0.0155 NA 0.00029 0.423 NA NA NA 0.07 0.0982 ...\n $ bodywt      : num [1:83] 50 0.48 1.35 0.019 600 ...\n\nsummary(msleep)\n\n     name              genus               vore              order          \n Length:83          Length:83          Length:83          Length:83         \n Class :character   Class :character   Class :character   Class :character  \n Mode  :character   Mode  :character   Mode  :character   Mode  :character  \n                                                                            \n                                                                            \n                                                                            \n                                                                            \n conservation        sleep_total      sleep_rem      sleep_cycle    \n Length:83          Min.   : 1.90   Min.   :0.100   Min.   :0.1167  \n Class :character   1st Qu.: 7.85   1st Qu.:0.900   1st Qu.:0.1833  \n Mode  :character   Median :10.10   Median :1.500   Median :0.3333  \n                    Mean   :10.43   Mean   :1.875   Mean   :0.4396  \n                    3rd Qu.:13.75   3rd Qu.:2.400   3rd Qu.:0.5792  \n                    Max.   :19.90   Max.   :6.600   Max.   :1.5000  \n                                    NA's   :22      NA's   :51      \n     awake          brainwt            bodywt        \n Min.   : 4.10   Min.   :0.00014   Min.   :   0.005  \n 1st Qu.:10.25   1st Qu.:0.00290   1st Qu.:   0.174  \n Median :13.90   Median :0.01240   Median :   1.670  \n Mean   :13.57   Mean   :0.28158   Mean   : 166.136  \n 3rd Qu.:16.15   3rd Qu.:0.12550   3rd Qu.:  41.750  \n Max.   :22.10   Max.   :5.71200   Max.   :6654.000  \n                 NA's   :27                          \n\n\n\n\n4a) Plot the distributions of the variables sleep_total and bodywt in two separate plots. Feel free to use whatever type of distributional geom you prefer.\n\nggplot(msleep, aes(x = sleep_total)) +\n  geom_histogram(bins = 12)\n\n\n\n\n\n\n\nggplot(msleep, aes(x = bodywt)) +\n  geom_histogram(bins = 15)\n\n\n\n\n\n\n\n\n\n\n4b) Describe what you see in the plots above.\nThe sleep_total variable is normal-ish, with pretty thick tails. It appears pretty symmetrical. The body_wt variable has some very large outliers!\n\n\n5a) Make a scatterplot with body weight on the x-axis and total sleep on the y-axis.\n\nmsleep |&gt;\n  ggplot(aes(x = bodywt, y = sleep_total)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n5b) Label two points you consider interesting / outliers with the type of animal they are (Hint: first, filter() the data to see what the animal names are for the points you select. Then, annotate() the data with a text geom at x and y values close to the selected points. You can absolutely use another solution to label if you’d like; this is just one way).\n\nmsleep |&gt;\n  filter(bodywt &gt; 2000)\n\n# A tibble: 2 × 11\n  name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake\n  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n1 Asian … Elep… herbi Prob… en                   3.9        NA          NA  20.1\n2 Africa… Loxo… herbi Prob… vu                   3.3        NA          NA  20.7\n# ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;\n\nmsleep |&gt;\n  ggplot(aes(x = bodywt, y = sleep_total)) +\n  geom_point() +\n  annotate(\"text\", x = 2300, y = 5, label = \"Asian elephant\") +\n  annotate(\"text\", x = 6300, y = 5, label = \"African elephant\")\n\n\n\n\n\n\n\n\n\n\n5c) Modify the x-axis label and y-axis label to be more readable and descriptive. Make sure to add units!\n\nmsleep |&gt;\n  ggplot(aes(x = bodywt, y = sleep_total)) +\n  geom_point() +\n  annotate(\"text\", x = 2300, y = 5, label = \"Asian elephant\") +\n  annotate(\"text\", x = 6300, y = 5, label = \"African elephant\") +\n  labs(y = \"Total Sleep (hrs)\", x = \"Body Weight (kg)\")\n\n\n\n\n\n\n\n\n\n\n6a) Let’s say you’re more interested in larger mammals. Create a new version of the dataset that only has mammals under 45kg. Also, create a new variable that represents the ratio of brain weight to body weight (Hint: divide brain weight by body weight).\n\nlarge_mammals &lt;- filter(msleep, bodywt &gt; 45) |&gt;\n  mutate(brain_prop = brainwt / bodywt)\n\n\n\n6b) Create a scatterplot that evaluates the association between the brain-to-body weight proportion variable you created (put that on the x-axis) and total hours of sleep.\n\nlarge_mammals |&gt;\n  ggplot(aes(x = brain_prop, y = sleep_total)) +\n  geom_point()\n\nWarning: Removed 8 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n6c) Emphasize the points on the graph that represent herbivores (Hint: make a filtered version of the dataset that only includes carnivores and layer on another geom_point()). Add a text annotation on the plot that indicates the group is herbivores.\n\nlarge_mammals |&gt;\n  ggplot(aes(x = brain_prop, y = sleep_total)) +\n  geom_point() +\n  geom_point(data = filter(large_mammals, vore == \"herbi\"), color = \"seagreen\") +\n  annotate(\"text\", y = 5, x = .002, label = \"herbivores\", color = \"seagreen\")\n\nWarning: Removed 8 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n7) Make one more scatterplot of two variables of interest. Make at least two annotations to the plot of things / trends you find interesting. Some ideas: label your favorite mammal on the plot with its name, add a reference line, highlight endangered animals, etc. Add a label and descriptive title to this plot. Try to make this plot as self-explanatory as possible!\n\nggplot(msleep, aes(x = sleep_total, y = sleep_rem)) +\n  geom_point() +\n  geom_point(data = filter(msleep, vore == \"carni\"), color = \"lightpink\") +\n  geomtextpath::geom_textsmooth(data = filter(msleep, vore == \"carni\"), color = \"lightpink\",\n                                label = \"carnivores\", method = \"lm\", hjust = .8) +\n  geom_point(data = filter(msleep, genus == \"Felis\"), color = \"salmon\") +\n  geom_point(data = filter(msleep, genus == \"Felis\"), color = \"salmon\", shape = \"circle open\", size = 3) +\n  annotate(\"text\", x = 12, y = 3.5, label = \"house cat\", color = \"salmon\") +\n  labs(x = \"Total Sleep (hrs)\", y = \"REM Sleep (hrs)\", title = \"REM Sleep Trends Positively with Total Sleep\",\n       subtitle = \"The same holds for carnivores.\") +\n  theme_classic()\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 9 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 22 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\nWarning: Removed 9 rows containing missing values or values outside the scale range\n(`geom_point()`)."
+    "text": "Communication\nIn this assignment, we will be working with the msleep dataset that comes with the tidyverse library. This data set has information of the sleep characteristics for different mammals! Check out the data with ?msleep to read a little bit about the variables (feel free to comment out or remove afterwards.\n\n3) Then, use three functions to get a sense of the data.\n\nhead(msleep)\n\n# A tibble: 6 × 11\n  name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake\n  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n1 Cheetah Acin… carni Carn… lc                  12.1      NA        NA      11.9\n2 Owl mo… Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  \n3 Mounta… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6\n4 Greate… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1\n5 Cow     Bos   herbi Arti… domesticated         4         0.7       0.667  20  \n6 Three-… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6\n# ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;\n\nstr(msleep)\n\ntibble [83 × 11] (S3: tbl_df/tbl/data.frame)\n $ name        : chr [1:83] \"Cheetah\" \"Owl monkey\" \"Mountain beaver\" \"Greater short-tailed shrew\" ...\n $ genus       : chr [1:83] \"Acinonyx\" \"Aotus\" \"Aplodontia\" \"Blarina\" ...\n $ vore        : chr [1:83] \"carni\" \"omni\" \"herbi\" \"omni\" ...\n $ order       : chr [1:83] \"Carnivora\" \"Primates\" \"Rodentia\" \"Soricomorpha\" ...\n $ conservation: chr [1:83] \"lc\" NA \"nt\" \"lc\" ...\n $ sleep_total : num [1:83] 12.1 17 14.4 14.9 4 14.4 8.7 7 10.1 3 ...\n $ sleep_rem   : num [1:83] NA 1.8 2.4 2.3 0.7 2.2 1.4 NA 2.9 NA ...\n $ sleep_cycle : num [1:83] NA NA NA 0.133 0.667 ...\n $ awake       : num [1:83] 11.9 7 9.6 9.1 20 9.6 15.3 17 13.9 21 ...\n $ brainwt     : num [1:83] NA 0.0155 NA 0.00029 0.423 NA NA NA 0.07 0.0982 ...\n $ bodywt      : num [1:83] 50 0.48 1.35 0.019 600 ...\n\nsummary(msleep)\n\n     name              genus               vore              order          \n Length:83          Length:83          Length:83          Length:83         \n Class :character   Class :character   Class :character   Class :character  \n Mode  :character   Mode  :character   Mode  :character   Mode  :character  \n                                                                            \n                                                                            \n                                                                            \n                                                                            \n conservation        sleep_total      sleep_rem      sleep_cycle    \n Length:83          Min.   : 1.90   Min.   :0.100   Min.   :0.1167  \n Class :character   1st Qu.: 7.85   1st Qu.:0.900   1st Qu.:0.1833  \n Mode  :character   Median :10.10   Median :1.500   Median :0.3333  \n                    Mean   :10.43   Mean   :1.875   Mean   :0.4396  \n                    3rd Qu.:13.75   3rd Qu.:2.400   3rd Qu.:0.5792  \n                    Max.   :19.90   Max.   :6.600   Max.   :1.5000  \n                                    NA's   :22      NA's   :51      \n     awake          brainwt            bodywt        \n Min.   : 4.10   Min.   :0.00014   Min.   :   0.005  \n 1st Qu.:10.25   1st Qu.:0.00290   1st Qu.:   0.174  \n Median :13.90   Median :0.01240   Median :   1.670  \n Mean   :13.57   Mean   :0.28158   Mean   : 166.136  \n 3rd Qu.:16.15   3rd Qu.:0.12550   3rd Qu.:  41.750  \n Max.   :22.10   Max.   :5.71200   Max.   :6654.000  \n                 NA's   :27                          \n\n\n\n\n4a) Plot the distributions of the variables sleep_total and bodywt in two separate plots. Feel free to use whatever type of distributional geom you prefer.\n\nggplot(msleep, aes(x = sleep_total)) +\n  geom_histogram(bins = 12)\n\n\n\n\n\n\n\nggplot(msleep, aes(x = bodywt)) +\n  geom_histogram(bins = 15)\n\n\n\n\n\n\n\n\n\n\n4b) Describe what you see in the plots above.\nThe sleep_total variable is normal-ish, with pretty thick tails. It appears pretty symmetrical. The body_wt variable has some very large outliers!\n\n\n5a) Make a scatterplot with body weight on the x-axis and total sleep on the y-axis.\n\nmsleep |&gt;\n  ggplot(aes(x = bodywt, y = sleep_total)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n5b) Label two points you consider interesting / outliers with the type of animal they are (Hint: first, filter() the data to see what the animal names are for the points you select. Then, annotate() the data with a text geom at x and y values close to the selected points. You can absolutely use another solution to label if you’d like; this is just one way).\n\nmsleep |&gt;\n  filter(bodywt &gt; 2000)\n\n# A tibble: 2 × 11\n  name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake\n  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n1 Asian … Elep… herbi Prob… en                   3.9        NA          NA  20.1\n2 Africa… Loxo… herbi Prob… vu                   3.3        NA          NA  20.7\n# ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;\n\nmsleep |&gt;\n  ggplot(aes(x = bodywt, y = sleep_total)) +\n  geom_point() +\n  annotate(\"text\", x = 2300, y = 5, label = \"Asian elephant\") +\n  annotate(\"text\", x = 6300, y = 5, label = \"African elephant\")\n\n\n\n\n\n\n\n\n\n\n5c) Modify the x-axis label and y-axis label to be more readable and descriptive. Make sure to add units!\n\nmsleep |&gt;\n  ggplot(aes(x = bodywt, y = sleep_total)) +\n  geom_point() +\n  annotate(\"text\", x = 2300, y = 5, label = \"Asian elephant\") +\n  annotate(\"text\", x = 6300, y = 5, label = \"African elephant\") +\n  labs(y = \"Total Sleep (hrs)\", x = \"Body Weight (kg)\")\n\n\n\n\n\n\n\n\n\n\n6a) Let’s say you’re more interested in larger mammals. Create a new version of the dataset that only has mammals under 45kg. Also, create a new variable that represents the ratio of brain weight to body weight (Hint: divide brain weight by body weight).\n\nlarge_mammals &lt;- filter(msleep, bodywt &lt; 45) |&gt;\n  mutate(brain_prop = brainwt / bodywt)\n\n\n\n6b) Create a scatterplot that evaluates the association between the brain-to-body weight proportion variable you created (put that on the x-axis) and total hours of sleep.\n\nlarge_mammals |&gt;\n  ggplot(aes(x = brain_prop, y = sleep_total)) +\n  geom_point()\n\nWarning: Removed 19 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n6c) Emphasize the points on the graph that represent herbivores (Hint: make a filtered version of the dataset that only includes carnivores and layer on another geom_point()). Add a text annotation on the plot that indicates the group is herbivores.\n\nlarge_mammals |&gt;\n  ggplot(aes(x = brain_prop, y = sleep_total)) +\n  geom_point() +\n  geom_point(data = filter(large_mammals, vore == \"herbi\"), color = \"seagreen\") +\n  annotate(\"text\", y = 5, x = .002, label = \"herbivores\", color = \"seagreen\")\n\nWarning: Removed 19 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\nWarning: Removed 11 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n7) Make one more scatterplot of two variables of interest. Make at least two annotations to the plot of things / trends you find interesting. Some ideas: label your favorite mammal on the plot with its name, add a reference line, highlight endangered animals, etc. Add a label and descriptive title to this plot. Try to make this plot as self-explanatory as possible!\n\nggplot(msleep, aes(x = sleep_total, y = sleep_rem)) +\n  geom_point() +\n  geom_point(data = filter(msleep, vore == \"carni\"), color = \"lightpink\") +\n  geomtextpath::geom_textsmooth(data = filter(msleep, vore == \"carni\"), color = \"lightpink\",\n                                label = \"carnivores\", method = \"lm\", hjust = .8) +\n  geom_point(data = filter(msleep, genus == \"Felis\"), color = \"salmon\") +\n  geom_point(data = filter(msleep, genus == \"Felis\"), color = \"salmon\", shape = \"circle open\", size = 3) +\n  annotate(\"text\", x = 12, y = 3.5, label = \"house cat\", color = \"salmon\") +\n  labs(x = \"Total Sleep (hrs)\", y = \"REM Sleep (hrs)\", title = \"REM Sleep Trends Positively with Total Sleep\",\n       subtitle = \"The same holds for carnivores.\") +\n  theme_classic()\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 9 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 22 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\nWarning: Removed 9 rows containing missing values or values outside the scale range\n(`geom_point()`)."
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/Lab 10 Assignment.html",
+    "href": "labs/Lab 10 - Advanced R/Lab 10 Assignment.html",
+    "title": "PSYC2020L Assignment 10",
+    "section": "",
+    "text": "Communication"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/Lab 10 Assignment.html#goals-for-review",
+    "href": "labs/Lab 10 - Advanced R/Lab 10 Assignment.html#goals-for-review",
+    "title": "PSYC2020L Assignment 10",
+    "section": "",
+    "text": "Communication"
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/Lab 10 Assignment.html#setting-up",
+    "href": "labs/Lab 10 - Advanced R/Lab 10 Assignment.html#setting-up",
+    "title": "PSYC2020L Assignment 10",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 10 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Please load the tidyverse!."
+  },
+  {
+    "objectID": "labs/Lab 10 - Advanced R/Lab 10 Assignment.html#communication",
+    "href": "labs/Lab 10 - Advanced R/Lab 10 Assignment.html#communication",
+    "title": "PSYC2020L Assignment 10",
+    "section": "Communication",
+    "text": "Communication\nIn this assignment, we will be working with the msleep dataset that comes with the tidyverse library. This data set has information of the sleep characteristics for different mammals! Check out the data with ?msleep to read a little bit about the variables (feel free to comment out or remove afterwards.\n\n3) Then, use three functions to get a sense of the data.\n\n\n4a) Plot the distributions of the variables sleep_total and bodywt in two separate plots. Feel free to use whatever type of distributional geom you prefer.\n\n\n4b) Describe what you see in the plots above.\n\n\n5a) Make a scatterplot with body weight on the x-axis and total sleep on the y-axis.\n\n\n5b) Label two points you consider interesting / outliers with the type of animal they are (Hint: first, filter() the data to see what the animal names are for the points you select. Then, annotate() the data with a text geom at x and y values close to the selected points. You can absolutely use another solution to label if you’d like; this is just one way).\n\n\n5c) Modify the x-axis label and y-axis label to be more readable and descriptive. Make sure to add units!\n\n\n6a) Let’s say you’re more interested in larger mammals. Create a new version of the dataset that only has mammals under 45kg. Also, create a new variable that represents the ratio of brain weight to body weight (Hint: divide brain weight by body weight).\n\n\n6b) Create a scatterplot that evaluates the association between the brain-to-body weight proportion variable you created (put that on the x-axis) and total hours of sleep.\n\n\n6c) Emphasize the points on the graph that represent herbivores (Hint: make a filtered version of the dataset that only includes carnivores and layer on another geom_point()). Add a text annotation on the plot that indicates the group is herbivores.\n\n\n7) Make one more scatterplot of two variables of interest. Make at least two annotations to the plot of things / trends you find interesting. Some ideas: label your favorite mammal on the plot with its name, add a reference line, highlight endangered animals, etc. Add a label and descriptive title to this plot. Try to make this plot as self-explanatory as possible!"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#outline",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#outline",
+    "title": "Chi-Squared Test",
+    "section": "Outline",
+    "text": "Outline\n\nChi-Squared (\\(\\chi^2\\)) Test\n\nLearning objectives:\nR: \\(\\chi^2\\) Tests"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi-squared-chi2-test",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi-squared-chi2-test",
+    "title": "Chi-Squared Test",
+    "section": "Chi-Squared (\\(\\chi^2\\)) Test",
+    "text": "Chi-Squared (\\(\\chi^2\\)) Test\nTesting inferences about proportions\n○ Involve categorical variables\nComparing observed frequencies (counts) to some expected (null hypothesis) frequencies\n\\(\\chi^2\\) Test of Proportions: expected frequencies are set by researcher (e.g., null hypothesis is equal frequencies across all groups)\n\\(\\chi^2\\) Test of Independence: expected frequencies are those implied by independence"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi-squared-chi2-test-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi-squared-chi2-test-1",
+    "title": "Chi-Squared Test",
+    "section": "Chi-Squared (\\(\\chi^2\\)) Test",
+    "text": "Chi-Squared (\\(\\chi^2\\)) Test\nInstead of a continuous variable, our outcome is a count\n\n\nContinuous\n\nHeight\nPetal length\nTest score\n\n\nCounts\n\nCoin flip being heads\nNumber of pets\nGoals scored\n\nOnly integers"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions",
+    "text": "\\(\\chi^2\\) Test of Proportions\nDo the observed frequencies of a categorical variable differ from what expected a priori?\nTypically, this expectation is equal occurrence across groups (but doesn’t have to be)\nIf equal occurrence, what would be our expected frequencies?\n\n\n100 coin flips\n\n\n\nHeads\nTails\n\n\n\n\n50\n50\n\n\n\n\nFavorite primary color of 33 students\n\n\n\nRed\nBlue\nYellow\n\n\n\n\n11\n11\n11\n\n\n\n\nCan also hypothesize proportions and convert to frequencies once you have a sample size"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-hypotheses",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-hypotheses",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions: Hypotheses",
+    "text": "\\(\\chi^2\\) Test of Proportions: Hypotheses\n\\(H_0\\): Observed data match the expected frequencies for the population\n\\(H_A\\): Observed data do not match the expected frequencies for the population\n○ Observed frequency is either significantly lower / higher than expected\n\\(H_0\\): \\(p_j – \\pi_j = 0\\) for all categories \\(j\\); difference for all categories is 0, where\n\\(p_j\\) = sample (observed) proportion\n\\(\\pi_j\\) = expected (population) proportion\n\\(H_A\\): \\(p_j – \\pi_j \\neq 0\\) for all categories \\(j\\)"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-generally",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-generally",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Generally",
+    "text": "\\(\\chi^2\\) Test of Proportions Generally\n\\[ \\chi^2 = \\sum_{j=0}^{J} \\frac{(y_j – N\\pi_j)^2}{N\\pi_j} = \\sum_{j=0}^{J} \\frac{(y_j – m_j)^2}{m_j} \\]\nwhere\n\\(y_j\\) = observed frequency\n\\(N\\) = total sample size\n\\(m_j\\) = expected frequency\nThe sum of the squared differences between the observed and expected frequencies, divided by the expected frequency, for each group."
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-generally-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-generally-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Generally",
+    "text": "\\(\\chi^2\\) Test of Proportions Generally\n\\(\\text{df} = J - 1\\), where\n\\(J\\) = number of categories\nUse to identify critical \\(\\chi^2\\) value from \\(\\chi^2\\) table, R, etc.\nFor \\(\\chi^2\\), as \\(\\text{df}\\) increases, so does the critical-\\(\\chi^2\\) value (at same \\(\\alpha\\))\nOnly ever a one-tailed test! For the upper end of the distribution."
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Distribution",
+    "text": "\\(\\chi^2\\) Distribution"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-cutoffs",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-cutoffs",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Cutoffs",
+    "text": "\\(\\chi^2\\) Test of Proportions Cutoffs\n\n\nCutoff for test of heads vs. tails count\n\\(J =\\) 2\n\\(\\text{df} = J - 1 =\\) 1\n\nqchisq(.95, 1)\n\n[1] 3.841459\n\nqchisq(.05, 1, lower.tail = F)\n\n[1] 3.841459\n\n\n\nCutoff for test of favorite color in the rainbow count\n\\(J =\\) 7 (ROYGBIV)\n\\(\\text{df} = J - 1 =\\) 6\n\nqchisq(.95, 6)\n\n[1] 12.59159\n\nqchisq(.05, 6, lower.tail = F)\n\n[1] 12.59159"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Example",
+    "text": "\\(\\chi^2\\) Test of Proportions Example\nYou are an education psychologist interested in college students’ choice of majors. You’ve grouped majors into five categories: STEM, Social Sciences, Humanities, Arts, and Business. You’d like to test whether there are differences in the population of students choosing those majors. You sample 100 students and ask what major they chose.\nFirst, what are your expected frequencies for each category?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSTEM\nSocial Sciences\nHumanities\nArts\nBusiness\n\n\n\n\nExpected\n\n\n\n\n\n\n\n\n\n\n\n\nObserved"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Example",
+    "text": "\\(\\chi^2\\) Test of Proportions Example\nYou are an education psychologist interested in college students’ choice of majors. You’ve grouped majors into five categories: STEM, Social Sciences, Humanities, Arts, and Business. You’d like to test whether there are differences in the population of students choosing those majors. You sample 100 students and ask what major they chose.\nNext, what is your \\(\\chi^2\\) cutoff value?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSTEM\nSocial Sciences\nHumanities\nArts\nBusiness\n\n\n\n\nExpected\n20\n20\n20\n20\n20\n\n\nObserved\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndf &lt;- 5 - 1\nchisq_crit &lt;- qchisq(.95, df)\nchisq_crit\n\n[1] 9.487729"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-2",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-2",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Example",
+    "text": "\\(\\chi^2\\) Test of Proportions Example\nYou are an education psychologist interested in college students’ choice of majors. You’ve grouped majors into five categories: STEM, Social Sciences, Humanities, Arts, and Business. You’d like to test whether there are differences in the population of students choosing those majors. You sample 100 students and ask what major they chose.\nHere are the observed values:\n\n\n\n\n\n\n\n\n\nSTEM\nSocial Sciences\nHumanities\nArts\nBusiness\n\n\n\n\nExpected\n20\n20\n20\n20\n20\n\n\nObserved\n65\n10\n5\n5\n15"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-3",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-3",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Example",
+    "text": "\\(\\chi^2\\) Test of Proportions Example\n\\[ \\chi^2 = \\sum_{j=0}^{J} \\frac{(y_j – N\\pi_j)^2}{N\\pi_j} = \\sum_{j=0}^{J} \\frac{(y_j – m_j)^2}{m_j} \\]\n\nobs_chisq &lt;- (65 - 20)^2 / 20 +\n  (10 - 20)^2 / 20 +\n  (5 - 20)^2 / 20 +\n  (5 - 20)^2 / 20 +\n  (15 - 20)^2 / 20\nobs_chisq\n\n[1] 130\n\nobs_chisq &gt; chisq_crit\n\n[1] TRUE\n\n\nWe can reject the null in favor of the alternative that the number of students is not the same across majors."
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-r-function",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-r-function",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions R Function",
+    "text": "\\(\\chi^2\\) Test of Proportions R Function\n\n\n\nmajordat &lt;- data.frame(major = c(\"STEM\", \"Social.Sciences\", \"Humanities\", \"Arts\", \"Business\"),\n           observed = c(65, 10, 5, 5, 15))\n\nchisq &lt;- majordat |&gt;\n  select(observed) |&gt;\n  chisq.test()\nchisq\n\n\n    Chi-squared test for given probabilities\n\ndata:  select(majordat, observed)\nX-squared = 130, df = 4, p-value &lt; 2.2e-16\n\n\n\n\nchisq$expected\n\n[1] 20 20 20 20 20\n\nchisq$statistic\n\nX-squared \n      130 \n\nchisq$p.value\n\n[1] 3.89406e-27"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-4",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-4",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Example",
+    "text": "\\(\\chi^2\\) Test of Proportions Example\nLet’s restart and say that you were a educational psychologist interested in how students in STEM schools choose their major. In this situation, you had expected more students to select a STEM major than other majors.\nThese are your expected frequencies (60% STEM, evenly divided across the rest):\n\n\n\n\n\n\n\n\n\nSTEM\nSocial Sciences\nHumanities\nArts\nBusiness\n\n\n\n\nExpected\n60\n10\n10\n10\n10\n\n\nObserved\n65\n10\n5\n5\n15"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-r-function-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-r-function-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions R Function",
+    "text": "\\(\\chi^2\\) Test of Proportions R Function\n\n\n\nchisq.test(x = c(65, 10, 5, 5, 15), p = c(60, 10, 10, 10, 10), rescale.p = T)\n\n\n    Chi-squared test for given probabilities\n\ndata:  c(65, 10, 5, 5, 15)\nX-squared = 7.9167, df = 4, p-value = 0.09468\n\nchisq.test(x = c(65, 10, 5, 5, 15), p = c(.60, .10, .10, .10, .10))\n\n\n    Chi-squared test for given probabilities\n\ndata:  c(65, 10, 5, 5, 15)\nX-squared = 7.9167, df = 4, p-value = 0.09468\n\n\n\n○ x = data of frequencies\n○ p = expected probabilities\n○ rescale.p = [T/F], will rescale p to probabilities if you prefer to input frequencies"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Independence",
+    "text": "\\(\\chi^2\\) Test of Independence\nDo the observed frequencies of a categorical variable differ from what expected via properties of independence?\n○ Now considering more than one type of category\n\nNumber of pets by both cat vs. dog people and undergrad vs. post-graduate\n\nSets up an (at least) 2x2 contingency table\n\n\n\n\nCat Person\nDog Person\n\n\n\n\nUndergrad\n\n\n\n\nPost-Graduate\n\n\n\n\n\nCalculate the expected frequencies from the marginal totals of the contingency table ○ Expected values determined from data"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-hypotheses",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-hypotheses",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Independence: Hypotheses",
+    "text": "\\(\\chi^2\\) Test of Independence: Hypotheses\n\\(H_0\\): Categorical Variable 1 and Categorical Variable 2 have no association (i.e., are independent)\n\\(H_A\\): Categorical Variable 1 and Categorical Variable 2 have some association (i.e., are not independent)\n○ Testing whether expected frequencies match those expected by properties of independence\nThe same:\n\\(H_0\\): \\(p_j – \\pi_j = 0\\) for all categories \\(j\\); difference for all categories is 0, where\n\\(p_j\\) = sample (observed) proportion\n\\(\\pi_j\\) = expected (population) proportion\n\\(H_A\\): \\(p_j – \\pi_j \\neq 0\\) for all categories \\(j\\)"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-generally",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-generally",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Independence Generally",
+    "text": "\\(\\chi^2\\) Test of Independence Generally\n\\[ \\chi^2 = \\sum_{j_1=0}^{J_1}\\sum_{j_2=0}^{J_2} \\frac{(y_j – N\\pi_j)^2}{N\\pi_j} = \\sum_{j_1=0}^{J_1}\\sum_{j_2=0}^{J_2} \\frac{(y_j – m_j)^2}{m_j} \\]\nBasically identical formula to calculate the \\(\\chi^2\\).\nThe difference is that our expected frequencies \\(m_j\\) are derived from the data. Just like before, we calculate the difference from each cell, but now we have two categories that make up the cell.\nThe sum of the squared differences between the observed and expected frequencies, divided by the expected frequency, for each cell"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-cutoffs",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-cutoffs",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Independence Cutoffs",
+    "text": "\\(\\chi^2\\) Test of Independence Cutoffs\n\\(\\text{df} = (J_1 - 1) \\times (J_2 - 1) = J_1 \\times J_2 - 2\\) or\n\\(\\text{df} = (n_{rows} - 1) \\times (n_{cols} - 1) = n_{rows} \\times n_{cols} - 2\\)\nWhat is the critical \\(\\chi^2\\) value in a test of independence for a 3x2?\n\ndf &lt;- (3 - 1) * (2 - 1)\ndf\n\n[1] 2\n\nqchisq(.95, df)\n\n[1] 5.991465"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-5",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-5",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Example",
+    "text": "\\(\\chi^2\\) Test of Proportions Example\nYou are another educational psychologist, and you’re interested in examining your department’s student body makeup. You wonder whether there is an association between students’ level (graduate vs. undergraduate) and whether they are an in-state student or not. You sample 50 students from your department, and these are the frequencies you observe.\nFirst, what are your expected frequencies for each category?\n\n\n\n\n\n\n\n\n\nIn-State\nOut-of-State\n\n\n\n\nUndergrad\n25\n10\n\n\nGraduate\n5\n10"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-calculating-expected-frequencies",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-calculating-expected-frequencies",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Example: Calculating Expected Frequencies",
+    "text": "\\(\\chi^2\\) Test of Proportions Example: Calculating Expected Frequencies\nFirst, get the marginal totals for each column\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn-State\nOut-of-State\nTotal\n\n\n\n\nUndergrad\n25\n10\n\n\n\n\nGraduate\n5\n10\n\n\n\n\nTotal"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-calculating-expected-frequencies-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-calculating-expected-frequencies-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Example: Calculating Expected Frequencies",
+    "text": "\\(\\chi^2\\) Test of Proportions Example: Calculating Expected Frequencies\n\n\n\n\n\n\n\n\n\nIn-State\nOut-of-State\nTotal\n\n\n\n\nUndergrad\n25\n10\n35\n\n\nGraduate\n5\n10\n15\n\n\nTotal\n30\n20\n50\n\n\n\n\n\n\n\nExpected cell frequency = marginal column proportion \\(\\times\\) marginal row proportion\n\nUndergrad & In-State = \\(\\frac{35}{50} \\times \\frac{30}{50} \\times 50 = 21\\)\nUndergrad & Out-of-State = \\(\\frac{35}{50} \\times \\frac{20}{50} \\times 50 = 14\\)\nGraduate & In-State = \\(\\frac{15}{50} \\times \\frac{30}{50} \\times 50 = 9\\)\nGraduate & Out-of-State = \\(\\frac{15}{50} \\times \\frac{20}{50} \\times 50 = 6\\)\n\n\n\n\n\n\n\n\n\n\nIn-State\nOut-of-State\nTotal\n\n\n\n\nUndergrad\n25\n10\n35\n\n\nGraduate\n5\n10\n15\n\n\nTotal\n30\n20\n50\n\n\n\n\n\n\n\n\n\n\n\n\nIn-State\nOut-of-State\nTotal\n\n\n\n\nUndergrad\n21\n14\n35\n\n\nGraduate\n9\n6\n15\n\n\nTotal\n30\n20\n50"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-6",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-6",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Proportions Example",
+    "text": "\\(\\chi^2\\) Test of Proportions Example\n\\[ \\chi^2 = \\sum_{j=0}^{J} \\frac{(y_j – N\\pi_j)^2}{N\\pi_j} = \\sum_{j=0}^{J} \\frac{(y_j – m_j)^2}{m_j} \\]\n\ndata.frame(type = c(\"Undergrad\", \"Graduate\", \"Total\"),\n           `In-State` = c(25, 5, 30),\n           `Out-of-State` = c(10, 10, 20),\n           Total = c(35, 15, 50)) \n\n       type In.State Out.of.State Total\n1 Undergrad       25           10    35\n2  Graduate        5           10    15\n3     Total       30           20    50\n\nchisq_crit &lt;- qchisq(.95, df = (2 - 1) * (2 - 1))\n\nobs_chisq &lt;- (25 - 21)^2 / 21 +\n  (10 - 14)^2 / 14 +\n  (5 - 9)^2 / 9 +\n  (10 - 6)^2 / 6\nobs_chisq\n\n[1] 6.349206\n\nobs_chisq &gt; chisq_crit\n\n[1] TRUE"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-r-function",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-r-function",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Independence R Function",
+    "text": "\\(\\chi^2\\) Test of Independence R Function\n\n\n\nstuddat &lt;- data.frame(type = c(\"Undergrad\", \"Graduate\"),\n           `In-State` = c(25, 5),\n           `Out-of-State` = c(10, 10))\nstuddat |&gt;\n  select(-type) |&gt;\n  chisq.test(correct = F)\n\n\n    Pearson's Chi-squared test\n\ndata:  select(studdat, -type)\nX-squared = 6.3492, df = 1, p-value = 0.01174\n\n\n\n○ correct = [T/F], applies a “continuity correction” to the \\(\\chi^2\\) value. Default is T. Change to F!\n\nWe can reject the null in favor of the alternative that students’ level (graduate vs. undergraduate) and whether they are an in-state student or not have some association."
+  },
+  {
+    "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#t-statistic-cutoffs-table",
+    "href": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#t-statistic-cutoffs-table",
+    "title": "Independent and Paired Sample T-Test",
+    "section": "T-Statistic Cutoffs: Table",
+    "text": "T-Statistic Cutoffs: Table"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html",
+    "href": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html",
+    "title": "PSYC2020L Assignment 12",
+    "section": "",
+    "text": "Chi-Squared Tests"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html#goals-for-review",
+    "href": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 12",
+    "section": "",
+    "text": "Chi-Squared Tests"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html#setting-up",
+    "href": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html#setting-up",
+    "title": "PSYC2020L Assignment 12",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 12 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Please load the tidyverse!.\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L\"\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\ndata.frame(color = sample(c(\"green\", \"red\", \"orange\", \"brown\"),\n                          size = 200, replace = T,\n                          prob = c(.1, .3, .5, .1)))\n\n     color\n1   orange\n2    brown\n3      red\n4      red\n5   orange\n6   orange\n7   orange\n8   orange\n9    brown\n10  orange\n11     red\n12   green\n13   green\n14     red\n15     red\n16  orange\n17  orange\n18     red\n19  orange\n20   green\n21   brown\n22     red\n23     red\n24     red\n25  orange\n26  orange\n27   brown\n28  orange\n29  orange\n30     red\n31   brown\n32  orange\n33  orange\n34     red\n35     red\n36  orange\n37     red\n38     red\n39  orange\n40  orange\n41  orange\n42   green\n43     red\n44     red\n45     red\n46     red\n47  orange\n48   brown\n49     red\n50  orange\n51  orange\n52   brown\n53     red\n54   brown\n55     red\n56  orange\n57  orange\n58  orange\n59  orange\n60  orange\n61   green\n62   brown\n63  orange\n64  orange\n65   brown\n66  orange\n67  orange\n68     red\n69  orange\n70  orange\n71     red\n72  orange\n73  orange\n74  orange\n75   green\n76  orange\n77  orange\n78  orange\n79     red\n80     red\n81     red\n82   green\n83  orange\n84  orange\n85  orange\n86  orange\n87   brown\n88     red\n89  orange\n90     red\n91     red\n92   brown\n93   green\n94  orange\n95   brown\n96     red\n97  orange\n98  orange\n99  orange\n100    red\n101  green\n102 orange\n103 orange\n104 orange\n105  green\n106 orange\n107 orange\n108    red\n109 orange\n110 orange\n111  green\n112 orange\n113 orange\n114 orange\n115  brown\n116 orange\n117 orange\n118  green\n119    red\n120    red\n121  brown\n122 orange\n123 orange\n124 orange\n125    red\n126 orange\n127    red\n128    red\n129 orange\n130 orange\n131 orange\n132  brown\n133 orange\n134  green\n135 orange\n136    red\n137    red\n138    red\n139 orange\n140 orange\n141    red\n142    red\n143  green\n144  brown\n145 orange\n146    red\n147 orange\n148  brown\n149 orange\n150 orange\n151  green\n152    red\n153    red\n154    red\n155 orange\n156 orange\n157  green\n158 orange\n159  green\n160 orange\n161    red\n162    red\n163 orange\n164    red\n165 orange\n166  brown\n167  green\n168    red\n169 orange\n170 orange\n171 orange\n172  brown\n173  green\n174 orange\n175 orange\n176  brown\n177 orange\n178 orange\n179 orange\n180    red\n181    red\n182 orange\n183 orange\n184  green\n185 orange\n186 orange\n187    red\n188 orange\n189 orange\n190 orange\n191 orange\n192    red\n193 orange\n194    red\n195 orange\n196 orange\n197 orange\n198 orange\n199 orange\n200 orange\n\nleaves &lt;- data.frame(prob = rnorm(1000)) |&gt;\n  mutate(color = case_when(prob &lt; qnorm(.1) ~ \"green\",\n                           prob &lt; qnorm(.4) ~ \"red\",\n                           prob &lt; qnorm(.9) ~ \"orange\",\n                           prob &lt; qnorm(1) ~ \"brown\") |&gt;\n           factor(levels = c(\"green\", \"red\", \"orange\", \"brown\"))) |&gt;\n  mutate(.by = color,\n         fallen = case_when(color == \"green\" ~ sample(c(\"no\", \"yes\"), n(), replace = T, prob = c(.9, .1)),\n                            color == \"red\" ~ sample(c(\"no\", \"yes\"), n(), replace = T, prob = c(.7, .3)),\n                            color == \"orange\" ~ sample(c(\"no\", \"yes\"), n(), replace = T, prob = c(.5, .5)),\n                            color == \"brown\" ~ sample(c(\"no\", \"yes\"), n(), replace = T, prob = c(.3, .7)))) |&gt;\n  select(-prob)\n\nleaves &lt;- rio::import(here::here(\"labs\", \"Lab 12 - Chi-Squared Test\", \"leaves.csv\"))\n\n\n\n3) Download and relocate the leaves.csv file to your folder for this class. Read in the file and display the first few rows of the data. This dataset contains the color and whether a not a leaf had fallen from its tree for 1,000 leaves.\n\nleaves &lt;- rio::import(here::here(\"labs\", \"Lab 12 - Chi-Squared Test\", \"leaves.csv\"))"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html#chi-squared-test-of-proportions",
+    "href": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html#chi-squared-test-of-proportions",
+    "title": "PSYC2020L Assignment 12",
+    "section": "Chi-Squared Test of Proportions",
+    "text": "Chi-Squared Test of Proportions\n\n4) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You’ve recorded the color of 1000 leaves, and you’d like to test if there is a difference in the frequency of the colors of the leaves."
   }
 ]

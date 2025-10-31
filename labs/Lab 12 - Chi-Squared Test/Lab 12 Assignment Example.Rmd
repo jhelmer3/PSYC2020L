@@ -1,0 +1,69 @@
+---
+title: "PSYC2020L Assignment 12"
+author: "[name]"
+date: "2025-11-07"
+output: html_document
+---
+
+## Goals for Review:
+
+* Chi-Squared Tests
+
+
+## Setting Up
+
+### 1) Rename this assignment as "Lab 12 Assignment [Last, First].Rmd" 
+
+### 2) Check and set (if needed) your working directory. If you'd like to load packages with `library()`, please do so in this block. Please load the `tidyverse`!. 
+```{r}
+here::here()
+
+library(tidyverse)
+```
+
+```{r}
+data.frame(color = sample(c("green", "red", "orange", "brown"),
+                          size = 200, replace = T,
+                          prob = c(.1, .3, .5, .1)))
+
+leaves <- data.frame(prob = rnorm(1000)) |>
+  mutate(color = case_when(prob < qnorm(.1) ~ "green",
+                           prob < qnorm(.4) ~ "red",
+                           prob < qnorm(.9) ~ "orange",
+                           prob < qnorm(1) ~ "brown") |>
+           factor(levels = c("green", "red", "orange", "brown"))) |>
+  mutate(.by = color,
+         fallen = case_when(color == "green" ~ sample(c("no", "yes"), n(), replace = T, prob = c(.9, .1)),
+                            color == "red" ~ sample(c("no", "yes"), n(), replace = T, prob = c(.7, .3)),
+                            color == "orange" ~ sample(c("no", "yes"), n(), replace = T, prob = c(.5, .5)),
+                            color == "brown" ~ sample(c("no", "yes"), n(), replace = T, prob = c(.3, .7)))) |>
+  select(-prob)
+
+leaves <- rio::import(here::here("labs", "Lab 12 - Chi-Squared Test", "leaves.csv"))
+```
+
+### 3) Download and relocate the leaves.csv file to your folder for this class. Read in the file and display the first few rows of the data. This dataset contains the color and whether a not a leaf had fallen from its tree for 1,000 leaves.
+
+```{r}
+leaves <- rio::import(here::here("labs", "Lab 12 - Chi-Squared Test", "leaves.csv"))
+```
+
+
+## Chi-Squared Test of Proportions
+
+### 4) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You've recorded the color of 1000 leaves, and you'd like to test if there is a difference in the frequency of the colors of the leaves. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
