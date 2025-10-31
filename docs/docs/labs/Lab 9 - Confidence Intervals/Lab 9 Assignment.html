@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jessica Helmer">
-<meta name="dcterms.date" content="2025-10-31">
+<meta name="author" content="[name]">
+<meta name="dcterms.date" content="2025-10-17">
 
-<title>Psychological Statistics Lab – PSYC 2020L</title>
+<title>PSYC2020L Assignment 9 – PSYC 2020L</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,23 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">PSYC 2020L</span>
     </a>
   </div>
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -111,9 +111,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#positconf2025" id="toc-positconf2025" class="nav-link" data-scroll-target="#positconf2025">posit::conf(2025)</a></li>
-  <li><a href="#labs" id="toc-labs" class="nav-link" data-scroll-target="#labs">Labs</a></li>
+  <li><a href="#goals-for-review" id="toc-goals-for-review" class="nav-link active" data-scroll-target="#goals-for-review">Goals for Review:</a></li>
+  <li><a href="#setting-up" id="toc-setting-up" class="nav-link" data-scroll-target="#setting-up">Setting Up</a>
+  <ul class="collapse">
+  <li><a href="#rename-this-assignment-as-lab-9-assignment-last-first.rmd" id="toc-rename-this-assignment-as-lab-9-assignment-last-first.rmd" class="nav-link" data-scroll-target="#rename-this-assignment-as-lab-9-assignment-last-first.rmd">1) Rename this assignment as “Lab 9 Assignment [Last, First].Rmd”</a></li>
+  <li><a href="#check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block." id="toc-check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block." class="nav-link" data-scroll-target="#check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block.">2) Check and set (if needed) your working directory. If you’d like to load packages with <code>library()</code>, please do so in this block.</a></li>
+  </ul></li>
+  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence Intervals</a>
+  <ul class="collapse">
+  <li><a href="#a-calculate-the-95-confidence-interval-around-the-mean-for-iris-sepal-length-and-report-its-interpretation." id="toc-a-calculate-the-95-confidence-interval-around-the-mean-for-iris-sepal-length-and-report-its-interpretation." class="nav-link" data-scroll-target="#a-calculate-the-95-confidence-interval-around-the-mean-for-iris-sepal-length-and-report-its-interpretation.">3a) Calculate the 95% confidence interval around the mean for iris sepal length, and report its interpretation.</a></li>
+  <li><a href="#b-would-you-expect-the-99-confidence-interval-around-the-mean-for-iris-sepal-length-to-be-wider-or-narrower-than-that-of-the-95th-what-about-the-67-confidence-interval" id="toc-b-would-you-expect-the-99-confidence-interval-around-the-mean-for-iris-sepal-length-to-be-wider-or-narrower-than-that-of-the-95th-what-about-the-67-confidence-interval" class="nav-link" data-scroll-target="#b-would-you-expect-the-99-confidence-interval-around-the-mean-for-iris-sepal-length-to-be-wider-or-narrower-than-that-of-the-95th-what-about-the-67-confidence-interval">3b) Would you expect the 99% confidence interval around the mean for iris sepal length to be wider or narrower than that of the 95th? What about the 67% confidence interval?</a></li>
+  <li><a href="#c-calculate-the-67-confidence-interval-around-the-mean-for-iris-sepal-length-and-report-its-interpretation." id="toc-c-calculate-the-67-confidence-interval-around-the-mean-for-iris-sepal-length-and-report-its-interpretation." class="nav-link" data-scroll-target="#c-calculate-the-67-confidence-interval-around-the-mean-for-iris-sepal-length-and-report-its-interpretation.">3c) Calculate the 67% confidence interval around the mean for iris sepal length, and report its interpretation.</a></li>
+  </ul></li>
+  <li><a href="#one-sample-t-test" id="toc-one-sample-t-test" class="nav-link" data-scroll-target="#one-sample-t-test">One-Sample <em>T</em>-Test</a>
+  <ul class="collapse">
+  <li><a href="#a-a-professor-claims-that-students-spend-4.5-hours-per-day-studying.-youre-not-so-sure-you-are-given-a-dataset-studytimes.csv-that-contains-the-study-hours-of-25-students.-your-goal-is-to-load-the-dataset-into-r-and-analyze-whether-the-mean-study-time-is-significantly-different-from-4.5-hours-using-a-one-sample-t-test.-first-load-the-data-in-and-display-the-first-few-rows." id="toc-a-a-professor-claims-that-students-spend-4.5-hours-per-day-studying.-youre-not-so-sure-you-are-given-a-dataset-studytimes.csv-that-contains-the-study-hours-of-25-students.-your-goal-is-to-load-the-dataset-into-r-and-analyze-whether-the-mean-study-time-is-significantly-different-from-4.5-hours-using-a-one-sample-t-test.-first-load-the-data-in-and-display-the-first-few-rows." class="nav-link" data-scroll-target="#a-a-professor-claims-that-students-spend-4.5-hours-per-day-studying.-youre-not-so-sure-you-are-given-a-dataset-studytimes.csv-that-contains-the-study-hours-of-25-students.-your-goal-is-to-load-the-dataset-into-r-and-analyze-whether-the-mean-study-time-is-significantly-different-from-4.5-hours-using-a-one-sample-t-test.-first-load-the-data-in-and-display-the-first-few-rows.">4a) A professor claims that students spend 4.5 hours per day studying. You’re not so sure! You are given a dataset (<code>studytimes.csv</code>) that contains the study hours of 25 students. Your goal is to load the dataset into R and analyze whether the mean study time is significantly different from 4.5 hours using a one-sample <em>t</em>-test. First, load the data in and display the first few rows.</a></li>
+  <li><a href="#b-write-the-null-and-alternative-hypotheses-for-a-two-tailed-test." id="toc-b-write-the-null-and-alternative-hypotheses-for-a-two-tailed-test." class="nav-link" data-scroll-target="#b-write-the-null-and-alternative-hypotheses-for-a-two-tailed-test.">4b) Write the null and alternative hypotheses for a two-tailed test.</a></li>
+  <li><a href="#c-perform-a-one-sample-t-test-using-the-dataset." id="toc-c-perform-a-one-sample-t-test-using-the-dataset." class="nav-link" data-scroll-target="#c-perform-a-one-sample-t-test-using-the-dataset.">4c) Perform a one-sample <em>t</em>-test using the dataset.</a></li>
+  <li><a href="#d-report-the-p-value-and-interpret-the-results-at-α-0.05." id="toc-d-report-the-p-value-and-interpret-the-results-at-α-0.05." class="nav-link" data-scroll-target="#d-report-the-p-value-and-interpret-the-results-at-α-0.05.">4d) Report the <em>p</em>-value and interpret the results at α = 0.05.</a></li>
+  <li><a href="#e-report-the-95-confidence-interval-for-the-mean-study-time.-does-the-confidence-interval-include-4.5-hours-what-does-that-mean-in-terms-of-hypothesis-testing" id="toc-e-report-the-95-confidence-interval-for-the-mean-study-time.-does-the-confidence-interval-include-4.5-hours-what-does-that-mean-in-terms-of-hypothesis-testing" class="nav-link" data-scroll-target="#e-report-the-95-confidence-interval-for-the-mean-study-time.-does-the-confidence-interval-include-4.5-hours-what-does-that-mean-in-terms-of-hypothesis-testing">4e) Report the 95% confidence interval for the mean study time. Does the confidence interval include 4.5 hours? What does that mean in terms of hypothesis testing?</a></li>
+  <li><a href="#f-what-is-the-effect-size-of-the-difference-between-the-sample-mean-and-the-hypothesized-mean" id="toc-f-what-is-the-effect-size-of-the-difference-between-the-sample-mean-and-the-hypothesized-mean" class="nav-link" data-scroll-target="#f-what-is-the-effect-size-of-the-difference-between-the-sample-mean-and-the-hypothesized-mean">4f) What is the effect size of the difference between the sample mean and the hypothesized mean?</a></li>
+  <li><a href="#g-interpret-the-effect-size." id="toc-g-interpret-the-effect-size." class="nav-link" data-scroll-target="#g-interpret-the-effect-size.">4g) Interpret the effect size.</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -122,8 +141,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Psychological Statistics Lab</h1>
-<p class="subtitle lead">Fall 2025</p>
+<h1 class="title">PSYC2020L Assignment 9</h1>
 </div>
 
 
@@ -133,14 +151,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Jessica Helmer </p>
+             <p>[name] </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 31, 2025</p>
+      <p class="date">October 17, 2025</p>
     </div>
   </div>
   
@@ -152,147 +170,61 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Welcome to the website for PSYC 2020-A01 <strong>Psychological Statistics</strong> / <strong>PSYC 6022-A01 Psychological Statistics for HCI</strong> for Fall 2025! Usage of this site is <em>not</em> required—I will always keep the <a href="https://www.canvas.gatech.edu/">Canvas</a> page updated. However, if this page is helpful to you, feel free to use it!</p>
+<section id="goals-for-review" class="level2">
+<h2 class="anchored" data-anchor-id="goals-for-review">Goals for Review:</h2>
+<ul>
+<li>Confidence Intervals</li>
+<li>One Sample T-Tests</li>
+<li>Effect Size</li>
+</ul>
 </section>
-<section id="positconf2025" class="level2">
-<h2 class="anchored" data-anchor-id="positconf2025">posit::conf(2025)</h2>
-<p>Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity! See here for <a href="./labs/Extra Credit/Extra Credit 1.html">instructions</a>.</p>
+<section id="setting-up" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up">Setting Up</h2>
+<section id="rename-this-assignment-as-lab-9-assignment-last-first.rmd" class="level3">
+<h3 class="anchored" data-anchor-id="rename-this-assignment-as-lab-9-assignment-last-first.rmd">1) Rename this assignment as “Lab 9 Assignment [Last, First].Rmd”</h3>
 </section>
-<section id="labs" class="level2">
-<h2 class="anchored" data-anchor-id="labs">Labs</h2>
-<div class="columns">
-<div class="column" style="width:33%;">
-<section id="lab-1" class="level3">
-<h3 class="anchored" data-anchor-id="lab-1">08/22 - Lab 1</h3>
-<section id="basic-r" class="level4">
-<h4 class="anchored" data-anchor-id="basic-r">Basic R</h4>
-<p><a href="./labs/Lab 1 - Basic R/PSYC2020L Lab 1.html">Slides</a> | <a href="./labs/Lab 1 - Basic R/PSYC2020L Assignment 1.html">Assignment</a></p>
+<section id="check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block." class="level3">
+<h3 class="anchored" data-anchor-id="check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block.">2) Check and set (if needed) your working directory. If you’d like to load packages with <code>library()</code>, please do so in this block.</h3>
 </section>
 </section>
-</div><div class="column" style="width:33%;">
-<section id="lab-2" class="level3">
-<h3 class="anchored" data-anchor-id="lab-2">08/29 - Lab 2</h3>
-<section id="central-tendency" class="level4">
-<h4 class="anchored" data-anchor-id="central-tendency">Central Tendency</h4>
-<p><a href="./labs/Lab 2 - Central Tendency/PSYC2020L Lab 2.html">Slides</a> | <a href="./labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html">Assignment</a></p>
+<section id="confidence-intervals" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-intervals">Confidence Intervals</h2>
+<section id="a-calculate-the-95-confidence-interval-around-the-mean-for-iris-sepal-length-and-report-its-interpretation." class="level3">
+<h3 class="anchored" data-anchor-id="a-calculate-the-95-confidence-interval-around-the-mean-for-iris-sepal-length-and-report-its-interpretation.">3a) Calculate the 95% confidence interval around the mean for iris sepal length, and report its interpretation.</h3>
+</section>
+<section id="b-would-you-expect-the-99-confidence-interval-around-the-mean-for-iris-sepal-length-to-be-wider-or-narrower-than-that-of-the-95th-what-about-the-67-confidence-interval" class="level3">
+<h3 class="anchored" data-anchor-id="b-would-you-expect-the-99-confidence-interval-around-the-mean-for-iris-sepal-length-to-be-wider-or-narrower-than-that-of-the-95th-what-about-the-67-confidence-interval">3b) Would you expect the 99% confidence interval around the mean for iris sepal length to be wider or narrower than that of the 95th? What about the 67% confidence interval?</h3>
+<p>.</p>
+</section>
+<section id="c-calculate-the-67-confidence-interval-around-the-mean-for-iris-sepal-length-and-report-its-interpretation." class="level3">
+<h3 class="anchored" data-anchor-id="c-calculate-the-67-confidence-interval-around-the-mean-for-iris-sepal-length-and-report-its-interpretation.">3c) Calculate the 67% confidence interval around the mean for iris sepal length, and report its interpretation.</h3>
 </section>
 </section>
-</div><div class="column" style="width:33%;">
-<section id="lab-3" class="level3">
-<h3 class="anchored" data-anchor-id="lab-3">09/05 - Lab 3</h3>
-<section id="measures-of-variability" class="level4">
-<h4 class="anchored" data-anchor-id="measures-of-variability">Measures of Variability</h4>
-<p><a href="./labs/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html">Slides</a> | No Assignment</p>
+<section id="one-sample-t-test" class="level2">
+<h2 class="anchored" data-anchor-id="one-sample-t-test">One-Sample <em>T</em>-Test</h2>
+<section id="a-a-professor-claims-that-students-spend-4.5-hours-per-day-studying.-youre-not-so-sure-you-are-given-a-dataset-studytimes.csv-that-contains-the-study-hours-of-25-students.-your-goal-is-to-load-the-dataset-into-r-and-analyze-whether-the-mean-study-time-is-significantly-different-from-4.5-hours-using-a-one-sample-t-test.-first-load-the-data-in-and-display-the-first-few-rows." class="level3">
+<h3 class="anchored" data-anchor-id="a-a-professor-claims-that-students-spend-4.5-hours-per-day-studying.-youre-not-so-sure-you-are-given-a-dataset-studytimes.csv-that-contains-the-study-hours-of-25-students.-your-goal-is-to-load-the-dataset-into-r-and-analyze-whether-the-mean-study-time-is-significantly-different-from-4.5-hours-using-a-one-sample-t-test.-first-load-the-data-in-and-display-the-first-few-rows.">4a) A professor claims that students spend 4.5 hours per day studying. You’re not so sure! You are given a dataset (<code>studytimes.csv</code>) that contains the study hours of 25 students. Your goal is to load the dataset into R and analyze whether the mean study time is significantly different from 4.5 hours using a one-sample <em>t</em>-test. First, load the data in and display the first few rows.</h3>
 </section>
+<section id="b-write-the-null-and-alternative-hypotheses-for-a-two-tailed-test." class="level3">
+<h3 class="anchored" data-anchor-id="b-write-the-null-and-alternative-hypotheses-for-a-two-tailed-test.">4b) Write the null and alternative hypotheses for a two-tailed test.</h3>
 </section>
-</div>
-</div>
-<div class="columns">
-<div class="column" style="width:33%;">
-<section id="lab-4" class="level3">
-<h3 class="anchored" data-anchor-id="lab-4">09/12 Lab 4</h3>
-<section id="z-scores" class="level4">
-<h4 class="anchored" data-anchor-id="z-scores">Z-Scores</h4>
-<p><a href="./labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html">Slides</a> | <a href="./labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html">Assignment</a></p>
+<section id="c-perform-a-one-sample-t-test-using-the-dataset." class="level3">
+<h3 class="anchored" data-anchor-id="c-perform-a-one-sample-t-test-using-the-dataset.">4c) Perform a one-sample <em>t</em>-test using the dataset.</h3>
 </section>
+<section id="d-report-the-p-value-and-interpret-the-results-at-α-0.05." class="level3">
+<h3 class="anchored" data-anchor-id="d-report-the-p-value-and-interpret-the-results-at-α-0.05.">4d) Report the <em>p</em>-value and interpret the results at α = 0.05.</h3>
 </section>
-</div><div class="column" style="width:33%;">
-<section id="lab-5" class="level3">
-<h3 class="anchored" data-anchor-id="lab-5">09/19 Lab 5</h3>
-<section id="intermediate-r" class="level4">
-<h4 class="anchored" data-anchor-id="intermediate-r">Intermediate R</h4>
-<p><a href="./labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html">Slides</a> | <a href="./labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html">Assignment</a></p>
+<section id="e-report-the-95-confidence-interval-for-the-mean-study-time.-does-the-confidence-interval-include-4.5-hours-what-does-that-mean-in-terms-of-hypothesis-testing" class="level3">
+<h3 class="anchored" data-anchor-id="e-report-the-95-confidence-interval-for-the-mean-study-time.-does-the-confidence-interval-include-4.5-hours-what-does-that-mean-in-terms-of-hypothesis-testing">4e) Report the 95% confidence interval for the mean study time. Does the confidence interval include 4.5 hours? What does that mean in terms of hypothesis testing?</h3>
 </section>
+<section id="f-what-is-the-effect-size-of-the-difference-between-the-sample-mean-and-the-hypothesized-mean" class="level3">
+<h3 class="anchored" data-anchor-id="f-what-is-the-effect-size-of-the-difference-between-the-sample-mean-and-the-hypothesized-mean">4f) What is the effect size of the difference between the sample mean and the hypothesized mean?</h3>
 </section>
-</div><div class="column" style="width:33%;">
-<section id="lab-6" class="level3">
-<h3 class="anchored" data-anchor-id="lab-6">09/26 Lab 6</h3>
-<section id="sampling-distributions" class="level4">
-<h4 class="anchored" data-anchor-id="sampling-distributions">Sampling Distributions</h4>
-<p><a href="./labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html">Slides</a> | <a href="./labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html">Assignment</a></p>
-</section>
-</section>
-</div>
-</div>
-<div class="columns">
-<div class="column" style="width:33%;">
-<section id="lab-7" class="level3">
-<h3 class="anchored" data-anchor-id="lab-7">10/03 Lab 7</h3>
-<section id="nhst-i" class="level4">
-<h4 class="anchored" data-anchor-id="nhst-i">NHST I</h4>
-<p><a href="./labs/Lab 7 - NHST I/PSYC2020 Lab 7.html">Slides</a> | <a href="./labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html">Assignment</a></p>
-</section>
-</section>
-</div><div class="column" style="width:33%;">
-<section id="lab-8" class="level3">
-<h3 class="anchored" data-anchor-id="lab-8">10/10 Lab 8</h3>
-<section id="nhst-ii" class="level4">
-<h4 class="anchored" data-anchor-id="nhst-ii">NHST II</h4>
-<p><a href="./labs/Lab 8 - NHST II/PSYC2020 Lab 8.html">Slides</a> | <a href=".\labs/Lab 8 - NHST II/Lab 8 Assignment.rmd">Assignment</a></p>
-</section>
-</section>
-</div><div class="column" style="width:33%;">
-<section id="lab-9" class="level3">
-<h3 class="anchored" data-anchor-id="lab-9">10/17 Lab 9</h3>
-<section id="confidence-intervals" class="level4">
-<h4 class="anchored" data-anchor-id="confidence-intervals">Confidence Intervals</h4>
-<p><a href="./labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html">Slides</a> | <a href="./labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html">Assignment</a></p>
-</section>
-</section>
-</div>
-</div>
-<div class="columns">
-<div class="column" style="width:33%;">
-<section id="lab-10" class="level3">
-<h3 class="anchored" data-anchor-id="lab-10">10/24 Lab 10</h3>
-<section id="advanced-r" class="level4">
-<h4 class="anchored" data-anchor-id="advanced-r">Advanced R</h4>
-<p><a href="./labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html">Slides</a> | <a href="./labs/Lab 10 - Advanced R/Lab 10 Assignment.html">Assignment</a></p>
-</section>
-</section>
-</div><div class="column" style="width:33%;">
-<section id="lab-11" class="level3">
-<h3 class="anchored" data-anchor-id="lab-11">10/31 Lab 11 🎃</h3>
-<section id="independent-and-paired-samples-t-test" class="level4">
-<h4 class="anchored" data-anchor-id="independent-and-paired-samples-t-test">Independent and Paired Samples <em>T</em>-Test</h4>
-<p><a href="./labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html">Slides</a> | No Assignment</p>
-</section>
-</section>
-</div><div class="column" style="width:33%;">
-<section id="lab-12" class="level3">
-<h3 class="anchored" data-anchor-id="lab-12">11/07 Lab 12</h3>
-<section id="chi-squared-test" class="level4">
-<h4 class="anchored" data-anchor-id="chi-squared-test">Chi-Squared Test</h4>
-<p>Coming soon!</p>
-</section>
-</section>
-</div>
-</div>
-<div class="columns">
-<div class="column" style="width:33%;">
-<section id="lab-13" class="level3">
-<h3 class="anchored" data-anchor-id="lab-13">11/14 Lab 13</h3>
-<section id="correlation-and-regression" class="level4">
-<h4 class="anchored" data-anchor-id="correlation-and-regression">Correlation and Regression</h4>
-<p>Coming soon!</p>
-</section>
-</section>
-</div><div class="column" style="width:33%;">
-<section id="lab-14" class="level3">
-<h3 class="anchored" data-anchor-id="lab-14">11/21 Lab 14</h3>
-<section id="one-way-anova" class="level4">
-<h4 class="anchored" data-anchor-id="one-way-anova">One-Way ANOVA</h4>
-<p>Coming soon!</p>
-</section>
-</section>
-</div><div class="column" style="width:33%;">
-
-</div>
-</div>
+<section id="g-interpret-the-effect-size." class="level3">
+<h3 class="anchored" data-anchor-id="g-interpret-the-effect-size.">4g) Interpret the effect size.</h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

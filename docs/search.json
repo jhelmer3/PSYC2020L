@@ -886,7 +886,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 5\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/26 Lab 6\n\nSampling Distributions\nSlides | Assignment\n\n\n\n\n\n\n\n10/03 Lab 7\n\nNHST I\nSlides | Assignment\n\n\n\n\n10/10 Lab 8\n\nNHST II\nSlides | Assignment\n\n\n\n\n10/17 Lab 9\n\nConfidence Intervals\nSlides\n\n\n\n\n\n\n\n10/24 Lab 10\n\nAdvanced R\nSlides\n\n\n\n\n10/31 Lab 11 🎃\n\nIndependent and Paired Samples T-Test\nSlides\n\n\n\n\n11/07 Lab 12\n\nChi-Squared Test\nComing soon!"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 5\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/26 Lab 6\n\nSampling Distributions\nSlides | Assignment\n\n\n\n\n\n\n\n10/03 Lab 7\n\nNHST I\nSlides | Assignment\n\n\n\n\n10/10 Lab 8\n\nNHST II\nSlides | Assignment\n\n\n\n\n10/17 Lab 9\n\nConfidence Intervals\nSlides | Assignment\n\n\n\n\n\n\n\n10/24 Lab 10\n\nAdvanced R\nSlides | Assignment\n\n\n\n\n10/31 Lab 11 🎃\n\nIndependent and Paired Samples T-Test\nSlides | No Assignment\n\n\n\n\n11/07 Lab 12\n\nChi-Squared Test\nComing soon!\n\n\n\n\n\n\n\n11/14 Lab 13\n\nCorrelation and Regression\nComing soon!\n\n\n\n\n11/21 Lab 14\n\nOne-Way ANOVA\nComing soon!"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
@@ -6382,5 +6382,292 @@
     "title": "PSYC2020L Assignment 12",
     "section": "Chi-Squared Test of Proportions",
     "text": "Chi-Squared Test of Proportions\n\n4) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You’ve recorded the color of 1000 leaves, and you’d like to test if there is a difference in the frequency of the colors of the leaves."
+  },
+  {
+    "objectID": "docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html",
+    "href": "docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html",
+    "title": "PSYC2020L Assignment 9",
+    "section": "",
+    "text": "Confidence Intervals\nOne Sample T-Tests\nEffect Size"
+  },
+  {
+    "objectID": "docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#goals-for-review",
+    "href": "docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#goals-for-review",
+    "title": "PSYC2020L Assignment 9",
+    "section": "",
+    "text": "Confidence Intervals\nOne Sample T-Tests\nEffect Size"
+  },
+  {
+    "objectID": "docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#setting-up",
+    "href": "docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#setting-up",
+    "title": "PSYC2020L Assignment 9",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 9 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block."
+  },
+  {
+    "objectID": "docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#confidence-intervals",
+    "href": "docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#confidence-intervals",
+    "title": "PSYC2020L Assignment 9",
+    "section": "Confidence Intervals",
+    "text": "Confidence Intervals\n\n3a) Calculate the 95% confidence interval around the mean for iris sepal length, and report its interpretation.\n\n\n3b) Would you expect the 99% confidence interval around the mean for iris sepal length to be wider or narrower than that of the 95th? What about the 67% confidence interval?\n.\n\n\n3c) Calculate the 67% confidence interval around the mean for iris sepal length, and report its interpretation."
+  },
+  {
+    "objectID": "docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#one-sample-t-test",
+    "href": "docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#one-sample-t-test",
+    "title": "PSYC2020L Assignment 9",
+    "section": "One-Sample T-Test",
+    "text": "One-Sample T-Test\n\n4a) A professor claims that students spend 4.5 hours per day studying. You’re not so sure! You are given a dataset (studytimes.csv) that contains the study hours of 25 students. Your goal is to load the dataset into R and analyze whether the mean study time is significantly different from 4.5 hours using a one-sample t-test. First, load the data in and display the first few rows.\n\n\n4b) Write the null and alternative hypotheses for a two-tailed test.\n\n\n4c) Perform a one-sample t-test using the dataset.\n\n\n4d) Report the p-value and interpret the results at α = 0.05.\n\n\n4e) Report the 95% confidence interval for the mean study time. Does the confidence interval include 4.5 hours? What does that mean in terms of hypothesis testing?\n\n\n4f) What is the effect size of the difference between the sample mean and the hypothesized mean?\n\n\n4g) Interpret the effect size."
+  },
+  {
+    "objectID": "docs/labs/Lab 10 - Advanced R/Lab 10 Assignment.html",
+    "href": "docs/labs/Lab 10 - Advanced R/Lab 10 Assignment.html",
+    "title": "PSYC2020L Assignment 10",
+    "section": "",
+    "text": "Communication"
+  },
+  {
+    "objectID": "docs/labs/Lab 10 - Advanced R/Lab 10 Assignment.html#goals-for-review",
+    "href": "docs/labs/Lab 10 - Advanced R/Lab 10 Assignment.html#goals-for-review",
+    "title": "PSYC2020L Assignment 10",
+    "section": "",
+    "text": "Communication"
+  },
+  {
+    "objectID": "docs/labs/Lab 10 - Advanced R/Lab 10 Assignment.html#setting-up",
+    "href": "docs/labs/Lab 10 - Advanced R/Lab 10 Assignment.html#setting-up",
+    "title": "PSYC2020L Assignment 10",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 10 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Please load the tidyverse!."
+  },
+  {
+    "objectID": "docs/labs/Lab 10 - Advanced R/Lab 10 Assignment.html#communication",
+    "href": "docs/labs/Lab 10 - Advanced R/Lab 10 Assignment.html#communication",
+    "title": "PSYC2020L Assignment 10",
+    "section": "Communication",
+    "text": "Communication\nIn this assignment, we will be working with the msleep dataset that comes with the tidyverse library. This data set has information of the sleep characteristics for different mammals! Check out the data with ?msleep to read a little bit about the variables (feel free to comment out or remove afterwards.\n\n3) Then, use three functions to get a sense of the data.\n\n\n4a) Plot the distributions of the variables sleep_total and bodywt in two separate plots. Feel free to use whatever type of distributional geom you prefer.\n\n\n4b) Describe what you see in the plots above.\n\n\n5a) Make a scatterplot with body weight on the x-axis and total sleep on the y-axis.\n\n\n5b) Label two points you consider interesting / outliers with the type of animal they are (Hint: first, filter() the data to see what the animal names are for the points you select. Then, annotate() the data with a text geom at x and y values close to the selected points. You can absolutely use another solution to label if you’d like; this is just one way).\n\n\n5c) Modify the x-axis label and y-axis label to be more readable and descriptive. Make sure to add units!\n\n\n6a) Let’s say you’re more interested in larger mammals. Create a new version of the dataset that only has mammals under 45kg. Also, create a new variable that represents the ratio of brain weight to body weight (Hint: divide brain weight by body weight).\n\n\n6b) Create a scatterplot that evaluates the association between the brain-to-body weight proportion variable you created (put that on the x-axis) and total hours of sleep.\n\n\n6c) Emphasize the points on the graph that represent herbivores (Hint: make a filtered version of the dataset that only includes carnivores and layer on another geom_point()). Add a text annotation on the plot that indicates the group is herbivores.\n\n\n7) Make one more scatterplot of two variables of interest. Make at least two annotations to the plot of things / trends you find interesting. Some ideas: label your favorite mammal on the plot with its name, add a reference line, highlight endangered animals, etc. Add a label and descriptive title to this plot. Try to make this plot as self-explanatory as possible!"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html",
+    "href": "labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html",
+    "title": "PSYC2020L Assignment 9",
+    "section": "",
+    "text": "Confidence Intervals\nOne Sample T-Tests\nEffect Size"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#goals-for-review",
+    "href": "labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#goals-for-review",
+    "title": "PSYC2020L Assignment 9",
+    "section": "",
+    "text": "Confidence Intervals\nOne Sample T-Tests\nEffect Size"
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#setting-up",
+    "href": "labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#setting-up",
+    "title": "PSYC2020L Assignment 9",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 9 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block."
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#confidence-intervals",
+    "href": "labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#confidence-intervals",
+    "title": "PSYC2020L Assignment 9",
+    "section": "Confidence Intervals",
+    "text": "Confidence Intervals\n\n3a) Calculate the 95% confidence interval around the mean for iris sepal length, and report its interpretation.\n\n\n3b) Would you expect the 99% confidence interval around the mean for iris sepal length to be wider or narrower than that of the 95th? What about the 67% confidence interval?\n.\n\n\n3c) Calculate the 67% confidence interval around the mean for iris sepal length, and report its interpretation."
+  },
+  {
+    "objectID": "labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#one-sample-t-test",
+    "href": "labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html#one-sample-t-test",
+    "title": "PSYC2020L Assignment 9",
+    "section": "One-Sample T-Test",
+    "text": "One-Sample T-Test\n\n4a) A professor claims that students spend 4.5 hours per day studying. You’re not so sure! You are given a dataset (studytimes.csv) that contains the study hours of 25 students. Your goal is to load the dataset into R and analyze whether the mean study time is significantly different from 4.5 hours using a one-sample t-test. First, load the data in and display the first few rows.\n\n\n4b) Write the null and alternative hypotheses for a two-tailed test.\n\n\n4c) Perform a one-sample t-test using the dataset.\n\n\n4d) Report the p-value and interpret the results at α = 0.05.\n\n\n4e) Report the 95% confidence interval for the mean study time. Does the confidence interval include 4.5 hours? What does that mean in terms of hypothesis testing?\n\n\n4f) What is the effect size of the difference between the sample mean and the hypothesized mean?\n\n\n4g) Interpret the effect size."
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html",
+    "href": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html",
+    "title": "PSYC2020L Assignment 7",
+    "section": "",
+    "text": "Exploratory Data Analysis"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html#goals-for-review",
+    "href": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html#goals-for-review",
+    "title": "PSYC2020L Assignment 7",
+    "section": "",
+    "text": "Exploratory Data Analysis"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html#setting-up",
+    "href": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html#setting-up",
+    "title": "PSYC2020L Assignment 7",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 7 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Make sure to load the tidyverse package!"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html#import",
+    "href": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html#import",
+    "title": "PSYC2020L Assignment 7",
+    "section": "Import",
+    "text": "Import\n\n3) With the tidyverse package, we have acess to the diamonds dataset. Use three functions to get a look at this data."
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html#exploration",
+    "href": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html#exploration",
+    "title": "PSYC2020L Assignment 7",
+    "section": "Exploration",
+    "text": "Exploration\n\n4a) Let’s continue exploring the relationships influencing a diamond’s price. Let’s start by building on what we saw about the relationship between a diamond’s quality (cut) and its price. With cut on the x-axis and price on the y-axis, make a violin and boxplot graph.\n\n\n4b) Make three modifications to this visualization that you think improve it. Describe your reasoning for each modification.\n\n\n4b) Box and violinplots are helpful, but it is also often helpful to see the datapoints themselves. The geom_jitter() function will add the points correctly to where they lie on the y-axis, but a bit scattered around the x-axis (because the x-axis is not numeric). Add this geom (you may also want to decrease the alpha value).\n\n\n4d) What relationship(s) do we see in this plot?\n\n\n4e) Say we wanted to zoom in on the distributions of the lower-priced diamonds. Make two different plots: one that zooms in with coord_cartesian(), and one that zooms in with ggplot2’s ylim(). What is the difference, and which one do you think is generally best practice to use? Feel free to check the ?ylim documentation.\n\n\n5a) Let’s step back and explore the distributions of the price variable with histograms. Make two versions: one with 10 bins and one with 50 bins. What do you notice about this plot?\n\n\n5b) Swap the histogram to a geom_density() plot. Also, map the density plot line color to the cut of the diamond.\n\n\n5c) Make three modifications to the density plot that you think improve it. Describe your reasoning for each modification.\n\n\n5d) Describe what you see in the plot now. Does this explain anything you noticed in 5a?\n\n\n6a) Perhaps the relationship between diamond quality (cut) and price has to do with its size. Let’s first look at the relationship between price and size, and then we will see if it can explain the price. To do this, create a cleaner version of the diamonds dataset in one pipe that:\n\nHas x, y, and z each in their own row for each diamond,\nUses mutate() to change diamond sizes at 0mm or above 20mm to NA (based on what we saw in class), and\nChanges the x, y, and z variables to be a factor with labels indicating the dimension they measure (feel free to reference ?diamonds for data information and ?factor for factor syntax).\n\n\n\n6b) Now, let’s look at the relationship between diamond size and quality. Using your cleaned dataframe, start by making a histogram with the size measurement on the x-axis. Change the default number of bins to a better one (in your opinion).\n\n\n6c) Use the facet_wrap() function to facet the histogram by the type of measurement. You can use the scales = \"free_x\" argument to let the x-axis scales automatically generate for each facet (as opposed to them all sharing the same).\n\n\n6d) Let’s add in the diamond quality (cut) as the fill color. Also, change the position argument to \"fill\" to best see the proportions.\n\n\n6e) What do you see in this plot? (1–3 sentences)\n\n\n7a) Let’s bring it all together by looking at size, cut, and price all in the same visualization. Still using your cleaned version of the dataset, make a scatterplot with the size measurement on the x-axis, the price on the y-axis, and color denoting the cut. Use the facet_wrap() function again to facet by the type of measurement. You may want to take down the alpha value of the points!\n\n\n7b) Describe what you see in this plot. (1–3 sentences)\n\n\n7c) Make three modifications to this plot that you think improve it. Describe your reasoning for each modification."
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html#more-exploration",
+    "href": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html#more-exploration",
+    "title": "PSYC2020L Assignment 7",
+    "section": "More Exploration",
+    "text": "More Exploration\nTo finish up, you’re going to do some exploratory data analysis on your own! Pick a variable that’s not size or price, and explore its relationship other variables (other variable can be size or price). This section will be pretty open-ended, so feel free to explore and play around with this data!\n\n8a) Start by plotting the distribution of your chosen variable with a histogram. Make sure to play around with the number of bins to look for any interesting trends. For the question, display one histogram that either (a) has number of bins that is a good representation of the data or (b) has number of bins that shows something interesting about the data.\n\n\n8b) Describe what you see in the histogram (1–2 sentences).\n\n\n8c) Now, use some plot to look at this variable’s relationship with some other variable.\n\n\n8d) Describe what you see. (1–2 sentences)\n\n\n8e) Consider a third variable that may be related to your first variable (or your second variable as well). What would you expect the relationship to look like?\n\n\n8f) Incorporate a third variable, either by including it in the previous plot as an additional aesthetic or by making a separate plot. Either way, the new visualization should be able to confirm or challenge your expectation of what the relationship would look like!\n\n\n8g) What do you see in this plot? Does it match your expectations? (1–3 sentences).\n\n\n8h) Make three modifications to this plot! Describe your reasoning for each modification. Try (okay if not) to add a modification that you have not used before."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html",
+    "title": "PSYC2020L Assignment 4",
+    "section": "",
+    "text": "Probability Distributions Review\nZ-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#goals-for-review",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#goals-for-review",
+    "title": "PSYC2020L Assignment 4",
+    "section": "",
+    "text": "Probability Distributions Review\nZ-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#setting-up",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#setting-up",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 4 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block.\n\n\n3) Read in the tour_de_france.csv file and assign it to a variable (e.g., tdf_data). Display the first six rows of this dataset."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#measures-of-variability",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#measures-of-variability",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n4) What is the variance and SD of winner_avg_speed?\n\n\n5) What is the variance and SD of total_distance?"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#z-scores",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#z-scores",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Z-Scores",
+    "text": "Z-Scores\n\n6) Create a new variable within the Tour de France data that contains the winner_avg_speed variable standardized. No output needed for this question.\n\n\n7) Create a new variable within the Tour de France data that contains the total_distance variable standardized. No output needed for this question.\n\n\n8) Calculate the variance and SD of the new z-scored version winner_avg_speed, and compare it to the original, non-z-scored version. What differences do you observe?"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#generation-from-normal-distribution",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#generation-from-normal-distribution",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Generation from Normal Distribution",
+    "text": "Generation from Normal Distribution\n\n9) Generate three vectors and assign them to variables: one with 10 draws from a standard normal distribution, one with 50 draws from a standard normal distribution, and one with 100 draws from a standard normal distribution. Display just the vector with 10 draws.\n\n\n10) Plot a histogram of the vector out of the three that will appear the most representative of the underlying standard normal distribution.\n\n\n11) Create two more vectors and assign them to variables: one with 1000 draws from a normal distribution with mean of zero and SD of 2 and one with 1000 draws from a normal distribution with mean of 2 and variance of 4. No output is needed for this question.\n\n\n12) Plot each of the two vectors from (11) in a histogram. Set the x-axis limits to be the same for both (hint: use the ? tool if you don’t remember how to set axis limits!), and compare the two plots."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#matrices",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#matrices",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Matrices",
+    "text": "Matrices\n\n13) Create a vector of sequential integers from 1 to 10 and assign it to a variable. No output is needed for this question.\n\n\n14) Turn this vector in a 2 rows x 5 columns matrix that fills in the rows first. Assign this matrix to a variable and display the matrix as output."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#indexing",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#indexing",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Indexing",
+    "text": "Indexing\n\n15) From that matrix, please index:\n\n15a) The second row.\n\n\n15b) The third column of the first row.\n\n\n15c) The second through fourth columns of the first and second rows."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html",
+    "title": "PSYC2020L Assignment 4",
+    "section": "",
+    "text": "Z-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#goals-for-review",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 4",
+    "section": "",
+    "text": "Z-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#setting-up",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#setting-up",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 4 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block.\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L\"\n\n\n\n\n3) Read in the tour_de_france.csv file and assign it to a variable (e.g., tdf_data). Display the first six rows of this dataset.\n\ntdf &lt;- rio::import(here::here(\"labs\", \"Lab 4 - Z-Scores\", \"tour_de_france.csv\"))\nhead(tdf)\n\n  year winner_avg_speed total_distance              winner winner_nationality\n1 1903            25.68           2428       Maurice Garin             France\n2 1904            25.27           2420        Henri Cornet             France\n3 1905            27.11           2994   Louis Trousselier             France\n4 1906            24.46           4545        Rene Pottier             France\n5 1907            28.47           4488 Lucien Petit-Breton             France\n6 1908            28.74           4488 Lucien Petit-Breton             France\n  starting_city\n1         Paris\n2         Paris\n3         Paris\n4         Paris\n5         Paris\n6         Paris"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#measures-of-variability",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#measures-of-variability",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n4) What is the variance and SD of winner_avg_speed?\n\nvar(tdf$winner_avg_speed)\n\n[1] 26.94034\n\nsd(tdf$winner_avg_speed)\n\n[1] 5.190409\n\n\n\nIf they do some square or square root transformation to get one from the other, that works too.\n\n\n\n5) What is the variance and SD of total_distance?\n\nvar(tdf$total_distance)\n\n[1] 485801.2\n\nsd(tdf$total_distance)\n\n[1] 696.9944\n\n\n\nIf they do some square or square root transformation to get one from the other, that works too."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#z-scores",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#z-scores",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Z-Scores",
+    "text": "Z-Scores\n\n6) Create a new variable within the Tour de France data that contains the winner_avg_speed variable standardized. No output needed for this question.\n\ntdf$winner_avg_speed_z &lt;- (tdf$winner_avg_speed - mean(tdf$winner_avg_speed)) / sd(tdf$winner_avg_speed)\n\n\n\n7) Create a new variable within the Tour de France data that contains the total_distance variable standardized. No output needed for this question.\n\ntdf$total_distance_z &lt;- (tdf$total_distance - mean(tdf$total_distance)) / sd(tdf$total_distance)\n\n\n\n8) Calculate the variance and SD of the new z-scored version winner_avg_speed, and compare it to the original, non-z-scored version. What differences do you observe?\n\nvar(tdf$winner_avg_speed_z)\n\n[1] 1\n\nsd(tdf$winner_avg_speed_z)\n\n[1] 1\n\n\nThe variance and SD for the z-scored version are both one. This is because the z-score transformation sets the variance\n\n[or SD]\n\nto one. This obviously much less than the original variance of 26.94 and SD of 5.19."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#generation-from-normal-distribution",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#generation-from-normal-distribution",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Generation from Normal Distribution",
+    "text": "Generation from Normal Distribution\n\n9) Generate three vectors and assign them to variables: one with 10 draws from a standard normal distribution, one with 50 draws from a standard normal distribution, and one with 100 draws from a standard normal distribution. Display just the vector with 10 draws.\n\nnorm10 &lt;- rnorm(10, 0, 1)\nnorm50 &lt;- rnorm(50, 0, 1)\nnorm100 &lt;- rnorm(100, 0, 1)\nnorm10\n\n [1] -0.03712957 -0.35355059  0.94304852  0.36478507  1.42717587 -1.42107656\n [7]  0.10745014 -0.81668106  0.41433905  0.53633671\n\n\n\n\n10) Plot a histogram of the vector out of the three that will appear the most representative of the underlying standard normal distribution.\n\nhist(norm100)\n\n\n\n\n\n\n\n\n\n\n11) Create two more vectors and assign them to variables: one with 1000 draws from a normal distribution with mean of zero and SD of 2 and one with 1000 draws from a normal distribution with mean of 2 and variance of 4. No output is needed for this question.\n\nnorm02 &lt;- rnorm(1000, 0, 2)\nnorm22 &lt;- rnorm(1000, 2, sqrt(4))\n\n\n\n12) Plot each of the two vectors from (11) in a histogram. Set the x-axis limits to be the same for both (hint: use the ? tool if you don’t remember how to set axis limits!), and compare the two plots.\n\nhist(norm02, xlim = c(-6, 6))\n\n\n\n\n\n\n\nhist(norm22, xlim = c(-6, 6))\n\n\n\n\n\n\n\n\nThe histograms have the same variance, but the one with mean of 2 is shifted to the right."
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#matrices",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#matrices",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Matrices",
+    "text": "Matrices\n\n13) Create a vector of sequential integers from 1 to 10 and assign it to a variable. No output is needed for this question.\n\nmyvec &lt;- 1:10\n\n\n\n14) Turn this vector in a 2 rows x 5 columns matrix that fills in the rows first. Assign this matrix to a variable and display the matrix as output.\n\nmymat &lt;- matrix(myvec, nrow = 2, ncol = 5, byrow = T)\nmymat\n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    1    2    3    4    5\n[2,]    6    7    8    9   10"
+  },
+  {
+    "objectID": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#indexing",
+    "href": "labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html#indexing",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Indexing",
+    "text": "Indexing\n\n15) From that matrix, please index:\n\n15a) The second row.\n\nmymat[2, ]\n\n[1]  6  7  8  9 10\n\n\n\n\n15b) The third column of the first row.\n\nmymat[1, 3]\n\n[1] 3\n\n\n\n\n15c) The second through fourth columns of the first and second rows.\n\nmymat[1:2, 2:4]\n\n     [,1] [,2] [,3]\n[1,]    2    3    4\n[2,]    7    8    9"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html",
+    "href": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html",
+    "title": "PSYC2020L Assignment 7",
+    "section": "",
+    "text": "Exploratory Data Analysis"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html#goals-for-review",
+    "href": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 7",
+    "section": "",
+    "text": "Exploratory Data Analysis"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html#setting-up",
+    "href": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html#setting-up",
+    "title": "PSYC2020L Assignment 7",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 7 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Make sure to load the tidyverse package!\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L\""
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html#import",
+    "href": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html#import",
+    "title": "PSYC2020L Assignment 7",
+    "section": "Import",
+    "text": "Import\n\n3) With the tidyverse package, we have acess to the diamonds dataset. Use three functions to get a look at this data.\n\nhead(diamonds)\n\n# A tibble: 6 × 10\n  carat cut       color clarity depth table price     x     y     z\n  &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n\nsummary(diamonds)\n\n     carat               cut        color        clarity          depth      \n Min.   :0.2000   Fair     : 1610   D: 6775   SI1    :13065   Min.   :43.00  \n 1st Qu.:0.4000   Good     : 4906   E: 9797   VS2    :12258   1st Qu.:61.00  \n Median :0.7000   Very Good:12082   F: 9542   SI2    : 9194   Median :61.80  \n Mean   :0.7979   Premium  :13791   G:11292   VS1    : 8171   Mean   :61.75  \n 3rd Qu.:1.0400   Ideal    :21551   H: 8304   VVS2   : 5066   3rd Qu.:62.50  \n Max.   :5.0100                     I: 5422   VVS1   : 3655   Max.   :79.00  \n                                    J: 2808   (Other): 2531                  \n     table           price             x                y         \n Min.   :43.00   Min.   :  326   Min.   : 0.000   Min.   : 0.000  \n 1st Qu.:56.00   1st Qu.:  950   1st Qu.: 4.710   1st Qu.: 4.720  \n Median :57.00   Median : 2401   Median : 5.700   Median : 5.710  \n Mean   :57.46   Mean   : 3933   Mean   : 5.731   Mean   : 5.735  \n 3rd Qu.:59.00   3rd Qu.: 5324   3rd Qu.: 6.540   3rd Qu.: 6.540  \n Max.   :95.00   Max.   :18823   Max.   :10.740   Max.   :58.900  \n                                                                  \n       z         \n Min.   : 0.000  \n 1st Qu.: 2.910  \n Median : 3.530  \n Mean   : 3.539  \n 3rd Qu.: 4.040  \n Max.   :31.800  \n                 \n\nglimpse(diamonds)\n\nRows: 53,940\nColumns: 10\n$ carat   &lt;dbl&gt; 0.23, 0.21, 0.23, 0.29, 0.31, 0.24, 0.24, 0.26, 0.22, 0.23, 0.…\n$ cut     &lt;ord&gt; Ideal, Premium, Good, Premium, Good, Very Good, Very Good, Ver…\n$ color   &lt;ord&gt; E, E, E, I, J, J, I, H, E, H, J, J, F, J, E, E, I, J, J, J, I,…\n$ clarity &lt;ord&gt; SI2, SI1, VS1, VS2, SI2, VVS2, VVS1, SI1, VS2, VS1, SI1, VS1, …\n$ depth   &lt;dbl&gt; 61.5, 59.8, 56.9, 62.4, 63.3, 62.8, 62.3, 61.9, 65.1, 59.4, 64…\n$ table   &lt;dbl&gt; 55, 61, 65, 58, 58, 57, 57, 55, 61, 61, 55, 56, 61, 54, 62, 58…\n$ price   &lt;int&gt; 326, 326, 327, 334, 335, 336, 336, 337, 337, 338, 339, 340, 34…\n$ x       &lt;dbl&gt; 3.95, 3.89, 4.05, 4.20, 4.34, 3.94, 3.95, 4.07, 3.87, 4.00, 4.…\n$ y       &lt;dbl&gt; 3.98, 3.84, 4.07, 4.23, 4.35, 3.96, 3.98, 4.11, 3.78, 4.05, 4.…\n$ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39, 2.…"
+  },
+  {
+    "objectID": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html#exploration",
+    "href": "labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html#exploration",
+    "title": "PSYC2020L Assignment 7",
+    "section": "Exploration",
+    "text": "Exploration\n\n4a) Let’s continue exploring the relationships influencing a diamond’s price. Let’s start by building on what we saw about the relationship between a diamond’s quality (cut) and its price. With cut on the x-axis and price on the y-axis, make a violin and boxplot graph.\n\ndiamonds |&gt;\n  ggplot(aes(x = cut, y = price)) +\n  geom_violin() +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\n4b) Make three modifications to this visualization that you think improve it. Describe your reasoning for each modification.\n\ndiamonds |&gt;\n  ggplot(aes(x = cut, y = price)) +\n  geom_violin() +\n  geom_boxplot(width = .05, outliers = F) +\n  theme_classic()\n\n\n\n\n\n\n\n\nI decreased the width of the boxplots to make them easier to see over the violins, and I changed the theme to make it visually cleaner. I also removed the outliers from the boxplot because they are already represented in the violinplot.\n\n\n4b) Box and violinplots are helpful, but it is also often helpful to see the datapoints themselves. The geom_jitter() function will add the points correctly to where they lie on the y-axis, but a bit scattered around the x-axis (because the x-axis is not numeric). Add this geom (you may also want to decrease the alpha value).\n\ndiamonds |&gt;\n  ggplot(aes(x = cut, y = price)) +\n  geom_violin() +\n  geom_boxplot(width = .05, outliers = F) +\n  geom_jitter(alpha = .01) +\n  theme_classic()\n\n\n\n\n\n\n\n\n\n\n4d) What relationship(s) do we see in this plot?\nDiamond price seems to decrease with quality, which I think is counter-intuitive!\n\n\n4e) Say we wanted to zoom in on the distributions of the lower-priced diamonds. Make two different plots: one that zooms in with coord_cartesian(), and one that zooms in with ggplot2’s ylim(). What is the difference, and which one do you think is generally best practice to use? Feel free to check the ?ylim documentation\n\ndiamonds |&gt;\n  ggplot(aes(x = cut, y = price)) +\n  geom_violin() +\n  geom_boxplot(width = .05, outliers = F) +\n  geom_jitter(alpha = .01) +\n  coord_cartesian(ylim = c(0, 5000)) +\n  theme_classic()\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = cut, y = price)) +\n  geom_violin() +\n  geom_boxplot(width = .05, outliers = F) +\n  geom_jitter(alpha = .01) +\n  ylim(0, 5000) +\n  theme_classic()\n\nWarning: Removed 14714 rows containing non-finite outside the scale range\n(`stat_ydensity()`).\n\n\nWarning: Removed 14714 rows containing non-finite outside the scale range\n(`stat_boxplot()`).\n\n\nWarning: Removed 14719 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nThe coord_cartesian() function does not remove data; it just zooms in on the axis. You can tell that the ylim() function removed data from the warning and from the way the violinplots end at the top. The coord_cartesian() function is generally better to use because it does not remove the data\n\n\n5a) Let’s step back and explore the distributions of the price variable with histograms. Make two versions: one with 10 bins and one with 50 bins. What do you notice about this plot?\n\ndiamonds |&gt;\n  ggplot(aes(x = price)) +\n  geom_histogram(bins = 10)\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = price)) +\n  geom_histogram(bins = 50)\n\n\n\n\n\n\n\n\nThere seems to be a very sharp spike on the lower end of the price distribution. It is very skewed.\n\n\n5b) Swap the histogram to a density plot. Also, map the density plot line color to the cut of the diamond.\n\ndiamonds |&gt;\n  ggplot(aes(x = price, color = cut)) +\n  geom_density()\n\n\n\n\n\n\n\n\n\n\n5c) Make three modifications to the density plot that you think improve it. Describe your reasoning for each modification.\n\ndiamonds |&gt;\n  ggplot(aes(x = price, color = cut)) +\n  geom_density(linewidth = 2) +\n  coord_cartesian(expand = F) +\n  theme_classic(base_size = 14)\n\n\n\n\n\n\n\n\nI changed the linewidth and background color (through theme_classic()) to make the plot more readable. I also increased the font size for aesthetics.\n\n\n5d) Describe what you see in the plot now. Does this explain anything you noticed in 5a?\nYes, it seems like the “ideal” quality diamonds make up the most of that spike in the lower end that we saw in 5a.\n\n\n6a) Perhaps the relationship between diamond quality (cut) and price has to do with its size. Let’s first look at the relationship between price and size, and then we will see if it can explain the price. To do this, create a cleaner version of the diamonds dataset in one pipe that:\n\nHas x, y, and z each in their own row for each diamond,\nUses mutate() to change diamond sizes at 0mm or above 20mm to NA (based on what we saw in class), and\nChanges the x, y, and z variables to be a factor with labels indicating the dimension they measure (feel free to reference ?diamonds for data information and ?factor for factor syntax).\n\n\ndiamonds_clean &lt;- diamonds |&gt;\n  pivot_longer(c(x, y, z),\n               names_to = \"dimension\", values_to = \"measurement\") |&gt;\n  mutate(measurement = ifelse(measurement &gt; 20 | measurement == 0, NA, measurement),\n         dimension = factor(dimension, levels = c(\"x\", \"y\", \"z\"), labels = c(\"length\", \"width\", \"depth\")))\n\n\n\n6b) Now, let’s look at the relationship between diamond size and quality. Using your cleaned dataframe, start by making a histogram with the size measurement on the x-axis. Change the default number of bins to a better one (in your opinion).\n\ndiamonds_clean |&gt;\n  ggplot(aes(x = measurement)) +\n  geom_histogram(bins = 15) \n\nWarning: Removed 38 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\n\n\n6c) Use the facet_wrap() function to facet the histogram by the type of measurement. You can use the scales = \"free_x\" argument to let the x-axis scales automatically generate for each facet (as opposed to them all sharing the same).\n\ndiamonds_clean |&gt;\n  ggplot(aes(x = measurement)) +\n  geom_histogram(bins = 15) +\n  facet_wrap(~ dimension, scales = \"free_x\")\n\nWarning: Removed 38 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\n\n\n6d) Let’s add in the diamond quality (cut) as the fill color. Also, change the position argument to \"fill\" to best see the proportions.\n\ndiamonds_clean |&gt;\n  ggplot(aes(x = measurement, fill = cut)) +\n  geom_histogram(bins = 15, position = \"fill\") +\n  facet_wrap(~ dimension, scales = \"free_x\")\n\nWarning: Removed 38 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\n\n\n6e) What do you see in this plot? (1–3 sentences)\nMost of the small diamonds are the ideal quality. Seems like ideal cut diamonds are often small! The largest diamonds are more in the upper range of size.\n\n\n7a) Let’s bring it all together by looking at size, cut, and price all in the same visualization. Still using your cleaned version of the dataset, make a scatterplot with the size measurement on the x-axis, the price on the y-axis, and color denoting the cut. Use the facet_wrap() function again to facet by the type of measurement. You may want to take down the alpha value of the points!\n\ndiamonds_clean |&gt;\n  ggplot(aes(x = measurement, y = price, color = cut)) +\n  geom_point(alpha = .02) +\n  facet_wrap(~ dimension, scales = \"free_x\")\n\nWarning: Removed 38 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n7b) Describe what you see in this plot. (1–3 sentences)\nDiamond price has a strong positive relationship with each measurement, and it seems like this may be explaining why better quality diamonds are less expensive—they are also usually smaller. Most of the yellow points are on the left side of the plot (the better quality diamonds are on the lower end of the size dimension) and, in trend with size and price, are cheaper.\n\n\n7c) Make three modifications to this plot that you think improve it. Describe your reasoning for each modification.\n\ndiamonds_clean |&gt;\n  ggplot(aes(x = measurement, y = price, color = cut)) +\n  geom_point(alpha = .02, shape = 16) +\n  facet_wrap(~ dimension, scales = \"free_x\") +\n  theme_classic(base_size = 14) +\n  labs(x = \"Measurement\", y = \"Price\", color = \"Cut\") +\n  guides(color = guide_legend(override.aes = list(alpha = 1, size = 3))) +\n  theme(aspect.ratio = 1)\n\nWarning: Removed 38 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nExplanations, explanations, blah blah etc.\n\n\n8a) To finish up, you’re going to do some exploratory data analysis on your own! Pick a variable that’s not size or price, and explore its relationship other variables (other variable can be size or price). This section will be pretty open-ended, so feel free to explore and play around with this data!\nStart by plotting the distribution of your chosen variable with a histogram. Make sure to play around with the number of bins to look for any interesting trends. For the question, display one histogram that either (a) has number of bins that is a good representation of the data or (b) has number of bins that shows something interesting about the data.\n\ndiamonds |&gt;\n  ggplot(aes(x = carat)) +\n  geom_histogram(bins = 500)\n\n\n\n\n\n\n\n\n\n\n8b) Describe what you see in the histogram (1–2 sentences).\nWe see a lot of spikes at the round values and more data at lower decimal points than high.\n\n\n8c) Now, use some plot to look at this variable’s relationship with some other variable.\n\ndiamonds_clean |&gt;\n  filter(dimension == \"depth\") |&gt;\n  ggplot(aes(x = carat, y = price)) +\n  geom_point(alpha = .05, shape = 16)\n\n\n\n\n\n\n\n\n\n\n8d) Describe what you see. (1–2 sentences)\nThere is a strong positive relationship between a diamond’s weight and its price.\n\n\n8e) Consider a third variable that may be related to your first variable (or your second variable as well). What would you expect the relationship to look like?\nDiamond clarity is likely related to price, but I’m not sure it wuld be related to weight. I would expect to see higher-clarity diamonds with higher prices but still relatively evenly distributed across weight.\n\n\n8f) Incorporate a third variable, either by including it in the previous plot as an additional aesthetic or by making a separate plot. Either way, the new visualization should be able to confirm or challenge your expectation of what the relationship would look like!\n\ndiamonds_clean |&gt;\n  filter(dimension == \"depth\") |&gt;\n  ggplot(aes(x = carat, y = price, color = clarity)) +\n  geom_point(alpha = .05, shape = 16)\n\n\n\n\n\n\n\n\n\n\n8g) What do you see in this plot? Does it match your expectations? (1–3 sentences).\nI think so! It looks like clarity is only at the higher range of price. I think the higher-clarity diamonds do seem to be more at the lower end of weight, though.\n\n\n8h) Make three modifications to this plot! Describe your reasoning for each modification. Try (okay if not) to add a modification that you have not used before.\n\ndiamonds_clean |&gt;\n  filter(dimension == \"depth\") |&gt;\n  ggplot(aes(x = carat, y = price, color = clarity)) +\n  geom_point(alpha = .05, shape = 16) +\n  scale_y_continuous(\"Price\", labels = scales::label_currency()) +\n  guides(color = guide_legend(override.aes = list(alpha = 1, size = 3)),\n        x = guide_axis(cap = T), y = guide_axis(cap = T)) +\n  labs(x = \"Carat\", color = \"Clarity\") +\n  theme_classic(base_size = 15) +\n  theme(legend.position = \"bottom\",\n        aspect.ratio = 1)"
   }
 ]

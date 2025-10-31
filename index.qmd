@@ -19,13 +19,13 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 08/22 - Lab 1
 #### Basic R
-[Slides](/labs/Lab 1 - Basic R/PSYC2020L Lab 1.qmd) | [Assignment](/labs/Lab 1 - Basic R/PSYC2020L Assignment 1.rmd)
+[Slides](/labs/Lab 1 - Basic R/PSYC2020L Lab 1.qmd) | [Assignment](/labs/Lab 1 - Basic R/PSYC2020L Assignment 1.Rmd)
 :::
 
 ::: {.column width=33%}
 ### 08/29 - Lab 2
 #### Central Tendency
-[Slides](/labs/Lab 2 - Central Tendency/PSYC2020L Lab 2.qmd) | [Assignment](/labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.rmd)
+[Slides](/labs/Lab 2 - Central Tendency/PSYC2020L Lab 2.qmd) | [Assignment](/labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.Rmd)
 :::
 
 ::: {.column width=33%}
@@ -39,19 +39,19 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 09/12 Lab 4
 #### Z-Scores
-[Slides](/labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.qmd) | [Assignment]()
+[Slides](/labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.qmd) | [Assignment](/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.Rmd)
 :::
 
 ::: {.column width=33%}
 ### 09/19 Lab 5
 #### Intermediate R
-[Slides](/labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.qmd) | [Assignment](/labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.rmd)
+[Slides](/labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.qmd) | [Assignment](/labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.Rmd)
 :::
 
 ::: {.column width=33%}
 ### 09/26 Lab 6
 #### Sampling Distributions
-[Slides](/labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.qmd) | [Assignment](/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.rmd)
+[Slides](/labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.qmd) | [Assignment](/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.Rmd)
 :::
 ::::
 
@@ -59,7 +59,7 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 10/03 Lab 7
 #### NHST I
-[Slides](/labs/Lab 7 - NHST I/PSYC2020 Lab 7.qmd) | [Assignment]()
+[Slides](/labs/Lab 7 - NHST I/PSYC2020 Lab 7.qmd) | [Assignment](/labs/Lab 7 - NHST I/PSYC2020L Assignment 7.Rmd)
 :::
 
 ::: {.column width=33%}
@@ -71,7 +71,7 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 10/17 Lab 9
 #### Confidence Intervals
-[Slides](/labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.qmd) 
+[Slides](/labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.qmd) | [Assignment](/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.Rmd) 
 :::
 ::::
 
@@ -80,13 +80,13 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 10/24 Lab 10
 #### Advanced R
-[Slides](/labs/Lab 10 - Advanced R/PSYC2020 Lab 10.qmd)
+[Slides](/labs/Lab 10 - Advanced R/PSYC2020 Lab 10.qmd) | [Assignment](/labs/Lab 10 - Advanced R/Lab 10 Assignment.Rmd) 
 :::
 
 ::: {.column width=33%}
 ### 10/31 Lab 11 🎃
 #### Independent and Paired Samples *T*-Test
-[Slides](/labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.qmd)
+[Slides](/labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.qmd) | No Assignment
 :::
 
 ::: {.column width=33%}
@@ -96,3 +96,20 @@ Coming soon!
 :::
 ::::
 
+:::: {.columns}
+::: {.column width=33%}
+### 11/14 Lab 13
+#### Correlation and Regression
+Coming soon!
+:::
+
+::: {.column width=33%}
+### 11/21 Lab 14
+#### One-Way ANOVA
+Coming soon!
+:::
+
+::: {.column width=33%}
+
+:::
+::::
