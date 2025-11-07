@@ -1,204 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/index.html</loc>
-    <lastmod>2025-11-07T15:29:44.214Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 1 - Basic R/PSYC2020L Lab 1.html</loc>
-    <lastmod>2025-08-21T19:48:55.644Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 2 - Central Tendency/PSYC2020L Lab 2.html</loc>
-    <lastmod>2025-08-18T21:08:56.505Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 1 - Basic R/PSYC2020L Assignment 1.html</loc>
-    <lastmod>2025-10-02T15:52:17.326Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html</loc>
-    <lastmod>2025-08-21T22:54:57.411Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html</loc>
-    <lastmod>2025-08-21T23:42:54.585Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html</loc>
-    <lastmod>2025-08-21T23:45:29.451Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/slides/Lab 3 - Descriptive Statistics II/PSYC2020 Lab 3.html</loc>
-    <lastmod>2025-08-28T19:37:14.920Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/slides/Lab 1 - Basic R/PSYC2020L Lab 1.html</loc>
-    <lastmod>2025-08-28T20:46:24.506Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/assignments/PSYC2020L Assignment 2.html</loc>
-    <lastmod>2025-08-28T20:08:04.758Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/assignments/PSYC2020L Assignment 1.html</loc>
-    <lastmod>2025-08-22T20:09:45.171Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/slides/Lab 1 - Basic R/PSYC2020L Assignment 1.html</loc>
-    <lastmod>2025-08-22T00:05:55.801Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/slides/Lab 2 - Descriptive Statistics I/PSYC2020L Lab 2.html</loc>
-    <lastmod>2025-08-28T20:14:51.535Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/docs/assignments/PSYC2020L Assignment 2.html</loc>
-    <lastmod>2025-08-28T20:08:04.758Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/assignments/Extra Credit 1.html</loc>
-    <lastmod>2025-08-27T19:49:52.424Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/slides/Lab 2 - Descriptive Statistics I/lab 2 temp.html</loc>
-    <lastmod>2025-08-26T15:18:43.582Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/assignments/PSYC2020L Assignment 1 Example.html</loc>
-    <lastmod>2025-08-22T20:11:56.307Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/slides/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html</loc>
-    <lastmod>2025-08-28T21:00:14.512Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/slides/Lab 2 - Central Tendency/lab 2 temp.html</loc>
-    <lastmod>2025-08-26T15:18:43.582Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/slides/Lab 2 - Central Tendency/PSYC2020L Lab 2.html</loc>
-    <lastmod>2025-08-29T14:41:35.016Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/docs/assignments/PSYC2020L Assignment 1.html</loc>
-    <lastmod>2025-08-22T20:09:45.171Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/slides/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html</loc>
-    <lastmod>2025-09-11T13:06:55.473Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/assignments/PSYC2020L Assignment 2 Example.html</loc>
-    <lastmod>2025-08-29T18:12:12.738Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html</loc>
-    <lastmod>2025-09-19T14:47:45.716Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 4 - Probability Distributions/PSYC2020 Lab 4.html</loc>
-    <lastmod>2025-09-12T14:23:02.912Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html</loc>
-    <lastmod>2025-09-12T14:30:39.320Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4 Example.html</loc>
-    <lastmod>2025-09-12T14:31:50.233Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 4 - Z-Scores/PSYC 2020L Assignment 4.html</loc>
-    <lastmod>2025-09-11T12:45:47.909Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html</loc>
-    <lastmod>2025-09-26T17:07:05.513Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html</loc>
-    <lastmod>2025-09-19T14:47:45.716Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html</loc>
-    <lastmod>2025-10-02T15:52:17.576Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 7 - NHST I/PSYC2020 Lab 7.html</loc>
-    <lastmod>2025-10-03T14:15:20.230Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/PSYC2020 Assignment 7 Example.html</loc>
-    <lastmod>2025-09-25T19:39:05.070Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html</loc>
-    <lastmod>2025-09-24T17:47:19.680Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html</loc>
-    <lastmod>2025-10-02T15:52:17.593Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/docs/labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html</loc>
-    <lastmod>2025-09-19T14:47:45.716Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 8 - NHST II/PSYC2020 Lab 8.html</loc>
-    <lastmod>2025-10-10T14:09:45.630Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/docs/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html</loc>
-    <lastmod>2025-10-02T15:52:17.593Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html</loc>
-    <lastmod>2025-10-02T15:52:17.410Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html</loc>
-    <lastmod>2025-10-20T14:11:50.013Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 8 - NHST II/test.html</loc>
-    <lastmod>2025-10-10T13:47:34.676Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 8 - NHST II/Lab 8 Assignment Example.html</loc>
-    <lastmod>2025-10-10T17:41:35.782Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 8 - NHST II/Lab 8 Assignment.html</loc>
-    <lastmod>2025-10-10T13:57:43.370Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/docs/labs/Lab 8 - NHST II/Lab 8 Assignment.html</loc>
-    <lastmod>2025-10-10T13:57:43.370Z</lastmod>
+    <loc>https://jhelmer3.github.io/PSYC2020L/testing.html</loc>
+    <lastmod>2025-10-31T18:14:39.910Z</lastmod>
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 9 - Confidence Intervals/lab 9 scratch.html</loc>
     <lastmod>2025-10-17T16:32:21.101Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html</loc>
-    <lastmod>2025-10-24T14:31:38.618Z</lastmod>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment Example.html</loc>
+    <lastmod>2025-10-15T18:00:36.309Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html</loc>
-    <lastmod>2025-10-31T16:09:51.517Z</lastmod>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 8 - NHST II/PSYC2020 Lab 8.html</loc>
+    <lastmod>2025-10-10T14:09:45.630Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 10 - Advanced R/diamond-sizes.html</loc>
-    <lastmod>2025-10-21T17:30:59.372Z</lastmod>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 8 - NHST II/Lab 8 Assignment Example.html</loc>
+    <lastmod>2025-10-10T17:41:35.782Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 10 - Advanced R/Lab 10 Assignment Example.html</loc>
-    <lastmod>2025-10-24T17:00:19.581Z</lastmod>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html</loc>
+    <lastmod>2025-10-15T20:59:11.000Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 10 - Advanced R/Lab 10 Assignment.html</loc>
-    <lastmod>2025-10-24T14:36:49.345Z</lastmod>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6.html</loc>
+    <lastmod>2025-10-02T15:52:17.593Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 6 - Sampling Distributions/PSYC2020 Lab 6.html</loc>
+    <lastmod>2025-11-07T18:07:30.527Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5 Example.html</loc>
+    <lastmod>2025-10-02T15:52:17.576Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html</loc>
+    <lastmod>2025-10-02T15:52:17.559Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 4 - Z-Scores/PSYC2020 Lab 4.html</loc>
+    <lastmod>2025-10-02T15:52:17.566Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 2 - Central Tendency/PSYC2020L Lab 2.html</loc>
+    <lastmod>2025-10-02T15:52:17.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2 Example.html</loc>
+    <lastmod>2025-10-02T15:52:17.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html</loc>
+    <lastmod>2025-11-06T22:16:42.750Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html</loc>
+    <lastmod>2025-11-07T17:47:20.966Z</lastmod>
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html</loc>
@@ -206,58 +66,114 @@
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html</loc>
-    <lastmod>2025-10-31T18:13:04.427Z</lastmod>
+    <lastmod>2025-11-07T15:40:24.998Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html</loc>
-    <lastmod>2025-10-17T14:09:55.674Z</lastmod>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 10 - Advanced R/PSYC2020 Lab 10.html</loc>
+    <lastmod>2025-10-24T14:31:38.618Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/docs/labs/Lab 10 - Advanced R/Lab 10 Assignment.html</loc>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 10 - Advanced R/Lab 10 Assignment Example.html</loc>
+    <lastmod>2025-10-24T17:00:19.581Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 1 - Basic R/PSYC2020L Lab 1.html</loc>
+    <lastmod>2025-10-02T15:52:17.326Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 1 - Basic R/PSYC2020L Assignment 1-cos-3a17963.html</loc>
+    <lastmod>2025-10-02T15:52:17.326Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Extra Credit/Extra Credit 1.html</loc>
+    <lastmod>2025-10-02T15:52:17.326Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/index.html</loc>
+    <lastmod>2025-11-07T17:28:43.226Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 1 - Basic R/PSYC2020L Assignment 1 Example.html</loc>
+    <lastmod>2025-10-02T15:52:17.326Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 1 - Basic R/PSYC2020L Assignment 1.html</loc>
+    <lastmod>2025-10-02T15:52:17.326Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 10 - Advanced R/diamond-sizes.html</loc>
+    <lastmod>2025-10-21T17:30:59.372Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 10 - Advanced R/Lab 10 Assignment.html</loc>
     <lastmod>2025-10-24T14:36:49.345Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html</loc>
-    <lastmod>2025-10-17T14:09:55.674Z</lastmod>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html</loc>
+    <lastmod>2025-10-31T16:09:51.517Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html</loc>
-    <lastmod>2025-10-03T14:12:49.637Z</lastmod>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment.html</loc>
+    <lastmod>2025-11-07T15:55:27.480Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html</loc>
-    <lastmod>2025-10-02T15:52:17.559Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html</loc>
-    <lastmod>2025-10-02T15:52:17.559Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html</loc>
-    <lastmod>2025-10-15T20:59:11.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/testing.html</loc>
-    <lastmod>2025-10-31T18:14:39.910Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html</loc>
-    <lastmod>2025-11-06T20:13:16.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html</loc>
-    <lastmod>2025-11-06T22:16:42.750Z</lastmod>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html</loc>
+    <lastmod>2025-11-06T20:22:01.026Z</lastmod>
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html</loc>
     <lastmod>2025-11-06T22:27:19.200Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html</loc>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 2 - Central Tendency/lab 2 temp.html</loc>
+    <lastmod>2025-10-02T15:52:17.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 2 - Central Tendency/PSYC2020L Assignment 2.html</loc>
+    <lastmod>2025-10-02T15:52:17.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 3 - Measures of Variability/PSYC2020 Lab 3.html</loc>
+    <lastmod>2025-10-02T15:52:17.527Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4 Example.html</loc>
     <lastmod>2025-10-02T15:52:17.559Z</lastmod>
   </url>
   <url>
-    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html</loc>
-    <lastmod>2025-11-06T20:22:01.026Z</lastmod>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 5 - Intermediate R/PSYC2020 Lab 5.html</loc>
+    <lastmod>2025-11-07T17:59:18.456Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 5 - Intermediate R/PSYC2020L Assignment 5.html</loc>
+    <lastmod>2025-10-02T15:52:17.576Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 6 - Sampling Distributions/PSYC2020L Assignment 6 Example.html</loc>
+    <lastmod>2025-10-02T15:52:17.593Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 7 - NHST I/PSYC2020 Lab 7.html</loc>
+    <lastmod>2025-10-03T14:15:20.230Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 7 - NHST I/PSYC2020L Assignment 7.html</loc>
+    <lastmod>2025-10-03T14:12:49.637Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 8 - NHST II/Lab 8 Assignment.html</loc>
+    <lastmod>2025-10-10T13:57:43.370Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 8 - NHST II/test.html</loc>
+    <lastmod>2025-10-10T13:47:34.676Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html</loc>
+    <lastmod>2025-10-17T14:09:55.674Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html</loc>
+    <lastmod>2025-10-20T14:11:50.013Z</lastmod>
   </url>
 </urlset>

@@ -199,6 +199,12 @@ window.Quarto = {
   <li><a href="#c-what-is-the-chi-squared-statistic-for-this-test" id="toc-c-what-is-the-chi-squared-statistic-for-this-test" class="nav-link" data-scroll-target="#c-what-is-the-chi-squared-statistic-for-this-test">5c) What is the chi-squared statistic for this test?</a></li>
   <li><a href="#d-provide-a-brief-interpretation-of-these-results." id="toc-d-provide-a-brief-interpretation-of-these-results." class="nav-link" data-scroll-target="#d-provide-a-brief-interpretation-of-these-results.">5d) Provide a brief interpretation of these results.</a></li>
   </ul></li>
+  <li><a href="#t-tests" id="toc-t-tests" class="nav-link" data-scroll-target="#t-tests">T-Tests</a>
+  <ul class="collapse">
+  <li><a href="#a-perform-an-independent-sample-t-test-on-the-difference-between-petal-length-and-petal-widthh-for-the-iris-dataset." id="toc-a-perform-an-independent-sample-t-test-on-the-difference-between-petal-length-and-petal-widthh-for-the-iris-dataset." class="nav-link" data-scroll-target="#a-perform-an-independent-sample-t-test-on-the-difference-between-petal-length-and-petal-widthh-for-the-iris-dataset.">6a) Perform an independent sample <em>t</em>-test on the difference between Petal Length and Petal Widthh for the <code>iris</code> dataset.</a></li>
+  <li><a href="#b-perform-an-paired-sample-t-test-on-the-difference-between-petal-length-and-petal-width-for-the-iris-dataset." id="toc-b-perform-an-paired-sample-t-test-on-the-difference-between-petal-length-and-petal-width-for-the-iris-dataset." class="nav-link" data-scroll-target="#b-perform-an-paired-sample-t-test-on-the-difference-between-petal-length-and-petal-width-for-the-iris-dataset.">6b) Perform an paired sample <em>t</em>-test on the difference between Petal Length and Petal Width for the <code>iris</code> dataset.</a></li>
+  <li><a href="#c-for-this-data-do-you-think-an-indepedent-sample-or-paired-sample-t-test-is-more-appropriate-hint-each-row-of-petal-measurements-was-taken-on-the-same-flower." id="toc-c-for-this-data-do-you-think-an-indepedent-sample-or-paired-sample-t-test-is-more-appropriate-hint-each-row-of-petal-measurements-was-taken-on-the-same-flower." class="nav-link" data-scroll-target="#c-for-this-data-do-you-think-an-indepedent-sample-or-paired-sample-t-test-is-more-appropriate-hint-each-row-of-petal-measurements-was-taken-on-the-same-flower.">6c) For this data, do you think an indepedent sample or paired sample <em>t</em>-test is more appropriate? (Hint: each row of petal measurements was taken on the same flower.)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -240,6 +246,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="goals-for-review">Goals for Review:</h2>
 <ul>
 <li>Chi-Squared Tests</li>
+<li>Independent and Paired Sample T-Tests</li>
 </ul>
 </section>
 <section id="setting-up" class="level2">
@@ -384,6 +391,51 @@ X-squared = 101, df = 3, p-value &lt; 2.2e-16</code></pre>
 <section id="d-provide-a-brief-interpretation-of-these-results." class="level3">
 <h3 class="anchored" data-anchor-id="d-provide-a-brief-interpretation-of-these-results.">5d) Provide a brief interpretation of these results.</h3>
 <p>We reject the null in favor of the alternative that there is an association between leaf color and whether or not they had fallen.</p>
+</section>
+</section>
+<section id="t-tests" class="level2">
+<h2 class="anchored" data-anchor-id="t-tests">T-Tests</h2>
+<section id="a-perform-an-independent-sample-t-test-on-the-difference-between-petal-length-and-petal-widthh-for-the-iris-dataset." class="level3">
+<h3 class="anchored" data-anchor-id="a-perform-an-independent-sample-t-test-on-the-difference-between-petal-length-and-petal-widthh-for-the-iris-dataset.">6a) Perform an independent sample <em>t</em>-test on the difference between Petal Length and Petal Widthh for the <code>iris</code> dataset.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(iris<span class="sc">$</span>Petal.Length, iris<span class="sc">$</span>Petal.Width, <span class="at">var.equal =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  iris$Petal.Length and iris$Petal.Width
+t = 16.297, df = 298, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 2.249700 2.867633
+sample estimates:
+mean of x mean of y 
+ 3.758000  1.199333 </code></pre>
+</div>
+</div>
+</section>
+<section id="b-perform-an-paired-sample-t-test-on-the-difference-between-petal-length-and-petal-width-for-the-iris-dataset." class="level3">
+<h3 class="anchored" data-anchor-id="b-perform-an-paired-sample-t-test-on-the-difference-between-petal-length-and-petal-width-for-the-iris-dataset.">6b) Perform an paired sample <em>t</em>-test on the difference between Petal Length and Petal Width for the <code>iris</code> dataset.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(iris<span class="sc">$</span>Petal.Length, iris<span class="sc">$</span>Petal.Width, <span class="at">paired =</span> T, <span class="at">var.equal =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  iris$Petal.Length and iris$Petal.Width
+t = 29.797, df = 149, p-value &lt; 2.2e-16
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ 2.388985 2.728348
+sample estimates:
+mean difference 
+       2.558667 </code></pre>
+</div>
+</div>
+</section>
+<section id="c-for-this-data-do-you-think-an-indepedent-sample-or-paired-sample-t-test-is-more-appropriate-hint-each-row-of-petal-measurements-was-taken-on-the-same-flower." class="level3">
+<h3 class="anchored" data-anchor-id="c-for-this-data-do-you-think-an-indepedent-sample-or-paired-sample-t-test-is-more-appropriate-hint-each-row-of-petal-measurements-was-taken-on-the-same-flower.">6c) For this data, do you think an indepedent sample or paired sample <em>t</em>-test is more appropriate? (Hint: each row of petal measurements was taken on the same flower.)</h3>
+<p>Paired sample <em>t</em>-test would probably be more appropriate because the measurements are from the same flowers.</p>
 
 
 </section>

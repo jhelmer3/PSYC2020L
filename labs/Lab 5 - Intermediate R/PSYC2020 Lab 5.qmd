@@ -224,7 +224,8 @@ Dataset on pulse rates before and after exercise
 Can import from the internet
 
 ```{r}
-pulse_data <- rio::import("http://www.statsci.org/data/oz/ms212.txt") 
+#| eval: false
+pulse_data <- rio::import("http://www.statsci.org/data/oz/ms212.txt") # no longer working?? as of 2025/11/07
 ```
 
 Or download the .rds file from Canvas

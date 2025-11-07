@@ -55,7 +55,7 @@ Makes operating on columns easy!
 Back to the does exercise depend on substance use (smoking) question!
 
 ```{r, echo=F}
-pulse_data <- rio::import("http://www.statsci.org/data/oz/ms212.txt") |>
+pulse_data <- rio::import(here::here("labs", "Lab 5 - Intermediate R", "pulserates.rds")) |>
   mutate(PulseDiff = Pulse2 - Pulse1,
          SmokesFct = factor(Smokes, levels = c(1, 2), labels = c("Yes", "No")),
          RanFct = factor(Ran, levels = c(1, 2), labels = c("Ran", "Sat")),

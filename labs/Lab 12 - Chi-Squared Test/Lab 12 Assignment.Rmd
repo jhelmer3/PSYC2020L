@@ -1,0 +1,109 @@
+---
+title: "PSYC2020L Assignment 12"
+author: "[name]"
+date: "2025-11-07"
+output: html_document
+---
+
+## Goals for Review:
+
+* Chi-Squared Tests
+* Independent and Paired Sample T-Tests
+
+
+## Setting Up
+
+### 1) Rename this assignment as "Lab 12 Assignment [Last, First].Rmd" 
+
+### 2) Check and set (if needed) your working directory. If you'd like to load packages with `library()`, please do so in this block. Please load the `tidyverse`!. 
+```{r}
+
+```
+
+### 3) Download and relocate the `leaves.csv` file to your folder for this class. Read in the file and display the first few rows of the data. This dataset contains the color (green, red, orange, or brown) and whether a not a leaf had fallen from its tree for 1,000 leaves. Use `mutate()` to change the `color` variable into an factor variable ordered by the leaf changing process (green -> red -> orange -> brown) first.
+
+```{r}
+
+```
+
+
+## Chi-Squared Test of Proportions
+
+### 4a) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You've recorded the color of 1000 leaves, and you'd like to test if there is a difference in the frequency of the colors of the leaves. You plan to conduct a Chi-Squared Test of Proportions on the frequency of different color leaves you've observed in your dataset. First, what are the null and alternative hypotheses for this test?
+
+
+
+### 4b) What is the expected frequency for leaves of each color? 
+
+
+
+### 4c) What is your chi-square degrees of freedom and cutoff value?
+
+```{r}
+
+```
+
+
+### 4d) What are the observed frequencies of each color?
+
+```{r}
+
+```
+
+### 4e) What is the observed chi-squared statistic?
+
+```{r}
+
+```
+
+### 4f) Provide a brief interpretation of these results.
+
+
+
+### 4g) Create a barplot that displays the frequencies of each leaf color.
+
+```{r}
+
+```
+
+
+## Chi-Squared Test of Independence
+
+### 5a) You now want to see if leaf color and whether or not the leaf had fallen from the tree are independent variables. What are the null and alternative hypotheses for this test?
+
+
+
+### 5b) What are the observed frequencies of each color given whether or not they had fallen?
+
+```{r}
+
+```
+
+### 5c) What is the chi-squared statistic for this test?
+
+```{r}
+
+```
+
+### 5d) Provide a brief interpretation of these results.
+
+
+
+
+## T-Tests
+
+### 6a) Perform an independent sample *t*-test on the difference between Petal Length and Petal Widthh for the `iris` dataset.
+
+```{r}
+
+```
+
+### 6b) Perform an paired sample *t*-test on the difference between Petal Length and Petal Width for the `iris` dataset.
+
+```{r}
+
+```
+
+### 6c) For this data, do you think an indepedent sample or paired sample *t*-test is more appropriate? (Hint: each row of petal measurements was taken on the same flower.)
+
+

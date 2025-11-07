@@ -8,6 +8,7 @@ output: html_document
 ## Goals for Review:
 
 * Chi-Squared Tests
+* Independent and Paired Sample T-Tests
 
 
 ## Setting Up
@@ -102,7 +103,20 @@ leaves |>
 We reject the null in favor of the alternative that there is an association between leaf color and whether or not they had fallen.
 
 
+## T-Tests
 
+### 6a) Perform an independent sample *t*-test on the difference between Petal Length and Petal Widthh for the `iris` dataset.
 
+```{r}
+t.test(iris$Petal.Length, iris$Petal.Width, var.equal = T)
+```
 
+### 6b) Perform an paired sample *t*-test on the difference between Petal Length and Petal Width for the `iris` dataset.
 
+```{r}
+t.test(iris$Petal.Length, iris$Petal.Width, paired = T, var.equal = T)
+```
+
+### 6c) For this data, do you think an indepedent sample or paired sample *t*-test is more appropriate? (Hint: each row of petal measurements was taken on the same flower.)
+
+Paired sample *t*-test would probably be more appropriate because the measurements are from the same flowers.

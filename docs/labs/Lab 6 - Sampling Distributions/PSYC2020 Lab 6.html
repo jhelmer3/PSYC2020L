@@ -285,15 +285,15 @@ ExerciseFct   Yes    No
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>test_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  student    test score
-1       1    Math 95.37
-2       1 Science 85.07
-3       1 Reading 96.37
-4       2    Math 98.91
-5       2 Science 63.55
-6       2 Reading 83.58
-7       3    Math 98.92
-8       3 Science 93.80
-9       3 Reading 87.89</code></pre>
+1       1    Math 96.14
+2       1 Science 94.10
+3       1 Reading 85.61
+4       2    Math 94.10
+5       2 Science 89.61
+6       2 Reading 77.42
+7       3    Math 93.05
+8       3 Science 95.81
+9       3 Reading 80.26</code></pre>
 </div>
 </div>
 </div><div class="column">
@@ -303,10 +303,10 @@ ExerciseFct   Yes    No
 <span id="cb7-3"><a></a>            <span class="at">score_mean =</span> <span class="fu">mean</span>(score),</span>
 <span id="cb7-4"><a></a>            <span class="at">score_sd =</span> <span class="fu">sd</span>(score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     test score_mean  score_sd
-1    Math   97.73333  2.046713
-2 Science   80.80667 15.569124
-3 Reading   89.28000  6.507311</code></pre>
+<pre><code>     test score_mean score_sd
+1    Math   94.43000 1.571210
+2 Science   93.17333 3.202192
+3 Reading   81.09667 4.158610</code></pre>
 </div>
 </div>
 </div></div>
@@ -638,15 +638,15 @@ ExerciseFct   Yes    No
 <pre><code># A tibble: 9 × 3
   person   book   score
   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;
-1 Harry    book 1     2
-2 Harry    book 2     2
-3 Harry    book 3     3
-4 Ron      book 1     2
+1 Harry    book 1     3
+2 Harry    book 2     3
+3 Harry    book 3     1
+4 Ron      book 1     3
 5 Ron      book 2     3
 6 Ron      book 3     2
-7 Hermione book 1     0
-8 Hermione book 2     3
-9 Hermione book 3     3</code></pre>
+7 Hermione book 1     1
+8 Hermione book 2     2
+9 Hermione book 3     1</code></pre>
 </div>
 </div>
 </div><div class="column">
@@ -655,9 +655,9 @@ ExerciseFct   Yes    No
 <pre><code># A tibble: 3 × 4
   person   `book 1` `book 2` `book 3`
   &lt;chr&gt;       &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
-1 Harry           2        2        3
-2 Ron             2        3        2
-3 Hermione        0        3        3</code></pre>
+1 Harry           3        3        1
+2 Ron             3        3        2
+3 Hermione        1        2        1</code></pre>
 </div>
 </div>
 </div></div>
@@ -679,15 +679,15 @@ ExerciseFct   Yes    No
 <pre><code># A tibble: 9 × 3
   person   book   score
   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;
-1 Harry    book 1     2
-2 Harry    book 2     2
-3 Harry    book 3     3
-4 Ron      book 1     2
+1 Harry    book 1     3
+2 Harry    book 2     3
+3 Harry    book 3     1
+4 Ron      book 1     3
 5 Ron      book 2     3
 6 Ron      book 3     2
-7 Hermione book 1     0
-8 Hermione book 2     3
-9 Hermione book 3     3</code></pre>
+7 Hermione book 1     1
+8 Hermione book 2     2
+9 Hermione book 3     1</code></pre>
 </div>
 </div>
 </div><div class="column">
@@ -701,9 +701,9 @@ ExerciseFct   Yes    No
 <pre><code># A tibble: 3 × 4
   person   `book 1` `book 2` `book 3`
   &lt;chr&gt;       &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
-1 Harry           2        2        3
-2 Ron             2        3        2
-3 Hermione        0        3        3</code></pre>
+1 Harry           3        3        1
+2 Ron             3        3        2
+3 Hermione        1        2        1</code></pre>
 </div>
 </div>
 </div></div>
@@ -1035,10 +1035,10 @@ ExerciseFct   Yes    No
 <span id="cb56-7"><a></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  id Q1 Q2 Q3 Q4 Q5
-1  1  0  0  0  0  0
+1  1  0  1  0  0  1
 2  2  0  0  0  1  0
-3  3  0  0  0  0  1
-4  4  0  0  0  0  1
+3  3  0  0  0  0  0
+4  4  0  0  1  1  0
 5  5  0  0  0  1  1</code></pre>
 </div>
 </div>
@@ -1052,10 +1052,10 @@ ExerciseFct   Yes    No
       id question correct
    &lt;int&gt; &lt;chr&gt;      &lt;int&gt;
  1     1 Q1             0
- 2     1 Q2             0
+ 2     1 Q2             1
  3     1 Q3             0
  4     1 Q4             0
- 5     1 Q5             0
+ 5     1 Q5             1
  6     2 Q1             0
  7     2 Q2             0
  8     2 Q3             0

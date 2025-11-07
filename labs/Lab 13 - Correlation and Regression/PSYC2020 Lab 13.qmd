@@ -183,13 +183,33 @@ x_sd <- sd(iris_small$Sepal.Length)
 y_bar <- mean(iris_small$Sepal.Width)
 y_sd <- sd(iris_small$Sepal.Width)
 
+paste(x_bar, x_sd, y_bar, y_sd, sep = ", ")
+```
+:::
+::::
+
+
+## Correlation Example
+
+$$ r_{xy} = \frac{\sum_{i=1}^{I} (x_i - \bar{x}) (y_i - \bar{y})}{(n-1)s_x s_y} $$
+
+Let's find the correlation between iris' sepal length and sepal width. For demonstration, let's only use the first four rows.
+
+:::: {.columns}
+::: {.column width="66%"}
+```{r}
 iris_small <- iris_small |>
   mutate(sq_diff_x = Sepal.Length - x_bar,
          sq_diff_y = Sepal.Width - y_bar,
          product = sq_diff_x * sq_diff_y)
 iris_small
+```
+:::
 
-sum(iris_small$product) / ((nrow(iris_small) - 1) * x_sd * y_sd)
+::: {.column width="33%"}
+```{r}
+sum(iris_small$product) /
+  ((nrow(iris_small) - 1) * x_sd * y_sd)
 ```
 :::
 ::::
@@ -213,7 +233,8 @@ iris_small
 
 ::: {.column width="50%"}
 ```{r}
-cor(iris_small$Sepal.Length, iris_small$Sepal.Width)
+cor(iris_small$Sepal.Length, 
+    iris_small$Sepal.Width)
 ```
 :::
 ::::
