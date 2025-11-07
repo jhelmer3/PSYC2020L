@@ -21,46 +21,85 @@ here::here()
 library(tidyverse)
 ```
 
-```{r}
-data.frame(color = sample(c("green", "red", "orange", "brown"),
-                          size = 200, replace = T,
-                          prob = c(.1, .3, .5, .1)))
-
-leaves <- data.frame(prob = rnorm(1000)) |>
-  mutate(color = case_when(prob < qnorm(.1) ~ "green",
-                           prob < qnorm(.4) ~ "red",
-                           prob < qnorm(.9) ~ "orange",
-                           prob < qnorm(1) ~ "brown") |>
-           factor(levels = c("green", "red", "orange", "brown"))) |>
-  mutate(.by = color,
-         fallen = case_when(color == "green" ~ sample(c("no", "yes"), n(), replace = T, prob = c(.9, .1)),
-                            color == "red" ~ sample(c("no", "yes"), n(), replace = T, prob = c(.7, .3)),
-                            color == "orange" ~ sample(c("no", "yes"), n(), replace = T, prob = c(.5, .5)),
-                            color == "brown" ~ sample(c("no", "yes"), n(), replace = T, prob = c(.3, .7)))) |>
-  select(-prob)
-
-leaves <- rio::import(here::here("labs", "Lab 12 - Chi-Squared Test", "leaves.csv"))
-```
-
-### 3) Download and relocate the leaves.csv file to your folder for this class. Read in the file and display the first few rows of the data. This dataset contains the color and whether a not a leaf had fallen from its tree for 1,000 leaves.
+### 3) Download and relocate the leaves.csv file to your folder for this class. Read in the file and display the first few rows of the data. This dataset contains the color (green, red, orange, or brown) and whether a not a leaf had fallen from its tree for 1,000 leaves. Use `mutate()` to change the `color` variable into an factor variable ordered by the leaf changing process (green -> red -> orange -> brown) first.
 
 ```{r}
-leaves <- rio::import(here::here("labs", "Lab 12 - Chi-Squared Test", "leaves.csv"))
+leaves <- rio::import(here::here("labs", "Lab 12 - Chi-Squared Test", "leaves.csv")) |>
+  mutate(color = factor(color, levels = c("green", "red", "orange", "brown")))
 ```
 
 
 ## Chi-Squared Test of Proportions
 
-### 4) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You've recorded the color of 1000 leaves, and you'd like to test if there is a difference in the frequency of the colors of the leaves. 
+### 4a) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You've recorded the color of 1000 leaves, and you'd like to test if there is a difference in the frequency of the colors of the leaves. You plan to conduct a Chi-Squared Test of Proportions on the frequency of different color leaves you've observed in your dataset. First, what are the null and alternative hypotheses for this test?
 
+$H_0$: The frequency of leaves of each color is the same in the population.
 
+$H_A$: The frequency of leaves of each color is not the same in the population.
 
+### 4b) What is the expected frequency for leaves of each color? 
 
+250 each.
 
+### 4c) What is your chi-square degrees of freedom and cutoff value?
 
+```{r}
+qchisq(.95, 3)
+```
+$\text{df} = 4 - 1 = 3$, cutoff = `r qchisq(.95, 3) |> round(3)`.
 
+### 4d) What are the observed frequencies of each color?
 
+```{r}
+table(leaves$color)
+```
 
+### 4e) What is the observed chi-squared statistic?
+
+```{r}
+chisq.test(c(94, 104, 513, 289))
+```
+
+### 4f) Provide a brief interpretation of these results.
+
+We reject the null in favor of the alternative that there is a difference among the frequencies of these leaf colors in the population.
+
+### 4g) Create a barplot that displays the frequencies of each leaf color.
+
+```{r}
+leaves |>
+  ggplot(aes(x = color)) +
+  geom_bar()
+```
+
+## Chi-Squared Test of Independence
+
+### 5a) You now want to see if leaf color and whether or not the leaf had fallen from the tree are independent variables. What are the null and alternative hypotheses for this test?
+
+$H_0$: Leaf color and whether or not the leaf had fallen have no association.
+
+$H_A$: Leaf color and whether or not the leaf had fallen have some association.
+
+### 5b) What are the observed frequencies of each color given whether or not they had fallen?
+
+```{r}
+table(leaves$color, leaves$fallen)
+```
+
+### 5c) What is the chi-squared statistic for this test?
+
+```{r}
+leaves |>
+  summarize(.by = c(color, fallen),
+            n = n()) |>
+  pivot_wider(names_from = fallen, values_from = n) |>
+  select(-color) |>
+  chisq.test(correct = F)
+```
+
+### 5d) Provide a brief interpretation of these results.
+
+We reject the null in favor of the alternative that there is an association between leaf color and whether or not they had fallen.
 
 
 

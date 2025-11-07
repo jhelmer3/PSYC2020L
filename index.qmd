@@ -92,7 +92,7 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 11/07 Lab 12
 #### Chi-Squared Test
-Coming soon!
+[Slides](/labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.qmd) | [Assignment](/labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment.Rmd)
 :::
 ::::
 
@@ -110,6 +110,6 @@ Coming soon!
 :::
 
 ::: {.column width=33%}
-
+### End of Semester!!
 :::
 ::::

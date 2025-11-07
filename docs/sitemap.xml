@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/index.html</loc>
-    <lastmod>2025-10-31T16:26:33.127Z</lastmod>
+    <lastmod>2025-11-07T15:29:44.214Z</lastmod>
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 1 - Basic R/PSYC2020L Lab 1.html</loc>
@@ -202,11 +202,11 @@
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html</loc>
-    <lastmod>2025-10-30T19:25:39.969Z</lastmod>
+    <lastmod>2025-11-07T15:26:59.361Z</lastmod>
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html</loc>
-    <lastmod>2025-10-30T20:41:56.635Z</lastmod>
+    <lastmod>2025-10-31T18:13:04.427Z</lastmod>
   </url>
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html</loc>
@@ -235,5 +235,29 @@
   <url>
     <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 7 - NHST I/PSYC2020L Assignment 7 Example.html</loc>
     <lastmod>2025-10-15T20:59:11.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/testing.html</loc>
+    <lastmod>2025-10-31T18:14:39.910Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html</loc>
+    <lastmod>2025-11-06T20:13:16.730Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html</loc>
+    <lastmod>2025-11-06T22:16:42.750Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html</loc>
+    <lastmod>2025-11-06T22:27:19.200Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html</loc>
+    <lastmod>2025-10-02T15:52:17.559Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jhelmer3.github.io/PSYC2020L/labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html</loc>
+    <lastmod>2025-11-06T20:22:01.026Z</lastmod>
   </url>
 </urlset>

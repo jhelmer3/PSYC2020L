@@ -1,0 +1,47 @@
+.subpoint {
+  font-size: 90%;
+  margin-left: 1.5em;
+  margin-top: -0.4em;
+  margin-bottom: 0.3em;
+}
+
+span.subpoint {
+  position: relative;
+  top: -0.6em;
+}
+
+.subpoint-narrow {
+  font-size: 90%;
+  padding-left: .75em;
+  margin-top: -0.4em;
+  margin-bottom: 0.3em;
+}
+
+.subsubpoint {
+  font-size: 90%;
+  margin-left: .75em;
+  margin-top: -0.4em;
+  margin-bottom: 0.3em;
+}
+
+
+.blue {
+  color: #5a55fa;
+}
+
+.red {
+  color: #b04c19;
+}
+
+.yellow {
+  color: #dfc127;
+}
+
+.my-callout {
+  padding: 5px 15px 5px 15px;
+  border: 2px solid lightgray;
+  border-left: 10px solid steelblue; 
+  border-radius: 10px;
+  font-size: .8em;
+  color: black;
+}

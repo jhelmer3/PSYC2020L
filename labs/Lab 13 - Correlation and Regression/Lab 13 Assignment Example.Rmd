@@ -1,0 +1,94 @@
+---
+title: "PSYC2020L Assignment 13"
+author: "[name]"
+date: "2025-11-14"
+output: html_document
+---
+
+## Goals for Review:
+
+* Correlation and Regression
+
+
+## Setting Up
+
+### 1) Rename this assignment as "Lab 13 Assignment [Last, First].Rmd" 
+
+### 2) Check and set (if needed) your working directory. If you'd like to load packages with `library()`, please do so in this block.
+
+```{r}
+here::here()
+```
+
+### 3) Download the `students_data.csv` dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data.
+
+```{r}
+students <- rio::import("student_data.csv")
+head(students)
+str(students)
+summary(students)
+```
+
+
+## Correlation
+
+### 4) What is the correlation between `reading_score` and `writing_score`?
+
+```{r}
+cor(students$reading_score, students$writing_score)
+```
+
+### 5) Please provide a brief interpretation of the correlation between `reading_score` and `writing_score` (1--2 sentences).
+
+The strength of the linear relationship between reading score and writing score is .95.
+
+
+## Regression
+
+### 6) What is the mean of `math_score`?
+
+```{r}
+mean(students$math_score)
+```
+
+### 7) Estimate an intercept-only model with `math_score` as the outcome variable. Display the output with `summary()`.
+
+```{r}
+m0 <- lm(math_score ~ 1, data = students)
+summary(m0)
+```
+
+### 8) Compare the results of (6) and (7). Are there similarities? If so, why?
+
+The mean of `math_score` minimizes the squared errors between the observed values and the predicted value (the mean). This same property makes it the best estimate for a line of best fit, which is why the intercept estimate in (7) is the same as the mean.
+
+### 9) Now, use `reading_score` to predict `math score`. Display the output with `summary()`.
+
+```{r}
+m1 <- lm(math_score ~ reading_score, data = students)
+summary(m1)
+```
+
+### 10) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates.
+
+With every unit increase in reading score, the expected math score increases by 0.85 points. This is a significant increase (*p* < .001). When reading score is zero, the expected math_score is 7.36.
+
+[It's OK to me if they don't mention the *p*-values.]{style="color:maroon"}
+
+### 11) Now, use both `reading_score` and `writing_score` to predict `math score`. Display the output with `summary()`.
+
+```{r}
+m2 <- lm(math_score ~ reading_score + writing_score, data = students)
+summary(m2)
+```
+
+### 10) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates. How do these results compare to the results from (9)?
+
+The effects of both reading score and writing score were significant. With every unit increase in reading score, the expected increase in math score is 0.6 points, and with every unit increase in writing score, the expected increase in math score is 0.25 points. When reading score and writing score are zero, the expected math score is 7.52 points. The intercept is slightly higher than before, and the effect of reading score is less than before.
+
+
+
+
+
+
+

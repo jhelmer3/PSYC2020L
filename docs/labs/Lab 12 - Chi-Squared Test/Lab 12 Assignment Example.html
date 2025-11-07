@@ -105,6 +105,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -151,11 +180,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#rename-this-assignment-as-lab-12-assignment-last-first.rmd" id="toc-rename-this-assignment-as-lab-12-assignment-last-first.rmd" class="nav-link" data-scroll-target="#rename-this-assignment-as-lab-12-assignment-last-first.rmd">1) Rename this assignment as “Lab 12 Assignment [Last, First].Rmd”</a></li>
   <li><a href="#check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block.-please-load-the-tidyverse." id="toc-check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block.-please-load-the-tidyverse." class="nav-link" data-scroll-target="#check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block.-please-load-the-tidyverse.">2) Check and set (if needed) your working directory. If you’d like to load packages with <code>library()</code>, please do so in this block. Please load the <code>tidyverse</code>!.</a></li>
-  <li><a href="#download-and-relocate-the-leaves.csv-file-to-your-folder-for-this-class.-read-in-the-file-and-display-the-first-few-rows-of-the-data.-this-dataset-contains-the-color-and-whether-a-not-a-leaf-had-fallen-from-its-tree-for-1000-leaves." id="toc-download-and-relocate-the-leaves.csv-file-to-your-folder-for-this-class.-read-in-the-file-and-display-the-first-few-rows-of-the-data.-this-dataset-contains-the-color-and-whether-a-not-a-leaf-had-fallen-from-its-tree-for-1000-leaves." class="nav-link" data-scroll-target="#download-and-relocate-the-leaves.csv-file-to-your-folder-for-this-class.-read-in-the-file-and-display-the-first-few-rows-of-the-data.-this-dataset-contains-the-color-and-whether-a-not-a-leaf-had-fallen-from-its-tree-for-1000-leaves.">3) Download and relocate the leaves.csv file to your folder for this class. Read in the file and display the first few rows of the data. This dataset contains the color and whether a not a leaf had fallen from its tree for 1,000 leaves.</a></li>
+  <li><a href="#download-and-relocate-the-leaves.csv-file-to-your-folder-for-this-class.-read-in-the-file-and-display-the-first-few-rows-of-the-data.-this-dataset-contains-the-color-green-red-orange-or-brown-and-whether-a-not-a-leaf-had-fallen-from-its-tree-for-1000-leaves.-use-mutate-to-change-the-color-variable-into-an-factor-variable-ordered-by-the-leaf-changing-process-green---red---orange---brown-first." id="toc-download-and-relocate-the-leaves.csv-file-to-your-folder-for-this-class.-read-in-the-file-and-display-the-first-few-rows-of-the-data.-this-dataset-contains-the-color-green-red-orange-or-brown-and-whether-a-not-a-leaf-had-fallen-from-its-tree-for-1000-leaves.-use-mutate-to-change-the-color-variable-into-an-factor-variable-ordered-by-the-leaf-changing-process-green---red---orange---brown-first." class="nav-link" data-scroll-target="#download-and-relocate-the-leaves.csv-file-to-your-folder-for-this-class.-read-in-the-file-and-display-the-first-few-rows-of-the-data.-this-dataset-contains-the-color-green-red-orange-or-brown-and-whether-a-not-a-leaf-had-fallen-from-its-tree-for-1000-leaves.-use-mutate-to-change-the-color-variable-into-an-factor-variable-ordered-by-the-leaf-changing-process-green---red---orange---brown-first.">3) Download and relocate the leaves.csv file to your folder for this class. Read in the file and display the first few rows of the data. This dataset contains the color (green, red, orange, or brown) and whether a not a leaf had fallen from its tree for 1,000 leaves. Use <code>mutate()</code> to change the <code>color</code> variable into an factor variable ordered by the leaf changing process (green -&gt; red -&gt; orange -&gt; brown) first.</a></li>
   </ul></li>
   <li><a href="#chi-squared-test-of-proportions" id="toc-chi-squared-test-of-proportions" class="nav-link" data-scroll-target="#chi-squared-test-of-proportions">Chi-Squared Test of Proportions</a>
   <ul class="collapse">
-  <li><a href="#you-are-a-tree-researcher-and-you-would-like-to-better-understand-leaves-changing-color-in-the-fall.-youve-recorded-the-color-of-1000-leaves-and-youd-like-to-test-if-there-is-a-difference-in-the-frequency-of-the-colors-of-the-leaves." id="toc-you-are-a-tree-researcher-and-you-would-like-to-better-understand-leaves-changing-color-in-the-fall.-youve-recorded-the-color-of-1000-leaves-and-youd-like-to-test-if-there-is-a-difference-in-the-frequency-of-the-colors-of-the-leaves." class="nav-link" data-scroll-target="#you-are-a-tree-researcher-and-you-would-like-to-better-understand-leaves-changing-color-in-the-fall.-youve-recorded-the-color-of-1000-leaves-and-youd-like-to-test-if-there-is-a-difference-in-the-frequency-of-the-colors-of-the-leaves.">4) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You’ve recorded the color of 1000 leaves, and you’d like to test if there is a difference in the frequency of the colors of the leaves.</a></li>
+  <li><a href="#a-you-are-a-tree-researcher-and-you-would-like-to-better-understand-leaves-changing-color-in-the-fall.-youve-recorded-the-color-of-1000-leaves-and-youd-like-to-test-if-there-is-a-difference-in-the-frequency-of-the-colors-of-the-leaves.-you-plan-to-conduct-a-chi-squared-test-of-proportions-on-the-frequency-of-different-color-leaves-youve-observed-in-your-dataset.-first-what-are-the-null-and-alternative-hypotheses-for-this-test" id="toc-a-you-are-a-tree-researcher-and-you-would-like-to-better-understand-leaves-changing-color-in-the-fall.-youve-recorded-the-color-of-1000-leaves-and-youd-like-to-test-if-there-is-a-difference-in-the-frequency-of-the-colors-of-the-leaves.-you-plan-to-conduct-a-chi-squared-test-of-proportions-on-the-frequency-of-different-color-leaves-youve-observed-in-your-dataset.-first-what-are-the-null-and-alternative-hypotheses-for-this-test" class="nav-link" data-scroll-target="#a-you-are-a-tree-researcher-and-you-would-like-to-better-understand-leaves-changing-color-in-the-fall.-youve-recorded-the-color-of-1000-leaves-and-youd-like-to-test-if-there-is-a-difference-in-the-frequency-of-the-colors-of-the-leaves.-you-plan-to-conduct-a-chi-squared-test-of-proportions-on-the-frequency-of-different-color-leaves-youve-observed-in-your-dataset.-first-what-are-the-null-and-alternative-hypotheses-for-this-test">4a) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You’ve recorded the color of 1000 leaves, and you’d like to test if there is a difference in the frequency of the colors of the leaves. You plan to conduct a Chi-Squared Test of Proportions on the frequency of different color leaves you’ve observed in your dataset. First, what are the null and alternative hypotheses for this test?</a></li>
+  <li><a href="#b-what-is-the-expected-frequency-for-leaves-of-each-color" id="toc-b-what-is-the-expected-frequency-for-leaves-of-each-color" class="nav-link" data-scroll-target="#b-what-is-the-expected-frequency-for-leaves-of-each-color">4b) What is the expected frequency for leaves of each color?</a></li>
+  <li><a href="#c-what-is-your-chi-square-degrees-of-freedom-and-cutoff-value" id="toc-c-what-is-your-chi-square-degrees-of-freedom-and-cutoff-value" class="nav-link" data-scroll-target="#c-what-is-your-chi-square-degrees-of-freedom-and-cutoff-value">4c) What is your chi-square degrees of freedom and cutoff value?</a></li>
+  <li><a href="#d-what-are-the-observed-frequencies-of-each-color" id="toc-d-what-are-the-observed-frequencies-of-each-color" class="nav-link" data-scroll-target="#d-what-are-the-observed-frequencies-of-each-color">4d) What are the observed frequencies of each color?</a></li>
+  <li><a href="#e-what-is-the-observed-chi-squared-statistic" id="toc-e-what-is-the-observed-chi-squared-statistic" class="nav-link" data-scroll-target="#e-what-is-the-observed-chi-squared-statistic">4e) What is the observed chi-squared statistic?</a></li>
+  <li><a href="#f-provide-a-brief-interpretation-of-these-results." id="toc-f-provide-a-brief-interpretation-of-these-results." class="nav-link" data-scroll-target="#f-provide-a-brief-interpretation-of-these-results.">4f) Provide a brief interpretation of these results.</a></li>
+  <li><a href="#g-create-a-barplot-that-displays-the-frequencies-of-each-leaf-color." id="toc-g-create-a-barplot-that-displays-the-frequencies-of-each-leaf-color." class="nav-link" data-scroll-target="#g-create-a-barplot-that-displays-the-frequencies-of-each-leaf-color.">4g) Create a barplot that displays the frequencies of each leaf color.</a></li>
+  </ul></li>
+  <li><a href="#chi-squared-test-of-independence" id="toc-chi-squared-test-of-independence" class="nav-link" data-scroll-target="#chi-squared-test-of-independence">Chi-Squared Test of Independence</a>
+  <ul class="collapse">
+  <li><a href="#a-you-now-want-to-see-if-leaf-color-and-whether-or-not-the-leaf-had-fallen-from-the-tree-are-independent-variables.-what-are-the-null-and-alternative-hypotheses-for-this-test" id="toc-a-you-now-want-to-see-if-leaf-color-and-whether-or-not-the-leaf-had-fallen-from-the-tree-are-independent-variables.-what-are-the-null-and-alternative-hypotheses-for-this-test" class="nav-link" data-scroll-target="#a-you-now-want-to-see-if-leaf-color-and-whether-or-not-the-leaf-had-fallen-from-the-tree-are-independent-variables.-what-are-the-null-and-alternative-hypotheses-for-this-test">5a) You now want to see if leaf color and whether or not the leaf had fallen from the tree are independent variables. What are the null and alternative hypotheses for this test?</a></li>
+  <li><a href="#b-what-are-the-observed-frequencies-of-each-color-given-whether-or-not-they-had-fallen" id="toc-b-what-are-the-observed-frequencies-of-each-color-given-whether-or-not-they-had-fallen" class="nav-link" data-scroll-target="#b-what-are-the-observed-frequencies-of-each-color-given-whether-or-not-they-had-fallen">5b) What are the observed frequencies of each color given whether or not they had fallen?</a></li>
+  <li><a href="#c-what-is-the-chi-squared-statistic-for-this-test" id="toc-c-what-is-the-chi-squared-statistic-for-this-test" class="nav-link" data-scroll-target="#c-what-is-the-chi-squared-statistic-for-this-test">5c) What is the chi-squared statistic for this test?</a></li>
+  <li><a href="#d-provide-a-brief-interpretation-of-these-results." id="toc-d-provide-a-brief-interpretation-of-these-results." class="nav-link" data-scroll-target="#d-provide-a-brief-interpretation-of-these-results.">5d) Provide a brief interpretation of these results.</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -226,240 +268,122 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">color =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"green"</span>, <span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"brown"</span>),</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">size =</span> <span class="dv">200</span>, <span class="at">replace =</span> T,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">1</span>, .<span class="dv">3</span>, .<span class="dv">5</span>, .<span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     color
-1   orange
-2    brown
-3      red
-4      red
-5   orange
-6   orange
-7   orange
-8   orange
-9    brown
-10  orange
-11     red
-12   green
-13   green
-14     red
-15     red
-16  orange
-17  orange
-18     red
-19  orange
-20   green
-21   brown
-22     red
-23     red
-24     red
-25  orange
-26  orange
-27   brown
-28  orange
-29  orange
-30     red
-31   brown
-32  orange
-33  orange
-34     red
-35     red
-36  orange
-37     red
-38     red
-39  orange
-40  orange
-41  orange
-42   green
-43     red
-44     red
-45     red
-46     red
-47  orange
-48   brown
-49     red
-50  orange
-51  orange
-52   brown
-53     red
-54   brown
-55     red
-56  orange
-57  orange
-58  orange
-59  orange
-60  orange
-61   green
-62   brown
-63  orange
-64  orange
-65   brown
-66  orange
-67  orange
-68     red
-69  orange
-70  orange
-71     red
-72  orange
-73  orange
-74  orange
-75   green
-76  orange
-77  orange
-78  orange
-79     red
-80     red
-81     red
-82   green
-83  orange
-84  orange
-85  orange
-86  orange
-87   brown
-88     red
-89  orange
-90     red
-91     red
-92   brown
-93   green
-94  orange
-95   brown
-96     red
-97  orange
-98  orange
-99  orange
-100    red
-101  green
-102 orange
-103 orange
-104 orange
-105  green
-106 orange
-107 orange
-108    red
-109 orange
-110 orange
-111  green
-112 orange
-113 orange
-114 orange
-115  brown
-116 orange
-117 orange
-118  green
-119    red
-120    red
-121  brown
-122 orange
-123 orange
-124 orange
-125    red
-126 orange
-127    red
-128    red
-129 orange
-130 orange
-131 orange
-132  brown
-133 orange
-134  green
-135 orange
-136    red
-137    red
-138    red
-139 orange
-140 orange
-141    red
-142    red
-143  green
-144  brown
-145 orange
-146    red
-147 orange
-148  brown
-149 orange
-150 orange
-151  green
-152    red
-153    red
-154    red
-155 orange
-156 orange
-157  green
-158 orange
-159  green
-160 orange
-161    red
-162    red
-163 orange
-164    red
-165 orange
-166  brown
-167  green
-168    red
-169 orange
-170 orange
-171 orange
-172  brown
-173  green
-174 orange
-175 orange
-176  brown
-177 orange
-178 orange
-179 orange
-180    red
-181    red
-182 orange
-183 orange
-184  green
-185 orange
-186 orange
-187    red
-188 orange
-189 orange
-190 orange
-191 orange
-192    red
-193 orange
-194    red
-195 orange
-196 orange
-197 orange
-198 orange
-199 orange
-200 orange</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>leaves <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">prob =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">color =</span> <span class="fu">case_when</span>(prob <span class="sc">&lt;</span> <span class="fu">qnorm</span>(.<span class="dv">1</span>) <span class="sc">~</span> <span class="st">"green"</span>,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                           prob <span class="sc">&lt;</span> <span class="fu">qnorm</span>(.<span class="dv">4</span>) <span class="sc">~</span> <span class="st">"red"</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                           prob <span class="sc">&lt;</span> <span class="fu">qnorm</span>(.<span class="dv">9</span>) <span class="sc">~</span> <span class="st">"orange"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                           prob <span class="sc">&lt;</span> <span class="fu">qnorm</span>(<span class="dv">1</span>) <span class="sc">~</span> <span class="st">"brown"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>           <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"green"</span>, <span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"brown"</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">.by =</span> color,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">fallen =</span> <span class="fu">case_when</span>(color <span class="sc">==</span> <span class="st">"green"</span> <span class="sc">~</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"no"</span>, <span class="st">"yes"</span>), <span class="fu">n</span>(), <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">9</span>, .<span class="dv">1</span>)),</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                            color <span class="sc">==</span> <span class="st">"red"</span> <span class="sc">~</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"no"</span>, <span class="st">"yes"</span>), <span class="fu">n</span>(), <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">7</span>, .<span class="dv">3</span>)),</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                            color <span class="sc">==</span> <span class="st">"orange"</span> <span class="sc">~</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"no"</span>, <span class="st">"yes"</span>), <span class="fu">n</span>(), <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">5</span>, .<span class="dv">5</span>)),</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                            color <span class="sc">==</span> <span class="st">"brown"</span> <span class="sc">~</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"no"</span>, <span class="st">"yes"</span>), <span class="fu">n</span>(), <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">3</span>, .<span class="dv">7</span>)))) <span class="sc">|&gt;</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>prob)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>leaves <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"labs"</span>, <span class="st">"Lab 12 - Chi-Squared Test"</span>, <span class="st">"leaves.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
-<section id="download-and-relocate-the-leaves.csv-file-to-your-folder-for-this-class.-read-in-the-file-and-display-the-first-few-rows-of-the-data.-this-dataset-contains-the-color-and-whether-a-not-a-leaf-had-fallen-from-its-tree-for-1000-leaves." class="level3">
-<h3 class="anchored" data-anchor-id="download-and-relocate-the-leaves.csv-file-to-your-folder-for-this-class.-read-in-the-file-and-display-the-first-few-rows-of-the-data.-this-dataset-contains-the-color-and-whether-a-not-a-leaf-had-fallen-from-its-tree-for-1000-leaves.">3) Download and relocate the leaves.csv file to your folder for this class. Read in the file and display the first few rows of the data. This dataset contains the color and whether a not a leaf had fallen from its tree for 1,000 leaves.</h3>
+<section id="download-and-relocate-the-leaves.csv-file-to-your-folder-for-this-class.-read-in-the-file-and-display-the-first-few-rows-of-the-data.-this-dataset-contains-the-color-green-red-orange-or-brown-and-whether-a-not-a-leaf-had-fallen-from-its-tree-for-1000-leaves.-use-mutate-to-change-the-color-variable-into-an-factor-variable-ordered-by-the-leaf-changing-process-green---red---orange---brown-first." class="level3">
+<h3 class="anchored" data-anchor-id="download-and-relocate-the-leaves.csv-file-to-your-folder-for-this-class.-read-in-the-file-and-display-the-first-few-rows-of-the-data.-this-dataset-contains-the-color-green-red-orange-or-brown-and-whether-a-not-a-leaf-had-fallen-from-its-tree-for-1000-leaves.-use-mutate-to-change-the-color-variable-into-an-factor-variable-ordered-by-the-leaf-changing-process-green---red---orange---brown-first.">3) Download and relocate the leaves.csv file to your folder for this class. Read in the file and display the first few rows of the data. This dataset contains the color (green, red, orange, or brown) and whether a not a leaf had fallen from its tree for 1,000 leaves. Use <code>mutate()</code> to change the <code>color</code> variable into an factor variable ordered by the leaf changing process (green -&gt; red -&gt; orange -&gt; brown) first.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>leaves <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"labs"</span>, <span class="st">"Lab 12 - Chi-Squared Test"</span>, <span class="st">"leaves.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>leaves <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"labs"</span>, <span class="st">"Lab 12 - Chi-Squared Test"</span>, <span class="st">"leaves.csv"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">color =</span> <span class="fu">factor</span>(color, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"green"</span>, <span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"brown"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="chi-squared-test-of-proportions" class="level2">
 <h2 class="anchored" data-anchor-id="chi-squared-test-of-proportions">Chi-Squared Test of Proportions</h2>
-<section id="you-are-a-tree-researcher-and-you-would-like-to-better-understand-leaves-changing-color-in-the-fall.-youve-recorded-the-color-of-1000-leaves-and-youd-like-to-test-if-there-is-a-difference-in-the-frequency-of-the-colors-of-the-leaves." class="level3">
-<h3 class="anchored" data-anchor-id="you-are-a-tree-researcher-and-you-would-like-to-better-understand-leaves-changing-color-in-the-fall.-youve-recorded-the-color-of-1000-leaves-and-youd-like-to-test-if-there-is-a-difference-in-the-frequency-of-the-colors-of-the-leaves.">4) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You’ve recorded the color of 1000 leaves, and you’d like to test if there is a difference in the frequency of the colors of the leaves.</h3>
+<section id="a-you-are-a-tree-researcher-and-you-would-like-to-better-understand-leaves-changing-color-in-the-fall.-youve-recorded-the-color-of-1000-leaves-and-youd-like-to-test-if-there-is-a-difference-in-the-frequency-of-the-colors-of-the-leaves.-you-plan-to-conduct-a-chi-squared-test-of-proportions-on-the-frequency-of-different-color-leaves-youve-observed-in-your-dataset.-first-what-are-the-null-and-alternative-hypotheses-for-this-test" class="level3">
+<h3 class="anchored" data-anchor-id="a-you-are-a-tree-researcher-and-you-would-like-to-better-understand-leaves-changing-color-in-the-fall.-youve-recorded-the-color-of-1000-leaves-and-youd-like-to-test-if-there-is-a-difference-in-the-frequency-of-the-colors-of-the-leaves.-you-plan-to-conduct-a-chi-squared-test-of-proportions-on-the-frequency-of-different-color-leaves-youve-observed-in-your-dataset.-first-what-are-the-null-and-alternative-hypotheses-for-this-test">4a) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You’ve recorded the color of 1000 leaves, and you’d like to test if there is a difference in the frequency of the colors of the leaves. You plan to conduct a Chi-Squared Test of Proportions on the frequency of different color leaves you’ve observed in your dataset. First, what are the null and alternative hypotheses for this test?</h3>
+<p><span class="math inline">\(H_0\)</span>: The frequency of leaves of each color is the same in the population.</p>
+<p><span class="math inline">\(H_A\)</span>: The frequency of leaves of each color is not the same in the population.</p>
+</section>
+<section id="b-what-is-the-expected-frequency-for-leaves-of-each-color" class="level3">
+<h3 class="anchored" data-anchor-id="b-what-is-the-expected-frequency-for-leaves-of-each-color">4b) What is the expected frequency for leaves of each color?</h3>
+<p>250 each.</p>
+</section>
+<section id="c-what-is-your-chi-square-degrees-of-freedom-and-cutoff-value" class="level3">
+<h3 class="anchored" data-anchor-id="c-what-is-your-chi-square-degrees-of-freedom-and-cutoff-value">4c) What is your chi-square degrees of freedom and cutoff value?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qchisq</span>(.<span class="dv">95</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.814728</code></pre>
+</div>
+</div>
+<p><span class="math inline">\(\text{df} = 4 - 1 = 3\)</span>, cutoff = 7.815.</p>
+</section>
+<section id="d-what-are-the-observed-frequencies-of-each-color" class="level3">
+<h3 class="anchored" data-anchor-id="d-what-are-the-observed-frequencies-of-each-color">4d) What are the observed frequencies of each color?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(leaves<span class="sc">$</span>color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ green    red orange  brown 
+   104    289    513     94 </code></pre>
+</div>
+</div>
+</section>
+<section id="e-what-is-the-observed-chi-squared-statistic" class="level3">
+<h3 class="anchored" data-anchor-id="e-what-is-the-observed-chi-squared-statistic">4e) What is the observed chi-squared statistic?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">c</span>(<span class="dv">94</span>, <span class="dv">104</span>, <span class="dv">513</span>, <span class="dv">289</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  c(94, 104, 513, 289)
+X-squared = 465.37, df = 3, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="f-provide-a-brief-interpretation-of-these-results." class="level3">
+<h3 class="anchored" data-anchor-id="f-provide-a-brief-interpretation-of-these-results.">4f) Provide a brief interpretation of these results.</h3>
+<p>We reject the null in favor of the alternative that there is a difference among the frequencies of these leaf colors in the population.</p>
+</section>
+<section id="g-create-a-barplot-that-displays-the-frequencies-of-each-leaf-color." class="level3">
+<h3 class="anchored" data-anchor-id="g-create-a-barplot-that-displays-the-frequencies-of-each-leaf-color.">4g) Create a barplot that displays the frequencies of each leaf color.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>leaves <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> color)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab-12-Assignment-Example_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="chi-squared-test-of-independence" class="level2">
+<h2 class="anchored" data-anchor-id="chi-squared-test-of-independence">Chi-Squared Test of Independence</h2>
+<section id="a-you-now-want-to-see-if-leaf-color-and-whether-or-not-the-leaf-had-fallen-from-the-tree-are-independent-variables.-what-are-the-null-and-alternative-hypotheses-for-this-test" class="level3">
+<h3 class="anchored" data-anchor-id="a-you-now-want-to-see-if-leaf-color-and-whether-or-not-the-leaf-had-fallen-from-the-tree-are-independent-variables.-what-are-the-null-and-alternative-hypotheses-for-this-test">5a) You now want to see if leaf color and whether or not the leaf had fallen from the tree are independent variables. What are the null and alternative hypotheses for this test?</h3>
+<p><span class="math inline">\(H_0\)</span>: Leaf color and whether or not the leaf had fallen have no association.</p>
+<p><span class="math inline">\(H_A\)</span>: Leaf color and whether or not the leaf had fallen have some association.</p>
+</section>
+<section id="b-what-are-the-observed-frequencies-of-each-color-given-whether-or-not-they-had-fallen" class="level3">
+<h3 class="anchored" data-anchor-id="b-what-are-the-observed-frequencies-of-each-color-given-whether-or-not-they-had-fallen">5b) What are the observed frequencies of each color given whether or not they had fallen?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(leaves<span class="sc">$</span>color, leaves<span class="sc">$</span>fallen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        
+          no yes
+  green   92  12
+  red    199  90
+  orange 269 244
+  brown   24  70</code></pre>
+</div>
+</div>
+</section>
+<section id="c-what-is-the-chi-squared-statistic-for-this-test" class="level3">
+<h3 class="anchored" data-anchor-id="c-what-is-the-chi-squared-statistic-for-this-test">5c) What is the chi-squared statistic for this test?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>leaves <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">.by =</span> <span class="fu">c</span>(color, fallen),</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> fallen, <span class="at">values_from =</span> n) <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>color) <span class="sc">|&gt;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">chisq.test</span>(<span class="at">correct =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  select(pivot_wider(summarize(leaves, .by = c(color, fallen),     n = n()), names_from = fallen, values_from = n), -color)
+X-squared = 101, df = 3, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="d-provide-a-brief-interpretation-of-these-results." class="level3">
+<h3 class="anchored" data-anchor-id="d-provide-a-brief-interpretation-of-these-results.">5d) Provide a brief interpretation of these results.</h3>
+<p>We reject the null in favor of the alternative that there is an association between leaf color and whether or not they had fallen.</p>
 
 
 </section>

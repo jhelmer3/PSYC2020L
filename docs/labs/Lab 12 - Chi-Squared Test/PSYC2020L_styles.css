@@ -7,7 +7,7 @@
 
 span.subpoint {
   position: relative;
-  top: -0.8em;
+  top: -0.6em;
 }
 
 .subpoint-narrow {
@@ -31,15 +31,23 @@ span.subpoint {
   max-height: unset !important;
 }
 
-section.slide.title-slide {
-  position: relative !important;
-  height: 100vh !important;     /* full viewport height */
-  display: block !important;    /* cancel reveal.js flex centering */
+.blue {
+  color: #5a55fa;
 }
 
-section.slide.title-slide > .r-fit-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -66%);
+.red {
+  color: #b04c19;
+}
+
+.yellow {
+  color: #dfc127;
+}
+
+.my-callout {
+  padding: 5px 15px 5px 15px;
+  border: 2px solid lightgray;
+  border-left: 10px solid steelblue; 
+  border-radius: 10px;
+  font-size: .8em;
+  color: black;
 }

@@ -886,7 +886,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 5\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/26 Lab 6\n\nSampling Distributions\nSlides | Assignment\n\n\n\n\n\n\n\n10/03 Lab 7\n\nNHST I\nSlides | Assignment\n\n\n\n\n10/10 Lab 8\n\nNHST II\nSlides | Assignment\n\n\n\n\n10/17 Lab 9\n\nConfidence Intervals\nSlides | Assignment\n\n\n\n\n\n\n\n10/24 Lab 10\n\nAdvanced R\nSlides | Assignment\n\n\n\n\n10/31 Lab 11 🎃\n\nIndependent and Paired Samples T-Test\nSlides | No Assignment\n\n\n\n\n11/07 Lab 12\n\nChi-Squared Test\nComing soon!\n\n\n\n\n\n\n\n11/14 Lab 13\n\nCorrelation and Regression\nComing soon!\n\n\n\n\n11/21 Lab 14\n\nOne-Way ANOVA\nComing soon!"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 5\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/26 Lab 6\n\nSampling Distributions\nSlides | Assignment\n\n\n\n\n\n\n\n10/03 Lab 7\n\nNHST I\nSlides | Assignment\n\n\n\n\n10/10 Lab 8\n\nNHST II\nSlides | Assignment\n\n\n\n\n10/17 Lab 9\n\nConfidence Intervals\nSlides | Assignment\n\n\n\n\n\n\n\n10/24 Lab 10\n\nAdvanced R\nSlides | Assignment\n\n\n\n\n10/31 Lab 11 🎃\n\nIndependent and Paired Samples T-Test\nSlides | No Assignment\n\n\n\n\n11/07 Lab 12\n\nChi-Squared Test\nSlides | Assignment\n\n\n\n\n\n\n\n11/14 Lab 13\n\nCorrelation and Regression\nComing soon!\n\n\n\n\n11/21 Lab 14\n\nOne-Way ANOVA\nComing soon!\n\n\n\n\nEnd of Semester!!"
   },
   {
     "objectID": "labs/Lab 2 - Descriptive Statistics I/PSYC2020L Assignment 2.html",
@@ -5253,8 +5253,8 @@
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#outline",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#outline",
     "title": "Confidence Intervals",
-    "section": "",
-    "text": "Assignment 8 Review\nConfidence Intervals\nOne-Sample t-test\n\nLearning objectives:\nR: CI and t-statistics in R\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 8 Review\nConfidence Intervals\nOne-Sample t-test\n\nLearning objectives:\nR: CI and t-statistics in R"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#assignment-8-review",
@@ -5289,7 +5289,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cutoff-z-values-example",
     "title": "Confidence Intervals",
     "section": "Cutoff Z-Values Example",
-    "text": "Cutoff Z-Values Example\nSay you want to find the cutoff z values for some confidence interval\nTwo examples: 95% CI and 97.3% CI (one typical, one as exercise)\n\nWe want the \\(\\alpha = 1 -\\) confidence level piece to be equal on both sides\n\n\n\n\n95% CI\n\\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqnorm(c(.025, .975))\n\n[1] -1.959964  1.959964\n\n\n\n\n\n97.3% CI\n\\(\\alpha = 1 - .973 = 2.7\\%\\) on both sides\nSo \\(.027 / 2 = .0135\\) on each side\nNeed value for \\(.0135\\) and \\(.95 + .0135\\) (\\([.0135, .9865]\\))\n\nqnorm(c(.0135, 0.9865))\n\n[1] -2.211518  2.211518\n\n\n\n\n\n\nWhich one has a higher confidence level? Which one has a larger width?"
+    "text": "Cutoff Z-Values Example\nSay you want to find the cutoff z values for some confidence interval\nTwo examples: 95% CI and 97.3% CI (one typical, one as exercise)\n\nWe want the \\(\\alpha = 1 -\\) confidence level piece to be equal on both sides\n\n\n\n95% CI\n\\(\\alpha = 1 - .95 = 5\\%\\) on both sides\nSo \\(.05 / 2 = .025\\) on each side\nNeed value for \\(.025\\) and \\(.95 + .025\\) (\\([.025, .975]\\))\n\nqnorm(c(.025, .975))\n\n[1] -1.959964  1.959964\n\n\n\n97.3% CI\n\\(\\alpha = 1 - .973 = 2.7\\%\\) on both sides\nSo \\(.027 / 2 = .0135\\) on each side\nNeed value for \\(.0135\\) and \\(.95 + .0135\\) (\\([.0135, .9865]\\))\n\nqnorm(c(.0135, 0.9865))\n\n[1] -2.211518  2.211518\n\n\n\n\nWhich one has a higher confidence level? Which one has a larger width?"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-example",
@@ -5310,7 +5310,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-generally",
     "title": "Confidence Intervals",
     "section": "Confidence Interval Generally",
-    "text": "Confidence Interval Generally\nDerived with sample mean (\\(\\bar{x}\\)) and standard error (\\(\\frac{s}{\\sqrt n}\\))\n\\(CI = \\bar{x} \\pm z \\frac{s}{\\sqrt n}\\) or\n\\(CI = [\\bar{x} - z \\frac{s}{\\sqrt n}, \\bar{x} + z \\frac{s}{\\sqrt n}]\\)\n\n\n\n\n\n\nFood for Thought\n\n\n\nWith this formula, we would only use the positive version of the z cutoff, so that the lower bound ends up lower than the mean and the higher bound ends up higher. You can also think instead as both adding the z cutoff—it just ends up becoming a minus sign because the lower bound has a negative z cutoff."
+    "text": "Confidence Interval Generally\nDerived with sample mean (\\(\\bar{x}\\)) and standard error (\\(\\frac{s}{\\sqrt n}\\))\n\\(CI = \\bar{x} \\pm z \\frac{s}{\\sqrt n}\\) or\n\\(CI = [\\bar{x} - z \\frac{s}{\\sqrt n}, \\bar{x} + z \\frac{s}{\\sqrt n}]\\)\n\n\n\n\n\n\nFood for Thought\n\n\nWith this formula, we would only use the positive version of the z cutoff, so that the lower bound ends up lower than the mean and the higher bound ends up higher. You can also think instead as both adding the z cutoff—it just ends up becoming a minus sign because the lower bound has a negative z cutoff."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#confidence-interval-example-1",
@@ -5359,7 +5359,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-how-many-tails",
     "title": "Confidence Intervals",
     "section": "T-Test: How many tails?",
-    "text": "T-Test: How many tails?\nNeed to consider whether to use a “one-tail” or “two-tail” t-test.\n\n\n\nOne-Tail (One-Sided)\nWe want to test whether something is lower or higher than a value, but not both\nOnly one limit\n\n\n\nTwo-Tails (Two-Sided)\nWe want to test whether something is either lower or higher than a value\nTwo limits"
+    "text": "T-Test: How many tails?\nNeed to consider whether to use a “one-tail” or “two-tail” t-test.\n\n\nOne-Tail (One-Sided)\nWe want to test whether something is lower or higher than a value, but not both\nOnly one limit\n\nTwo-Tails (Two-Sided)\nWe want to test whether something is either lower or higher than a value\nTwo limits"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-how-many-tails-1",
@@ -5562,7 +5562,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-strength-visualization-2",
     "title": "Confidence Intervals",
     "section": "Cohen’s D Strength Visualization",
-    "text": "Cohen’s D Strength Visualization\n“What would the hypothesized mean have to have been to get different levels of Cohen’s d?”\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = mu_ex1, label = \"d = 0.2\"), : All aesthetics have length 1, but the data has 100000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = mu_ex2, label = \"d = 0.5\"), : All aesthetics have length 1, but the data has 100000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = mu_ex3, label = \"d = 0.8\"), : All aesthetics have length 1, but the data has 100000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row."
+    "text": "Cohen’s D Strength Visualization\n“What would the hypothesized mean have to have been to get different levels of Cohen’s d?”"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#cohens-d-in-r",
@@ -5576,14 +5576,14 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-test-example-output",
     "title": "Confidence Intervals",
     "section": "T-Test Example Output",
-    "text": "T-Test Example Output\n\n\n\nhwy_ttest &lt;- t.test(mpg$cty, mu = 30)\nhwy_ttest\n\n\n    One Sample t-test\n\ndata:  mpg$cty\nt = -47.233, df = 233, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 30\n95 percent confidence interval:\n 16.31083 17.40712\nsample estimates:\nmean of x \n 16.85897 \n\n#?t.test\n\n\n\nhwy_ttest$statistic\n\n        t \n-47.23252 \n\nhwy_ttest$p.value\n\n[1] 2.581229e-121\n\n\n\n\nhwy_ttest$conf.int\n\n[1] 16.31083 17.40712\nattr(,\"conf.level\")\n[1] 0.95\n\n\n\n\n\nCan use these in RMarkdown documents with inline R chunks."
+    "text": "T-Test Example Output\n\n\n\nhwy_ttest &lt;- t.test(mpg$cty, mu = 30)\nhwy_ttest\n\n\n    One Sample t-test\n\ndata:  mpg$cty\nt = -47.233, df = 233, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 30\n95 percent confidence interval:\n 16.31083 17.40712\nsample estimates:\nmean of x \n 16.85897 \n\n#?t.test\n\n\n\nhwy_ttest$statistic\n\n        t \n-47.23252 \n\nhwy_ttest$p.value\n\n[1] 2.581229e-121\n\n\n\n\nhwy_ttest$conf.int\n\n[1] 16.31083 17.40712\nattr(,\"conf.level\")\n[1] 0.95\n\n\n\n\nCan use these in RMarkdown documents with inline R chunks."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-tests-and-confidence-intervals",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-tests-and-confidence-intervals",
     "title": "Confidence Intervals",
     "section": "T-Tests and Confidence Intervals",
-    "text": "T-Tests and Confidence Intervals\nThe t.test() function includes a CI value! But…\n\n\n\nt.test(mpg$cty, mu = 30) |&gt; \n  pluck(\"conf.int\") |&gt; \n  c()\n\n[1] 16.31083 17.40712\n\n\n\n\nc(mean(mpg$cty) - qnorm(.975) * sd(mpg$cty) /\n    sqrt(sum(!is.na(mpg$cty))),\n  \n  mean(mpg$cty) + qnorm(.975) * sd(mpg$cty) /\n    sqrt(sum(!is.na(mpg$cty))))\n\n[1] 16.31367 17.40428\n\n\n\n\nThey’re not the same!\nThe built-in functions in R for confidence intervals in R often follow a t-distribution instead of a z-distribution. We want the z-distribution in our class, but as we saw, the differences will be very small for large samples."
+    "text": "T-Tests and Confidence Intervals\nThe t.test() function includes a CI value! But…\n\n\n\nt.test(mpg$cty, mu = 30) |&gt; \n  pluck(\"conf.int\") |&gt; \n  c()\n\n[1] 16.31083 17.40712\n\n\n\n\nc(mean(mpg$cty) - qnorm(.975) * sd(mpg$cty) /\n    sqrt(sum(!is.na(mpg$cty))),\n  \n  mean(mpg$cty) + qnorm(.975) * sd(mpg$cty) /\n    sqrt(sum(!is.na(mpg$cty))))\n\n[1] 16.31367 17.40428\n\n\n\nThey’re not the same!\nThe built-in functions in R for confidence intervals in R often follow a t-distribution instead of a z-distribution. We want the z-distribution in our class, but as we saw, the differences will be very small for large samples."
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#t-tests-and-nhst",
@@ -5604,14 +5604,14 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-how-many-tails",
     "title": "Confidence Intervals",
     "section": "Testing: How many tails?",
-    "text": "Testing: How many tails?\nNeed to consider whether to use a “one-tail” or “two-tail” t-test.\n\n\n\nOne-Tail (One-Sided)\n\n\n\n\n\n\n\n\n\n\n\n\nTwo-Tails (Two-Sided)"
+    "text": "Testing: How many tails?\nNeed to consider whether to use a “one-tail” or “two-tail” t-test.\n\n\nOne-Tail (One-Sided)\n\n\n\n\n\n\n\n\n\n\nTwo-Tails (Two-Sided)"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-how-many-tails-1",
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-how-many-tails-1",
     "title": "Confidence Intervals",
     "section": "Testing: How many tails?",
-    "text": "Testing: How many tails?\nNotice that two-tailed tests are harder to “beat.”\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.025), label = \"2.5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.05), label = \"5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row."
+    "text": "Testing: How many tails?\nNotice that two-tailed tests are harder to “beat.”"
   },
   {
     "objectID": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#assignment-8-review-1",
@@ -5639,7 +5639,7 @@
     "href": "labs/Lab 9 - Confidence Intervals/PSYC2020 Lab 9.html#testing-and-nhst",
     "title": "Confidence Intervals",
     "section": "Testing and NHST",
-    "text": "Testing and NHST\nRemember, even when the statistic is small, for two-tailed tests (because negative), we reject when we exceed the bounds of our critical value.\nFor one-tailed tests, it needs to exceed the bound of that tail’s cutoff.\n\nReject or retain null?\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.025), label = \"2.5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.975), label = \"2.5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.001), label = \"observed t-stat\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.025), label = \"2.5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.975), label = \"2.5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.2), label = \"observed t-stat\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.05), label = \"5% cutoff\"), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning in geomtextpath::geom_textvline(aes(xintercept = qnorm(0.99999), : All aesthetics have length 1, but the data has 1000 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row."
+    "text": "Testing and NHST\nRemember, even when the statistic is small, for two-tailed tests (because negative), we reject when we exceed the bounds of our critical value.\nFor one-tailed tests, it needs to exceed the bound of that tail’s cutoff.\n\nReject or retain null?"
   },
   {
     "objectID": "docs/labs/Lab 8 - NHST II/Lab 8 Assignment.html",
@@ -6185,7 +6185,7 @@
     "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi-squared-chi2-test",
     "title": "Chi-Squared Test",
     "section": "Chi-Squared (\\(\\chi^2\\)) Test",
-    "text": "Chi-Squared (\\(\\chi^2\\)) Test\nTesting inferences about proportions\n○ Involve categorical variables\nComparing observed frequencies (counts) to some expected (null hypothesis) frequencies\n\\(\\chi^2\\) Test of Proportions: expected frequencies are set by researcher (e.g., null hypothesis is equal frequencies across all groups)\n\\(\\chi^2\\) Test of Independence: expected frequencies are those implied by independence"
+    "text": "Chi-Squared (\\(\\chi^2\\)) Test\nTesting inferences about proportions\n○ Involve categorical variables\nComparing observed frequencies (counts) to some expected (null hypothesis) frequencies\n\\(\\chi^2\\) Test of Goodness of Fit: expected frequencies are set by researcher (e.g., null hypothesis is equal frequencies across all groups)\n\\(\\chi^2\\) Test of Independence: expected frequencies are those implied by independence"
   },
   {
     "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi-squared-chi2-test-1",
@@ -6290,28 +6290,28 @@
     "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence",
     "title": "Chi-Squared Test",
     "section": "\\(\\chi^2\\) Test of Independence",
-    "text": "\\(\\chi^2\\) Test of Independence\nDo the observed frequencies of a categorical variable differ from what expected via properties of independence?\n○ Now considering more than one type of category\n\nNumber of pets by both cat vs. dog people and undergrad vs. post-graduate\n\nSets up an (at least) 2x2 contingency table\n\n\n\n\nCat Person\nDog Person\n\n\n\n\nUndergrad\n\n\n\n\nPost-Graduate\n\n\n\n\n\nCalculate the expected frequencies from the marginal totals of the contingency table ○ Expected values determined from data"
+    "text": "\\(\\chi^2\\) Test of Independence\nDo the observed frequencies of a categorical variable differ from what expected via properties of independence?\n○ Now considering more than one type of category\n○ E.g., Number of pets by cat vs. dog people and undergrad vs. post-graduate\n\n\n\n\n\nCat Person\nDog Person\n\n\n\n\nUndergrad\n\n\n\n\nPost-Graduate\n\n\n\n\n\n\nExpected frequencies calculated from the marginal totals of the contingency table\n○ Expected values determined from data"
   },
   {
     "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-hypotheses",
     "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-hypotheses",
     "title": "Chi-Squared Test",
     "section": "\\(\\chi^2\\) Test of Independence: Hypotheses",
-    "text": "\\(\\chi^2\\) Test of Independence: Hypotheses\n\\(H_0\\): Categorical Variable 1 and Categorical Variable 2 have no association (i.e., are independent)\n\\(H_A\\): Categorical Variable 1 and Categorical Variable 2 have some association (i.e., are not independent)\n○ Testing whether expected frequencies match those expected by properties of independence\nThe same:\n\\(H_0\\): \\(p_j – \\pi_j = 0\\) for all categories \\(j\\); difference for all categories is 0, where\n\\(p_j\\) = sample (observed) proportion\n\\(\\pi_j\\) = expected (population) proportion\n\\(H_A\\): \\(p_j – \\pi_j \\neq 0\\) for all categories \\(j\\)"
+    "text": "\\(\\chi^2\\) Test of Independence: Hypotheses\n\\(H_0\\): Categorical Variable 1 and Categorical Variable 2 are independent (i.e., have no association)\n\\(H_1\\): Categorical Variable 1 and Categorical Variable 2 are not independent (i.e., have some association)\n○ Do expected frequencies match those expected via independence?\n\nMathematically the same as before:\n\\(H_0\\): \\(\\pi_j = \\pi_{j_0}\\) for all categories \\(j\\); difference for all categories is 0, where\n\\(\\pi_j\\) = observed proportion\n\\(\\pi_{j_0}\\) = expected proportion\n\\(H_1\\): \\(\\pi_j \\neq \\pi_{j_0}\\) for any category \\(j\\)\n\n\nJust changing the expected frequencies"
   },
   {
     "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-generally",
     "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-generally",
     "title": "Chi-Squared Test",
     "section": "\\(\\chi^2\\) Test of Independence Generally",
-    "text": "\\(\\chi^2\\) Test of Independence Generally\n\\[ \\chi^2 = \\sum_{j_1=0}^{J_1}\\sum_{j_2=0}^{J_2} \\frac{(y_j – N\\pi_j)^2}{N\\pi_j} = \\sum_{j_1=0}^{J_1}\\sum_{j_2=0}^{J_2} \\frac{(y_j – m_j)^2}{m_j} \\]\nBasically identical formula to calculate the \\(\\chi^2\\).\nThe difference is that our expected frequencies \\(m_j\\) are derived from the data. Just like before, we calculate the difference from each cell, but now we have two categories that make up the cell.\nThe sum of the squared differences between the observed and expected frequencies, divided by the expected frequency, for each cell"
+    "text": "\\(\\chi^2\\) Test of Independence Generally\n\\[ \\chi^2 = \\sum_{j_1=1}^{J_1}\\sum_{j_2=1}^{J_2} \\frac{(O_j – N\\pi_{j_0})^2}{N\\pi_{j_0}} = \\sum_{j_1=1}^{J_1}\\sum_{j_2=1}^{J_2} \\frac{(O_j – E_j)^2}{E_j} \\]\nBasically identical formula to calculate the \\(\\chi^2\\).\nThe difference is that our expected frequencies \\(E_j\\) are derived from the data. Just like before, we calculate the difference from each cell, but now we have two categories that make up the cell.\nThe sum of the squared differences between the observed and expected frequencies, divided by the expected frequency, for each cell."
   },
   {
     "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-cutoffs",
     "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-cutoffs",
     "title": "Chi-Squared Test",
     "section": "\\(\\chi^2\\) Test of Independence Cutoffs",
-    "text": "\\(\\chi^2\\) Test of Independence Cutoffs\n\\(\\text{df} = (J_1 - 1) \\times (J_2 - 1) = J_1 \\times J_2 - 2\\) or\n\\(\\text{df} = (n_{rows} - 1) \\times (n_{cols} - 1) = n_{rows} \\times n_{cols} - 2\\)\nWhat is the critical \\(\\chi^2\\) value in a test of independence for a 3x2?\n\ndf &lt;- (3 - 1) * (2 - 1)\ndf\n\n[1] 2\n\nqchisq(.95, df)\n\n[1] 5.991465"
+    "text": "\\(\\chi^2\\) Test of Independence Cutoffs\nWhat is the critical \\(\\chi^2\\) value in a test of independence for a 3x2?\n\n\n\\(\\text{df} = (J_1 - 1) \\times (J_2 - 1)\\) or\n\\(\\text{df} = (n_{rows} - 1) \\times (n_{cols} - 1)\\)\n\n\n\n\ndf &lt;- (3 - 1) * (2 - 1)\ndf\n\n[1] 2\n\nqchisq(.95, df)\n\n[1] 5.991465"
   },
   {
     "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-proportions-example-5",
@@ -6346,7 +6346,7 @@
     "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-r-function",
     "title": "Chi-Squared Test",
     "section": "\\(\\chi^2\\) Test of Independence R Function",
-    "text": "\\(\\chi^2\\) Test of Independence R Function\n\n\n\nstuddat &lt;- data.frame(type = c(\"Undergrad\", \"Graduate\"),\n           `In-State` = c(25, 5),\n           `Out-of-State` = c(10, 10))\nstuddat |&gt;\n  select(-type) |&gt;\n  chisq.test(correct = F)\n\n\n    Pearson's Chi-squared test\n\ndata:  select(studdat, -type)\nX-squared = 6.3492, df = 1, p-value = 0.01174\n\n\n\n○ correct = [T/F], applies a “continuity correction” to the \\(\\chi^2\\) value. Default is T. Change to F!\n\nWe can reject the null in favor of the alternative that students’ level (graduate vs. undergraduate) and whether they are an in-state student or not have some association."
+    "text": "\\(\\chi^2\\) Test of Independence R Function\n\n\n\nstuddat &lt;- data.frame(type = c(\"Undergrad\", \"Graduate\"),\n           `In-State` = c(25, 5),\n           `Out-of-State` = c(10, 10))\nstuddat |&gt;\n  select(-type) |&gt;\n  chisq.test(correct = F)\n\n\n    Pearson's Chi-squared test\n\ndata:  select(studdat, -type)\nX-squared = 6.3492, df = 1, p-value = 0.01174\n\n\n\n○ correct = [T/F], applies a “continuity correction” to the \\(\\chi^2\\) value. Default is T. Change to F!\n\nWe can reject the null in favor of the alternative that students’ level (graduate vs. undergraduate) and whether they are an in-state student or not are not independent."
   },
   {
     "objectID": "labs/Lab 11 - Independent and Paired Sample T-Test/PSYC2020 Lab 11.html#t-statistic-cutoffs-table",
@@ -6374,14 +6374,14 @@
     "href": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html#setting-up",
     "title": "PSYC2020L Assignment 12",
     "section": "Setting Up",
-    "text": "Setting Up\n\n1) Rename this assignment as “Lab 12 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Please load the tidyverse!.\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L\"\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\ndata.frame(color = sample(c(\"green\", \"red\", \"orange\", \"brown\"),\n                          size = 200, replace = T,\n                          prob = c(.1, .3, .5, .1)))\n\n     color\n1   orange\n2    brown\n3      red\n4      red\n5   orange\n6   orange\n7   orange\n8   orange\n9    brown\n10  orange\n11     red\n12   green\n13   green\n14     red\n15     red\n16  orange\n17  orange\n18     red\n19  orange\n20   green\n21   brown\n22     red\n23     red\n24     red\n25  orange\n26  orange\n27   brown\n28  orange\n29  orange\n30     red\n31   brown\n32  orange\n33  orange\n34     red\n35     red\n36  orange\n37     red\n38     red\n39  orange\n40  orange\n41  orange\n42   green\n43     red\n44     red\n45     red\n46     red\n47  orange\n48   brown\n49     red\n50  orange\n51  orange\n52   brown\n53     red\n54   brown\n55     red\n56  orange\n57  orange\n58  orange\n59  orange\n60  orange\n61   green\n62   brown\n63  orange\n64  orange\n65   brown\n66  orange\n67  orange\n68     red\n69  orange\n70  orange\n71     red\n72  orange\n73  orange\n74  orange\n75   green\n76  orange\n77  orange\n78  orange\n79     red\n80     red\n81     red\n82   green\n83  orange\n84  orange\n85  orange\n86  orange\n87   brown\n88     red\n89  orange\n90     red\n91     red\n92   brown\n93   green\n94  orange\n95   brown\n96     red\n97  orange\n98  orange\n99  orange\n100    red\n101  green\n102 orange\n103 orange\n104 orange\n105  green\n106 orange\n107 orange\n108    red\n109 orange\n110 orange\n111  green\n112 orange\n113 orange\n114 orange\n115  brown\n116 orange\n117 orange\n118  green\n119    red\n120    red\n121  brown\n122 orange\n123 orange\n124 orange\n125    red\n126 orange\n127    red\n128    red\n129 orange\n130 orange\n131 orange\n132  brown\n133 orange\n134  green\n135 orange\n136    red\n137    red\n138    red\n139 orange\n140 orange\n141    red\n142    red\n143  green\n144  brown\n145 orange\n146    red\n147 orange\n148  brown\n149 orange\n150 orange\n151  green\n152    red\n153    red\n154    red\n155 orange\n156 orange\n157  green\n158 orange\n159  green\n160 orange\n161    red\n162    red\n163 orange\n164    red\n165 orange\n166  brown\n167  green\n168    red\n169 orange\n170 orange\n171 orange\n172  brown\n173  green\n174 orange\n175 orange\n176  brown\n177 orange\n178 orange\n179 orange\n180    red\n181    red\n182 orange\n183 orange\n184  green\n185 orange\n186 orange\n187    red\n188 orange\n189 orange\n190 orange\n191 orange\n192    red\n193 orange\n194    red\n195 orange\n196 orange\n197 orange\n198 orange\n199 orange\n200 orange\n\nleaves &lt;- data.frame(prob = rnorm(1000)) |&gt;\n  mutate(color = case_when(prob &lt; qnorm(.1) ~ \"green\",\n                           prob &lt; qnorm(.4) ~ \"red\",\n                           prob &lt; qnorm(.9) ~ \"orange\",\n                           prob &lt; qnorm(1) ~ \"brown\") |&gt;\n           factor(levels = c(\"green\", \"red\", \"orange\", \"brown\"))) |&gt;\n  mutate(.by = color,\n         fallen = case_when(color == \"green\" ~ sample(c(\"no\", \"yes\"), n(), replace = T, prob = c(.9, .1)),\n                            color == \"red\" ~ sample(c(\"no\", \"yes\"), n(), replace = T, prob = c(.7, .3)),\n                            color == \"orange\" ~ sample(c(\"no\", \"yes\"), n(), replace = T, prob = c(.5, .5)),\n                            color == \"brown\" ~ sample(c(\"no\", \"yes\"), n(), replace = T, prob = c(.3, .7)))) |&gt;\n  select(-prob)\n\nleaves &lt;- rio::import(here::here(\"labs\", \"Lab 12 - Chi-Squared Test\", \"leaves.csv\"))\n\n\n\n3) Download and relocate the leaves.csv file to your folder for this class. Read in the file and display the first few rows of the data. This dataset contains the color and whether a not a leaf had fallen from its tree for 1,000 leaves.\n\nleaves &lt;- rio::import(here::here(\"labs\", \"Lab 12 - Chi-Squared Test\", \"leaves.csv\"))"
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 12 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block. Please load the tidyverse!.\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L\"\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\n\n3) Download and relocate the leaves.csv file to your folder for this class. Read in the file and display the first few rows of the data. This dataset contains the color (green, red, orange, or brown) and whether a not a leaf had fallen from its tree for 1,000 leaves. Use mutate() to change the color variable into an factor variable ordered by the leaf changing process (green -&gt; red -&gt; orange -&gt; brown) first.\n\nleaves &lt;- rio::import(here::here(\"labs\", \"Lab 12 - Chi-Squared Test\", \"leaves.csv\")) |&gt;\n  mutate(color = factor(color, levels = c(\"green\", \"red\", \"orange\", \"brown\")))"
   },
   {
     "objectID": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html#chi-squared-test-of-proportions",
     "href": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html#chi-squared-test-of-proportions",
     "title": "PSYC2020L Assignment 12",
     "section": "Chi-Squared Test of Proportions",
-    "text": "Chi-Squared Test of Proportions\n\n4) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You’ve recorded the color of 1000 leaves, and you’d like to test if there is a difference in the frequency of the colors of the leaves."
+    "text": "Chi-Squared Test of Proportions\n\n4a) You are a tree researcher, and you would like to better understand leaves changing color in the fall. You’ve recorded the color of 1000 leaves, and you’d like to test if there is a difference in the frequency of the colors of the leaves. You plan to conduct a Chi-Squared Test of Proportions on the frequency of different color leaves you’ve observed in your dataset. First, what are the null and alternative hypotheses for this test?\n\\(H_0\\): The frequency of leaves of each color is the same in the population.\n\\(H_A\\): The frequency of leaves of each color is not the same in the population.\n\n\n4b) What is the expected frequency for leaves of each color?\n250 each.\n\n\n4c) What is your chi-square degrees of freedom and cutoff value?\n\nqchisq(.95, 3)\n\n[1] 7.814728\n\n\n\\(\\text{df} = 4 - 1 = 3\\), cutoff = 7.815.\n\n\n4d) What are the observed frequencies of each color?\n\ntable(leaves$color)\n\n\n green    red orange  brown \n   104    289    513     94 \n\n\n\n\n4e) What is the observed chi-squared statistic?\n\nchisq.test(c(94, 104, 513, 289))\n\n\n    Chi-squared test for given probabilities\n\ndata:  c(94, 104, 513, 289)\nX-squared = 465.37, df = 3, p-value &lt; 2.2e-16\n\n\n\n\n4f) Provide a brief interpretation of these results.\nWe reject the null in favor of the alternative that there is a difference among the frequencies of these leaf colors in the population.\n\n\n4g) Create a barplot that displays the frequencies of each leaf color.\n\nleaves |&gt;\n  ggplot(aes(x = color)) +\n  geom_bar()"
   },
   {
     "objectID": "docs/labs/Lab 9 - Confidence Intervals/Lab 9 Assignment.html",
@@ -6669,5 +6669,761 @@
     "title": "PSYC2020L Assignment 7",
     "section": "Exploration",
     "text": "Exploration\n\n4a) Let’s continue exploring the relationships influencing a diamond’s price. Let’s start by building on what we saw about the relationship between a diamond’s quality (cut) and its price. With cut on the x-axis and price on the y-axis, make a violin and boxplot graph.\n\ndiamonds |&gt;\n  ggplot(aes(x = cut, y = price)) +\n  geom_violin() +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\n4b) Make three modifications to this visualization that you think improve it. Describe your reasoning for each modification.\n\ndiamonds |&gt;\n  ggplot(aes(x = cut, y = price)) +\n  geom_violin() +\n  geom_boxplot(width = .05, outliers = F) +\n  theme_classic()\n\n\n\n\n\n\n\n\nI decreased the width of the boxplots to make them easier to see over the violins, and I changed the theme to make it visually cleaner. I also removed the outliers from the boxplot because they are already represented in the violinplot.\n\n\n4b) Box and violinplots are helpful, but it is also often helpful to see the datapoints themselves. The geom_jitter() function will add the points correctly to where they lie on the y-axis, but a bit scattered around the x-axis (because the x-axis is not numeric). Add this geom (you may also want to decrease the alpha value).\n\ndiamonds |&gt;\n  ggplot(aes(x = cut, y = price)) +\n  geom_violin() +\n  geom_boxplot(width = .05, outliers = F) +\n  geom_jitter(alpha = .01) +\n  theme_classic()\n\n\n\n\n\n\n\n\n\n\n4d) What relationship(s) do we see in this plot?\nDiamond price seems to decrease with quality, which I think is counter-intuitive!\n\n\n4e) Say we wanted to zoom in on the distributions of the lower-priced diamonds. Make two different plots: one that zooms in with coord_cartesian(), and one that zooms in with ggplot2’s ylim(). What is the difference, and which one do you think is generally best practice to use? Feel free to check the ?ylim documentation\n\ndiamonds |&gt;\n  ggplot(aes(x = cut, y = price)) +\n  geom_violin() +\n  geom_boxplot(width = .05, outliers = F) +\n  geom_jitter(alpha = .01) +\n  coord_cartesian(ylim = c(0, 5000)) +\n  theme_classic()\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = cut, y = price)) +\n  geom_violin() +\n  geom_boxplot(width = .05, outliers = F) +\n  geom_jitter(alpha = .01) +\n  ylim(0, 5000) +\n  theme_classic()\n\nWarning: Removed 14714 rows containing non-finite outside the scale range\n(`stat_ydensity()`).\n\n\nWarning: Removed 14714 rows containing non-finite outside the scale range\n(`stat_boxplot()`).\n\n\nWarning: Removed 14719 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nThe coord_cartesian() function does not remove data; it just zooms in on the axis. You can tell that the ylim() function removed data from the warning and from the way the violinplots end at the top. The coord_cartesian() function is generally better to use because it does not remove the data\n\n\n5a) Let’s step back and explore the distributions of the price variable with histograms. Make two versions: one with 10 bins and one with 50 bins. What do you notice about this plot?\n\ndiamonds |&gt;\n  ggplot(aes(x = price)) +\n  geom_histogram(bins = 10)\n\n\n\n\n\n\n\ndiamonds |&gt;\n  ggplot(aes(x = price)) +\n  geom_histogram(bins = 50)\n\n\n\n\n\n\n\n\nThere seems to be a very sharp spike on the lower end of the price distribution. It is very skewed.\n\n\n5b) Swap the histogram to a density plot. Also, map the density plot line color to the cut of the diamond.\n\ndiamonds |&gt;\n  ggplot(aes(x = price, color = cut)) +\n  geom_density()\n\n\n\n\n\n\n\n\n\n\n5c) Make three modifications to the density plot that you think improve it. Describe your reasoning for each modification.\n\ndiamonds |&gt;\n  ggplot(aes(x = price, color = cut)) +\n  geom_density(linewidth = 2) +\n  coord_cartesian(expand = F) +\n  theme_classic(base_size = 14)\n\n\n\n\n\n\n\n\nI changed the linewidth and background color (through theme_classic()) to make the plot more readable. I also increased the font size for aesthetics.\n\n\n5d) Describe what you see in the plot now. Does this explain anything you noticed in 5a?\nYes, it seems like the “ideal” quality diamonds make up the most of that spike in the lower end that we saw in 5a.\n\n\n6a) Perhaps the relationship between diamond quality (cut) and price has to do with its size. Let’s first look at the relationship between price and size, and then we will see if it can explain the price. To do this, create a cleaner version of the diamonds dataset in one pipe that:\n\nHas x, y, and z each in their own row for each diamond,\nUses mutate() to change diamond sizes at 0mm or above 20mm to NA (based on what we saw in class), and\nChanges the x, y, and z variables to be a factor with labels indicating the dimension they measure (feel free to reference ?diamonds for data information and ?factor for factor syntax).\n\n\ndiamonds_clean &lt;- diamonds |&gt;\n  pivot_longer(c(x, y, z),\n               names_to = \"dimension\", values_to = \"measurement\") |&gt;\n  mutate(measurement = ifelse(measurement &gt; 20 | measurement == 0, NA, measurement),\n         dimension = factor(dimension, levels = c(\"x\", \"y\", \"z\"), labels = c(\"length\", \"width\", \"depth\")))\n\n\n\n6b) Now, let’s look at the relationship between diamond size and quality. Using your cleaned dataframe, start by making a histogram with the size measurement on the x-axis. Change the default number of bins to a better one (in your opinion).\n\ndiamonds_clean |&gt;\n  ggplot(aes(x = measurement)) +\n  geom_histogram(bins = 15) \n\nWarning: Removed 38 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\n\n\n6c) Use the facet_wrap() function to facet the histogram by the type of measurement. You can use the scales = \"free_x\" argument to let the x-axis scales automatically generate for each facet (as opposed to them all sharing the same).\n\ndiamonds_clean |&gt;\n  ggplot(aes(x = measurement)) +\n  geom_histogram(bins = 15) +\n  facet_wrap(~ dimension, scales = \"free_x\")\n\nWarning: Removed 38 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\n\n\n6d) Let’s add in the diamond quality (cut) as the fill color. Also, change the position argument to \"fill\" to best see the proportions.\n\ndiamonds_clean |&gt;\n  ggplot(aes(x = measurement, fill = cut)) +\n  geom_histogram(bins = 15, position = \"fill\") +\n  facet_wrap(~ dimension, scales = \"free_x\")\n\nWarning: Removed 38 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\n\n\n6e) What do you see in this plot? (1–3 sentences)\nMost of the small diamonds are the ideal quality. Seems like ideal cut diamonds are often small! The largest diamonds are more in the upper range of size.\n\n\n7a) Let’s bring it all together by looking at size, cut, and price all in the same visualization. Still using your cleaned version of the dataset, make a scatterplot with the size measurement on the x-axis, the price on the y-axis, and color denoting the cut. Use the facet_wrap() function again to facet by the type of measurement. You may want to take down the alpha value of the points!\n\ndiamonds_clean |&gt;\n  ggplot(aes(x = measurement, y = price, color = cut)) +\n  geom_point(alpha = .02) +\n  facet_wrap(~ dimension, scales = \"free_x\")\n\nWarning: Removed 38 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n7b) Describe what you see in this plot. (1–3 sentences)\nDiamond price has a strong positive relationship with each measurement, and it seems like this may be explaining why better quality diamonds are less expensive—they are also usually smaller. Most of the yellow points are on the left side of the plot (the better quality diamonds are on the lower end of the size dimension) and, in trend with size and price, are cheaper.\n\n\n7c) Make three modifications to this plot that you think improve it. Describe your reasoning for each modification.\n\ndiamonds_clean |&gt;\n  ggplot(aes(x = measurement, y = price, color = cut)) +\n  geom_point(alpha = .02, shape = 16) +\n  facet_wrap(~ dimension, scales = \"free_x\") +\n  theme_classic(base_size = 14) +\n  labs(x = \"Measurement\", y = \"Price\", color = \"Cut\") +\n  guides(color = guide_legend(override.aes = list(alpha = 1, size = 3))) +\n  theme(aspect.ratio = 1)\n\nWarning: Removed 38 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nExplanations, explanations, blah blah etc.\n\n\n8a) To finish up, you’re going to do some exploratory data analysis on your own! Pick a variable that’s not size or price, and explore its relationship other variables (other variable can be size or price). This section will be pretty open-ended, so feel free to explore and play around with this data!\nStart by plotting the distribution of your chosen variable with a histogram. Make sure to play around with the number of bins to look for any interesting trends. For the question, display one histogram that either (a) has number of bins that is a good representation of the data or (b) has number of bins that shows something interesting about the data.\n\ndiamonds |&gt;\n  ggplot(aes(x = carat)) +\n  geom_histogram(bins = 500)\n\n\n\n\n\n\n\n\n\n\n8b) Describe what you see in the histogram (1–2 sentences).\nWe see a lot of spikes at the round values and more data at lower decimal points than high.\n\n\n8c) Now, use some plot to look at this variable’s relationship with some other variable.\n\ndiamonds_clean |&gt;\n  filter(dimension == \"depth\") |&gt;\n  ggplot(aes(x = carat, y = price)) +\n  geom_point(alpha = .05, shape = 16)\n\n\n\n\n\n\n\n\n\n\n8d) Describe what you see. (1–2 sentences)\nThere is a strong positive relationship between a diamond’s weight and its price.\n\n\n8e) Consider a third variable that may be related to your first variable (or your second variable as well). What would you expect the relationship to look like?\nDiamond clarity is likely related to price, but I’m not sure it wuld be related to weight. I would expect to see higher-clarity diamonds with higher prices but still relatively evenly distributed across weight.\n\n\n8f) Incorporate a third variable, either by including it in the previous plot as an additional aesthetic or by making a separate plot. Either way, the new visualization should be able to confirm or challenge your expectation of what the relationship would look like!\n\ndiamonds_clean |&gt;\n  filter(dimension == \"depth\") |&gt;\n  ggplot(aes(x = carat, y = price, color = clarity)) +\n  geom_point(alpha = .05, shape = 16)\n\n\n\n\n\n\n\n\n\n\n8g) What do you see in this plot? Does it match your expectations? (1–3 sentences).\nI think so! It looks like clarity is only at the higher range of price. I think the higher-clarity diamonds do seem to be more at the lower end of weight, though.\n\n\n8h) Make three modifications to this plot! Describe your reasoning for each modification. Try (okay if not) to add a modification that you have not used before.\n\ndiamonds_clean |&gt;\n  filter(dimension == \"depth\") |&gt;\n  ggplot(aes(x = carat, y = price, color = clarity)) +\n  geom_point(alpha = .05, shape = 16) +\n  scale_y_continuous(\"Price\", labels = scales::label_currency()) +\n  guides(color = guide_legend(override.aes = list(alpha = 1, size = 3)),\n        x = guide_axis(cap = T), y = guide_axis(cap = T)) +\n  labs(x = \"Carat\", color = \"Clarity\") +\n  theme_classic(base_size = 15) +\n  theme(legend.position = \"bottom\",\n        aspect.ratio = 1)"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data",
+    "title": "Chi-Squared Test",
+    "section": "Working With Count Data",
+    "text": "Working With Count Data\n\ndat |&gt; head(12)\n\n   student           major            type\n1        1            STEM Non-STEM School\n2        2      Humanities     STEM School\n3        3      Humanities     STEM School\n4        4 Social Sciences Non-STEM School\n5        5      Humanities     STEM School\n6        6            Arts Non-STEM School\n7        7 Social Sciences     STEM School\n8        8 Social Sciences     STEM School\n9        9            STEM     STEM School\n10      10            STEM     STEM School\n11      11        Business     STEM School\n12      12 Social Sciences     STEM School"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-1",
+    "title": "Chi-Squared Test",
+    "section": "Working With Count Data…",
+    "text": "Working With Count Data…\nSome ways to generate frequencies from categorical variables\n\n\n\ntable(dat$major)\n\n\n           Arts        Business      Humanities Social Sciences            STEM \n              5               3               8               3               1 \n\ntable(dat$major) |&gt;\n  data.frame()\n\n             Var1 Freq\n1            Arts    5\n2        Business    3\n3      Humanities    8\n4 Social Sciences    3\n5            STEM    1\n\ntable(dat$major, dat$level)\n\n                 \n                  Non-STEM School STEM School\n  Arts                          2           3\n  Business                      2           1\n  Humanities                    3           5\n  Social Sciences               3           0\n  STEM                          0           1\n\ntable(dat$major, dat$level) |&gt;\n  data.frame()\n\n              Var1            Var2 Freq\n1             Arts Non-STEM School    2\n2         Business Non-STEM School    2\n3       Humanities Non-STEM School    3\n4  Social Sciences Non-STEM School    3\n5             STEM Non-STEM School    0\n6             Arts     STEM School    3\n7         Business     STEM School    1\n8       Humanities     STEM School    5\n9  Social Sciences     STEM School    0\n10            STEM     STEM School    1\n\n\n\n\ndat |&gt;\n  summarize(.by = major,\n            n = n())\n\n            major n\n1      Humanities 8\n2            Arts 5\n3        Business 3\n4 Social Sciences 3\n5            STEM 1\n\ndat |&gt;\n  summarize(.by = c(major, level),\n            n = n())\n\n            major           level n\n1      Humanities Non-STEM School 3\n2            Arts     STEM School 3\n3        Business     STEM School 1\n4      Humanities     STEM School 5\n5            Arts Non-STEM School 2\n6 Social Sciences Non-STEM School 3\n7        Business Non-STEM School 2\n8            STEM     STEM School 1\n\ndat |&gt;\n  summarize(.by = c(major, level),\n            n = n()) |&gt;\n  arrange(major, level)\n\n            major           level n\n1            Arts Non-STEM School 2\n2            Arts     STEM School 3\n3        Business Non-STEM School 2\n4        Business     STEM School 1\n5      Humanities Non-STEM School 3\n6      Humanities     STEM School 5\n7            STEM     STEM School 1\n8 Social Sciences Non-STEM School 3"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-table",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-table",
+    "title": "Chi-Squared Test",
+    "section": "Working With Count Data: table()",
+    "text": "Working With Count Data: table()\nSome ways to generate frequencies from categorical variables\n\ntable(dat$major)\n\n\n           Arts        Business      Humanities Social Sciences            STEM \n             23              13              22              19              23 \n\n\n\ntable(dat$major) |&gt;\n  data.frame()\n\n             Var1 Freq\n1            Arts   23\n2        Business   13\n3      Humanities   22\n4 Social Sciences   19\n5            STEM   23"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-summarize",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-summarize",
+    "title": "Chi-Squared Test",
+    "section": "Working With Count Data: summarize()",
+    "text": "Working With Count Data: summarize()\nSome ways to generate frequencies from categorical variables\n\n\n\ndat |&gt;\n  summarize(.by = c(major, type),\n            n = n())\n\n             major            type  n\n1             STEM Non-STEM School 16\n2       Humanities     STEM School 12\n3  Social Sciences Non-STEM School 10\n4             Arts Non-STEM School 13\n5  Social Sciences     STEM School  9\n6             STEM     STEM School  7\n7         Business     STEM School  9\n8       Humanities Non-STEM School 10\n9             Arts     STEM School 10\n10        Business Non-STEM School  4\n\n\n\n\ndat |&gt;\n  summarize(.by = c(major, type),\n            n = n()) |&gt;\n  arrange(major, type)\n\n             major            type  n\n1             Arts Non-STEM School 13\n2             Arts     STEM School 10\n3         Business Non-STEM School  4\n4         Business     STEM School  9\n5       Humanities Non-STEM School 10\n6       Humanities     STEM School 12\n7             STEM Non-STEM School 16\n8             STEM     STEM School  7\n9  Social Sciences Non-STEM School 10\n10 Social Sciences     STEM School  9"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-summarize-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-summarize-1",
+    "title": "Chi-Squared Test",
+    "section": "Working With Count Data: summarize()",
+    "text": "Working With Count Data: summarize()\nIf going to put into the chisq.test() function, want to pivot and get rid of additional columns.\nMany ways to do this, but one example:\n\n\n\nchisqdat &lt;- dat |&gt;\n  count(major, type) |&gt;\n  pivot_wider(names_from = type,\n              values_from = n) |&gt;\n  select(-major)\nchisqdat\n\n# A tibble: 5 × 2\n  `Non-STEM School` `STEM School`\n              &lt;int&gt;         &lt;int&gt;\n1                13            10\n2                 4             9\n3                10            12\n4                16             7\n5                10             9\n\n\n\n\nchisq.test(chisqdat, correct = F)\n\n\n    Pearson's Chi-squared test\n\ndata:  chisqdat\nX-squared = 5.7312, df = 4, p-value = 0.2201"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-geom_bar",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-geom_bar",
+    "title": "Chi-Squared Test",
+    "section": "Working With Count Data: geom_bar()",
+    "text": "Working With Count Data: geom_bar()\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndat |&gt;\n  ggplot(aes(x = major)) +\n  geom_bar() +\n  theme_classic(base_size = 14)"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-geom_bar-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-geom_bar-1",
+    "title": "Chi-Squared Test",
+    "section": "Working With Count Data: geom_bar()",
+    "text": "Working With Count Data: geom_bar()\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndat |&gt;\n  ggplot(aes(x = major, fill = type)) +\n  geom_bar(position = \"dodge\") +\n  theme_classic(base_size = 14)"
+  },
+  {
+    "objectID": "testing.html#testing",
+    "href": "testing.html#testing",
+    "title": "Test",
+    "section": "testing",
+    "text": "testing\nhih i"
+  },
+  {
+    "objectID": "testing.html#slide-3",
+    "href": "testing.html#slide-3",
+    "title": "Test",
+    "section": "slide 3",
+    "text": "slide 3\nfjaf"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit\nDo the observed frequencies of a categorical variable differ from what expected a priori?\nTypically, this expectation is equal occurrence across groups (but doesn’t have to be).\nIf equal occurrence, what would be our expected frequencies?\n\n\n100 coin flips\n\n\n\nHeads\nTails\n\n\n\n\n50\n50\n\n\n\n\nFavorite primary color of 33 students\n\n\n\nRed\nBlue\nYellow\n\n\n\n\n11\n11\n11\n\n\n\n\nCan also hypothesize proportions and convert to frequencies once you have a sample size."
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-hypotheses",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-hypotheses",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit: Hypotheses",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit: Hypotheses\n\\(H_0\\): Observed data match the expected frequencies for the population\n\\(H_1\\): Observed data do not match the expected frequencies for the population\n○ Observed frequency is significantly different than expected\n\n\\(H_0\\): \\(\\pi_j = \\pi_{j_0}\\) for all categories \\(j\\) (i.e., difference for all categories is 0), where\n\\(\\pi_j\\) = observed proportion\n\\(\\pi_{j_0}\\) = expected proportion\n\\(H_1\\): \\(\\pi_j \\neq \\pi_{j_0}\\) for any category \\(j\\)"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-generally",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-generally",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Generally",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Generally\n\\[ \\chi^2 = \\sum_{j=1}^{J} \\frac{(O_j – N\\pi_{j_0})^2}{N\\pi_{j_0}} = \\sum_{j=1}^{J} \\frac{(O_j – E_j)^2}{E_j} \\]\nwhere\n\\(O_j\\) = observed frequency\n\\(N\\) = total sample size\n\\(E_j\\) = expected frequency\n\\(j\\) = individual category out of \\(J\\) total categories\nThe sum of the squared differences between the observed and expected frequencies, divided by the expected frequency, for each group."
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-generally-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-generally-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Generally",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Generally\n\\(\\text{df} = J - 1\\), where\n\\(J\\) = number of categories\nUse to identify critical \\(\\chi^2\\) value from \\(\\chi^2\\) table, R, etc.\nFor \\(\\chi^2\\), as \\(\\text{df}\\) increases, so does the critical-\\(\\chi^2\\) value (at same \\(\\alpha\\))\nOnly ever a one-tailed test! For the upper end of the distribution."
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-cutoffs",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-cutoffs",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Cutoffs",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Cutoffs\n\n\nCutoff for test of heads vs. tails\n\n\n\\(J =\\) 2\n\\(\\text{df} = J - 1 =\\) 1\n\n\n\nqchisq(.95, 1)\n\n[1] 3.841459\n\nqchisq(.05, 1, lower.tail = F)\n\n[1] 3.841459\n\n\n\n\nCutoff for test of favorite color in the rainbow\n\n\\(J =\\) 7 (ROYGBIV)\n\\(\\text{df} = J - 1 =\\) 6\n\n\n\nqchisq(.95, 6)\n\n[1] 12.59159\n\nqchisq(.05, 6, lower.tail = F)\n\n[1] 12.59159"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Example",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Example\n\nYou are an education psychologist interested in college students’ choice of majors. You’ve grouped majors into five categories: STEM, Social Sciences, Humanities, Arts, and Business. You’d like to test whether there are differences in the population of students choosing those majors. You sample 100 students and ask what major they chose.\nFirst, what are your expected frequencies for each category?\n\n\n\n\n\n\n  \n    \n      \n      STEM\n      Social Sciences\n      Humanities\n      Arts\n      Business\n    \n  \n  \n    Expected\n\n\n\n\n\n    Observed"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Example",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Example\n\nYou are an education psychologist interested in college students’ choice of majors. You’ve grouped majors into five categories: STEM, Social Sciences, Humanities, Arts, and Business. You’d like to test whether there are differences in the population of students choosing those majors. You sample 100 students and ask what major they chose.\nFirst, what are your expected frequencies for each category?\n\n\n\n\n\n\n  \n    \n      \n      STEM\n      Social Sciences\n      Humanities\n      Arts\n      Business\n    \n  \n  \n    Expected\n20\n20\n20\n20\n20\n    Observed"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-2",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-2",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Example",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Example\n\nYou are an education psychologist interested in college students’ choice of majors. You’ve grouped majors into five categories: STEM, Social Sciences, Humanities, Arts, and Business. You’d like to test whether there are differences in the population of students choosing those majors. You sample 100 students and ask what major they chose.\nNext, what is your \\(\\chi^2\\) cutoff value?\n\n\n\n\n\n\n  \n    \n      \n      STEM\n      Social Sciences\n      Humanities\n      Arts\n      Business\n    \n  \n  \n    Expected\n20\n20\n20\n20\n20\n    Observed"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-3",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-3",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Example",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Example\nCutoff in R\n\n\ndf &lt;- 5 - 1\nchisq_crit &lt;- qchisq(.95, df)\nchisq_crit\n\n[1] 9.487729"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-r-function",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-r-function",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit R Function",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit R Function\n\n\nmajordat &lt;- data.frame(major = c(\"STEM\", \"Social.Sciences\", \"Humanities\", \"Arts\", \"Business\"),\n           observed = c(65, 10, 5, 5, 15))\n\nchisq &lt;- majordat |&gt;\n  select(observed) |&gt;\n  chisq.test()\nchisq\n\n\n    Chi-squared test for given probabilities\n\ndata:  select(majordat, observed)\nX-squared = 130, df = 4, p-value &lt; 2.2e-16\n\n\n\n\n\n\n\nchisq$expected\n\n[1] 20 20 20 20 20\n\n\n\n\nchisq$statistic\n\nX-squared \n      130 \n\n\n\n\nchisq$p.value\n\n[1] 3.89406e-27"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-4",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-4",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Example",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Example\n\nYou are an education psychologist interested in college students’ choice of majors. You’ve grouped majors into five categories: STEM, Social Sciences, Humanities, Arts, and Business. You’d like to test whether there are differences in the population of students choosing those majors. You sample 100 students and ask what major they chose.\nHere are the observed values:\n\n\n\n\n\n\n  \n    \n      \n      STEM\n      Social Sciences\n      Humanities\n      Arts\n      Business\n    \n  \n  \n    Expected\n20\n20\n20\n20\n20\n    Observed\n65\n10\n5\n5\n15"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-r-function-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-r-function-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit R Function",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit R Function\n\n\n\nchisq.test(x = c(65, 10, 5, 5, 15),\n           p = c(60, 10, 10, 10, 10),\n           rescale.p = T)\n\n\n    Chi-squared test for given probabilities\n\ndata:  c(65, 10, 5, 5, 15)\nX-squared = 7.9167, df = 4, p-value = 0.09468\n\nchisq.test(x = c(65, 10, 5, 5, 15),\n           p = c(.60, .10, .10, .10, .10))\n\n\n    Chi-squared test for given probabilities\n\ndata:  c(65, 10, 5, 5, 15)\nX-squared = 7.9167, df = 4, p-value = 0.09468\n\n\n\n○ x = data of frequencies\n○ p = expected probabilities\n○ rescale.p = [T/F], will rescale p to probabilities if you prefer to input frequencies"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-5",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-5",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Example",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Example\n\\[ \\chi^2 = \\sum_{j=0}^{J} \\frac{(O_j – N\\pi_j)^2}{N\\pi_j} = \\sum_{j=0}^{J} \\frac{(O_j – E_j)^2}{E_j} \\]\n\n\nobs_chisq &lt;- (65 - 20)^2 / 20 +\n  (10 - 20)^2 / 20 +\n  (5 - 20)^2 / 20 +\n  (5 - 20)^2 / 20 +\n  (15 - 20)^2 / 20\nobs_chisq\n\n[1] 130\n\nobs_chisq &gt; chisq_crit\n\n[1] TRUE\n\n\n\nWe can reject the null in favor of the alternative that the number of students is not the same across majors."
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-calculating-expected-frequencies",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-calculating-expected-frequencies",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Example: Calculating Expected Frequencies",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Example: Calculating Expected Frequencies\nFirst, get the marginal totals for each column\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn-State\nOut-of-State\nTotal\n\n\n\n\nUndergrad\n25\n10\n\n\n\n\nGraduate\n5\n10\n\n\n\n\nTotal"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-calculating-expected-frequencies-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-calculating-expected-frequencies-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Example: Calculating Expected Frequencies",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Example: Calculating Expected Frequencies\n\n\n\n\n\n\n\n\n\nIn-State\nOut-of-State\nTotal\n\n\n\n\nUndergrad\n25\n10\n35\n\n\nGraduate\n5\n10\n15\n\n\nTotal\n30\n20\n50\n\n\n\n\n\n\n\nExpected cell frequency = marginal column proportion \\(\\times\\) marginal row proportion\n\nUndergrad & In-State = \\(\\frac{35}{50} \\times \\frac{30}{50} \\times 50 = 21\\)\nUndergrad & Out-of-State = \\(\\frac{35}{50} \\times \\frac{20}{50} \\times 50 = 14\\)\nGraduate & In-State = \\(\\frac{15}{50} \\times \\frac{30}{50} \\times 50 = 9\\)\nGraduate & Out-of-State = \\(\\frac{15}{50} \\times \\frac{20}{50} \\times 50 = 6\\)\n\n\n\n\n\n\n\n\n\n\nIn-State\nOut-of-State\nTotal\n\n\n\n\nUndergrad\n25\n10\n35\n\n\nGraduate\n5\n10\n15\n\n\nTotal\n30\n20\n50\n\n\n\n\n\n\n\n\n\n\n\n\nIn-State\nOut-of-State\nTotal\n\n\n\n\nUndergrad\n21\n14\n35\n\n\nGraduate\n9\n6\n15\n\n\nTotal\n30\n20\n50"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-6",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-6",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Example",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Example\n\nLet’s restart and say that you were a educational psychologist interested in how students in STEM schools choose their major. In this situation, you had expected more students to select a STEM major than other majors.\nThese are your new expected frequencies (60% STEM, evenly divided across the rest):\n\n\n\n\n\n\n  \n    \n      \n      STEM\n      Social Sciences\n      Humanities\n      Arts\n      Business\n    \n  \n  \n    Expected\n60\n10\n10\n10\n10\n    Observed\n65\n10\n5\n5\n15"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Distribution",
+    "text": "\\(\\chi^2\\) Distribution"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution-2",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution-2",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Distribution",
+    "text": "\\(\\chi^2\\) Distribution"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution-3",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution-3",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Distribution",
+    "text": "\\(\\chi^2\\) Distribution"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution-4",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution-4",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Distribution",
+    "text": "\\(\\chi^2\\) Distribution"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution-5",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-distribution-5",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Distribution",
+    "text": "\\(\\chi^2\\) Distribution"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-example",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-example",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Independence Example",
+    "text": "\\(\\chi^2\\) Test of Independence Example\n\nYou are another educational psychologist, and you’re interested in examining your department’s student body makeup. You wonder whether there is an association between students’ level (graduate vs. undergraduate) and whether they are an in-state student or not. You sample 50 students from your department, and these are the frequencies you observe.\n\n\n\n\n\n\n  \n    \n      \n      In-State\n      Out-of-State\n    \n  \n  \n    Undergrad\n25\n10\n    Graduate\n5\n10\n  \n  \n\n\n\n\n\nFirst, what are your expected frequencies for each category?"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-example-calculating-expected-frequencies",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-example-calculating-expected-frequencies",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Independence Example: Calculating Expected Frequencies",
+    "text": "\\(\\chi^2\\) Test of Independence Example: Calculating Expected Frequencies\nFirst, get the marginal totals for each column\n\n\n\n\n\n  \n    \n      \n      In-State\n      Out-of-State\n      Total\n    \n  \n  \n    Undergrad\n25\n10\n\n    Graduate\n5\n10\n\n    Total"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-example-calculating-expected-frequencies-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-example-calculating-expected-frequencies-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Independence Example: Calculating Expected Frequencies",
+    "text": "\\(\\chi^2\\) Test of Independence Example: Calculating Expected Frequencies\nFirst, get the marginal totals for each column\n\n\n\n\n\n  \n    \n      \n      In-State\n      Out-of-State\n      Total\n    \n  \n  \n    Undergrad\n25\n10\n35\n    Graduate\n5\n10\n15\n    Total\n30\n20\n50"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-count",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-count",
+    "title": "Chi-Squared Test",
+    "section": "Working With Count Data: count()",
+    "text": "Working With Count Data: count()\ncount(x, grouping_var1, grouping_var2, etc.)\n○ x = dataframe\n\n○ grouping_vars = variable names to group by\n\nBasically shorthand for:\n\ndf |&gt;\n  summarise(.by = c(a, b),\n            n = n())\n\nAlso seems to arrange by default"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-7",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-example-7",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit Example",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit Example\n\\[ \\chi^2 = \\sum_{j=0}^{J} \\frac{(O_j – N\\pi_j)^2}{N\\pi_j} = \\sum_{j=0}^{J} \\frac{(O_j – E_j)^2}{E_j} \\]\n\n\n\n\ndata.frame(type = c(\"Undergrad\", \"Graduate\", \"Total\"),\n           `In-State` = c(25, 5, 30),\n           `Out-of-State` = c(10, 10, 20),\n           Total = c(35, 15, 50)) \n\n       type In.State Out.of.State Total\n1 Undergrad       25           10    35\n2  Graduate        5           10    15\n3     Total       30           20    50\n\nchisq_crit &lt;- qchisq(.95, df = (2 - 1) * (2 - 1))\nchisq_crit\n\n[1] 3.841459\n\n\n\n\nobs_chisq &lt;- (25 - 21)^2 / 21 +\n  (10 - 14)^2 / 14 +\n  (5 - 9)^2 / 9 +\n  (10 - 6)^2 / 6\nobs_chisq\n\n[1] 6.349206\n\nobs_chisq &gt; chisq_crit\n\n[1] TRUE"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-example-calculating-expected-frequencies-2",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-example-calculating-expected-frequencies-2",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Independence Example: Calculating Expected Frequencies",
+    "text": "\\(\\chi^2\\) Test of Independence Example: Calculating Expected Frequencies\n\n\n\n\n\n\n\n  \n    \n      \n      In-State\n      Out-of-State\n      Total\n    \n  \n  \n    Undergrad\n25\n10\n35\n    Graduate\n5\n10\n15\n    Total\n30\n20\n50\n  \n  \n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n      In-State\n      Out-of-State\n      Total\n    \n  \n  \n    Undergrad\n21\n14\n35\n    Graduate\n9\n6\n15\n    Total\n30\n20\n50\n  \n  \n\n\n\n\n\nExpected cell frequency = \\(E_j\\) = \\(\\frac{\\text{column total} \\times \\text{row total}}{N}\\)\n○ Undergrad & In-State = \\(\\frac{35 \\times 30}{50} = 21\\)\n○ Undergrad & Out-of-State = \\(\\frac{35 \\times 20}{50} = 14\\)\n○ Graduate & In-State = \\(\\frac{15 \\times 30}{50} = 9\\)\n○ Graduate & Out-of-State = \\(\\frac{15 \\times 20}{50} = 6\\)"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-example-calculating-expected-frequencies-3",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-example-calculating-expected-frequencies-3",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Independence Example: Calculating Expected Frequencies",
+    "text": "\\(\\chi^2\\) Test of Independence Example: Calculating Expected Frequencies"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-table-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-table-1",
+    "title": "Chi-Squared Test",
+    "section": "Working With Count Data: table()",
+    "text": "Working With Count Data: table()\n\n\n\ntable(dat$major, dat$type)\n\n                 \n                  Non-STEM School STEM School\n  Arts                         13          10\n  Business                      4           9\n  Humanities                   10          12\n  Social Sciences              10           9\n  STEM                         16           7\n\n\n\n\ntable(dat$major, dat$type) |&gt;\n  data.frame()\n\n              Var1            Var2 Freq\n1             Arts Non-STEM School   13\n2         Business Non-STEM School    4\n3       Humanities Non-STEM School   10\n4  Social Sciences Non-STEM School   10\n5             STEM Non-STEM School   16\n6             Arts     STEM School   10\n7         Business     STEM School    9\n8       Humanities     STEM School   12\n9  Social Sciences     STEM School    9\n10            STEM     STEM School    7"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-count-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#working-with-count-data-count-1",
+    "title": "Chi-Squared Test",
+    "section": "Working With Count Data: count()",
+    "text": "Working With Count Data: count()\ncount(x, grouping_var1, grouping_var2, etc.)\n○ x = dataframe\n\n○ grouping_vars = variable names to group by\n\n\n\n\ndat |&gt;\n  summarize(.by = c(major, type),\n            n = n())\n\n             major            type  n\n1             STEM Non-STEM School 16\n2       Humanities     STEM School 12\n3  Social Sciences Non-STEM School 10\n4             Arts Non-STEM School 13\n5  Social Sciences     STEM School  9\n6             STEM     STEM School  7\n7         Business     STEM School  9\n8       Humanities Non-STEM School 10\n9             Arts     STEM School 10\n10        Business Non-STEM School  4\n\n\n\n\ndat |&gt;\n  count(major, type)\n\n             major            type  n\n1             Arts Non-STEM School 13\n2             Arts     STEM School 10\n3         Business Non-STEM School  4\n4         Business     STEM School  9\n5       Humanities Non-STEM School 10\n6       Humanities     STEM School 12\n7             STEM Non-STEM School 16\n8             STEM     STEM School  7\n9  Social Sciences Non-STEM School 10\n10 Social Sciences     STEM School  9"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#outline",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#outline",
+    "title": "Correlation and Regression",
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 12 Review\nCorrelation\nRegression\n\nLearning objectives:\nR: Correlation, regression"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#assignment-12-review",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#assignment-12-review",
+    "title": "Correlation and Regression",
+    "section": "Assignment 12 Review",
+    "text": "Assignment 12 Review\n[placeholder for Assignment 12 review]"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-1",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-1",
+    "title": "Correlation and Regression",
+    "section": "Correlation",
+    "text": "Correlation\nMeasure of association: how strongly are two variables related?\nIndexes the linear relationship between two variables\nWe will cover correlation for two continuous variables"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-generally",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-generally",
+    "title": "Correlation and Regression",
+    "section": "Correlation Generally",
+    "text": "Correlation Generally\n\\[ r_{xy} = \\frac{\\sum_{i=1}^{I} (x_i - \\bar{x}) (y_i - \\bar{y})}{(n-1)s_x s_y} \\]\nwhere\n\\(i\\) = index of observation \\(i\\) out of \\(I\\) total observations\n\\(\\bar{x}\\) = mean of \\(x\\)\n\\(\\bar{y}\\) = mean of \\(y\\)\n\\(s_x\\) = standard deviation of \\(x\\)\n\\(s_y\\) = standard deviation of \\(y\\)"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-generally-1",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-generally-1",
+    "title": "Correlation and Regression",
+    "section": "Correlation Generally",
+    "text": "Correlation Generally\n\\[ r_{xy} = \\frac{\\sum_{i=1}^{I} (x_i - \\bar{x}) (y_i - \\bar{y})}{(n-1)s_x s_y} \\]\nBy subtracting the mean and dividing by the standard deviation, this formula is converting the observations to z-scores."
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-2",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-2",
+    "title": "Correlation and Regression",
+    "section": "Correlation",
+    "text": "Correlation\nOnly measures linear relationships\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nn &lt;- 100\n\nd1 &lt;- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |&gt;\n  mutate(y = x + rnorm(n, 0, 1))\nd2 &lt;- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |&gt;\n  mutate(y = runif(n, 2, 8) + rnorm(n, 0, 1))\nd3 &lt;- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |&gt;\n  mutate(y = .5* (x - 5)^2  + rnorm(n, 0, .1))\nd4 &lt;- data.frame(x = runif(n, 1, 9) + rnorm(n, 0, .5)) |&gt;\n  mutate(y = 2.5 * sin(2 * x) + 5 + rnorm(n, 0, .2))\n\nsctplt &lt;- function(df) {\n  r &lt;- cor(df$x, df$y)\n  \n  df |&gt;\n    ggplot(aes(x = x, y = y)) +\n    geom_point() +\n    scale_x_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +\n    scale_y_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +\n    coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +\n    guides(y = guide_axis(cap = \"both\"), x = guide_axis(cap = \"both\")) +\n    labs(title = paste(\"*r* =\", round(r, 2))) +\n    theme_classic(base_size = 16) +\n    theme(aspect.ratio = 1,\n          plot.title = ggtext::element_markdown(hjust = .5))\n}\n\nsctplt(d1)\nsctplt(d2)\nsctplt(d3)\nsctplt(d4)"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation",
+    "title": "Correlation and Regression",
+    "section": "Correlation",
+    "text": "Correlation\nMeasure of association: how strongly are two variables related?\nIndexes the linear relationship between two variables\nWe will cover correlation for two continuous variables"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression",
+    "title": "Correlation and Regression",
+    "section": "Regression",
+    "text": "Regression"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-in-r",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-in-r",
+    "title": "Correlation and Regression",
+    "section": "Correlation in R",
+    "text": "Correlation in R\n\\[ r_{xy} = \\frac{\\sum_{i=1}^{I} (x_i - \\bar{x}) (y_i - \\bar{y})}{(n-1)s_x s_y} \\]\nLet’s find the correlation between iris’ sepal length and sepal width. For demonstration, let’s only use the first four rows.\n\n\n\niris_small &lt;- iris |&gt;\n  select(Sepal.Length, Sepal.Width) |&gt;\n  head(4)\niris_small\n\n  Sepal.Length Sepal.Width\n1          5.1         3.5\n2          4.9         3.0\n3          4.7         3.2\n4          4.6         3.1\n\n\n\n\ncor(iris_small$Sepal.Length, iris_small$Sepal.Width)\n\n[1] 0.6263001"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-example",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-example",
+    "title": "Correlation and Regression",
+    "section": "Correlation Example",
+    "text": "Correlation Example\n\\[ r_{xy} = \\frac{\\sum_{i=1}^{I} (x_i - \\bar{x}) (y_i - \\bar{y})}{(n-1)s_x s_y} \\]\nLet’s find the correlation between iris’ sepal length and sepal width. For demonstration, let’s only use the first four rows.\n\n\n\niris_small &lt;- iris |&gt;\n  select(Sepal.Length, Sepal.Width) |&gt;\n  head(4)\niris_small\n\n  Sepal.Length Sepal.Width\n1          5.1         3.5\n2          4.9         3.0\n3          4.7         3.2\n4          4.6         3.1\n\n\n\n\nx_bar &lt;- mean(iris_small$Sepal.Length)\nx_sd &lt;- sd(iris_small$Sepal.Length)\n\ny_bar &lt;- mean(iris_small$Sepal.Width)\ny_sd &lt;- sd(iris_small$Sepal.Width)\n\niris_small &lt;- iris_small |&gt;\n  mutate(sq_diff_x = Sepal.Length - x_bar,\n         sq_diff_y = Sepal.Width - y_bar,\n         product = sq_diff_x * sq_diff_y)\niris_small\n\n  Sepal.Length Sepal.Width sq_diff_x sq_diff_y product\n1          5.1         3.5     0.275       0.3  0.0825\n2          4.9         3.0     0.075      -0.2 -0.0150\n3          4.7         3.2    -0.125       0.0  0.0000\n4          4.6         3.1    -0.225      -0.1  0.0225\n\nsum(iris_small$product) / ((nrow(iris_small) - 1) * x_sd * y_sd)\n\n[1] 0.6263001"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-in-r-1",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#correlation-in-r-1",
+    "title": "Correlation and Regression",
+    "section": "Correlation in R",
+    "text": "Correlation in R\nAs a note, those four points were not actually representative of the general trend!\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\niris |&gt;\n  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +\n  geom_point(alpha = .5, shape = 16) +\n  geom_point(data = head(iris, 4), fill = \"salmon3\", color = \"salmon\", size = 3.3, shape = 23) +\n  scale_x_continuous(breaks = c(4, 6, 8), labels = c(4, 6, 8)) +\n  scale_y_continuous(breaks = c(1, 3, 5), labels = c(1, 3, 5)) +\n  coord_cartesian(xlim = c(4, 8), ylim = c(1, 5)) +\n  guides(y = guide_axis(cap = \"both\"), x = guide_axis(cap = \"both\")) +\n  theme_classic(base_size = 16) +\n  theme(aspect.ratio = 1)\n\n\n\n\n\n\ncor(iris$Sepal.Length, iris$Sepal.Width)\n\n[1] -0.1175698"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-1",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-1",
+    "title": "Correlation and Regression",
+    "section": "Regression",
+    "text": "Regression\nIf you are working with just one variable, what is the best way you can represent the data?\nIf you had to pick just one statistic, what might you choose?\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nn &lt;- 20\n\nd1 &lt;- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |&gt;\n  mutate(y = runif(n, 2, 8) + 2 + rnorm(n, 0, 1))\nd2 &lt;- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |&gt;\n  mutate(y = runif(n, 2, 8) + rnorm(n, 0, 1))\nd3 &lt;- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |&gt;\n  mutate(y = runif(n, 2, 8) + -2 + rnorm(n, 0, 1))\n\nsctplt_mean &lt;- function(df) {\n  df |&gt;\n    ggplot(aes(x = x, y = y)) +\n    geom_point() +\n    scale_x_continuous(breaks = NULL) +\n    scale_y_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +\n    coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +\n    guides(y = guide_axis(cap = \"both\"), x = guide_axis(cap = \"both\")) +\n    labs(x = NULL) +\n    theme_classic(base_size = 16) +\n    theme(aspect.ratio = 1)\n}\n\nsctplt_mean(d1)\nsctplt_mean(d2)\nsctplt_mean(d3)"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-2",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-2",
+    "title": "Correlation and Regression",
+    "section": "Regression",
+    "text": "Regression\nIf we consider “best” to mean minimizing the squared distances from the data, the mean is the best fit.\nThe mean has the smallest squared errors from the observations.\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsctplt_mean(d1) +\n  geom_hline(aes(yintercept = mean(y)), color = \"salmon\", linetype = \"longdash\")\nsctplt_mean(d2) +\n  geom_hline(aes(yintercept = mean(y)), color = \"salmon\", linetype = \"longdash\")\nsctplt_mean(d3) +\n  geom_hline(aes(yintercept = mean(y)), color = \"salmon\", linetype = \"longdash\")"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-3",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-3",
+    "title": "Correlation and Regression",
+    "section": "Regression",
+    "text": "Regression\nIf we consider “best” to mean minimizing the squared distances from the data, the mean is the best fit.\nThe mean has the smallest squared errors from the observations.\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsctplt_mean(d1) +\n  geom_hline(aes(yintercept = mean(y)), color = \"salmon\") +\n  geom_segment(aes(y = y, yend = mean(y)), color = \"salmon\", linetype = \"dashed\") +\n  geom_point()\nsctplt_mean(d2) +\n  geom_hline(aes(yintercept = mean(y)), color = \"salmon\") +\n  geom_segment(aes(y = y, yend = mean(y)), color = \"salmon\", linetype = \"dashed\") +\n  geom_point()\nsctplt_mean(d3) +\n  geom_hline(aes(yintercept = mean(y)), color = \"salmon\") +\n  geom_segment(aes(y = y, yend = mean(y)), color = \"salmon\", linetype = \"dashed\") +\n  geom_point()"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-4",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-4",
+    "title": "Correlation and Regression",
+    "section": "Regression",
+    "text": "Regression\nThis is equivalent to the “mean intercept model” regression equation\n\\[ y_i = b_0 + \\epsilon_i \\]\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsctplt_mean(d1) +\n  geom_hline(aes(yintercept = mean(y)), color = \"salmon\") +\n  geom_segment(aes(y = y, yend = mean(y)), color = \"salmon\", linetype = \"dashed\") +\n  geom_point()\nsctplt_mean(d2) +\n  geom_hline(aes(yintercept = mean(y)), color = \"salmon\") +\n  geom_segment(aes(y = y, yend = mean(y)), color = \"salmon\", linetype = \"dashed\") +\n  geom_point()\nsctplt_mean(d3) +\n  geom_hline(aes(yintercept = mean(y)), color = \"salmon\") +\n  geom_segment(aes(y = y, yend = mean(y)), color = \"salmon\", linetype = \"dashed\") +\n  geom_point()"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#intercept-model-to-regression",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#intercept-model-to-regression",
+    "title": "Correlation and Regression",
+    "section": "Intercept Model to Regression",
+    "text": "Intercept Model to Regression\nWhen we have one variable of interest, the mean is the best single estimator.\n○ \\(y = b_0\\) would be the line of best fit\nIf we have two variables and we want to predict one from the other, we now may need a slope to find a line of best fit.\n○ This model will typically have both an intercept and a slope"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#intercept-model-to-regression-1",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#intercept-model-to-regression-1",
+    "title": "Correlation and Regression",
+    "section": "Intercept Model to Regression",
+    "text": "Intercept Model to Regression\nWe have the same question: which line can represent points most effectively?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nn &lt;- 30\n\nd1 &lt;- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |&gt;\n  mutate(y = 5 + 0.2 * x + rnorm(n, 0, 1))\n\nsctplt_reg &lt;- function(df) {\n  df |&gt;\n    ggplot(aes(x = x, y = y)) +\n    geom_point() +\n    scale_x_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +\n    scale_y_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +\n    coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +\n    guides(y = guide_axis(cap = \"both\"), x = guide_axis(cap = \"both\")) +\n    theme_classic(base_size = 16) +\n    theme(aspect.ratio = 1,\n          plot.title = ggtext::element_markdown(hjust = .5))\n}\n\nsctplt_reg(d1)\n\n\n\n\n\nLots of potential lines we could use"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#intercept-model-to-regression-2",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#intercept-model-to-regression-2",
+    "title": "Correlation and Regression",
+    "section": "Intercept Model to Regression",
+    "text": "Intercept Model to Regression\nWe have the same question: which line can represent points most effectively?\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsctplt_reg(d1)  +\n  geom_segment(aes(x = 0, xend = 10, y = mean(x)), color = \"salmon\") +\n  geom_segment(aes(x = 0, xend = 10, y = 0, yend = 10), color = \"salmon\") +\n  geom_segment(aes(x = 0, xend = 10, y = 2, yend = 8), color = \"salmon\") +\n  geom_segment(aes(x = 0, xend = 10, y = -1, yend = 11), color = \"salmon\") +\n  geom_point()\n\n\n\n\n\nLots of potential lines we could use"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#intercept-model-to-regression-3",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#intercept-model-to-regression-3",
+    "title": "Correlation and Regression",
+    "section": "Intercept Model to Regression",
+    "text": "Intercept Model to Regression\nConsidering the relationship of \\(y\\) with another variable \\(x\\)\n\\[ y_i = b_0 + b_1 \\times x_i + \\epsilon_i \\]\nwhere\n\\(i\\) = index of observation \\(i\\) out of \\(I\\) total observations\n\\(y\\) = outcome\n\\(x\\) = predictor\n\\(b_0\\) = intercept\n\\(b_1\\) = slope for \\(x\\)"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-penguins",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-penguins",
+    "title": "Correlation and Regression",
+    "section": "Regression Example: penguins",
+    "text": "Regression Example: penguins\nLet’s predict penguins’ body mass!\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(palmerpenguins)\n\npenguins |&gt;\n  ggplot(aes(y = body_mass_g, x = 0)) +\n  geom_jitter() +\n  scale_x_continuous(breaks = NULL) +\n  scale_y_continuous(breaks = c(2000, 4500, 7000)) +\n  coord_cartesian(ylim = c(2000, 7000)) +\n  guides(y = guide_axis(cap = \"both\"), x = \"none\") +\n  labs(x = NULL) +\n  theme_classic(base_size = 16) +\n  theme(aspect.ratio = 1)\n\n\n\n\n\nWith just this one variable, what would be our best prediction for these data?\nThe mean!"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-penguins-1",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-penguins-1",
+    "title": "Correlation and Regression",
+    "section": "Regression Example: penguins",
+    "text": "Regression Example: penguins\nLet’s predict penguins’ body mass!\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npenguins |&gt;\n  ggplot(aes(y = body_mass_g, x = 0)) +\n  geom_jitter() +\n  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),\n             color = \"seagreen3\", linewidth = 1.5) +\n  stat_summary(aes(x = .52, y = mean(body_mass_g, na.rm=T),\n                   label = mean(body_mass_g, na.rm=T) |&gt; round(1)), geom = \"text\",\n               fun = mean, vjust = -.45, color = \"seagreen3\", size = 6) +\n  scale_x_continuous(breaks = NULL) +\n  scale_y_continuous(breaks = c(2000, 4500, 7000)) +\n  coord_cartesian(ylim = c(2000, 7000), clip = \"off\") +\n  guides(y = guide_axis(cap = \"both\"), x = \"none\") +\n  labs(x = NULL) +\n  theme_classic(base_size = 16) +\n  theme(aspect.ratio = 1)\n\n\n\n\n\nWith just this one variable, what would be our best prediction for these data?\nThe mean!\nIf we needed to predict any random penguin’s body mass with only these data, our best estimate would be the mean, 4201.75.\nNow, let’s take into account another variable: a penguin’s flipper length"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-penguins-2",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-penguins-2",
+    "title": "Correlation and Regression",
+    "section": "Regression Example: penguins",
+    "text": "Regression Example: penguins\nLet’s predict penguins’ body mass!\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npenguins |&gt;\n  ggplot(aes(y = body_mass_g, x = flipper_length_mm)) +\n  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),\n             color = \"seagreen3\", linewidth = 1.5) +\n  geom_point() +\n  scale_x_continuous(breaks = c(170, 210, 250)) +\n  scale_y_continuous(breaks = c(2000, 4500, 7000)) +\n  coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = \"off\") +\n  guides(y = guide_axis(cap = \"both\"), x = guide_axis(cap = \"both\")) +\n  theme_classic(base_size = 16) +\n  theme(aspect.ratio = 1)\n\n\n\n\n\nNow, let’s take into account another variable: a penguin’s flipper length\nJust the mean no longer seems like our line of best fit"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r",
+    "title": "Correlation and Regression",
+    "section": "Regression Example in R",
+    "text": "Regression Example in R\nLet’s predict penguins’ body mass!\nlm(y ~ x, data = data)\n○ y = outcome\n○ x = predictor, use 1 for just intercept\n○ data = dataframe that includes x and y\nsummary(model) to see results"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-1",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-1",
+    "title": "Correlation and Regression",
+    "section": "Regression Example in R",
+    "text": "Regression Example in R\nLet’s predict penguins’ body mass!\n\npenguins_m0 &lt;- lm(body_mass_g ~ 1, data = penguins)\nsummary(penguins_m0)\n\n\nCall:\nlm(formula = body_mass_g ~ 1, data = penguins)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-1501.8  -651.8  -151.8   548.2  2098.2 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  4201.75      43.36   96.89   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 802 on 341 degrees of freedom\n  (2 observations deleted due to missingness)"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-2",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-2",
+    "title": "Correlation and Regression",
+    "section": "Regression Example in R",
+    "text": "Regression Example in R\nLet’s predict penguins’ body mass!\n\npenguins_m1 &lt;- lm(body_mass_g ~ flipper_length_mm, data = penguins)\nsummary(penguins_m1)\n\n\nCall:\nlm(formula = body_mass_g ~ flipper_length_mm, data = penguins)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1058.80  -259.27   -26.88   247.33  1288.69 \n\nCoefficients:\n                   Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       -5780.831    305.815  -18.90   &lt;2e-16 ***\nflipper_length_mm    49.686      1.518   32.72   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 394.3 on 340 degrees of freedom\n  (2 observations deleted due to missingness)\nMultiple R-squared:  0.759, Adjusted R-squared:  0.7583 \nF-statistic:  1071 on 1 and 340 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-output-anatomy",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-output-anatomy",
+    "title": "Correlation and Regression",
+    "section": "Regression Example in R: Output anatomy",
+    "text": "Regression Example in R: Output anatomy\n\n\n\nsummary(penguins_m1)\n\n\nCall:\nlm(formula = body_mass_g ~ flipper_length_mm, data = penguins)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1058.80  -259.27   -26.88   247.33  1288.69 \n\nCoefficients:\n                   Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       -5780.831    305.815  -18.90   &lt;2e-16 ***\nflipper_length_mm    49.686      1.518   32.72   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 394.3 on 340 degrees of freedom\n  (2 observations deleted due to missingness)\nMultiple R-squared:  0.759, Adjusted R-squared:  0.7583 \nF-statistic:  1071 on 1 and 340 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nsummary(penguins_m1)$coefficients\n\n                     Estimate Std. Error   t value      Pr(&gt;|t|)\n(Intercept)       -5780.83136 305.814504 -18.90306  5.587301e-55\nflipper_length_mm    49.68557   1.518404  32.72223 4.370681e-107\n\nsummary(penguins_m1)$r.squared\n\n[1] 0.7589925\n\nsummary(penguins_m1)$adj.r.squared\n\n[1] 0.7582837"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-3",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-3",
+    "title": "Correlation and Regression",
+    "section": "Regression Example in R",
+    "text": "Regression Example in R\nLet’s predict penguins’ body mass!\nWe can extract predicted values to create our line of best fit with predict()\npredict(model, newdata)\n○ newdata = dataframe containing theoretical values of the predictor(s)\n○ Should have the same column name(s)\n\npredict(penguins_m1, newdata = data.frame(flipper_length_mm = seq(170, 240, 1)))\n\n       1        2        3        4        5        6        7        8 \n2665.715 2715.400 2765.086 2814.772 2864.457 2914.143 2963.828 3013.514 \n       9       10       11       12       13       14       15       16 \n3063.199 3112.885 3162.571 3212.256 3261.942 3311.627 3361.313 3410.998 \n      17       18       19       20       21       22       23       24 \n3460.684 3510.370 3560.055 3609.741 3659.426 3709.112 3758.797 3808.483 \n      25       26       27       28       29       30       31       32 \n3858.169 3907.854 3957.540 4007.225 4056.911 4106.596 4156.282 4205.967 \n      33       34       35       36       37       38       39       40 \n4255.653 4305.339 4355.024 4404.710 4454.395 4504.081 4553.766 4603.452 \n      41       42       43       44       45       46       47       48 \n4653.138 4702.823 4752.509 4802.194 4851.880 4901.565 4951.251 5000.937 \n      49       50       51       52       53       54       55       56 \n5050.622 5100.308 5149.993 5199.679 5249.364 5299.050 5348.736 5398.421 \n      57       58       59       60       61       62       63       64 \n5448.107 5497.792 5547.478 5597.163 5646.849 5696.534 5746.220 5795.906 \n      65       66       67       68       69       70       71 \n5845.591 5895.277 5944.962 5994.648 6044.333 6094.019 6143.705 \n\npredicted_data &lt;- data.frame(flipper_length_mm = seq(170, 240, 1)) |&gt;\n  mutate(predicted_body_mass = predict(penguins_m1, newdata = data.frame(flipper_length_mm)))\n\npenguins |&gt;\n  ggplot(aes(y = body_mass_g, x = flipper_length_mm)) +\n  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),\n             color = \"seagreen3\", linewidth = 1.5, alpha = .33,\n             linetype = \"dashed\") +\n  geom_point() +\n    geom_line(data = predicted_data,\n            aes(x = flipper_length_mm, y = predicted_body_mass),\n            color = \"seagreen3\", linewidth = 1.5) +\n  scale_x_continuous(breaks = c(170, 210, 250)) +\n  scale_y_continuous(breaks = c(2000, 4500, 7000)) +\n  coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = \"off\") +\n  guides(y = guide_axis(cap = \"both\"), x = guide_axis(cap = \"both\")) +\n  theme_classic(base_size = 16) +\n  theme(aspect.ratio = 1)"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-adding-a-predictor",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-adding-a-predictor",
+    "title": "Correlation and Regression",
+    "section": "Regression Example in R: Adding a predictor",
+    "text": "Regression Example in R: Adding a predictor\nWe can add predictors by adding them to the right hand side of the formula\n\npenguins_m2 &lt;- lm(body_mass_g ~ flipper_length_mm + bill_length_mm, data = penguins)\nsummary(penguins_m2)\n\n\nCall:\nlm(formula = body_mass_g ~ flipper_length_mm + bill_length_mm, \n    data = penguins)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-1090.5  -285.7   -32.1   244.2  1287.5 \n\nCoefficients:\n                   Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       -5736.897    307.959 -18.629   &lt;2e-16 ***\nflipper_length_mm    48.145      2.011  23.939   &lt;2e-16 ***\nbill_length_mm        6.047      5.180   1.168    0.244    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 394.1 on 339 degrees of freedom\n  (2 observations deleted due to missingness)\nMultiple R-squared:   0.76, Adjusted R-squared:  0.7585 \nF-statistic: 536.6 on 2 and 339 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-writeup",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-writeup",
+    "title": "Correlation and Regression",
+    "section": "Regression Example: Writeup",
+    "text": "Regression Example: Writeup\nControlling for bill length, the effect of flipper length on penguins body mass was significant (p &lt; .001). For every mm increase in flipper length, we expect to see a 46.15g increase in body mass. Controlling for flipper length, the effect of bill length on penguins’ body mass was not significant (p = .244). The expected body mass when flipper length and bill length are both zero is -5736.897.\n\n\n\n\n\n\nNote\n\n\nWhy is the intercept so crazy? Because flipper length and bill length would never actually be zero!"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-line-of-best-fit",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-line-of-best-fit",
+    "title": "Correlation and Regression",
+    "section": "Regression Example in R: Line of best fit",
+    "text": "Regression Example in R: Line of best fit\nLet’s predict penguins’ body mass!\nWe can extract predicted values to create our line of best fit with predict()\npredict(model, newdata)\n○ newdata = dataframe containing theoretical values of the predictor(s)\n○ Should have the same column name(s)\n\npredict(penguins_m1, newdata = data.frame(flipper_length_mm = seq(170, 240, 1)))\n\n       1        2        3        4        5        6        7        8 \n2665.715 2715.400 2765.086 2814.772 2864.457 2914.143 2963.828 3013.514 \n       9       10       11       12       13       14       15       16 \n3063.199 3112.885 3162.571 3212.256 3261.942 3311.627 3361.313 3410.998 \n      17       18       19       20       21       22       23       24 \n3460.684 3510.370 3560.055 3609.741 3659.426 3709.112 3758.797 3808.483 \n      25       26       27       28       29       30       31       32 \n3858.169 3907.854 3957.540 4007.225 4056.911 4106.596 4156.282 4205.967 \n      33       34       35       36       37       38       39       40 \n4255.653 4305.339 4355.024 4404.710 4454.395 4504.081 4553.766 4603.452 \n      41       42       43       44       45       46       47       48 \n4653.138 4702.823 4752.509 4802.194 4851.880 4901.565 4951.251 5000.937 \n      49       50       51       52       53       54       55       56 \n5050.622 5100.308 5149.993 5199.679 5249.364 5299.050 5348.736 5398.421 \n      57       58       59       60       61       62       63       64 \n5448.107 5497.792 5547.478 5597.163 5646.849 5696.534 5746.220 5795.906 \n      65       66       67       68       69       70       71 \n5845.591 5895.277 5944.962 5994.648 6044.333 6094.019 6143.705"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-line-of-best-fit-1",
+    "href": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#regression-example-in-r-line-of-best-fit-1",
+    "title": "Correlation and Regression",
+    "section": "Regression Example in R: Line of best fit",
+    "text": "Regression Example in R: Line of best fit\n\npredicted_data &lt;- data.frame(flipper_length_mm = seq(170, 240, 1)) |&gt;\n  mutate(predicted_body_mass = predict(penguins_m1, newdata = data.frame(flipper_length_mm)))\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npenguins |&gt;\n  ggplot(aes(y = body_mass_g, x = flipper_length_mm)) +\n  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),\n             color = \"seagreen3\", linewidth = 1.5, alpha = .33,\n             linetype = \"dashed\") +\n  geom_point() +\n    geom_line(data = predicted_data,\n            aes(x = flipper_length_mm, y = predicted_body_mass),\n            color = \"seagreen3\", linewidth = 1.5) +\n  scale_x_continuous(breaks = c(170, 210, 250)) +\n  scale_y_continuous(breaks = c(2000, 4500, 7000)) +\n  coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = \"off\") +\n  guides(y = guide_axis(cap = \"both\"), x = guide_axis(cap = \"both\")) +\n  theme_classic(base_size = 16) +\n  theme(aspect.ratio = 1)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#outline",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#outline",
+    "title": "One-Way ANOVA",
+    "section": "Outline",
+    "text": "Outline\n\nAssignment 13 Review\nOne-Way ANOVA\n\nLearning objectives:\nR: One-Way ANOVA"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#housekeeping",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#housekeeping",
+    "title": "One-Way ANOVA",
+    "section": "Housekeeping",
+    "text": "Housekeeping\nOur very last lab!!\nI will not have office hours 11/26 (institute holiday)\n○ Still happy to other schedule time if anyone has any questions or concerns\nExtra Credit Opportunity: If class gets to 75% completion on CIOS, I will add 2pts (20% of a lab assignment!) to everyone’s grade."
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#assignment-13-review",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#assignment-13-review",
+    "title": "One-Way ANOVA",
+    "section": "Assignment 13 Review",
+    "text": "Assignment 13 Review\n[placeholder for Assignment 13 review]"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#analysis-of-variance-anova",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#analysis-of-variance-anova",
+    "title": "One-Way ANOVA",
+    "section": "Analysis of Variance (ANOVA)",
+    "text": "Analysis of Variance (ANOVA)\nMethod of understanding how categorical variables are related to an outcome of interest\nCompares between groups to within groups variance"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance\nTotal Sum of Squared Errors: error term around the grand mean\n\\[ SS_{total} = \\sum (x_i - \\bar{x})^2 \\]\nIf we have outcomes separated into different groups (e.g., control, treatment A, treatment B), can partition \\(SS_{total}\\) into between groups sums of squares \\(SS_B\\) and within groups sums of squares \\(SS_W\\)\n\\[ SS_{total} = SS_B + SS_W \\]"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-1",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-1",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance\nTotal Sum of Squares: aggregated error around the grand mean\n\\[ SS_{total} = \\sum_{j=1}^J \\sum_{i=1}^I (x_{ij} - \\bar{x})^2 \\]\n\n\nBetween-Group Sum of Squares: error between the group mean and the grand mean\n\\[ SS_{B} = \\sum_{j=1}^J n_j (\\bar{x_{j}} - \\bar{x})^2 \\]\n\nWithin-Group Sum of Squares: error between observations and their group mean\n\\[ SS_{W} = \\sum_{j=1}^J \\sum_{i=1}^I (x_{ij} - \\bar{x_{j}})^2 \\]"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-2",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-2",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-3",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-3",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-4",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-4",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-5",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-5",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-6",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-6",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance\nRatio of \\(SS_B\\) to \\(SS_W\\)\nIf \\(SS_B &gt;&gt; SS_W\\), good model. Easy to predict differences based on groups.\nIf \\(SS_B \\approx SS_W\\), less good model. Not easy to predict differences based on groups.\n\\[ F \\propto \\frac{\\text{between-group variance}}{\\text{within-group variance}} \\]"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_error",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_error",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance: \\(SS_{error}\\)",
+    "text": "ANOVA: Partitioning Variance: \\(SS_{error}\\)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_b",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_b",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance: \\(SS_B\\)",
+    "text": "ANOVA: Partitioning Variance: \\(SS_B\\)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_w",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_w",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance: \\(SS_W\\)",
+    "text": "ANOVA: Partitioning Variance: \\(SS_W\\)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-f",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-f",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: \\(F\\)",
+    "text": "ANOVA: \\(F\\)\n\n\nMean Square Between\n$ MS_B = = $\n\nMean Square Within\n$ MS_W = = $\n\n\\[ F = \\frac{MS_B}{MS_W} \\]"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-hypotheses",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-hypotheses",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Hypotheses",
+    "text": "ANOVA: Hypotheses\n\\(H_0\\): \\(\\sigma^2_B = 0\\)\n\\(H_1\\): \\(\\sigma^2_B \\neq 0\\)\n\nEquivalent to:\n\\(H_0\\): \\(\\mu_1 = \\mu_2 = ... = \\mu_J\\)\n\\(H_1\\): not \\(H_0\\)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-r-function",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-r-function",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: R function",
+    "text": "ANOVA: R function\naov(y ~ grouping_var, data = data)\n○ y = outcome\n○ grouping_var = name of grouping variable\n○ data = dataframe that includes grouping_var and y\nsummary(model)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#avova-example",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#avova-example",
+    "title": "One-Way ANOVA",
+    "section": "AVOVA: Example",
+    "text": "AVOVA: Example\n\nlibrary(palmerpenguins)\n\nsummary(penguins |&gt; select(species, flipper_length_mm))\n\n      species    flipper_length_mm\n Adelie   :152   Min.   :172.0    \n Chinstrap: 68   1st Qu.:190.0    \n Gentoo   :124   Median :197.0    \n                 Mean   :200.9    \n                 3rd Qu.:213.0    \n                 Max.   :231.0    \n                 NA's   :2        \n\n\nDoes flipper length vary by penguin species?\n\nflipper_model &lt;- aov(flipper_length_mm ~ species, data = penguins)\nsummary(flipper_model)\n\n             Df Sum Sq Mean Sq F value Pr(&gt;F)    \nspecies       2  52473   26237   594.8 &lt;2e-16 ***\nResiduals   339  14953      44                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n2 observations deleted due to missingness\n\n\nHuge \\(F\\)-statistic!\nWe reject the null in favor of the alternative that there is significant variation between penguin species in flipper length"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-goodness-of-fit-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Goodness of Fit",
+    "text": "\\(\\chi^2\\) Test of Goodness of Fit\nDo the observed frequencies of a categorical variable differ from what expected a priori?\nTypically, this expectation is equal occurrence across groups (but doesn’t have to be).\nIf equal occurrence, what would be our expected frequencies?\n\n\n100 coin flips\n\n\n\nHeads\nTails\n\n\n\n\n50\n50\n\n\n\n\nFavorite primary color of 33 students\n\n\n\nRed\nBlue\nYellow\n\n\n\n\n11\n11\n11\n\n\n\n\nCan also hypothesize proportions and convert to frequencies once you have a sample size."
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-1",
+    "href": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html#chi2-test-of-independence-1",
+    "title": "Chi-Squared Test",
+    "section": "\\(\\chi^2\\) Test of Independence",
+    "text": "\\(\\chi^2\\) Test of Independence\nDo the observed frequencies of a categorical variable differ from what expected via properties of independence?\n○ Now considering more than one type of category\n○ E.g., Number of pets by cat vs. dog people and undergrad vs. post-graduate\n\n\n\n\n\nCat Person\nDog Person\n\n\n\n\nUndergrad\n\n\n\n\nPost-Graduate\n\n\n\n\n\n\nExpected frequencies calculated from the marginal totals of the contingency table\n○ Expected values determined from data"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html",
+    "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html",
+    "title": "PSYC2020L Assignment 14",
+    "section": "",
+    "text": "Correlation and Regression"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#goals-for-review",
+    "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 14",
+    "section": "",
+    "text": "Correlation and Regression"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#setting-up",
+    "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#setting-up",
+    "title": "PSYC2020L Assignment 14",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 14 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block.\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L\"\n\n\n\n\n3) Download the cake_data.csv dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data. This data contains the breakage angle angle for cakes made with different recipes.\n\ncake &lt;- rio::import(here::here(\"labs\", \"Lab 14 - One-Way ANOVA\", \"cake_data.csv\"))"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#analysis-of-variance-anova",
+    "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#analysis-of-variance-anova",
+    "title": "PSYC2020L Assignment 14",
+    "section": "Analysis of Variance (ANOVA)",
+    "text": "Analysis of Variance (ANOVA)\n\n4) You’d like to test to see if there are differences in the breakage angle for cakes made with these different recipes with a One-Way ANOVA. What are your null and alternative hypotheses for this test?\n\\(H_0\\): \\(\\sigma^2_B = 0\\)\n\\(H_1\\): \\(\\sigma^2_B \\neq 0\\)\n\n\n5) Perform this ANOVA and display the results with summary().\n\naov(angle ~ recipe, data = cake) |&gt; summary()\n\n            Df Sum Sq Mean Sq F value Pr(&gt;F)    \nrecipe       3   3310  1103.4    39.1 &lt;2e-16 ***\nResiduals   96   2709    28.2                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\n\n6) Briefly describe your results.\nThere is a significant effect of recipe F(3, 96) = 39.1, p &lt; .001 on cake breakage angle.\n[more items pending lecture content]"
+  },
+  {
+    "objectID": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html#chi-squared-test-of-independence",
+    "href": "labs/Lab 12 - Chi-Squared Test/Lab 12 Assignment Example.html#chi-squared-test-of-independence",
+    "title": "PSYC2020L Assignment 12",
+    "section": "Chi-Squared Test of Independence",
+    "text": "Chi-Squared Test of Independence\n\n5a) You now want to see if leaf color and whether or not the leaf had fallen from the tree are independent variables. What are the null and alternative hypotheses for this test?\n\\(H_0\\): Leaf color and whether or not the leaf had fallen have no association.\n\\(H_A\\): Leaf color and whether or not the leaf had fallen have some association.\n\n\n5b) What are the observed frequencies of each color given whether or not they had fallen?\n\ntable(leaves$color, leaves$fallen)\n\n        \n          no yes\n  green   92  12\n  red    199  90\n  orange 269 244\n  brown   24  70\n\n\n\n\n5c) What is the chi-squared statistic for this test?\n\nleaves |&gt;\n  summarize(.by = c(color, fallen),\n            n = n()) |&gt;\n  pivot_wider(names_from = fallen, values_from = n) |&gt;\n  select(-color) |&gt;\n  chisq.test(correct = F)\n\n\n    Pearson's Chi-squared test\n\ndata:  select(pivot_wider(summarize(leaves, .by = c(color, fallen),     n = n()), names_from = fallen, values_from = n), -color)\nX-squared = 101, df = 3, p-value &lt; 2.2e-16\n\n\n\n\n5d) Provide a brief interpretation of these results.\nWe reject the null in favor of the alternative that there is an association between leaf color and whether or not they had fallen."
+  },
+  {
+    "objectID": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html",
+    "href": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html",
+    "title": "PSYC2020L Assignment 4",
+    "section": "",
+    "text": "Probability Distributions Review\nZ-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#goals-for-review",
+    "href": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#goals-for-review",
+    "title": "PSYC2020L Assignment 4",
+    "section": "",
+    "text": "Probability Distributions Review\nZ-Scores in R\nGenerating Data\nR Packages\nReading Files\n\nFor each question, please make sure you include code output. If the question asks for comparison or further explanation, please make sure to include that as well."
+  },
+  {
+    "objectID": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#setting-up",
+    "href": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#setting-up",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 4 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block.\n\n\n3) Read in the tour_de_france.csv file and assign it to a variable (e.g., tdf_data). Display the first six rows of this dataset."
+  },
+  {
+    "objectID": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#measures-of-variability",
+    "href": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#measures-of-variability",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n4) What is the variance and SD of winner_avg_speed?\n\n\n5) What is the variance and SD of total_distance?"
+  },
+  {
+    "objectID": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#z-scores",
+    "href": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#z-scores",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Z-Scores",
+    "text": "Z-Scores\n\n6) Create a new variable within the Tour de France data that contains the winner_avg_speed variable standardized. No output needed for this question.\n\n\n7) Create a new variable within the Tour de France data that contains the total_distance variable standardized. No output needed for this question.\n\n\n8) Calculate the variance and SD of the new z-scored version winner_avg_speed, and compare it to the original, non-z-scored version. What differences do you observe?"
+  },
+  {
+    "objectID": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#generation-from-normal-distribution",
+    "href": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#generation-from-normal-distribution",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Generation from Normal Distribution",
+    "text": "Generation from Normal Distribution\n\n9) Generate three vectors and assign them to variables: one with 10 draws from a standard normal distribution, one with 50 draws from a standard normal distribution, and one with 100 draws from a standard normal distribution. Display just the vector with 10 draws.\n\n\n10) Plot a histogram of the vector out of the three that will appear the most representative of the underlying standard normal distribution.\n\n\n11) Create two more vectors and assign them to variables: one with 1000 draws from a normal distribution with mean of zero and SD of 2 and one with 1000 draws from a normal distribution with mean of 2 and variance of 4. No output is needed for this question.\n\n\n12) Plot each of the two vectors from (11) in a histogram. Set the x-axis limits to be the same for both (hint: use the ? tool if you don’t remember how to set axis limits!), and compare the two plots."
+  },
+  {
+    "objectID": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#matrices",
+    "href": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#matrices",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Matrices",
+    "text": "Matrices\n\n13) Create a vector of sequential integers from 1 to 10 and assign it to a variable. No output is needed for this question.\n\n\n14) Turn this vector in a 2 rows x 5 columns matrix that fills in the rows first. Assign this matrix to a variable and display the matrix as output."
+  },
+  {
+    "objectID": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#indexing",
+    "href": "docs/labs/Lab 4 - Z-Scores/PSYC2020L Assignment 4.html#indexing",
+    "title": "PSYC2020L Assignment 4",
+    "section": "Indexing",
+    "text": "Indexing\n\n15) From that matrix, please index:\n\n15a) The second row.\n\n\n15b) The third column of the first row.\n\n\n15c) The second through fourth columns of the first and second rows."
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html",
+    "href": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html",
+    "title": "PSYC2020L Assignment 13",
+    "section": "",
+    "text": "Correlation and Regression"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html#goals-for-review",
+    "href": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html#goals-for-review",
+    "title": "PSYC2020L Assignment 13",
+    "section": "",
+    "text": "Correlation and Regression"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html#setting-up",
+    "href": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html#setting-up",
+    "title": "PSYC2020L Assignment 13",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 13 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block.\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L\"\n\n\n\n\n3) Download the students_data.csv dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data.\n\nstudents &lt;- rio::import(\"student_data.csv\")\nhead(students)\n\n  math_score reading_score writing_score gender        lunch\n1         72            72            74 female     standard\n2         69            90            88 female     standard\n3         90            95            93 female     standard\n4         47            57            44   male free/reduced\n5         76            78            75   male     standard\n6         71            83            78 female     standard\n  test_preparation_course\n1                    none\n2               completed\n3                    none\n4                    none\n5                    none\n6                    none\n\nstr(students)\n\n'data.frame':   1000 obs. of  6 variables:\n $ math_score             : int  72 69 90 47 76 71 88 40 64 38 ...\n $ reading_score          : int  72 90 95 57 78 83 95 43 64 60 ...\n $ writing_score          : int  74 88 93 44 75 78 92 39 67 50 ...\n $ gender                 : chr  \"female\" \"female\" \"female\" \"male\" ...\n $ lunch                  : chr  \"standard\" \"standard\" \"standard\" \"free/reduced\" ...\n $ test_preparation_course: chr  \"none\" \"completed\" \"none\" \"none\" ...\n\nsummary(students)\n\n   math_score     reading_score    writing_score       gender         \n Min.   :  0.00   Min.   : 17.00   Min.   : 10.00   Length:1000       \n 1st Qu.: 57.00   1st Qu.: 59.00   1st Qu.: 57.75   Class :character  \n Median : 66.00   Median : 70.00   Median : 69.00   Mode  :character  \n Mean   : 66.09   Mean   : 69.17   Mean   : 68.05                     \n 3rd Qu.: 77.00   3rd Qu.: 79.00   3rd Qu.: 79.00                     \n Max.   :100.00   Max.   :100.00   Max.   :100.00                     \n    lunch           test_preparation_course\n Length:1000        Length:1000            \n Class :character   Class :character       \n Mode  :character   Mode  :character"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html#correlation",
+    "href": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html#correlation",
+    "title": "PSYC2020L Assignment 13",
+    "section": "Correlation",
+    "text": "Correlation\n\n4) What is the correlation between reading_score and writing_score?\n\ncor(students$reading_score, students$writing_score)\n\n[1] 0.9545981\n\n\n\n\n5) Please provide a brief interpretation of the correlation between reading_score and writing_score (1–2 sentences).\nThe strength of the linear relationship between reading score and writing score is .95."
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html#regression",
+    "href": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment Example.html#regression",
+    "title": "PSYC2020L Assignment 13",
+    "section": "Regression",
+    "text": "Regression\n\n6) What is the mean of math_score?\n\nmean(students$math_score)\n\n[1] 66.089\n\n\n\n\n7) Estimate an intercept-only model with math_score as the outcome variable. Display the output with summary().\n\nm0 &lt;- lm(math_score ~ 1, data = students)\nsummary(m0)\n\n\nCall:\nlm(formula = math_score ~ 1, data = students)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-66.089  -9.089  -0.089  10.911  33.911 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  66.0890     0.4795   137.8   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 15.16 on 999 degrees of freedom\n\n\n\n\n8) Compare the results of (6) and (7). Are there similarities? If so, why?\nThe mean of math_score minimizes the squared errors between the observed values and the predicted value (the mean). This same property makes it the best estimate for a line of best fit, which is why the intercept estimate in (7) is the same as the mean.\n\n\n9) Now, use reading_score to predict math score. Display the output with summary().\n\nm1 &lt;- lm(math_score ~ reading_score, data = students)\nsummary(m1)\n\n\nCall:\nlm(formula = math_score ~ reading_score, data = students)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-24.3419  -6.3419  -0.0221   6.2713  24.6581 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    7.35759    1.33818   5.498 4.87e-08 ***\nreading_score  0.84910    0.01893  44.855  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.736 on 998 degrees of freedom\nMultiple R-squared:  0.6684,    Adjusted R-squared:  0.6681 \nF-statistic:  2012 on 1 and 998 DF,  p-value: &lt; 2.2e-16\n\n\n\n\n10) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates.\nWith every unit increase in reading score, the expected math score increases by 0.85 points. This is a significant increase (p &lt; .001). When reading score is zero, the expected math_score is 7.36.\nIt’s OK to me if they don’t mention the p-values.\n\n\n11) Now, use both reading_score and writing_score to predict math score. Display the output with summary().\n\nm2 &lt;- lm(math_score ~ reading_score + writing_score, data = students)\nsummary(m2)\n\n\nCall:\nlm(formula = math_score ~ reading_score + writing_score, data = students)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-23.8779  -6.1750   0.2693   6.0184  24.8727 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    7.52409    1.32823   5.665 1.93e-08 ***\nreading_score  0.60129    0.06304   9.538  &lt; 2e-16 ***\nwriting_score  0.24942    0.06057   4.118 4.14e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.667 on 997 degrees of freedom\nMultiple R-squared:  0.674, Adjusted R-squared:  0.6733 \nF-statistic:  1031 on 2 and 997 DF,  p-value: &lt; 2.2e-16\n\n\n\n\n10) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates. How do these results compare to the results from (9)?\nThe effects of both reading score and writing score were significant. With every unit increase in reading score, the expected increase in math score is 0.6 points, and with every unit increase in writing score, the expected increase in math score is 0.25 points. When reading score and writing score are zero, the expected math score is 7.52 points. The intercept is slightly higher than before, and the effect of reading score is less than before."
   }
 ]

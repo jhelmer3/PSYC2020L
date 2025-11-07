@@ -1,0 +1,954 @@
+---
+title: "Correlation and Regression"
+subtitle: "PSYC 2020-A01 / PSYC 6022-A01 | 2025-11-14 | Lab 13"
+author: "Jessica Helmer"
+format: 
+  revealjs:
+    slide-number: true
+    show-slide-number: all
+    css: PSYC2020L_styles.css
+engine: knitr
+webr:
+  packages:
+    - rio
+    - datasets
+    - palmerpenguins
+execute:
+  echo: true
+width: 1200
+---
+
+## Outline
+
+* Assignment 12 Review
+* Correlation
+* Regression
+
+Learning objectives:
+
+**R:** Correlation, regression
+
+```{r}
+#| echo: false
+library(tidyverse)
+```
+
+
+## Assignment 12 Review
+
+[placeholder for Assignment 12 review]
+
+
+
+# Correlation
+
+
+## Correlation
+
+Measure of association: how strongly are two variables related?
+
+Indexes the linear relationship between two variables
+
+We will cover correlation for two continuous variables
+
+
+## Correlation
+
+Only measures **linear** relationships
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 3
+#| fig-height: 4
+#| fig-align: center
+#| layout-ncol: 4
+n <- 100
+
+d1 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = x + rnorm(n, 0, 1))
+d2 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = runif(n, 2, 8) + rnorm(n, 0, 1))
+d3 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = .5* (x - 5)^2  + rnorm(n, 0, .1))
+d4 <- data.frame(x = runif(n, 1, 9) + rnorm(n, 0, .5)) |>
+  mutate(y = 2.5 * sin(2 * x) + 5 + rnorm(n, 0, .2))
+
+sctplt <- function(df) {
+  r <- cor(df$x, df$y)
+  
+  df |>
+    ggplot(aes(x = x, y = y)) +
+    geom_point() +
+    scale_x_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +
+    scale_y_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +
+    coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+    guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+    labs(title = paste("*r* =", round(r, 2))) +
+    theme_classic(base_size = 16) +
+    theme(aspect.ratio = 1,
+          plot.title = ggtext::element_markdown(hjust = .5))
+}
+
+sctplt(d1)
+sctplt(d2)
+sctplt(d3)
+sctplt(d4)
+```
+
+### Code
+```{r}
+#| eval: false
+n <- 100
+
+d1 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = x + rnorm(n, 0, 1))
+d2 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = runif(n, 2, 8) + rnorm(n, 0, 1))
+d3 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = .5* (x - 5)^2  + rnorm(n, 0, .1))
+d4 <- data.frame(x = runif(n, 1, 9) + rnorm(n, 0, .5)) |>
+  mutate(y = 2.5 * sin(2 * x) + 5 + rnorm(n, 0, .2))
+
+sctplt <- function(df) {
+  r <- cor(df$x, df$y)
+  
+  df |>
+    ggplot(aes(x = x, y = y)) +
+    geom_point() +
+    scale_x_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +
+    scale_y_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +
+    coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+    guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+    labs(title = paste("*r* =", round(r, 2))) +
+    theme_classic(base_size = 16) +
+    theme(aspect.ratio = 1,
+          plot.title = ggtext::element_markdown(hjust = .5))
+}
+
+sctplt(d1)
+sctplt(d2)
+sctplt(d3)
+sctplt(d4)
+```
+:::
+
+
+## Correlation Generally
+
+$$ r_{xy} = \frac{\sum_{i=1}^{I} (x_i - \bar{x}) (y_i - \bar{y})}{(n-1)s_x s_y} $$
+
+where 
+
+[$i$ = index of observation $i$ out of $I$ total observations]{.subpoint}
+
+[$\bar{x}$ = mean of $x$]{.subpoint}
+
+[$\bar{y}$ = mean of $y$]{.subpoint}
+
+[$s_x$ = standard deviation of $x$]{.subpoint}
+
+[$s_y$ = standard deviation of $y$]{.subpoint}
+
+
+## Correlation Generally
+
+$$ r_{xy} = \frac{\sum_{i=1}^{I} (x_i - \bar{x}) (y_i - \bar{y})}{(n-1)s_x s_y} $$
+
+By subtracting the mean and dividing by the standard deviation, this formula is converting the observations to *z*-scores.
+
+
+## Correlation Example
+
+$$ r_{xy} = \frac{\sum_{i=1}^{I} (x_i - \bar{x}) (y_i - \bar{y})}{(n-1)s_x s_y} $$
+
+Let's find the correlation between iris' sepal length and sepal width. For demonstration, let's only use the first four rows.
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+iris_small <- iris |>
+  select(Sepal.Length, Sepal.Width) |>
+  head(4)
+iris_small
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+x_bar <- mean(iris_small$Sepal.Length)
+x_sd <- sd(iris_small$Sepal.Length)
+
+y_bar <- mean(iris_small$Sepal.Width)
+y_sd <- sd(iris_small$Sepal.Width)
+
+iris_small <- iris_small |>
+  mutate(sq_diff_x = Sepal.Length - x_bar,
+         sq_diff_y = Sepal.Width - y_bar,
+         product = sq_diff_x * sq_diff_y)
+iris_small
+
+sum(iris_small$product) / ((nrow(iris_small) - 1) * x_sd * y_sd)
+```
+:::
+::::
+
+
+## Correlation in R
+
+$$ r_{xy} = \frac{\sum_{i=1}^{I} (x_i - \bar{x}) (y_i - \bar{y})}{(n-1)s_x s_y} $$
+
+Let's find the correlation between iris' sepal length and sepal width. For demonstration, let's only use the first four rows.
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+iris_small <- iris |>
+  select(Sepal.Length, Sepal.Width) |>
+  head(4)
+iris_small
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+cor(iris_small$Sepal.Length, iris_small$Sepal.Width)
+```
+:::
+::::
+
+
+## Correlation in R
+
+As a note, those four points were not actually representative of the general trend!
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+iris |>
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point(alpha = .5, shape = 16) +
+  geom_point(data = head(iris, 4), fill = "salmon3", color = "salmon", size = 3.3, shape = 23) +
+  scale_x_continuous(breaks = c(4, 6, 8), labels = c(4, 6, 8)) +
+  scale_y_continuous(breaks = c(1, 3, 5), labels = c(1, 3, 5)) +
+  coord_cartesian(xlim = c(4, 8), ylim = c(1, 5)) +
+  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+
+### Code
+```{r}
+#| eval: false
+iris |>
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point(alpha = .5, shape = 16) +
+  geom_point(data = head(iris, 4), fill = "salmon3", color = "salmon", size = 3.3, shape = 23) +
+  scale_x_continuous(breaks = c(4, 6, 8), labels = c(4, 6, 8)) +
+  scale_y_continuous(breaks = c(1, 3, 5), labels = c(1, 3, 5)) +
+  coord_cartesian(xlim = c(4, 8), ylim = c(1, 5)) +
+  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+:::
+:::
+
+::: {.column width="50%"}
+```{r}
+cor(iris$Sepal.Length, iris$Sepal.Width)
+```
+:::
+::::
+
+
+
+# Regression
+
+
+## Regression
+
+If you are working with just one variable, what is the best way you can represent the data?
+
+If you had to pick just one statistic, what might you choose?
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 3
+#| fig-height: 3
+#| fig-align: center
+#| layout-ncol: 3
+n <- 20
+
+d1 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = runif(n, 2, 8) + 2 + rnorm(n, 0, 1))
+d2 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = runif(n, 2, 8) + rnorm(n, 0, 1))
+d3 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = runif(n, 2, 8) + -2 + rnorm(n, 0, 1))
+
+sctplt_mean <- function(df) {
+  df |>
+    ggplot(aes(x = x, y = y)) +
+    geom_point() +
+    scale_x_continuous(breaks = NULL) +
+    scale_y_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +
+    coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+    guides(y = guide_axis(cap = "both"), x = "none") +
+    labs(x = NULL) +
+    theme_classic(base_size = 16) +
+    theme(aspect.ratio = 1)
+}
+
+sctplt_mean(d1)
+sctplt_mean(d2)
+sctplt_mean(d3)
+```
+
+### Code
+```{r}
+#| eval: false
+#| layout-ncol: 4
+n <- 20
+
+d1 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = runif(n, 2, 8) + 2 + rnorm(n, 0, 1))
+d2 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = runif(n, 2, 8) + rnorm(n, 0, 1))
+d3 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = runif(n, 2, 8) + -2 + rnorm(n, 0, 1))
+
+sctplt_mean <- function(df) {
+  df |>
+    ggplot(aes(x = x, y = y)) +
+    geom_point() +
+    scale_x_continuous(breaks = NULL) +
+    scale_y_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +
+    coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+    guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+    labs(x = NULL) +
+    theme_classic(base_size = 16) +
+    theme(aspect.ratio = 1)
+}
+
+sctplt_mean(d1)
+sctplt_mean(d2)
+sctplt_mean(d3)
+```
+:::
+
+
+## Regression
+
+If we consider "best" to mean *minimizing the squared distances from the data*, the **mean** is the best fit.
+
+The mean has the smallest squared errors from the observations.
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 3
+#| fig-height: 3
+#| fig-align: center
+#| layout-ncol: 3
+
+sctplt_mean(d1) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_point()
+sctplt_mean(d2) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_point()
+sctplt_mean(d3) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_point()
+```
+
+### Code
+```{r}
+#| eval: false
+sctplt_mean(d1) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon", linetype = "longdash")
+sctplt_mean(d2) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon", linetype = "longdash")
+sctplt_mean(d3) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon", linetype = "longdash")
+```
+:::
+
+
+## Regression
+
+If we consider "best" to mean *minimizing the squared distances from the data*, the **mean** is the best fit.
+
+The mean has the smallest squared errors from the observations.
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 3
+#| fig-height: 3
+#| fig-align: center
+#| layout-ncol: 3
+
+sctplt_mean(d1) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+sctplt_mean(d2) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+sctplt_mean(d3) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+```
+
+### Code
+```{r}
+#| eval: false
+#| layout-ncol: 4
+sctplt_mean(d1) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+sctplt_mean(d2) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+sctplt_mean(d3) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+```
+:::
+
+
+## Regression
+
+This is equivalent to the "mean intercept model" regression equation
+
+$$ y_i = b_0 + \epsilon_i $$
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 3
+#| fig-height: 3
+#| fig-align: center
+#| layout-ncol: 3
+
+sctplt_mean(d1) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+sctplt_mean(d2) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+sctplt_mean(d3) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+```
+
+### Code
+```{r}
+#| eval: false
+#| layout-ncol: 4
+sctplt_mean(d1) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+sctplt_mean(d2) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+sctplt_mean(d3) +
+  geom_hline(aes(yintercept = mean(y)), color = "salmon") +
+  geom_segment(aes(y = y, yend = mean(y)), color = "salmon", linetype = "dashed") +
+  geom_point()
+```
+:::
+
+
+## Intercept Model to Regression
+
+When we have *one* variable of interest, the mean is the best single estimator. 
+
+[○ $y = b_0$ would be the line of best fit]{.subpoint}
+
+If we have *two* variables and we want to predict one from the other, we now may need a *slope* to find a line of best fit.
+
+[○ This model will typically have both an intercept and a slope]{.subpoint}
+
+
+## Intercept Model to Regression
+
+We have the same question: which line can represent points most effectively?
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+n <- 30
+
+d1 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = x + rnorm(n, 0, 1))
+
+sctplt_reg <- function(df) {
+  df |>
+    ggplot(aes(x = x, y = y)) +
+    geom_point() +
+    scale_x_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +
+    scale_y_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +
+    coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+    guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+    theme_classic(base_size = 16) +
+    theme(aspect.ratio = 1,
+          plot.title = ggtext::element_markdown(hjust = .5))
+}
+
+sctplt_reg(d1)
+```
+
+### Code
+```{r}
+#| eval: false
+n <- 30
+
+d1 <- data.frame(x = runif(n, 2, 8) + rnorm(n, 0, 1)) |>
+  mutate(y = 5 + 0.2 * x + rnorm(n, 0, 1))
+
+sctplt_reg <- function(df) {
+  df |>
+    ggplot(aes(x = x, y = y)) +
+    geom_point() +
+    scale_x_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +
+    scale_y_continuous(breaks = c(0, 5, 10), labels = c(0, 5, 10)) +
+    coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+    guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+    theme_classic(base_size = 16) +
+    theme(aspect.ratio = 1,
+          plot.title = ggtext::element_markdown(hjust = .5))
+}
+
+sctplt_reg(d1)
+```
+:::
+:::
+
+::: {.column .fragment width="50%"}
+Lots of potential lines we could use
+:::
+::::
+
+
+## Intercept Model to Regression
+
+We have the same question: which line can represent points most effectively?
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+sctplt_reg(d1)  +
+  geom_segment(aes(x = 0, xend = 10, y = mean(x)), color = "salmon") +
+  geom_segment(aes(x = 0, xend = 10, y = 0, yend = 10), color = "salmon") +
+  geom_segment(aes(x = 0, xend = 10, y = 2, yend = 8), color = "salmon") +
+  geom_segment(aes(x = 0, xend = 10, y = 5, yend = 7), color = "salmon") +
+  geom_point()
+```
+
+### Code
+```{r}
+#| eval: false
+sctplt_reg(d1)  +
+  geom_segment(aes(x = 0, xend = 10, y = mean(x)), color = "salmon") +
+  geom_segment(aes(x = 0, xend = 10, y = 0, yend = 10), color = "salmon") +
+  geom_segment(aes(x = 0, xend = 10, y = 2, yend = 8), color = "salmon") +
+  geom_segment(aes(x = 0, xend = 10, y = -1, yend = 11), color = "salmon") +
+  geom_point()
+```
+:::
+:::
+
+::: {.column width="50%"}
+Lots of potential lines we could use
+:::
+::::
+
+
+## Intercept Model to Regression
+
+Considering the relationship of $y$ with another variable $x$
+
+$$ y_i = b_0 + b_1 \times x_i + \epsilon_i $$
+
+where 
+
+[$i$ = index of observation $i$ out of $I$ total observations]{.subpoint}
+
+[$y$ = outcome]{.subpoint}
+
+[$x$ = predictor]{.subpoint}
+
+[$b_0$ = intercept]{.subpoint}
+
+[$b_1$ = slope for $x$]{.subpoint}
+
+
+## Regression Example: `penguins`
+
+Let's predict penguins' body mass!
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+library(palmerpenguins)
+
+penguins |>
+  ggplot(aes(y = body_mass_g, x = 0)) +
+  geom_jitter() +
+  scale_x_continuous(breaks = NULL) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000)) +
+  guides(y = guide_axis(cap = "both"), x = "none") +
+  labs(x = NULL) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+
+### Code
+```{r}
+#| eval: false
+library(palmerpenguins)
+
+penguins |>
+  ggplot(aes(y = body_mass_g, x = 0)) +
+  geom_jitter() +
+  scale_x_continuous(breaks = NULL) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000)) +
+  guides(y = guide_axis(cap = "both"), x = "none") +
+  labs(x = NULL) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+:::
+:::
+
+::: {.column .fragment width="50%"}
+With just this one variable, what would be our best prediction for these data?
+
+[The mean!]{.fragment}
+:::
+::::
+
+
+## Regression Example: `penguins`
+
+Let's predict penguins' body mass!
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+penguins |>
+  ggplot(aes(y = body_mass_g, x = 0)) +
+  geom_jitter() +
+  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5) +
+  stat_summary(aes(x = .52, y = mean(body_mass_g, na.rm=T),
+                   label = mean(body_mass_g, na.rm=T) |> round(1)), geom = "text",
+               fun = mean, vjust = -.45, color = "seagreen3", size = 6) +
+  scale_x_continuous(breaks = NULL) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), clip = "off") +
+  guides(y = guide_axis(cap = "both"), x = "none") +
+  labs(x = NULL) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+
+### Code
+```{r}
+#| eval: false
+penguins |>
+  ggplot(aes(y = body_mass_g, x = 0)) +
+  geom_jitter() +
+  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5) +
+  stat_summary(aes(x = .52, y = mean(body_mass_g, na.rm=T),
+                   label = mean(body_mass_g, na.rm=T) |> round(1)), geom = "text",
+               fun = mean, vjust = -.45, color = "seagreen3", size = 6) +
+  scale_x_continuous(breaks = NULL) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), clip = "off") +
+  guides(y = guide_axis(cap = "both"), x = "none") +
+  labs(x = NULL) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+:::
+:::
+
+::: {.column width="50%"}
+With just this one variable, what would be our best prediction for these data?
+
+The mean!
+
+[If we needed to predict any random penguin's body mass with only these data, our *best estimate* would be the mean, `r mean(penguins$body_mass_g, na.rm=T) |> round(2)`.]{.fragment}
+
+[Now, let's take into account another variable: a penguin's flipper length]{.fragment}
+:::
+::::
+
+
+## Regression Example: `penguins`
+
+Let's predict penguins' body mass!
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+penguins |>
+  ggplot(aes(y = body_mass_g, x = flipper_length_mm)) +
+  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5) +
+  geom_point() +
+  scale_x_continuous(breaks = c(170, 210, 250)) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = "off") +
+  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+
+### Code
+```{r}
+#| eval: false
+penguins |>
+  ggplot(aes(y = body_mass_g, x = flipper_length_mm)) +
+  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5) +
+  geom_point() +
+  scale_x_continuous(breaks = c(170, 210, 250)) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = "off") +
+  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+:::
+:::
+
+::: {.column width="50%"}
+Now, let's take into account another variable: a penguin's flipper length
+
+[Just the mean no longer seems like our line of best fit]{.fragment}
+:::
+::::
+
+
+## Regression Example in R
+
+Let's predict penguins' body mass!
+
+`lm(y ~ x, data = data)`
+
+[○ `y` = outcome]{.subpoint}
+
+[○ `x` = predictor, use `1` for just intercept]{.subpoint}
+
+[○ `data` = dataframe that includes `x` and `y`]{.subpoint}
+
+`summary(model)` to see results
+
+
+## Regression Example in R
+
+Let's predict penguins' body mass!
+
+```{r}
+penguins_m0 <- lm(body_mass_g ~ 1, data = penguins)
+summary(penguins_m0)
+```
+
+
+## Regression Example in R
+
+Let's predict penguins' body mass!
+
+```{r}
+penguins_m1 <- lm(body_mass_g ~ flipper_length_mm, data = penguins)
+summary(penguins_m1)
+```
+
+
+## Regression Example in R: Output anatomy
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+summary(penguins_m1)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+summary(penguins_m1)$coefficients
+
+summary(penguins_m1)$r.squared
+
+summary(penguins_m1)$adj.r.squared
+```
+:::
+::::
+
+
+## Regression Example in R: Line of best fit
+
+Let's predict penguins' body mass!
+
+We can extract predicted values to create our line of best fit with `predict()`
+
+`predict(model, newdata)`
+
+[○ `newdata` = dataframe containing theoretical values of the predictor(s)]{.subpoint}
+
+[○ Should have the same column name(s)]{.subsubpoint}
+
+```{r}
+predict(penguins_m1, newdata = data.frame(flipper_length_mm = seq(170, 240, 1)))
+```
+
+
+## Regression Example in R: Line of best fit
+
+```{r}
+predicted_data <- data.frame(flipper_length_mm = seq(170, 240, 1)) |>
+  mutate(predicted_body_mass = predict(penguins_m1, newdata = data.frame(flipper_length_mm)))
+```
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+penguins |>
+  ggplot(aes(y = body_mass_g, x = flipper_length_mm)) +
+  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5, alpha = .33,
+             linetype = "dashed") +
+  geom_point() +
+    geom_line(data = predicted_data,
+            aes(x = flipper_length_mm, y = predicted_body_mass),
+            color = "seagreen3", linewidth = 1.5) +
+  scale_x_continuous(breaks = c(170, 210, 250)) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = "off") +
+  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+
+### Code
+```{r}
+#| eval: false
+penguins |>
+  ggplot(aes(y = body_mass_g, x = flipper_length_mm)) +
+  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5, alpha = .33,
+             linetype = "dashed") +
+  geom_point() +
+    geom_line(data = predicted_data,
+            aes(x = flipper_length_mm, y = predicted_body_mass),
+            color = "seagreen3", linewidth = 1.5) +
+  scale_x_continuous(breaks = c(170, 210, 250)) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = "off") +
+  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+:::
+
+
+## Regression Example in R: Adding a predictor
+
+We can add predictors by adding them to the right hand side of the formula
+
+```{r}
+penguins_m2 <- lm(body_mass_g ~ flipper_length_mm + bill_length_mm, data = penguins)
+summary(penguins_m2)
+```
+
+
+## Regression Example: Writeup
+
+Controlling for bill length, the effect of flipper length on penguins body mass was significant (*p* < .001). For every mm increase in flipper length, we expect to see a 46.15g increase in body mass. Controlling for flipper length, the effect of bill length on penguins' body mass was not significant (*p* = .244). The expected body mass when flipper length and bill length are both zero is -5736.897.
+
+::: callout-note
+Why is the intercept so crazy? [Because flipper length and bill length would never actually be zero!]{.fragment}
+:::
+
+
+# Assignment 13
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
