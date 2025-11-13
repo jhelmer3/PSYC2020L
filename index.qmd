@@ -100,7 +100,7 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 11/14 Lab 13
 #### Correlation and Regression
-Coming soon!
+[Slides](/labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.qmd)
 :::
 
 ::: {.column width=33%}
