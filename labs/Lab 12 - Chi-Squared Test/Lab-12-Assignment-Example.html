@@ -487,7 +487,7 @@ not they had fallen?</h3>
             n = n()) |&gt;
   pivot_wider(names_from = fallen, values_from = n) |&gt;
   select(-color) |&gt;
-  chisq.test(correct = F)</code></pre>
+  chisq.test()</code></pre>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -499,6 +499,9 @@ not they had fallen?</h3>
 <p>We reject the null in favor of the alternative that there is an
 association between leaf color and whether or not they had fallen.</p>
 </div>
+</div>
+<div id="t-tests" class="section level2">
+<h2>T-Tests</h2>
 <div id="a-perform-an-independent-sample-t-test-on-the-difference-between-petal-length-and-petal-widthh-for-the-iris-dataset." class="section level3">
 <h3>6a) Perform an independent sample <em>t</em>-test on the difference
 between Petal Length and Petal Widthh for the <code>iris</code>

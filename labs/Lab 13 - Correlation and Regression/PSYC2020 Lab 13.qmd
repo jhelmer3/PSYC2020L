@@ -196,8 +196,9 @@ $$ r_{xy} = \frac{\sum_{i=1}^{I} (x_i - \bar{x}) (y_i - \bar{y})}{(n-1)s_x s_y} 
 Let's find the correlation between iris' sepal length and sepal width. For demonstration, let's only use the first four rows.
 
 :::: {.columns}
-::: {.column width="66%"}
+::: {.column width="58%"}
 ```{r}
+#| code-line-numbers: false
 iris_small <- iris_small |>
   mutate(sq_diff_x = Sepal.Length - x_bar,
          sq_diff_y = Sepal.Width - y_bar,
@@ -206,8 +207,9 @@ iris_small
 ```
 :::
 
-::: {.column width="33%"}
+::: {.column width="42%"}
 ```{r}
+#| code-line-numbers: false
 sum(iris_small$product) /
   ((nrow(iris_small) - 1) * x_sd * y_sd)
 ```
@@ -256,7 +258,7 @@ As a note, those four points were not actually representative of the general tre
 iris |>
   ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
   geom_point(alpha = .5, shape = 16) +
-  geom_point(data = head(iris, 4), fill = "salmon3", color = "salmon", size = 3.3, shape = 23) +
+  geom_point(data = head(iris, 4), fill = "#FCACA3", color = "salmon", size = 3.3, shape = 23) +
   scale_x_continuous(breaks = c(4, 6, 8), labels = c(4, 6, 8)) +
   scale_y_continuous(breaks = c(1, 3, 5), labels = c(1, 3, 5)) +
   coord_cartesian(xlim = c(4, 8), ylim = c(1, 5)) +
@@ -271,7 +273,7 @@ iris |>
 iris |>
   ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
   geom_point(alpha = .5, shape = 16) +
-  geom_point(data = head(iris, 4), fill = "salmon3", color = "salmon", size = 3.3, shape = 23) +
+  geom_point(data = head(iris, 4), fill = "#FCACA3", color = "salmon", size = 3.3, shape = 23) +
   scale_x_continuous(breaks = c(4, 6, 8), labels = c(4, 6, 8)) +
   scale_y_continuous(breaks = c(1, 3, 5), labels = c(1, 3, 5)) +
   coord_cartesian(xlim = c(4, 8), ylim = c(1, 5)) +
@@ -460,7 +462,7 @@ sctplt_mean(d3) +
 
 This is equivalent to the "mean intercept model" regression equation
 
-$$ y_i = b_0 + \epsilon_i $$
+$$ y_i = \beta_0 + \epsilon_i $$
 
 ::: {.panel-tabset}
 ### Plot
@@ -509,7 +511,7 @@ sctplt_mean(d3) +
 
 When we have *one* variable of interest, the mean is the best single estimator. 
 
-[○ $y = b_0$ would be the line of best fit]{.subpoint}
+[○ $y = \beta_0 = \bar{y}$ would be the line of best fit]{.subpoint}
 
 If we have *two* variables and we want to predict one from the other, we now may need a *slope* to find a line of best fit.
 
@@ -599,7 +601,7 @@ sctplt_reg(d1)  +
   geom_segment(aes(x = 0, xend = 10, y = mean(x)), color = "salmon") +
   geom_segment(aes(x = 0, xend = 10, y = 0, yend = 10), color = "salmon") +
   geom_segment(aes(x = 0, xend = 10, y = 2, yend = 8), color = "salmon") +
-  geom_segment(aes(x = 0, xend = 10, y = 5, yend = 7), color = "salmon") +
+  geom_segment(aes(x = 0, xend = 10, y = -2, yend = 12), color = "salmon") +
   geom_point()
 ```
 
@@ -610,7 +612,7 @@ sctplt_reg(d1)  +
   geom_segment(aes(x = 0, xend = 10, y = mean(x)), color = "salmon") +
   geom_segment(aes(x = 0, xend = 10, y = 0, yend = 10), color = "salmon") +
   geom_segment(aes(x = 0, xend = 10, y = 2, yend = 8), color = "salmon") +
-  geom_segment(aes(x = 0, xend = 10, y = -1, yend = 11), color = "salmon") +
+  geom_segment(aes(x = 0, xend = 10, y = -2, yend = 12), color = "salmon") +
   geom_point()
 ```
 :::
@@ -626,7 +628,7 @@ Lots of potential lines we could use
 
 Considering the relationship of $y$ with another variable $x$
 
-$$ y_i = b_0 + b_1 \times x_i + \epsilon_i $$
+$$ y_i = \beta_0 + \beta_1 \times x_i + \epsilon_i $$
 
 where 
 
@@ -636,9 +638,22 @@ where
 
 [$x$ = predictor]{.subpoint}
 
-[$b_0$ = intercept]{.subpoint}
+[$\beta_0$ = intercept]{.subpoint}
 
-[$b_1$ = slope for $x$]{.subpoint}
+[$\beta_1$ = slope for $x$]{.subpoint}
+
+
+## Regression Example in R
+
+`lm(y ~ x, data = data)`
+
+[○ `y` = outcome]{.subpoint}
+
+[○ `x` = predictor, use `1` for just intercept]{.subpoint}
+
+[○ `data` = dataframe that includes `x` and `y`]{.subpoint}
+
+`summary(model)` to see results
 
 
 ## Regression Example: `penguins`
@@ -656,41 +671,94 @@ Let's predict penguins' body mass!
 #| fig-align: center
 library(palmerpenguins)
 
-penguins |>
+p <- penguins |>
   ggplot(aes(y = body_mass_g, x = 0)) +
   geom_jitter() +
   scale_x_continuous(breaks = NULL) +
   scale_y_continuous(breaks = c(2000, 4500, 7000)) +
-  coord_cartesian(ylim = c(2000, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(-0.4, 0.6)) +
   guides(y = guide_axis(cap = "both"), x = "none") +
   labs(x = NULL) +
   theme_classic(base_size = 16) +
   theme(aspect.ratio = 1)
+p
 ```
 
 ### Code
 ```{r}
 #| eval: false
 library(palmerpenguins)
-
-penguins |>
+set.seed(123)
+p <- penguins |>
   ggplot(aes(y = body_mass_g, x = 0)) +
   geom_jitter() +
   scale_x_continuous(breaks = NULL) +
   scale_y_continuous(breaks = c(2000, 4500, 7000)) +
-  coord_cartesian(ylim = c(2000, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(-0.4, 0.6)) +
   guides(y = guide_axis(cap = "both"), x = "none") +
   labs(x = NULL) +
   theme_classic(base_size = 16) +
   theme(aspect.ratio = 1)
+p
 ```
 :::
 :::
 
 ::: {.column .fragment width="50%"}
-With just this one variable, what would be our best prediction for these data?
+With just this one variable, what would be our best prediction for these data? 
+:::
+::::
 
-[The mean!]{.fragment}
+
+## Regression Example in R: Intercept only
+
+::: fragment
+```{r}
+#| column: screen
+penguins_m0 <- lm(body_mass_g ~ 1, data = penguins)
+summary(penguins_m0)
+```
+:::
+
+
+## Regression Example in R: Predictions
+
+We can extract predicted values to create our line of best fit with `predict(model, newdata)`
+
+<div class = "subpoint">○ `newdata` = dataframe containing theoretical values of the predictor(s)]</div>
+
+<div class="subsubpoint">○ Should have the same column name(s)</div>
+
+<div class="subsubpoint">○ Don't need for intercept-only</div>
+
+```{r}
+predict(penguins_m0) |>
+  head(16)
+```
+
+:::: {.columns style="font-size:90%"}
+::: {.column width="33%"}
+```{r}
+#| code-line-numbers: false
+penguins_m0 |> predict() |>
+  length()
+```
+:::
+
+::: {.column width="33%"}
+```{r}
+#| code-line-numbers: false
+penguins |> select(body_mass_g) |>
+  nrow()
+```
+:::
+
+::: {.column width="33%"}
+```{r}
+#| code-line-numbers: false
+penguins |> select(body_mass_g) |>
+  drop_na() |> nrow()
+```
 :::
 ::::
 
@@ -708,51 +776,84 @@ Let's predict penguins' body mass!
 #| fig-width: 5
 #| fig-height: 4
 #| fig-align: center
-penguins |>
+library(palmerpenguins)
+
+p <- penguins |>
   ggplot(aes(y = body_mass_g, x = 0)) +
   geom_jitter() +
-  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
-             color = "seagreen3", linewidth = 1.5) +
-  stat_summary(aes(x = .52, y = mean(body_mass_g, na.rm=T),
-                   label = mean(body_mass_g, na.rm=T) |> round(1)), geom = "text",
-               fun = mean, vjust = -.45, color = "seagreen3", size = 6) +
   scale_x_continuous(breaks = NULL) +
   scale_y_continuous(breaks = c(2000, 4500, 7000)) +
-  coord_cartesian(ylim = c(2000, 7000), clip = "off") +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(-0.4, 0.6)) +
   guides(y = guide_axis(cap = "both"), x = "none") +
   labs(x = NULL) +
   theme_classic(base_size = 16) +
   theme(aspect.ratio = 1)
+p
 ```
 
 ### Code
 ```{r}
 #| eval: false
-penguins |>
+library(palmerpenguins)
+set.seed(123)
+p <- penguins |>
   ggplot(aes(y = body_mass_g, x = 0)) +
   geom_jitter() +
-  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
-             color = "seagreen3", linewidth = 1.5) +
-  stat_summary(aes(x = .52, y = mean(body_mass_g, na.rm=T),
-                   label = mean(body_mass_g, na.rm=T) |> round(1)), geom = "text",
-               fun = mean, vjust = -.45, color = "seagreen3", size = 6) +
   scale_x_continuous(breaks = NULL) +
   scale_y_continuous(breaks = c(2000, 4500, 7000)) +
-  coord_cartesian(ylim = c(2000, 7000), clip = "off") +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(-0.4, 0.6)) +
   guides(y = guide_axis(cap = "both"), x = "none") +
   labs(x = NULL) +
   theme_classic(base_size = 16) +
   theme(aspect.ratio = 1)
+p
+```
+:::
+:::
+
+::: {.column .fragment width="50%"}
+With just this one variable, what would be our best prediction for these data? [The mean!]{.fragment}
+:::
+::::
+
+
+## Regression Example: `penguins`
+
+Let's predict penguins' body mass!
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+set.seed(123)
+p + geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5) +
+  stat_summary(aes(x = .52, y = mean(body_mass_g, na.rm=T),
+                   label = mean(body_mass_g, na.rm=T) |> round(1)), geom = "text",
+               fun = mean, vjust = -.45, color = "seagreen3", size = 6)
+```
+
+### Code
+```{r}
+#| eval: false
+p + geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5) +
+  stat_summary(aes(x = .52, y = mean(body_mass_g, na.rm=T),
+                   label = mean(body_mass_g, na.rm=T) |> round(1)), geom = "text",
+               fun = mean, vjust = -.45, color = "seagreen3", size = 6)
 ```
 :::
 :::
 
 ::: {.column width="50%"}
-With just this one variable, what would be our best prediction for these data?
+With just this one variable, what would be our best prediction for these data? The mean!
 
-The mean!
-
-[If we needed to predict any random penguin's body mass with only these data, our *best estimate* would be the mean, `r mean(penguins$body_mass_g, na.rm=T) |> round(2)`.]{.fragment}
+[If we needed to predict any random penguin's body mass with only these data, our *best estimate* would be the mean, `r mean(penguins$body_mass_g, na.rm=T) |> round(1)`.]{.fragment}
 
 [Now, let's take into account another variable: a penguin's flipper length]{.fragment}
 :::
@@ -760,8 +861,6 @@ The mean!
 
 
 ## Regression Example: `penguins`
-
-Let's predict penguins' body mass!
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -811,77 +910,101 @@ Now, let's take into account another variable: a penguin's flipper length
 ::::
 
 
-## Regression Example in R
-
-Let's predict penguins' body mass!
-
-`lm(y ~ x, data = data)`
-
-[○ `y` = outcome]{.subpoint}
-
-[○ `x` = predictor, use `1` for just intercept]{.subpoint}
-
-[○ `data` = dataframe that includes `x` and `y`]{.subpoint}
-
-`summary(model)` to see results
 
 
-## Regression Example in R
+## Regression Example in R: Adding a predictor
 
-Let's predict penguins' body mass!
-
-```{r}
-penguins_m0 <- lm(body_mass_g ~ 1, data = penguins)
-summary(penguins_m0)
-```
-
-
-## Regression Example in R
-
-Let's predict penguins' body mass!
-
+::: fragment
 ```{r}
 penguins_m1 <- lm(body_mass_g ~ flipper_length_mm, data = penguins)
 summary(penguins_m1)
 ```
+:::
 
 
 ## Regression Example in R: Output anatomy
 
-:::: {.columns}
-::: {.column width="50%"}
+::: panel-tabset
+### `summary()`
 ```{r}
 summary(penguins_m1)
 ```
-:::
 
-::: {.column width="50%"}
+### Coefficients
 ```{r}
 summary(penguins_m1)$coefficients
-
-summary(penguins_m1)$r.squared
-
-summary(penguins_m1)$adj.r.squared
 ```
+
+:::: {.columns style="font-size:70%"}
+::: {.column width="55%"}
+**`Estimtate`**:
+
+[○ `(Intercept)`: tells us the estimated outcome value when all predictors are zero.]{.subpoint}
+
+[○ Predictors: tells us the estimated change in the outcome for one unit increase in that predictor]{.subpoint}
+:::
+
+::: {.column width="15%"}
+**`Std. Error`**: estimated standard error ($SE$) for that parameter
+:::
+
+::: {.column width="15%"}
+**`t value`**: *t*-statistic for a test of the null that the parameter is equal to zero
+:::
+
+::: {.column width="15%"}
+**Pr(>|t|)**: *p*-value of that *t*-test
 :::
 ::::
+
+### $R^2$
+```{r}
+summary(penguins_m1)$r.squared
+```
+
+**`Multiple R-squared` aka `r.squared`**: Proportion of variance the model is accounting for (relative to the total variance)
+
+```{r}
+summary(penguins_m1)$adj.r.squared
+```
+
+**`Adjusted R-squared` aka `adj.r.squared`**: Like `r.squared`, but penalizes for number of predictors
+
+### F-Statistic
+```{r}
+summary(penguins_m1)$fstatistic
+```
+
+**`F-statistic` aka `fstatistic`**: Tells us whether the model accounts for a statistically significant amount of variance (more on this next week!)
+
+:::
 
 
 ## Regression Example in R: Line of best fit
 
-Let's predict penguins' body mass!
-
-We can extract predicted values to create our line of best fit with `predict()`
-
-`predict(model, newdata)`
+We can extract predicted values to create our line of best fit with `predict(model, newdata)`
 
 [○ `newdata` = dataframe containing theoretical values of the predictor(s)]{.subpoint}
 
-[○ Should have the same column name(s)]{.subsubpoint}
+<div class="subsubpoint">○ Should have the same column name(s)</div>
 
+:::: {.columns}
+::: {.column width="50%"}
 ```{r}
-predict(penguins_m1, newdata = data.frame(flipper_length_mm = seq(170, 240, 1)))
+penguins |> select(flipper_length_mm) |> range(na.rm = T)
+
+newdata <- data.frame(flipper_length_mm = 170:240)
+head(newdata, 50)
 ```
+:::
+
+::: {.column width="50%"}
+```{r}
+predict(penguins_m1, newdata = newdata) |>
+  head(32)
+```
+:::
+::::
 
 
 ## Regression Example in R: Line of best fit
@@ -937,14 +1060,116 @@ penguins |>
 :::
 
 
-## Regression Example in R: Adding a predictor
+## Regression Example in R: More predictors
 
-We can add predictors by adding them to the right hand side of the formula
+We can add predictors to the right hand side of the formula with `+`.
 
 ```{r}
 penguins_m2 <- lm(body_mass_g ~ flipper_length_mm + bill_length_mm, data = penguins)
 summary(penguins_m2)
 ```
+
+
+## Regression Example in R: More predictors
+
+Can get confidence intervals around predictions with `confint(model)`
+
+```{r}
+confint(penguins_m2)
+```
+
+
+## Regression Example in R: More predictions
+
+```{r}
+predicted_data_fl <- data.frame(flipper_length_mm = 170:240,
+                                bill_length_mm = mean(penguins$bill_length_mm, na.rm = T)) |>
+  mutate(predicted_body_mass = predict(penguins_m2, newdata = data.frame(flipper_length_mm,
+                                                                         bill_length_mm)))
+
+predicted_data_bl <- data.frame(flipper_length_mm = mean(penguins$flipper_length_mm, na.rm = T),
+                                bill_length_mm = 30:60) |>
+  mutate(predicted_body_mass = predict(penguins_m2, newdata = data.frame(flipper_length_mm,
+                                                                         bill_length_mm)))
+```
+
+::: {.panel-tabset}
+### Plot
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+
+penguins |>
+  ggplot(aes(y = body_mass_g, x = flipper_length_mm)) +
+  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5, alpha = .33,
+             linetype = "dashed") +
+  geom_point() +
+    geom_line(data = predicted_data_fl,
+            aes(x = flipper_length_mm, y = predicted_body_mass),
+            color = "seagreen3", linewidth = 1.5) +
+  scale_x_continuous(breaks = c(170, 210, 250)) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = "off") +
+  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+
+penguins |>
+  ggplot(aes(y = body_mass_g, x = bill_length_mm)) +
+  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5, alpha = .33,
+             linetype = "dashed") +
+  geom_point() +
+    geom_line(data = predicted_data_bl,
+            aes(x = bill_length_mm, y = predicted_body_mass),
+            color = "seagreen3", linewidth = 1.5) +
+  scale_x_continuous(breaks = c(30, 45, 60)) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(30, 60), clip = "off") +
+  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+
+### Code
+```{r}
+#| eval: false
+penguins |>
+  ggplot(aes(y = body_mass_g, x = flipper_length_mm)) +
+  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5, alpha = .33,
+             linetype = "dashed") +
+  geom_point() +
+    geom_line(data = predicted_data_fl,
+            aes(x = flipper_length_mm, y = predicted_body_mass),
+            color = "seagreen3", linewidth = 1.5) +
+  scale_x_continuous(breaks = c(170, 210, 250)) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = "off") +
+  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+
+penguins |>
+  ggplot(aes(y = body_mass_g, x = bill_length_mm)) +
+  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
+             color = "seagreen3", linewidth = 1.5, alpha = .33,
+             linetype = "dashed") +
+  geom_point() +
+    geom_line(data = predicted_data_bl,
+            aes(x = bill_length_mm, y = predicted_body_mass),
+            color = "seagreen3", linewidth = 1.5) +
+  scale_x_continuous(breaks = c(30, 45, 60)) +
+  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
+  coord_cartesian(ylim = c(2000, 7000), xlim = c(30, 60), clip = "off") +
+  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+  theme_classic(base_size = 16) +
+  theme(aspect.ratio = 1)
+```
+:::
 
 
 ## Regression Example: Writeup

@@ -98,10 +98,13 @@ major |>
   geom_bar(position = "dodge")
 
 
+leaves <- rio::import(here::here("labs",
+                                 "Lab 12 - Chi-Squared Test", 
+                                 "leaves.csv"))
 
 
-
-
+table(leaves$color) |>
+  chisq.test()
 
 
 

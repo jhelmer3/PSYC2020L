@@ -9,11 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Jessica Helmer" />
+<meta name="author" content="PSYC 2020 / 6022" />
 
-<meta name="date" content="2025-08-22" />
 
-<title>PSYC2020L Assignment 1</title>
+<title>Take Home Exam</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,157 +349,333 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">PSYC2020L Assignment 1</h1>
-<h4 class="author">Jessica Helmer</h4>
-<h4 class="date">2025-08-22</h4>
+<h1 class="title toc-ignore">Take Home Exam</h1>
+<h4 class="author">PSYC 2020 / 6022</h4>
+<h4 class="date">Fall 2025</h4>
 
 </div>
 
 
-<div style="color:maroon">
-Take off a small number of points if no name.
+<div id="instructions" class="section level2">
+<h2>Instructions</h2>
+<p>This exam is <strong>optional for PSYC 2020</strong> and
+<strong>required for PSYC 6022</strong>. It will primarily focus on
+using R to analyze data, but you will need to synthesize information you
+have learned in both lecture and lab to complete it properly. If you
+complete this exam in PSYC 2020, it will replace your lowest exam grade
+(unless all of your other exam scores are higher than your score on this
+one).</p>
+<p>You must complete this exam using RMarkdown. Your final submission
+should include both a .rmd file as well as a knitted word, PDF, or html
+file. You should be able to complete the entire exam using
+RMarkdown.</p>
+<p>You may use any resources at your disposal to figure out how to get
+the answers, including lecture notes, lab materials, textbooks, and
+internet searches. <strong>Be careful using ChatGPT for
+assistance</strong>. It can help with certain coding problems, but it
+often makes mistakes, and you must demonstrate that you understand the
+procedures you are using and how to properly interpret them.</p>
+<p>You <strong>must complete this on your own, and the final product
+must be your work and your work alone</strong>. You cannot seek help
+from classmates or other people besides course instructors (Dingjing
+Shi, Alina Tran, Jess Helmer). Any Ed Discussion questions about the
+content of this exam that are not strictly procedural (e.g., due date)
+should be asked privately to instructors only.</p>
+<p>There are three sections each with 9 required questions. In total,
+each section is worth 32 points. That means the total score for the
+required questions is only worth 96 points.</p>
+<p>For all questions involving statistical significance, assume <span class="math inline">\(\alpha = .05\)</span></p>
+<p>Import libraries you’d like to use in this assignment here.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.4     ✔ readr     2.1.5
+## ✔ forcats   1.0.0     ✔ stringr   1.5.1
+## ✔ ggplot2   4.0.0     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div id="goals-for-review" class="section level2">
-<h2>Goals for Review:</h2>
-<ul>
-<li>Basic R operators and data types</li>
-<li>Viewing data</li>
-<li>Basic plotting</li>
-</ul>
+<div id="part-1" class="section level1">
+<h1>Part 1</h1>
+<div id="about-the-data" class="section level2">
+<h2>About the data</h2>
+<p>This section uses one of Mark Himmelstein’s datasets, based on a
+study that was conducted in the end of 2020. In this study, participants
+were recruited to forecast several different questions about economic
+and geopolitical events. An example of the types of questions forecasted
+is shown below.</p>
+<p>One way of measuring forecasting accuracy is called the “Brier
+Score”. Brier Scores range from 0 to 2, and lower scores refer to more
+accurate forecasts. In our study, we had people make forecasts about
+several different questions on multiple occasions several weeks apart,
+and then looked at their mean Brier Scores.</p>
+<p>We also wanted to determine if we could assess how well people
+reasoned about the laws of probability, which we called “coherence”. To
+do this, we used a scale that included items such as this (see next
+page).</p>
+<p>In this example, a coherent response would correctly identify that
+the probability of an all-time low temperature in Chicago within the
+next five years would be at least as large as an all-time low
+temperature in Chicago in three years (since every time the latter is
+true, the former is also true), and the probability of an all-time low
+temperature within three years would be at least as large as within the
+next year.</p>
+<p>We also collected several other variables related to people’s
+reasoning ability, which are described below (research papers describing
+each of these scales are included with the exam, but are optional
+reading). The variables in the dataset <code>forecasting data.csv</code>
+are described below:</p>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="89%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">variable</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ID</td>
+<td align="left">Participant identifier</td>
+</tr>
+<tr class="even">
+<td align="left">brier1</td>
+<td align="left">Average Brier Score (lower = more accurate) at Time
+1</td>
+</tr>
+<tr class="odd">
+<td align="left">brier2</td>
+<td align="left">Average Brier Score (lower = more accurate) at Time
+2</td>
+</tr>
+<tr class="even">
+<td align="left">bn_score</td>
+<td align="left">Berlin Numeracy Score (Measure of Numerical Reasoning,
+higher = better)</td>
+</tr>
+<tr class="odd">
+<td align="left">crt_score</td>
+<td align="left">Cognitive Reflection Test Score (A different measure of
+reasoning, higher = better)</td>
+</tr>
+<tr class="even">
+<td align="left">ns_score</td>
+<td align="left">Number Series Score (Numerical Pattern Matching, higher
+= better)</td>
+</tr>
+<tr class="odd">
+<td align="left">cfs_score</td>
+<td align="left">Coherence Score (Ability to follow the logic of
+probability, higher = better)</td>
+</tr>
+</tbody>
+</table>
+<p>You can also view our study <strong>pre-registration</strong> on the
+<a href="https://osf.io/5gh2c">Open Science Foundation website</a> for
+more info, as well as two papers titled <em>The wisdom of many in few:
+Finding individuals who are as wise as the crowd</em> and <em>Measuring
+probabilistic coherence to identify superior forecasters</em> on to
+Canvas (also purely optional reading).</p>
+<ol style="list-style-type: decimal">
+<li>Import the data <code>forecasting data.csv</code> below. Use three
+functions get a sense of the data.</li>
+</ol>
+<pre class="r"><code>dat &lt;- rio::import(here::here(&quot;exam&quot;, &quot;forecasting data.csv&quot;))
+
+head(dat)</code></pre>
+<pre><code>##   Id    brier1    brier2 ns_score crt_score bn_score cfs_score
+## 1  1 0.7690970 0.4214515        6         1        0  1.245878
+## 2  2 0.8181818 0.7159091        3         2        1  1.204936
+## 3  3 0.4397727 0.2315909        7         7        3  1.337917
+## 4  4 0.4985273 0.5017000        1         3        1  1.534316
+## 5  5 0.4239500 0.5397106        6         4        0  1.303667
+## 6  6 0.4258727 0.4299788        6         3        3  1.730825</code></pre>
+<pre class="r"><code>str(dat)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    175 obs. of  7 variables:
+##  $ Id       : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ brier1   : num  0.769 0.818 0.44 0.499 0.424 ...
+##  $ brier2   : num  0.421 0.716 0.232 0.502 0.54 ...
+##  $ ns_score : int  6 3 7 1 6 6 2 5 3 5 ...
+##  $ crt_score: int  1 2 7 3 4 3 0 4 1 5 ...
+##  $ bn_score : int  0 1 3 1 0 3 1 1 0 1 ...
+##  $ cfs_score: num  1.25 1.2 1.34 1.53 1.3 ...</code></pre>
+<pre class="r"><code>names(dat)</code></pre>
+<pre><code>## [1] &quot;Id&quot;        &quot;brier1&quot;    &quot;brier2&quot;    &quot;ns_score&quot;  &quot;crt_score&quot; &quot;bn_score&quot; 
+## [7] &quot;cfs_score&quot;</code></pre>
+<p><strong>Research Question 1:</strong> We want to understand how
+related our new measure of coherence about probability
+(<code>cfs_score</code>) is to other variables that involve reasoning
+ability.</p>
+<div id="create-a-scatterplot-between-cfs_score-and-crt_score.-4-points" class="section level3">
+<h3>1. Create a scatterplot between <code>cfs_score</code> and
+<code>crt_score</code>. <strong>(4 points)</strong></h3>
+<pre class="r"><code>dat |&gt;
+  ggplot(aes(x = cfs_score, y = crt_score)) +
+  geom_point()</code></pre>
+<p><img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABUAAAAPACAMAAADDuCPrAAAAD1BMVEUAAAAzMzNNTU3r6+v///+EK80uAAAACXBIWXMAAB2HAAAdhwGP5fFlAAAgAElEQVR4nO3d4WLaCLJEYTbX7//MdzKxYwokIdQCV9Wc78dmbITUTUGtM8aeywcA4JDLTw8AAKkoUAA4iAIFgIMoUAA4iAIFgIMoUAA4iAIFgIMoUAA4iAIFgIMoUAA4iAIFgIMoUAA4iAIFgINOLdD/y5Y+v4hPQzVtQzS2dkRDga5Kn1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiNY3LPxY+vbTNyqHPn/zNnozm6NDb99t/1suX67td3X1hm39vvb2CfLxy+ftPX1/w8vfDhTG2F9i66BUKdCJ9fhGaxvdLVa28Sp+rlufv8RLPRXN06O377T/r5dv33a7vfr+N3GXxiiuXv/+0XvDrpEtjPFhg384U6ET6/CIzjfvX3af1V+kJJ3+zp6I5OvT2/faf9bLl3yPutrk/5PaKK5e///Tm1e+usb3qnqMp0In0+UVkGuuviY1X6fzkb/ZMNEeH3r7f/rPuqK7bbRbbTT5eufz9px9cfc8Wzx1NgU6kzy8i01h/klOgz11j+377z7qjuShQwMP3k/zMQw/fw8DRobfvt/+sD5prx10Wrrhy//tPP7j6ni2eO/p5fAX6LX1+EZnG95P89ha+An3uGtv323/WB831+xC+AqVA/0ifX2Smsfoc55tIT9q+3/6zPi4uvolEgf6RPr8ITWPtOc7bmJ61fb/9Z5Wiuv3zN97GRIH+kT6/SE1j5TnOG+mftn2//WeVMrz98/94Iz0F+iV9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2Hpbgf76jQI1Fp+GatqGaGy9qUB/faJAfcWnoZq2IRpb7ynQz+q8b9A3bPhK6fOLd6dx+ccLz7K8zcZFz5lnZmWGq2geT3lzxOXbg/ss3HHpciuf+vvpxxN+3B/2/dH63VcG+vOZpbstbX31mbtbPz9enGxtrHcVqP5JgRp6cxqPXtPTsyxus3HRc+aZWZvhO5rHU94ccbm2fZ/VOz6aUY7c8Th+3B32/dH63VcGWt9v/ejrm+9uW5xsdaz3Fuidhxf3lj6/eG8aj17T47MsbbNx+DnzzKzO8Deax1PeHHFR2/dZveP2jHLknsfx4/Y03x+t331loPX9to6+vnn5TJeNT8ou7yjQ1f5ML6D0+cVb09h6Tp5zloVtNg4/Z56Z9Rm+onk85c0Rl1vb91m949aMd9d4+Dh+3Jxmz91Xbl6/2/bR91/PLk7weKu3Fah+C+l/n54/Fyp8PyXfeJaNw8+ZZ+bxDE8fcVcA2/dZvePWBHfX2PE46mF77r5y8/rdto/+uLt1cYLnttrnWIHefBeeAv2PO+cp+eRZNg4/9SVy0OMZnj5iVwEsHbJ2t81P7a8aPWzP3VduXr/b9tFpBfr1XfjbWx5++estfX7BX+HH88ysz8Bf4f/rf4Xnu/D++CbSfJ6Zx6/Sx1PeHPHo9X9/0MbnViaQI/c8jnwT6ekCvf0HCtQPb2M6YZ6Zx6/Sx1PeHPHg9X930ObnViaQI3c8jryNiQL9I31+wRvpf7o/V2fgjfQbA/35zNLd1lr1+uaF2xYnWxuLAp1In1/Ep6GatiEaW/wk0kT6/CI+DdW0DdHYevPPwt/e8IYNXyl9fhGfhmrahmhsvfe3Md19/g0bvlL6/CI+DdW0DdHYetfvA13uz/RHMn1+EZ+GatqGaGzxG+kn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucXb0vj8o/XX+XEbdYHvvzxzF2OuIlme549B6y7PUA/Xtz3+zNXt/09cuHW+2hWD31mk0e7rYY1QYFOpM8v3pXGK57GC87bZn3gy2XlRXnyjhrNo3keH7Du9gD9eHHf789c3XZReutdNKuHPrPJo91WwxqhQCfS5xdvSuMlT+MFp22zPvDNy37PXY6RaHbNs33A6oVuD9CPF8/9/Zmr2y635NbbaFYPfWaTR7ttPjDHUaAT6fOL96TxmqfxgrO2WR/45mW/5y4HXUezc57tA1auc3uAfrx47ruLXq6Kb9FdNJtH793k0W6bpxugQCfS5xcU6KI9r+ILBSq3LX3y6p4UKHDQ97P4pyfZaX1geU3uu8v75tk+YOe59ePFc99d9PdtS59cv/bm0Xs3ebTb9gjvxFeg39LnF3wFumh9YHlN7rvLQXwF+nCTR7ttnm6Av8JPpM8v+CbSsvWBV1+SZ+/IN5Eeb/Jot80H5jgKdCJ9fsHbmFasD7z6kjx5R97GtGOTR7u9pD8p0JH0+QVvpF+zPvDqS/LcHXkj/Z5NHu32iv6kQEfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQja13FuivXxSosfg0VNM2RGPrjQX6iwK1Fp+GatqGaGy9r0B/UaDe4tNQn9tc/rF2yOdtl097zrrjuKuzTs/4ddvDaK5Osny+hc/uHXBo4TIf6zfeLPLcQ7lyvZcuSoFOpM8v4tNQf7bZqsbP2y5/PT7pjuPkrLMz/r3tUTRXJ1k+38Jn9/+fxsjSZT5Wb7xb5JmHcuV6r1301AL9PejaAf+0JwVqLT4N9e82W9V4uffonDuOO/GM37c9iObqJMvnW/js3gGHFi/zsXbjwiL7H8qV67140RML9M+c//651J8UqLn4NNTvbbZeffev0Ievsh3HnXjGq9u2o7k6cPl8C599speOWr7Mx8qNi4s8Nen9wa9e9LwC/Rzz6+vQuwKV78L/79NaGQMn+H71bN122Tps7+nWznrGgNvnuD5w+T4Ln9198pnNy9zduLjIU5PeH/ymRZ+wUaC//+dj8UvQf7uTAsV77eun3a/RHcedeMbdL/3F3nlwpjf1yuZl7m5cXOSpSe8PftOiT1gZ5PLZnd//fO22QL+85svqt0mfX8Snofgr/NZV9g44tHwZ/gq/WKDf//txW6B/qpMCtRafhuKbSJtXeW2tbF+GbyI9WaC/KNAA8Wko3sa0fZW39CdvY/q/kwr0CwVqKz4NxRvpH1zlLf3JG+kp0A3p84v4NFTTNkRj68QC3fom0meP3n3qDRu+Uvr8Ij4N1bQN0dg69X2gfwr0stKfFKi3+DRU0zZEY+v0n0T6gwLNE5+GatqGaGyd+bPwD/qTAvUWn4Zq2oZobJ3+y0RW63PRGzZ8pfT5RXwaqmkborHFf9JjIn1+EZ+GatqGaGyd/DYmCjRXfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGPr5DfSU6C54tNQTdsQja0zf5Tz4TvpKVBn8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuiscUb6SfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxxS8TmUifX8SnoZq2IRpb7/x1dhSotfg0VNM2RGPr1DfSP9+gb9jwldLnF/FpqKZtiMbWK34SiQKNFJ+GatqGaGyd/B+Ve7ZB37DhK6XPL+LTUE3bEI2t1/wyEQo0UHwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRji28iTaTPL+LTUE3bEI0t3sY0kT6/iE9DNW1DNLZ4I/1E+vwiPg3VtA3R2DrxRzkP9Gf6I5k+v4hPQzVtQzS2+GUiE+nzi/g0VNM2RGOLX2c3kT6/iE9DNW1DNLYo0In0+UV8GqppG6Kxde6vs/v+Xwo0TnwaqmkborF17jeRPv/gm0iJ4tNQTdsQja1z38b09SdvYwoUn4Zq2oZobJ36nzX+/kcKNE98GqppG6Kx9ZKfhedHORPFp6GatiEaW/wykYn0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhs8evsJtLnF/FpqKZtiMYWv85uIn1+EZ+GatqGaGzx6+wm0ucX8Wmopm2Ixha/zm4ifX4Rn4Zq2oZobPHr7CbS5xfxaaimbYjGFr+NaSJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY+v8AuXfgYaKT0M1bUM0tk79JtJXf/Jd+ETxaaimbYjG1tnvA+VtTLHi01BN2xCNrRcUKD+JlCk+DdW0DdHYOvtHOZ/8z3q8YcNXSp9fxKehmrYhGlsn/zKRCwUaKz4N1bQN0diiQCfS5xfxaaimbYjG1ukFevUBBRolPg3VtA3R2Dq3QC/ydSgFGiU+DdW0DdHYOvebSN9vZaJA48SnoZq2IRpbZ/86u+f6M/2RTJ9fxKehmrYhGluvKdC9/Zn+SKbPL+LTUE3bEI2tk38f6J8/d/dn+iOZPr+IT0M1bUM0tvhtTBPp84v4NFTTNkRj65UFuuNL0Tds+Erp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY+vk/y78/uqkQN3Ep6GatiEaWxToRPr8Ij4N1bQN0dg6o0AvCyjQOPFpqKZtiMYWBTqRPr+IT0M1bUM0tk75K/zh/kx/JNPnF/FpqKZtiMbWa/4d6G5v2PCV0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGPrvJ+Ff+LNSxSoo/g0VNM2RGPrxK9AeSN9tvg0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0dh65e8DpUCjxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxtaZBfrn33w+9W6mN2z4Sunzi/g0VNM2RGPrxAK9fBXoExX6hg1fKX1+EZ+GatqGaGyd+kb6vwXK7wMNFJ+GatqGaGyd+jam73+kQPPEp6GatiEaWy/5WXjeB7rf7//jmZ/lDM+l4TP3itc/t64fgq9/3v+wPPMA3kXzfefLgSBu7yIfn3A+/eTVrZ//uBXN6uX/vWF7uM9bt8c5Gf9Vzon5/JcjL4DXeCoNow+ESeUAABt5SURBVLlXvPy5df0QfP3z/oflqQfwNprvO18OBHF7F/n4hPPpJ69u/frHjWhWL//9Mzqrw33euj3O2SjQifH8j54T7/RMGk5zr3j1c+v6IbjceO7ej91E833nJ664emn5+ITz6Sevbv37j+vRrF5+x8O7lcHrnq8U6MR0/mdeci/3RBpWc6948XPr+iG43Hnm3jtoNPeXeyaI27vIxyecb23Eq8+tRrN6+R3Lbj0iB9ba68xvIi3+MwW64YXBPo8Cfcb1Q7DQFk/cewcK9PGyW4/IgbX2esXvA70c++XK/0FXz6koqXOf6PohuG+LZ+49uPQTV1y9tHx8wvnWRtxz7tVDdiy79YiMHu6zbb0P9Ok5T/8/hPfiK9AXzjPEV6D7Li0fn3C+tRH5CvRBgV436N7+/K8XqNU3Y/gm0lOuH4KN1+6Oez/GN5F2PLxbGbzu+XrqLxP5nHJ3fVKgTm8H4m1Mz7l+CLTQnr33Q7yNqf9tTMe8YKN34o30vngj/e5Ly8cnnE8/edPO/8cb6SnQL+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0dh6V4H++o0CdRafhmrahmhsvadAf32hQH3Fp6GatiEaW+8q0Os/KFBLW2lc/vGSiz5/4q97PLrnWdkcXf3Mh2zwQtExFob691OXkwPePt3H+iBx3lKgf4vzrkHfsOErpc8vNtK4nP0CO37ir3s8vOdJ2Rxd/dSH7PgLRcdYGOpyZTDh1lXvfKwPctoI70KBTqTPL9bTOP0FdvzElxvrR56TzdHVz33IDr9QdIyFofY+moOr3vvYGOSkEd7mvd+Fp0CNrabxgi9Rjp74tj83v8z5kQln91tx9IWiYywMtfvRPH7VfQe87Dn2aj9UoP/7NDgX3uX7yf3jJ74v0JNHWr3ee+53Mh1jYaiXPJoPT7c5yCkjOBts+P0FKAUahAKlQI9fdd8BJg/YOxzfcOGNoG/4GvuV0ucX/BX+jAln91vBX+FtvfGv8LyR3hvfRNq43rvut4xvItl6X4Eu9Wd6AaXPL3gb09b13nW/RbyNydbbCnSxP9MLKH1+wRvpN6/3rvst4Y30tt73s/CLn37Dhq+UPr+IT0M1bUM0tt5UoCv9mf5Ips8v4tNQTdsQja23/iw8BeosPg3VtA3R2HrTj3Ku/TqmN2z4Sunzi/g0VNM2RGOLAp1In1/Ep6GatiEaW/xG+on0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8vDqdx+ceR2547/f4z/TnSJps9D8/VMUuHf0dzee4BffLhXxhn57meupBNNCegQCfS5xdH07hsvKi3bnvu9PvP9HmkSzZ7Hp6rYxYP/xvN5bkH9MmHf2Gcned67kIu0ZyBAp1In18cTOOy8aLeuu3J0+8+09eRJtnseXiujlk+/CuaJx6GR9feN87Ocz15IZNoTkGBTqTPL46lsdVtz/Tew9PvPNMJ1zzTvofn7zErh39G88TD8Ojam4cv3G3zXM8+5k0vGwp0In1+QYG+AAW6oOll88MFinTfL57nbnv69DvPdMI1z7Tv4fl7zPb0TzwMj669ffb7u22ey+wxN8dXoN/S5xd8BfoC+x6ev8esHM5XoLb4K/xE+vyCbyK9wp6H5+qY5cP5JpItCnQifX7B25heYs/Dc3XM4uG8jckWBTqRPr/gjfSvsefhuTpm6XDeSG+LAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjG1rsK9NdvFKiz+DRU0zZEY+tNBfrr13KDvmHDV0qfX8SnoZq2IRpb7ynQP9250KAHp7784+BdT2XxTDjrwXjtq3Qw5d1dd53rzG1uLrhx/XEYnyfQ87wumr3znvqK+zj9jD/nXQV6/ce4QC8Xk0ffoUBPezBeWqCDKe/uuu9cJ25zc8GN64/D+DzBzXleFs3eec99xX2cfsaf85YC/Vucdw16aObLxeXRNyjQ8x6MVxboYMq7u+4813nb3Fxw4/rjMC7q69OvimbvvCe/4j6cXsNDgQV6//z6MT9foCc+GC8s0MGUd3fde67Ttrm54Mb1x2Fcbn1+/kXR7J337Ffch9NreOiHCvR/n54/1z8D/HXk3mUyHozBlHd3ffvGNxfcuP54tLsCHYz91OXOOe78KzeiQJ1kPBgU6LOXokBr8Vf4b/wVfp/BlHd33Xsu/gr/xOXOOW4v/gr/owVq9C+gf75A+SbSGr6JtP9yZx23E99E+tkC9XkLhEGB8jamFbyNaf/lTjtuH97G9MMFavMmXIcC5Y30y3gj/ROXO+24XXgj/U8XqIv0+UV8GqppG6KxFfmTSDbS5xfxaaimbYjGVubPwrtIn1/Ep6GatiEaW28rUH4bk7v4NFTTNkRji98HOpE+v4hPQzVtQzS2+I30E+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLYo0In0+UV8GqppG6KxRYFOpM8v4tNQTdsQjS0KdCJ9fhGfhmrahmhsUaAT6fOL+DRU0zZEY4sCnUifX8SnoZq2IRpbFOhE+vwiPg3VtA3R2KJAJ9LnF/FpqKZtiMYWBTqRPr+IT0M1bUM0tijQifT5RXwaqmkborFFgU6kzy/i01BN2xCNLQp0In1+EZ+GatqGaGxRoBPp84v4NFTTNkRjiwKdSJ9fxKehmrYhGlsU6ET6/CI+DdW0DdHYokAn0ucX8Wmopm2IxhYFOpE+v4hPQzVtQzS2KNCJ9PlFfBqqaRuisUWBTqTPL+LTUE3bEI0tCnQifX4Rn4Zq2oZobFGgE+nzi/g0VNM2RGOLAp1In1/Ep6GatiEaWxToRPr8Ij4N1bQN0diiQCfS5xfxaaimbYjGFgU6kT6/iE9DNW1DNLZ+uEDh43//++kJsIJobD0fDQVailepLaKxRYHiE69SW0RjiwLFJ16ltojGFgWKT7xKbRGNLQoUn3iV2iIaWxQoPvEqtUU0tihQfOJVaotobFGgAPA2FCgAHESBAsBBFCgAHESBAsBBFCgAHESBAsBBFCgAHESBlvn16/bjX7efws+4yeHXpx+aBl8WUtgfDAVaZvlV+kPD4BoF6ujXQg5PJEOBdrmJ/c+HvEod3EXzU4Pg2mcO13E886qhQJvc/f/mwrMDP2ItGvysvzFc5fHMq4YCLfL7JXrzV5Hbf8DPuIuGSDwsvESeetVQoEV+B06BWrqL5uPfRiUXGxQofqNAbd3962m+h2SEAsVvFKit22/03n8SP+b+X4FSoP9JFKgtovGl34Rf+OQaCrQMr1JbyyEQjYHjrxoKtAwFaosCdbXy/ggK9D+IArVFgZq6+xGx5c8vokDLUKC2iMbT/Q/Cr9ywhAItw08i2Vop0J8YBd/uXxz8JNJ/GD8Lb4v/b3O0EAA/C/8f9pX6nz95t7YRjYZflGXh17ePI68aCrTMzav0/pdY4KcQjaGlAn0mGgoUAA6iQAHgIAoUAA6iQAHgIAoUAA6iQAHgIAoUAA6iQAHgIAoUAA6iQAHgIAoUAA6iQAHgIAoUAA6iQGHm8ttPDwHswjMVXi4UKHLwTIUV2hNJeLLCCv2JJDxbYYUCRRKerbBCgSIJz1b8uO/vG12uvoX04LtJtzfffCwf/v6nvecFnsATCT/scvmuzbt/Wqu625vXPrzIhwtHAhM8jfCzropN/5A/1+90++fCh9dn2T4v8ByeRfhZNyV3U30r/0709ublkyzU5YPzAs/hWYQfdfu14W2BPrrX0kmubl0u1B1XAPbgSYQfddtj1/+mcvNeN99AWjknBYqX4kmEH7VSoPL9+OW73f+LzYVz3hfolTPmx38bTyL8qLUC1W+dL9/x+jvrK+ekQPFSPInwo9YL9GP/W0GP/BUeOAHPJ/yolW8iXd++9Ry93HzXaP83kYAT8HzCj3r4XfjFzlttzMcFunle4Dk8ifCzrr5rpH9sfdF4e/PySbbqmP7EGXgW4Wd9/2vMxR8eWvkr/M3N9ydZ/Imkh6cFnsOzCD9Mvym+8A3z7XtdFk6ycOvK/YARnkb4cdd9pl8sbvTc7c03B1+WT3p7CzDCEwkADqJAAeAgChQADqJAAeAgChT2Lrd+eiDgE89F2KNA4YrnIgAcRIECwEEUKAAcRIECwEEUKAAcRIECwEEUKAAcRIECwEEUKAAcRIECwEEUKAAcRIECwEEUKAAcRIECwEH/D55EAOMyKJUVAAAAAElFTkSuQmCC" width="672" /></p>
 </div>
-<div id="setting-up" class="section level2">
-<h2>Setting Up</h2>
-<div id="rename-this-assignment-as-lab-1-assignment-last-first.rmd" class="section level3">
-<h3>1) Rename this assignment as “Lab 1 Assignment [Last,
-First].Rmd”</h3>
+<div id="use-the-cor-function-to-find-the-correlation-coefficient-between-cfs_score-and-crt_score.-3-points" class="section level3">
+<h3>2. Use the <code>cor()</code> function to find the correlation
+coefficient between <code>cfs_score</code> and <code>crt_score</code>.
+<strong>(3 points)</strong></h3>
+<pre class="r"><code>cor(dat$cfs_score, dat$crt_score)</code></pre>
+<pre><code>## [1] 0.4591212</code></pre>
 </div>
-<div id="check-and-set-your-working-directory" class="section level3">
-<h3>2) Check and set your working directory</h3>
-<pre class="r"><code>getwd()</code></pre>
-<pre><code>## [1] &quot;C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC 2020/PSYC 2020L Site/assignments&quot;</code></pre>
-<div style="color:maroon">
-We ran out of time to cover setting working directory; this is all they
-have to do for this question.
+<div id="generate-a-correlation-matrix-between-cfs_score-bn_score-crt_score-and-ns_score.-which-relationships-are-the-strongest-which-are-the-weakest-4-points" class="section level3">
+<h3>4. Generate a <strong>correlation matrix</strong> between
+<code>cfs_score</code>, <code>bn_score</code>, <code>crt_score</code>,
+and <code>ns_score</code>. Which relationships are the strongest? Which
+are the weakest? <strong>(4 points)</strong></h3>
+<pre class="r"><code>dat |&gt;
+  select(cfs_score, bn_score, crt_score, ns_score) |&gt;
+  cor()</code></pre>
+<pre><code>##           cfs_score  bn_score crt_score  ns_score
+## cfs_score 1.0000000 0.3444065 0.4591212 0.5914454
+## bn_score  0.3444065 1.0000000 0.3238666 0.3644432
+## crt_score 0.4591212 0.3238666 1.0000000 0.6115644
+## ns_score  0.5914454 0.3644432 0.6115644 1.0000000</code></pre>
 </div>
+<div id="conduct-a-simple-linear-regression-using-crt_score-to-predict-cfs_score-and-show-the-summary-table.-3-points" class="section level3">
+<h3>5. Conduct a simple linear regression using <code>crt_score</code>
+to predict <code>cfs_score</code> and show the summary table. <strong>(3
+points)</strong></h3>
+<pre class="r"><code>lm(cfs_score ~ crt_score, data = dat) |&gt;
+  summary()</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = cfs_score ~ crt_score, data = dat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.78679 -0.13219  0.03273  0.16295  0.38608 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 1.372788   0.036229  37.892  &lt; 2e-16 ***
+## crt_score   0.053186   0.007824   6.798 1.65e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.2244 on 173 degrees of freedom
+## Multiple R-squared:  0.2108, Adjusted R-squared:  0.2062 
+## F-statistic: 46.21 on 1 and 173 DF,  p-value: 1.654e-10</code></pre>
 </div>
+<div id="interpret-the-intercept-and-slope-coefficient-for-crt_score-from-this-model.-include-whether-the-effect-was-significant-or-not." class="section level3">
+<h3>6. Interpret the intercept and slope coefficient for
+<code>crt_score</code> from this model. Include whether the effect was
+significant or not.</h3>
+<p>For every unit increase in <code>crt_score</code>, the expected
+increase in <code>cfs_score</code> is 0.05. This was a significant
+difference (p &lt; .001). When <code>crt_score</code> is at zero, the
+expected value of <code>cfs_score</code> is 1.37. This was significantly
+different from zero (p &lt; .001).</p>
 </div>
-<div id="r-basics" class="section level2">
-<h2>R Basics</h2>
-<div id="compute" class="section level3">
-<h3>3) Compute:</h3>
-<div id="a-the-product-of-4-4" class="section level4">
-<h4>a) The product of 4 * 4</h4>
-<pre class="r"><code>4 * 4</code></pre>
-<pre><code>## [1] 16</code></pre>
-</div>
-<div id="b-4-squared" class="section level4">
-<h4>b) 4 squared</h4>
-<pre class="r"><code>4 ^ 2</code></pre>
-<pre><code>## [1] 16</code></pre>
-<pre class="r"><code># or
-4 ** 2</code></pre>
-<pre><code>## [1] 16</code></pre>
-<div style="color:maroon">
-The first one is more likely; it’s what I showed in class.
-</div>
-</div>
-<div id="c-the-remainder-from-dividing-16-by-3" class="section level4">
-<h4>c) The remainder from dividing 16 by 3</h4>
-<pre class="r"><code>16 %% 3</code></pre>
-<pre><code>## [1] 1</code></pre>
-</div>
-<div id="d-false-divided-by-true.-why-did-you-get-this-answer" class="section level4">
-<h4>d) <code>FALSE</code> divided by <code>TRUE</code>. Why did you get
-this answer?</h4>
-<pre class="r"><code>FALSE / TRUE</code></pre>
-<pre><code>## [1] 0</code></pre>
-<p><code>FALSE</code> and <code>TRUE</code> are represented as 0 and 1
-by R. When you divide 0 by 1, you get 0.</p>
-</div>
-</div>
-<div id="the-output-of-the-following-two-lines-of-code-is-different.-why-is-that" class="section level3">
-<h3>4) The output of the following two lines of code is different. Why
-is that?</h3>
-<pre class="r"><code>3 + 2 / 2</code></pre>
-<pre><code>## [1] 4</code></pre>
-<pre class="r"><code>(3 + 2) / 2</code></pre>
-<pre><code>## [1] 2.5</code></pre>
-<p>R follows standard the order of operations for math (PEMDAS). Because
-parentheses are evaluated first, the (3 + 2) becomes 5 in the second
-version, which is then divided by 2 to get 2.5. In the first version,
-the 2 / 2 is evaluated first, which becomes 1 and is then added to 3 to
-get 4.</p>
-</div>
-<div id="section" class="section level3">
-<h3>4)</h3>
-<div id="a-create-a-vector-of-your-four-favorite-movies" class="section level4">
-<h4>a) Create a vector of your four favorite movies</h4>
-<div style="color:maroon">
-These don’t have to have output as long as the syntax is correct.
-</div>
-<pre class="r"><code>my_movies &lt;- c(&quot;Dune: Part 1&quot;, &quot;Dune: Part 2&quot;, &quot;Third Movie&quot;, &quot;Fourth Movie&quot;)</code></pre>
-<div style="color:maroon">
-They don’t have to assign it to a variable here; creating a vector is
-enough.
-</div>
-</div>
-<div id="b-create-a-vector-of-the-years-they-came-out" class="section level4">
-<h4>b) Create a vector of the years they came out</h4>
-<pre class="r"><code>movie_years &lt;- c(2022, 2024, 2000, 2000)</code></pre>
-<div style="color:maroon">
-They don’t have to assign it to a variable here; creating a vector is
-enough.
-</div>
-</div>
-<div id="c-create-a-vector-of-the-ratings-number-of-stars-out-of-five-that-you-think-they-deserve" class="section level4">
-<h4>c) Create a vector of the ratings (number of stars out of five) that
-YOU think they deserve</h4>
-<pre class="r"><code>ratings &lt;- c(5, 5, 5, 5)</code></pre>
-<div style="color:maroon">
-They don’t have to assign it to a variable here; creating a vector is
-enough.
-</div>
-</div>
-<div id="d-put-all-those-vectors-in-a-dataframe-with-the-column-labels-fav_movie-year-and-my_rating" class="section level4">
-<h4>d) Put all those vectors in a dataframe with the column labels
-“fav_movie”, “year”, and “my_rating”</h4>
-<div style="color:maroon">
-Same here, doesn’t have to have output as long as the syntax is correct.
-</div>
-<pre class="r"><code>data.frame(fav_movie = my_movies,
-           year = movie_years,
-           my_rating = ratings)</code></pre>
-<pre><code>##      fav_movie year my_rating
-## 1 Dune: Part 1 2022         5
-## 2 Dune: Part 2 2024         5
-## 3  Third Movie 2000         5
-## 4 Fourth Movie 2000         5</code></pre>
-<div style="color:maroon">
-Whether they retype it by hand or use variable assignment is fine as
-long as the responses from a, b, and c match d. The variable names
-should be <code>fav_movie</code>, <code>year</code>, and
-<code>my_rating</code>.
+<div id="create-two-new-variables-one-representing-cfs_score-converted-to-z-scores-and-another-representing-crt_score-converted-to-z-scores.-4-points" class="section level3">
+<h3>6. Create two new variables: one representing <code>cfs_score</code>
+converted to <span class="math inline">\(z\)</span>-scores, and another
+representing <code>crt_score</code> converted to <span class="math inline">\(z\)</span>-scores. <strong>(4
+points)</strong></h3>
+<pre class="r"><code>dat &lt;- dat |&gt;
+  mutate(cfs_score_z = (cfs_score - mean(cfs_score)) / sd(cfs_score),
+         crt_score_z = (crt_score - mean(crt_score)) / sd(crt_score))</code></pre>
 </div>
 </div>
 </div>
-<div id="show-me" class="section level3">
-<h3>5) Show me…</h3>
+<div id="part-2" class="section level1">
+<h1>Part 2</h1>
+<div id="about-the-data-1" class="section level2">
+<h2>About the data</h2>
+<p>This section uses the same dataset as Part 1.</p>
+<p><strong>Research Question 2:</strong> Forecasts often tend to become
+easier as time passes. For example, forecasting the weather a week from
+today is relatively difficult. But if we wait six days, that same
+forecast will become about the weather tomorrow, and will be much
+easier. So we want to determine if people’s forecasting accuracy at Time
+2 is <strong>different</strong> than at Time 1.</p>
+<div id="if-we-want-to-determine-whether-the-difference-between-peoples-brier-scores-at-time-1-and-time-2-are-significantly-different-from-zero.-state-the-null-and-alternative-hypothesis." class="section level3">
+<h3>1. If we want to determine whether the difference between people’s
+Brier scores at Time 1 and Time 2 are significantly
+<strong>different</strong> from zero. State the null and alternative
+hypothesis.</h3>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_{t_1} = \mu_{t_2}\)</span></p>
+<p><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_{t_1} \neq \mu_{t_2}\)</span></p>
 </div>
-<div id="the-first-three-rows-of-the-iris-dataset" class="section level3">
-<h3>The first three rows of the <code>iris</code> dataset</h3>
-<pre class="r"><code>head(iris, n = 3)</code></pre>
-<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-## 1          5.1         3.5          1.4         0.2  setosa
-## 2          4.9         3.0          1.4         0.2  setosa
-## 3          4.7         3.2          1.3         0.2  setosa</code></pre>
+<div id="what-statistical-procedure-would-we-use-include-the-type-of-test-you-would-conduct-and-whether-the-test-would-be-one-or-two-tailed.-briefly-justify-your-choice-of-test-12-sentences-3-points." class="section level3">
+<h3>2. What statistical procedure would we use? Include the type of test
+you would conduct, and whether the test would be one or two-tailed.
+Briefly justify your choice of test (1–2 sentences) <strong>(3
+points)</strong>.</h3>
+<p>I would use a two-tailed paired sample <em>t</em>-test. The two
+timepoints are linked because they are forecasts made by the same
+people, and we have no specific directional hypothesis.</p>
 </div>
-<div id="plot" class="section level3">
-<h3>6) Plot…</h3>
-<div id="a-scatterplot-with-petal.length-on-the-x-and-petal.width-on-the-y" class="section level4">
-<h4>A scatterplot with Petal.Length on the x and Petal.Width on the
-y</h4>
-<pre class="r"><code>plot(iris$Petal.Length, iris$Petal.Width)</code></pre>
-<p><img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABUAAAAPACAMAAADDuCPrAAAABlBMVEUAAAD///+l2Z/dAAAACXBIWXMAAB2HAAAdhwGP5fFlAAAgAElEQVR4nO3djZaiSLqGUb3/m541nVmmCgq8BkF8uPda50w2JUGUkE/7A/TlCkDkcvQEAKoSUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKExg7oBaCZ9olqPmJDRz/bwLk0b1TrAee3ks19h39hAF+rUkD/ihnnX0CBdkoGNH8BLaBAOxUDenko6cYhWk8K+F5FA/q8aP0QbacEfLOCAX2I5saCCijQjoAChAQUICSgACEBBQgVDOhVQIEh1Azo/WlMAgocpFhAfy4+erikc+MQ7acFfKuKAb3cvRR1KSdwmEoBvd419PZPW9ffYVLw1ZL7UkzW2evucDsrFtDfTcx8m7R2zeaTge+W3Nlnss5+99fcV8mA5qrtHhjd/a194nWSQYYgoEDu4ZyYdJ1kkDEIKJB7PCs7XCcZZAwCCuQEtPWIrQd8v7V3f4HL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" width="672" /></p>
+<div id="calculate-the-mean-of-brier1-the-mean-of-brier2-and-the-difference-between-the-means-4-points.-display-the-results-of-each-of-these-calculations." class="section level3">
+<h3>3. Calculate the mean of <code>brier1</code>, the mean of
+<code>brier2</code>, and the difference between the means <strong>(4
+points)</strong>. Display the results of each of these
+calculations.</h3>
+<pre class="r"><code>brier1_mean &lt;- mean(dat$brier1)
+brier2_mean &lt;- mean(dat$brier2)
+
+brier1_mean</code></pre>
+<pre><code>## [1] 0.5387056</code></pre>
+<pre class="r"><code>brier2_mean</code></pre>
+<pre><code>## [1] 0.4199746</code></pre>
+<pre class="r"><code>brier2_mean - brier1_mean</code></pre>
+<pre><code>## [1] -0.1187311</code></pre>
+</div>
+<div id="create-a-new-variable-in-the-dataset-that-is-the-difference-of-each-persons-scores-for-brier1-and-brier2.-call-it-brier_diff-3-points." class="section level3">
+<h3>4. Create a new variable in the dataset that is the difference of
+each person’s scores for <code>brier1</code> and <code>brier2</code>.
+Call it <code>brier_diff</code> <strong>(3 points)</strong>.</h3>
+<pre class="r"><code>dat &lt;- dat |&gt;
+  mutate(brier_diff = brier2 - brier1)</code></pre>
+</div>
+<div id="calculate-the-mean-of-brier_diff-3-points." class="section level3">
+<h3>5. Calculate the mean of <code>brier_diff</code> <strong>(3
+points)</strong>.</h3>
+<pre class="r"><code>mean(dat$brier_diff)</code></pre>
+<pre><code>## [1] -0.1187311</code></pre>
+</div>
+<div id="calculate-the-standard-deviation-of-brier_diff-using-the-sd-function-3-points." class="section level3">
+<h3>6. Calculate the standard deviation of <code>brier_diff</code> using
+the <code>sd()</code> function <strong>(3 points)</strong>.</h3>
+<pre class="r"><code>sd(dat$brier_diff)</code></pre>
+<pre><code>## [1] 0.1511031</code></pre>
+</div>
+<div id="calculate-the-standard-error-of-brier_diff-4-points" class="section level3">
+<h3>7. Calculate the standard error of <code>brier_diff</code>
+<strong>(4 points)</strong></h3>
+<pre class="r"><code>sd(dat$brier_diff) / sqrt(nrow(dat))</code></pre>
+<pre><code>## [1] 0.01142232</code></pre>
+</div>
+<div id="determine-whether-peoples-brier-scores-at-time-1-and-time-2-are-significantly-different-from-one-another.-4-points" class="section level3">
+<h3>8. Determine whether people’s Brier scores at Time 1 and Time 2 are
+significantly different from one another. <strong>(4
+points)</strong></h3>
+<pre class="r"><code>t.test(dat$brier1, dat$brier2, var.equal = T, paired = T)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  dat$brier1 and dat$brier2
+## t = 10.395, df = 174, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean difference is not equal to 0
+## 95 percent confidence interval:
+##  0.09618695 0.14127523
+## sample estimates:
+## mean difference 
+##       0.1187311</code></pre>
+<pre class="r"><code>mean(dat$brier_diff) / (sd(dat$brier_diff) / sqrt(nrow(dat)))</code></pre>
+<pre><code>## [1] -10.39465</code></pre>
+<pre class="r"><code>qt(.95, 174)</code></pre>
+<pre><code>## [1] 1.653658</code></pre>
+<p>Significantly different.</p>
 </div>
 </div>
 </div>

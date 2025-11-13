@@ -18,6 +18,8 @@ output: html_document
 
 ```{r}
 here::here()
+
+library(tidyverse)
 ```
 
 ### 3) Download the `students_data.csv` dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data.
@@ -62,30 +64,48 @@ summary(m0)
 
 The mean of `math_score` minimizes the squared errors between the observed values and the predicted value (the mean). This same property makes it the best estimate for a line of best fit, which is why the intercept estimate in (7) is the same as the mean.
 
-### 9) Now, use `reading_score` to predict `math score`. Display the output with `summary()`.
+### 9) Now, use `lm()` to estimate a model with `reading_score` as a predictor and `math score` as the outcome. Display the output with `summary()`. 
 
 ```{r}
 m1 <- lm(math_score ~ reading_score, data = students)
 summary(m1)
 ```
 
-### 10) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates.
+### 10) Use the model from (9) and the `predict()` functions to generate predicted values for `math_score` across values of `reading_score`. Choose the sequenced values of `reading_score` by first looking at the `range()` of `reading_score` values in the data.
+
+```{r}
+students |> select(reading_score) |> range()
+predict(m1, data.frame(reading_score = 17:100)) # other values (like maybe 10--100) are okay, as long as they are not crazy unrealistic given the actual range of 17--100.
+```
+
+### 11) Create a scatterplot with `reading_score` on the x-axis and `math_score` on the y-axis. Overlay a `geom_line()` of the prediction line (line of best fit) as per the results of `predict()`.
+
+```{r}
+predicted_data <- data.frame(reading_score = 17:100) |>
+  mutate(predicted_math_score = predict(m1, data.frame(reading_score)))
+
+students |>
+  ggplot(aes(x = reading_score, y = math_score)) +
+  geom_point() +
+  geom_line(data = predicted_data, aes(y = predicted_math_score))
+```
+
+### 12) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates.
 
 With every unit increase in reading score, the expected math score increases by 0.85 points. This is a significant increase (*p* < .001). When reading score is zero, the expected math_score is 7.36.
 
 [It's OK to me if they don't mention the *p*-values.]{style="color:maroon"}
 
-### 11) Now, use both `reading_score` and `writing_score` to predict `math score`. Display the output with `summary()`.
+### 13) Now, use `lm()` to estimate a model with `reading_score` and `writing_score` as predictors and `math score` as the outcome. Display the output with `summary()`.
 
 ```{r}
 m2 <- lm(math_score ~ reading_score + writing_score, data = students)
 summary(m2)
 ```
 
-### 10) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates. How do these results compare to the results from (9)?
+### 14) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates. How do these results compare to the results from (9)?
 
 The effects of both reading score and writing score were significant. With every unit increase in reading score, the expected increase in math score is 0.6 points, and with every unit increase in writing score, the expected increase in math score is 0.25 points. When reading score and writing score are zero, the expected math score is 7.52 points. The intercept is slightly higher than before, and the effect of reading score is less than before.
-
 
 
 
