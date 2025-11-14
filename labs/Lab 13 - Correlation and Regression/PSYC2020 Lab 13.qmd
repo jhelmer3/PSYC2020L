@@ -34,9 +34,20 @@ library(tidyverse)
 ```
 
 
+## Housekeeping
+
+Extra Credit
+
+CIOS: 1% increase to total lab grade if we get to 85% completion for the lab section!
+
+Lab 14: I will include a few bonus questions on the lab 14 assignment
+
+
 ## Assignment 12 Review
 
-[placeholder for Assignment 12 review]
+Great work!
+
+When you modify a variable, don't forget to assign the new dataset to an object so the modification is preserved.
 
 
 
@@ -200,9 +211,9 @@ Let's find the correlation between iris' sepal length and sepal width. For demon
 ```{r}
 #| code-line-numbers: false
 iris_small <- iris_small |>
-  mutate(sq_diff_x = Sepal.Length - x_bar,
-         sq_diff_y = Sepal.Width - y_bar,
-         product = sq_diff_x * sq_diff_y)
+  mutate(diff_x = Sepal.Length - x_bar,
+         diff_y = Sepal.Width - y_bar,
+         product = diff_x * diff_y)
 iris_small
 ```
 :::
@@ -290,6 +301,21 @@ cor(iris$Sepal.Length, iris$Sepal.Width)
 ```
 :::
 ::::
+
+
+## Correlation Matrices
+
+If we want to see the correlations between many variables at once, we can get a correlation matrix
+
+Use `select()` to get just the numeric columns you want, then pass it into `cor()`
+
+```{r}
+iris |>
+  select(Sepal.Length, Sepal.Width, Petal.Length, Petal.Width) |>
+  cor()
+```
+
+[What are the strongest relationships here?]{.fragment}
 
 
 
@@ -936,7 +962,7 @@ summary(penguins_m1)$coefficients
 ```
 
 :::: {.columns style="font-size:70%"}
-::: {.column width="55%"}
+::: {.column width="40%"}
 **`Estimtate`**:
 
 [○ `(Intercept)`: tells us the estimated outcome value when all predictors are zero.]{.subpoint}
@@ -944,16 +970,16 @@ summary(penguins_m1)$coefficients
 [○ Predictors: tells us the estimated change in the outcome for one unit increase in that predictor]{.subpoint}
 :::
 
-::: {.column width="15%"}
+::: {.column width="20%"}
 **`Std. Error`**: estimated standard error ($SE$) for that parameter
 :::
 
-::: {.column width="15%"}
+::: {.column width="20%"}
 **`t value`**: *t*-statistic for a test of the null that the parameter is equal to zero
 :::
 
-::: {.column width="15%"}
-**Pr(>|t|)**: *p*-value of that *t*-test
+::: {.column width="20%"}
+**`Pr(>|t|)`**: *p*-value of that *t*-test
 :::
 ::::
 
@@ -991,17 +1017,20 @@ We can extract predicted values to create our line of best fit with `predict(mod
 :::: {.columns}
 ::: {.column width="50%"}
 ```{r}
+#| code-line-numbers: false
 penguins |> select(flipper_length_mm) |> range(na.rm = T)
 
 newdata <- data.frame(flipper_length_mm = 170:240)
-head(newdata, 50)
+head(newdata, 8)
 ```
 :::
 
 ::: {.column width="50%"}
 ```{r}
+#| code-line-numbers: false
 predict(penguins_m1, newdata = newdata) |>
-  head(32)
+  head(15) |>
+  unname() # for nicer printing
 ```
 :::
 ::::
@@ -1079,97 +1108,97 @@ confint(penguins_m2)
 ```
 
 
-## Regression Example in R: More predictions
+<!-- ## Regression Example in R: More predictions -->
 
-```{r}
-predicted_data_fl <- data.frame(flipper_length_mm = 170:240,
-                                bill_length_mm = mean(penguins$bill_length_mm, na.rm = T)) |>
-  mutate(predicted_body_mass = predict(penguins_m2, newdata = data.frame(flipper_length_mm,
-                                                                         bill_length_mm)))
+<!-- ```{r} -->
+<!-- predicted_data_fl <- data.frame(flipper_length_mm = 170:240, -->
+<!--                                 bill_length_mm = mean(penguins$bill_length_mm, na.rm = T)) |> -->
+<!--   mutate(predicted_body_mass = predict(penguins_m2, newdata = data.frame(flipper_length_mm, -->
+<!--                                                                          bill_length_mm))) -->
 
-predicted_data_bl <- data.frame(flipper_length_mm = mean(penguins$flipper_length_mm, na.rm = T),
-                                bill_length_mm = 30:60) |>
-  mutate(predicted_body_mass = predict(penguins_m2, newdata = data.frame(flipper_length_mm,
-                                                                         bill_length_mm)))
-```
+<!-- predicted_data_bl <- data.frame(flipper_length_mm = mean(penguins$flipper_length_mm, na.rm = T), -->
+<!--                                 bill_length_mm = 30:60) |> -->
+<!--   mutate(predicted_body_mass = predict(penguins_m2, newdata = data.frame(flipper_length_mm, -->
+<!--                                                                          bill_length_mm))) -->
+<!-- ``` -->
 
-::: {.panel-tabset}
-### Plot
-```{r}
-#| echo: false
-#| fig-width: 5
-#| fig-height: 4
-#| fig-align: center
+<!-- ::: {.panel-tabset} -->
+<!-- ### Plot -->
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- #| fig-width: 5 -->
+<!-- #| fig-height: 4 -->
+<!-- #| fig-align: center -->
 
-penguins |>
-  ggplot(aes(y = body_mass_g, x = flipper_length_mm)) +
-  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
-             color = "seagreen3", linewidth = 1.5, alpha = .33,
-             linetype = "dashed") +
-  geom_point() +
-    geom_line(data = predicted_data_fl,
-            aes(x = flipper_length_mm, y = predicted_body_mass),
-            color = "seagreen3", linewidth = 1.5) +
-  scale_x_continuous(breaks = c(170, 210, 250)) +
-  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
-  coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = "off") +
-  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
-  theme_classic(base_size = 16) +
-  theme(aspect.ratio = 1)
+<!-- penguins |> -->
+<!--   ggplot(aes(y = body_mass_g, x = flipper_length_mm)) + -->
+<!--   geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)), -->
+<!--              color = "seagreen3", linewidth = 1.5, alpha = .33, -->
+<!--              linetype = "dashed") + -->
+<!--   geom_point() + -->
+<!--     geom_line(data = predicted_data_fl, -->
+<!--             aes(x = flipper_length_mm, y = predicted_body_mass), -->
+<!--             color = "seagreen3", linewidth = 1.5) + -->
+<!--   scale_x_continuous(breaks = c(170, 210, 250)) + -->
+<!--   scale_y_continuous(breaks = c(2000, 4500, 7000)) + -->
+<!--   coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = "off") + -->
+<!--   guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) + -->
+<!--   theme_classic(base_size = 16) + -->
+<!--   theme(aspect.ratio = 1) -->
 
-penguins |>
-  ggplot(aes(y = body_mass_g, x = bill_length_mm)) +
-  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
-             color = "seagreen3", linewidth = 1.5, alpha = .33,
-             linetype = "dashed") +
-  geom_point() +
-    geom_line(data = predicted_data_bl,
-            aes(x = bill_length_mm, y = predicted_body_mass),
-            color = "seagreen3", linewidth = 1.5) +
-  scale_x_continuous(breaks = c(30, 45, 60)) +
-  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
-  coord_cartesian(ylim = c(2000, 7000), xlim = c(30, 60), clip = "off") +
-  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
-  theme_classic(base_size = 16) +
-  theme(aspect.ratio = 1)
-```
+<!-- penguins |> -->
+<!--   ggplot(aes(y = body_mass_g, x = bill_length_mm)) + -->
+<!--   geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)), -->
+<!--              color = "seagreen3", linewidth = 1.5, alpha = .33, -->
+<!--              linetype = "dashed") + -->
+<!--   geom_point() + -->
+<!--     geom_line(data = predicted_data_bl, -->
+<!--             aes(x = bill_length_mm, y = predicted_body_mass), -->
+<!--             color = "seagreen3", linewidth = 1.5) + -->
+<!--   scale_x_continuous(breaks = c(30, 45, 60)) + -->
+<!--   scale_y_continuous(breaks = c(2000, 4500, 7000)) + -->
+<!--   coord_cartesian(ylim = c(2000, 7000), xlim = c(30, 60), clip = "off") + -->
+<!--   guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) + -->
+<!--   theme_classic(base_size = 16) + -->
+<!--   theme(aspect.ratio = 1) -->
+<!-- ``` -->
 
-### Code
-```{r}
-#| eval: false
-penguins |>
-  ggplot(aes(y = body_mass_g, x = flipper_length_mm)) +
-  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
-             color = "seagreen3", linewidth = 1.5, alpha = .33,
-             linetype = "dashed") +
-  geom_point() +
-    geom_line(data = predicted_data_fl,
-            aes(x = flipper_length_mm, y = predicted_body_mass),
-            color = "seagreen3", linewidth = 1.5) +
-  scale_x_continuous(breaks = c(170, 210, 250)) +
-  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
-  coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = "off") +
-  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
-  theme_classic(base_size = 16) +
-  theme(aspect.ratio = 1)
+<!-- ### Code -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- penguins |> -->
+<!--   ggplot(aes(y = body_mass_g, x = flipper_length_mm)) + -->
+<!--   geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)), -->
+<!--              color = "seagreen3", linewidth = 1.5, alpha = .33, -->
+<!--              linetype = "dashed") + -->
+<!--   geom_point() + -->
+<!--     geom_line(data = predicted_data_fl, -->
+<!--             aes(x = flipper_length_mm, y = predicted_body_mass), -->
+<!--             color = "seagreen3", linewidth = 1.5) + -->
+<!--   scale_x_continuous(breaks = c(170, 210, 250)) + -->
+<!--   scale_y_continuous(breaks = c(2000, 4500, 7000)) + -->
+<!--   coord_cartesian(ylim = c(2000, 7000), xlim = c(170, 250), clip = "off") + -->
+<!--   guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) + -->
+<!--   theme_classic(base_size = 16) + -->
+<!--   theme(aspect.ratio = 1) -->
 
-penguins |>
-  ggplot(aes(y = body_mass_g, x = bill_length_mm)) +
-  geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)),
-             color = "seagreen3", linewidth = 1.5, alpha = .33,
-             linetype = "dashed") +
-  geom_point() +
-    geom_line(data = predicted_data_bl,
-            aes(x = bill_length_mm, y = predicted_body_mass),
-            color = "seagreen3", linewidth = 1.5) +
-  scale_x_continuous(breaks = c(30, 45, 60)) +
-  scale_y_continuous(breaks = c(2000, 4500, 7000)) +
-  coord_cartesian(ylim = c(2000, 7000), xlim = c(30, 60), clip = "off") +
-  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
-  theme_classic(base_size = 16) +
-  theme(aspect.ratio = 1)
-```
-:::
+<!-- penguins |> -->
+<!--   ggplot(aes(y = body_mass_g, x = bill_length_mm)) + -->
+<!--   geom_hline(aes(yintercept = mean(body_mass_g, na.rm=T)), -->
+<!--              color = "seagreen3", linewidth = 1.5, alpha = .33, -->
+<!--              linetype = "dashed") + -->
+<!--   geom_point() + -->
+<!--     geom_line(data = predicted_data_bl, -->
+<!--             aes(x = bill_length_mm, y = predicted_body_mass), -->
+<!--             color = "seagreen3", linewidth = 1.5) + -->
+<!--   scale_x_continuous(breaks = c(30, 45, 60)) + -->
+<!--   scale_y_continuous(breaks = c(2000, 4500, 7000)) + -->
+<!--   coord_cartesian(ylim = c(2000, 7000), xlim = c(30, 60), clip = "off") + -->
+<!--   guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) + -->
+<!--   theme_classic(base_size = 16) + -->
+<!--   theme(aspect.ratio = 1) -->
+<!-- ``` -->
+<!-- ::: -->
 
 
 ## Regression Example: Writeup
