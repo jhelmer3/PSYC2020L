@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="[name]">
-<meta name="dcterms.date" content="2025-11-21">
+<meta name="dcterms.date" content="2025-11-14">
 
-<title>PSYC2020L Assignment 14 – PSYC 2020L</title>
+<title>PSYC2020L Assignment 13 – PSYC 2020L</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -105,35 +70,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -178,21 +114,26 @@ window.Quarto = {
   <li><a href="#goals-for-review" id="toc-goals-for-review" class="nav-link active" data-scroll-target="#goals-for-review">Goals for Review:</a></li>
   <li><a href="#setting-up" id="toc-setting-up" class="nav-link" data-scroll-target="#setting-up">Setting Up</a>
   <ul class="collapse">
-  <li><a href="#rename-this-assignment-as-lab-14-assignment-last-first.rmd" id="toc-rename-this-assignment-as-lab-14-assignment-last-first.rmd" class="nav-link" data-scroll-target="#rename-this-assignment-as-lab-14-assignment-last-first.rmd">1) Rename this assignment as “Lab 14 Assignment [Last, First].Rmd”</a></li>
+  <li><a href="#rename-this-assignment-as-lab-13-assignment-last-first.rmd" id="toc-rename-this-assignment-as-lab-13-assignment-last-first.rmd" class="nav-link" data-scroll-target="#rename-this-assignment-as-lab-13-assignment-last-first.rmd">1) Rename this assignment as “Lab 13 Assignment [Last, First].Rmd”</a></li>
   <li><a href="#check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block." id="toc-check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block." class="nav-link" data-scroll-target="#check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block.">2) Check and set (if needed) your working directory. If you’d like to load packages with <code>library()</code>, please do so in this block.</a></li>
-  <li><a href="#download-the-cake_data.csv-dataset-from-canvas.-relocate-it-to-your-folder-for-this-class-and-import-it-into-r.-please-display-the-first-few-rows.-additionally-please-use-two-other-functions-to-get-a-sense-of-the-data.-this-data-contains-the-breakage-angle-angle-for-cakes-made-with-different-recipes." id="toc-download-the-cake_data.csv-dataset-from-canvas.-relocate-it-to-your-folder-for-this-class-and-import-it-into-r.-please-display-the-first-few-rows.-additionally-please-use-two-other-functions-to-get-a-sense-of-the-data.-this-data-contains-the-breakage-angle-angle-for-cakes-made-with-different-recipes." class="nav-link" data-scroll-target="#download-the-cake_data.csv-dataset-from-canvas.-relocate-it-to-your-folder-for-this-class-and-import-it-into-r.-please-display-the-first-few-rows.-additionally-please-use-two-other-functions-to-get-a-sense-of-the-data.-this-data-contains-the-breakage-angle-angle-for-cakes-made-with-different-recipes.">3) Download the <code>cake_data.csv</code> dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data. This data contains the breakage angle <code>angle</code> for cakes made with different <code>recipes</code>.</a></li>
+  <li><a href="#download-the-students_data.csv-dataset-from-canvas.-relocate-it-to-your-folder-for-this-class-and-import-it-into-r.-please-display-the-first-few-rows.-additionally-please-use-two-other-functions-to-get-a-sense-of-the-data." id="toc-download-the-students_data.csv-dataset-from-canvas.-relocate-it-to-your-folder-for-this-class-and-import-it-into-r.-please-display-the-first-few-rows.-additionally-please-use-two-other-functions-to-get-a-sense-of-the-data." class="nav-link" data-scroll-target="#download-the-students_data.csv-dataset-from-canvas.-relocate-it-to-your-folder-for-this-class-and-import-it-into-r.-please-display-the-first-few-rows.-additionally-please-use-two-other-functions-to-get-a-sense-of-the-data.">3) Download the <code>students_data.csv</code> dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data.</a></li>
   </ul></li>
-  <li><a href="#analysis-of-variance-anova" id="toc-analysis-of-variance-anova" class="nav-link" data-scroll-target="#analysis-of-variance-anova">Analysis of Variance (ANOVA)</a>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation">Correlation</a>
   <ul class="collapse">
-  <li><a href="#youd-like-to-test-to-see-if-there-are-differences-in-the-breakage-angle-for-cakes-made-with-these-different-recipes-with-a-one-way-anova.-what-are-your-null-and-alternative-hypotheses-for-this-test" id="toc-youd-like-to-test-to-see-if-there-are-differences-in-the-breakage-angle-for-cakes-made-with-these-different-recipes-with-a-one-way-anova.-what-are-your-null-and-alternative-hypotheses-for-this-test" class="nav-link" data-scroll-target="#youd-like-to-test-to-see-if-there-are-differences-in-the-breakage-angle-for-cakes-made-with-these-different-recipes-with-a-one-way-anova.-what-are-your-null-and-alternative-hypotheses-for-this-test">4) You’d like to test to see if there are differences in the breakage angle for cakes made with these different recipes with a One-Way ANOVA. What are your null and alternative hypotheses for this test?</a></li>
-  <li><a href="#perform-this-anova-and-display-the-results-with-summary." id="toc-perform-this-anova-and-display-the-results-with-summary." class="nav-link" data-scroll-target="#perform-this-anova-and-display-the-results-with-summary.">5) Perform this ANOVA and display the results with <code>summary()</code>.</a></li>
-  <li><a href="#briefly-describe-your-results." id="toc-briefly-describe-your-results." class="nav-link" data-scroll-target="#briefly-describe-your-results.">6) Briefly describe your results.</a></li>
+  <li><a href="#what-is-the-correlation-between-reading_score-and-writing_score" id="toc-what-is-the-correlation-between-reading_score-and-writing_score" class="nav-link" data-scroll-target="#what-is-the-correlation-between-reading_score-and-writing_score">4) What is the correlation between <code>reading_score</code> and <code>writing_score</code>?</a></li>
+  <li><a href="#please-provide-a-brief-interpretation-of-the-correlation-between-reading_score-and-writing_score-12-sentences." id="toc-please-provide-a-brief-interpretation-of-the-correlation-between-reading_score-and-writing_score-12-sentences." class="nav-link" data-scroll-target="#please-provide-a-brief-interpretation-of-the-correlation-between-reading_score-and-writing_score-12-sentences.">5) Please provide a brief interpretation of the correlation between <code>reading_score</code> and <code>writing_score</code> (1–2 sentences).</a></li>
   </ul></li>
-  <li><a href="#bonus-questions" id="toc-bonus-questions" class="nav-link" data-scroll-target="#bonus-questions">Bonus Questions</a>
+  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression">Regression</a>
   <ul class="collapse">
-  <li><a href="#produce-means-and-standard-deviations-of-angle-for-each-group-recipe." id="toc-produce-means-and-standard-deviations-of-angle-for-each-group-recipe." class="nav-link" data-scroll-target="#produce-means-and-standard-deviations-of-angle-for-each-group-recipe.">7) Produce means and standard deviations of <code>angle</code> for each group (<code>recipe</code>).</a></li>
-  <li><a href="#a-make-a-basic-plot-of-the-distributions-of-the-values-of-angle-by-recipe." id="toc-a-make-a-basic-plot-of-the-distributions-of-the-values-of-angle-by-recipe." class="nav-link" data-scroll-target="#a-make-a-basic-plot-of-the-distributions-of-the-values-of-angle-by-recipe.">8a) Make a basic plot of the distributions of the values of <code>angle</code> by <code>recipe</code>.</a></li>
-  <li><a href="#b-make-at-least-three-changes-to-this-plot-to-make-it-look-nice-make-sure-to-describe-justify-each-change-you-made-12-sentences-or-bullet-points-each." id="toc-b-make-at-least-three-changes-to-this-plot-to-make-it-look-nice-make-sure-to-describe-justify-each-change-you-made-12-sentences-or-bullet-points-each." class="nav-link" data-scroll-target="#b-make-at-least-three-changes-to-this-plot-to-make-it-look-nice-make-sure-to-describe-justify-each-change-you-made-12-sentences-or-bullet-points-each.">8b) Make at least three changes to this plot to make it look nice! Make sure to describe / justify each change you made (1–2 sentences or bullet points each).</a></li>
+  <li><a href="#what-is-the-mean-of-math_score" id="toc-what-is-the-mean-of-math_score" class="nav-link" data-scroll-target="#what-is-the-mean-of-math_score">6) What is the mean of <code>math_score</code>?</a></li>
+  <li><a href="#estimate-an-intercept-only-model-with-math_score-as-the-outcome-variable.-display-the-output-with-summary." id="toc-estimate-an-intercept-only-model-with-math_score-as-the-outcome-variable.-display-the-output-with-summary." class="nav-link" data-scroll-target="#estimate-an-intercept-only-model-with-math_score-as-the-outcome-variable.-display-the-output-with-summary.">7) Estimate an intercept-only model with <code>math_score</code> as the outcome variable. Display the output with <code>summary()</code>.</a></li>
+  <li><a href="#compare-the-results-of-6-and-7.-are-there-similarities-if-so-why" id="toc-compare-the-results-of-6-and-7.-are-there-similarities-if-so-why" class="nav-link" data-scroll-target="#compare-the-results-of-6-and-7.-are-there-similarities-if-so-why">8) Compare the results of (6) and (7). Are there similarities? If so, why?</a></li>
+  <li><a href="#now-use-lm-to-estimate-a-model-with-reading_score-as-a-predictor-and-math-score-as-the-outcome.-display-the-output-with-summary." id="toc-now-use-lm-to-estimate-a-model-with-reading_score-as-a-predictor-and-math-score-as-the-outcome.-display-the-output-with-summary." class="nav-link" data-scroll-target="#now-use-lm-to-estimate-a-model-with-reading_score-as-a-predictor-and-math-score-as-the-outcome.-display-the-output-with-summary.">9) Now, use <code>lm()</code> to estimate a model with <code>reading_score</code> as a predictor and <code>math score</code> as the outcome. Display the output with <code>summary()</code>.</a></li>
+  <li><a href="#use-the-model-from-9-and-the-predict-functions-to-generate-predicted-values-for-math_score-across-values-of-reading_score.-choose-the-sequenced-values-of-reading_score-by-first-looking-at-the-range-of-reading_score-values-in-the-data." id="toc-use-the-model-from-9-and-the-predict-functions-to-generate-predicted-values-for-math_score-across-values-of-reading_score.-choose-the-sequenced-values-of-reading_score-by-first-looking-at-the-range-of-reading_score-values-in-the-data." class="nav-link" data-scroll-target="#use-the-model-from-9-and-the-predict-functions-to-generate-predicted-values-for-math_score-across-values-of-reading_score.-choose-the-sequenced-values-of-reading_score-by-first-looking-at-the-range-of-reading_score-values-in-the-data.">10) Use the model from (9) and the <code>predict()</code> functions to generate predicted values for <code>math_score</code> across values of <code>reading_score</code>. Choose the sequenced values of <code>reading_score</code> by first looking at the <code>range()</code> of <code>reading_score</code> values in the data.</a></li>
+  <li><a href="#create-a-scatterplot-with-reading_score-on-the-x-axis-and-math_score-on-the-y-axis.-overlay-a-geom_line-of-the-prediction-line-line-of-best-fit-as-per-the-results-of-predict." id="toc-create-a-scatterplot-with-reading_score-on-the-x-axis-and-math_score-on-the-y-axis.-overlay-a-geom_line-of-the-prediction-line-line-of-best-fit-as-per-the-results-of-predict." class="nav-link" data-scroll-target="#create-a-scatterplot-with-reading_score-on-the-x-axis-and-math_score-on-the-y-axis.-overlay-a-geom_line-of-the-prediction-line-line-of-best-fit-as-per-the-results-of-predict.">11) Create a scatterplot with <code>reading_score</code> on the x-axis and <code>math_score</code> on the y-axis. Overlay a <code>geom_line()</code> of the prediction line (line of best fit) as per the results of <code>predict()</code>.</a></li>
+  <li><a href="#provide-a-brief-writeup-of-these-results.-make-sure-to-discuss-both-the-intercept-and-slope-estimates." id="toc-provide-a-brief-writeup-of-these-results.-make-sure-to-discuss-both-the-intercept-and-slope-estimates." class="nav-link" data-scroll-target="#provide-a-brief-writeup-of-these-results.-make-sure-to-discuss-both-the-intercept-and-slope-estimates.">12) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates.</a></li>
+  <li><a href="#now-use-lm-to-estimate-a-model-with-reading_score-and-writing_score-as-predictors-and-math-score-as-the-outcome.-display-the-output-with-summary." id="toc-now-use-lm-to-estimate-a-model-with-reading_score-and-writing_score-as-predictors-and-math-score-as-the-outcome.-display-the-output-with-summary." class="nav-link" data-scroll-target="#now-use-lm-to-estimate-a-model-with-reading_score-and-writing_score-as-predictors-and-math-score-as-the-outcome.-display-the-output-with-summary.">13) Now, use <code>lm()</code> to estimate a model with <code>reading_score</code> and <code>writing_score</code> as predictors and <code>math score</code> as the outcome. Display the output with <code>summary()</code>.</a></li>
+  <li><a href="#provide-a-brief-writeup-of-these-results.-make-sure-to-discuss-both-the-intercept-and-slope-estimates.-how-do-these-results-compare-to-the-results-from-9" id="toc-provide-a-brief-writeup-of-these-results.-make-sure-to-discuss-both-the-intercept-and-slope-estimates.-how-do-these-results-compare-to-the-results-from-9" class="nav-link" data-scroll-target="#provide-a-brief-writeup-of-these-results.-make-sure-to-discuss-both-the-intercept-and-slope-estimates.-how-do-these-results-compare-to-the-results-from-9">14) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates. How do these results compare to the results from (9)?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -202,7 +143,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">PSYC2020L Assignment 14</h1>
+<h1 class="title">PSYC2020L Assignment 13</h1>
 </div>
 
 
@@ -219,7 +160,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 21, 2025</p>
+      <p class="date">November 14, 2025</p>
     </div>
   </div>
   
@@ -234,122 +175,58 @@ window.Quarto = {
 <section id="goals-for-review" class="level2">
 <h2 class="anchored" data-anchor-id="goals-for-review">Goals for Review:</h2>
 <ul>
-<li>ANOVA</li>
+<li>Correlation and Regression</li>
 </ul>
 </section>
 <section id="setting-up" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up">Setting Up</h2>
-<section id="rename-this-assignment-as-lab-14-assignment-last-first.rmd" class="level3">
-<h3 class="anchored" data-anchor-id="rename-this-assignment-as-lab-14-assignment-last-first.rmd">1) Rename this assignment as “Lab 14 Assignment [Last, First].Rmd”</h3>
+<section id="rename-this-assignment-as-lab-13-assignment-last-first.rmd" class="level3">
+<h3 class="anchored" data-anchor-id="rename-this-assignment-as-lab-13-assignment-last-first.rmd">1) Rename this assignment as “Lab 13 Assignment [Last, First].Rmd”</h3>
 </section>
 <section id="check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block." class="level3">
 <h3 class="anchored" data-anchor-id="check-and-set-if-needed-your-working-directory.-if-youd-like-to-load-packages-with-library-please-do-so-in-this-block.">2) Check and set (if needed) your working directory. If you’d like to load packages with <code>library()</code>, please do so in this block.</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   4.0.0     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-</div>
 </section>
-<section id="download-the-cake_data.csv-dataset-from-canvas.-relocate-it-to-your-folder-for-this-class-and-import-it-into-r.-please-display-the-first-few-rows.-additionally-please-use-two-other-functions-to-get-a-sense-of-the-data.-this-data-contains-the-breakage-angle-angle-for-cakes-made-with-different-recipes." class="level3">
-<h3 class="anchored" data-anchor-id="download-the-cake_data.csv-dataset-from-canvas.-relocate-it-to-your-folder-for-this-class-and-import-it-into-r.-please-display-the-first-few-rows.-additionally-please-use-two-other-functions-to-get-a-sense-of-the-data.-this-data-contains-the-breakage-angle-angle-for-cakes-made-with-different-recipes.">3) Download the <code>cake_data.csv</code> dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data. This data contains the breakage angle <code>angle</code> for cakes made with different <code>recipes</code>.</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cake <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"labs"</span>, <span class="st">"Lab 14 - One-Way ANOVA"</span>, <span class="st">"cake_data.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="download-the-students_data.csv-dataset-from-canvas.-relocate-it-to-your-folder-for-this-class-and-import-it-into-r.-please-display-the-first-few-rows.-additionally-please-use-two-other-functions-to-get-a-sense-of-the-data." class="level3">
+<h3 class="anchored" data-anchor-id="download-the-students_data.csv-dataset-from-canvas.-relocate-it-to-your-folder-for-this-class-and-import-it-into-r.-please-display-the-first-few-rows.-additionally-please-use-two-other-functions-to-get-a-sense-of-the-data.">3) Download the <code>students_data.csv</code> dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data.</h3>
 </section>
 </section>
-<section id="analysis-of-variance-anova" class="level2">
-<h2 class="anchored" data-anchor-id="analysis-of-variance-anova">Analysis of Variance (ANOVA)</h2>
-<section id="youd-like-to-test-to-see-if-there-are-differences-in-the-breakage-angle-for-cakes-made-with-these-different-recipes-with-a-one-way-anova.-what-are-your-null-and-alternative-hypotheses-for-this-test" class="level3">
-<h3 class="anchored" data-anchor-id="youd-like-to-test-to-see-if-there-are-differences-in-the-breakage-angle-for-cakes-made-with-these-different-recipes-with-a-one-way-anova.-what-are-your-null-and-alternative-hypotheses-for-this-test">4) You’d like to test to see if there are differences in the breakage angle for cakes made with these different recipes with a One-Way ANOVA. What are your null and alternative hypotheses for this test?</h3>
-<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\sigma^2_B = 0\)</span></p>
-<p><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\sigma^2_B \neq 0\)</span></p>
-<div style="color:maroon">
-Mean-based hypotheses totally fine too
-</div>
+<section id="correlation" class="level2">
+<h2 class="anchored" data-anchor-id="correlation">Correlation</h2>
+<section id="what-is-the-correlation-between-reading_score-and-writing_score" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-correlation-between-reading_score-and-writing_score">4) What is the correlation between <code>reading_score</code> and <code>writing_score</code>?</h3>
 </section>
-<section id="perform-this-anova-and-display-the-results-with-summary." class="level3">
-<h3 class="anchored" data-anchor-id="perform-this-anova-and-display-the-results-with-summary.">5) Perform this ANOVA and display the results with <code>summary()</code>.</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(angle <span class="sc">~</span> recipe, <span class="at">data =</span> cake) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)    
-recipe       3   3310  1103.4    39.1 &lt;2e-16 ***
-Residuals   96   2709    28.2                   
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-</section>
-<section id="briefly-describe-your-results." class="level3">
-<h3 class="anchored" data-anchor-id="briefly-describe-your-results.">6) Briefly describe your results.</h3>
-<p>There is a significant effect of recipe <em>F</em>(3, 96) = 39.1, <em>p</em> &lt; .001 on cake breakage angle.</p>
+<section id="please-provide-a-brief-interpretation-of-the-correlation-between-reading_score-and-writing_score-12-sentences." class="level3">
+<h3 class="anchored" data-anchor-id="please-provide-a-brief-interpretation-of-the-correlation-between-reading_score-and-writing_score-12-sentences.">5) Please provide a brief interpretation of the correlation between <code>reading_score</code> and <code>writing_score</code> (1–2 sentences).</h3>
 </section>
 </section>
-<section id="bonus-questions" class="level2">
-<h2 class="anchored" data-anchor-id="bonus-questions">Bonus Questions</h2>
-<p>These questions collectively are worth 1 extra point (10% extra) on this assignment. There is no penalty to not completing these bonus questions.</p>
-<section id="produce-means-and-standard-deviations-of-angle-for-each-group-recipe." class="level3">
-<h3 class="anchored" data-anchor-id="produce-means-and-standard-deviations-of-angle-for-each-group-recipe.">7) Produce means and standard deviations of <code>angle</code> for each group (<code>recipe</code>).</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cake <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">.by =</span> recipe,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">angle_mean =</span> <span class="fu">mean</span>(angle),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">angle_sd =</span> <span class="fu">sd</span>(angle))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  recipe angle_mean angle_sd
-1      A   41.97372 5.327200
-2      B   30.41880 5.491459
-3      C   44.71179 5.012019
-4      D   34.23035 5.404884</code></pre>
-</div>
-</div>
+<section id="regression" class="level2">
+<h2 class="anchored" data-anchor-id="regression">Regression</h2>
+<section id="what-is-the-mean-of-math_score" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-mean-of-math_score">6) What is the mean of <code>math_score</code>?</h3>
 </section>
-<section id="a-make-a-basic-plot-of-the-distributions-of-the-values-of-angle-by-recipe." class="level3">
-<h3 class="anchored" data-anchor-id="a-make-a-basic-plot-of-the-distributions-of-the-values-of-angle-by-recipe.">8a) Make a basic plot of the distributions of the values of <code>angle</code> by <code>recipe</code>.</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cake <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> angle, <span class="at">x =</span> recipe)) <span class="sc">+</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Lab-14-Assignment-Example_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="estimate-an-intercept-only-model-with-math_score-as-the-outcome-variable.-display-the-output-with-summary." class="level3">
+<h3 class="anchored" data-anchor-id="estimate-an-intercept-only-model-with-math_score-as-the-outcome-variable.-display-the-output-with-summary.">7) Estimate an intercept-only model with <code>math_score</code> as the outcome variable. Display the output with <code>summary()</code>.</h3>
 </section>
-<section id="b-make-at-least-three-changes-to-this-plot-to-make-it-look-nice-make-sure-to-describe-justify-each-change-you-made-12-sentences-or-bullet-points-each." class="level3">
-<h3 class="anchored" data-anchor-id="b-make-at-least-three-changes-to-this-plot-to-make-it-look-nice-make-sure-to-describe-justify-each-change-you-made-12-sentences-or-bullet-points-each.">8b) Make at least three changes to this plot to make it look nice! Make sure to describe / justify each change you made (1–2 sentences or bullet points each).</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cake <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> angle, <span class="at">x =</span> recipe, <span class="at">fill =</span> recipe)) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Recipe"</span>, <span class="at">y =</span> <span class="st">"Angle"</span>) <span class="sc">+</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Lab-14-Assignment-Example_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Justification justification etc. etc.</p>
+<section id="compare-the-results-of-6-and-7.-are-there-similarities-if-so-why" class="level3">
+<h3 class="anchored" data-anchor-id="compare-the-results-of-6-and-7.-are-there-similarities-if-so-why">8) Compare the results of (6) and (7). Are there similarities? If so, why?</h3>
+</section>
+<section id="now-use-lm-to-estimate-a-model-with-reading_score-as-a-predictor-and-math-score-as-the-outcome.-display-the-output-with-summary." class="level3">
+<h3 class="anchored" data-anchor-id="now-use-lm-to-estimate-a-model-with-reading_score-as-a-predictor-and-math-score-as-the-outcome.-display-the-output-with-summary.">9) Now, use <code>lm()</code> to estimate a model with <code>reading_score</code> as a predictor and <code>math score</code> as the outcome. Display the output with <code>summary()</code>.</h3>
+</section>
+<section id="use-the-model-from-9-and-the-predict-functions-to-generate-predicted-values-for-math_score-across-values-of-reading_score.-choose-the-sequenced-values-of-reading_score-by-first-looking-at-the-range-of-reading_score-values-in-the-data." class="level3">
+<h3 class="anchored" data-anchor-id="use-the-model-from-9-and-the-predict-functions-to-generate-predicted-values-for-math_score-across-values-of-reading_score.-choose-the-sequenced-values-of-reading_score-by-first-looking-at-the-range-of-reading_score-values-in-the-data.">10) Use the model from (9) and the <code>predict()</code> functions to generate predicted values for <code>math_score</code> across values of <code>reading_score</code>. Choose the sequenced values of <code>reading_score</code> by first looking at the <code>range()</code> of <code>reading_score</code> values in the data.</h3>
+</section>
+<section id="create-a-scatterplot-with-reading_score-on-the-x-axis-and-math_score-on-the-y-axis.-overlay-a-geom_line-of-the-prediction-line-line-of-best-fit-as-per-the-results-of-predict." class="level3">
+<h3 class="anchored" data-anchor-id="create-a-scatterplot-with-reading_score-on-the-x-axis-and-math_score-on-the-y-axis.-overlay-a-geom_line-of-the-prediction-line-line-of-best-fit-as-per-the-results-of-predict.">11) Create a scatterplot with <code>reading_score</code> on the x-axis and <code>math_score</code> on the y-axis. Overlay a <code>geom_line()</code> of the prediction line (line of best fit) as per the results of <code>predict()</code>.</h3>
+</section>
+<section id="provide-a-brief-writeup-of-these-results.-make-sure-to-discuss-both-the-intercept-and-slope-estimates." class="level3">
+<h3 class="anchored" data-anchor-id="provide-a-brief-writeup-of-these-results.-make-sure-to-discuss-both-the-intercept-and-slope-estimates.">12) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates.</h3>
+</section>
+<section id="now-use-lm-to-estimate-a-model-with-reading_score-and-writing_score-as-predictors-and-math-score-as-the-outcome.-display-the-output-with-summary." class="level3">
+<h3 class="anchored" data-anchor-id="now-use-lm-to-estimate-a-model-with-reading_score-and-writing_score-as-predictors-and-math-score-as-the-outcome.-display-the-output-with-summary.">13) Now, use <code>lm()</code> to estimate a model with <code>reading_score</code> and <code>writing_score</code> as predictors and <code>math score</code> as the outcome. Display the output with <code>summary()</code>.</h3>
+</section>
+<section id="provide-a-brief-writeup-of-these-results.-make-sure-to-discuss-both-the-intercept-and-slope-estimates.-how-do-these-results-compare-to-the-results-from-9" class="level3">
+<h3 class="anchored" data-anchor-id="provide-a-brief-writeup-of-these-results.-make-sure-to-discuss-both-the-intercept-and-slope-estimates.-how-do-these-results-compare-to-the-results-from-9">14) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates. How do these results compare to the results from (9)?</h3>
 
 
 </section>

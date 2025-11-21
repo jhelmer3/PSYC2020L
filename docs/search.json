@@ -11,42 +11,42 @@
     "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#housekeeping",
     "title": "One-Way ANOVA",
     "section": "Housekeeping",
-    "text": "Housekeeping\nOur very last lab!!\nI will not have office hours 11/26 (institute holiday)\n○ Still happy to other schedule time if anyone has any questions or concerns\nExtra Credit Opportunity: If class gets to 75% completion on CIOS, I will add 2pts (20% of a lab assignment!) to everyone’s grade."
+    "text": "Housekeeping\nOur very last lab!!\nI will not have office hours 11/26 (institute holiday), and 12/03 will be my final office hours (might be virtual only; will send out an announcement if so).\n○ Still happy to other schedule time if anyone has any questions or concerns\nExtra Credit Opportunity: If class gets to 85% completion on CIOS, I will add 1 point (10% of a lab assignment!) to everyone’s grade.\n○ I very much appreciate your feedback on this lab!\n○ CIOS should open 11/24"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#assignment-13-review",
     "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#assignment-13-review",
     "title": "One-Way ANOVA",
     "section": "Assignment 13 Review",
-    "text": "Assignment 13 Review\n[placeholder for Assignment 13 review]"
+    "text": "Assignment 13 Review\nGreat work!\nRemember the formula syntax: outcome (DV) ~ predictor (IV) or outcome + predictor_1 + predictor_2 + ... + predictor_p\n○ Think carefully about which variable is your outcome and which is (are) your predictor(s)"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#analysis-of-variance-anova",
     "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#analysis-of-variance-anova",
     "title": "One-Way ANOVA",
     "section": "Analysis of Variance (ANOVA)",
-    "text": "Analysis of Variance (ANOVA)\nMethod of understanding how categorical variables are related to an outcome of interest\nCompares between groups to within groups variance"
+    "text": "Analysis of Variance (ANOVA)\nAnalysis of Variance (ANOVA)\nMethod of understanding how categorical variables are related to a continuous outcome of interest\nCompares between groups to within groups variance to jointly compare multiple means"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance",
     "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance",
     "title": "One-Way ANOVA",
     "section": "ANOVA: Partitioning Variance",
-    "text": "ANOVA: Partitioning Variance\nTotal Sum of Squared Errors: error term around the grand mean\n\\[ SS_{total} = \\sum (x_i - \\bar{x})^2 \\]\nIf we have outcomes separated into different groups (e.g., control, treatment A, treatment B), can partition \\(SS_{total}\\) into between groups sums of squares \\(SS_B\\) and within groups sums of squares \\(SS_W\\)\n\\[ SS_{total} = SS_B + SS_W \\]"
+    "text": "ANOVA: Partitioning Variance\nTotal Sum of Squared Errors: error term around the grand mean\n\\[ SS_{total} = \\sum (x_i - \\bar{x})^2 \\]\nIf we have outcomes separated into different groups (e.g., control, treatment A, treatment B), can partition \\(SS_{total}\\) into between groups sums of squares \\(SS_B\\) and within groups sums of squares \\(SS_W\\)\n\\[ SS_{total} = SS_B + SS_W \\]\nSo, with \\(j\\) indexing \\(J\\) total groups and \\(i\\) indexing \\(I\\) people within a group, we can write \\(SS_{total}\\) as…"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-1",
     "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-1",
     "title": "One-Way ANOVA",
     "section": "ANOVA: Partitioning Variance",
-    "text": "ANOVA: Partitioning Variance\nTotal Sum of Squares: aggregated error around the grand mean\n\\[ SS_{total} = \\sum_{j=1}^J \\sum_{i=1}^I (x_{ij} - \\bar{x})^2 \\]\n\n\nBetween-Group Sum of Squares: error between the group mean and the grand mean\n\\[ SS_{B} = \\sum_{j=1}^J n_j (\\bar{x_{j}} - \\bar{x})^2 \\]\n\nWithin-Group Sum of Squares: error between observations and their group mean\n\\[ SS_{W} = \\sum_{j=1}^J \\sum_{i=1}^I (x_{ij} - \\bar{x_{j}})^2 \\]"
+    "text": "ANOVA: Partitioning Variance\nTotal Sum of Squared Errors: error term around the grand mean\n\\[ SS_{total} = \\sum_{j=1}^J \\sum_{i=1}^I (x_{ij} - \\bar{x})^2 \\]\n\n\nBetween-Group Sum of Squares: error between the group mean and the grand mean\n\\[ SS_{B} = \\sum_{j=1}^J n_j (\\bar{x_{j}} - \\bar{x})^2 \\]\n\nWithin-Group Sum of Squares: error between observations and their group mean\n\\[ SS_{W} = \\sum_{j=1}^J \\sum_{i=1}^I (x_{ij} - \\bar{x_{j}})^2 \\]"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-2",
     "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-2",
     "title": "One-Way ANOVA",
     "section": "ANOVA: Partitioning Variance",
-    "text": "ANOVA: Partitioning Variance"
+    "text": "ANOVA: Partitioning Variance\nLet’s say we have three groups and some outcome variable"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-3",
@@ -95,14 +95,14 @@
     "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-6",
     "title": "One-Way ANOVA",
     "section": "ANOVA: Partitioning Variance",
-    "text": "ANOVA: Partitioning Variance\nRatio of \\(SS_B\\) to \\(SS_W\\)\nIf \\(SS_B &gt;&gt; SS_W\\), good model. Easy to predict differences based on groups.\nIf \\(SS_B \\approx SS_W\\), less good model. Not easy to predict differences based on groups.\n\\[ F \\propto \\frac{\\text{between-group variance}}{\\text{within-group variance}} \\]"
+    "text": "ANOVA: Partitioning Variance"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-f",
     "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-f",
     "title": "One-Way ANOVA",
     "section": "ANOVA: \\(F\\)",
-    "text": "ANOVA: \\(F\\)\n\n\nMean Square Between\n$ MS_B = = $\n\nMean Square Within\n$ MS_W = = $\n\n\\[ F = \\frac{MS_B}{MS_W} \\]"
+    "text": "ANOVA: \\(F\\)\n\n\nMean Square Between\n\\(MS_B = \\frac{SS_B}{J - 1} = \\frac{\\sum_{j=1}^J n_j (\\bar{x_{j}} - \\bar{x})^2}{J - 1}\\)\n\nMean Square Within\n\\(MS_W = \\frac{SS_W}{N - J} = \\frac{\\sum_{j=1}^J \\sum_{i=1}^I (x_{ij} - \\bar{x})^2}{N - J}\\)\n\n\n\\[ F = \\frac{MS_B}{MS_W} \\]"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-hypotheses",
@@ -116,14 +116,14 @@
     "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-r-function",
     "title": "One-Way ANOVA",
     "section": "ANOVA: R function",
-    "text": "ANOVA: R function\naov(y ~ grouping_var, data = data)\n○ y = outcome\n○ grouping_var = name of grouping variable\n○ data = dataframe that includes grouping_var and y\nsummary(model)"
+    "text": "ANOVA: R function\naov(y ~ grouping_var, data = data)\n○ y = outcome\n○ grouping_var = name of grouping variable\n○ data = dataframe that includes grouping_var and y\nVery similar syntax to lm(y ~ predictor) (and you can think of it similarly)\nsummary(model)"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#avova-example",
     "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#avova-example",
     "title": "One-Way ANOVA",
     "section": "AVOVA: Example",
-    "text": "AVOVA: Example\n\nlibrary(palmerpenguins)\n\nsummary(penguins |&gt; select(species, flipper_length_mm))\n\n      species    flipper_length_mm\n Adelie   :152   Min.   :172.0    \n Chinstrap: 68   1st Qu.:190.0    \n Gentoo   :124   Median :197.0    \n                 Mean   :200.9    \n                 3rd Qu.:213.0    \n                 Max.   :231.0    \n                 NA's   :2        \n\n\nDoes flipper length vary by penguin species?\n\nflipper_model &lt;- aov(flipper_length_mm ~ species, data = penguins)\nsummary(flipper_model)\n\n             Df Sum Sq Mean Sq F value Pr(&gt;F)    \nspecies       2  52473   26237   594.8 &lt;2e-16 ***\nResiduals   339  14953      44                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n2 observations deleted due to missingness\n\n\nHuge \\(F\\)-statistic!\nWe reject the null in favor of the alternative that there is significant variation between penguin species in flipper length"
+    "text": "AVOVA: Example\n\nlibrary(palmerpenguins)\n\nsummary(penguins |&gt; select(species, flipper_length_mm))\n\n      species    flipper_length_mm\n Adelie   :152   Min.   :172.0    \n Chinstrap: 68   1st Qu.:190.0    \n Gentoo   :124   Median :197.0    \n                 Mean   :200.9    \n                 3rd Qu.:213.0    \n                 Max.   :231.0    \n                 NA's   :2        \n\n\nDoes flipper length vary by penguin species?"
   },
   {
     "objectID": "labs/Lab 13 - Correlation and Regression/PSYC2020 Lab 13.html#outline",
@@ -389,7 +389,7 @@
     "href": "index.html#labs",
     "title": "Psychological Statistics Lab",
     "section": "Labs",
-    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 5\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/26 Lab 6\n\nSampling Distributions\nSlides | Assignment\n\n\n\n\n\n\n\n10/03 Lab 7\n\nNHST I\nSlides | Assignment\n\n\n\n\n10/10 Lab 8\n\nNHST II\nSlides | Assignment\n\n\n\n\n10/17 Lab 9\n\nConfidence Intervals\nSlides | Assignment\n\n\n\n\n\n\n\n10/24 Lab 10\n\nAdvanced R\nSlides | Assignment\n\n\n\n\n10/31 Lab 11 🎃\n\nIndependent and Paired Samples T-Test\nSlides | No Assignment\n\n\n\n\n11/07 Lab 12\n\nChi-Squared Test\nSlides | Assignment\n\n\n\n\n\n\n\n11/14 Lab 13\n\nCorrelation and Regression\nSlides\n\n\n\n\n11/21 Lab 14\n\nOne-Way ANOVA\nComing soon!\n\n\n\n\nEnd of Semester!!"
+    "text": "Labs\n\n\n\n08/22 - Lab 1\n\nBasic R\nSlides | Assignment\n\n\n\n\n08/29 - Lab 2\n\nCentral Tendency\nSlides | Assignment\n\n\n\n\n09/05 - Lab 3\n\nMeasures of Variability\nSlides | No Assignment\n\n\n\n\n\n\n\n09/12 Lab 4\n\nZ-Scores\nSlides | Assignment\n\n\n\n\n09/19 Lab 5\n\nIntermediate R\nSlides | Assignment\n\n\n\n\n09/26 Lab 6\n\nSampling Distributions\nSlides | Assignment\n\n\n\n\n\n\n\n10/03 Lab 7\n\nNHST I\nSlides | Assignment\n\n\n\n\n10/10 Lab 8\n\nNHST II\nSlides | Assignment\n\n\n\n\n10/17 Lab 9\n\nConfidence Intervals\nSlides | Assignment\n\n\n\n\n\n\n\n10/24 Lab 10\n\nAdvanced R\nSlides | Assignment\n\n\n\n\n10/31 Lab 11 🎃\n\nIndependent and Paired Samples T-Test\nSlides | No Assignment\n\n\n\n\n11/07 Lab 12\n\nChi-Squared Test\nSlides | Assignment\n\n\n\n\n\n\n\n11/14 Lab 13\n\nCorrelation and Regression\nSlides | Assignment\n\n\n\n\n11/21 Lab 14\n\nOne-Way ANOVA\nSlides\n\n\n\n\nEnd of Semester!!"
   },
   {
     "objectID": "testing.html",
@@ -1747,28 +1747,28 @@
     "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html",
     "title": "PSYC2020L Assignment 14",
     "section": "",
-    "text": "Correlation and Regression"
+    "text": "ANOVA"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#goals-for-review",
     "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#goals-for-review",
     "title": "PSYC2020L Assignment 14",
     "section": "",
-    "text": "Correlation and Regression"
+    "text": "ANOVA"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#setting-up",
     "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#setting-up",
     "title": "PSYC2020L Assignment 14",
     "section": "Setting Up",
-    "text": "Setting Up\n\n1) Rename this assignment as “Lab 14 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block.\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L\"\n\n\n\n\n3) Download the cake_data.csv dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data. This data contains the breakage angle angle for cakes made with different recipes.\n\ncake &lt;- rio::import(here::here(\"labs\", \"Lab 14 - One-Way ANOVA\", \"cake_data.csv\"))"
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 14 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block.\n\nhere::here()\n\n[1] \"C:/Users/jessi/OneDrive - Georgia Institute of Technology/Courses/GTA/PSYC2020L\"\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\n\n3) Download the cake_data.csv dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data. This data contains the breakage angle angle for cakes made with different recipes.\n\ncake &lt;- rio::import(here::here(\"labs\", \"Lab 14 - One-Way ANOVA\", \"cake_data.csv\"))"
   },
   {
     "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#analysis-of-variance-anova",
     "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#analysis-of-variance-anova",
     "title": "PSYC2020L Assignment 14",
     "section": "Analysis of Variance (ANOVA)",
-    "text": "Analysis of Variance (ANOVA)\n\n4) You’d like to test to see if there are differences in the breakage angle for cakes made with these different recipes with a One-Way ANOVA. What are your null and alternative hypotheses for this test?\n\\(H_0\\): \\(\\sigma^2_B = 0\\)\n\\(H_1\\): \\(\\sigma^2_B \\neq 0\\)\n\n\n5) Perform this ANOVA and display the results with summary().\n\naov(angle ~ recipe, data = cake) |&gt; summary()\n\n            Df Sum Sq Mean Sq F value Pr(&gt;F)    \nrecipe       3   3310  1103.4    39.1 &lt;2e-16 ***\nResiduals   96   2709    28.2                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\n\n6) Briefly describe your results.\nThere is a significant effect of recipe F(3, 96) = 39.1, p &lt; .001 on cake breakage angle.\n[more items pending lecture content]"
+    "text": "Analysis of Variance (ANOVA)\n\n4) You’d like to test to see if there are differences in the breakage angle for cakes made with these different recipes with a One-Way ANOVA. What are your null and alternative hypotheses for this test?\n\\(H_0\\): \\(\\sigma^2_B = 0\\)\n\\(H_1\\): \\(\\sigma^2_B \\neq 0\\)\n\nMean-based hypotheses totally fine too\n\n\n\n5) Perform this ANOVA and display the results with summary().\n\naov(angle ~ recipe, data = cake) |&gt; summary()\n\n            Df Sum Sq Mean Sq F value Pr(&gt;F)    \nrecipe       3   3310  1103.4    39.1 &lt;2e-16 ***\nResiduals   96   2709    28.2                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\n\n6) Briefly describe your results.\nThere is a significant effect of recipe F(3, 96) = 39.1, p &lt; .001 on cake breakage angle."
   },
   {
     "objectID": "labs/Lab 12 - Chi-Squared Test/PSYC2020 Lab 12.html",
@@ -4226,5 +4226,180 @@
     "title": "Confidence Intervals",
     "section": "Assignment 9",
     "text": "Assignment 9"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_total",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_total",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance: \\(SS_{total}\\)",
+    "text": "ANOVA: Partitioning Variance: \\(SS_{total}\\)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-7",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-7",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#avova-example-1",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#avova-example-1",
+    "title": "One-Way ANOVA",
+    "section": "AVOVA: Example",
+    "text": "AVOVA: Example\n\nflipper_model &lt;- aov(flipper_length_mm ~ species, data = penguins)\nsummary(flipper_model)\n\n             Df Sum Sq Mean Sq F value Pr(&gt;F)    \nspecies       2  52473   26237   594.8 &lt;2e-16 ***\nResiduals   339  14953      44                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n2 observations deleted due to missingness\n\n\nHuge \\(F\\)-statistic!\nWe reject the null in favor of the alternative that there is significant variation between penguin species in flipper length"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-example",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-example",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Example",
+    "text": "ANOVA: Example\n\nlibrary(palmerpenguins)\n\nsummary(penguins |&gt; select(species, flipper_length_mm))\n\n      species    flipper_length_mm\n Adelie   :152   Min.   :172.0    \n Chinstrap: 68   1st Qu.:190.0    \n Gentoo   :124   Median :197.0    \n                 Mean   :200.9    \n                 3rd Qu.:213.0    \n                 Max.   :231.0    \n                 NA's   :2        \n\n\nDoes flipper length vary by penguin species?"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-example-1",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-example-1",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Example",
+    "text": "ANOVA: Example\n\n\nflipper_model &lt;- aov(flipper_length_mm ~ species, data = penguins)\nsummary(flipper_model)\n\n             Df Sum Sq Mean Sq F value Pr(&gt;F)    \nspecies       2  52473   26237   594.8 &lt;2e-16 ***\nResiduals   339  14953      44                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n2 observations deleted due to missingness\n\n\n\nHuge \\(F\\)-statistic!\nWe reject the null in favor of the alternative that there is significant variation between penguin species in flipper length"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-example-2",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-example-2",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Example",
+    "text": "ANOVA: Example\nGood practice to plot the distributions / means to see the patterns!\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npenguins |&gt;\n  ggplot(aes(x = species, y = flipper_length_mm)) +\n  geom_violin() +\n  geom_boxplot(width = 0.2) +\n  stat_summary(geom = \"point\", fun = mean)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-example-3",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-example-3",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Example",
+    "text": "ANOVA: Example\nSprucing it up a little…\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npenguins |&gt;\n  ggplot(aes(x = species, y = flipper_length_mm)) +\n  geom_violin() +\n  geom_boxplot(width = 0.2) +\n  stat_summary(geom = \"point\", fun = mean)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-8",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-8",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-9",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-9",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_total-1",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_total-1",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance: \\(SS_{total}\\)",
+    "text": "ANOVA: Partitioning Variance: \\(SS_{total}\\)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-10",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-10",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_b-1",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_b-1",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance: \\(SS_B\\)",
+    "text": "ANOVA: Partitioning Variance: \\(SS_B\\)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_w-1",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-ss_w-1",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance: \\(SS_W\\)",
+    "text": "ANOVA: Partitioning Variance: \\(SS_W\\)"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-11",
+    "href": "labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.html#anova-partitioning-variance-11",
+    "title": "One-Way ANOVA",
+    "section": "ANOVA: Partitioning Variance",
+    "text": "ANOVA: Partitioning Variance\nRatio of \\(SS_B\\) to \\(SS_W\\)\nIf \\(SS_B &gt;&gt; SS_W\\), good model. Easy to predict differences based on groups.\nIf \\(SS_B \\approx SS_W\\), less good model. Not easy to predict differences based on groups.\n\\[ F \\propto \\frac{\\text{between-group variance}}{\\text{within-group variance}} \\]"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment.html",
+    "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment.html",
+    "title": "PSYC2020L Assignment 14",
+    "section": "",
+    "text": "ANOVA"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment.html#goals-for-review",
+    "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment.html#goals-for-review",
+    "title": "PSYC2020L Assignment 14",
+    "section": "",
+    "text": "ANOVA"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment.html#setting-up",
+    "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment.html#setting-up",
+    "title": "PSYC2020L Assignment 14",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 14 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block.\n\n\n3) Download the cake_data.csv dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data. This data contains the breakage angle angle for cakes made with different recipes."
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment.html#analysis-of-variance-anova",
+    "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment.html#analysis-of-variance-anova",
+    "title": "PSYC2020L Assignment 14",
+    "section": "Analysis of Variance (ANOVA)",
+    "text": "Analysis of Variance (ANOVA)\n\n4) You’d like to test to see if there are differences in the breakage angle for cakes made with these different recipes with a One-Way ANOVA. What are your null and alternative hypotheses for this test?\n\n\n5) Perform this ANOVA and display the results with summary().\n\n\n6) Briefly describe your results."
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment.html#bonus-questions",
+    "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment.html#bonus-questions",
+    "title": "PSYC2020L Assignment 14",
+    "section": "Bonus Questions",
+    "text": "Bonus Questions\nThese questions collectively are worth 1 extra point (10% extra) on this assignment. There is no penalty to not completing these bonus questions.\n\n7) Produce means and standard deviations of angle for each group (recipe).\n\n\n8a) Make a basic plot of the distributions of the values of angle by recipe.\n\n\n8b) Make at least three changes to this plot to make it look nice! Make sure to describe / justify each change you made (1–2 sentences or bullet points each)."
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment.html",
+    "href": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment.html",
+    "title": "PSYC2020L Assignment 13",
+    "section": "",
+    "text": "Correlation and Regression"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment.html#goals-for-review",
+    "href": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment.html#goals-for-review",
+    "title": "PSYC2020L Assignment 13",
+    "section": "",
+    "text": "Correlation and Regression"
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment.html#setting-up",
+    "href": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment.html#setting-up",
+    "title": "PSYC2020L Assignment 13",
+    "section": "Setting Up",
+    "text": "Setting Up\n\n1) Rename this assignment as “Lab 13 Assignment [Last, First].Rmd”\n\n\n2) Check and set (if needed) your working directory. If you’d like to load packages with library(), please do so in this block.\n\n\n3) Download the students_data.csv dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data."
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment.html#correlation",
+    "href": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment.html#correlation",
+    "title": "PSYC2020L Assignment 13",
+    "section": "Correlation",
+    "text": "Correlation\n\n4) What is the correlation between reading_score and writing_score?\n\n\n5) Please provide a brief interpretation of the correlation between reading_score and writing_score (1–2 sentences)."
+  },
+  {
+    "objectID": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment.html#regression",
+    "href": "labs/Lab 13 - Correlation and Regression/Lab 13 Assignment.html#regression",
+    "title": "PSYC2020L Assignment 13",
+    "section": "Regression",
+    "text": "Regression\n\n6) What is the mean of math_score?\n\n\n7) Estimate an intercept-only model with math_score as the outcome variable. Display the output with summary().\n\n\n8) Compare the results of (6) and (7). Are there similarities? If so, why?\n\n\n9) Now, use lm() to estimate a model with reading_score as a predictor and math score as the outcome. Display the output with summary().\n\n\n10) Use the model from (9) and the predict() functions to generate predicted values for math_score across values of reading_score. Choose the sequenced values of reading_score by first looking at the range() of reading_score values in the data.\n\n\n11) Create a scatterplot with reading_score on the x-axis and math_score on the y-axis. Overlay a geom_line() of the prediction line (line of best fit) as per the results of predict().\n\n\n12) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates.\n\n\n13) Now, use lm() to estimate a model with reading_score and writing_score as predictors and math score as the outcome. Display the output with summary().\n\n\n14) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates. How do these results compare to the results from (9)?"
+  },
+  {
+    "objectID": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#bonus-questions",
+    "href": "labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment Example.html#bonus-questions",
+    "title": "PSYC2020L Assignment 14",
+    "section": "Bonus Questions",
+    "text": "Bonus Questions\nThese questions collectively are worth 1 extra point (10% extra) on this assignment. There is no penalty to not completing these bonus questions.\n\n7) Produce means and standard deviations of angle for each group (recipe).\n\ncake |&gt;\n  summarize(.by = recipe,\n            angle_mean = mean(angle),\n            angle_sd = sd(angle))\n\n  recipe angle_mean angle_sd\n1      A   41.97372 5.327200\n2      B   30.41880 5.491459\n3      C   44.71179 5.012019\n4      D   34.23035 5.404884\n\n\n\n\n8a) Make a basic plot of the distributions of the values of angle by recipe.\n\ncake |&gt;\n  ggplot(aes(y = angle, x = recipe)) +\n  geom_violin()\n\n\n\n\n\n\n\n\n\n\n8b) Make at least three changes to this plot to make it look nice! Make sure to describe / justify each change you made (1–2 sentences or bullet points each).\n\ncake |&gt;\n  ggplot(aes(y = angle, x = recipe, fill = recipe)) +\n  geom_violin() +\n  labs(x = \"Recipe\", y = \"Angle\") +\n  theme_classic()\n\n\n\n\n\n\n\n\nJustification justification etc. etc."
   }
 ]

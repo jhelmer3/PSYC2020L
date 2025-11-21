@@ -218,29 +218,40 @@ Jessica Helmer
 <section id="housekeeping" class="slide level2">
 <h2>Housekeeping</h2>
 <p>Our very last lab!!</p>
-<p>I will not have office hours 11/26 (institute holiday)</p>
+<p>I will not have office hours 11/26 (institute holiday), and 12/03 will be my final office hours (might be virtual only; will send out an announcement if so).</p>
 <p><span class="subpoint">○ Still happy to other schedule time if anyone has any questions or concerns</span></p>
-<p><strong>Extra Credit Opportunity:</strong> If class gets to 75% completion on CIOS, I will add 2pts (20% of a lab assignment!) to everyone’s grade.</p>
+<p><strong>Extra Credit Opportunity:</strong> If class gets to 85% completion on CIOS, I will add 1 point (10% of a lab assignment!) to everyone’s grade.</p>
+<p><span class="subpoint">○ I very much appreciate your feedback on this lab!</span></p>
+<p><span class="subpoint">○ CIOS should open 11/24</span></p>
 </section>
 <section id="assignment-13-review" class="slide level2">
 <h2>Assignment 13 Review</h2>
-<p>[placeholder for Assignment 13 review]</p>
+<p>Great work!</p>
+<p>Remember the formula syntax: <code>outcome (DV) ~ predictor (IV)</code> or <code>outcome + predictor_1 + predictor_2 + ... + predictor_p</code></p>
+<p><span class="subpoint">○ Think carefully about which variable is your outcome and which is (are) your predictor(s)</span></p>
+</section>
+<section>
+<section id="anova" class="title-slide slide level1 center">
+<h1>ANOVA</h1>
+
 </section>
 <section id="analysis-of-variance-anova" class="slide level2">
-<h2><strong>An</strong>alysis <strong>o</strong>f <strong>Va</strong>riance (<strong>ANOVA</strong>)</h2>
-<p>Method of understanding how categorical variables are related to an outcome of interest</p>
-<p>Compares <em>between groups</em> to <em>within groups</em> variance</p>
+<h2><span style="color:#b04c19"><strong>An</strong></span>alysis <span style="color:#5a55fa"><strong>o</strong></span>f <span style="color:#dfc127"><strong>Va</strong></span>riance (<strong><span style="color:#b04c19">AN</span><span style="color:#5a55fa">O</span><span style="color:#dfc127">VA</span></strong>)</h2>
+<p><span style="color:#b04c19"><strong>An</strong></span>alysis <span style="color:#5a55fa"><strong>o</strong></span>f <span style="color:#dfc127"><strong>Va</strong></span>riance (<strong><span style="color:#b04c19">AN</span><span style="color:#5a55fa">O</span><span style="color:#dfc127">VA</span></strong>)</p>
+<p>Method of understanding how categorical variables are related to a continuous outcome of interest</p>
+<p>Compares <em>between groups</em> to <em>within groups</em> variance to jointly compare multiple means</p>
 </section>
 <section id="anova-partitioning-variance" class="slide level2">
 <h2>ANOVA: Partitioning Variance</h2>
-<p>Total Sum of Squared Errors: error term around the grand mean</p>
+<p><strong>Total Sum of Squared Errors:</strong> error term around the grand mean</p>
 <p><span class="math display">\[ SS_{total} = \sum (x_i - \bar{x})^2 \]</span></p>
 <p>If we have outcomes separated into different groups (e.g., control, treatment A, treatment B), can partition <span class="math inline">\(SS_{total}\)</span> into <em>between groups sums of squares</em> <span class="math inline">\(SS_B\)</span> and <em>within groups sums of squares</em> <span class="math inline">\(SS_W\)</span></p>
 <p><span class="math display">\[ SS_{total} = SS_B + SS_W \]</span></p>
+<p><span class="fragment">So, with <span class="math inline">\(j\)</span> indexing <span class="math inline">\(J\)</span> total groups and <span class="math inline">\(i\)</span> indexing <span class="math inline">\(I\)</span> people within a group, we can write <span class="math inline">\(SS_{total}\)</span> as…</span></p>
 </section>
 <section id="anova-partitioning-variance-1" class="slide level2">
 <h2>ANOVA: Partitioning Variance</h2>
-<p><strong>Total Sum of Squares:</strong> aggregated error around the grand mean</p>
+<p><strong>Total Sum of Squared Errors:</strong> error term around the grand mean</p>
 <p><span class="math display">\[ SS_{total} = \sum_{j=1}^J \sum_{i=1}^I (x_{ij} - \bar{x})^2 \]</span></p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -253,21 +264,25 @@ Jessica Helmer
 </section>
 <section id="anova-partitioning-variance-2" class="slide level2">
 <h2>ANOVA: Partitioning Variance</h2>
-
-<img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<p>Let’s say we have three groups and some outcome variable</p>
+</section>
 <section id="anova-partitioning-variance-3" class="slide level2">
 <h2>ANOVA: Partitioning Variance</h2>
 
-<img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
 <section id="anova-partitioning-variance-4" class="slide level2">
 <h2>ANOVA: Partitioning Variance</h2>
 
+<img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<section id="anova-partitioning-variance-5" class="slide level2">
+<h2>ANOVA: Partitioning Variance</h2>
+
 <img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
-<section id="anova-partitioning-variance-ss_error" class="slide level2">
-<h2>ANOVA: Partitioning Variance: <span class="math inline">\(SS_{error}\)</span></h2>
+<section id="anova-partitioning-variance-ss_total" class="slide level2">
+<h2>ANOVA: Partitioning Variance: <span class="math inline">\(SS_{total}\)</span></h2>
 
 <img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
-<section id="anova-partitioning-variance-5" class="slide level2">
+<section id="anova-partitioning-variance-6" class="slide level2">
 <h2>ANOVA: Partitioning Variance</h2>
 
 <img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
@@ -279,7 +294,35 @@ Jessica Helmer
 <h2>ANOVA: Partitioning Variance: <span class="math inline">\(SS_W\)</span></h2>
 
 <img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
-<section id="anova-partitioning-variance-6" class="slide level2">
+<section id="anova-partitioning-variance-7" class="slide level2">
+<h2>ANOVA: Partitioning Variance</h2>
+
+<img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<section id="anova-partitioning-variance-8" class="slide level2">
+<h2>ANOVA: Partitioning Variance</h2>
+
+<img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<section id="anova-partitioning-variance-9" class="slide level2">
+<h2>ANOVA: Partitioning Variance</h2>
+
+<img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<section id="anova-partitioning-variance-ss_total-1" class="slide level2">
+<h2>ANOVA: Partitioning Variance: <span class="math inline">\(SS_{total}\)</span></h2>
+
+<img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<section id="anova-partitioning-variance-10" class="slide level2">
+<h2>ANOVA: Partitioning Variance</h2>
+
+<img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<section id="anova-partitioning-variance-ss_b-1" class="slide level2">
+<h2>ANOVA: Partitioning Variance: <span class="math inline">\(SS_B\)</span></h2>
+
+<img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<section id="anova-partitioning-variance-ss_w-1" class="slide level2">
+<h2>ANOVA: Partitioning Variance: <span class="math inline">\(SS_W\)</span></h2>
+
+<img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<section id="anova-partitioning-variance-11" class="slide level2">
 <h2>ANOVA: Partitioning Variance</h2>
 <p>Ratio of <span class="math inline">\(SS_B\)</span> to <span class="math inline">\(SS_W\)</span></p>
 <p>If <span class="math inline">\(SS_B &gt;&gt; SS_W\)</span>, good model. Easy to predict differences based on groups.</p>
@@ -291,11 +334,12 @@ Jessica Helmer
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><strong>Mean Square Between</strong></p>
-<p>$ MS_B = = $</p>
+<p><span class="math inline">\(MS_B = \frac{SS_B}{J - 1} = \frac{\sum_{j=1}^J n_j (\bar{x_{j}} - \bar{x})^2}{J - 1}\)</span></p>
 </div><div class="column" style="width:50%;">
 <p><strong>Mean Square Within</strong></p>
-<p>$ MS_W = = $</p>
+<p><span class="math inline">\(MS_W = \frac{SS_W}{N - J} = \frac{\sum_{j=1}^J \sum_{i=1}^I (x_{ij} - \bar{x})^2}{N - J}\)</span></p>
 </div></div>
+<p><br></p>
 <p><span class="math display">\[ F = \frac{MS_B}{MS_W} \]</span></p>
 </section>
 <section id="anova-hypotheses" class="slide level2">
@@ -314,10 +358,11 @@ Jessica Helmer
 <p><span class="subpoint">○ <code>y</code> = outcome</span></p>
 <p><span class="subpoint">○ <code>grouping_var</code> = name of grouping variable</span></p>
 <p><span class="subpoint">○ <code>data</code> = dataframe that includes <code>grouping_var</code> and <code>y</code></span></p>
+<p>Very similar syntax to <code>lm(y ~ predictor)</code> (and you can think of it similarly)</p>
 <p><code>summary(model)</code></p>
 </section>
-<section id="avova-example" class="slide level2">
-<h2>AVOVA: Example</h2>
+<section id="anova-example" class="slide level2">
+<h2>ANOVA: Example</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb1-2"><a></a></span>
@@ -333,7 +378,11 @@ Jessica Helmer
                  NA's   :2        </code></pre>
 </div>
 </div>
-<p>Does flipper length vary by penguin species?</p>
+<p><span class="fragment">Does flipper length vary by penguin species?</span></p>
+</section>
+<section id="anova-example-1" class="slide level2">
+<h2>ANOVA: Example</h2>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>flipper_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(flipper_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span>
 <span id="cb3-2"><a></a><span class="fu">summary</span>(flipper_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -346,11 +395,71 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 2 observations deleted due to missingness</code></pre>
 </div>
 </div>
+</div>
 <p><span class="fragment">Huge <span class="math inline">\(F\)</span>-statistic!</span></p>
 <p><span class="fragment">We reject the null in favor of the alternative that there is significant variation between penguin species in flipper length</span></p>
 </section>
-<section id="assignment-14" class="title-slide slide level1 center">
+<section id="anova-example-2" class="slide level2">
+<h2>ANOVA: Example</h2>
+<p>Good practice to plot the distributions / means to see the patterns!</p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Plot</a></li><li><a href="#tabset-1-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> flipper_length_mm)) <span class="sc">+</span></span>
+<span id="cb5-3"><a></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb5-4"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">fun =</span> mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="anova-example-3" class="slide level2">
+<h2>ANOVA: Example</h2>
+<p>Sprucing it up a little…</p>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Plot</a></li><li><a href="#tabset-2-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="PSYC2020-Lab-14_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> flipper_length_mm)) <span class="sc">+</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">fun =</span> mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section id="assignment-14" class="title-slide slide level1 nostretch center" data-background-image="https://i.pinimg.com/originals/e9/93/d1/e993d191d03335fd09a1987db3f8d39a.gif" data-background-size="contain">
 <h1>Assignment 14</h1>
+<p>Thank you all for a great semester! Don’t forget to complete the CIOS when it comes out!</p>
 
 
 </section>

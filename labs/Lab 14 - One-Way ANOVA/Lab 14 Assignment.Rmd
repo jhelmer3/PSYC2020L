@@ -17,15 +17,13 @@ output: html_document
 ### 2) Check and set (if needed) your working directory. If you'd like to load packages with `library()`, please do so in this block.
 
 ```{r}
-here::here()
 
-library(tidyverse)
 ```
 
 ### 3) Download the `cake_data.csv` dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data. This data contains the breakage angle `angle` for cakes made with different `recipes`. 
 
 ```{r}
-cake <- rio::import(here::here("labs", "Lab 14 - One-Way ANOVA", "cake_data.csv"))
+
 ```
 
 
@@ -33,21 +31,17 @@ cake <- rio::import(here::here("labs", "Lab 14 - One-Way ANOVA", "cake_data.csv"
 
 ### 4) You'd like to test to see if there are differences in the breakage angle for cakes made with these different recipes with a One-Way ANOVA. What are your null and alternative hypotheses for this test?
 
-$H_0$: $\sigma^2_B = 0$
 
-$H_1$: $\sigma^2_B \neq 0$
-
-<div style="color:maroon">Mean-based hypotheses totally fine too</div>
 
 ### 5) Perform this ANOVA and display the results with `summary()`.
 
 ```{r}
-aov(angle ~ recipe, data = cake) |> summary()
+
 ```
 
 ### 6) Briefly describe your results.
 
-There is a significant effect of recipe *F*(3, 96) = 39.1, *p* < .001 on cake breakage angle.
+
 
 
 ## Bonus Questions
@@ -57,30 +51,20 @@ These questions collectively are worth 1 extra point (10% extra) on this assignm
 ### 7) Produce means and standard deviations of `angle` for each group (`recipe`). 
 
 ```{r}
-cake |>
-  summarize(.by = recipe,
-            angle_mean = mean(angle),
-            angle_sd = sd(angle))
+
 ```
 
 ### 8a) Make a basic plot of the distributions of the values of `angle` by `recipe`.
 
 ```{r}
-cake |>
-  ggplot(aes(y = angle, x = recipe)) +
-  geom_violin()
+
 ```
 
 ### 8b) Make at least three changes to this plot to make it look nice! Make sure to describe / justify each change you made (1--2 sentences or bullet points each).
 
 ```{r}
-cake |>
-  ggplot(aes(y = angle, x = recipe, fill = recipe)) +
-  geom_violin() +
-  labs(x = "Recipe", y = "Angle") +
-  theme_classic()
+
 ```
-Justification justification etc. etc.
 
 
 

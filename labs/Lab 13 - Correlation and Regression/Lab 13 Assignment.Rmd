@@ -1,0 +1,97 @@
+---
+title: "PSYC2020L Assignment 13"
+author: "[name]"
+date: "2025-11-14"
+output: html_document
+---
+
+## Goals for Review:
+
+* Correlation and Regression
+
+
+## Setting Up
+
+### 1) Rename this assignment as "Lab 13 Assignment [Last, First].Rmd" 
+
+### 2) Check and set (if needed) your working directory. If you'd like to load packages with `library()`, please do so in this block.
+
+```{r}
+
+```
+
+### 3) Download the `students_data.csv` dataset from Canvas. Relocate it to your folder for this class and import it into R. Please display the first few rows. Additionally, please use two other functions to get a sense of the data.
+
+```{r}
+
+```
+
+
+## Correlation
+
+### 4) What is the correlation between `reading_score` and `writing_score`?
+
+```{r}
+
+```
+
+### 5) Please provide a brief interpretation of the correlation between `reading_score` and `writing_score` (1--2 sentences).
+
+
+
+
+## Regression
+
+### 6) What is the mean of `math_score`?
+
+```{r}
+
+```
+
+### 7) Estimate an intercept-only model with `math_score` as the outcome variable. Display the output with `summary()`.
+
+```{r}
+
+```
+
+### 8) Compare the results of (6) and (7). Are there similarities? If so, why?
+
+
+
+### 9) Now, use `lm()` to estimate a model with `reading_score` as a predictor and `math score` as the outcome. Display the output with `summary()`. 
+
+```{r}
+
+```
+
+### 10) Use the model from (9) and the `predict()` functions to generate predicted values for `math_score` across values of `reading_score`. Choose the sequenced values of `reading_score` by first looking at the `range()` of `reading_score` values in the data.
+
+```{r}
+
+```
+
+### 11) Create a scatterplot with `reading_score` on the x-axis and `math_score` on the y-axis. Overlay a `geom_line()` of the prediction line (line of best fit) as per the results of `predict()`.
+
+```{r}
+
+```
+
+### 12) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates.
+
+
+
+### 13) Now, use `lm()` to estimate a model with `reading_score` and `writing_score` as predictors and `math score` as the outcome. Display the output with `summary()`.
+
+```{r}
+
+```
+
+### 14) Provide a brief writeup of these results. Make sure to discuss both the intercept and slope estimates. How do these results compare to the results from (9)?
+
+
+
+
+
+
+
+
