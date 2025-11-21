@@ -52,7 +52,7 @@ I will not have office hours 11/26 (institute holiday), and 12/03 will be my fin
 
 Great work!
 
-Remember the formula syntax: `outcome (DV) ~ predictor (IV)` or `outcome + predictor_1 + predictor_2 + ... + predictor_p`
+Remember the formula syntax: `outcome (DV) ~ predictor (IV)` or `outcome ~ predictor_1 + predictor_2 + ... + predictor_p`
 
 [○ Think carefully about which variable is your outcome and which is (are) your predictor(s)]{.subpoint}
 
@@ -821,10 +821,17 @@ penguins |>
 ```{r}
 #| eval: false
 penguins |>
-  ggplot(aes(x = species, y = flipper_length_mm)) +
-  geom_violin() +
-  geom_boxplot(width = 0.2) +
-  stat_summary(geom = "point", fun = mean)
+  ggplot(aes(x = species, y = flipper_length_mm, fill = species, color = species)) +
+  geom_violin(alpha = 0.5, color = NA) +
+  geom_boxplot(width = 0.2, outliers = F) +
+  stat_summary(geom = "point", fun = mean, size = 2.5) +
+  scale_fill_manual(values = c("#b04c19", "#5a55fa", "#dfc127")) +
+  scale_color_manual(values = scales::col_darker(c("#b04c19", "#5a55fa", "#dfc127"), 20)) +
+  labs(x = "Species", y = "Flipper Length (mm)") +
+  guides(y = guide_axis(cap = "both"), x = guide_axis(cap = "both")) +
+  coord_flip() +
+  theme_classic(base_size = 14) +
+  theme(legend.position = "none")
 ```
 :::
 

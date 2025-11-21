@@ -227,7 +227,7 @@ Jessica Helmer
 <section id="assignment-13-review" class="slide level2">
 <h2>Assignment 13 Review</h2>
 <p>Great work!</p>
-<p>Remember the formula syntax: <code>outcome (DV) ~ predictor (IV)</code> or <code>outcome + predictor_1 + predictor_2 + ... + predictor_p</code></p>
+<p>Remember the formula syntax: <code>outcome (DV) ~ predictor (IV)</code> or <code>outcome ~ predictor_1 + predictor_2 + ... + predictor_p</code></p>
 <p><span class="subpoint">○ Think carefully about which variable is your outcome and which is (are) your predictor(s)</span></p>
 </section>
 <section>
@@ -448,10 +448,17 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <div id="tabset-2-2">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> flipper_length_mm)) <span class="sc">+</span></span>
-<span id="cb6-3"><a></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb6-4"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb6-5"><a></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">fun =</span> mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> flipper_length_mm, <span class="at">fill =</span> species, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">outliers =</span> F) <span class="sc">+</span></span>
+<span id="cb6-5"><a></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">fun =</span> mean, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#b04c19"</span>, <span class="st">"#5a55fa"</span>, <span class="st">"#dfc127"</span>)) <span class="sc">+</span></span>
+<span id="cb6-7"><a></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> scales<span class="sc">::</span><span class="fu">col_darker</span>(<span class="fu">c</span>(<span class="st">"#b04c19"</span>, <span class="st">"#5a55fa"</span>, <span class="st">"#dfc127"</span>), <span class="dv">20</span>)) <span class="sc">+</span></span>
+<span id="cb6-8"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Species"</span>, <span class="at">y =</span> <span class="st">"Flipper Length (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb6-9"><a></a>  <span class="fu">guides</span>(<span class="at">y =</span> <span class="fu">guide_axis</span>(<span class="at">cap =</span> <span class="st">"both"</span>), <span class="at">x =</span> <span class="fu">guide_axis</span>(<span class="at">cap =</span> <span class="st">"both"</span>)) <span class="sc">+</span></span>
+<span id="cb6-10"><a></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb6-11"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb6-12"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>

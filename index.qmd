@@ -106,10 +106,12 @@ Attend livestreamed sessions at posit::conf(2025) as an extra credit opportunity
 ::: {.column width=33%}
 ### 11/21 Lab 14
 #### One-Way ANOVA
-[Slides](/labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.qmd)
+[Slides](/labs/Lab 14 - One-Way ANOVA/PSYC2020 Lab 14.qmd) | [Assignment](/labs/Lab 14 - One-Way ANOVA/Lab 14 Assignment.Rmd)
 :::
 
 ::: {.column width=33%}
-### End of Semester!!
+### End of Semester!! 🎉
+
+Thank you!! CIOS bonus if we have an 85% completion rate!
 :::
 ::::
